@@ -1,7 +1,7 @@
 ---
 format: 1080x1920
 duration: 34s
-message: "Ta boutique en ligne pro, livree vite avec l'IA, a prix imbattable"
+message: "Ta boutique en ligne pro, livree vite, a prix imbattable"
 arc: Hook -> Agitation -> Solution -> Offre -> Garantie -> CTA
 audience: petits commercants qui vendent via WhatsApp ou un site peu professionnel
 mode: autonomous
@@ -73,7 +73,7 @@ Adapt: keep the type-then-collapse-then-pop signature; instead of popping a logo
 
 Scene 1 (0.0-2.2s): on blue canvas wash, the line "ET SI TA BOUTIQUE ETAIT PRETE... EN QUELQUES JOURS ?" types in live, monospace-cursor blink visible (label/counter type), left-aligned, ~60% of frame.
 Scene 2 (2.2-3.4s): the typed line collapses (scale-down + fade) toward center — the "here's the everyday pain, now here's us" pivot.
-Scene 3 (3.4-6.0s): a single oversized card-elevated pops from the collapse point: "BOUTIQUE PRO. CREEE AVEC L'IA." (heading-xl, black on white card, blue border-glow). Centered, hero, ~50% of frame, then holds still for the read.
+Scene 3 (3.4-6.0s): a single oversized card-elevated pops from the collapse point: "BOUTIQUE PRO. PRETE EN QUELQUES JOURS." (heading-xl, black on white card, blue border-glow). Centered, hero, ~50% of frame, then holds still for the read.
 
 ## Frame 4 — The offer
 

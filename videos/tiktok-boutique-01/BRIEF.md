@@ -2,7 +2,7 @@
 workflow: product-launch-video
 flow: automation
 storyboard: no
-message: "Ta boutique en ligne pro, livrée vite avec l'IA, à prix imbattable - fini WhatsApp et les sites amateurs qui te font perdre des clients"
+message: "Ta boutique en ligne pro, livrée vite, à prix imbattable - fini WhatsApp et les sites amateurs qui te font perdre des clients"
 destination: tiktok
 aspect: 1080x1920
 language: fr
@@ -13,7 +13,7 @@ angle: "problem-agitate-solution + offre irresistible (style Alex Hormozi), CTA 
 
 ## Intent
 
-Premiere video (sur 10 prevues, style/format a reutiliser) pour promouvoir un service de creation de boutiques en ligne / sites web professionnels, destine aux commercants qui perdent en credibilite en utilisant WhatsApp ou des sites peu qualitatifs. Positionnement: creation rapide et abordable grace a des outils IA (Emergent, Claude Code). Ton: direct, incisif, copywriting style Alex Hormozi (offre irresistible, garantie, ancrage de prix). Diffusion: TikTok + Facebook (Reels), format vertical.
+Premiere video (sur 10 prevues, style/format a reutiliser) pour promouvoir un service de creation de boutiques en ligne / sites web professionnels, destine aux commercants qui perdent en credibilite en utilisant WhatsApp ou des sites peu qualitatifs. Positionnement: creation rapide et abordable, delais courts. Ton: direct, incisif, copywriting style Alex Hormozi (offre irresistible, garantie, ancrage de prix). Diffusion: TikTok + Facebook (Reels), format vertical.
 
 ## Customizations
 
