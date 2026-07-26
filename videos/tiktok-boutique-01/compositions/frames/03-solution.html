@@ -1,0 +1,234 @@
+<template>
+<div id="root" data-composition-id="03-solution" data-duration="6.5" data-width="1080" data-height="1920">
+  <style>
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #000;
+    }
+
+    [id="03-solution-bg"] {
+      position: absolute;
+      inset: 0;
+      background: #C0F7FE;
+    }
+
+    [id="03-solution-dotgrid"] {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0, 0, 0, 0.55) 1px, transparent 1.6px);
+      background-size: 2.2cqw 2.2cqw;
+      pointer-events: none;
+    }
+
+    [id="03-solution-tilt"] {
+      position: absolute;
+      top: -2cqw;
+      right: -3cqw;
+      width: 9cqw;
+      height: 9cqw;
+      background: #F7CB46;
+      border: 0.3cqw solid #000;
+      transform: rotate(10deg);
+    }
+
+    [id="03-solution-typed-wrap"] {
+      position: absolute;
+      left: 64px;
+      top: 520px;
+      width: 600px;
+    }
+
+    [id="03-solution-typed-inner"] {
+      transform-origin: 476px 260px;
+    }
+
+    [id="03-solution-typed-inner"] .terminal {
+      font-family: "Courier New", monospace;
+      font-weight: 700;
+      font-size: 3cqw;
+      line-height: 1.35;
+      letter-spacing: 0.03em;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      color: #000;
+    }
+
+    [id="03-solution-cursor"] {
+      display: inline-block;
+      width: 0.5em;
+      height: 0.95em;
+      background: #000;
+      margin-left: 2px;
+      vertical-align: -0.12em;
+    }
+
+    [id="03-solution-swapwrap"] {
+      position: absolute;
+      inset: 0;
+    }
+
+    [id="03-solution-swap-inner"] {
+      position: absolute;
+      left: 200px;
+      top: 670px;
+      width: 680px;
+      height: 220px;
+    }
+
+    [id="03-solution-glow"] {
+      position: absolute;
+      inset: -3.5cqw;
+      z-index: 1;
+      transform-origin: 50% 50%;
+      border-radius: 2cqw;
+      background: radial-gradient(ellipse at center, rgba(192, 247, 254, 0.95) 0%, rgba(192, 247, 254, 0.55) 42%, rgba(192, 247, 254, 0) 76%);
+      filter: blur(1.6cqw);
+    }
+
+    [id="03-solution-card"] {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      transform-origin: 50% 50%;
+      background: #fff;
+      border: 0.4cqw solid #000;
+      box-shadow: 0.8cqw 0.8cqw 0 #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2.4cqw;
+      text-align: center;
+    }
+
+    [id="03-solution-card-text"] {
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.98;
+      font-size: 5cqw;
+      color: #000;
+    }
+  </style>
+
+  <div class="clip" id="03-solution-bg" data-start="0" data-duration="6.5" data-track-index="1"></div>
+
+  <div class="clip" id="03-solution-dotgrid" data-start="0" data-duration="6.5" data-track-index="2"></div>
+
+  <div class="clip" id="03-solution-tilt" data-start="0" data-duration="6.5" data-track-index="3"></div>
+
+  <div class="clip" id="03-solution-typed-wrap" data-start="0" data-duration="2.7" data-track-index="4">
+    <div id="03-solution-typed-inner">
+      <div class="terminal">
+        <span id="03-solution-text"></span><span id="03-solution-cursor"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="clip" id="03-solution-swapwrap" data-start="2.0" data-duration="4.5" data-track-index="5">
+    <div id="03-solution-swap-inner">
+      <div id="03-solution-glow"></div>
+      <div id="03-solution-card">
+        <div id="03-solution-card-text">BOUTIQUE PRO.<br />CREEE AVEC L'IA.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const textEl = document.getElementById("03-solution-text");
+      const cursorEl = document.getElementById("03-solution-cursor");
+      const typedInner = document.getElementById("03-solution-typed-inner");
+      const dotgrid = document.getElementById("03-solution-dotgrid");
+      const tiltDeco = document.getElementById("03-solution-tilt");
+      const card = document.getElementById("03-solution-card");
+      const cardText = document.getElementById("03-solution-card-text");
+      const glow = document.getElementById("03-solution-glow");
+
+      // Scene 1 (0.0-2.2s): live type-on of the pain-point line, smooth character slice.
+      const FULL_TEXT = "ET SI TA BOUTIQUE ETAIT PRETE... EN QUELQUES JOURS ?";
+      const typeDriver = { i: 0 };
+      tl.to(
+        typeDriver,
+        {
+          i: FULL_TEXT.length,
+          duration: 1.6,
+          ease: "power1.inOut",
+          onUpdate: () => {
+            textEl.textContent = FULL_TEXT.substring(0, Math.floor(typeDriver.i));
+          },
+        },
+        0
+      );
+
+      // Deterministic sin-wave cursor blink, 4 whole cycles across the 2.2s the line is on screen.
+      const blink = { p: 0 };
+      tl.to(
+        blink,
+        {
+          p: Math.PI * 2 * 4,
+          duration: 2.2,
+          ease: "none",
+          onUpdate: () => {
+            cursorEl.style.opacity = Math.sin(blink.p) > 0 ? "1" : "0";
+          },
+        },
+        0
+      );
+
+      // Ambient decorations settle in early (not part of the reveal narrative).
+      tl.fromTo(dotgrid, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none" }, 0);
+      tl.fromTo(tiltDeco, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none" }, 0);
+
+      // Scene 2 (2.2-3.4s): the typed line collapses (scale-down + fade) toward the
+      // point where the payoff card will appear -- transform-origin is fixed at that
+      // shared point so the shrink reads as "collapsing toward center".
+      tl.to(
+        typedInner,
+        {
+          scale: 0,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.in",
+        },
+        2.2
+      );
+
+      // Scene 3 (3.4-6.0s): the payoff card spring-pops from the collapse point,
+      // overlapping the tail of the collapse (scale-swap-transition pairing) and
+      // landing just ahead of the Scene 3 boundary.
+      tl.fromTo(
+        card,
+        { scale: 0.7, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(1.4)" },
+        2.55
+      );
+
+      // Inner card copy reveals once the card has settled.
+      tl.fromTo(
+        cardText,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+        3.55
+      );
+
+      // Blue border-glow blooms outward and persists to the end (climax dwell).
+      tl.fromTo(
+        glow,
+        { opacity: 0, scale: 0.85 },
+        { opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" },
+        4.1
+      );
+
+      window.__timelines["03-solution"] = tl;
+    })();
+  </script>
+</div>
+</template>

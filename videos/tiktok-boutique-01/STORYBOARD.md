@@ -22,7 +22,7 @@ music: none
 - scene: A blunt question slams onto a yellow-cracked canvas, daring the viewer to keep scrolling
 - duration: 4s
 - transition_in: cut
-- status: outline
+- status: animated
 - type: hook
 - persuasion: pattern interrupt
 - blueprint: kinetic-type-beats (Reproduce)
@@ -41,7 +41,7 @@ Scene 3 (3.0-4.0s): everything holds still — a single yellow stripe-block tick
 - scene: Three pain-cards slam down one after another, stacking the cost of staying invisible
 - duration: 6s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - type: pain_point
 - persuasion: pain agitation
 - blueprint: kinetic-type-beats (Adapt)
@@ -61,7 +61,7 @@ Scene 4 (5.4-6.0s): brief hold — all three cards sit stacked, reading as a pil
 - scene: The pile of pain collapses and one clean statement takes over the whole canvas
 - duration: 6s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - type: reveal
 - persuasion: relief / turn
 - blueprint: typewriter-reveal (Adapt)
@@ -80,7 +80,7 @@ Scene 3 (3.4-6.0s): a single oversized card-elevated pops from the collapse poin
 - scene: Three offer bullets assemble into a grid, then a price-anchor comparison lands the value gap
 - duration: 7s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - type: offer
 - persuasion: value equation (Hormozi) + price anchor
 - blueprint: grid-card-assemble (Adapt)
@@ -100,7 +100,7 @@ Scene 4 (6.0-7.0s): beside it, the real offer price-anchor card pops in bold bla
 - scene: One calm, held title card states the guarantee — the video's deliberate quiet beat
 - duration: 5s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - type: proof
 - persuasion: risk reversal (Hormozi guarantee)
 - blueprint: titlecard-reveal (Adapt)
@@ -119,7 +119,7 @@ Scene 3 (2.6-5.0s): held read — content already resolved, canvas stays still (
 - scene: A bold closing card locks in the single next action, punctuated by a hard landing
 - duration: 6s
 - transition_in: cut
-- status: outline
+- status: animated
 - type: cta
 - persuasion: single clear next step
 - blueprint: kinetic-type-beats (Adapt)

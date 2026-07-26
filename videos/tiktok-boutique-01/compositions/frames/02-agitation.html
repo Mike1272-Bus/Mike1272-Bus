@@ -1,5 +1,5 @@
 <template>
-<div id="root" data-composition-id="02-agitation">
+<div id="root" data-composition-id="02-agitation" data-duration="6.5" data-width="1080" data-height="1920">
   <style>
     #root {
       position: relative;
@@ -145,25 +145,25 @@
   </style>
 
   <!-- track 0: base ground -->
-  <div id="agitation-bg-base" class="clip" data-start="0" data-duration="6" data-track-index="0"></div>
+  <div id="agitation-bg-base" class="clip" data-start="0" data-duration="6.5" data-track-index="0"></div>
 
   <!-- track 1: pink stripe-block, wipes in from the left as ground -->
-  <div id="agitation-stripe-wipe" class="clip" data-start="0" data-duration="6" data-track-index="1"></div>
+  <div id="agitation-stripe-wipe" class="clip" data-start="0" data-duration="6.5" data-track-index="1"></div>
 
   <!-- track 2: pain card 1 -->
-  <div id="agitation-card1" class="agitation-card clip" data-start="0" data-duration="6" data-track-index="2">
+  <div id="agitation-card1" class="agitation-card clip" data-start="0" data-duration="6.5" data-track-index="2">
     <span class="agitation-badge" id="agitation-badge1">01</span>
     <span class="agitation-card-title">PAS DE VRAIE&nbsp;BOUTIQUE</span>
   </div>
 
   <!-- track 3: pain card 2 -->
-  <div id="agitation-card2" class="agitation-card clip" data-start="0" data-duration="6" data-track-index="3">
+  <div id="agitation-card2" class="agitation-card clip" data-start="0" data-duration="6.5" data-track-index="3">
     <span class="agitation-badge" id="agitation-badge2">02</span>
     <span class="agitation-card-title">CLIENTS QUI&nbsp;DOUTENT</span>
   </div>
 
   <!-- track 4: pain card 3 (heaviest) + its glow + decoration -->
-  <div id="agitation-card3-wrap" class="clip" data-start="0" data-duration="6" data-track-index="4">
+  <div id="agitation-card3-wrap" class="clip" data-start="0" data-duration="6.5" data-track-index="4">
     <div id="agitation-glow3"></div>
     <div id="agitation-card3" class="agitation-card">
       <span class="agitation-badge" id="agitation-badge3">03</span>
@@ -172,7 +172,6 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
   <script>
     (function () {
       var tl = gsap.timeline({ paused: true });
