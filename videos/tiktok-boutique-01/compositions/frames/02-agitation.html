@@ -15,13 +15,13 @@
 
     /* ---------- ground ---------- */
 
-    #agi-bg-base {
+    #agitation-bg-base {
       inset: 0;
       background: #FFFDF5;
       z-index: 0;
     }
 
-    #agi-stripe-wipe {
+    #agitation-stripe-wipe {
       inset: 0;
       z-index: 1;
       background-image: repeating-linear-gradient(
@@ -36,7 +36,7 @@
 
     /* ---------- shared card chrome ---------- */
 
-    .agi-card {
+    .agitation-card {
       position: absolute;
       background: #FFFFFF;
       border: 3px solid #000000;
@@ -44,7 +44,7 @@
       box-sizing: border-box;
     }
 
-    .agi-card-title {
+    .agitation-card-title {
       display: block;
       font-family: sans-serif;
       font-weight: 900;
@@ -55,7 +55,7 @@
       margin: 0;
     }
 
-    .agi-badge {
+    .agitation-badge {
       position: absolute;
       top: -20px;
       left: 26px;
@@ -74,7 +74,7 @@
 
     /* ---------- card 1 (small) ---------- */
 
-    #agi-card1 {
+    #agitation-card1 {
       z-index: 2;
       left: 60px;
       top: 320px;
@@ -83,12 +83,12 @@
       box-shadow: 6px 6px 0 #000000;
       transform-origin: center center;
     }
-    #agi-card1 .agi-card-title { font-size: 36px; }
-    #agi-badge1 { background: #FE90E8; }
+    #agitation-card1 .agitation-card-title { font-size: 36px; }
+    #agitation-badge1 { background: #FE90E8; }
 
     /* ---------- card 2 (elevated, overlaps card 1) ---------- */
 
-    #agi-card2 {
+    #agitation-card2 {
       z-index: 3;
       left: 340px;
       top: 468px;
@@ -97,19 +97,19 @@
       box-shadow: 10px 10px 0 #000000;
       transform-origin: center center;
     }
-    #agi-card2 .agi-card-title { font-size: 58px; }
-    #agi-badge2 { background: #99E885; }
+    #agitation-card2 .agitation-card-title { font-size: 58px; }
+    #agitation-badge2 { background: #99E885; }
 
     /* ---------- card 3 (heaviest, biggest, bottom-right) ---------- */
 
-    #agi-card3-wrap {
+    #agitation-card3-wrap {
       z-index: 4;
       left: 130px;
       top: 960px;
       width: 900px;
     }
 
-    #agi-glow3 {
+    #agitation-glow3 {
       position: absolute;
       inset: -18px;
       border-radius: 6px;
@@ -118,16 +118,16 @@
       pointer-events: none;
     }
 
-    #agi-card3 {
+    #agitation-card3 {
       position: relative;
       border-width: 5px;
       box-shadow: 14px 14px 0 #000000;
       transform-origin: center center;
     }
-    #agi-card3 .agi-card-title { font-size: 104px; }
-    #agi-badge3 { background: #F7CB46; }
+    #agitation-card3 .agitation-card-title { font-size: 104px; }
+    #agitation-badge3 { background: #F7CB46; }
 
-    #agi-starburst {
+    #agitation-starburst {
       position: absolute;
       top: -46px;
       right: -34px;
@@ -145,30 +145,30 @@
   </style>
 
   <!-- track 0: base ground -->
-  <div id="agi-bg-base" class="clip" data-start="0" data-duration="6" data-track-index="0"></div>
+  <div id="agitation-bg-base" class="clip" data-start="0" data-duration="6" data-track-index="0"></div>
 
   <!-- track 1: pink stripe-block, wipes in from the left as ground -->
-  <div id="agi-stripe-wipe" class="clip" data-start="0" data-duration="6" data-track-index="1"></div>
+  <div id="agitation-stripe-wipe" class="clip" data-start="0" data-duration="6" data-track-index="1"></div>
 
   <!-- track 2: pain card 1 -->
-  <div id="agi-card1" class="agi-card clip" data-start="0" data-duration="6" data-track-index="2">
-    <span class="agi-badge" id="agi-badge1">01</span>
-    <span class="agi-card-title">PAS DE VRAIE&nbsp;BOUTIQUE</span>
+  <div id="agitation-card1" class="agitation-card clip" data-start="0" data-duration="6" data-track-index="2">
+    <span class="agitation-badge" id="agitation-badge1">01</span>
+    <span class="agitation-card-title">PAS DE VRAIE&nbsp;BOUTIQUE</span>
   </div>
 
   <!-- track 3: pain card 2 -->
-  <div id="agi-card2" class="agi-card clip" data-start="0" data-duration="6" data-track-index="3">
-    <span class="agi-badge" id="agi-badge2">02</span>
-    <span class="agi-card-title">CLIENTS QUI&nbsp;DOUTENT</span>
+  <div id="agitation-card2" class="agitation-card clip" data-start="0" data-duration="6" data-track-index="3">
+    <span class="agitation-badge" id="agitation-badge2">02</span>
+    <span class="agitation-card-title">CLIENTS QUI&nbsp;DOUTENT</span>
   </div>
 
   <!-- track 4: pain card 3 (heaviest) + its glow + decoration -->
-  <div id="agi-card3-wrap" class="clip" data-start="0" data-duration="6" data-track-index="4">
-    <div id="agi-glow3"></div>
-    <div id="agi-card3" class="agi-card">
-      <span class="agi-badge" id="agi-badge3">03</span>
-      <span class="agi-card-title">VENTES&nbsp;PERDUES</span>
-      <div id="agi-starburst"></div>
+  <div id="agitation-card3-wrap" class="clip" data-start="0" data-duration="6" data-track-index="4">
+    <div id="agitation-glow3"></div>
+    <div id="agitation-card3" class="agitation-card">
+      <span class="agitation-badge" id="agitation-badge3">03</span>
+      <span class="agitation-card-title">VENTES&nbsp;PERDUES</span>
+      <div id="agitation-starburst"></div>
     </div>
   </div>
 
@@ -180,19 +180,19 @@
       // Scene 1 (0.0-1.8s): stripe-block ground wipes in from the left,
       // then pain card 1 pops top-left as the line names it.
       tl.fromTo(
-        "#agi-stripe-wipe",
+        "#agitation-stripe-wipe",
         { clipPath: "inset(0 100% 0 0)" },
         { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "power2.out" },
         0
       );
       tl.fromTo(
-        "#agi-card1",
+        "#agitation-card1",
         { scale: 0.4, opacity: 0, rotation: 9 },
         { scale: 1, opacity: 1, rotation: 3, duration: 0.4, ease: "back.out(1.7)" },
         0.05
       );
       tl.fromTo(
-        "#agi-badge1",
+        "#agitation-badge1",
         { scale: 0, opacity: 0 },
         { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" },
         0.3
@@ -201,15 +201,15 @@
       // Scene 2 (1.8-3.8s): pain card 2 slams in mid-frame, rotated -3deg,
       // overlapping card 1's corner, landing on its own beat.
       tl.fromTo(
-        "#agi-card2",
+        "#agitation-card2",
         { y: -280, opacity: 0, rotation: -3 },
         { y: 0, opacity: 1, rotation: -3, duration: 0.4, ease: "power4.out" },
         1.9
       );
-      tl.to("#agi-card2", { scaleY: 0.92, duration: 0.08, ease: "power1.out" }, 2.3);
-      tl.to("#agi-card2", { scaleY: 1, duration: 0.14, ease: "power1.out" }, 2.38);
+      tl.to("#agitation-card2", { scaleY: 0.92, duration: 0.08, ease: "power1.out" }, 2.3);
+      tl.to("#agitation-card2", { scaleY: 1, duration: 0.14, ease: "power1.out" }, 2.38);
       tl.fromTo(
-        "#agi-badge2",
+        "#agitation-badge2",
         { scale: 0, opacity: 0 },
         { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" },
         2.15
@@ -218,27 +218,27 @@
       // Scene 3 (3.8-5.4s): the heaviest card drops bottom-right, biggest of
       // the three, with a one-shot pink border-glow pulse on landing.
       tl.fromTo(
-        "#agi-card3",
+        "#agitation-card3",
         { y: -440, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.5, ease: "power4.out" },
         3.9
       );
-      tl.to("#agi-card3", { scaleY: 0.9, duration: 0.09, ease: "power1.out" }, 4.4);
-      tl.to("#agi-card3", { scaleY: 1, duration: 0.16, ease: "power1.out" }, 4.49);
+      tl.to("#agitation-card3", { scaleY: 0.9, duration: 0.09, ease: "power1.out" }, 4.4);
+      tl.to("#agitation-card3", { scaleY: 1, duration: 0.16, ease: "power1.out" }, 4.49);
       tl.fromTo(
-        "#agi-badge3",
+        "#agitation-badge3",
         { scale: 0, opacity: 0 },
         { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" },
         4.05
       );
       tl.fromTo(
-        "#agi-starburst",
+        "#agitation-starburst",
         { scale: 0, opacity: 0, rotation: -20 },
         { scale: 1, opacity: 1, rotation: 0, duration: 0.35, ease: "back.out(2.5)" },
         4.15
       );
       tl.fromTo(
-        "#agi-glow3",
+        "#agitation-glow3",
         { opacity: 0 },
         { opacity: 1, duration: 0.22, ease: "power2.out", yoyo: true, repeat: 1 },
         4.2

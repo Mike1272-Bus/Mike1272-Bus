@@ -1,0 +1,224 @@
+<template>
+<style>
+  #root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    container-type: size;
+    --f-display: 900 "Arial Black", "Helvetica Neue", Arial, sans-serif;
+    --f-label: 700 "Helvetica Neue", Arial, sans-serif;
+    --black: #000000;
+    --white: #ffffff;
+    --offwhite: #fffdf5;
+    --yellow: #f7cb46;
+  }
+
+  #root * { box-sizing: border-box; }
+
+  /* ---------- Scene 1: bare offwhite ground ---------- */
+  .hook01-bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--offwhite);
+  }
+
+  /* ---------- Scene 3: diagonal stripe-block (rides behind the type) ---------- */
+  .hook01-stripe-wrap {
+    position: absolute;
+    top: 46cqh;
+    left: 8cqw;
+    width: 70cqw;
+    height: 7.8cqh;
+  }
+  .hook01-stripe {
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--black) 0,
+      var(--black) 2.4cqw,
+      var(--yellow) 2.4cqw,
+      var(--yellow) 4.8cqw
+    );
+    border: 0.3cqw solid var(--black);
+    transform-origin: center center;
+  }
+
+  /* ---------- Scene 1: STOP. label-pill ---------- */
+  .hook01-pill-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 26cqh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 9cqh;
+  }
+  .hook01-pill {
+    font: var(--f-display);
+    font-size: 4.6cqw;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    border: 0.4cqw solid var(--black);
+    box-shadow: 0.8cqw 0.8cqw 0 var(--black);
+    border-radius: 9999px;
+    padding: 2.2cqw 4.6cqw;
+    white-space: nowrap;
+    transform-origin: center center;
+  }
+
+  /* ---------- Scene 1: star-burst decoration ---------- */
+  .hook01-star-wrap {
+    position: absolute;
+    top: 4cqh;
+    right: 6cqw;
+    width: 16cqw;
+    height: 16cqw;
+  }
+  .hook01-star {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+  }
+  .hook01-star-outer,
+  .hook01-star-inner {
+    position: absolute;
+    clip-path: polygon(
+      50% 0%,
+      61.8% 35.3%,
+      97.6% 35.3%,
+      68.8% 57.4%,
+      79.4% 91.8%,
+      50% 70.5%,
+      20.6% 91.8%,
+      31.2% 57.4%,
+      2.4% 35.3%,
+      38.2% 35.3%
+    );
+  }
+  .hook01-star-outer {
+    inset: 0;
+    background: var(--black);
+  }
+  .hook01-star-inner {
+    inset: 9%;
+    background: var(--yellow);
+  }
+
+  /* ---------- Scene 2: word-by-word headline build ---------- */
+  .hook01-headline-wrap {
+    position: absolute;
+    top: 30cqh;
+    left: 0;
+    width: 100%;
+    height: 40cqh;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 1.8cqh 2cqw;
+    padding: 0 6cqw;
+  }
+  .hook01-word {
+    font: var(--f-display);
+    font-size: 6.2cqw;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--white);
+    border: 0.4cqw solid var(--black);
+    box-shadow: 0.8cqw 0.8cqw 0 var(--black);
+    padding: 1.7cqw 2.8cqw;
+    transform-origin: center center;
+  }
+  .hook01-word--accent {
+    background: var(--yellow);
+    font-size: 7.4cqw;
+  }
+</style>
+
+<div id="root" data-composition-id="01-hook">
+  <div class="hook01-bg clip" data-start="0" data-duration="4" data-track-index="0"></div>
+
+  <div class="hook01-stripe-wrap">
+    <div class="hook01-stripe clip" data-start="3.0" data-duration="1.0" data-track-index="1"></div>
+  </div>
+
+  <div class="hook01-pill-wrap">
+    <div class="hook01-pill clip" data-start="0" data-duration="4" data-track-index="2">STOP.</div>
+  </div>
+
+  <div class="hook01-star-wrap">
+    <div class="hook01-star clip" data-start="0.42" data-duration="3.58" data-track-index="3">
+      <div class="hook01-star-outer"></div>
+      <div class="hook01-star-inner"></div>
+    </div>
+  </div>
+
+  <div class="hook01-headline-wrap">
+    <div class="hook01-word clip" data-start="1.40" data-duration="2.60" data-track-index="4">TU</div>
+    <div class="hook01-word clip" data-start="1.62" data-duration="2.38" data-track-index="5">VENDS</div>
+    <div class="hook01-word clip" data-start="1.84" data-duration="2.16" data-track-index="6">ENCORE</div>
+    <div class="hook01-word clip" data-start="2.06" data-duration="1.94" data-track-index="7">SUR</div>
+    <div class="hook01-word clip" data-start="2.28" data-duration="1.72" data-track-index="8">WHATSAPP</div>
+    <div class="hook01-word hook01-word--accent clip" data-start="2.50" data-duration="1.50" data-track-index="9">?</div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    // Scene 1 (0.0-1.4s) — bare offwhite canvas; STOP. pill scale-pops from 0
+    // on a smooth power3 settle (no bounce), star-burst punches in half a
+    // beat later with a quick playful spin-settle.
+    tl.fromTo(
+      ".hook01-pill",
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.42, ease: "power3.out" },
+      0
+    );
+    tl.fromTo(
+      ".hook01-star",
+      { scale: 0, opacity: 0, rotation: -14 },
+      { scale: 1, opacity: 1, rotation: -6, duration: 0.4, ease: "back.out(1.8)" },
+      0.42
+    );
+
+    // Scene 2 (1.4-3.0s) — "TU VENDS ENCORE SUR WHATSAPP ?" slams in
+    // word-by-word, each landing with a hard-bordered card-pop, no bounce —
+    // one shared onset array driving every word, the closing "?" as the
+    // punctuation-snap payoff on its own accent card.
+    var hook01Words = gsap.utils.toArray(".hook01-word");
+    var hook01Beats = [1.4, 1.62, 1.84, 2.06, 2.28, 2.5];
+    hook01Words.forEach(function (el, i) {
+      tl.fromTo(
+        el,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" },
+        hook01Beats[i]
+      );
+    });
+
+    // Scene 3 (3.0-4.0s) — held read; the yellow stripe-block is the only
+    // added motion, ticking in diagonally behind the type, then everything
+    // sits still to the end of the shot (non-final frame — no exit).
+    tl.fromTo(
+      ".hook01-stripe",
+      { x: -260, y: 40, rotation: -14, opacity: 0 },
+      { x: 0, y: 0, rotation: -6, opacity: 1, duration: 0.5, ease: "power2.out" },
+      3.0
+    );
+
+    window.__timelines["01-hook"] = tl;
+  })();
+</script>
+</template>

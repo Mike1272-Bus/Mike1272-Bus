@@ -110,13 +110,13 @@
 
   <div class="clip f05guarantee-ground" data-start="0" data-duration="5" data-track-index="0"></div>
 
-  <div class="clip f05guarantee-deco-tilt" data-start="0.75" data-duration="4.25" data-track-index="1"></div>
-  <div class="clip f05guarantee-deco-star" data-start="0.95" data-duration="4.05" data-track-index="1"></div>
+  <div class="clip f05guarantee-deco-tilt" data-start="0.7" data-duration="4.3" data-track-index="1"></div>
+  <div class="clip f05guarantee-deco-star" data-start="0.9" data-duration="4.1" data-track-index="1"></div>
 
   <div class="f05guarantee-wrap">
-    <div class="clip f05guarantee-pill" data-start="0.05" data-duration="4.95" data-track-index="2">Garantie</div>
+    <div class="clip f05guarantee-pill" data-start="0" data-duration="5" data-track-index="2">Garantie</div>
 
-    <div class="clip f05guarantee-card" data-start="0.45" data-duration="4.55" data-track-index="3">
+    <div class="clip f05guarantee-card" data-start="0.4" data-duration="4.6" data-track-index="3">
       <div class="clip f05guarantee-card-text" data-start="1.6" data-duration="3.4" data-track-index="4">
         <div class="f05guarantee-line1">Pas satisfait&nbsp;?</div>
         <div class="f05guarantee-line2">On corrige jusqu'&agrave; ce que &ccedil;a te plaise.</div>
@@ -134,26 +134,26 @@
       tl.fromTo(
         ".f05guarantee-pill",
         { scale: 0.4, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.9)" },
-        0.05
+        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.9)" },
+        0
       );
       tl.fromTo(
         ".f05guarantee-card",
         { y: 40, opacity: 0, scale: 0.92 },
         { y: 0, opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.5)" },
-        0.45
+        0.4
       );
       tl.fromTo(
         ".f05guarantee-deco-tilt",
         { opacity: 0, scale: 0.7, rotation: -20 },
         { opacity: 1, scale: 1, rotation: -9, duration: 0.5, ease: "back.out(1.6)" },
-        0.75
+        0.7
       );
       tl.fromTo(
         ".f05guarantee-deco-star",
         { opacity: 0, scale: 0.4 },
         { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" },
-        0.95
+        0.9
       );
 
       // Scene 2 (1.6-2.6s): the card's line resolves in one clean motion, no letter-by-letter.
