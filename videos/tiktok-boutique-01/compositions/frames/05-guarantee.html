@@ -1,0 +1,178 @@
+<template>
+<div id="root" data-composition-id="05-guarantee">
+  <style>
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      font-family: sans-serif;
+    }
+
+    /* ---- full-bleed ground (never on #root itself) ---- */
+    .f05guarantee-ground {
+      position: absolute;
+      inset: 0;
+      background-color: #FFDC8B; /* frame.md colors.cream */
+      background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1.2px, transparent 1.6px);
+      background-size: 5.6cqw 5.6cqw;
+    }
+
+    /* ---- decorations ---- */
+    .f05guarantee-deco-tilt {
+      position: absolute;
+      top: -3cqh;
+      right: -5cqw;
+      width: 24cqw;
+      height: 11cqh;
+      background: #C0F7FE; /* blue */
+      border: 0.3cqw solid #000;
+    }
+
+    .f05guarantee-deco-star {
+      position: absolute;
+      left: 5cqw;
+      top: 65cqh;
+      width: 15cqw;
+      height: 15cqw;
+      background: #FE90E8; /* pink */
+      border: 0.3cqw solid #000;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    /* ---- content ---- */
+    .f05guarantee-wrap {
+      position: absolute;
+      inset: 0;
+      top: 0;
+      height: 83cqh; /* keep-out: never enter bottom ~17% */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 11cqh;
+      gap: 5cqh;
+    }
+
+    .f05guarantee-pill {
+      display: inline-flex;
+      align-items: center;
+      background: #99E885; /* green */
+      border: 0.3cqw solid #000;
+      box-shadow: 0.4cqw 0.4cqw 0 #000;
+      border-radius: 9999px;
+      padding: 1.3cqh 4.2cqw;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #000;
+      opacity: 0;
+    }
+
+    .f05guarantee-card {
+      background: #FFFFFF;
+      border: 0.4cqw solid #000;
+      box-shadow: 0.8cqw 0.8cqw 0 #000;
+      border-radius: 0;
+      width: 82cqw;
+      max-width: 82cqw;
+      padding: 6.5cqh 6cqw;
+      text-align: center;
+      opacity: 0;
+    }
+
+    .f05guarantee-card-text {
+      opacity: 0;
+    }
+
+    .f05guarantee-line1 {
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      font-size: 9.5cqw;
+      color: #000;
+      margin: 0 0 2.4cqh 0;
+    }
+
+    .f05guarantee-line2 {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      line-height: 1.28;
+      font-size: 5.4cqw;
+      color: #000;
+      margin: 0;
+    }
+  </style>
+
+  <div class="clip f05guarantee-ground" data-start="0" data-duration="5" data-track-index="0"></div>
+
+  <div class="clip f05guarantee-deco-tilt" data-start="0.75" data-duration="4.25" data-track-index="1"></div>
+  <div class="clip f05guarantee-deco-star" data-start="0.95" data-duration="4.05" data-track-index="1"></div>
+
+  <div class="f05guarantee-wrap">
+    <div class="clip f05guarantee-pill" data-start="0.05" data-duration="4.95" data-track-index="2">Garantie</div>
+
+    <div class="clip f05guarantee-card" data-start="0.45" data-duration="4.55" data-track-index="3">
+      <div class="clip f05guarantee-card-text" data-start="1.6" data-duration="3.4" data-track-index="4">
+        <div class="f05guarantee-line1">Pas satisfait&nbsp;?</div>
+        <div class="f05guarantee-line2">On corrige jusqu'&agrave; ce que &ccedil;a te plaise.</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-1.6s): label-pill scale-pops center-top, then the card shell lands beneath it.
+      tl.fromTo(
+        ".f05guarantee-pill",
+        { scale: 0.4, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.9)" },
+        0.05
+      );
+      tl.fromTo(
+        ".f05guarantee-card",
+        { y: 40, opacity: 0, scale: 0.92 },
+        { y: 0, opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.5)" },
+        0.45
+      );
+      tl.fromTo(
+        ".f05guarantee-deco-tilt",
+        { opacity: 0, scale: 0.7, rotation: -20 },
+        { opacity: 1, scale: 1, rotation: -9, duration: 0.5, ease: "back.out(1.6)" },
+        0.75
+      );
+      tl.fromTo(
+        ".f05guarantee-deco-star",
+        { opacity: 0, scale: 0.4 },
+        { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" },
+        0.95
+      );
+
+      // Scene 2 (1.6-2.6s): the card's line resolves in one clean motion, no letter-by-letter.
+      tl.fromTo(
+        ".f05guarantee-card-text",
+        { opacity: 0, y: 14, scale: 0.97 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power2.out" },
+        1.6
+      );
+
+      // Scene 3 (2.6-5.0s): held read — deliberately quiet, only a barely-there 1-2px card jitter.
+      tl.to(".f05guarantee-card", { x: 1, y: -1, duration: 0.45, ease: "sine.inOut" }, 2.6);
+      tl.to(".f05guarantee-card", { x: -1, y: 1, duration: 0.45, ease: "sine.inOut" }, 3.05);
+      tl.to(".f05guarantee-card", { x: 0.5, y: -0.5, duration: 0.45, ease: "sine.inOut" }, 3.5);
+      tl.to(".f05guarantee-card", { x: -0.5, y: 0.5, duration: 0.45, ease: "sine.inOut" }, 3.95);
+      tl.to(".f05guarantee-card", { x: 0, y: 0, duration: 0.4, ease: "sine.inOut" }, 4.4);
+
+      window.__timelines["05-guarantee"] = tl;
+    })();
+  </script>
+</div>
+</template>

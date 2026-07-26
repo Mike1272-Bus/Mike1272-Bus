@@ -1,0 +1,290 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000;
+    }
+    #root * { box-sizing: border-box; }
+
+    /* ---- full-bleed ground (never on #root itself) ---- */
+    .offer-bg {
+      position: absolute;
+      inset: 0;
+      background: #99E885;
+      overflow: hidden;
+    }
+    .offer-dotgrid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(#000 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      opacity: 0.12;
+    }
+    .offer-deco-rect {
+      position: absolute;
+      top: 36px;
+      left: 44px;
+      width: 96px;
+      height: 96px;
+      background: #FE90E8;
+      border: 3px solid #000;
+    }
+
+    /* ---- label pill ---- */
+    .offer-label-pill {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: fit-content;
+      padding: 16px 32px;
+      background: #FFFFFF;
+      border: 3px solid #000;
+      border-radius: 9999px;
+      box-shadow: 4px 4px 0 #000;
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ---- skeleton slots ---- */
+    .offer-slot {
+      position: absolute;
+      top: 200px;
+      width: 301px;
+      height: 340px;
+      border: 2px dashed rgba(0, 0, 0, 0.35);
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .offer-slot-1 { left: 60px; }
+    .offer-slot-2 { left: 389px; }
+    .offer-slot-3 { left: 718px; }
+
+    /* ---- benefit cards ---- */
+    .offer-card {
+      position: absolute;
+      top: 200px;
+      width: 301px;
+      height: 340px;
+      background: #FFFFFF;
+      border: 3px solid #000;
+      box-shadow: 4px 4px 0 #000;
+      padding: 20px;
+    }
+    .offer-card-1 { left: 60px; }
+    .offer-card-2 { left: 389px; }
+    .offer-card-3 { left: 718px; }
+    .offer-card-icon {
+      width: 56px;
+      height: 56px;
+      border: 3px solid #000;
+      margin-bottom: 16px;
+    }
+    .offer-card-1 .offer-card-icon { background: #FE90E8; }
+    .offer-card-2 .offer-card-icon { background: #C0F7FE; }
+    .offer-card-3 .offer-card-icon { background: #F7CB46; }
+    .offer-card-label {
+      font-weight: 900;
+      font-size: 24px;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+
+    /* ---- price-anchor comparison ---- */
+    .offer-price-agency {
+      position: absolute;
+      top: 600px;
+      left: 60px;
+      width: 760px;
+      height: 260px;
+      background: #FFFFFF;
+      border: 4px solid #000;
+      box-shadow: 8px 8px 0 #000;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .offer-price-agency-label {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #767676;
+      margin-bottom: 10px;
+    }
+    .offer-price-agency-text {
+      font-weight: 800;
+      font-size: 28px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: #9a9a9a;
+      position: relative;
+      display: inline-block;
+    }
+    .offer-strike-line {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 6px;
+      background: #000;
+      transform-origin: left center;
+    }
+
+    .offer-price-us {
+      position: absolute;
+      top: 760px;
+      left: 70px;
+      width: 940px;
+      height: 600px;
+      background: #F7CB46;
+      border: 4px solid #000;
+      box-shadow: 8px 8px 0 #000;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .offer-price-us-label {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .offer-price-us-text {
+      font-weight: 900;
+      font-size: 68px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+  </style>
+
+  <div id="root" data-composition-id="04-offer">
+    <div class="clip offer-bg" data-start="0" data-duration="7" data-track-index="0">
+      <div class="offer-dotgrid"></div>
+      <div class="offer-deco-rect"></div>
+    </div>
+
+    <div class="clip offer-label-pill" data-start="0.1" data-duration="6.9" data-track-index="1">
+      L'OFFRE
+    </div>
+
+    <div class="clip offer-slot offer-slot-1" data-start="0.4" data-duration="1.6" data-track-index="2"></div>
+    <div class="clip offer-slot offer-slot-2" data-start="0.6" data-duration="2.2" data-track-index="2"></div>
+    <div class="clip offer-slot offer-slot-3" data-start="0.8" data-duration="2.8" data-track-index="2"></div>
+
+    <div class="clip offer-card offer-card-1" data-start="2.0" data-duration="5.0" data-track-index="3">
+      <div class="offer-card-icon"></div>
+      <div class="offer-card-label">Design pro</div>
+    </div>
+    <div class="clip offer-card offer-card-2" data-start="2.8" data-duration="4.2" data-track-index="4">
+      <div class="offer-card-icon"></div>
+      <div class="offer-card-label">Livraison rapide</div>
+    </div>
+    <div class="clip offer-card offer-card-3" data-start="3.6" data-duration="3.4" data-track-index="5">
+      <div class="offer-card-icon"></div>
+      <div class="offer-card-label">Prix imbattable</div>
+    </div>
+
+    <div class="clip offer-price-agency" data-start="4.4" data-duration="2.6" data-track-index="6">
+      <div class="offer-price-agency-label">Agence classique</div>
+      <div class="offer-price-agency-text">
+        Des mois, des milliers d&rsquo;euros
+        <div class="offer-strike-line"></div>
+      </div>
+    </div>
+
+    <div class="clip offer-price-us" data-start="6.0" data-duration="1.0" data-track-index="7">
+      <div class="offer-price-us-label">Nous</div>
+      <div class="offer-price-us-text">Quelques jours,<br />un prix juste</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 — label-pill scale-pop + skeleton slots fade in
+      tl.fromTo(
+        ".offer-label-pill",
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2.4)" },
+        0.1
+      );
+      tl.fromTo(
+        ".offer-deco-rect",
+        { scale: 0, opacity: 0, rotation: -10 },
+        { scale: 1, opacity: 1, rotation: -10, duration: 0.5, ease: "back.out(2)" },
+        0.15
+      );
+      tl.fromTo(".offer-slot-1", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, 0.4);
+      tl.fromTo(".offer-slot-2", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, 0.6);
+      tl.fromTo(".offer-slot-3", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, 0.8);
+
+      // Scene 2 — cards self-assemble left to right, each with a hard-shadow pop,
+      // its skeleton slot dismissed on the same beat
+      tl.to(".offer-slot-1", { opacity: 0, duration: 0.15 }, 2.0);
+      tl.fromTo(
+        ".offer-card-1",
+        { scale: 0.35, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.6)" },
+        2.0
+      );
+
+      tl.to(".offer-slot-2", { opacity: 0, duration: 0.15 }, 2.8);
+      tl.fromTo(
+        ".offer-card-2",
+        { scale: 0.35, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.6)" },
+        2.8
+      );
+
+      tl.to(".offer-slot-3", { opacity: 0, duration: 0.15 }, 3.6);
+      tl.fromTo(
+        ".offer-card-3",
+        { scale: 0.35, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.6)" },
+        3.6
+      );
+
+      // Scene 3 — struck-through agency price drops in, then the strike line draws
+      tl.fromTo(
+        ".offer-price-agency",
+        { y: -60, opacity: 0, rotation: -3 },
+        { y: 0, opacity: 1, rotation: -3, duration: 0.5, ease: "back.out(1.8)" },
+        4.4
+      );
+      tl.fromTo(
+        ".offer-strike-line",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.5, ease: "power2.out" },
+        4.9
+      );
+
+      // Scene 4 — the real offer price-anchor pops in bigger, bolder, on top; hold on contrast
+      tl.fromTo(
+        ".offer-price-us",
+        { scale: 0.4, opacity: 0, rotation: 1.5 },
+        { scale: 1, opacity: 1, rotation: 1.5, duration: 0.5, ease: "back.out(2.2)" },
+        6.0
+      );
+
+      window.__timelines["04-offer"] = tl;
+    })();
+  </script>
+</template>

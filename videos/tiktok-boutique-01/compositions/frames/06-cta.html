@@ -1,0 +1,211 @@
+<template>
+<style>
+  #root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    container-type: size;
+    --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+    --f-label: "Helvetica Neue", Arial, sans-serif;
+    --black: #000000;
+    --white: #ffffff;
+    --yellow: #f7cb46;
+    --pink: #fe90e8;
+    --blue: #c0f7fe;
+    --green: #99e885;
+  }
+
+  #root * { box-sizing: border-box; }
+
+  /* ---------- Scene 1: full-bleed yellow wash (bookends frame 1) ---------- */
+  .cta06-bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--yellow);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+    background-size: 4.4cqw 4.4cqw;
+  }
+
+  .cta06-deco-chip {
+    position: absolute;
+    border: 0.3cqw solid var(--black);
+    box-shadow: 0.4cqw 0.4cqw 0 var(--black);
+  }
+  .cta06-chip-a {
+    top: 5.5cqh;
+    left: 6cqw;
+    width: 9cqw;
+    height: 9cqw;
+    background: var(--blue);
+    transform: rotate(-9deg);
+  }
+  .cta06-chip-b {
+    top: 63cqh;
+    left: 5cqw;
+    width: 7cqw;
+    height: 7cqw;
+    background: var(--green);
+    transform: rotate(7deg);
+  }
+
+  /* ---------- Scene 1: label-pill ---------- */
+  .cta06-label-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 34cqh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 9cqh;
+  }
+  .cta06-label {
+    font-family: var(--f-label);
+    font-weight: 700;
+    font-size: 2.3cqw;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--white);
+    border: 0.3cqw solid var(--black);
+    box-shadow: 0.4cqw 0.4cqw 0 var(--black);
+    border-radius: 9999px;
+    padding: 1.6cqw 3.4cqw;
+    white-space: nowrap;
+    transform-origin: center center;
+  }
+
+  /* ---------- Scene 2: hero CTA button ---------- */
+  .cta06-button-wrap {
+    position: absolute;
+    top: 30cqh;
+    left: 0;
+    width: 100%;
+    height: 46cqh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6cqw;
+  }
+  .cta06-button {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: 3.7cqw;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--black);
+    background: var(--yellow);
+    border: 0.4cqw solid var(--black);
+    box-shadow: 0.8cqw 0.8cqw 0 var(--black);
+    padding: 4.2cqw 4.6cqw;
+    max-width: 78cqw;
+    transform-origin: center center;
+  }
+
+  /* ---------- Scene 3: star-burst decoration ---------- */
+  .cta06-star-wrap {
+    position: absolute;
+    top: 68cqh;
+    right: 7cqw;
+    width: 18cqw;
+    height: 18cqw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cta06-star {
+    width: 100%;
+    height: 100%;
+    background: var(--pink);
+    border: 0.3cqw solid var(--black);
+    clip-path: polygon(
+      50% 0%,
+      61.8% 35.3%,
+      97.6% 35.3%,
+      68.8% 57.4%,
+      79.4% 91.8%,
+      50% 70.5%,
+      20.6% 91.8%,
+      31.2% 57.4%,
+      2.4% 35.3%,
+      38.2% 35.3%
+    );
+    transform-origin: center center;
+  }
+</style>
+
+<div id="root" data-composition-id="06-cta">
+  <div class="cta06-bg clip" data-start="0" data-duration="6" data-track-index="0">
+    <div class="cta06-deco-chip cta06-chip-a"></div>
+    <div class="cta06-deco-chip cta06-chip-b"></div>
+  </div>
+
+  <div class="cta06-label-wrap">
+    <div class="cta06-label clip" data-start="0" data-duration="6" data-track-index="1">PRET A DEMARRER ?</div>
+  </div>
+
+  <div class="cta06-button-wrap">
+    <div class="cta06-button clip" data-start="1.6" data-duration="4.4" data-track-index="2">
+      ECRIS 'BOUTIQUE' EN MESSAGE
+    </div>
+  </div>
+
+  <div class="cta06-star-wrap">
+    <div class="cta06-star clip" data-start="3.6" data-duration="2.4" data-track-index="3"></div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    // Scene 1 (0.0-1.6s) — yellow wash is present from t=0; label-pill scale-pops in.
+    tl.fromTo(
+      ".cta06-label",
+      { scale: 0.55, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
+      0.15
+    );
+
+    // Scene 2 (1.6-3.6s) — hero-scale button slams to center: one decisive
+    // card-pop on power3, explicitly no bounce/overshoot.
+    tl.fromTo(
+      ".cta06-button",
+      { scale: 0.32, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.55, ease: "power3.out" },
+      1.6
+    );
+
+    // Scene 3 (3.6-5.0s) — star-burst punches into the corner (the only added
+    // decoration motion), then the button gets a single hard-shadow
+    // press-and-release pulse to read as clickable.
+    tl.fromTo(
+      ".cta06-star",
+      { scale: 0, opacity: 0, rotation: -18 },
+      { scale: 1, opacity: 1, rotation: 0, duration: 0.45, ease: "back.out(2.2)" },
+      3.6
+    );
+
+    tl.to(
+      ".cta06-button",
+      { x: 4, y: 4, boxShadow: "0.25cqw 0.25cqw 0 #000000", duration: 0.13, ease: "power1.in" },
+      4.3
+    );
+    tl.to(
+      ".cta06-button",
+      { x: 0, y: 0, boxShadow: "0.8cqw 0.8cqw 0 #000000", duration: 0.17, ease: "power1.out" },
+      4.43
+    );
+
+    // Scene 4 (5.0-6.0s) — final hold: button + label sit still, full read.
+    // Last frame of the video — no exit motion.
+
+    window.__timelines["06-cta"] = tl;
+  })();
+</script>
+</template>
