@@ -6,8 +6,8 @@
     height: 100%;
     overflow: hidden;
     container-type: size;
-    --f-display: 900 "Arial Black", "Helvetica Neue", Arial, sans-serif;
-    --f-label: 700 "Helvetica Neue", Arial, sans-serif;
+    --f-display-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+    --f-display-weight: 900;
     --black: #000000;
     --white: #ffffff;
     --offwhite: #fffdf5;
@@ -58,7 +58,8 @@
     padding-top: 9cqh;
   }
   .hook01-pill {
-    font: var(--f-display);
+    font-family: var(--f-display-family);
+    font-weight: var(--f-display-weight);
     font-size: 4.6cqw;
     letter-spacing: -0.01em;
     text-transform: uppercase;
@@ -126,7 +127,8 @@
     padding: 0 6cqw;
   }
   .hook01-word {
-    font: var(--f-display);
+    font-family: var(--f-display-family);
+    font-weight: var(--f-display-weight);
     font-size: 6.2cqw;
     line-height: 1.05;
     letter-spacing: -0.02em;
