@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "tiktok",
+      "confirmed_in": [
+        "tiktok-boutique-01"
+      ],
+      "updated_at": "2026-07-26T18:10:42.037Z"
+    },
+    "aspect": {
+      "value": "1080x1920",
+      "confirmed_in": [
+        "tiktok-boutique-01"
+      ],
+      "updated_at": "2026-07-26T18:10:42.097Z"
+    },
+    "language": {
+      "value": "fr",
+      "confirmed_in": [
+        "tiktok-boutique-01"
+      ],
+      "updated_at": "2026-07-26T18:10:42.164Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "tiktok-boutique-01"
+      ],
+      "updated_at": "2026-07-26T18:10:42.232Z"
+    },
+    "storyboard": {
+      "value": "no",
+      "confirmed_in": [
+        "tiktok-boutique-01"
+      ],
+      "updated_at": "2026-07-26T18:10:42.301Z"
+    },
+    "style_preset.product-launch-video": {
+      "value": "blockframe",
+      "confirmed_in": [
+        "tiktok-boutique-01"
+      ],
+      "updated_at": "2026-07-26T18:11:41.801Z"
+    }
+  },
+  "sightings": {}
+}
