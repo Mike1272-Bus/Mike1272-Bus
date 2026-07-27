@@ -1,0 +1,297 @@
+<template>
+<div id="root" data-composition-id="04-raison3">
+  <style>
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      background: transparent;
+      --pink: #FE90E8;
+      --offwhite: #FFFDF5;
+      --black: #000000;
+      --white: #FFFFFF;
+      --blue: #C0F7FE;
+      --green: #99E885;
+      --yellow: #F7CB46;
+      --cream: #FFDC8B;
+      --bp: 0.37cqw;
+      --bs: 0.74cqw;
+      --bt: 0.28cqw;
+      --bst: 0.37cqw;
+      font-family: "Arial Black", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    #root .f04r3-bg-left {
+      position: absolute;
+      top: 0; left: 0;
+      width: 50%; height: 100%;
+      background: var(--pink);
+    }
+    #root .f04r3-bg-right {
+      position: absolute;
+      top: 0; right: 0;
+      width: 50%; height: 100%;
+      background: var(--offwhite);
+    }
+    #root .f04r3-divider {
+      position: absolute;
+      top: 0; left: 50%;
+      width: var(--bp);
+      height: 100%;
+      margin-left: calc(var(--bp) / -2);
+      background: var(--black);
+      z-index: 5;
+    }
+
+    #root .f04r3-left-group,
+    #root .f04r3-right-group {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 16cqh;
+      z-index: 2;
+    }
+    #root .f04r3-left-group { left: 0; }
+    #root .f04r3-right-group { left: 50%; }
+
+    #root .f04r3-label-pill {
+      border: var(--bt) solid var(--black);
+      box-shadow: var(--bst) var(--bst) 0 var(--black);
+      border-radius: 9999px;
+      padding: 1.3cqh 3cqw;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--white);
+      margin-bottom: 2.4cqh;
+      white-space: nowrap;
+    }
+    #root .f04r3-label-left { background: var(--yellow); }
+    #root .f04r3-label-right { background: var(--blue); }
+
+    #root .f04r3-phone {
+      position: relative;
+      width: 24cqw;
+      height: 27cqh;
+      background: var(--white);
+      border: var(--bp) solid var(--black);
+      box-shadow: var(--bs) var(--bs) 0 var(--black);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.6cqh;
+      padding: 3cqh 2cqw;
+    }
+    #root .f04r3-phone-notch {
+      position: absolute;
+      top: 1.6cqh;
+      left: 50%;
+      margin-left: -4cqw;
+      width: 8cqw;
+      height: 0.6cqh;
+      background: var(--black);
+    }
+    #root .f04r3-phone-home {
+      position: absolute;
+      bottom: 1.6cqh;
+      left: 50%;
+      margin-left: -4.5cqw;
+      width: 9cqw;
+      height: 0.5cqh;
+      background: var(--black);
+      opacity: 0.5;
+    }
+    #root .f04r3-ring-wrap {
+      position: relative;
+      width: 15cqw;
+      aspect-ratio: 1 / 1;
+    }
+    #root .f04r3-ring-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #root .f04r3-ring-track { fill: none; stroke: var(--black); stroke-opacity: 0.15; stroke-width: 14; }
+    #root .f04r3-ring-fill { fill: none; stroke: var(--yellow); stroke-width: 14; stroke-linecap: butt; }
+    #root .f04r3-countdown-num {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5.6cqw;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -0.02em;
+    }
+    #root .f04r3-skel-line {
+      width: 70%;
+      height: 1.3cqh;
+      background: var(--black);
+      opacity: 0.14;
+      border-radius: 0;
+    }
+    #root .f04r3-skel-2 { width: 45%; }
+
+    #root .f04r3-browser {
+      position: relative;
+      width: 42cqw;
+      height: 30cqh;
+      background: var(--white);
+      border: var(--bp) solid var(--black);
+      box-shadow: var(--bs) var(--bs) 0 var(--black);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #root .f04r3-browser-chrome {
+      display: flex;
+      align-items: center;
+      gap: 1cqw;
+      padding: 1.4cqh 2cqw;
+      border-bottom: var(--bt) solid var(--black);
+      background: var(--cream);
+      flex: 0 0 auto;
+    }
+    #root .f04r3-browser-dot {
+      width: 2.2cqw;
+      aspect-ratio: 1 / 1;
+      border: 0.2cqw solid var(--black);
+    }
+    #root .f04r3-browser-addr {
+      flex: 1;
+      height: 2.6cqh;
+      background: var(--offwhite);
+      border: var(--bt) solid var(--black);
+    }
+    #root .f04r3-browser-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35cqh;
+      margin-left: 0.8cqw;
+      flex: 0 0 auto;
+    }
+    #root .f04r3-browser-menu span {
+      display: block;
+      width: 1.1cqw;
+      height: 0.32cqh;
+      background: var(--black);
+    }
+    #root .f04r3-browser-content {
+      flex: 1;
+      background-color: var(--offwhite);
+      background-image: radial-gradient(circle, rgba(0,0,0,0.07) 1px, transparent 1px);
+      background-size: 3.6cqw 3.6cqw;
+    }
+
+    #root .f04r3-star {
+      position: absolute;
+      top: 6cqh;
+      right: 5cqw;
+      width: 9cqw;
+      aspect-ratio: 1 / 1;
+      background: var(--cream);
+      border: var(--bt) solid var(--black);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      z-index: 6;
+    }
+  </style>
+
+  <div class="f04r3-bg-left clip" data-start="0" data-duration="6" data-track-index="0"></div>
+  <div class="f04r3-bg-right clip" data-start="0" data-duration="6" data-track-index="0"></div>
+  <div class="f04r3-divider clip" data-start="0" data-duration="6" data-track-index="0"></div>
+
+  <div class="f04r3-left-group clip" data-start="0" data-duration="6" data-track-index="1">
+    <div class="f04r3-label-pill f04r3-label-left">Statut</div>
+    <div class="f04r3-phone">
+      <div class="f04r3-phone-notch"></div>
+      <div class="f04r3-ring-wrap">
+        <svg class="f04r3-ring-svg" viewBox="0 0 200 200">
+          <circle class="f04r3-ring-track" cx="100" cy="100" r="86"></circle>
+          <circle class="f04r3-ring-fill" cx="100" cy="100" r="86" transform="rotate(-90 100 100)"></circle>
+        </svg>
+        <div class="f04r3-countdown-num">24H</div>
+      </div>
+      <div class="f04r3-skel-line f04r3-skel-1"></div>
+      <div class="f04r3-skel-line f04r3-skel-2"></div>
+      <div class="f04r3-phone-home"></div>
+    </div>
+  </div>
+
+  <div class="f04r3-right-group clip" data-start="2.2" data-duration="3.8" data-track-index="2">
+    <div class="f04r3-label-pill f04r3-label-right">Site web</div>
+    <div class="f04r3-browser">
+      <div class="f04r3-browser-chrome">
+        <div class="f04r3-browser-dot" style="background: var(--pink);"></div>
+        <div class="f04r3-browser-dot" style="background: var(--yellow);"></div>
+        <div class="f04r3-browser-dot" style="background: var(--green);"></div>
+        <div class="f04r3-browser-addr"></div>
+        <div class="f04r3-browser-menu"><span></span><span></span><span></span></div>
+      </div>
+      <div class="f04r3-browser-content"></div>
+    </div>
+  </div>
+
+  <div class="f04r3-star clip" data-start="0" data-duration="6" data-track-index="3"></div>
+
+  <script>
+    (function () {
+      var scope = document.currentScript.parentElement;
+
+      var phone = scope.querySelector('.f04r3-phone');
+      var labelLeft = scope.querySelector('.f04r3-label-left');
+      var ringFill = scope.querySelector('.f04r3-ring-fill');
+      var counterNum = scope.querySelector('.f04r3-countdown-num');
+      var browser = scope.querySelector('.f04r3-browser');
+      var labelRight = scope.querySelector('.f04r3-label-right');
+      var star = scope.querySelector('.f04r3-star');
+
+      var R = 86;
+      var CIRC = 2 * Math.PI * R;
+      ringFill.style.strokeDasharray = CIRC;
+      ringFill.style.strokeDashoffset = 0;
+      counterNum.textContent = '24H';
+
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-2.2s): phone mockup appears, status ring drains 24 -> 0
+      tl.fromTo(labelLeft, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, 0);
+      tl.fromTo(phone, { opacity: 0, scale: 0.86, rotation: -11 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.38, ease: 'back.out(1.5)' }, 0.02);
+
+      var ring = { v: 24 };
+      tl.to(ringFill, { strokeDashoffset: CIRC, duration: 2.0, ease: 'none' }, 0.15);
+      tl.to(ring, {
+        v: 0,
+        duration: 2.0,
+        ease: 'none',
+        onUpdate: function () { counterNum.textContent = Math.round(ring.v) + 'H'; }
+      }, 0.15);
+
+      // seam into Scene 2: phone fades down to 20% as the ring finishes draining
+      tl.to(phone, { opacity: 0.2, duration: 0.3, ease: 'power1.inOut' }, 2.2);
+
+      // Scene 2 (2.2-4.6s): browser-chrome window fades/scales in, mirrored tilt
+      tl.fromTo(labelRight, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, 2.2);
+      tl.fromTo(browser, { opacity: 0, scale: 0.86, rotation: 11 }, { opacity: 1, scale: 1, rotation: 5, duration: 0.55, ease: 'back.out(1.4)' }, 2.25);
+
+      // small decorative punch-in, settled well before Scene 3's hold
+      tl.fromTo(star, { opacity: 0, scale: 0, rotation: -18 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.4, ease: 'back.out(1.6)' }, 0.2);
+
+      // Scene 3 (4.6-6.0s): held — left faded, right steady. No further motion.
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines['04-raison3'] = tl;
+    })();
+  </script>
+</div>
+</template>
