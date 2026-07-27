@@ -1,0 +1,12 @@
+{
+  "bgm": null,
+  "voices": [
+    { "frame": 1, "path": "audio/lines/01-hook.wav" },
+    { "frame": 2, "path": "audio/lines/02-raison1.wav" },
+    { "frame": 3, "path": "audio/lines/03-raison2.wav" },
+    { "frame": 4, "path": "audio/lines/04-raison3.wav" },
+    { "frame": 5, "path": "audio/lines/05-pivot-preuve.wav" },
+    { "frame": 6, "path": "audio/lines/06-cta.wav" }
+  ],
+  "sfx": []
+}
