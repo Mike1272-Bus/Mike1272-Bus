@@ -1,0 +1,248 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    #root * {
+      box-sizing: border-box;
+    }
+
+    /* ground + decoration (static backdrop, not incremental content) */
+    .pp05-ground {
+      position: absolute;
+      inset: 0;
+      background: #fffdf5;
+    }
+
+    .pp05-dotgrid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0, 0, 0, 0.09) 1.4px, transparent 1.4px);
+      background-size: 26px 26px;
+      opacity: 0.55;
+    }
+
+    .pp05-tiltdeco {
+      position: absolute;
+      left: 56px;
+      top: 120px;
+      width: 84px;
+      height: 84px;
+      background: #fe90e8;
+      border: 3px solid #000;
+      transform: rotate(-9deg);
+    }
+
+    .pp05-tiltdeco2 {
+      position: absolute;
+      left: 900px;
+      top: 1180px;
+      width: 64px;
+      height: 64px;
+      background: #f7cb46;
+      border: 3px solid #000;
+      transform: rotate(11deg);
+    }
+
+    /* Scene 1: plain mock browser window (continuity from Frame 4), fixed footprint
+       shared with the real nyara screenshot below so the crossfade is a straight dissolve */
+    .pp05-shell {
+      position: absolute;
+      left: 162px;
+      top: 320px;
+      width: 756px;
+      height: 585px;
+      background: #ffffff;
+      border: 4px solid #000;
+      box-shadow: 8px 8px 0 #000;
+      overflow: hidden;
+    }
+
+    .pp05-shell__bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: #ffffff;
+      border-bottom: 4px solid #000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-left: 16px;
+    }
+
+    .pp05-shell__dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid #000;
+    }
+
+    .pp05-shell__body {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 40px);
+      background: #fffdf5;
+      padding: 28px;
+    }
+
+    .pp05-shell__skeleton {
+      height: 18px;
+      border-radius: 2px;
+      background: rgba(0, 0, 0, 0.12);
+      margin-bottom: 16px;
+    }
+
+    /* Real proof: nyara screenshot — presented as-is, subtle offset shadow only,
+       no fake browser frame wrapped around it (it already has its own chrome baked in) */
+    .pp05-nyara {
+      position: absolute;
+      left: 162px;
+      top: 320px;
+      width: 756px;
+      height: 585px;
+    }
+
+    .pp05-nyara img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8);
+    }
+
+    /* confirming label-pill beat */
+    .pp05-pill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 176px;
+      margin: 0 auto;
+      width: max-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 30px;
+      background: #99e885;
+      border: 3px solid #000;
+      border-radius: 9999px;
+      box-shadow: 4px 4px 0 #000;
+    }
+
+    .pp05-pill span {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    /* Real proof: aura screenshot — supporting card, docks over nyara's bottom-right corner */
+    .pp05-aura {
+      position: absolute;
+      left: 648px;
+      top: 772px;
+      width: 400px;
+      height: 308px;
+    }
+
+    .pp05-aura img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8);
+    }
+  </style>
+
+  <div id="root" data-composition-id="05-pivot-preuve">
+    <div class="pp05-ground clip" data-start="0" data-duration="6" data-track-index="0"></div>
+
+    <div class="pp05-dotgrid clip" data-start="0" data-duration="6" data-track-index="1"></div>
+
+    <div class="pp05-tiltdeco clip" data-start="0" data-duration="6" data-track-index="2"></div>
+    <div class="pp05-tiltdeco2 clip" data-start="0" data-duration="6" data-track-index="2"></div>
+
+    <!-- Scene 1 (0-1.6s): plain mock window, carried-over continuity state -->
+    <div class="pp05-shell clip" data-start="0" data-duration="1.8" data-track-index="3">
+      <div class="pp05-shell__bar">
+        <div class="pp05-shell__dot" style="background: #fe90e8"></div>
+        <div class="pp05-shell__dot" style="background: #f7cb46"></div>
+        <div class="pp05-shell__dot" style="background: #99e885"></div>
+      </div>
+      <div class="pp05-shell__body">
+        <div class="pp05-shell__skeleton" style="width: 70%"></div>
+        <div class="pp05-shell__skeleton" style="width: 45%"></div>
+        <div class="pp05-shell__skeleton" style="width: 60%"></div>
+      </div>
+    </div>
+
+    <!-- Scene 1-4: the real nyara proof, crossfades in over the mock, then holds -->
+    <div class="pp05-nyara clip" data-start="0" data-duration="6" data-track-index="4">
+      <img src="assets/nyara-site.jpg" alt="" />
+    </div>
+
+    <!-- Scene 2 (1.6-3.4s): confirming beat -->
+    <div class="pp05-pill clip" data-start="1.6" data-duration="4.4" data-track-index="5">
+      <span>Toujours la</span>
+    </div>
+
+    <!-- Scene 3 (3.4-5.2s): aura docks in as supporting proof -->
+    <div class="pp05-aura clip" data-start="3.4" data-duration="2.6" data-track-index="6">
+      <img src="assets/aura-site.jpg" alt="" />
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-1.6s): the empty mock window dissolves as the real
+      // nyara screenshot crossfades in over the exact same footprint —
+      // "held device, real content" signature, timed to "un site, c'est toujours la"
+      tl.fromTo(
+        ".pp05-nyara",
+        { opacity: 0 },
+        { opacity: 1, duration: 1.6, ease: "power1.inOut" },
+        0
+      );
+      tl.fromTo(
+        ".pp05-shell",
+        { opacity: 1 },
+        { opacity: 0, duration: 1.6, ease: "power1.inOut" },
+        0
+      );
+
+      // Scene 2 (1.6-3.4s): confirming label-pill, gentle scale-pop
+      tl.fromTo(
+        ".pp05-pill",
+        { opacity: 0, scale: 0.6 },
+        { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" },
+        1.6
+      );
+
+      // Scene 3 (3.4-5.2s): aura slides + fades in from the right edge,
+      // docking over nyara's bottom-right corner, timed to "et ca fait plus serieux"
+      tl.fromTo(
+        ".pp05-aura",
+        { opacity: 0, x: 220 },
+        { opacity: 1, x: 0, duration: 0.9, ease: "power2.out" },
+        3.4
+      );
+
+      // Scene 4 (5.2-6.0s): held read on both real screenshots — no further motion
+
+      window.__timelines["05-pivot-preuve"] = tl;
+    })();
+  </script>
+</template>

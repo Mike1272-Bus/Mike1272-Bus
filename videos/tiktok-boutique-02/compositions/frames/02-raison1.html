@@ -1,0 +1,241 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      container-type: size;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    /* ---- background ground (full-bleed clip, never on #root) ---- */
+    .raison1-bg {
+      position: absolute;
+      inset: 0;
+      background-color: #C0F7FE;
+    }
+    .raison1-bg::before {
+      /* faint dot grid texture */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.10) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+      opacity: 0.55;
+    }
+    .raison1-deco {
+      position: absolute;
+      top: 96px;
+      left: 64px;
+      width: 76px;
+      height: 76px;
+      background-color: #FFDC8B;
+      border: 3px solid #000000;
+      transform: rotate(8deg);
+    }
+
+    /* ---- device surface (hero) ---- */
+    .raison1-phone {
+      position: absolute;
+      left: 260px;
+      top: 330px;
+      width: 560px;
+      height: 1180px;
+      background-color: #17181A;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0 #000000;
+      padding: 18px;
+      opacity: 0;
+    }
+    .raison1-notch {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      width: 96px;
+      height: 8px;
+      margin-left: -48px;
+      background-color: #000000;
+      border-radius: 999px;
+    }
+    .raison1-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .raison1-header {
+      flex: 0 0 auto;
+      padding: 22px 26px 16px;
+      border-bottom: 2px solid #000000;
+    }
+    .raison1-header-label {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #000000;
+    }
+    .raison1-list {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      padding: 6px 22px 10px;
+      gap: 4px;
+      min-height: 0;
+    }
+    .raison1-row {
+      flex: 1 1 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 1px solid #E4E6E9;
+      opacity: 0;
+      position: relative;
+    }
+    .raison1-row:last-child {
+      border-bottom: none;
+    }
+    .raison1-avatar {
+      flex: 0 0 auto;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background-color: #D3D7DC;
+      border: 2px solid #000000;
+    }
+    .raison1-row-text {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .raison1-name-bar {
+      height: 16px;
+      width: 68%;
+      border-radius: 8px;
+      background-color: #3C3F44;
+    }
+    .raison1-time-bar {
+      height: 10px;
+      width: 30%;
+      border-radius: 6px;
+      background-color: #B7BCC2;
+    }
+    .raison1-ring {
+      position: absolute;
+      inset: -6px -10px;
+      border: 3px solid #FE90E8;
+      border-radius: 14px;
+      box-shadow: 0 0 22px rgba(254, 144, 232, 0.55);
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+
+  <div id="root" data-composition-id="02-raison1" data-start="0" data-duration="5" data-width="1080" data-height="1920">
+    <div class="clip raison1-bg" data-start="0" data-duration="5" data-track-index="0">
+      <div class="raison1-deco"></div>
+    </div>
+
+    <div id="raison1-phone" class="clip raison1-phone" data-start="0" data-duration="5" data-track-index="1">
+      <div class="raison1-notch"></div>
+      <div class="raison1-screen">
+        <div class="raison1-header">
+          <div class="raison1-header-label">Statuts</div>
+        </div>
+        <div class="raison1-list">
+          <div id="raison1-row-1" class="clip raison1-row" data-start="0" data-duration="5" data-track-index="2">
+            <div class="raison1-avatar"></div>
+            <div class="raison1-row-text">
+              <div class="raison1-name-bar"></div>
+              <div class="raison1-time-bar"></div>
+            </div>
+          </div>
+          <div id="raison1-row-2" class="clip raison1-row" data-start="0" data-duration="5" data-track-index="3">
+            <div class="raison1-avatar"></div>
+            <div class="raison1-row-text">
+              <div class="raison1-name-bar" style="width: 54%;"></div>
+              <div class="raison1-time-bar"></div>
+            </div>
+          </div>
+          <div id="raison1-row-3" class="clip raison1-row" data-start="0" data-duration="5" data-track-index="4">
+            <div class="raison1-avatar"></div>
+            <div class="raison1-row-text">
+              <div class="raison1-name-bar" style="width: 74%;"></div>
+              <div class="raison1-time-bar"></div>
+            </div>
+          </div>
+          <div id="raison1-row-4" class="clip raison1-row" data-start="0" data-duration="5" data-track-index="5">
+            <div class="raison1-avatar"></div>
+            <div class="raison1-row-text">
+              <div class="raison1-name-bar" style="width: 60%;"></div>
+              <div class="raison1-time-bar"></div>
+            </div>
+          </div>
+          <div id="raison1-row-5" class="clip raison1-row" data-start="0" data-duration="5" data-track-index="6">
+            <div class="raison1-avatar"></div>
+            <div class="raison1-row-text">
+              <div class="raison1-name-bar" style="width: 70%;"></div>
+              <div class="raison1-time-bar"></div>
+            </div>
+          </div>
+          <div id="raison1-row-6" class="clip raison1-row" data-start="0" data-duration="5" data-track-index="7">
+            <div class="raison1-avatar"></div>
+            <div class="raison1-row-text">
+              <div class="raison1-name-bar" style="width: 64%;"></div>
+              <div class="raison1-time-bar"></div>
+            </div>
+            <div id="raison1-ring" class="clip raison1-ring" data-start="3.4" data-duration="1.6" data-track-index="8"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-1.2s): device surface enters — held-device-surface signature
+      tl.fromTo(
+        "#raison1-phone",
+        { opacity: 0, scale: 0.92 },
+        { opacity: 1, scale: 1, duration: 0.7, ease: "sine.out" },
+        0
+      );
+
+      // Scene 2 (1.2-3.4s): status rows stack in one by one, each a quick fade + 8px drop
+      var rowStarts = [1.3, 1.63, 1.96, 2.29, 2.62, 2.95];
+      for (var i = 0; i < rowStarts.length; i++) {
+        tl.fromTo(
+          "#raison1-row-" + (i + 1),
+          { opacity: 0, y: -8 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "sine.out" },
+          rowStarts[i]
+        );
+      }
+
+      // Scene 3 (3.4-5.0s): newest entry gets a faint ring that fades out, unanswered
+      tl.fromTo(
+        "#raison1-ring",
+        { opacity: 0 },
+        { opacity: 0.65, duration: 0.35, ease: "sine.out" },
+        3.4
+      );
+      tl.to(
+        "#raison1-ring",
+        { opacity: 0, duration: 1.1, ease: "sine.inOut" },
+        3.9
+      );
+
+      window.__timelines["02-raison1"] = tl;
+    })();
+  </script>
+</template>
