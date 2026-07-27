@@ -163,25 +163,27 @@
     }
   </style>
 
-  <div id="root" data-composition-id="05-pivot-preuve">
+  <div id="root" data-composition-id="05-pivot-preuve" data-duration="6" data-width="1080" data-height="1920">
     <div class="pp05-ground clip" data-start="0" data-duration="6" data-track-index="0"></div>
 
     <div class="pp05-dotgrid clip" data-start="0" data-duration="6" data-track-index="1"></div>
 
     <div class="pp05-tiltdeco clip" data-start="0" data-duration="6" data-track-index="2"></div>
-    <div class="pp05-tiltdeco2 clip" data-start="0" data-duration="6" data-track-index="2"></div>
+    <div class="pp05-tiltdeco2 clip" data-start="0" data-duration="6" data-track-index="8"></div>
 
     <!-- Scene 1 (0-1.6s): plain mock window, carried-over continuity state -->
     <div class="pp05-shell clip" data-start="0" data-duration="1.8" data-track-index="3">
-      <div class="pp05-shell__bar">
-        <div class="pp05-shell__dot" style="background: #fe90e8"></div>
-        <div class="pp05-shell__dot" style="background: #f7cb46"></div>
-        <div class="pp05-shell__dot" style="background: #99e885"></div>
-      </div>
-      <div class="pp05-shell__body">
-        <div class="pp05-shell__skeleton" style="width: 70%"></div>
-        <div class="pp05-shell__skeleton" style="width: 45%"></div>
-        <div class="pp05-shell__skeleton" style="width: 60%"></div>
+      <div class="pp05-shell__inner">
+        <div class="pp05-shell__bar">
+          <div class="pp05-shell__dot" style="background: #fe90e8"></div>
+          <div class="pp05-shell__dot" style="background: #f7cb46"></div>
+          <div class="pp05-shell__dot" style="background: #99e885"></div>
+        </div>
+        <div class="pp05-shell__body">
+          <div class="pp05-shell__skeleton" style="width: 70%"></div>
+          <div class="pp05-shell__skeleton" style="width: 45%"></div>
+          <div class="pp05-shell__skeleton" style="width: 60%"></div>
+        </div>
       </div>
     </div>
 
@@ -201,7 +203,6 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
   <script>
     (function () {
       window.__timelines = window.__timelines || {};
@@ -217,11 +218,12 @@
         0
       );
       tl.fromTo(
-        ".pp05-shell",
+        ".pp05-shell__inner",
         { opacity: 1 },
         { opacity: 0, duration: 1.6, ease: "power1.inOut" },
         0
       );
+      tl.set(".pp05-shell__inner", { opacity: 0 }, 1.6);
 
       // Scene 2 (1.6-3.4s): confirming label-pill, gentle scale-pop
       tl.fromTo(

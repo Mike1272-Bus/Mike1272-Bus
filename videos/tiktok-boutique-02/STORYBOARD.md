@@ -22,7 +22,7 @@ music: none
 - scene: A calm numbered intro states the video's premise as a plain question, not a confrontation
 - duration: 4s
 - transition_in: cut
-- status: outline
+- status: animated
 - type: hook
 - persuasion: curiosity / pattern-naming (soft)
 - blueprint: kinetic-type-beats (Reproduce)
@@ -41,7 +41,7 @@ Scene 3 (3.2-4.0s): held read, only a faint yellow underline-tick draws under "S
 - scene: A phone screen mockup shows a WhatsApp-style status feed crammed with entries; the newest one gets lost in the pile
 - duration: 5s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - type: pain_point
 - persuasion: naming a familiar frustration, plainly
 - blueprint: device-surface-showcase (Adapt)
@@ -60,7 +60,7 @@ Scene 3 (3.4-5.0s): the most recent (bottom) entry gets a faint highlight ring t
 - scene: The same crowded status feed now shows a small "muted" indicator appearing on it, naming fatigue rather than invisibility
 - duration: 5s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - type: pain_point
 - persuasion: naming a second, related frustration
 - blueprint: device-surface-showcase (Adapt)
@@ -79,7 +79,7 @@ Scene 3 (3.6-5.0s): held - the screen now reads as quietly ignored (several mute
 - scene: A split beat contrasts a fading, disappearing status against a steady browser window that simply stays put
 - duration: 6s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - type: reveal
 - persuasion: contrast / setup for the pivot
 - blueprint: comparison-split (Reproduce)
@@ -96,7 +96,7 @@ Scene 3 (4.6-6.0s): held - left phone fully faded (24h up), right browser window
 - scene: The browser window from Frame 4 fills the canvas and becomes real - the two actual sites the user built land as proof
 - duration: 6s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - type: proof
 - persuasion: the pivot statement, backed by real evidence (not a mockup)
 - blueprint: device-surface-showcase (Reproduce)
@@ -118,7 +118,7 @@ Scene 4 (5.2-6.0s): held read on both real screenshots together - no further mot
 - scene: A calm closing line offers to show what the viewer's own site could look like - an invitation, not a demand
 - duration: 5s
 - transition_in: cut
-- status: outline
+- status: animated
 - type: cta
 - persuasion: soft single next step
 - blueprint: kinetic-type-beats (Adapt)
