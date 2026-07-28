@@ -54,7 +54,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 16cqh;
+      padding-top: 14cqh;
       z-index: 2;
     }
     #root .f04r3-left-group { left: 0; }
@@ -77,19 +77,28 @@
     #root .f04r3-label-left { background: var(--yellow); }
     #root .f04r3-label-right { background: var(--blue); }
 
+    /* ---- left pane: real WhatsApp status screenshot, cropped tight, phone-bezel framed ---- */
     #root .f04r3-phone {
       position: relative;
-      width: 24cqw;
-      height: 27cqh;
-      background: var(--white);
+      width: 35cqw;
+      height: 44cqh;
+      background: var(--black);
       border: var(--bp) solid var(--black);
       box-shadow: var(--bs) var(--bs) 0 var(--black);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1.6cqh;
-      padding: 3cqh 2cqw;
+      overflow: hidden;
+    }
+    #root .f04r3-phone-photo {
+      position: absolute;
+      inset: 0.9cqw;
+    }
+    #root .f04r3-phone-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 35% 84%;
+      display: block;
     }
     #root .f04r3-phone-notch {
       position: absolute;
@@ -99,21 +108,40 @@
       width: 8cqw;
       height: 0.6cqh;
       background: var(--black);
+      z-index: 3;
     }
     #root .f04r3-phone-home {
       position: absolute;
-      bottom: 1.6cqh;
+      bottom: 1.4cqh;
       left: 50%;
       margin-left: -4.5cqw;
       width: 9cqw;
       height: 0.5cqh;
-      background: var(--black);
-      opacity: 0.5;
+      background: var(--white);
+      opacity: 0.6;
+      z-index: 3;
     }
-    #root .f04r3-ring-wrap {
+    #root .f04r3-ring-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 3.4cqh;
+      pointer-events: none;
+      z-index: 4;
+    }
+    #root .f04r3-ring-badge {
       position: relative;
       width: 15cqw;
       aspect-ratio: 1 / 1;
+      background: var(--white);
+      border: var(--bt) solid var(--black);
+      border-radius: 50%;
+      box-shadow: var(--bst) var(--bst) 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     #root .f04r3-ring-svg {
       position: absolute;
@@ -121,32 +149,19 @@
       width: 100%;
       height: 100%;
     }
-    #root .f04r3-ring-track { fill: none; stroke: var(--black); stroke-opacity: 0.15; stroke-width: 14; }
-    #root .f04r3-ring-fill { fill: none; stroke: var(--yellow); stroke-width: 14; stroke-linecap: butt; }
+    #root .f04r3-ring-track { fill: none; stroke: var(--black); stroke-opacity: 0.12; stroke-width: 14; }
+    #root .f04r3-ring-fill { fill: none; stroke: var(--pink); stroke-width: 14; stroke-linecap: butt; }
     #root .f04r3-countdown-num {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5.6cqw;
+      font-size: 3.6cqw;
       font-weight: 900;
       color: var(--black);
       letter-spacing: -0.02em;
     }
-    #root .f04r3-skel-line {
-      width: 70%;
-      height: 1.3cqh;
-      background: var(--black);
-      opacity: 0.14;
-      border-radius: 0;
-    }
-    #root .f04r3-skel-2 { width: 45%; }
 
+    /* ---- right pane: real Saudagar catalog screenshot, browser-chrome framed ---- */
     #root .f04r3-browser {
       position: relative;
-      width: 42cqw;
-      height: 30cqh;
+      width: 46cqw;
       background: var(--white);
       border: var(--bp) solid var(--black);
       box-shadow: var(--bs) var(--bs) 0 var(--black);
@@ -188,11 +203,31 @@
       background: var(--black);
     }
     #root .f04r3-browser-content {
-      flex: 1;
-      background-color: var(--offwhite);
-      background-image: radial-gradient(circle, rgba(0,0,0,0.07) 1px, transparent 1px);
-      background-size: 3.6cqw 3.6cqw;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1303 / 800;
+      background: var(--offwhite);
+      overflow: hidden;
     }
+    #root .f04r3-browser-content img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 8%;
+      display: block;
+    }
+
+    #root .f04r3-deco-sq {
+      position: absolute;
+      width: 6cqw;
+      aspect-ratio: 1 / 1;
+      border: var(--bt) solid var(--black);
+      z-index: 2;
+    }
+    #root .f04r3-deco-left { left: 8cqw; top: 74cqh; background: var(--cream); }
+    #root .f04r3-deco-right { right: 9cqw; top: 68cqh; background: var(--green); }
 
     #root .f04r3-star {
       position: absolute;
@@ -208,22 +243,25 @@
   </style>
 
   <div class="f04r3-bg-left clip" data-start="0" data-duration="6.5" data-track-index="0"></div>
-  <div class="f04r3-bg-right clip" data-start="0" data-duration="6.5" data-track-index="8"></div>
-  <div class="f04r3-divider clip" data-start="0" data-duration="6.5" data-track-index="9"></div>
+  <div class="f04r3-bg-right clip" data-start="0" data-duration="6.5" data-track-index="9"></div>
+  <div class="f04r3-divider clip" data-start="0" data-duration="6.5" data-track-index="10"></div>
 
   <div class="f04r3-left-group clip" data-start="0" data-duration="6.5" data-track-index="1">
     <div class="f04r3-label-pill f04r3-label-left">Statut</div>
     <div class="f04r3-phone">
       <div class="f04r3-phone-notch"></div>
-      <div class="f04r3-ring-wrap">
-        <svg class="f04r3-ring-svg" viewBox="0 0 200 200">
-          <circle class="f04r3-ring-track" cx="100" cy="100" r="86"></circle>
-          <circle class="f04r3-ring-fill" cx="100" cy="100" r="86" transform="rotate(-90 100 100)"></circle>
-        </svg>
-        <div class="f04r3-countdown-num">24H</div>
+      <div class="f04r3-phone-photo">
+        <img src="assets/whatsapp-status-crowded.jpg" alt="" />
       </div>
-      <div class="f04r3-skel-line f04r3-skel-1"></div>
-      <div class="f04r3-skel-line f04r3-skel-2"></div>
+      <div class="f04r3-ring-overlay">
+        <div class="f04r3-ring-badge">
+          <svg class="f04r3-ring-svg" viewBox="0 0 200 200">
+            <circle class="f04r3-ring-track" cx="100" cy="100" r="86"></circle>
+            <circle class="f04r3-ring-fill" cx="100" cy="100" r="86" transform="rotate(-90 100 100)"></circle>
+          </svg>
+          <div class="f04r3-countdown-num">24H</div>
+        </div>
+      </div>
       <div class="f04r3-phone-home"></div>
     </div>
   </div>
@@ -238,22 +276,28 @@
         <div class="f04r3-browser-addr"></div>
         <div class="f04r3-browser-menu"><span></span><span></span><span></span></div>
       </div>
-      <div class="f04r3-browser-content"></div>
+      <div class="f04r3-browser-content">
+        <img src="assets/saudagar-site.jpg" alt="" />
+      </div>
     </div>
   </div>
 
-  <div class="f04r3-star clip" data-start="0" data-duration="6.5" data-track-index="3"></div>
+  <div class="f04r3-deco-left clip" data-start="0" data-duration="6.5" data-track-index="3"></div>
+  <div class="f04r3-deco-right clip" data-start="2.2" data-duration="4.3" data-track-index="4"></div>
+  <div class="f04r3-star clip" data-start="0" data-duration="6.5" data-track-index="5"></div>
 
   <script>
     (function () {
       var scope = document.currentScript.parentElement;
 
+      var leftGroup = scope.querySelector('.f04r3-left-group');
       var phone = scope.querySelector('.f04r3-phone');
-      var labelLeft = scope.querySelector('.f04r3-label-left');
       var ringFill = scope.querySelector('.f04r3-ring-fill');
       var counterNum = scope.querySelector('.f04r3-countdown-num');
+      var rightGroup = scope.querySelector('.f04r3-right-group');
       var browser = scope.querySelector('.f04r3-browser');
-      var labelRight = scope.querySelector('.f04r3-label-right');
+      var decoLeft = scope.querySelector('.f04r3-deco-left');
+      var decoRight = scope.querySelector('.f04r3-deco-right');
       var star = scope.querySelector('.f04r3-star');
 
       var R = 86;
@@ -264,10 +308,17 @@
 
       var tl = gsap.timeline({ paused: true });
 
-      // Scene 1 (0.0-2.2s): phone mockup appears, status ring drains 24 -> 0
-      tl.fromTo(labelLeft, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, 0);
-      tl.fromTo(phone, { opacity: 0, scale: 0.86, rotation: -11 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.38, ease: 'back.out(1.5)' }, 0.02);
+      // Scene 1 (0.0-2.2s): canvas already split pink/offwhite from t=0 (static ground).
+      // Left pane arrives as the incoming half of the zoom-through cut: scale 0.75->1,
+      // blur 10px->0, opacity 0.15->1, expo.out.
+      tl.fromTo(
+        leftGroup,
+        { opacity: 0.15, scale: 0.75, filter: 'blur(10px)' },
+        { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.6, ease: 'expo.out' },
+        0
+      );
 
+      // status ring drains 24 -> 0 across the scene window
       var ring = { v: 24 };
       tl.to(ringFill, { strokeDashoffset: CIRC, duration: 2.0, ease: 'none' }, 0.15);
       tl.to(ring, {
@@ -277,17 +328,34 @@
         onUpdate: function () { counterNum.textContent = Math.round(ring.v) + 'H'; }
       }, 0.15);
 
+      var deco1 = { s: 0, r: -10, o: 0 };
+      tl.fromTo(decoLeft, { opacity: 0, scale: 0, rotation: -10 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.4, ease: 'back.out(1.6)' }, 1.0);
+
       // seam into Scene 2: phone fades down to 20% as the ring finishes draining
       tl.to(phone, { opacity: 0.2, duration: 0.3, ease: 'power1.inOut' }, 2.2);
 
-      // Scene 2 (2.2-4.6s): browser-chrome window fades/scales in, mirrored tilt
-      tl.fromTo(labelRight, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, 2.2);
-      tl.fromTo(browser, { opacity: 0, scale: 0.86, rotation: 11 }, { opacity: 1, scale: 1, rotation: 5, duration: 0.55, ease: 'back.out(1.4)' }, 2.25);
+      // mirrored tilt on the left card for book-open symmetry with the incoming right pane
+      tl.fromTo(phone, { rotation: 0 }, { rotation: -4, duration: 0.5, ease: 'power2.out' }, 2.25);
 
-      // small decorative punch-in, settled well before Scene 3's hold
-      tl.fromTo(star, { opacity: 0, scale: 0, rotation: -18 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.4, ease: 'back.out(1.6)' }, 0.2);
+      // Scene 2 (2.2-4.6s): right pane pushes in — motion-blur-streak, camera push-through
+      // variation: scale 1.1 -> 1.0, blur 12px -> 0px, mirrored +4deg tilt (book-open).
+      tl.fromTo(
+        rightGroup.querySelector('.f04r3-label-right'),
+        { opacity: 0, y: -10 },
+        { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' },
+        2.2
+      );
+      tl.fromTo(
+        browser,
+        { opacity: 0, scale: 1.1, rotation: 0, filter: 'blur(12px)' },
+        { opacity: 1, scale: 1, rotation: 4, filter: 'blur(0px)', duration: 0.55, ease: 'power4.out' },
+        2.25
+      );
 
-      // Scene 3 (4.6-6.0s): held — left faded, right steady. No further motion.
+      tl.fromTo(decoRight, { opacity: 0, scale: 0, rotation: 14 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.4, ease: 'back.out(1.6)' }, 3.0);
+      tl.fromTo(star, { opacity: 0, scale: 0, rotation: -18 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.4, ease: 'back.out(1.6)' }, 1.6);
+
+      // Scene 3 (4.6-6.0s): held — left faded (24h up), right site sits steady, no further motion.
 
       window.__timelines = window.__timelines || {};
       window.__timelines['04-raison3'] = tl;
