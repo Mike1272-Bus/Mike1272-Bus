@@ -1,0 +1,421 @@
+<template>
+<style>
+  #root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    container-type: size;
+    --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+    --f-label: "Helvetica Neue", Arial, sans-serif;
+    --black: #000000;
+    --white: #ffffff;
+    --yellow: #f7cb46;
+    --pink: #fe90e8;
+    --blue: #c0f7fe;
+    --green: #99e885;
+  }
+
+  #root * { box-sizing: border-box; }
+
+  /* ---------- full-bleed yellow wash — same bookend hue as Frame 1 ---------- */
+  .cta06-bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--yellow);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+    background-size: 4.6cqw 4.6cqw;
+  }
+
+  .cta06-deco {
+    position: absolute;
+    border: 0.3cqw solid var(--black);
+    box-shadow: 0.4cqw 0.4cqw 0 var(--black);
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+  .cta06-chip-pink {
+    top: 6cqh;
+    left: 6cqw;
+    width: 8cqw;
+    height: 8cqw;
+    background: var(--blue);
+  }
+  .cta06-chip-green {
+    top: 74cqh;
+    left: 6cqw;
+    width: 7cqw;
+    height: 7cqw;
+    background: var(--green);
+  }
+  .cta06-star {
+    top: 4cqh;
+    right: 6cqw;
+    width: 9cqw;
+    height: 9cqw;
+    background: var(--pink);
+    border: 0.3cqw solid var(--black);
+    clip-path: polygon(
+      50% 0%, 61.8% 35.3%, 97.6% 35.3%, 68.8% 57.4%, 79.4% 91.8%,
+      50% 70.5%, 20.6% 91.8%, 31.2% 57.4%, 2.4% 35.3%, 38.2% 35.3%
+    );
+  }
+
+  /* ---------- Scene 1: label-pill + 2-line question ---------- */
+  .cta06-label-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 16cqh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 6cqh;
+  }
+  .cta06-label {
+    font-family: var(--f-label);
+    font-weight: 700;
+    font-size: 2.6cqw;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--white);
+    border: 0.3cqw solid var(--black);
+    box-shadow: 0.4cqw 0.4cqw 0 var(--black);
+    border-radius: 9999px;
+    padding: 1.5cqw 3.2cqw;
+    white-space: nowrap;
+    opacity: 0;
+    transform-origin: center center;
+    will-change: transform, opacity;
+  }
+
+  .cta06-headline-wrap {
+    position: absolute;
+    top: 16cqh;
+    left: 0;
+    width: 100%;
+    height: 20cqh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 5cqw;
+    gap: 0.6cqw;
+  }
+  .cta06-headline-line {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: 6.6cqw;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--black);
+    max-width: 92cqw;
+    opacity: 0;
+    transform-origin: center center;
+    will-change: transform, opacity;
+  }
+
+  /* ---------- Scene 2: hero CTA button + particle burst ---------- */
+  .cta06-button-wrap {
+    position: absolute;
+    top: 36cqh;
+    left: 0;
+    width: 100%;
+    height: 24cqh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6cqw;
+  }
+  .cta06-button {
+    position: relative;
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: 5.2cqw;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--black);
+    background: var(--yellow);
+    border: 0.45cqw solid var(--black);
+    box-shadow: 0.9cqw 0.9cqw 0 var(--black);
+    padding: 4.4cqw 4.8cqw;
+    max-width: 86cqw;
+    opacity: 0;
+    transform-origin: center center;
+    will-change: transform, opacity;
+    z-index: 3;
+  }
+
+  .cta06-particle-field {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    z-index: 2;
+  }
+  .cta06-particle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  /* ---------- Scene 3: real-photo cursor sticker (echoes shop-now-button.jpg) ---------- */
+  .cta06-cursor-wrap {
+    position: absolute;
+    top: 47cqh;
+    left: 0;
+    width: 100%;
+    height: 26cqh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-right: 5cqw;
+    z-index: 4;
+    pointer-events: none;
+  }
+  .cta06-cursor-badge {
+    position: relative;
+    width: 26cqw;
+    aspect-ratio: 156 / 204;
+    background: var(--white);
+    border: 0.3cqw solid var(--black);
+    box-shadow: 0.5cqw 0.5cqw 0 var(--black);
+    overflow: hidden;
+    opacity: 0;
+    transform-origin: 80% 15%; /* anchored near the fingertip/click-lines corner */
+    will-change: transform, opacity;
+  }
+  /* Fixed crop box: shows ONLY the hand/cursor + click-lines corner of the
+     source photo (crop px 452,68 -> 608,272 of the 612x340 original),
+     scaled 1.8x so the crop fills the badge exactly. Never the full button. */
+  .cta06-cursor-badge img {
+    position: absolute;
+    left: -813.6px;
+    top: -122.4px;
+    width: 1101.6px;
+    height: 612px;
+    max-width: none;
+  }
+
+  .cta06-cursor-label {
+    position: absolute;
+    left: 0.6cqw;
+    bottom: 0.6cqw;
+    font-family: var(--f-label);
+    font-weight: 700;
+    font-size: 1.5cqw;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--pink);
+    border: 0.22cqw solid var(--black);
+    padding: 0.5cqw 1.2cqw;
+  }
+</style>
+
+<div id="root" data-composition-id="06-cta" data-duration="6" data-width="1080" data-height="1920">
+  <div class="cta06-bg clip" data-start="0" data-duration="6" data-track-index="0">
+    <div class="cta06-deco cta06-chip-pink" id="cta06-chip-pink"></div>
+    <div class="cta06-deco cta06-chip-green" id="cta06-chip-green"></div>
+    <div class="cta06-deco cta06-star" id="cta06-star"></div>
+  </div>
+
+  <div class="cta06-label-wrap">
+    <div class="cta06-label clip" id="cta06-label" data-start="0" data-duration="6" data-track-index="1">
+      DERNIERE ETAPE
+    </div>
+  </div>
+
+  <div class="cta06-headline-wrap">
+    <div class="cta06-headline-line clip" id="cta06-h1" data-start="0" data-duration="6" data-track-index="2">
+      BESOIN D'AIDE POUR TOUT
+    </div>
+    <div class="cta06-headline-line clip" id="cta06-h2" data-start="0" data-duration="6" data-track-index="3">
+      CONNECTER ENSEMBLE ?
+    </div>
+  </div>
+
+  <div class="cta06-button-wrap">
+    <div class="cta06-particle-field" id="cta06-particle-field"></div>
+    <div class="cta06-button clip" id="cta06-button" data-start="1.6" data-duration="4.4" data-track-index="4">
+      ECRIS 'OUTILS' EN MESSAGE
+    </div>
+  </div>
+
+  <div class="cta06-cursor-wrap">
+    <div class="cta06-cursor-badge clip" id="cta06-cursor" data-start="2.3" data-duration="3.7" data-track-index="5">
+      <img src="assets/shop-now-button.jpg" alt="" />
+      <div class="cta06-cursor-label">CLIC</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    var prand = function (n) {
+      var x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+      return x - Math.floor(x);
+    };
+
+    // ---------------- Scene 1 (0.0-1.6s): yellow wash is already on screen;
+    // label-pill pops, headline fades up line by line with a soft drift, and
+    // the pink corner chip punctuates the open.
+    tl.fromTo(
+      "#cta06-label",
+      { scale: 0.6, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out" },
+      0.05
+    );
+    tl.fromTo(
+      "#cta06-chip-pink",
+      { scale: 0, opacity: 0, rotation: -16 },
+      { scale: 1, opacity: 1, rotation: -8, duration: 0.4, ease: "power3.out" },
+      0.15
+    );
+    tl.fromTo(
+      "#cta06-h1",
+      { y: 26, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+      0.2
+    );
+    tl.fromTo(
+      "#cta06-h2",
+      { y: 26, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+      0.48
+    );
+
+    // ---------------- Scene 2 (1.6-2.3s): the CTA button spring-pops to
+    // center with a confident overshoot, then a dot-burst fires from its
+    // landing point. The green corner chip lands a beat later so Scene 2
+    // keeps building rather than front-loading.
+    tl.fromTo(
+      "#cta06-button",
+      { scale: 0.7, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.6)" },
+      1.6
+    );
+    tl.fromTo(
+      "#cta06-chip-green",
+      { scale: 0, opacity: 0, rotation: 14 },
+      { scale: 1, opacity: 1, rotation: 7, duration: 0.35, ease: "power3.out" },
+      1.75
+    );
+
+    // Deterministic dot-burst — fixed pool, pure ballistic function of T.
+    (function () {
+      var PARTICLE_COUNT = 8;
+      var SIZE_MIN = 5,
+        SIZE_MAX = 9;
+      var SPEED_MIN = 260,
+        SPEED_MAX = 480;
+      var G = 60; // gentle drift, not a confetti fall
+      var FLIGHT_DUR = 0.6;
+      var FADE_FRAC = 0.3;
+      var BURST_AT = 2.05; // the button's landing frame
+      var palette = ["#000000", "#fe90e8", "#c0f7fe", "#99e885"];
+
+      var field = document.getElementById("cta06-particle-field");
+      var parts = [];
+      for (var i = 0; i < PARTICLE_COUNT; i++) {
+        var el = document.createElement("div");
+        el.className = "cta06-particle";
+        var size = SIZE_MIN + prand(i * 3 + 1) * (SIZE_MAX - SIZE_MIN);
+        el.style.width = size + "px";
+        el.style.height = size + "px";
+        el.style.background = palette[i % palette.length];
+        field.appendChild(el);
+
+        var angle = prand(i * 5 + 2) * Math.PI * 2; // radial burst, all directions
+        var speed = SPEED_MIN + prand(i * 7 + 3) * (SPEED_MAX - SPEED_MIN);
+        parts.push({
+          el: el,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+        });
+      }
+
+      var drive = { T: 0 };
+      tl.fromTo(
+        drive,
+        { T: 0 },
+        {
+          T: 1,
+          duration: FLIGHT_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var t = drive.T * FLIGHT_DUR;
+            var fade = Math.min(1, (1 - drive.T) / FADE_FRAC);
+            for (var j = 0; j < parts.length; j++) {
+              var p = parts[j];
+              var x = p.vx * t;
+              var y = p.vy * t + 0.5 * G * t * t;
+              p.el.style.transform = "translate(" + x + "px, " + y + "px)";
+              p.el.style.opacity = String(drive.T === 0 ? 0 : fade);
+            }
+          },
+        },
+        BURST_AT
+      );
+    })();
+
+    // ---------------- Scene 3 (2.3-3.1s): the shop-now-button.jpg cursor
+    // graphic (cropped to just the hand/cursor) slides in from bottom-right
+    // and settles pointing at the real CTA button, as if about to click it.
+    tl.fromTo(
+      "#cta06-cursor",
+      { x: 250, y: 180, rotation: -26, opacity: 0 },
+      { x: 0, y: 0, rotation: -9, opacity: 1, duration: 0.55, ease: "power3.out" },
+      2.3
+    );
+    tl.fromTo(
+      "#cta06-star",
+      { scale: 0, opacity: 0, rotation: -18 },
+      { scale: 1, opacity: 1, rotation: 0, duration: 0.4, ease: "back.out(1.8)" },
+      2.35
+    );
+
+    // ---------------- Scene 4 (3.1-6.0s): held final read. Button, cursor
+    // accent and question sit still — only the cursor keeps a very subtle
+    // sine-wave-loop micro-bob. This is the last frame of the video: no exit.
+    (function () {
+      var cursor = document.getElementById("cta06-cursor");
+      var BASE_ROT = -9;
+      var Y_AMP_PX = 3;
+      var IDLE_START = 2.95; // settle (2.85) + ~0.1s
+      var IDLE_DUR = 6.0 - IDLE_START;
+      var CYCLES = IDLE_DUR / 2.5;
+      var phase = { p: 0 };
+      tl.to(
+        phase,
+        {
+          p: Math.PI * 2 * CYCLES,
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var s = Math.sin(phase.p);
+            cursor.style.transform =
+              "translate(0px, " + (s * Y_AMP_PX) + "px) rotate(" + BASE_ROT + "deg)";
+          },
+        },
+        IDLE_START
+      );
+    })();
+
+    window.__timelines["06-cta"] = tl;
+  })();
+</script>
+</template>
