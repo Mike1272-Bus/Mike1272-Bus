@@ -1,0 +1,86 @@
+[
+  {
+    "id": "w0",
+    "text": "Avant,",
+    "start": 0,
+    "end": 0.332
+  },
+  {
+    "id": "w1",
+    "text": "tu",
+    "start": 0.392,
+    "end": 0.494
+  },
+  {
+    "id": "w2",
+    "text": "choisissais",
+    "start": 0.554,
+    "end": 1.116
+  },
+  {
+    "id": "w3",
+    "text": "toi-meme",
+    "start": 1.176,
+    "end": 1.534
+  },
+  {
+    "id": "w4",
+    "text": "qui",
+    "start": 1.594,
+    "end": 1.747
+  },
+  {
+    "id": "w5",
+    "text": "voit",
+    "start": 1.807,
+    "end": 2.012
+  },
+  {
+    "id": "w6",
+    "text": "ta",
+    "start": 2.072,
+    "end": 2.174
+  },
+  {
+    "id": "w7",
+    "text": "pub:",
+    "start": 2.234,
+    "end": 2.464
+  },
+  {
+    "id": "w8",
+    "text": "l'age,",
+    "start": 2.524,
+    "end": 2.805
+  },
+  {
+    "id": "w9",
+    "text": "la",
+    "start": 2.865,
+    "end": 2.967
+  },
+  {
+    "id": "w10",
+    "text": "ville,",
+    "start": 3.027,
+    "end": 3.359
+  },
+  {
+    "id": "w11",
+    "text": "les",
+    "start": 3.419,
+    "end": 3.573
+  },
+  {
+    "id": "w12",
+    "text": "centres",
+    "start": 3.633,
+    "end": 3.99
+  },
+  {
+    "id": "w13",
+    "text": "d'interet.",
+    "start": 4.05,
+    "end": 4.587
+  }
+]

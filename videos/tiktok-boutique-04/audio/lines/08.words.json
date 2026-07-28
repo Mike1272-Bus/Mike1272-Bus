@@ -1,0 +1,50 @@
+[
+  {
+    "id": "w0",
+    "text": "Abonne-toi",
+    "start": 0,
+    "end": 0.44
+  },
+  {
+    "id": "w1",
+    "text": "pour",
+    "start": 0.5,
+    "end": 0.696
+  },
+  {
+    "id": "w2",
+    "text": "en",
+    "start": 0.756,
+    "end": 0.854
+  },
+  {
+    "id": "w3",
+    "text": "apprendre",
+    "start": 0.914,
+    "end": 1.354
+  },
+  {
+    "id": "w4",
+    "text": "plus",
+    "start": 1.414,
+    "end": 1.61
+  },
+  {
+    "id": "w5",
+    "text": "a",
+    "start": 1.67,
+    "end": 1.719
+  },
+  {
+    "id": "w6",
+    "text": "ce",
+    "start": 1.779,
+    "end": 1.877
+  },
+  {
+    "id": "w7",
+    "text": "sujet.",
+    "start": 1.937,
+    "end": 2.304
+  }
+]

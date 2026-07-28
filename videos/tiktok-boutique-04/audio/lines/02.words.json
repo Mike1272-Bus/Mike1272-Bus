@@ -1,0 +1,104 @@
+[
+  {
+    "id": "w0",
+    "text": "Mais",
+    "start": 0,
+    "end": 0.19
+  },
+  {
+    "id": "w1",
+    "text": "si",
+    "start": 0.25,
+    "end": 0.345
+  },
+  {
+    "id": "w2",
+    "text": "tu",
+    "start": 0.405,
+    "end": 0.499
+  },
+  {
+    "id": "w3",
+    "text": "ne",
+    "start": 0.559,
+    "end": 0.654
+  },
+  {
+    "id": "w4",
+    "text": "connais",
+    "start": 0.714,
+    "end": 1.046
+  },
+  {
+    "id": "w5",
+    "text": "pas",
+    "start": 1.106,
+    "end": 1.249
+  },
+  {
+    "id": "w6",
+    "text": "les",
+    "start": 1.309,
+    "end": 1.451
+  },
+  {
+    "id": "w7",
+    "text": "nouvelles",
+    "start": 1.511,
+    "end": 1.938
+  },
+  {
+    "id": "w8",
+    "text": "regles,",
+    "start": 1.998,
+    "end": 2.354
+  },
+  {
+    "id": "w9",
+    "text": "tu",
+    "start": 2.414,
+    "end": 2.509
+  },
+  {
+    "id": "w10",
+    "text": "risques",
+    "start": 2.569,
+    "end": 2.901
+  },
+  {
+    "id": "w11",
+    "text": "de",
+    "start": 2.961,
+    "end": 3.055
+  },
+  {
+    "id": "w12",
+    "text": "perdre",
+    "start": 3.115,
+    "end": 3.4
+  },
+  {
+    "id": "w13",
+    "text": "de",
+    "start": 3.46,
+    "end": 3.555
+  },
+  {
+    "id": "w14",
+    "text": "l'argent",
+    "start": 3.615,
+    "end": 3.947
+  },
+  {
+    "id": "w15",
+    "text": "pour",
+    "start": 4.007,
+    "end": 4.197
+  },
+  {
+    "id": "w16",
+    "text": "rien.",
+    "start": 4.257,
+    "end": 4.565
+  }
+]

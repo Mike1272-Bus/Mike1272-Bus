@@ -1,0 +1,11 @@
+{
+  "name": "tiktok-boutique-04",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.7.78 preview",
+    "check": "npx --yes hyperframes@0.7.78 check",
+    "render": "npx --yes hyperframes@0.7.78 render",
+    "publish": "npx --yes hyperframes@0.7.78 publish"
+  }
+}

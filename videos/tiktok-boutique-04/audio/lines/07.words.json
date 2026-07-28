@@ -1,0 +1,110 @@
+[
+  {
+    "id": "w0",
+    "text": "Mon",
+    "start": 0,
+    "end": 0.16
+  },
+  {
+    "id": "w1",
+    "text": "avis:",
+    "start": 0.22,
+    "end": 0.513
+  },
+  {
+    "id": "w2",
+    "text": "aujourd'hui,",
+    "start": 0.573,
+    "end": 1.185
+  },
+  {
+    "id": "w3",
+    "text": "la",
+    "start": 1.245,
+    "end": 1.352
+  },
+  {
+    "id": "w4",
+    "text": "difference",
+    "start": 1.412,
+    "end": 1.944
+  },
+  {
+    "id": "w5",
+    "text": "ne",
+    "start": 2.004,
+    "end": 2.111
+  },
+  {
+    "id": "w6",
+    "text": "se",
+    "start": 2.171,
+    "end": 2.277
+  },
+  {
+    "id": "w7",
+    "text": "joue",
+    "start": 2.337,
+    "end": 2.55
+  },
+  {
+    "id": "w8",
+    "text": "plus",
+    "start": 2.61,
+    "end": 2.823
+  },
+  {
+    "id": "w9",
+    "text": "sur",
+    "start": 2.883,
+    "end": 3.043
+  },
+  {
+    "id": "w10",
+    "text": "le",
+    "start": 3.103,
+    "end": 3.209
+  },
+  {
+    "id": "w11",
+    "text": "ciblage.",
+    "start": 3.269,
+    "end": 3.775
+  },
+  {
+    "id": "w12",
+    "text": "Elle",
+    "start": 3.835,
+    "end": 4.048
+  },
+  {
+    "id": "w13",
+    "text": "se",
+    "start": 4.108,
+    "end": 4.215
+  },
+  {
+    "id": "w14",
+    "text": "joue",
+    "start": 4.275,
+    "end": 4.488
+  },
+  {
+    "id": "w15",
+    "text": "sur",
+    "start": 4.548,
+    "end": 4.708
+  },
+  {
+    "id": "w16",
+    "text": "la",
+    "start": 4.768,
+    "end": 4.874
+  },
+  {
+    "id": "w17",
+    "text": "preparation.",
+    "start": 4.934,
+    "end": 5.653
+  }
+]

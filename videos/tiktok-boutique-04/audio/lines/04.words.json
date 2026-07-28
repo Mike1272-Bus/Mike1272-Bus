@@ -1,0 +1,86 @@
+[
+  {
+    "id": "w0",
+    "text": "Aujourd'hui,",
+    "start": 0,
+    "end": 0.741
+  },
+  {
+    "id": "w1",
+    "text": "Facebook",
+    "start": 0.801,
+    "end": 1.317
+  },
+  {
+    "id": "w2",
+    "text": "prefere",
+    "start": 1.377,
+    "end": 1.828
+  },
+  {
+    "id": "w3",
+    "text": "decider",
+    "start": 1.888,
+    "end": 2.339
+  },
+  {
+    "id": "w4",
+    "text": "lui-meme",
+    "start": 2.399,
+    "end": 2.851
+  },
+  {
+    "id": "w5",
+    "text": "qui",
+    "start": 2.911,
+    "end": 3.104
+  },
+  {
+    "id": "w6",
+    "text": "voit",
+    "start": 3.164,
+    "end": 3.422
+  },
+  {
+    "id": "w7",
+    "text": "ta",
+    "start": 3.482,
+    "end": 3.611
+  },
+  {
+    "id": "w8",
+    "text": "pub,",
+    "start": 3.671,
+    "end": 3.961
+  },
+  {
+    "id": "w9",
+    "text": "grace",
+    "start": 4.021,
+    "end": 4.343
+  },
+  {
+    "id": "w10",
+    "text": "a",
+    "start": 4.403,
+    "end": 4.467
+  },
+  {
+    "id": "w11",
+    "text": "son",
+    "start": 4.527,
+    "end": 4.721
+  },
+  {
+    "id": "w12",
+    "text": "intelligence",
+    "start": 4.781,
+    "end": 5.554
+  },
+  {
+    "id": "w13",
+    "text": "artificielle.",
+    "start": 5.614,
+    "end": 6.549
+  }
+]

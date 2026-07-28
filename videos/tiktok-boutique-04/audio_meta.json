@@ -1,0 +1,648 @@
+{
+  "bgm": null,
+  "voices": [
+    {
+      "frame": 1,
+      "path": "audio/lines/01.wav",
+      "duration_s": 3.307,
+      "words": [
+        {
+          "text": "Tu",
+          "start": 0,
+          "end": 0.119
+        },
+        {
+          "text": "veux",
+          "start": 0.179,
+          "end": 0.417
+        },
+        {
+          "text": "faire",
+          "start": 0.477,
+          "end": 0.774
+        },
+        {
+          "text": "de",
+          "start": 0.834,
+          "end": 0.953
+        },
+        {
+          "text": "la",
+          "start": 1.013,
+          "end": 1.132
+        },
+        {
+          "text": "pub",
+          "start": 1.192,
+          "end": 1.371
+        },
+        {
+          "text": "pour",
+          "start": 1.431,
+          "end": 1.669
+        },
+        {
+          "text": "ton",
+          "start": 1.729,
+          "end": 1.907
+        },
+        {
+          "text": "produit",
+          "start": 1.967,
+          "end": 2.384
+        },
+        {
+          "text": "sur",
+          "start": 2.444,
+          "end": 2.622
+        },
+        {
+          "text": "Facebook.",
+          "start": 2.682,
+          "end": 3.307
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "path": "audio/lines/02.wav",
+      "duration_s": 4.565,
+      "words": [
+        {
+          "text": "Mais",
+          "start": 0,
+          "end": 0.19
+        },
+        {
+          "text": "si",
+          "start": 0.25,
+          "end": 0.345
+        },
+        {
+          "text": "tu",
+          "start": 0.405,
+          "end": 0.499
+        },
+        {
+          "text": "ne",
+          "start": 0.559,
+          "end": 0.654
+        },
+        {
+          "text": "connais",
+          "start": 0.714,
+          "end": 1.046
+        },
+        {
+          "text": "pas",
+          "start": 1.106,
+          "end": 1.249
+        },
+        {
+          "text": "les",
+          "start": 1.309,
+          "end": 1.451
+        },
+        {
+          "text": "nouvelles",
+          "start": 1.511,
+          "end": 1.938
+        },
+        {
+          "text": "regles,",
+          "start": 1.998,
+          "end": 2.354
+        },
+        {
+          "text": "tu",
+          "start": 2.414,
+          "end": 2.509
+        },
+        {
+          "text": "risques",
+          "start": 2.569,
+          "end": 2.901
+        },
+        {
+          "text": "de",
+          "start": 2.961,
+          "end": 3.055
+        },
+        {
+          "text": "perdre",
+          "start": 3.115,
+          "end": 3.4
+        },
+        {
+          "text": "de",
+          "start": 3.46,
+          "end": 3.555
+        },
+        {
+          "text": "l'argent",
+          "start": 3.615,
+          "end": 3.947
+        },
+        {
+          "text": "pour",
+          "start": 4.007,
+          "end": 4.197
+        },
+        {
+          "text": "rien.",
+          "start": 4.257,
+          "end": 4.565
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "path": "audio/lines/03.wav",
+      "duration_s": 4.587,
+      "words": [
+        {
+          "text": "Avant,",
+          "start": 0,
+          "end": 0.332
+        },
+        {
+          "text": "tu",
+          "start": 0.392,
+          "end": 0.494
+        },
+        {
+          "text": "choisissais",
+          "start": 0.554,
+          "end": 1.116
+        },
+        {
+          "text": "toi-meme",
+          "start": 1.176,
+          "end": 1.534
+        },
+        {
+          "text": "qui",
+          "start": 1.594,
+          "end": 1.747
+        },
+        {
+          "text": "voit",
+          "start": 1.807,
+          "end": 2.012
+        },
+        {
+          "text": "ta",
+          "start": 2.072,
+          "end": 2.174
+        },
+        {
+          "text": "pub:",
+          "start": 2.234,
+          "end": 2.464
+        },
+        {
+          "text": "l'age,",
+          "start": 2.524,
+          "end": 2.805
+        },
+        {
+          "text": "la",
+          "start": 2.865,
+          "end": 2.967
+        },
+        {
+          "text": "ville,",
+          "start": 3.027,
+          "end": 3.359
+        },
+        {
+          "text": "les",
+          "start": 3.419,
+          "end": 3.573
+        },
+        {
+          "text": "centres",
+          "start": 3.633,
+          "end": 3.99
+        },
+        {
+          "text": "d'interet.",
+          "start": 4.05,
+          "end": 4.587
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "path": "audio/lines/04.wav",
+      "duration_s": 6.549,
+      "words": [
+        {
+          "text": "Aujourd'hui,",
+          "start": 0,
+          "end": 0.741
+        },
+        {
+          "text": "Facebook",
+          "start": 0.801,
+          "end": 1.317
+        },
+        {
+          "text": "prefere",
+          "start": 1.377,
+          "end": 1.828
+        },
+        {
+          "text": "decider",
+          "start": 1.888,
+          "end": 2.339
+        },
+        {
+          "text": "lui-meme",
+          "start": 2.399,
+          "end": 2.851
+        },
+        {
+          "text": "qui",
+          "start": 2.911,
+          "end": 3.104
+        },
+        {
+          "text": "voit",
+          "start": 3.164,
+          "end": 3.422
+        },
+        {
+          "text": "ta",
+          "start": 3.482,
+          "end": 3.611
+        },
+        {
+          "text": "pub,",
+          "start": 3.671,
+          "end": 3.961
+        },
+        {
+          "text": "grace",
+          "start": 4.021,
+          "end": 4.343
+        },
+        {
+          "text": "a",
+          "start": 4.403,
+          "end": 4.467
+        },
+        {
+          "text": "son",
+          "start": 4.527,
+          "end": 4.721
+        },
+        {
+          "text": "intelligence",
+          "start": 4.781,
+          "end": 5.554
+        },
+        {
+          "text": "artificielle.",
+          "start": 5.614,
+          "end": 6.549
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "path": "audio/lines/05.wav",
+      "duration_s": 5.995,
+      "words": [
+        {
+          "text": "Resultat:",
+          "start": 0,
+          "end": 0.534
+        },
+        {
+          "text": "une",
+          "start": 0.594,
+          "end": 0.763
+        },
+        {
+          "text": "pub",
+          "start": 0.823,
+          "end": 0.991
+        },
+        {
+          "text": "mal",
+          "start": 1.051,
+          "end": 1.22
+        },
+        {
+          "text": "preparee",
+          "start": 1.28,
+          "end": 1.73
+        },
+        {
+          "text": "coute",
+          "start": 1.79,
+          "end": 2.071
+        },
+        {
+          "text": "plus",
+          "start": 2.131,
+          "end": 2.356
+        },
+        {
+          "text": "cher,",
+          "start": 2.416,
+          "end": 2.725
+        },
+        {
+          "text": "et",
+          "start": 2.785,
+          "end": 2.897
+        },
+        {
+          "text": "touche",
+          "start": 2.957,
+          "end": 3.295
+        },
+        {
+          "text": "des",
+          "start": 3.355,
+          "end": 3.523
+        },
+        {
+          "text": "gens",
+          "start": 3.583,
+          "end": 3.808
+        },
+        {
+          "text": "qui",
+          "start": 3.868,
+          "end": 4.037
+        },
+        {
+          "text": "ne",
+          "start": 4.097,
+          "end": 4.209
+        },
+        {
+          "text": "sont",
+          "start": 4.269,
+          "end": 4.494
+        },
+        {
+          "text": "pas",
+          "start": 4.554,
+          "end": 4.723
+        },
+        {
+          "text": "vraiment",
+          "start": 4.783,
+          "end": 5.232
+        },
+        {
+          "text": "interesses.",
+          "start": 5.292,
+          "end": 5.995
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "path": "audio/lines/06.wav",
+      "duration_s": 6.016,
+      "words": [
+        {
+          "text": "Mais",
+          "start": 0,
+          "end": 0.239
+        },
+        {
+          "text": "une",
+          "start": 0.299,
+          "end": 0.479
+        },
+        {
+          "text": "pub",
+          "start": 0.539,
+          "end": 0.718
+        },
+        {
+          "text": "bien",
+          "start": 0.778,
+          "end": 1.018
+        },
+        {
+          "text": "pensee,",
+          "start": 1.078,
+          "end": 1.526
+        },
+        {
+          "text": "avec",
+          "start": 1.586,
+          "end": 1.826
+        },
+        {
+          "text": "un",
+          "start": 1.886,
+          "end": 2.005
+        },
+        {
+          "text": "bon",
+          "start": 2.065,
+          "end": 2.245
+        },
+        {
+          "text": "message",
+          "start": 2.305,
+          "end": 2.724
+        },
+        {
+          "text": "et",
+          "start": 2.784,
+          "end": 2.903
+        },
+        {
+          "text": "de",
+          "start": 2.963,
+          "end": 3.083
+        },
+        {
+          "text": "bonnes",
+          "start": 3.143,
+          "end": 3.502
+        },
+        {
+          "text": "images,",
+          "start": 3.562,
+          "end": 4.011
+        },
+        {
+          "text": "devient",
+          "start": 4.071,
+          "end": 4.49
+        },
+        {
+          "text": "beaucoup",
+          "start": 4.55,
+          "end": 5.028
+        },
+        {
+          "text": "plus",
+          "start": 5.088,
+          "end": 5.328
+        },
+        {
+          "text": "rentable.",
+          "start": 5.388,
+          "end": 6.016
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "path": "audio/lines/07.wav",
+      "duration_s": 5.653,
+      "words": [
+        {
+          "text": "Mon",
+          "start": 0,
+          "end": 0.16
+        },
+        {
+          "text": "avis:",
+          "start": 0.22,
+          "end": 0.513
+        },
+        {
+          "text": "aujourd'hui,",
+          "start": 0.573,
+          "end": 1.185
+        },
+        {
+          "text": "la",
+          "start": 1.245,
+          "end": 1.352
+        },
+        {
+          "text": "difference",
+          "start": 1.412,
+          "end": 1.944
+        },
+        {
+          "text": "ne",
+          "start": 2.004,
+          "end": 2.111
+        },
+        {
+          "text": "se",
+          "start": 2.171,
+          "end": 2.277
+        },
+        {
+          "text": "joue",
+          "start": 2.337,
+          "end": 2.55
+        },
+        {
+          "text": "plus",
+          "start": 2.61,
+          "end": 2.823
+        },
+        {
+          "text": "sur",
+          "start": 2.883,
+          "end": 3.043
+        },
+        {
+          "text": "le",
+          "start": 3.103,
+          "end": 3.209
+        },
+        {
+          "text": "ciblage.",
+          "start": 3.269,
+          "end": 3.775
+        },
+        {
+          "text": "Elle",
+          "start": 3.835,
+          "end": 4.048
+        },
+        {
+          "text": "se",
+          "start": 4.108,
+          "end": 4.215
+        },
+        {
+          "text": "joue",
+          "start": 4.275,
+          "end": 4.488
+        },
+        {
+          "text": "sur",
+          "start": 4.548,
+          "end": 4.708
+        },
+        {
+          "text": "la",
+          "start": 4.768,
+          "end": 4.874
+        },
+        {
+          "text": "preparation.",
+          "start": 4.934,
+          "end": 5.653
+        }
+      ]
+    },
+    {
+      "frame": 8,
+      "path": "audio/lines/08.wav",
+      "duration_s": 2.304,
+      "words": [
+        {
+          "text": "Abonne-toi",
+          "start": 0,
+          "end": 0.44
+        },
+        {
+          "text": "pour",
+          "start": 0.5,
+          "end": 0.696
+        },
+        {
+          "text": "en",
+          "start": 0.756,
+          "end": 0.854
+        },
+        {
+          "text": "apprendre",
+          "start": 0.914,
+          "end": 1.354
+        },
+        {
+          "text": "plus",
+          "start": 1.414,
+          "end": 1.61
+        },
+        {
+          "text": "a",
+          "start": 1.67,
+          "end": 1.719
+        },
+        {
+          "text": "ce",
+          "start": 1.779,
+          "end": 1.877
+        },
+        {
+          "text": "sujet.",
+          "start": 1.937,
+          "end": 2.304
+        }
+      ]
+    }
+  ],
+  "sfx": [],
+  "total_duration_s": 38.976
+}

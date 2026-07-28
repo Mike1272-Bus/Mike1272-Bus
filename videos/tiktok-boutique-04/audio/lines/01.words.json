@@ -1,0 +1,68 @@
+[
+  {
+    "id": "w0",
+    "text": "Tu",
+    "start": 0,
+    "end": 0.119
+  },
+  {
+    "id": "w1",
+    "text": "veux",
+    "start": 0.179,
+    "end": 0.417
+  },
+  {
+    "id": "w2",
+    "text": "faire",
+    "start": 0.477,
+    "end": 0.774
+  },
+  {
+    "id": "w3",
+    "text": "de",
+    "start": 0.834,
+    "end": 0.953
+  },
+  {
+    "id": "w4",
+    "text": "la",
+    "start": 1.013,
+    "end": 1.132
+  },
+  {
+    "id": "w5",
+    "text": "pub",
+    "start": 1.192,
+    "end": 1.371
+  },
+  {
+    "id": "w6",
+    "text": "pour",
+    "start": 1.431,
+    "end": 1.669
+  },
+  {
+    "id": "w7",
+    "text": "ton",
+    "start": 1.729,
+    "end": 1.907
+  },
+  {
+    "id": "w8",
+    "text": "produit",
+    "start": 1.967,
+    "end": 2.384
+  },
+  {
+    "id": "w9",
+    "text": "sur",
+    "start": 2.444,
+    "end": 2.622
+  },
+  {
+    "id": "w10",
+    "text": "Facebook.",
+    "start": 2.682,
+    "end": 3.307
+  }
+]
