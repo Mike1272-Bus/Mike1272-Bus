@@ -30,7 +30,7 @@ music: none
 - scene: A fast flash-preview of all 4 tools' visuals cuts through before the headline lands — the video's most energetic beat
 - duration: 4s
 - transition_in: cut
-- status: outline
+- status: animated
 - type: hook
 - persuasion: curiosity / value-preview
 - blueprint: kinetic-type-beats (Adapt) + zoom-through flash-preview
@@ -50,7 +50,7 @@ Scene 4 (3.3-4.0s): held read, a yellow underline-tick draws under "DEBUTES" as 
 - scene: A real online store screenshot and a generic e-commerce icon graphic land as a floating collage, drifting continuously
 - duration: 5s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - type: value
 - persuasion: naming the foundational tool, backed by a real site example
 - blueprint: compose (layered collage) + sine-wave-loop idle
@@ -70,7 +70,7 @@ Scene 4 (2.0-5.0s): all three cards keep a continuous sine-wave-loop idle drift 
 - scene: Two real Canva screenshots land as a floating collage, drifting continuously
 - duration: 5s
 - transition_in: push-slide
-- status: outline
+- status: animated
 - type: value
 - persuasion: naming a genuinely useful design tool, backed by real screenshots
 - blueprint: compose (layered collage) + sine-wave-loop idle
@@ -89,7 +89,7 @@ Scene 3 (3.0-5.0s): both cards keep a continuous sine-wave-loop idle drift (offs
 - scene: A Meta Ads illustration and real Reels ad examples land as a floating collage, drifting continuously
 - duration: 5s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - type: value
 - persuasion: naming the ads-management tool, backed by real ad examples
 - blueprint: compose (layered collage) + sine-wave-loop idle
@@ -108,7 +108,7 @@ Scene 3 (1.4-5.0s): both cards keep a continuous sine-wave-loop idle drift (offs
 - scene: Two real CapCut screenshots land as a floating collage, drifting continuously
 - duration: 5s
 - transition_in: push-slide
-- status: outline
+- status: animated
 - type: value
 - persuasion: naming a self-serve video tool, backed by real screenshots (including the CapCut logo)
 - blueprint: compose (layered collage) + sine-wave-loop idle
@@ -127,7 +127,7 @@ Scene 3 (3.0-5.0s): both cards keep a continuous sine-wave-loop idle drift (offs
 - scene: A confident closing invitation lands with the video's best motion design, echoing "click here" with the shop-now cursor graphic
 - duration: 6s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - type: cta
 - persuasion: soft single next step, most elevated motion in the video alongside the hook
 - blueprint: kinetic-type-beats (Adapt) + spring-pop-entrance + particle-burst

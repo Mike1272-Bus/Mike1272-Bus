@@ -1,5 +1,5 @@
 <template>
-  <div id="root" data-composition-id="01-hook">
+  <div id="root" data-composition-id="01-hook" data-duration="4.4" data-width="1080" data-height="1920">
     <style>
       #root {
         position: relative;
@@ -143,14 +143,14 @@
       }
     </style>
 
-    <div class="hook01-ground clip" data-start="0" data-duration="4" data-track-index="0"></div>
+    <div class="hook01-ground clip" data-start="0" data-duration="4.4" data-track-index="0"></div>
 
     <div class="hook01-flash hook01-flash-blue clip" data-start="0" data-duration="0.2" data-track-index="1"></div>
     <div class="hook01-flash hook01-flash-pink clip" data-start="0.2" data-duration="0.2" data-track-index="1"></div>
     <div class="hook01-flash hook01-flash-green clip" data-start="0.4" data-duration="0.2" data-track-index="1"></div>
     <div class="hook01-flash hook01-flash-cream clip" data-start="0.6" data-duration="0.2" data-track-index="1"></div>
 
-    <div class="hook01-pill-row clip" data-start="0.8" data-duration="3.2" data-track-index="2">
+    <div class="hook01-pill-row clip" data-start="0.8" data-duration="3.6" data-track-index="2">
       <div class="hook01-burst-stage">
         <div class="hook01-tilt-chip"></div>
         <div class="hook01-particle-field" id="hook01-particle-field"></div>
@@ -158,7 +158,7 @@
       </div>
     </div>
 
-    <div class="hook01-headline clip" data-start="1.8" data-duration="2.2" data-track-index="3">
+    <div class="hook01-headline clip" data-start="1.8" data-duration="2.6" data-track-index="3">
       <div class="hook01-line hook01-line1">SIMPLES POUR VENDRE EN LIGNE,</div>
       <div class="hook01-line hook01-line2">
         MEME SI TU
@@ -168,10 +168,9 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <script>
       (function () {
-        var root = document.currentScript.closest('[data-composition-id="01-hook"]');
+        var root = document;
 
         // deterministic pure-hash rng (never Math.random)
         var prand = function (n) {
