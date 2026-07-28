@@ -16,7 +16,7 @@
       background-color: #C0F7FE;
     }
     .raison1-bg::before {
-      /* faint dot grid texture */
+      /* faint dot grid texture, BlockFrame ground signature */
       content: "";
       position: absolute;
       inset: 0;
@@ -24,7 +24,7 @@
       background-size: 24px 24px;
       opacity: 0.55;
     }
-    .raison1-deco {
+    .raison1-deco-square {
       position: absolute;
       top: 96px;
       left: 64px;
@@ -34,163 +34,110 @@
       border: 3px solid #000000;
       transform: rotate(8deg);
     }
+    .raison1-deco-square2 {
+      position: absolute;
+      top: 1120px;
+      right: 76px;
+      width: 58px;
+      height: 58px;
+      background-color: #99E885;
+      border: 3px solid #000000;
+      transform: rotate(-10deg);
+    }
+    .raison1-star {
+      position: absolute;
+      top: 1280px;
+      left: 96px;
+      width: 84px;
+      height: 84px;
+      background-color: #FE90E8;
+      border: 3px solid #000000;
+      clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+        50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+      );
+      transform: rotate(6deg);
+    }
 
-    /* ---- device surface (hero) ---- */
-    .raison1-phone {
+    /* ---- hero: bordered device-style card holding the REAL screenshot ---- */
+    .raison1-card-wrap {
       position: absolute;
-      left: 260px;
-      top: 330px;
-      width: 560px;
-      height: 1180px;
-      background-color: #17181A;
-      border: 4px solid #000000;
-      box-shadow: 8px 8px 0 #000000;
-      padding: 18px;
-      opacity: 0;
+      left: 70px;
+      top: 460px;
+      width: 940px;
+      height: 574px;
+      filter: url(#raison1-streak);
     }
-    .raison1-notch {
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      width: 96px;
-      height: 8px;
-      margin-left: -48px;
-      background-color: #000000;
-      border-radius: 999px;
-    }
-    .raison1-screen {
+    .raison1-card {
       position: relative;
       width: 100%;
       height: 100%;
-      background-color: #FFFFFF;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      background-color: #111214;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0 #000000;
+      padding: 20px;
+      overflow: visible;
+      box-sizing: border-box;
     }
-    .raison1-header {
-      flex: 0 0 auto;
-      padding: 22px 26px 16px;
-      border-bottom: 2px solid #000000;
-    }
-    .raison1-header-label {
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: #000000;
-    }
-    .raison1-list {
-      flex: 1 1 auto;
-      display: flex;
-      flex-direction: column;
-      padding: 6px 22px 10px;
-      gap: 4px;
-      min-height: 0;
-    }
-    .raison1-row {
-      flex: 1 1 0;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      border-bottom: 1px solid #E4E6E9;
-      opacity: 0;
-      position: relative;
-    }
-    .raison1-row:last-child {
-      border-bottom: none;
-    }
-    .raison1-avatar {
-      flex: 0 0 auto;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background-color: #D3D7DC;
-      border: 2px solid #000000;
-    }
-    .raison1-row-text {
-      flex: 1 1 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-    .raison1-name-bar {
-      height: 16px;
-      width: 68%;
-      border-radius: 8px;
-      background-color: #3C3F44;
-    }
-    .raison1-time-bar {
+    .raison1-card-notch {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      width: 10px;
       height: 10px;
-      width: 30%;
-      border-radius: 6px;
-      background-color: #B7BCC2;
+      margin-left: -5px;
+      background-color: #000000;
+      border: 1px solid #3a3c40;
+      border-radius: 50%;
+    }
+    .raison1-img-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #FFFDF5;
+    }
+    .raison1-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .raison1-ring {
       position: absolute;
-      inset: -6px -10px;
-      border: 3px solid #FE90E8;
-      border-radius: 14px;
-      box-shadow: 0 0 22px rgba(254, 144, 232, 0.55);
+      left: 765px;
+      top: 340px;
+      width: 130px;
+      height: 130px;
+      border: 4px solid #FF5A45;
+      border-radius: 50%;
+      box-shadow: 0 0 24px rgba(255, 90, 69, 0.6);
       opacity: 0;
       pointer-events: none;
     }
   </style>
 
-
-  <div id="root" data-composition-id="02-raison1" data-duration="5.5" data-width="1080" data-height="1920">
-    <div class="clip raison1-bg" data-start="0" data-duration="5.5" data-track-index="0">
-      <div class="raison1-deco"></div>
+  <div id="root" data-composition-id="02-raison1" data-duration="5" data-width="1080" data-height="1920">
+    <div class="clip raison1-bg" data-start="0" data-duration="5" data-track-index="0">
+      <div class="raison1-deco-square"></div>
+      <div class="raison1-deco-square2"></div>
+      <div class="raison1-star"></div>
     </div>
 
-    <div id="raison1-phone" class="clip raison1-phone" data-start="0" data-duration="5.5" data-track-index="1">
-      <div class="raison1-notch"></div>
-      <div class="raison1-screen">
-        <div class="raison1-header">
-          <div class="raison1-header-label">Statuts</div>
-        </div>
-        <div class="raison1-list">
-          <div id="raison1-row-1" class="clip raison1-row" data-start="0" data-duration="5.5" data-track-index="2">
-            <div class="raison1-avatar"></div>
-            <div class="raison1-row-text">
-              <div class="raison1-name-bar"></div>
-              <div class="raison1-time-bar"></div>
-            </div>
-          </div>
-          <div id="raison1-row-2" class="clip raison1-row" data-start="0" data-duration="5.5" data-track-index="3">
-            <div class="raison1-avatar"></div>
-            <div class="raison1-row-text">
-              <div class="raison1-name-bar" style="width: 54%;"></div>
-              <div class="raison1-time-bar"></div>
-            </div>
-          </div>
-          <div id="raison1-row-3" class="clip raison1-row" data-start="0" data-duration="5.5" data-track-index="4">
-            <div class="raison1-avatar"></div>
-            <div class="raison1-row-text">
-              <div class="raison1-name-bar" style="width: 74%;"></div>
-              <div class="raison1-time-bar"></div>
-            </div>
-          </div>
-          <div id="raison1-row-4" class="clip raison1-row" data-start="0" data-duration="5.5" data-track-index="5">
-            <div class="raison1-avatar"></div>
-            <div class="raison1-row-text">
-              <div class="raison1-name-bar" style="width: 60%;"></div>
-              <div class="raison1-time-bar"></div>
-            </div>
-          </div>
-          <div id="raison1-row-5" class="clip raison1-row" data-start="0" data-duration="5.5" data-track-index="6">
-            <div class="raison1-avatar"></div>
-            <div class="raison1-row-text">
-              <div class="raison1-name-bar" style="width: 70%;"></div>
-              <div class="raison1-time-bar"></div>
-            </div>
-          </div>
-          <div id="raison1-row-6" class="clip raison1-row" data-start="0" data-duration="5.5" data-track-index="7">
-            <div class="raison1-avatar"></div>
-            <div class="raison1-row-text">
-              <div class="raison1-name-bar" style="width: 64%;"></div>
-              <div class="raison1-time-bar"></div>
-            </div>
-            <div id="raison1-ring" class="clip raison1-ring" data-start="3.4" data-duration="2.1" data-track-index="8"></div>
+    <div class="clip" data-start="0" data-duration="5" data-track-index="1">
+      <!-- directional/depth blur filter for the zoom-through incoming half + push-through settle -->
+      <svg width="0" height="0" aria-hidden="true" style="position: absolute">
+        <filter id="raison1-streak" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur id="raison1-streak-blur" in="SourceGraphic" stdDeviation="0 0" />
+        </filter>
+      </svg>
+
+      <div id="raison1-card-wrap" class="raison1-card-wrap">
+        <div class="raison1-card">
+          <div class="raison1-card-notch"></div>
+          <div class="raison1-img-frame">
+            <img class="raison1-img" src="assets/whatsapp-status-crowded.jpg" alt="" />
+            <div id="raison1-ring" class="raison1-ring"></div>
           </div>
         </div>
       </div>
@@ -202,37 +149,42 @@
       window.__timelines = window.__timelines || {};
       var tl = gsap.timeline({ paused: true });
 
-      // Scene 1 (0.0-1.2s): device surface enters — held-device-surface signature
+      // ---- Scene 1 (0.0-0.45s): zoom-through incoming half lands the real screenshot ----
+      var blurNode = document.getElementById("raison1-streak-blur");
+      var blurProxy = { v: 10 };
+      function writeBlur() {
+        blurNode.setAttribute("stdDeviation", blurProxy.v + " " + blurProxy.v);
+      }
+      writeBlur(); // seed frame 0 — a seek to t=0 must show the streaked/pushed-back start
+
       tl.fromTo(
-        "#raison1-phone",
-        { opacity: 0, scale: 0.92 },
-        { opacity: 1, scale: 1, duration: 0.7, ease: "sine.out" },
+        "#raison1-card-wrap",
+        { scale: 0.75, opacity: 0.15 },
+        { scale: 1, opacity: 1, duration: 0.45, ease: "expo.out" },
+        0
+      );
+      tl.fromTo(
+        blurProxy,
+        { v: 10 },
+        { v: 0, duration: 0.45, ease: "expo.out", onUpdate: writeBlur },
         0
       );
 
-      // Scene 2 (1.2-3.4s): status rows stack in one by one, each a quick fade + 8px drop
-      var rowStarts = [1.3, 1.63, 1.96, 2.29, 2.62, 2.95];
-      for (var i = 0; i < rowStarts.length; i++) {
-        tl.fromTo(
-          "#raison1-row-" + (i + 1),
-          { opacity: 0, y: -8 },
-          { opacity: 1, y: 0, duration: 0.4, ease: "sine.out" },
-          rowStarts[i]
-        );
-      }
-
-      // Scene 3 (3.4-5.0s): newest entry gets a faint ring that fades out, unanswered
+      // ---- Scene 2 (0.5-3.4s): coral ring spring-pops onto the entry lost at the edge of the pile,
+      //      then pulses (opacity 0.6<->1) twice, unanswered ----
       tl.fromTo(
         "#raison1-ring",
-        { opacity: 0 },
-        { opacity: 0.65, duration: 0.35, ease: "sine.out" },
-        3.4
+        { opacity: 0, scale: 0.4 },
+        { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" },
+        0.65
       );
-      tl.to(
-        "#raison1-ring",
-        { opacity: 0, duration: 1.1, ease: "sine.inOut" },
-        3.9
-      );
+      tl.to("#raison1-ring", { opacity: 0.6, duration: 0.4, ease: "sine.inOut" }, 1.2);
+      tl.to("#raison1-ring", { opacity: 1, duration: 0.4, ease: "sine.inOut" }, 1.6);
+      tl.to("#raison1-ring", { opacity: 0.6, duration: 0.4, ease: "sine.inOut" }, 2.2);
+      tl.to("#raison1-ring", { opacity: 1, duration: 0.4, ease: "sine.inOut" }, 2.6);
+
+      // ---- Scene 3 (3.4-5.0s): held on the crowded real screen, pulse settles to a faint steady glow ----
+      tl.to("#raison1-ring", { opacity: 0.55, duration: 0.7, ease: "sine.out" }, 3.5);
 
       window.__timelines["02-raison1"] = tl;
     })();
