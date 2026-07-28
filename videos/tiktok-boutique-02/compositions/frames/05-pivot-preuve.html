@@ -49,60 +49,11 @@
       transform: rotate(11deg);
     }
 
-    /* Scene 1: plain mock browser window (continuity from Frame 4), fixed footprint
-       shared with the real nyara screenshot below so the crossfade is a straight dissolve */
-    .pp05-shell {
-      position: absolute;
-      left: 162px;
-      top: 320px;
-      width: 756px;
-      height: 585px;
-      background: #ffffff;
-      border: 4px solid #000;
-      box-shadow: 8px 8px 0 #000;
-      overflow: hidden;
-    }
-
-    .pp05-shell__bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 40px;
-      background: #ffffff;
-      border-bottom: 4px solid #000;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding-left: 16px;
-    }
-
-    .pp05-shell__dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      border: 2px solid #000;
-    }
-
-    .pp05-shell__body {
-      position: absolute;
-      top: 40px;
-      left: 0;
-      width: 100%;
-      height: calc(100% - 40px);
-      background: #fffdf5;
-      padding: 28px;
-    }
-
-    .pp05-shell__skeleton {
-      height: 18px;
-      border-radius: 2px;
-      background: rgba(0, 0, 0, 0.12);
-      margin-bottom: 16px;
-    }
-
     /* Real proof: nyara screenshot — presented as-is, subtle offset shadow only,
-       no fake browser frame wrapped around it (it already has its own chrome baked in) */
+       no fake browser frame wrapped around it (it already has its own chrome baked in).
+       This element carries the incoming half of the push-slide: it lands from further
+       right and decelerates to rest (cut-the-curve velocity-matched arrival), so it
+       must NOT also get a CSS transform baked in here — the entrance tween owns x/opacity/filter. */
     .pp05-nyara {
       position: absolute;
       left: 162px;
@@ -135,6 +86,7 @@
       border: 3px solid #000;
       border-radius: 9999px;
       box-shadow: 4px 4px 0 #000;
+      z-index: 2;
     }
 
     .pp05-pill span {
@@ -143,6 +95,25 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #000;
+    }
+
+    /* particle-burst accent: dot-burst fired behind the pill on its landing frame */
+    .pp05-burst-field {
+      position: absolute;
+      left: 50%;
+      top: 208px;
+      width: 0;
+      height: 0;
+      z-index: 1;
+    }
+
+    .pp05-particle {
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 50%;
+      opacity: 0;
+      will-change: transform, opacity;
     }
 
     /* Real proof: aura screenshot — supporting card, docks over nyara's bottom-right corner */
@@ -169,36 +140,24 @@
     <div class="pp05-dotgrid clip" data-start="0" data-duration="6" data-track-index="1"></div>
 
     <div class="pp05-tiltdeco clip" data-start="0" data-duration="6" data-track-index="2"></div>
-    <div class="pp05-tiltdeco2 clip" data-start="0" data-duration="6" data-track-index="8"></div>
+    <div class="pp05-tiltdeco2 clip" data-start="0" data-duration="6" data-track-index="3"></div>
 
-    <!-- Scene 1 (0-1.6s): plain mock window, carried-over continuity state -->
-    <div class="pp05-shell clip" data-start="0" data-duration="1.8" data-track-index="3">
-      <div class="pp05-shell__inner">
-        <div class="pp05-shell__bar">
-          <div class="pp05-shell__dot" style="background: #fe90e8"></div>
-          <div class="pp05-shell__dot" style="background: #f7cb46"></div>
-          <div class="pp05-shell__dot" style="background: #99e885"></div>
-        </div>
-        <div class="pp05-shell__body">
-          <div class="pp05-shell__skeleton" style="width: 70%"></div>
-          <div class="pp05-shell__skeleton" style="width: 45%"></div>
-          <div class="pp05-shell__skeleton" style="width: 60%"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scene 1-4: the real nyara proof, crossfades in over the mock, then holds -->
+    <!-- Scene 1 (0-1.6s): the real nyara proof lands directly — no mock shell to
+         crossfade from. This is the incoming half of the push-slide cut from Frame 4:
+         it enters from further right and decelerates to its resting footprint. -->
     <div class="pp05-nyara clip" data-start="0" data-duration="6" data-track-index="4">
       <img src="assets/nyara-site.jpg" alt="" />
     </div>
 
-    <!-- Scene 2 (1.6-3.4s): confirming beat -->
-    <div class="pp05-pill clip" data-start="1.6" data-duration="4.4" data-track-index="5">
+    <!-- Scene 2 (1.6-3.4s): confirming beat — particle field sits behind the pill -->
+    <div class="pp05-burst-field clip" data-start="1.6" data-duration="1.4" data-track-index="5" id="pp05-burst-field"></div>
+
+    <div class="pp05-pill clip" data-start="1.6" data-duration="4.4" data-track-index="6">
       <span>Toujours la</span>
     </div>
 
     <!-- Scene 3 (3.4-5.2s): aura docks in as supporting proof -->
-    <div class="pp05-aura clip" data-start="3.4" data-duration="2.6" data-track-index="6">
+    <div class="pp05-aura clip" data-start="3.4" data-duration="2.6" data-track-index="7">
       <img src="assets/aura-site.jpg" alt="" />
     </div>
   </div>
@@ -208,24 +167,21 @@
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
 
-      // Scene 1 (0.0-1.6s): the empty mock window dissolves as the real
-      // nyara screenshot crossfades in over the exact same footprint —
-      // "held device, real content" signature, timed to "un site, c'est toujours la"
+      // --- Scene 1 (0.0-1.6s) ---------------------------------------------------
+      // Push-slide arrival, cut-the-curve style: the nyara screenshot continues
+      // the rightward push from the Frame 4 cut — starts offset further right and
+      // faded down, decelerates hard into its resting footprint (power4.out mirrors
+      // a power4.in exit on the other side of the cut), landing on
+      // "un site, c'est toujours la". A light directional blur on the way in sells
+      // the speed of the arrival without smearing the real screenshot at rest.
       tl.fromTo(
         ".pp05-nyara",
-        { opacity: 0 },
-        { opacity: 1, duration: 1.6, ease: "power1.inOut" },
+        { x: 220, opacity: 0.35, filter: "blur(14px)" },
+        { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.55, ease: "power4.out" },
         0
       );
-      tl.fromTo(
-        ".pp05-shell__inner",
-        { opacity: 1 },
-        { opacity: 0, duration: 1.6, ease: "power1.inOut" },
-        0
-      );
-      tl.set(".pp05-shell__inner", { opacity: 0 }, 1.6);
 
-      // Scene 2 (1.6-3.4s): confirming label-pill, gentle scale-pop
+      // --- Scene 2 (1.6-3.4s): confirming label-pill, gentle spring-pop ---------
       tl.fromTo(
         ".pp05-pill",
         { opacity: 0, scale: 0.6 },
@@ -233,8 +189,72 @@
         1.6
       );
 
-      // Scene 3 (3.4-5.2s): aura slides + fades in from the right edge,
-      // docking over nyara's bottom-right corner, timed to "et ca fait plus serieux"
+      // Particle-burst accent: one small dot-burst fired on the pill's landing
+      // frame — the video's confirming "yes" beat. Deterministic seeded pool,
+      // pure ballistic function of driver time so any seek renders correctly.
+      (function () {
+        const field = document.getElementById("pp05-burst-field");
+        const palette = ["#fe90e8", "#f7cb46", "#c0f7fe"];
+        const PARTICLE_COUNT = 6;
+        const SIZE_MIN = 5;
+        const SIZE_MAX = 8;
+        const SPEED_MIN = 180;
+        const SPEED_MAX = 320;
+        const G = 60; // light drift, not a confetti-heavy fall
+        const FLIGHT_DUR = 0.6;
+        const FADE_FRAC = 0.3;
+        const BURST_AT = 2.05; // the pill's spring-pop settle frame
+
+        const prand = function (n) {
+          const x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+          return x - Math.floor(x);
+        };
+
+        const parts = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+          const el = document.createElement("div");
+          el.className = "pp05-particle";
+          const size = SIZE_MIN + prand(i * 3 + 1) * (SIZE_MAX - SIZE_MIN);
+          el.style.width = size + "px";
+          el.style.height = size + "px";
+          el.style.background = palette[i % palette.length];
+          field.appendChild(el);
+
+          const angle = prand(i * 5 + 2) * Math.PI * 2; // full radial dot burst
+          const speed = SPEED_MIN + prand(i * 7 + 3) * (SPEED_MAX - SPEED_MIN);
+          parts.push({
+            el: el,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+          });
+        }
+
+        const drive = { T: 0 };
+        tl.fromTo(
+          drive,
+          { T: 0 },
+          {
+            T: 1,
+            duration: FLIGHT_DUR,
+            ease: "none",
+            onUpdate: function () {
+              const t = drive.T * FLIGHT_DUR;
+              const fade = Math.min(1, (1 - drive.T) / FADE_FRAC);
+              parts.forEach(function (p) {
+                const x = p.vx * t;
+                const y = p.vy * t + 0.5 * G * t * t;
+                p.el.style.transform = "translate(" + x + "px, " + y + "px)";
+                p.el.style.opacity = String(drive.T === 0 ? 0 : fade);
+              });
+            },
+          },
+          BURST_AT
+        );
+      })();
+
+      // --- Scene 3 (3.4-5.2s) -----------------------------------------------------
+      // aura slides + fades in from the right edge, docking over nyara's
+      // bottom-right corner, timed to "et ca fait plus serieux"
       tl.fromTo(
         ".pp05-aura",
         { opacity: 0, x: 220 },
@@ -242,7 +262,7 @@
         3.4
       );
 
-      // Scene 4 (5.2-6.0s): held read on both real screenshots — no further motion
+      // --- Scene 4 (5.2-6.0s): held read on both real screenshots — no further motion
 
       window.__timelines["05-pivot-preuve"] = tl;
     })();

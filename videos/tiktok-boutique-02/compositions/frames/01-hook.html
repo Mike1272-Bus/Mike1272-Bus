@@ -1,32 +1,53 @@
 <template>
-  <div id="root" data-composition-id="01-hook" data-duration="4.5" style="position: relative; width: 1080px; height: 1920px; overflow: hidden;" data-width="1080" data-height="1920">
+  <div id="root" data-composition-id="01-hook" data-duration="4" style="position: relative; width: 1080px; height: 1920px; overflow: hidden;" data-width="1080" data-height="1920">
 
-    <div class="clip fr01hook-ground" data-start="0" data-duration="4.5" data-track-index="0"
-      style="position: absolute; inset: 0; background: #FFFDF5;"></div>
+    <!-- directional/depth blur filter for the photo's push-enter streak -->
+    <svg width="0" height="0" aria-hidden="true" style="position: absolute">
+      <filter id="fr01hook-streak" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur id="fr01hook-streak-blur" in="SourceGraphic" stdDeviation="0 0" />
+      </filter>
+    </svg>
 
-    <div class="clip fr01hook-dotgrid" data-start="0" data-duration="4.5" data-track-index="1"
-      style="position: absolute; inset: 0; background-image: radial-gradient(circle, #000000 1.2px, transparent 1.2px); background-size: 24px 24px; opacity: 0.07;"></div>
-
-    <div class="clip fr01hook-pill-wrap" data-start="0" data-duration="4.5" data-track-index="2"
-      style="position: absolute; top: 400px; left: 0; width: 100%; text-align: center;">
-      <span class="fr01hook-pill"
-        style="display: inline-block; background: #000000; color: #FFFDF5; border: 4px solid #000000; border-radius: 9999px; box-shadow: 8px 8px 0 #000000; padding: 18px 40px; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 900; font-size: 32px; letter-spacing: 0.04em; text-transform: uppercase;">3 RAISONS</span>
+    <!-- track 0: real staged photo, full-bleed, push-enters then dims under the overlay -->
+    <div class="clip fr01hook-photo-wrap" data-start="0" data-duration="4" data-track-index="0"
+      style="position: absolute; inset: 0; overflow: hidden; background: #000000;">
+      <img id="fr01hook-photo" src="assets/whatsapp-open-photo.jpg" alt=""
+        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% 42%; filter: url(#fr01hook-streak); transform-origin: 50% 50%;" />
     </div>
 
-    <div class="clip fr01hook-line1" data-start="1.3" data-duration="3.2" data-track-index="3"
-      style="position: absolute; top: 740px; left: 0; width: 100%; padding: 0 60px; box-sizing: border-box; text-align: center; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.01em; line-height: 1.2; text-transform: uppercase; color: #000000;">
+    <!-- track 1: dark overlay — settles to ~65% black so the photo reads at ~35% strength -->
+    <div class="clip fr01hook-overlay" data-start="0" data-duration="4" data-track-index="1"
+      style="position: absolute; inset: 0; background: #000000; opacity: 0;"></div>
+
+    <!-- track 2: number pill, spring-pops in with a small dot burst marking its landing -->
+    <div class="clip fr01hook-pill-wrap" data-start="0.5" data-duration="3.5" data-track-index="2"
+      style="position: absolute; top: 400px; left: 0; width: 100%; text-align: center;">
+      <div class="fr01hook-burst-stage" style="position: relative; display: inline-block;">
+        <div class="fr01hook-particle-field" id="fr01hook-particle-field"
+          style="position: absolute; left: 50%; top: 50%; width: 0; height: 0; z-index: 1;"></div>
+        <span class="fr01hook-pill"
+          style="position: relative; z-index: 2; display: inline-block; background: #000000; color: #FFFDF5; border: 4px solid #000000; border-radius: 9999px; box-shadow: 8px 8px 0 #000000; padding: 18px 40px; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 900; font-size: 32px; letter-spacing: 0.04em; text-transform: uppercase;">3 RAISONS</span>
+      </div>
+    </div>
+
+    <!-- track 3-4: the two headline lines, fading up over the dimmed photo -->
+    <div class="clip fr01hook-line1" data-start="1.6" data-duration="2.4" data-track-index="3"
+      style="position: absolute; top: 740px; left: 0; width: 100%; padding: 0 60px; box-sizing: border-box; text-align: center; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.01em; line-height: 1.2; text-transform: uppercase; color: #FFFDF5;">
       POUR LESQUELLES ON NE TE PREND PAS
     </div>
 
-    <div class="clip fr01hook-line2" data-start="1.7" data-duration="2.8" data-track-index="4"
-      style="position: absolute; top: 812px; left: 0; width: 100%; padding: 0 60px; box-sizing: border-box; text-align: center; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.01em; line-height: 1.2; text-transform: uppercase; color: #000000;">
+    <div class="clip fr01hook-line2" data-start="2.0" data-duration="2.0" data-track-index="4"
+      style="position: absolute; top: 812px; left: 0; width: 100%; padding: 0 60px; box-sizing: border-box; text-align: center; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.01em; line-height: 1.2; text-transform: uppercase; color: #FFFDF5;">
       AU <span class="fr01hook-serieux-wrap" style="position: relative; display: inline-block;">SERIEUX<span class="fr01hook-tick" style="position: absolute; left: 0; right: 0; bottom: -8px; height: 5px; background: #F7CB46; transform-origin: left center;"></span></span> SUR WHATSAPP
     </div>
 
   </div>
 
   <style>
+    #root .fr01hook-photo-wrap { will-change: transform; }
+    #root .fr01hook-overlay { will-change: opacity; }
     #root .fr01hook-pill { will-change: transform, opacity; }
+    #root .fr01hook-particle { position: absolute; left: 0; top: 0; border-radius: 50%; opacity: 0; will-change: transform, opacity; }
     #root .fr01hook-line1,
     #root .fr01hook-line2 { will-change: transform, opacity; }
     #root .fr01hook-tick { will-change: transform; }
@@ -37,29 +58,109 @@
     (function () {
       var tl = gsap.timeline({ paused: true });
 
-      // Scene 1 (0.0-1.3s): number-pill gentle scale+fade in, no alarm decoration.
+      // deterministic hash — every particle's flight is a pure function of its index
+      var prand = function (n) {
+        var x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+        return x - Math.floor(x);
+      };
+
+      // --- Scene 1 (0.0-0.5s): photo push-enters full-bleed, motion-blur-streak 0->20px->0px,
+      // dims to ~35% strength under the overlay as it settles. ---
+      var blurNode = document.getElementById("fr01hook-streak-blur");
+      var blurProxy = { v: 0 };
+      var writeBlur = function () {
+        blurNode.setAttribute("stdDeviation", blurProxy.v + " " + blurProxy.v);
+      };
+      writeBlur(); // seed frame 0 at 0 — the streaked state lives mid-push, not at t=0
+
       tl.fromTo(
-        "#root .fr01hook-pill",
-        { opacity: 0, scale: 0.9 },
-        { opacity: 1, scale: 1, duration: 1.3, ease: "power3.out" },
+        "#fr01hook-photo",
+        { scale: 1.08 },
+        { scale: 1.0, duration: 0.5, ease: "power2.out" },
+        0
+      );
+      // symmetric "B B" envelope, mid-push peak: 0 -> 20 across the ramp-in, 20 -> 0 across the settle
+      tl.fromTo(blurProxy, { v: 0 }, { v: 20, duration: 0.2, ease: "power2.in", onUpdate: writeBlur }, 0);
+      tl.to(blurProxy, { v: 0, duration: 0.3, ease: "power2.out", onUpdate: writeBlur }, 0.2);
+
+      tl.fromTo(
+        "#root .fr01hook-overlay",
+        { opacity: 0 },
+        { opacity: 0.65, duration: 0.5, ease: "power2.out" },
         0
       );
 
-      // Scene 2 (1.3-3.2s): headline reveals line by line, soft upward drift, no hard card-pop.
+      // --- Scene 2 (0.5-1.6s): "3 RAISONS" pill spring-pops in (back.out overshoot),
+      // a small dot burst (6 dots) marks its landing. ---
+      tl.fromTo(
+        "#root .fr01hook-pill",
+        { opacity: 0, scale: 0.4 },
+        { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)" },
+        0.5
+      );
+
+      var field = document.getElementById("fr01hook-particle-field");
+      var palette = ["#FE90E8", "#C0F7FE", "#99E885", "#F7CB46", "#FFDC8B"];
+      var PARTICLE_COUNT = 6;
+      var SIZE_MIN = 5, SIZE_MAX = 9;
+      var SPEED_MIN = 90, SPEED_MAX = 190;
+      var G = 60; // gentle drift, not confetti fall
+      var FLIGHT_DUR = 0.55;
+      var FADE_FRAC = 0.32;
+      var BURST_AT = 0.95; // the pill's settle frame
+
+      var parts = [];
+      for (var i = 0; i < PARTICLE_COUNT; i++) {
+        var el = document.createElement("div");
+        el.className = "fr01hook-particle";
+        var size = SIZE_MIN + prand(i * 3 + 1) * (SIZE_MAX - SIZE_MIN);
+        el.style.width = size + "px";
+        el.style.height = size + "px";
+        el.style.background = palette[i % palette.length];
+        field.appendChild(el);
+        var angle = prand(i * 5 + 2) * Math.PI * 2; // full radial spread behind the pill
+        var speed = SPEED_MIN + prand(i * 7 + 3) * (SPEED_MAX - SPEED_MIN);
+        parts.push({ el: el, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed });
+      }
+
+      var drive = { T: 0 };
+      tl.fromTo(
+        drive,
+        { T: 0 },
+        {
+          T: 1,
+          duration: FLIGHT_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var t = drive.T * FLIGHT_DUR;
+            var fade = Math.min(1, (1 - drive.T) / FADE_FRAC);
+            for (var j = 0; j < parts.length; j++) {
+              var p = parts[j];
+              var x = p.vx * t;
+              var y = p.vy * t + 0.5 * G * t * t;
+              p.el.style.transform = "translate(" + x + "px, " + y + "px)";
+              p.el.style.opacity = String(drive.T === 0 ? 0 : fade);
+            }
+          },
+        },
+        BURST_AT
+      );
+
+      // --- Scene 3 (1.6-3.2s): headline reveals line by line, soft upward drift. ---
       tl.fromTo(
         "#root .fr01hook-line1",
         { opacity: 0, y: 12 },
         { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
-        1.3
+        1.6
       );
       tl.fromTo(
         "#root .fr01hook-line2",
         { opacity: 0, y: 12 },
         { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
-        1.7
+        2.0
       );
 
-      // Scene 3 (3.2-4.0s): held read, faint yellow underline-tick draws under "SERIEUX" only.
+      // --- Scene 4 (3.2-4.0s): held read, faint yellow underline-tick draws under "SERIEUX". ---
       tl.fromTo(
         "#root .fr01hook-tick",
         { scaleX: 0 },

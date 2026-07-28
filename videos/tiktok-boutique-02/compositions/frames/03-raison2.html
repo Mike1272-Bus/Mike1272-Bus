@@ -2,8 +2,8 @@
   <style>
     #root {
       position: relative;
-      width: 100%;
-      height: 100%;
+      width: 1080px;
+      height: 1920px;
       overflow: hidden;
       container-type: size;
       box-sizing: border-box;
@@ -13,12 +13,12 @@
     }
 
     /* ---- full-bleed ground + texture (never on #root itself) ---- */
-    .raison2-bg {
+    .f03r2-bg {
       position: absolute;
       inset: 0;
-      background: #c0f7fe;
+      background: #99E885;
     }
-    .raison2-dotgrid {
+    .f03r2-dotgrid {
       position: absolute;
       inset: 0;
       background-image: radial-gradient(circle, #000 1.2px, transparent 1.6px);
@@ -27,18 +27,18 @@
     }
 
     /* ---- brand decorations (rotate on a static wrapper, animate the child) ---- */
-    .raison2-decor-star-wrap {
+    .f03r2-decor-star-wrap {
       position: absolute;
-      left: 40px;
-      top: 56px;
-      width: 76px;
-      height: 76px;
+      left: 44px;
+      top: 60px;
+      width: 84px;
+      height: 84px;
       transform: rotate(-8deg);
     }
-    .raison2-decor-star-anim {
+    .f03r2-decor-star-anim {
       position: absolute;
       inset: 0;
-      background: #fe90e8;
+      background: #FE90E8;
       border: 3px solid #000;
       clip-path: polygon(
         50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
@@ -46,238 +46,143 @@
       );
     }
 
-    .raison2-decor-chip-wrap {
+    .f03r2-decor-chip-wrap {
       position: absolute;
-      left: 848px;
-      top: 58px;
-      width: 150px;
+      right: 56px;
+      top: 72px;
+      width: 148px;
       height: 46px;
-      transform: rotate(4deg);
+      transform: rotate(5deg);
     }
-    .raison2-decor-chip-anim {
+    .f03r2-decor-chip-anim {
       position: absolute;
       inset: 0;
-      background: #f7cb46;
+      background: #F7CB46;
       border: 3px solid #000;
       box-shadow: 4px 4px 0 #000;
     }
 
-    /* ---- device / phone-surface mockup ---- */
-    .raison2-stage {
+    /* ---- hero: bordered device-style card housing the real screenshot ---- */
+    .f03r2-card {
       position: absolute;
-      left: 60px;
-      top: 170px;
-      width: 960px;
-      height: 1360px;
-      background: #fff;
+      left: 90px;
+      top: 420px;
+      width: 900px;
+      height: 576px;
+      background: #FFFFFF;
       border: 4px solid #000;
       box-shadow: 8px 8px 0 #000;
+      padding: 20px;
+      transform-origin: 50% 50%;
     }
-
-    .raison2-header-dot {
-      position: absolute;
-      top: 36px;
-      width: 8px;
-      height: 8px;
+    .f03r2-chrome {
+      position: relative;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .f03r2-chrome-dot {
+      width: 10px;
+      height: 10px;
       background: #000;
     }
-    .raison2-header-divider {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      top: 84px;
-      height: 4px;
-      background: #000;
-    }
-
-    .raison2-row {
-      position: absolute;
-      left: 24px;
-      width: 912px;
-      height: 145px;
-    }
-    .raison2-ring {
-      position: absolute;
-      left: 0;
-      top: 36px;
-      width: 72px;
-      height: 72px;
-      border: 4px solid #000;
-      background: transparent;
-    }
-    .raison2-avatar {
-      position: absolute;
-      inset: 8px;
-      background: #dadada;
+    .f03r2-imgwrap {
+      position: relative;
+      width: 860px;
+      height: 484px;
+      background: #17181A;
       border: 3px solid #000;
+      overflow: hidden;
     }
-    .raison2-namebar {
-      position: absolute;
-      left: 96px;
-      top: 55px;
-      width: 320px;
-      height: 16px;
-      background: #e6e6e6;
-    }
-    .raison2-subbar {
-      position: absolute;
-      left: 96px;
-      top: 79px;
-      width: 200px;
-      height: 10px;
-      background: #ededed;
-    }
-    .raison2-tsbar {
-      position: absolute;
-      right: 0;
-      top: 36px;
-      width: 54px;
-      height: 10px;
-      background: #ededed;
+    .f03r2-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
     }
 
-    .raison2-badge-wrap {
+    /* ---- muted-status badges that spring-pop onto the card's corners ---- */
+    .f03r2-badge-wrap {
       position: absolute;
-      right: -12px;
-      top: -12px;
-      width: 34px;
-      height: 34px;
+      width: 68px;
+      height: 68px;
     }
-    .raison2-badge-anim {
+    .f03r2-badge-wrap.f03r2-badge-tr {
+      right: -22px;
+      top: -22px;
+    }
+    .f03r2-badge-wrap.f03r2-badge-bl {
+      left: -22px;
+      bottom: -22px;
+    }
+    .f03r2-badge-anim {
       position: relative;
       width: 100%;
       height: 100%;
-      background: #d8d8d8;
+      background: #DADADA;
       border: 3px solid #000;
-      box-shadow: 2px 2px 0 #000;
+      box-shadow: 4px 4px 0 #000;
+      opacity: 0;
     }
-    .raison2-badge-ring {
+    .f03r2-badge-ring {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 14px;
-      height: 14px;
-      margin: -7px 0 0 -7px;
-      border: 2px solid #000;
+      width: 30px;
+      height: 30px;
+      margin: -15px 0 0 -15px;
+      border: 3px solid #000;
+      border-radius: 50%;
       background: transparent;
     }
-    .raison2-badge-slash {
+    .f03r2-badge-slash {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 26px;
-      height: 3px;
-      margin: -1.5px 0 0 -13px;
+      width: 46px;
+      height: 4px;
+      margin: -2px 0 0 -23px;
       background: #000;
       transform: rotate(-45deg);
     }
   </style>
 
+  <div id="root" data-composition-id="03-raison2" data-duration="5" data-width="1080" data-height="1920">
+    <div class="clip f03r2-bg" data-start="0" data-duration="5" data-track-index="0"></div>
+    <div class="clip f03r2-dotgrid" data-start="0" data-duration="5" data-track-index="1"></div>
 
-  <div id="root" data-composition-id="03-raison2" data-duration="5.5" data-width="1080" data-height="1920">
-    <div class="clip raison2-bg" data-start="0" data-duration="5.5" data-track-index="0"></div>
-    <div class="clip raison2-dotgrid" data-start="0" data-duration="5.5" data-track-index="1"></div>
-
-    <div class="clip raison2-decor-star-wrap" data-start="0" data-duration="5.5" data-track-index="2">
-      <div class="raison2-decor-star-anim" id="raison2-decor-star"></div>
+    <div class="clip f03r2-decor-star-wrap" data-start="0" data-duration="5" data-track-index="2">
+      <div class="f03r2-decor-star-anim" id="f03r2-decor-star"></div>
     </div>
 
-    <div class="clip raison2-decor-chip-wrap" data-start="0" data-duration="5.5" data-track-index="3">
-      <div class="raison2-decor-chip-anim" id="raison2-decor-chip"></div>
+    <div class="clip f03r2-decor-chip-wrap" data-start="0" data-duration="5" data-track-index="3">
+      <div class="f03r2-decor-chip-anim" id="f03r2-decor-chip"></div>
     </div>
 
-    <div class="clip raison2-stage" id="raison2-stage" data-start="0" data-duration="5.5" data-track-index="4">
-      <div class="raison2-header-dot" style="left: 24px;"></div>
-      <div class="raison2-header-dot" style="left: 44px;"></div>
-      <div class="raison2-header-dot" style="left: 64px;"></div>
-      <div class="raison2-header-divider"></div>
-
-      <!-- row 0 -->
-      <div class="raison2-row" style="top: 104px;">
-        <div class="raison2-ring" style="border-color: #fe90e8;">
-          <div class="raison2-avatar"></div>
-          <div class="raison2-badge-wrap clip" id="raison2-badge1-wrap" data-start="0" data-duration="5.5" data-track-index="5">
-            <div class="raison2-badge-anim" id="raison2-badge1">
-              <div class="raison2-badge-ring"></div>
-              <div class="raison2-badge-slash"></div>
-            </div>
-          </div>
-        </div>
-        <div class="raison2-namebar"></div>
-        <div class="raison2-subbar"></div>
-        <div class="raison2-tsbar"></div>
+    <div class="clip f03r2-card" id="f03r2-card" data-start="0" data-duration="5" data-track-index="4">
+      <div class="f03r2-chrome">
+        <div class="f03r2-chrome-dot"></div>
+        <div class="f03r2-chrome-dot"></div>
+        <div class="f03r2-chrome-dot"></div>
+      </div>
+      <div class="f03r2-imgwrap">
+        <img class="f03r2-img" src="assets/whatsapp-status-viewer.jpg" alt="" />
       </div>
 
-      <!-- row 1 -->
-      <div class="raison2-row" style="top: 280px;">
-        <div class="raison2-ring" style="border-color: #c0f7fe;">
-          <div class="raison2-avatar"></div>
+      <div class="f03r2-badge-wrap f03r2-badge-tr" id="f03r2-badge1-wrap">
+        <div class="f03r2-badge-anim" id="f03r2-badge1">
+          <div class="f03r2-badge-ring"></div>
+          <div class="f03r2-badge-slash"></div>
         </div>
-        <div class="raison2-namebar"></div>
-        <div class="raison2-subbar"></div>
-        <div class="raison2-tsbar"></div>
       </div>
-
-      <!-- row 2 -->
-      <div class="raison2-row" style="top: 456px;">
-        <div class="raison2-ring" style="border-color: #99e885;">
-          <div class="raison2-avatar"></div>
-          <div class="raison2-badge-wrap clip" id="raison2-badge2-wrap" data-start="0" data-duration="5.5" data-track-index="6">
-            <div class="raison2-badge-anim" id="raison2-badge2">
-              <div class="raison2-badge-ring"></div>
-              <div class="raison2-badge-slash"></div>
-            </div>
-          </div>
+      <div class="f03r2-badge-wrap f03r2-badge-bl" id="f03r2-badge2-wrap">
+        <div class="f03r2-badge-anim" id="f03r2-badge2">
+          <div class="f03r2-badge-ring"></div>
+          <div class="f03r2-badge-slash"></div>
         </div>
-        <div class="raison2-namebar"></div>
-        <div class="raison2-subbar"></div>
-        <div class="raison2-tsbar"></div>
-      </div>
-
-      <!-- row 3 -->
-      <div class="raison2-row" style="top: 632px;">
-        <div class="raison2-ring" style="border-color: #f7cb46;">
-          <div class="raison2-avatar"></div>
-        </div>
-        <div class="raison2-namebar"></div>
-        <div class="raison2-subbar"></div>
-        <div class="raison2-tsbar"></div>
-      </div>
-
-      <!-- row 4 -->
-      <div class="raison2-row" style="top: 808px;">
-        <div class="raison2-ring" style="border-color: #ffdc8b;">
-          <div class="raison2-avatar"></div>
-          <div class="raison2-badge-wrap clip" id="raison2-badge3-wrap" data-start="0" data-duration="5.5" data-track-index="7">
-            <div class="raison2-badge-anim" id="raison2-badge3">
-              <div class="raison2-badge-ring"></div>
-              <div class="raison2-badge-slash"></div>
-            </div>
-          </div>
-        </div>
-        <div class="raison2-namebar"></div>
-        <div class="raison2-subbar"></div>
-        <div class="raison2-tsbar"></div>
-      </div>
-
-      <!-- row 5 -->
-      <div class="raison2-row" style="top: 984px;">
-        <div class="raison2-ring" style="border-color: #fe90e8;">
-          <div class="raison2-avatar"></div>
-        </div>
-        <div class="raison2-namebar"></div>
-        <div class="raison2-subbar"></div>
-        <div class="raison2-tsbar"></div>
-      </div>
-
-      <!-- row 6 -->
-      <div class="raison2-row" style="top: 1160px;">
-        <div class="raison2-ring" style="border-color: #c0f7fe;">
-          <div class="raison2-avatar"></div>
-        </div>
-        <div class="raison2-namebar"></div>
-        <div class="raison2-subbar"></div>
-        <div class="raison2-tsbar"></div>
       </div>
     </div>
   </div>
@@ -287,61 +192,58 @@
     (function () {
       var tl = gsap.timeline({ paused: true });
 
-      // Scene 1 (0.0-1.6s): establishing hold of the carried-over crowded status
-      // screen — quick gentle settle-in (not a rebuild), hero visible by 0.4s.
+      // Scene 1 (0.0-1.6s): the real screenshot blur-crossfades into the
+      // bordered device card — a soft blur-resolve settle (not a hard pop),
+      // matching the incoming root transition's continuity feel. Hero
+      // (the card) is legible well before t=0.5s.
       tl.fromTo(
-        "#raison2-stage",
-        { opacity: 0, y: 18, scale: 0.97 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "power2.out" },
+        "#f03r2-card",
+        { opacity: 0, scale: 0.96, filter: "blur(22px)" },
+        { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power2.out" },
         0
       );
       tl.fromTo(
-        "#raison2-decor-star",
-        { opacity: 0, scale: 0.7 },
-        { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" },
-        0.05
-      );
-      tl.fromTo(
-        "#raison2-decor-chip",
+        "#f03r2-decor-star",
         { opacity: 0, scale: 0.7 },
         { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" },
         0.1
+      );
+      tl.fromTo(
+        "#f03r2-decor-chip",
+        { opacity: 0, scale: 0.7 },
+        { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" },
+        0.18
       );
 
       // gentle macro drift underneath scenes 1-2 only — stops before Scene 3
       // (3.6-5.0s), which the shot sequence calls out as a deliberate hold
       // with no further motion.
       tl.fromTo(
-        "#raison2-stage",
+        "#f03r2-card",
         { scale: 1 },
-        { scale: 1.015, duration: 3.2, ease: "none" },
-        0.4
+        { scale: 1.012, duration: 3.05, ease: "none" },
+        0.55
       );
 
-      // first "muted" badge fades in on the top row, top-right of its ring
+      // Scene 2 (1.6-3.6s): a grey "muted" bell-badge spring-pops onto the
+      // card's top-right corner as the line's first half lands...
       tl.fromTo(
-        "#raison2-badge1",
-        { opacity: 0, scale: 0.5 },
-        { opacity: 1, scale: 1, duration: 0.35, ease: "power1.out" },
-        0.9
+        "#f03r2-badge1",
+        { opacity: 0, scale: 0.3, rotation: -12 },
+        { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2.4)" },
+        1.8
+      );
+      // ...and a second badge pops onto the bottom-left corner as
+      // "meme ceux qui aiment ce que tu vends" lands.
+      tl.fromTo(
+        "#f03r2-badge2",
+        { opacity: 0, scale: 0.3, rotation: 12 },
+        { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2.4)" },
+        3.2
       );
 
-      // Scene 2 (1.6-3.6s): two more badges, one per half of the voiceover line
-      tl.fromTo(
-        "#raison2-badge2",
-        { opacity: 0, scale: 0.5 },
-        { opacity: 1, scale: 1, duration: 0.35, ease: "power1.out" },
-        2.0
-      );
-      tl.fromTo(
-        "#raison2-badge3",
-        { opacity: 0, scale: 0.5 },
-        { opacity: 1, scale: 1, duration: 0.35, ease: "power1.out" },
-        3.0
-      );
-
-      // Scene 3 (3.6-5.0s): held — nothing further fires; the screen just reads
-      // as quietly ignored with its three muted badges.
+      // Scene 3 (3.6-5.0s): held — the screen reads as quietly ignored,
+      // no further motion fires.
 
       window.__timelines["03-raison2"] = tl;
     })();
