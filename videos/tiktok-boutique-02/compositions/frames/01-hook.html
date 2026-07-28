@@ -1,5 +1,5 @@
 <template>
-  <div id="root" data-composition-id="01-hook" data-duration="4" style="position: relative; width: 1080px; height: 1920px; overflow: hidden;" data-width="1080" data-height="1920">
+  <div id="root" data-composition-id="01-hook" data-duration="4.4" style="position: relative; width: 1080px; height: 1920px; overflow: hidden;" data-width="1080" data-height="1920">
 
     <!-- directional/depth blur filter for the photo's push-enter streak -->
     <svg width="0" height="0" aria-hidden="true" style="position: absolute">
@@ -9,18 +9,18 @@
     </svg>
 
     <!-- track 0: real staged photo, full-bleed, push-enters then dims under the overlay -->
-    <div class="clip fr01hook-photo-wrap" data-start="0" data-duration="4" data-track-index="0"
+    <div class="clip fr01hook-photo-wrap" data-start="0" data-duration="4.4" data-track-index="0"
       style="position: absolute; inset: 0; overflow: hidden; background: #000000;">
       <img id="fr01hook-photo" src="assets/whatsapp-open-photo.jpg" alt=""
         style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% 42%; filter: url(#fr01hook-streak); transform-origin: 50% 50%;" />
     </div>
 
     <!-- track 1: dark overlay — settles to ~65% black so the photo reads at ~35% strength -->
-    <div class="clip fr01hook-overlay" data-start="0" data-duration="4" data-track-index="1"
+    <div class="clip fr01hook-overlay" data-start="0" data-duration="4.4" data-track-index="1"
       style="position: absolute; inset: 0; background: #000000; opacity: 0;"></div>
 
     <!-- track 2: number pill, spring-pops in with a small dot burst marking its landing -->
-    <div class="clip fr01hook-pill-wrap" data-start="0.5" data-duration="3.5" data-track-index="2"
+    <div class="clip fr01hook-pill-wrap" data-start="0.5" data-duration="3.9" data-track-index="2"
       style="position: absolute; top: 400px; left: 0; width: 100%; text-align: center;">
       <div class="fr01hook-burst-stage" style="position: relative; display: inline-block;">
         <div class="fr01hook-particle-field" id="fr01hook-particle-field"
@@ -31,12 +31,12 @@
     </div>
 
     <!-- track 3-4: the two headline lines, fading up over the dimmed photo -->
-    <div class="clip fr01hook-line1" data-start="1.6" data-duration="2.4" data-track-index="3"
+    <div class="clip fr01hook-line1" data-start="1.6" data-duration="2.8" data-track-index="3"
       style="position: absolute; top: 740px; left: 0; width: 100%; padding: 0 60px; box-sizing: border-box; text-align: center; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.01em; line-height: 1.2; text-transform: uppercase; color: #FFFDF5;">
       POUR LESQUELLES ON NE TE PREND PAS
     </div>
 
-    <div class="clip fr01hook-line2" data-start="2.0" data-duration="2.0" data-track-index="4"
+    <div class="clip fr01hook-line2" data-start="2.0" data-duration="2.4" data-track-index="4"
       style="position: absolute; top: 812px; left: 0; width: 100%; padding: 0 60px; box-sizing: border-box; text-align: center; font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.01em; line-height: 1.2; text-transform: uppercase; color: #FFFDF5;">
       AU <span class="fr01hook-serieux-wrap" style="position: relative; display: inline-block;">SERIEUX<span class="fr01hook-tick" style="position: absolute; left: 0; right: 0; bottom: -8px; height: 5px; background: #F7CB46; transform-origin: left center;"></span></span> SUR WHATSAPP
     </div>

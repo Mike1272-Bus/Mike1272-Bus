@@ -47,7 +47,7 @@
         data-composition-id="01-hook"
         data-composition-src="compositions/frames/01-hook.html"
         data-start="0"
-        data-duration="4.5"
+        data-duration="4.4"
         data-track-index="0"
       ></div>
       <audio
@@ -65,7 +65,7 @@
         data-composition-id="02-raison1"
         data-composition-src="compositions/frames/02-raison1.html"
         data-start="4"
-        data-duration="5.5"
+        data-duration="5.6"
         data-track-index="1"
       ></div>
       <audio
@@ -83,7 +83,7 @@
         data-composition-id="03-raison2"
         data-composition-src="compositions/frames/03-raison2.html"
         data-start="9"
-        data-duration="5.5"
+        data-duration="5.4"
         data-track-index="0"
       ></div>
       <audio
@@ -156,14 +156,14 @@
       window.__timelines["main"] = gsap.timeline({ paused: true });
       // ── frame transitions (injected by transitions.mjs) ──
       (function () { var tl = window.__timelines["main"];
-        tl.to("#el-01-hook", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 4);
-        tl.fromTo("#el-02-raison1", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 4);
-        tl.to("#el-02-raison1", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 9);
-        tl.fromTo("#el-03-raison2", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 9);
-        tl.to("#el-03-raison2", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 14);
-        tl.fromTo("#el-04-raison3", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 14);
-        tl.to("#el-04-raison3", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 20);
-        tl.fromTo("#el-05-pivot-preuve", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 20);
+        tl.to("#el-01-hook", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 4);
+        tl.fromTo("#el-02-raison1", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 4);
+        tl.to("#el-02-raison1", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 9);
+        tl.fromTo("#el-03-raison2", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 9);
+        tl.to("#el-03-raison2", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 14);
+        tl.fromTo("#el-04-raison3", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 14);
+        tl.to("#el-04-raison3", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 20);
+        tl.fromTo("#el-05-pivot-preuve", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 20);
         tl.to({}, { duration: 31 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
       })();
     </script>

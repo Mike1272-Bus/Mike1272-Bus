@@ -30,7 +30,7 @@ music: none
 - scene: A real photo of someone opening WhatsApp punches in behind the question
 - duration: 4s
 - transition_in: cut
-- status: outline
+- status: animated
 - type: hook
 - persuasion: curiosity / pattern-naming (soft copy, punchier visual)
 - blueprint: kinetic-type-beats (Adapt) + motion-blur-streak entrance
@@ -52,7 +52,7 @@ Scene 4 (3.2-4.0s): held read, a faint yellow underline-tick draws under "SERIEU
 - scene: The real crowded WhatsApp status screen IS the shot — the newest entry is visibly lost in the pile
 - duration: 5s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - type: pain_point
 - persuasion: naming a familiar frustration, backed by a real screenshot
 - blueprint: device-surface-showcase (Reproduce) + motion-blur-streak entrance
@@ -73,7 +73,7 @@ Scene 3 (3.4-5.0s): held on the crowded, real screen - no further motion, the ri
 - scene: A second real screenshot shows a status being viewed while other statuses float alongside — visual overload, not just invisibility
 - duration: 5s
 - transition_in: blur-crossfade
-- status: outline
+- status: animated
 - type: pain_point
 - persuasion: naming a second, related frustration, backed by a real screenshot
 - blueprint: device-surface-showcase (Reproduce)
@@ -92,7 +92,7 @@ Scene 3 (3.6-5.0s): held - the screen reads as quietly ignored, no further motio
 - scene: A split beat contrasts the fading WhatsApp status against a real site sliding in and simply staying put
 - duration: 6s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - type: reveal
 - persuasion: contrast / setup for the pivot, now with a real site preview instead of an empty mock browser
 - blueprint: comparison-split (Adapt)
@@ -113,7 +113,7 @@ Scene 3 (4.6-6.0s): held - left side fully faded (24h up), right site sits stead
 - scene: The real site from Frame 4 hands off to the user's OWN real sites as the actual proof
 - duration: 6s
 - transition_in: push-slide
-- status: outline
+- status: animated
 - type: proof
 - persuasion: the pivot statement, backed by real evidence (the user's own work, not a generic reference)
 - blueprint: device-surface-showcase (Reproduce)
@@ -135,7 +135,7 @@ Scene 4 (5.2-6.0s): held read on both real screenshots together - no further mot
 - scene: A calm closing line offers to show what the viewer's own site could look like - an invitation, delivered with a confident spring-pop landing
 - duration: 5s
 - transition_in: cut
-- status: outline
+- status: animated
 - type: cta
 - persuasion: soft single next step, punchier visual close
 - blueprint: kinetic-type-beats (Adapt) + spring-pop-entrance + particle-burst
