@@ -1,0 +1,240 @@
+<template>
+<style>
+  #root {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  #root .clip {
+    position: absolute;
+  }
+
+  /* full-bleed ground wash — lives on a clip layer, never on #root itself */
+  #outil2-bgwash {
+    inset: 0;
+    background-color: #fe90e8;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.12) 1.2px, transparent 1.6px);
+    background-size: 24px 24px;
+    transform-origin: 50% 50%;
+  }
+
+  #outil2-support-card,
+  #outil2-hero-card {
+    background: #ffffff;
+    box-sizing: border-box;
+    transform-origin: 50% 50%;
+  }
+
+  #outil2-hero-card {
+    left: 150px;
+    top: 324px;
+    width: 780px;
+    height: 532px;
+    padding: 18px;
+    border: 6px solid #000000;
+    box-shadow: 12px 12px 0 #000000;
+    z-index: 3;
+  }
+
+  #outil2-support-card {
+    left: 40px;
+    top: 842px;
+    width: 520px;
+    height: 356px;
+    padding: 14px;
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0 #000000;
+    z-index: 2;
+  }
+
+  #outil2-hero-card img,
+  #outil2-support-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* small neobrutalist decoration units — chrome only, never narration text */
+  #outil2-deco-top {
+    top: 70px;
+    right: 66px;
+    width: 74px;
+    height: 74px;
+    background: #ffdc8b;
+    border: 4px solid #000000;
+    box-shadow: 6px 6px 0 #000000;
+    transform-origin: 50% 50%;
+    z-index: 4;
+  }
+
+  #outil2-deco-bottom {
+    top: 1424px;
+    left: 660px;
+    width: 64px;
+    height: 64px;
+    background: #c0f7fe;
+    border: 4px solid #000000;
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    transform-origin: 50% 50%;
+    z-index: 4;
+  }
+</style>
+
+<div id="root" data-composition-id="03-outil2">
+  <div
+    id="outil2-bgwash"
+    class="clip"
+    data-start="0"
+    data-duration="5"
+    data-track-index="0"
+  ></div>
+
+  <div
+    id="outil2-support-card"
+    class="clip"
+    data-start="2.2"
+    data-duration="2.8"
+    data-track-index="1"
+  >
+    <img src="assets/canva-adjust.jpg" alt="" />
+  </div>
+
+  <div
+    id="outil2-hero-card"
+    class="clip"
+    data-start="0"
+    data-duration="5"
+    data-track-index="2"
+  >
+    <img src="assets/canva-magicstudio.jpg" alt="" />
+  </div>
+
+  <div
+    id="outil2-deco-top"
+    class="clip"
+    data-start="0"
+    data-duration="5"
+    data-track-index="3"
+  ></div>
+
+  <div
+    id="outil2-deco-bottom"
+    class="clip"
+    data-start="2.2"
+    data-duration="2.8"
+    data-track-index="4"
+  ></div>
+</div>
+
+<script>
+  (function () {
+    window.__timelines = window.__timelines || {};
+
+    const bgWash = "#outil2-bgwash";
+    const heroCard = "#outil2-hero-card";
+    const supportCard = "#outil2-support-card";
+    const decoTop = "#outil2-deco-top";
+    const decoBottom = "#outil2-deco-bottom";
+
+    const tl = gsap.timeline({ paused: true });
+
+    // --- Scene 1 (0.0-2.2s): pink wash settles; hero push-slides in from the
+    // right, decelerating to rest (cut-the-curve velocity match). ---
+    tl.fromTo(
+      bgWash,
+      { opacity: 0.85, scale: 1.02 },
+      { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" },
+      0,
+    );
+
+    tl.fromTo(
+      decoTop,
+      { opacity: 0, y: -14, rotation: 4 },
+      { opacity: 1, y: 0, rotation: 10, duration: 0.5, ease: "power2.out" },
+      0.15,
+    );
+
+    // hero enters fully off-canvas right (x offset), rotation held constant
+    // through the slide so GSAP owns the whole transform (no CSS conflict).
+    tl.fromTo(
+      heroCard,
+      { x: 970, rotation: -2 },
+      { x: 0, rotation: -2, duration: 2.2, ease: "power4.out" },
+      0,
+    );
+
+    // --- Scene 2 (2.2-3.0s): supporting card spring-pops in behind/below,
+    // smaller, offset bottom-left, back.out settle. ---
+    tl.fromTo(
+      supportCard,
+      { opacity: 0, scale: 0.6, rotation: -6 },
+      { opacity: 1, scale: 1, rotation: 5, duration: 0.8, ease: "back.out(1.6)" },
+      2.2,
+    );
+
+    tl.fromTo(
+      decoBottom,
+      { opacity: 0, scale: 0.6, rotation: -18 },
+      { opacity: 1, scale: 1, rotation: -8, duration: 0.5, ease: "back.out(2)" },
+      2.4,
+    );
+
+    // --- Scene 3 (3.0-5.0s): both cards keep a continuous sine-wave-loop
+    // idle drift for the rest of the hold — offset phase, 3 finite cycles.
+    // Long-idle-window (idle = 40% of total duration) => halved amplitude
+    // per the sine-wave-loop recipe's damping rule. Composes onto the
+    // resting transform, never overwrites it. ---
+    const IDLE_START = 3.0;
+    const IDLE_DUR = 2.0; // 3.0 -> 5.0
+    const CYCLES = 3;
+
+    const heroPhase = { p: 0 };
+    tl.to(
+      heroPhase,
+      {
+        p: Math.PI * 2 * CYCLES,
+        duration: IDLE_DUR,
+        ease: "none",
+        onUpdate: () => {
+          const s = Math.sin(heroPhase.p);
+          gsap.set(heroCard, { y: s * 1.3, rotation: -2 + s * 0.3 });
+        },
+      },
+      IDLE_START,
+    );
+
+    const supportPhase = { p: 0 };
+    tl.to(
+      supportPhase,
+      {
+        p: Math.PI * 2 * CYCLES,
+        duration: IDLE_DUR,
+        ease: "none",
+        onUpdate: () => {
+          // offset phase (+ PI/2) so the two cards never drift in lockstep
+          const s = Math.sin(supportPhase.p + Math.PI / 2);
+          gsap.set(supportCard, { y: s * 1.1, rotation: 5 + s * 0.25 });
+        },
+      },
+      IDLE_START,
+    );
+
+    window.__timelines["03-outil2"] = tl;
+  })();
+</script>
+</template>

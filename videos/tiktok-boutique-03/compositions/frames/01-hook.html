@@ -1,0 +1,297 @@
+<template>
+  <div id="root" data-composition-id="01-hook">
+    <style>
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        container-type: size;
+        container-name: hook01;
+        --black: #000000;
+        --white: #ffffff;
+        --offwhite: #fffdf5;
+        --pink: #fe90e8;
+        --blue: #c0f7fe;
+        --green: #99e885;
+        --yellow: #f7cb46;
+        --cream: #ffdc8b;
+        --font-display: Arial, Helvetica, sans-serif;
+        --font-label: Arial, Helvetica, sans-serif;
+      }
+
+      #root * {
+        box-sizing: border-box;
+      }
+
+      /* ---- ground (full-bleed, full duration) ---- */
+      .hook01-ground {
+        position: absolute;
+        inset: 0;
+        background-color: var(--offwhite);
+        background-image: radial-gradient(
+          rgba(0, 0, 0, 0.055) 1.4px,
+          transparent 1.6px
+        );
+        background-size: 5.6cqw 5.6cqw;
+      }
+
+      /* ---- Scene 1: zoom-through color flashes ---- */
+      .hook01-flash {
+        position: absolute;
+        inset: 0;
+        will-change: transform, filter;
+      }
+      .hook01-flash-blue {
+        background: var(--blue);
+      }
+      .hook01-flash-pink {
+        background: var(--pink);
+      }
+      .hook01-flash-green {
+        background: var(--green);
+      }
+      .hook01-flash-cream {
+        background: var(--cream);
+      }
+
+      /* ---- Scene 2: number pill + burst ---- */
+      .hook01-pill-row {
+        position: absolute;
+        top: 19.8cqh;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .hook01-burst-stage {
+        position: relative;
+      }
+      .hook01-tilt-chip {
+        position: absolute;
+        top: -3.4cqh;
+        right: -4.6cqw;
+        width: 6.5cqw;
+        height: 6.5cqw;
+        background: var(--green);
+        border: 0.37cqw solid var(--black);
+        z-index: 0;
+      }
+      .hook01-particle-field {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        z-index: 1;
+      }
+      .hook01-particle {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 50%;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+      .hook01-pill {
+        position: relative;
+        z-index: 2;
+        background: var(--black);
+        color: var(--white);
+        border: 0.37cqw solid var(--black);
+        border-radius: 999px;
+        box-shadow: 0.93cqw 0.93cqw 0 var(--yellow);
+        padding: 1.15cqh 4.07cqw;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 4.1cqw;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      /* ---- Scene 3: headline ---- */
+      .hook01-headline {
+        position: absolute;
+        top: 49.5cqh;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 84cqw;
+        text-align: center;
+      }
+      .hook01-line {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 6.1cqw;
+        line-height: 1.16;
+        letter-spacing: -0.015em;
+        text-transform: uppercase;
+        color: var(--black);
+      }
+      .hook01-word-wrap {
+        position: relative;
+        display: inline-block;
+      }
+      .hook01-underline {
+        position: absolute;
+        left: 0;
+        bottom: -0.9cqh;
+        width: 100%;
+        height: 0.83cqw;
+        background: var(--yellow);
+        transform-origin: left center;
+      }
+    </style>
+
+    <div class="hook01-ground clip" data-start="0" data-duration="4" data-track-index="0"></div>
+
+    <div class="hook01-flash hook01-flash-blue clip" data-start="0" data-duration="0.2" data-track-index="1"></div>
+    <div class="hook01-flash hook01-flash-pink clip" data-start="0.2" data-duration="0.2" data-track-index="1"></div>
+    <div class="hook01-flash hook01-flash-green clip" data-start="0.4" data-duration="0.2" data-track-index="1"></div>
+    <div class="hook01-flash hook01-flash-cream clip" data-start="0.6" data-duration="0.2" data-track-index="1"></div>
+
+    <div class="hook01-pill-row clip" data-start="0.8" data-duration="3.2" data-track-index="2">
+      <div class="hook01-burst-stage">
+        <div class="hook01-tilt-chip"></div>
+        <div class="hook01-particle-field" id="hook01-particle-field"></div>
+        <div class="hook01-pill">4 OUTILS</div>
+      </div>
+    </div>
+
+    <div class="hook01-headline clip" data-start="1.8" data-duration="2.2" data-track-index="3">
+      <div class="hook01-line hook01-line1">SIMPLES POUR VENDRE EN LIGNE,</div>
+      <div class="hook01-line hook01-line2">
+        MEME SI TU
+        <span class="hook01-word-wrap"
+          >DEBUTES<span class="hook01-underline"></span
+        ></span>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        var root = document.currentScript.closest('[data-composition-id="01-hook"]');
+
+        // deterministic pure-hash rng (never Math.random)
+        var prand = function (n) {
+          var x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+          return x - Math.floor(x);
+        };
+
+        // ---- Scene 2b: dot-burst particle pool (setup once, deterministic) ----
+        var PARTICLE_COUNT = 7;
+        var SIZE_MIN = 5,
+          SIZE_MAX = 8;
+        var SPEED_MIN = 180,
+          SPEED_MAX = 320;
+        var G = 60; // near-zero gravity: radial dot drift, not confetti fall
+        var FLIGHT_DUR = 0.55;
+        var FADE_FRAC = 0.3;
+        var BURST_AT = 1.3; // pill's settle frame (0.8 start + ~0.5s spring)
+
+        var palette = ["var(--pink)", "var(--blue)", "var(--green)", "var(--yellow)", "var(--cream)"];
+        var field = root.querySelector("#hook01-particle-field") ||
+          root.querySelector(".hook01-particle-field");
+        var parts = [];
+        for (var i = 0; i < PARTICLE_COUNT; i++) {
+          var el = document.createElement("div");
+          el.className = "hook01-particle";
+          var size = SIZE_MIN + prand(i * 3 + 1) * (SIZE_MAX - SIZE_MIN);
+          el.style.width = size + "px";
+          el.style.height = size + "px";
+          el.style.background = palette[i % palette.length];
+          field.appendChild(el);
+
+          var angle = prand(i * 5 + 2) * Math.PI * 2; // radial, full circle
+          var speed = SPEED_MIN + prand(i * 7 + 3) * (SPEED_MAX - SPEED_MIN);
+          parts.push({
+            el: el,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+          });
+        }
+
+        var tl = gsap.timeline({ paused: true });
+
+        // ---- initial/setup states (deterministic, once) ----
+        gsap.set([".hook01-flash-blue", ".hook01-flash-pink", ".hook01-flash-green", ".hook01-flash-cream"].map(function (s) {
+          return root.querySelector(s);
+        }), { scaleX: 1, scaleY: 1, filter: "blur(0px)" });
+        gsap.set(root.querySelector(".hook01-pill"), { scale: 0.3, opacity: 0, transformOrigin: "center center" });
+        gsap.set(root.querySelector(".hook01-tilt-chip"), { scale: 0, opacity: 0, rotation: 10, transformOrigin: "center center" });
+        gsap.set([root.querySelector(".hook01-line1"), root.querySelector(".hook01-line2")], { opacity: 0, y: 22 });
+        gsap.set(root.querySelector(".hook01-underline"), { scaleX: 0, transformOrigin: "left center" });
+
+        // ---- Scene 1: four zoom-through color flashes, hard cuts ----
+        var flashStarts = [0, 0.2, 0.4, 0.6];
+        var flashSelectors = [".hook01-flash-blue", ".hook01-flash-pink", ".hook01-flash-green", ".hook01-flash-cream"];
+        flashSelectors.forEach(function (sel, idx) {
+          var el = root.querySelector(sel);
+          tl.fromTo(
+            el,
+            { scaleX: 1, scaleY: 1, filter: "blur(0px)" },
+            { scaleX: 1.32, scaleY: 1.6, filter: "blur(20px)", duration: 0.2, ease: "power2.in" },
+            flashStarts[idx]
+          );
+        });
+
+        // ---- Scene 2: number pill spring-pop + tilt chip + dot burst ----
+        tl.to(
+          root.querySelector(".hook01-tilt-chip"),
+          { scale: 1, opacity: 1, rotation: 10, duration: 0.35, ease: "back.out(1.8)" },
+          0.8
+        );
+        tl.to(
+          root.querySelector(".hook01-pill"),
+          { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
+          0.8
+        );
+
+        var drive = { T: 0 };
+        tl.fromTo(
+          drive,
+          { T: 0 },
+          {
+            T: 1,
+            duration: FLIGHT_DUR,
+            ease: "none",
+            onUpdate: function () {
+              var t = drive.T * FLIGHT_DUR;
+              var fade = Math.min(1, (1 - drive.T) / FADE_FRAC);
+              parts.forEach(function (p) {
+                var x = p.vx * t;
+                var y = p.vy * t + 0.5 * G * t * t;
+                p.el.style.transform = "translate(" + x + "px, " + y + "px)";
+                p.el.style.opacity = String(drive.T === 0 ? 0 : fade);
+              });
+            },
+          },
+          BURST_AT
+        );
+
+        // ---- Scene 3: headline, line by line, soft upward drift ----
+        tl.to(
+          root.querySelector(".hook01-line1"),
+          { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+          1.8
+        );
+        tl.to(
+          root.querySelector(".hook01-line2"),
+          { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+          2.4
+        );
+
+        // ---- Scene 4: held read, yellow underline tick under DEBUTES ----
+        tl.to(
+          root.querySelector(".hook01-underline"),
+          { scaleX: 1, duration: 0.45, ease: "power2.out" },
+          3.3
+        );
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["01-hook"] = tl;
+      })();
+    </script>
+  </div>
+</template>
