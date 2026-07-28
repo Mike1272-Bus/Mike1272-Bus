@@ -1,0 +1,13 @@
+{
+  "scene": "07-avis",
+  "duration_s": 6.5,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "near-static — idle sine drift amplitude (top ~1.2px/0.3deg, bottom ~1.0px/0.3deg) ramps to ~0 over the final ~0.94s settle-and-fade tail",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "in-place — cream wash zoom-through-cut flashes (scaleX/Y 1->1.3/1.55, blur 0->18px) launch from a static full-frame rest state at t=0, 0px/s translation",
+    "from_rest": true
+  }
+}

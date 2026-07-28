@@ -1,0 +1,13 @@
+{
+  "scene": "02-suite",
+  "duration_s": 5.0,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "hero card mid sine-wave idle bob, ~2.5px vertical amplitude / ~0.6deg rotation amplitude on a 1.6s period, roughly 5px/s vertical at the last frame",
+    "still_moving": true
+  },
+  "entry": {
+    "vector": "cream ground settling from a 1.05x/opacity-0.55 push-in state at ~0.4s ease-out; hero and pill still at scale 0 at t=0",
+    "from_rest": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "scene": "06-consequence2",
+  "duration_s": 6.5,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "~0px/s, hero card at rest (settle-and-fade envelope zeroes idle amplitude by t=6.5s)",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "leftward push-slide on the blue bg wash, ~2160px/s (full 1080px width over 0.5s); hero card still scale:0 at t=0",
+    "from_rest": false
+  }
+}

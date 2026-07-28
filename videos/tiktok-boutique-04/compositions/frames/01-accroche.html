@@ -1,0 +1,267 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --white: #ffffff;
+      --offwhite: #fffdf5;
+      --blue: #c0f7fe;
+      --pink: #fe90e8;
+      --yellow: #f7cb46;
+      --cream: #ffdc8b;
+      --green: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+
+    /* ---- full-bleed ground (own clip layer, never on #root) ---- */
+    .acc01-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--blue);
+    }
+    .acc01-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+      opacity: 0.55;
+    }
+
+    /* ---- label-pill: opens the region ---- */
+    .acc01-pill-wrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 96px;
+    }
+    .acc01-pill {
+      font-family: var(--f-display);
+      font-weight: 900;
+      font-size: 34px;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--yellow);
+      border: 4px solid var(--black);
+      box-shadow: 8px 8px 0 var(--black);
+      border-radius: 9999px;
+      padding: 18px 40px;
+      white-space: nowrap;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    /* ---- star-burst decoration, top-right ---- */
+    .acc01-star-wrap {
+      position: absolute;
+      top: 60px;
+      right: 40px;
+      width: 156px;
+      height: 156px;
+    }
+    .acc01-star {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+    .acc01-star-outer,
+    .acc01-star-inner {
+      position: absolute;
+      clip-path: polygon(
+        50% 0%, 61.8% 35.3%, 97.6% 35.3%, 68.8% 57.4%, 79.4% 91.8%,
+        50% 70.5%, 20.6% 91.8%, 31.2% 57.4%, 2.4% 35.3%, 38.2% 35.3%
+      );
+    }
+    .acc01-star-outer { inset: 0; background: var(--black); }
+    .acc01-star-inner { inset: 9%; background: var(--pink); }
+
+    /* ---- hero photo card ---- */
+    .acc01-hero-wrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 552px;
+    }
+    .acc01-hero-card {
+      width: 900px;
+      height: 506px;
+      background: var(--white);
+      border: 4px solid var(--black);
+      box-shadow: 8px 8px 0 var(--black);
+      padding: 14px;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+    .acc01-hero-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--offwhite);
+    }
+
+    /* ---- tilt-deco square, lower-left ---- */
+    .acc01-square-wrap {
+      position: absolute;
+      left: 68px;
+      top: 1230px;
+      width: 118px;
+      height: 118px;
+    }
+    .acc01-square {
+      width: 100%;
+      height: 100%;
+      background: var(--cream);
+      border: 3px solid var(--black);
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    /* ---- decorative scene counter, lower-right ---- */
+    .acc01-counter-wrap {
+      position: absolute;
+      right: 72px;
+      top: 1252px;
+      width: 96px;
+      height: 96px;
+    }
+    .acc01-counter {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      border-radius: 50%;
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: 0.05em;
+      color: var(--black);
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+  </style>
+
+  <div id="root" data-composition-id="01-accroche" data-duration="4" data-width="1080" data-height="1920">
+    <div class="acc01-bg clip" data-start="0" data-duration="4" data-track-index="0"></div>
+
+    <div class="acc01-pill-wrap">
+      <div class="acc01-pill clip" data-start="0" data-duration="4" data-track-index="1">TON REFLEXE</div>
+    </div>
+
+    <div class="acc01-star-wrap">
+      <div class="acc01-star clip" data-start="0" data-duration="4" data-track-index="2">
+        <div class="acc01-star-outer"></div>
+        <div class="acc01-star-inner"></div>
+      </div>
+    </div>
+
+    <div class="acc01-hero-wrap">
+      <div class="acc01-hero-card clip" data-start="0" data-duration="4" data-track-index="3">
+        <img class="acc01-hero-img" src="assets/meta-apps-phone.jpg" alt="" />
+      </div>
+    </div>
+
+    <div class="acc01-square-wrap">
+      <div class="acc01-square clip" data-start="0" data-duration="4" data-track-index="4"></div>
+    </div>
+
+    <div class="acc01-counter-wrap">
+      <div class="acc01-counter clip" data-start="0" data-duration="4" data-track-index="5">01</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      var pill = ".acc01-pill";
+      var star = ".acc01-star";
+      var hero = ".acc01-hero-card";
+      var square = ".acc01-square";
+      var counter = ".acc01-counter";
+
+      var HERO_ROT = -2;
+      var bg = ".acc01-bg";
+
+      // ---- Scene 1 (0.0-0.5s): blue wash zoom-through-cuts in (Z-scale +
+      // blur + opacity, per the cut catalog), then the label pill opens the
+      // region with a quick smooth settle. ----
+      gsap.set(hero, { rotation: HERO_ROT });
+
+      tl.fromTo(
+        bg,
+        { scale: 1.08, opacity: 0.5, filter: "blur(10px)" },
+        { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.42, ease: "power2.out" },
+        0
+      );
+      tl.fromTo(pill, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.05);
+
+      // ---- Scene 2 (0.3-1.0s): meta-apps-phone.jpg spring-pops in large,
+      // tilted -2deg, with the explicitly-called-for back.out overshoot ----
+      tl.fromTo(
+        hero,
+        { scale: 0, opacity: 0, rotation: HERO_ROT - 6 },
+        { scale: 1, opacity: 1, rotation: HERO_ROT, duration: 0.55, ease: "back.out(1.6)" },
+        0.3
+      );
+
+      // star-burst and lower decorations trickle in through the second half
+      // of the pop beat, never front-loaded with the hero at t=0.
+      tl.fromTo(
+        star,
+        { scale: 0, opacity: 0, rotation: -14 },
+        { scale: 1, opacity: 1, rotation: -6, duration: 0.4, ease: "back.out(1.8)" },
+        0.62
+      );
+      tl.fromTo(
+        square,
+        { scale: 0, opacity: 0, rotation: 10 },
+        { scale: 1, opacity: 1, rotation: 6, duration: 0.4, ease: "power3.out" },
+        0.78
+      );
+      tl.fromTo(
+        counter,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out" },
+        0.9
+      );
+
+      // ---- Scene 3 (1.0-4.0s): continuous sine-wave-loop idle drift on the
+      // hero for the rest of the hold (3.0s window) — composes on top of the
+      // settled -2deg tilt, never overwrites it. ----
+      var HERO_IDLE_START = 1.0;
+      var HERO_LEG = 0.75; // 4 legs of 0.75s => 1.5 cycles across 3.0s, period 1.5s
+      var HERO_REPEAT = 3;
+
+      tl.to(
+        hero,
+        { y: 2.5, duration: HERO_LEG, ease: "sine.inOut", yoyo: true, repeat: HERO_REPEAT },
+        HERO_IDLE_START
+      );
+      tl.to(
+        hero,
+        { rotation: HERO_ROT - 0.5, duration: HERO_LEG, ease: "sine.inOut", yoyo: true, repeat: HERO_REPEAT },
+        HERO_IDLE_START
+      );
+
+      window.__timelines["01-accroche"] = tl;
+    })();
+  </script>
+</template>

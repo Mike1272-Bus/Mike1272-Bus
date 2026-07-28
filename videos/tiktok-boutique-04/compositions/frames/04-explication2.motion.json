@@ -1,0 +1,13 @@
+{
+  "scene": "04-explication2",
+  "duration_s": 7.0,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "~0px/s, both cards at rest (settle-and-fade envelope zeroes idle amplitude by t=7.0s)",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "leftward push-slide on the green bg wash, ~2160px/s (full 1080px width over 0.5s); both image cards still scale:0/off-frame at t=0",
+    "from_rest": false
+  }
+}
