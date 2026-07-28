@@ -1,0 +1,250 @@
+<template>
+  <div id="root" data-composition-id="04-outil3">
+    <div
+      class="clip"
+      id="outil3-bg"
+      data-start="0"
+      data-duration="5"
+      data-track-index="0"
+    ></div>
+
+    <div
+      class="clip"
+      id="outil3-dotgrid"
+      data-start="0"
+      data-duration="5"
+      data-track-index="1"
+    ></div>
+
+    <div
+      class="clip"
+      id="outil3-star"
+      data-start="0"
+      data-duration="5"
+      data-track-index="2"
+    ></div>
+
+    <div
+      class="clip outil3-card"
+      id="outil3-support-card"
+      data-start="0"
+      data-duration="5"
+      data-track-index="3"
+    >
+      <img src="assets/meta-reels-ads-examples.png" alt="Real Reels sponsored ad examples" />
+    </div>
+
+    <div
+      class="clip"
+      id="outil3-stripe"
+      data-start="0"
+      data-duration="5"
+      data-track-index="4"
+    ></div>
+
+    <div
+      class="clip outil3-card"
+      id="outil3-hero-card"
+      data-start="0"
+      data-duration="5"
+      data-track-index="5"
+    >
+      <img src="assets/meta-ads-collage.png" alt="Meta Ads illustration" />
+    </div>
+  </div>
+
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      container-type: size;
+      background: transparent;
+    }
+
+    .clip {
+      position: absolute;
+    }
+
+    #outil3-bg {
+      inset: 0;
+      background: #c0f7fe;
+    }
+
+    #outil3-dotgrid {
+      inset: 0;
+      background-image: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 0.14) 1.2px,
+        transparent 1.4px
+      );
+      background-size: 24px 24px;
+      opacity: 0.55;
+    }
+
+    #outil3-star {
+      left: 68px;
+      top: 108px;
+      width: 148px;
+      height: 148px;
+      background: #fe90e8;
+      border: 0.35cqw solid #000;
+      clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+      );
+    }
+
+    #outil3-stripe {
+      left: 700px;
+      top: 1310px;
+      width: 250px;
+      height: 116px;
+      border: 0.35cqw solid #000;
+      background-image: repeating-linear-gradient(
+        45deg,
+        #000 0 14px,
+        #ffdc8b 14px 28px
+      );
+    }
+
+    .outil3-card {
+      box-sizing: border-box;
+      background: #fff;
+      border: 0.4cqw solid #000;
+      box-shadow: 0.8cqw 0.8cqw 0 #000;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .outil3-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    #outil3-hero-card {
+      left: 135px;
+      top: 470px;
+      width: 810px;
+      height: 500px;
+      padding: 26px;
+      z-index: 3;
+    }
+
+    #outil3-support-card {
+      left: 460px;
+      top: 760px;
+      width: 600px;
+      height: 420px;
+      padding: 22px;
+      z-index: 2;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      const hero = document.getElementById("outil3-hero-card");
+      const support = document.getElementById("outil3-support-card");
+      const star = document.getElementById("outil3-star");
+      const stripe = document.getElementById("outil3-stripe");
+
+      const HERO_BASE_ROT = -2;
+      const SUPPORT_BASE_ROT = 4;
+
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-0.5s): hero lands as the incoming half of the zoom-through cut.
+      tl.fromTo(
+        hero,
+        { scale: 0.75, opacity: 0.15, rotation: HERO_BASE_ROT, filter: "blur(10px)" },
+        {
+          scale: 1,
+          opacity: 1,
+          rotation: HERO_BASE_ROT,
+          filter: "blur(0px)",
+          duration: 0.5,
+          ease: "expo.out",
+        },
+        0,
+      );
+
+      // decorative star-burst settles in alongside the hero's arrival.
+      tl.fromTo(
+        star,
+        { scale: 0, opacity: 0, rotation: -14 },
+        { scale: 1, opacity: 1, rotation: -8, duration: 0.45, ease: "back.out(2)" },
+        0.15,
+      );
+
+      // Scene 2 (0.5-1.4s): supporting card spring-pops in behind/right of the hero.
+      tl.fromTo(
+        support,
+        { scale: 0.4, opacity: 0, rotation: 22 },
+        {
+          scale: 1,
+          opacity: 1,
+          rotation: SUPPORT_BASE_ROT,
+          duration: 0.9,
+          ease: "back.out(1.6)",
+        },
+        0.5,
+      );
+
+      // stripe-block decoration settles in shortly after both cards land.
+      tl.fromTo(
+        stripe,
+        { scale: 0.5, opacity: 0, rotation: 20 },
+        { scale: 1, opacity: 1, rotation: 8, duration: 0.5, ease: "back.out(1.8)" },
+        1.5,
+      );
+
+      // Scene 3 (1.4-5.0s): continuous sine-wave-loop idle drift, offset phase between cards.
+      const IDLE_START = 1.4;
+      const IDLE_DUR = 5.0 - IDLE_START; // 3.6s
+      const CYCLES = 3; // 3 finite cycles per the frame's shot sequence
+      const Y_AMP = 2.2; // px, low end of range
+      const ROT_AMP = 0.4; // deg, low end of range
+      const FADE_FRAC = 0.2; // settle-and-fade tail over the last 20% of the idle
+
+      const phase = { p: 0 };
+
+      tl.to(
+        phase,
+        {
+          p: Math.PI * 2 * CYCLES,
+          duration: IDLE_DUR,
+          ease: "none", // sine itself provides the curve
+          onUpdate: () => {
+            const t = phase.p / (Math.PI * 2 * CYCLES);
+            const env = t < 1 - FADE_FRAC ? 1 : Math.max(0, (1 - t) / FADE_FRAC);
+            const s1 = Math.sin(phase.p) * env;
+            // offset by PI/2 so the two cards never drift in lockstep
+            const s2 = Math.sin(phase.p + Math.PI / 2) * env;
+
+            gsap.set(hero, { y: s1 * Y_AMP, rotation: HERO_BASE_ROT + s1 * ROT_AMP });
+            gsap.set(support, { y: s2 * Y_AMP, rotation: SUPPORT_BASE_ROT + s2 * ROT_AMP });
+          },
+        },
+        IDLE_START,
+      );
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["04-outil3"] = tl;
+    })();
+  </script>
+</template>

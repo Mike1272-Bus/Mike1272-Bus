@@ -1,0 +1,184 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      container-type: size;
+      background: transparent;
+    }
+
+    .outil4-bg {
+      position: absolute;
+      inset: 0;
+      background: #ffdc8b; /* frame.md colors.cream */
+      transform-origin: center center;
+    }
+
+    .outil4-dotgrid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0, 0, 0, 0.14) 1.4px, transparent 1.8px);
+      background-size: 24px 24px;
+      opacity: 0.5;
+    }
+
+    .outil4-deco {
+      position: absolute;
+      top: 96px;
+      right: 90px;
+      width: 64px;
+      height: 64px;
+      background: #fe90e8; /* frame.md colors.pink */
+      border: 3px solid #000000;
+      box-shadow: 5px 5px 0 #000000;
+      transform: rotate(9deg);
+    }
+
+    .outil4-card {
+      position: absolute;
+      background: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0 #000000;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .outil4-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .outil4-card--support {
+      left: 70px;
+      top: 173px;
+      width: 460px;
+      height: 275px;
+      padding: 14px;
+    }
+
+    .outil4-card--hero {
+      left: 160px;
+      top: 345px;
+      width: 760px;
+      height: 616px;
+      padding: 16px;
+    }
+  </style>
+
+  <div id="root" data-composition-id="05-outil4">
+    <div
+      class="outil4-bg clip"
+      data-start="0"
+      data-duration="5"
+      data-track-index="0"
+    ></div>
+
+    <div
+      class="outil4-dotgrid clip"
+      data-start="0"
+      data-duration="5"
+      data-track-index="1"
+    ></div>
+
+    <div
+      class="outil4-deco clip"
+      data-start="0"
+      data-duration="5"
+      data-track-index="2"
+    ></div>
+
+    <!-- supporting card: back layer, offset up-left, CapCut logo kept clear of hero -->
+    <div
+      class="outil4-card outil4-card--support clip"
+      data-start="2.2"
+      data-duration="2.8"
+      data-track-index="3"
+    >
+      <img src="assets/capcut-editor-2.png" alt="" />
+    </div>
+
+    <!-- hero card: front layer -->
+    <div
+      class="outil4-card outil4-card--hero clip"
+      data-start="0"
+      data-duration="5"
+      data-track-index="4"
+    >
+      <img src="assets/capcut-editor-1.png" alt="" />
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+
+    (function build() {
+      // Elements are resolved lazily by the runtime against this template's clone;
+      // GSAP selector text targets classes/ids scoped within the cloned #root.
+      const tl = gsap.timeline({ paused: true });
+
+      const bg = '.outil4-bg';
+      const hero = '.outil4-card--hero';
+      const support = '.outil4-card--support';
+
+      // --- Scene 1 (0.0-2.2s): cream wash settles, hero push-slides in from the right ---
+      gsap.set(hero, { rotation: -3 });
+      gsap.set(support, { rotation: 3, scale: 0.5, autoAlpha: 0, transformOrigin: '50% 50%' });
+
+      tl.fromTo(bg, { scale: 1.025 }, { scale: 1, duration: 0.4, ease: 'power2.out' }, 0);
+
+      // Cut-the-curve velocity match: enters from further right, decelerates hard into rest.
+      tl.fromTo(
+        hero,
+        { x: 920 },
+        { x: 0, duration: 1.3, ease: 'expo.out' },
+        0.15,
+      );
+
+      // --- Scene 2 (2.2-3.0s): supporting card spring-pops in behind/above the hero ---
+      tl.to(
+        support,
+        { scale: 1, autoAlpha: 1, duration: 0.6, ease: 'back.out(1.7)' },
+        2.2,
+      );
+
+      // --- Scene 3 (3.0-5.0s): continuous sine-wave-loop idle drift, offset phase, ~3 cycles ---
+      const HERO_IDLE_START = 3.0;
+      const HERO_LEG = 1 / 3; // 6 legs of 0.333s => 3 full cycles across 2.0s
+      const HERO_REPEAT = 5;
+
+      tl.to(
+        hero,
+        { y: 3, duration: HERO_LEG, ease: 'sine.inOut', yoyo: true, repeat: HERO_REPEAT },
+        HERO_IDLE_START,
+      );
+      tl.to(
+        hero,
+        { rotation: -3.4, duration: HERO_LEG, ease: 'sine.inOut', yoyo: true, repeat: HERO_REPEAT },
+        HERO_IDLE_START,
+      );
+
+      const SUPPORT_IDLE_START = 3.15; // offset phase vs. hero
+      const SUPPORT_LEG = 0.37; // 5 legs of 0.37s => ~2.5 cycles across the remaining 1.85s
+      const SUPPORT_REPEAT = 4;
+
+      tl.to(
+        support,
+        { y: -3, duration: SUPPORT_LEG, ease: 'sine.inOut', yoyo: true, repeat: SUPPORT_REPEAT },
+        SUPPORT_IDLE_START,
+      );
+      tl.to(
+        support,
+        { rotation: 3.4, duration: SUPPORT_LEG, ease: 'sine.inOut', yoyo: true, repeat: SUPPORT_REPEAT },
+        SUPPORT_IDLE_START,
+      );
+
+      window.__timelines['05-outil4'] = tl;
+    })();
+  </script>
+</template>
