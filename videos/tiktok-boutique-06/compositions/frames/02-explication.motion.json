@@ -1,0 +1,13 @@
+{
+  "scene": "02-explication",
+  "duration_s": 8.2,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "top card mid sine-wave idle (~1.2px/3.2s period) and bottom card mid sine-wave idle (~1.0px/2.8s period, quarter-cycle phase offset from the top card), both amplitudes ramped to zero over the final 20% of the idle window so both cards are at rest by the last frame; vertical gap between the two halves stays >140px throughout",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "green ground push-slides in from xPercent 100 to 0 over 0.5s; top card starts at y -460 rotation -9deg scale 0, bottom card at y +460 rotation 9deg scale 0, both off-screen/collapsed at t=0",
+    "from_rest": true
+  }
+}

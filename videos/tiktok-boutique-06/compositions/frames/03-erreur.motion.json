@@ -1,0 +1,13 @@
+{
+  "scene": "03-erreur",
+  "duration_s": 9.2,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "top card mid sine-wave idle (~1.2px/3.3s period) and bottom card mid sine-wave idle (~1.0px/2.9s period, quarter-cycle phase offset from the top card), both amplitudes ramped to zero over the final 20% of the idle window so both cards are at rest by the last frame; vertical gap between the two halves stays >140px throughout",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "cream ground zoom-through-cuts in (scale 1.08->1, blur 10px->0, opacity 0.5->1) over 0.42s; top card starts at y -460 rotation -9deg scale 0, bottom card at y +460 rotation 9deg scale 0, both off-screen/collapsed at t=0",
+    "from_rest": true
+  }
+}
