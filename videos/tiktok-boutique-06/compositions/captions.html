@@ -1,0 +1,219 @@
+<template id="captions-template" data-composition-id="captions" data-width="1080" data-height="1920">
+
+
+<style data-brand-tokens>
+      :root {
+      --black: #000000;
+      --white: #FFFFFF;
+      --offwhite: #FFFDF5;
+      --pink: #FE90E8;
+      --blue: #C0F7FE;
+      --green: #99E885;
+      --yellow: #F7CB46;
+      --cream: #FFDC8B;
+      --cap-ink: #000000;
+      --cap-canvas: #FFFFFF;
+      --cap-accent: #F7CB46;
+      --cap-accent-2: #FFDC8B;
+      --font-display: "Inter", system-ui, serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --cap-band-top: 1600px;
+      --cap-band-height: 320px;
+      }
+    </style>
+
+<style>
+  #captions-root {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .caption-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+  }
+  /* the keep-out band, from captionBand(H) — frame content stays above it */
+  .caption-stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--cap-band-top, 900px);
+    height: var(--cap-band-height, 180px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .caption-group {
+    /* every group is absolutely stacked over the SAME band — exactly one shown at a
+       time via opacity. Must be absolute: in-flow groups would lay out side-by-side. */
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+
+  /* THE bordered card — 4px black border + 8px hard offset shadow (solid black,
+     zero blur, bottom-right — blockframe's sacred depth), square corners */
+  .caption-pill {
+    max-width: 80%;
+    padding: 18px 40px 22px;
+    background: var(--cap-canvas, #ffffff);
+    border: 4px solid var(--cap-ink, #000000);
+    border-radius: 0;
+    box-shadow: 8px 8px 0 var(--cap-ink, #000000);
+  }
+  .caption-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.12em 0.32em;
+    font-family: "Inter", system-ui, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(38px, 4.2vw, 56px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  /* upcoming — faded black ink, no stamp */
+  .caption-word {
+    display: inline-block;
+    padding: 0 0.1em;
+    color: color-mix(in srgb, var(--cap-ink, #000000) 40%, var(--cap-canvas, #ffffff));
+  }
+  /* current word — THE yellow stamp-block (box-shadow spread = a hard square block
+     w/o layout shift; no blur), black ink reading on top — blockframe's signature stamp */
+  .caption-word.is-active {
+    color: var(--cap-ink, #000000);
+    background: var(--cap-accent, #f7cb46);
+    box-shadow: 0 0 0 0.08em var(--cap-accent, #f7cb46);
+  }
+  /* already spoken — solid black ink, stamp cleared */
+  .caption-word.is-spoken {
+    color: var(--cap-ink, #000000);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* optional per-word accents (dormant until a word-classer tags them) */
+  /* brand / key term — heavier ink weight, blockframe's display is already 900 */
+  .caption-word.cap-brand {
+    color: var(--cap-ink, #000000);
+  }
+  /* numerals / data — the body voice, slightly recessed */
+  .caption-word.cap-num {
+    font-family: "Inter", ui-monospace, monospace;
+    color: color-mix(in srgb, var(--cap-ink, #000000) 74%, var(--cap-canvas, #ffffff));
+  }
+  /* emphasis — a cream hard underline bar (the second-chroma accent) */
+  .caption-word.cap-cta {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-decoration-color: var(--cap-accent-2, #ffdc8b);
+    text-underline-offset: 0.12em;
+  }
+
+  @media (max-aspect-ratio: 9/16) {
+    .caption-pill {
+      max-width: 92%;
+    }
+    .caption-line {
+      font-size: clamp(34px, 5.4vw, 48px);
+    }
+  }
+</style>
+
+<div
+  id="captions-root"
+  data-composition-id="captions"
+  data-timeline-locked
+  data-start="0"
+  data-duration="50.3"
+  data-fps="30"
+  data-width="1080"
+  data-height="1920"
+>
+  <div class="caption-layer" aria-hidden="true">
+    <div id="caption-stage" class="caption-stage"></div>
+  </div>
+</div>
+
+<script>
+  // captions.mjs injects the engine's scene-aware groups + real duration here.
+  var GROUPS = [{"id":"caption-group-0","frame":1,"start":0,"end":0.284,"text":"Il y","words":[{"id":"caption-word-0-0","text":"Il","start":0,"end":0.11},{"id":"caption-word-0-1","text":"y","start":0.17,"end":0.224}]},{"id":"caption-group-1","frame":1,"start":0.284,"end":0.624,"text":"a une","words":[{"id":"caption-word-1-0","text":"a","start":0.284,"end":0.339},{"id":"caption-word-1-1","text":"une","start":0.399,"end":0.564}]},{"id":"caption-group-2","frame":1,"start":0.624,"end":1.681,"text":"erreur que presque","words":[{"id":"caption-word-2-0","text":"erreur","start":0.624,"end":0.953},{"id":"caption-word-2-1","text":"que","start":1.013,"end":1.177},{"id":"caption-word-2-2","text":"presque","start":1.237,"end":1.621}]},{"id":"caption-group-3","frame":1,"start":1.681,"end":2.13,"text":"tout le","words":[{"id":"caption-word-3-0","text":"tout","start":1.681,"end":1.9},{"id":"caption-word-3-1","text":"le","start":1.96,"end":2.07}]},{"id":"caption-group-4","frame":1,"start":2.13,"end":2.743,"text":"monde fait","words":[{"id":"caption-word-4-0","text":"monde","start":2.13,"end":2.404},{"id":"caption-word-4-1","text":"fait","start":2.464,"end":2.683}]},{"id":"caption-group-5","frame":1,"start":2.743,"end":3.192,"text":"sur ses","words":[{"id":"caption-word-5-0","text":"sur","start":2.743,"end":2.907},{"id":"caption-word-5-1","text":"ses","start":2.967,"end":3.132}]},{"id":"caption-group-6","frame":1,"start":3.192,"end":4.052,"text":"pubs Facebook,","words":[{"id":"caption-word-6-0","text":"pubs","start":3.192,"end":3.411},{"id":"caption-word-6-1","text":"Facebook,","start":3.471,"end":3.992}]},{"id":"caption-group-7","frame":1,"start":4.052,"end":4.446,"text":"et qui","words":[{"id":"caption-word-7-0","text":"et","start":4.052,"end":4.161},{"id":"caption-word-7-1","text":"qui","start":4.221,"end":4.386}]},{"id":"caption-group-8","frame":1,"start":4.446,"end":5.224,"text":"fait exploser","words":[{"id":"caption-word-8-0","text":"fait","start":4.446,"end":4.665},{"id":"caption-word-8-1","text":"exploser","start":4.725,"end":5.164}]},{"id":"caption-group-9","frame":1,"start":5.224,"end":5.673,"text":"le prix","words":[{"id":"caption-word-9-0","text":"le","start":5.224,"end":5.333},{"id":"caption-word-9-1","text":"prix","start":5.393,"end":5.613}]},{"id":"caption-group-10","frame":1,"start":5.673,"end":6.784,"text":"sans qu'on comprenne","words":[{"id":"caption-word-10-0","text":"sans","start":5.673,"end":5.892},{"id":"caption-word-10-1","text":"qu'on","start":5.952,"end":6.171},{"id":"caption-word-10-2","text":"comprenne","start":6.231,"end":6.724}]},{"id":"caption-group-11","frame":1,"start":6.784,"end":7.48,"text":"pourquoi.","words":[{"id":"caption-word-11-0","text":"pourquoi.","start":6.784,"end":7.36}]},{"id":"caption-group-12","frame":2,"start":7.9,"end":8.415,"text":"Quand tu","words":[{"id":"caption-word-12-0","text":"Quand","start":7.9,"end":8.182},{"id":"caption-word-12-1","text":"tu","start":8.242,"end":8.355}]},{"id":"caption-group-13","frame":2,"start":8.415,"end":9.042,"text":"lances une","words":[{"id":"caption-word-13-0","text":"lances","start":8.415,"end":8.753},{"id":"caption-word-13-1","text":"une","start":8.813,"end":8.982}]},{"id":"caption-group-14","frame":2,"start":9.042,"end":9.356,"text":"pub,","words":[{"id":"caption-word-14-0","text":"pub,","start":9.042,"end":9.296}]},{"id":"caption-group-15","frame":2,"start":9.356,"end":10.381,"text":"Facebook a besoin","words":[{"id":"caption-word-15-0","text":"Facebook","start":9.356,"end":9.807},{"id":"caption-word-15-1","text":"a","start":9.867,"end":9.923},{"id":"caption-word-15-2","text":"besoin","start":9.983,"end":10.321}]},{"id":"caption-group-16","frame":2,"start":10.381,"end":11.407,"text":"de quelques jours","words":[{"id":"caption-word-16-0","text":"de","start":10.381,"end":10.494},{"id":"caption-word-16-1","text":"quelques","start":10.554,"end":11.005},{"id":"caption-word-16-2","text":"jours","start":11.065,"end":11.347}]},{"id":"caption-group-17","frame":2,"start":11.407,"end":12.433,"text":"pour comprendre a","words":[{"id":"caption-word-17-0","text":"pour","start":11.407,"end":11.633},{"id":"caption-word-17-1","text":"comprendre","start":11.693,"end":12.256},{"id":"caption-word-17-2","text":"a","start":12.316,"end":12.373}]},{"id":"caption-group-18","frame":2,"start":12.433,"end":12.835,"text":"qui la","words":[{"id":"caption-word-18-0","text":"qui","start":12.433,"end":12.602},{"id":"caption-word-18-1","text":"la","start":12.662,"end":12.775}]},{"id":"caption-group-19","frame":2,"start":12.835,"end":13.43,"text":"montrer.","words":[{"id":"caption-word-19-0","text":"montrer.","start":12.835,"end":13.37}]},{"id":"caption-group-20","frame":2,"start":13.43,"end":14.114,"text":"Ca s'appelle","words":[{"id":"caption-word-20-0","text":"Ca","start":13.43,"end":13.543},{"id":"caption-word-20-1","text":"s'appelle","start":13.603,"end":14.054}]},{"id":"caption-group-21","frame":2,"start":14.114,"end":15.679,"text":"la phase d'apprentissage.","words":[{"id":"caption-word-21-0","text":"la","start":14.114,"end":14.227},{"id":"caption-word-21-1","text":"phase","start":14.287,"end":14.569},{"id":"caption-word-21-2","text":"d'apprentissage.","start":14.629,"end":15.559}]},{"id":"caption-group-22","frame":3,"start":16.1,"end":16.82,"text":"Le probleme,","words":[{"id":"caption-word-22-0","text":"Le","start":16.1,"end":16.204},{"id":"caption-word-22-1","text":"probleme,","start":16.264,"end":16.76}]},{"id":"caption-group-23","frame":3,"start":16.82,"end":17.305,"text":"c'est que","words":[{"id":"caption-word-23-0","text":"c'est","start":16.82,"end":17.029},{"id":"caption-word-23-1","text":"que","start":17.089,"end":17.245}]},{"id":"caption-group-24","frame":3,"start":17.305,"end":17.895,"text":"la plupart","words":[{"id":"caption-word-24-0","text":"la","start":17.305,"end":17.41},{"id":"caption-word-24-1","text":"plupart","start":17.47,"end":17.835}]},{"id":"caption-group-25","frame":3,"start":17.895,"end":18.962,"text":"des gens n'attendent","words":[{"id":"caption-word-25-0","text":"des","start":17.895,"end":18.051},{"id":"caption-word-25-1","text":"gens","start":18.111,"end":18.32},{"id":"caption-word-25-2","text":"n'attendent","start":18.38,"end":18.902}]},{"id":"caption-group-26","frame":3,"start":18.962,"end":19.309,"text":"pas.","words":[{"id":"caption-word-26-0","text":"pas.","start":18.962,"end":19.249}]},{"id":"caption-group-27","frame":3,"start":19.309,"end":19.898,"text":"Ils voient","words":[{"id":"caption-word-27-0","text":"Ils","start":19.309,"end":19.465},{"id":"caption-word-27-1","text":"voient","start":19.525,"end":19.838}]},{"id":"caption-group-28","frame":3,"start":19.898,"end":20.279,"text":"que ca","words":[{"id":"caption-word-28-0","text":"que","start":19.898,"end":20.055},{"id":"caption-word-28-1","text":"ca","start":20.115,"end":20.219}]},{"id":"caption-group-29","frame":3,"start":20.279,"end":21.32,"text":"marche pas encore,","words":[{"id":"caption-word-29-0","text":"marche","start":20.279,"end":20.592},{"id":"caption-word-29-1","text":"pas","start":20.652,"end":20.809},{"id":"caption-word-29-2","text":"encore,","start":20.869,"end":21.26}]},{"id":"caption-group-30","frame":3,"start":21.32,"end":21.701,"text":"et ils","words":[{"id":"caption-word-30-0","text":"et","start":21.32,"end":21.424},{"id":"caption-word-30-1","text":"ils","start":21.484,"end":21.641}]},{"id":"caption-group-31","frame":3,"start":21.701,"end":22.742,"text":"changent le texte,","words":[{"id":"caption-word-31-0","text":"changent","start":21.701,"end":22.118},{"id":"caption-word-31-1","text":"le","start":22.178,"end":22.283},{"id":"caption-word-31-2","text":"texte,","start":22.343,"end":22.682}]},{"id":"caption-group-32","frame":3,"start":22.742,"end":23.193,"text":"l'image,","words":[{"id":"caption-word-32-0","text":"l'image,","start":22.742,"end":23.133}]},{"id":"caption-group-33","frame":3,"start":23.193,"end":23.522,"text":"ou le","words":[{"id":"caption-word-33-0","text":"ou","start":23.193,"end":23.297},{"id":"caption-word-33-1","text":"le","start":23.357,"end":23.462}]},{"id":"caption-group-34","frame":3,"start":23.522,"end":24.163,"text":"budget tout","words":[{"id":"caption-word-34-0","text":"budget","start":23.522,"end":23.835},{"id":"caption-word-34-1","text":"tout","start":23.895,"end":24.103}]},{"id":"caption-group-35","frame":3,"start":24.163,"end":24.839,"text":"de suite.","words":[{"id":"caption-word-35-0","text":"de","start":24.163,"end":24.268},{"id":"caption-word-35-1","text":"suite.","start":24.328,"end":24.719}]},{"id":"caption-group-36","frame":4,"start":25.3,"end":25.806,"text":"Sauf que","words":[{"id":"caption-word-36-0","text":"Sauf","start":25.3,"end":25.52},{"id":"caption-word-36-1","text":"que","start":25.58,"end":25.746}]},{"id":"caption-group-37","frame":4,"start":25.806,"end":26.256,"text":"des que","words":[{"id":"caption-word-37-0","text":"des","start":25.806,"end":25.971},{"id":"caption-word-37-1","text":"que","start":26.031,"end":26.196}]},{"id":"caption-group-38","frame":4,"start":26.256,"end":27.373,"text":"tu modifies quelque","words":[{"id":"caption-word-38-0","text":"tu","start":26.256,"end":26.366},{"id":"caption-word-38-1","text":"modifies","start":26.426,"end":26.867},{"id":"caption-word-38-2","text":"quelque","start":26.927,"end":27.313}]},{"id":"caption-group-39","frame":4,"start":27.373,"end":27.791,"text":"chose,","words":[{"id":"caption-word-39-0","text":"chose,","start":27.373,"end":27.731}]},{"id":"caption-group-40","frame":4,"start":27.791,"end":29.435,"text":"Facebook recommence a zero.","words":[{"id":"caption-word-40-0","text":"Facebook","start":27.791,"end":28.231},{"id":"caption-word-40-1","text":"recommence","start":28.291,"end":28.842},{"id":"caption-word-40-2","text":"a","start":28.902,"end":28.957},{"id":"caption-word-40-3","text":"zero.","start":29.017,"end":29.375}]},{"id":"caption-group-41","frame":4,"start":29.435,"end":30.497,"text":"Toute l'avance qu'il","words":[{"id":"caption-word-41-0","text":"Toute","start":29.435,"end":29.711},{"id":"caption-word-41-1","text":"l'avance","start":29.771,"end":30.156},{"id":"caption-word-41-2","text":"qu'il","start":30.216,"end":30.437}]},{"id":"caption-group-42","frame":4,"start":30.497,"end":31.167,"text":"avait prise","words":[{"id":"caption-word-42-0","text":"avait","start":30.497,"end":30.772},{"id":"caption-word-42-1","text":"prise","start":30.832,"end":31.107}]},{"id":"caption-group-43","frame":4,"start":31.167,"end":31.866,"text":"est perdue,","words":[{"id":"caption-word-43-0","text":"est","start":31.167,"end":31.333},{"id":"caption-word-43-1","text":"perdue,","start":31.393,"end":31.806}]},{"id":"caption-group-44","frame":4,"start":31.866,"end":32.206,"text":"et ta","words":[{"id":"caption-word-44-0","text":"et","start":31.866,"end":31.976},{"id":"caption-word-44-1","text":"ta","start":32.036,"end":32.146}]},{"id":"caption-group-45","frame":4,"start":32.206,"end":33.323,"text":"pub redevient chere","words":[{"id":"caption-word-45-0","text":"pub","start":32.206,"end":32.371},{"id":"caption-word-45-1","text":"redevient","start":32.431,"end":32.927},{"id":"caption-word-45-2","text":"chere","start":32.987,"end":33.263}]},{"id":"caption-group-46","frame":4,"start":33.323,"end":34.081,"text":"pour rien.","words":[{"id":"caption-word-46-0","text":"pour","start":33.323,"end":33.543},{"id":"caption-word-46-1","text":"rien.","start":33.603,"end":33.961}]},{"id":"caption-group-47","frame":5,"start":34.5,"end":35.53,"text":"La bonne methode:","words":[{"id":"caption-word-47-0","text":"La","start":34.5,"end":34.61},{"id":"caption-word-47-1","text":"bonne","start":34.67,"end":34.944},{"id":"caption-word-47-2","text":"methode:","start":35.004,"end":35.47}]},{"id":"caption-group-48","frame":5,"start":35.53,"end":36.143,"text":"tu laisses","words":[{"id":"caption-word-48-0","text":"tu","start":35.53,"end":35.639},{"id":"caption-word-48-1","text":"laisses","start":35.699,"end":36.083}]},{"id":"caption-group-49","frame":5,"start":36.143,"end":36.537,"text":"la pub","words":[{"id":"caption-word-49-0","text":"la","start":36.143,"end":36.253},{"id":"caption-word-49-1","text":"pub","start":36.313,"end":36.477}]},{"id":"caption-group-50","frame":5,"start":36.537,"end":37.151,"text":"tourner au","words":[{"id":"caption-word-50-0","text":"tourner","start":36.537,"end":36.921},{"id":"caption-word-50-1","text":"au","start":36.981,"end":37.091}]},{"id":"caption-group-51","frame":5,"start":37.151,"end":37.6,"text":"moins 3","words":[{"id":"caption-word-51-0","text":"moins","start":37.151,"end":37.425},{"id":"caption-word-51-1","text":"3","start":37.485,"end":37.54}]},{"id":"caption-group-52","frame":5,"start":37.6,"end":37.829,"text":"a 4","words":[{"id":"caption-word-52-0","text":"a","start":37.6,"end":37.654},{"id":"caption-word-52-1","text":"4","start":37.714,"end":37.769}]},{"id":"caption-group-53","frame":5,"start":37.829,"end":38.443,"text":"jours sans","words":[{"id":"caption-word-53-0","text":"jours","start":37.829,"end":38.103},{"id":"caption-word-53-1","text":"sans","start":38.163,"end":38.383}]},{"id":"caption-group-54","frame":5,"start":38.443,"end":39.084,"text":"y toucher,","words":[{"id":"caption-word-54-0","text":"y","start":38.443,"end":38.498},{"id":"caption-word-54-1","text":"toucher,","start":38.558,"end":39.024}]},{"id":"caption-group-55","frame":5,"start":39.084,"end":39.532,"text":"meme si","words":[{"id":"caption-word-55-0","text":"meme","start":39.084,"end":39.303},{"id":"caption-word-55-1","text":"si","start":39.363,"end":39.472}]},{"id":"caption-group-56","frame":5,"start":39.532,"end":40.809,"text":"les premiers resultats","words":[{"id":"caption-word-56-0","text":"les","start":39.532,"end":39.697},{"id":"caption-word-56-1","text":"premiers","start":39.757,"end":40.196},{"id":"caption-word-56-2","text":"resultats","start":40.256,"end":40.749}]},{"id":"caption-group-57","frame":5,"start":40.809,"end":41.888,"text":"semblent faibles.","words":[{"id":"caption-word-57-0","text":"semblent","start":40.809,"end":41.248},{"id":"caption-word-57-1","text":"faibles.","start":41.308,"end":41.828}]},{"id":"caption-group-58","frame":5,"start":41.888,"end":42.502,"text":"C'est apres","words":[{"id":"caption-word-58-0","text":"C'est","start":41.888,"end":42.108},{"id":"caption-word-58-1","text":"apres","start":42.168,"end":42.442}]},{"id":"caption-group-59","frame":5,"start":42.502,"end":42.896,"text":"ca que","words":[{"id":"caption-word-59-0","text":"ca","start":42.502,"end":42.611},{"id":"caption-word-59-1","text":"que","start":42.671,"end":42.836}]},{"id":"caption-group-60","frame":5,"start":42.896,"end":44.063,"text":"tu regardes vraiment","words":[{"id":"caption-word-60-0","text":"tu","start":42.896,"end":43.006},{"id":"caption-word-60-1","text":"regardes","start":43.066,"end":43.504},{"id":"caption-word-60-2","text":"vraiment","start":43.564,"end":44.003}]},{"id":"caption-group-61","frame":5,"start":44.063,"end":44.988,"text":"si ca marche.","words":[{"id":"caption-word-61-0","text":"si","start":44.063,"end":44.172},{"id":"caption-word-61-1","text":"ca","start":44.232,"end":44.342},{"id":"caption-word-61-2","text":"marche.","start":44.402,"end":44.868}]},{"id":"caption-group-62","frame":6,"start":45.5,"end":46.225,"text":"Abonne-toi si","words":[{"id":"caption-word-62-0","text":"Abonne-toi","start":45.5,"end":45.995},{"id":"caption-word-62-1","text":"si","start":46.055,"end":46.165}]},{"id":"caption-group-63","frame":6,"start":46.225,"end":46.675,"text":"tu veux","words":[{"id":"caption-word-63-0","text":"tu","start":46.225,"end":46.335},{"id":"caption-word-63-1","text":"veux","start":46.395,"end":46.615}]},{"id":"caption-group-64","frame":6,"start":46.675,"end":47.681,"text":"en apprendre plus","words":[{"id":"caption-word-64-0","text":"en","start":46.675,"end":46.785},{"id":"caption-word-64-1","text":"apprendre","start":46.845,"end":47.341},{"id":"caption-word-64-2","text":"plus","start":47.401,"end":47.621}]},{"id":"caption-group-65","frame":6,"start":47.681,"end":48.686,"text":"sur comment gerer","words":[{"id":"caption-word-65-0","text":"sur","start":47.681,"end":47.846},{"id":"caption-word-65-1","text":"comment","start":47.906,"end":48.291},{"id":"caption-word-65-2","text":"gerer","start":48.351,"end":48.626}]},{"id":"caption-group-66","frame":6,"start":48.686,"end":49.609,"text":"ta publicite.","words":[{"id":"caption-word-66-0","text":"ta","start":48.686,"end":48.796},{"id":"caption-word-66-1","text":"publicite.","start":48.856,"end":49.489}]}];
+  var DURATION = 50.3;
+
+  (function () {
+    var stage = document.getElementById("caption-stage");
+
+    // build DOM: one .caption-group per group, .caption-word per word
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.createElement("div");
+      groupEl.className = "caption-group";
+      groupEl.id = "caption-group-" + g;
+      var pill = document.createElement("div");
+      pill.className = "caption-pill";
+      var line = document.createElement("div");
+      line.className = "caption-line";
+      (group.words || []).forEach(function (w, i) {
+        var span = document.createElement("span");
+        span.className = "caption-word";
+        span.id = "caption-word-" + g + "-" + i;
+        span.textContent = String(w.text);
+        line.appendChild(span);
+      });
+      pill.appendChild(line);
+      groupEl.appendChild(pill);
+      stage.appendChild(groupEl);
+    });
+
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.getElementById("caption-group-" + g);
+      var words = group.words || [];
+      var next = GROUPS[g + 1];
+      var isLast = g === GROUPS.length - 1;
+      var start = Math.max(0, Number(group.start));
+      var end = isLast ? DURATION : Math.min(Number(next.start), Number(group.end) + 0.3);
+      if (end <= start) end = start + 0.01;
+
+      // group on/off — exactly one group visible at a time
+      tl.set(groupEl, { opacity: 1 }, start);
+      tl.set(groupEl, { opacity: 0 }, end);
+
+      // 3-state karaoke via className SETS — seek-safe (gsap.set applies on the
+      // engine's frame-by-frame seek; .call callbacks would NOT fire).
+      words.forEach(function (w, i) {
+        var el = document.getElementById("caption-word-" + g + "-" + i);
+        var at = Math.max(start, Number(w.start));
+        tl.set(el, { className: "caption-word" }, start); // upcoming (also resets on reverse-seek)
+        tl.set(el, { className: "caption-word is-active" }, at); // current
+        tl.fromTo(el, { scale: 0.86 }, { scale: 1, duration: 0.2, ease: "back.out(2.4)" }, at);
+        if (i + 1 < words.length) {
+          var nextAt = Math.max(start, Number(words[i + 1].start));
+          tl.set(el, { className: "caption-word is-spoken" }, nextAt); // demote when next activates
+        }
+      });
+      if (words.length) {
+        var lastEl = document.getElementById("caption-word-" + g + "-" + (words.length - 1));
+        var lastSpoken = Math.min(end, Number(words[words.length - 1].end) + 0.1);
+        tl.set(lastEl, { className: "caption-word is-spoken" }, lastSpoken);
+      }
+    });
+
+    // full-span anchor so the sub-comp timeline spans the whole video
+    tl.to({}, { duration: DURATION }, 0);
+    window.__timelines["captions"] = tl;
+  })();
+</script>
+
+<style>
+  .caption-line { line-height: 1.1 !important; }
+</style>
+</template>

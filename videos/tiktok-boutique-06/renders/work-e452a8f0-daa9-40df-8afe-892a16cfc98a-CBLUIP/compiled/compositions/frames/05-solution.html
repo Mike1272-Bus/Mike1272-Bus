@@ -1,0 +1,273 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background: transparent;
+      font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    }
+
+    .c05-ground {
+      position: absolute;
+      inset: 0;
+      background-color: #C0F7FE;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.09) 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      opacity: 0;
+    }
+
+    .c05-eyebrow {
+      position: absolute;
+      top: 34px;
+      left: 0;
+      right: 0;
+      width: max-content;
+      margin: 0 auto;
+      background: #FFFDF5;
+      border: 3px solid #000;
+      box-shadow: 4px 4px 0 #000;
+      border-radius: 9999px;
+      padding: 10px 26px;
+      opacity: 0;
+    }
+    .c05-eyebrow span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    /* -- decorations -- */
+    .c05-star-wrap {
+      position: absolute;
+      left: 852px;
+      top: 858px;
+      width: 104px;
+      height: 104px;
+      opacity: 0;
+      filter: drop-shadow(7px 7px 0 #000);
+    }
+    .c05-star-outer,
+    .c05-star-inner {
+      position: absolute;
+      inset: 0;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    .c05-star-outer { background: #000; }
+    .c05-star-inner { inset: 4px; background: #99E885; }
+
+    .c05-tilt {
+      position: absolute;
+      left: 108px;
+      top: 874px;
+      width: 132px;
+      height: 66px;
+      background: #FFDC8B;
+      border: 3px solid #000;
+      box-shadow: 4px 4px 0 #000;
+      transform-origin: 50% 50%;
+      opacity: 0;
+    }
+    .c05-tilt-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    /* -- cards -- */
+    .c05-card {
+      position: absolute;
+      left: 90px;
+      width: 900px;
+      background: #FFFFFF;
+      border: 4px solid #000;
+      box-shadow: 8px 8px 0 #000;
+      transform-origin: 50% 50%;
+      will-change: transform;
+      opacity: 0;
+    }
+    #c05-card-top { top: 120px; height: 715px; }
+    #c05-card-bottom { top: 980px; height: 615px; }
+
+    .c05-card-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .c05-tag {
+      position: absolute;
+      left: 28px;
+      top: -18px;
+      background: #FE90E8;
+      border: 3px solid #000;
+      box-shadow: 4px 4px 0 #000;
+      border-radius: 9999px;
+      padding: 8px 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #000;
+      opacity: 0;
+      white-space: nowrap;
+    }
+
+    .c05-dot {
+      position: absolute;
+      top: -9px;
+      right: -9px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #F7CB46;
+      border: 2px solid #000;
+      opacity: 0;
+    }
+  </style>
+
+  <div id="root" data-composition-id="05-solution" data-width="1080" data-height="1920" data-duration="11.4">
+    <div class="clip c05-ground" id="c05-ground" data-start="0" data-duration="11.4" data-track-index="0"></div>
+
+    <div class="clip c05-star-wrap" id="c05-star" data-start="0" data-duration="11.4" data-track-index="1">
+      <div class="c05-star-outer"></div>
+      <div class="c05-star-inner"></div>
+    </div>
+
+    <div class="clip c05-tilt" id="c05-tilt" data-start="0" data-duration="11.4" data-track-index="2">
+      <div class="c05-tilt-label">3-4J</div>
+    </div>
+
+    <div id="c05-card-top" class="clip c05-card" data-start="0" data-duration="11.4" data-track-index="3">
+      <img class="c05-card-img" src="assets/solution-multiplateforme.jpg" alt="" />
+      <span class="c05-tag" id="c05-tag-top">MULTI-CANAL</span>
+      <span class="c05-dot" id="c05-dot-top"></span>
+    </div>
+
+    <div id="c05-card-bottom" class="clip c05-card" data-start="0" data-duration="11.4" data-track-index="4">
+      <img class="c05-card-img" src="assets/solution-pub-reussie.webp" alt="" />
+      <span class="c05-tag" id="c05-tag-bottom">RESULTAT</span>
+      <span class="c05-dot" id="c05-dot-bottom"></span>
+    </div>
+
+    <div class="clip c05-eyebrow" id="c05-eyebrow" data-start="0" data-duration="11.4" data-track-index="5">
+      <span>3-4 JOURS</span>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+
+      var root = document.querySelector('[data-composition-id="05-solution"]');
+      var ground = root.querySelector("#c05-ground");
+      var star = root.querySelector("#c05-star");
+      var tilt = root.querySelector("#c05-tilt");
+      var eyebrow = root.querySelector("#c05-eyebrow");
+      var cardTop = root.querySelector("#c05-card-top");
+      var cardBottom = root.querySelector("#c05-card-bottom");
+      var tagTop = root.querySelector("#c05-tag-top");
+      var tagBottom = root.querySelector("#c05-tag-bottom");
+      var dotTop = root.querySelector("#c05-dot-top");
+      var dotBottom = root.querySelector("#c05-dot-bottom");
+
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0-0.5s): blue canvas wash zoom-through-cuts in.
+      tl.fromTo(ground, { opacity: 0, scale: 1.18 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0);
+
+      // decorations arrive alongside the wash
+      tl.fromTo(star, { opacity: 0, scale: 0, rotation: -14 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "power3.out" }, 0.12);
+      tl.fromTo(tilt, { opacity: 0, scale: 0, rotation: 10 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.45, ease: "power3.out" }, 0.16);
+      tl.fromTo(eyebrow, { opacity: 0, y: -18, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "power3.out" }, 0.08);
+
+      // Scene 2 (0.3-1.0s): top card spring-pops in from above, settling tilted -2deg.
+      tl.fromTo(
+        cardTop,
+        { opacity: 0, scale: 0, y: -560, rotation: 0 },
+        { opacity: 1, scale: 1, y: 0, rotation: -2, duration: 0.7, ease: "power3.out" },
+        0.3
+      );
+      tl.fromTo(tagTop, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, 0.85);
+      tl.fromTo(dotTop, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, 0.9);
+
+      // Scene 3 (1.0-1.7s): bottom card spring-pops in from below, settling tilted +2deg.
+      tl.fromTo(
+        cardBottom,
+        { opacity: 0, scale: 0, y: 560, rotation: 0 },
+        { opacity: 1, scale: 1, y: 0, rotation: 2, duration: 0.7, ease: "power3.out" },
+        1.0
+      );
+      tl.fromTo(tagBottom, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, 1.55);
+      tl.fromTo(dotBottom, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, 1.6);
+
+      // Scene 4 (1.7-11.0s): both cards keep independent-phase sine-wave-loop idle drift.
+      var TOTAL_DURATION = 11.0;
+      var IDLE_START = 1.8;
+      var IDLE_DUR = TOTAL_DURATION - IDLE_START; // 9.2s -> long idle, halved amplitude + settle-fade tail
+      var Y_AMP = 1.4;
+      var SCALE_AMP = 0.006;
+      var FADE_FRAC = 0.2;
+
+      var PERIOD_TOP = 3.1;
+      var CYCLES_TOP = IDLE_DUR / PERIOD_TOP;
+      var phaseTop = { p: 0 };
+      tl.to(
+        phaseTop,
+        {
+          p: Math.PI * 2 * CYCLES_TOP,
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var t = phaseTop.p / (Math.PI * 2 * CYCLES_TOP);
+            var env = t < 1 - FADE_FRAC ? 1 : Math.max(0, (1 - t) / FADE_FRAC);
+            var s = Math.sin(phaseTop.p);
+            var yOff = s * Y_AMP * env;
+            var scaleOff = 1 + s * SCALE_AMP * env;
+            cardTop.style.transform = "translateY(" + yOff.toFixed(2) + "px) rotate(-2deg) scale(" + scaleOff.toFixed(4) + ")";
+          },
+        },
+        IDLE_START
+      );
+
+      var PERIOD_BOTTOM = 3.5;
+      var CYCLES_BOTTOM = IDLE_DUR / PERIOD_BOTTOM;
+      var phaseBottom = { p: 0 };
+      tl.to(
+        phaseBottom,
+        {
+          p: Math.PI * 2 * CYCLES_BOTTOM,
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var t = phaseBottom.p / (Math.PI * 2 * CYCLES_BOTTOM);
+            var env = t < 1 - FADE_FRAC ? 1 : Math.max(0, (1 - t) / FADE_FRAC);
+            var s = Math.sin(phaseBottom.p);
+            var yOff = s * Y_AMP * env;
+            var scaleOff = 1 + s * SCALE_AMP * env;
+            cardBottom.style.transform = "translateY(" + yOff.toFixed(2) + "px) rotate(2deg) scale(" + scaleOff.toFixed(4) + ")";
+          },
+        },
+        IDLE_START
+      );
+
+      window.__timelines["05-solution"] = tl;
+    })();
+  </script>
+</template>

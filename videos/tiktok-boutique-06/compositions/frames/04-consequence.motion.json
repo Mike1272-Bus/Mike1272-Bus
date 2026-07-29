@@ -1,0 +1,13 @@
+{
+  "scene": "04-consequence",
+  "duration_s": 9.2,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "no net direction — both cards hold a bounded sine-wave micro-drift (top ±1.4px @ ~0.33Hz, bottom ±1.4px @ ~0.29Hz, independent phase), amplitude ramping to 0 over the final 20% of the idle window so the frame is static by t=9.2s",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "top card: straight down from y=-560px (above frame), scale 0->1, landing rotation -2deg, settles by t=1.0s; bottom card: straight up from y=+560px (below frame), scale 0->1, landing rotation +2deg, settles by t=1.7s; both power3.out, no overshoot",
+    "from_rest": false
+  }
+}

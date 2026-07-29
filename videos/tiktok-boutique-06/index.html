@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1920, height=1080" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="./vendor/gsap.min.js"></script>
     <style>
       * {
         margin: 0;
@@ -12,19 +12,23 @@
       }
       html,
       body {
-        margin: 0;
-        width: 1920px;
-        height: 1080px;
+        width: 1080px;
+        height: 1920px;
         overflow: hidden;
         background: #000;
       }
-      body {
-        font-family: "Inter", sans-serif;
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #FFFFFF;
       }
-      code,
-      pre,
-      .monospace {
-        font-family: "JetBrains Mono", monospace;
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
       }
     </style>
   </head>
@@ -33,27 +37,148 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="10"
-      data-width="1920"
-      data-height="1080"
+      data-duration="50.3"
+      data-width="1080"
+      data-height="1920"
     >
-      
-      
+      <div
+        id="el-01-accroche"
+        class="scene"
+        data-composition-id="01-accroche"
+        data-composition-src="compositions/frames/01-accroche.html"
+        data-start="0"
+        data-duration="8.4"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-01-accroche-voice"
+        src="audio/lines/01.wav"
+        data-start="0"
+        data-duration="7.9"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
 
-      <!--
-        Add your clips here. Example:
-        <div id="title" class="clip" data-start="0" data-duration="5" data-track-index="1"
-             style="font-size: 64px; color: #fff; padding: 40px">
-          Hello World
-        </div>
-      -->
+      <div
+        id="el-02-explication"
+        class="scene"
+        data-composition-id="02-explication"
+        data-composition-src="compositions/frames/02-explication.html"
+        data-start="7.9"
+        data-duration="8.6"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-02-explication-voice"
+        src="audio/lines/02.wav"
+        data-start="7.9"
+        data-duration="8.2"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-03-erreur"
+        class="scene"
+        data-composition-id="03-erreur"
+        data-composition-src="compositions/frames/03-erreur.html"
+        data-start="16.1"
+        data-duration="9.7"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-03-erreur-voice"
+        src="audio/lines/03.wav"
+        data-start="16.1"
+        data-duration="9.2"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-04-consequence"
+        class="scene"
+        data-composition-id="04-consequence"
+        data-composition-src="compositions/frames/04-consequence.html"
+        data-start="25.3"
+        data-duration="9.6"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-04-consequence-voice"
+        src="audio/lines/04.wav"
+        data-start="25.3"
+        data-duration="9.2"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-05-solution"
+        class="scene"
+        data-composition-id="05-solution"
+        data-composition-src="compositions/frames/05-solution.html"
+        data-start="34.5"
+        data-duration="11.4"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-05-solution-voice"
+        src="audio/lines/05.wav"
+        data-start="34.5"
+        data-duration="11"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-06-cta"
+        class="scene"
+        data-composition-id="06-cta"
+        data-composition-src="compositions/frames/06-cta.html"
+        data-start="45.5"
+        data-duration="4.8"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-06-cta-voice"
+        src="audio/lines/06.wav"
+        data-start="45.5"
+        data-duration="4.8"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <!-- captions -->
+      <div
+        id="el-captions"
+        class="scene"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions.html"
+        data-start="0"
+        data-duration="50.3"
+        data-track-index="2"
+      ></div>
+
     </div>
 
     <script>
       window.__timelines = window.__timelines || {};
-      const tl = gsap.timeline({ paused: true });
-      // Example: tl.from("#title", { opacity: 0, y: -50, duration: 1 }, 0);
-      window.__timelines["main"] = tl;
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+      // ── frame transitions (injected by transitions.mjs) ──
+      (function () { var tl = window.__timelines["main"];
+        tl.to("#el-01-accroche", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 7.9);
+        tl.fromTo("#el-02-explication", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 7.9);
+        tl.to("#el-02-explication", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 16.1);
+        tl.fromTo("#el-03-erreur", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 16.1);
+        tl.to("#el-03-erreur", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 25.3);
+        tl.fromTo("#el-04-consequence", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 25.3);
+        tl.to("#el-04-consequence", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 34.5);
+        tl.fromTo("#el-05-solution", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 34.5);
+        tl.to("#el-05-solution", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 45.5);
+        tl.fromTo("#el-06-cta", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 45.5);
+        tl.to({}, { duration: 50.3 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+      })();
     </script>
   </body>
 </html>

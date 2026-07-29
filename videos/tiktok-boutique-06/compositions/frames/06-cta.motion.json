@@ -1,0 +1,13 @@
+{
+  "scene": "06-cta",
+  "duration_s": 4.8,
+  "rules": ["spring-pop-entrance", "particle-burst", "sine-wave-loop"],
+  "exit": {
+    "vector": "final frame hold — hero keeps a very subtle sine-wave micro-bob (±2.2px, ~0.55Hz) with amplitude ramping to 0 over the final 18% of the idle window; frame is settled by t=4.8s, which is the end of the composition",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "hero scales 0.7->1.0 from center, rotation 6deg->-2deg, back.out(1.8) overshoot, settles by t=1.0s; 8-dot radial particle-burst fires on that landing frame, dots launch behind the card and clear its edges within ~0.4-0.85s before fading out",
+    "from_rest": false
+  }
+}
