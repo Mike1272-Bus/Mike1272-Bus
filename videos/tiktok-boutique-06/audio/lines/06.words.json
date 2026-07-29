@@ -1,0 +1,74 @@
+[
+  {
+    "id": "w0",
+    "text": "Abonne-toi",
+    "start": 0,
+    "end": 0.495
+  },
+  {
+    "id": "w1",
+    "text": "si",
+    "start": 0.555,
+    "end": 0.665
+  },
+  {
+    "id": "w2",
+    "text": "tu",
+    "start": 0.725,
+    "end": 0.835
+  },
+  {
+    "id": "w3",
+    "text": "veux",
+    "start": 0.895,
+    "end": 1.115
+  },
+  {
+    "id": "w4",
+    "text": "en",
+    "start": 1.175,
+    "end": 1.285
+  },
+  {
+    "id": "w5",
+    "text": "apprendre",
+    "start": 1.345,
+    "end": 1.841
+  },
+  {
+    "id": "w6",
+    "text": "plus",
+    "start": 1.901,
+    "end": 2.121
+  },
+  {
+    "id": "w7",
+    "text": "sur",
+    "start": 2.181,
+    "end": 2.346
+  },
+  {
+    "id": "w8",
+    "text": "comment",
+    "start": 2.406,
+    "end": 2.791
+  },
+  {
+    "id": "w9",
+    "text": "gerer",
+    "start": 2.851,
+    "end": 3.126
+  },
+  {
+    "id": "w10",
+    "text": "ta",
+    "start": 3.186,
+    "end": 3.296
+  },
+  {
+    "id": "w11",
+    "text": "publicite.",
+    "start": 3.356,
+    "end": 3.989
+  }
+]

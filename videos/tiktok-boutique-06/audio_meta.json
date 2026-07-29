@@ -1,0 +1,789 @@
+{
+  "bgm": null,
+  "voices": [
+    {
+      "frame": 1,
+      "path": "audio/lines/01.wav",
+      "duration_s": 7.36,
+      "words": [
+        {
+          "text": "Il",
+          "start": 0,
+          "end": 0.11
+        },
+        {
+          "text": "y",
+          "start": 0.17,
+          "end": 0.224
+        },
+        {
+          "text": "a",
+          "start": 0.284,
+          "end": 0.339
+        },
+        {
+          "text": "une",
+          "start": 0.399,
+          "end": 0.564
+        },
+        {
+          "text": "erreur",
+          "start": 0.624,
+          "end": 0.953
+        },
+        {
+          "text": "que",
+          "start": 1.013,
+          "end": 1.177
+        },
+        {
+          "text": "presque",
+          "start": 1.237,
+          "end": 1.621
+        },
+        {
+          "text": "tout",
+          "start": 1.681,
+          "end": 1.9
+        },
+        {
+          "text": "le",
+          "start": 1.96,
+          "end": 2.07
+        },
+        {
+          "text": "monde",
+          "start": 2.13,
+          "end": 2.404
+        },
+        {
+          "text": "fait",
+          "start": 2.464,
+          "end": 2.683
+        },
+        {
+          "text": "sur",
+          "start": 2.743,
+          "end": 2.907
+        },
+        {
+          "text": "ses",
+          "start": 2.967,
+          "end": 3.132
+        },
+        {
+          "text": "pubs",
+          "start": 3.192,
+          "end": 3.411
+        },
+        {
+          "text": "Facebook,",
+          "start": 3.471,
+          "end": 3.992
+        },
+        {
+          "text": "et",
+          "start": 4.052,
+          "end": 4.161
+        },
+        {
+          "text": "qui",
+          "start": 4.221,
+          "end": 4.386
+        },
+        {
+          "text": "fait",
+          "start": 4.446,
+          "end": 4.665
+        },
+        {
+          "text": "exploser",
+          "start": 4.725,
+          "end": 5.164
+        },
+        {
+          "text": "le",
+          "start": 5.224,
+          "end": 5.333
+        },
+        {
+          "text": "prix",
+          "start": 5.393,
+          "end": 5.613
+        },
+        {
+          "text": "sans",
+          "start": 5.673,
+          "end": 5.892
+        },
+        {
+          "text": "qu'on",
+          "start": 5.952,
+          "end": 6.171
+        },
+        {
+          "text": "comprenne",
+          "start": 6.231,
+          "end": 6.724
+        },
+        {
+          "text": "pourquoi.",
+          "start": 6.784,
+          "end": 7.36
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "path": "audio/lines/02.wav",
+      "duration_s": 7.659,
+      "words": [
+        {
+          "text": "Quand",
+          "start": 0,
+          "end": 0.282
+        },
+        {
+          "text": "tu",
+          "start": 0.342,
+          "end": 0.455
+        },
+        {
+          "text": "lances",
+          "start": 0.515,
+          "end": 0.853
+        },
+        {
+          "text": "une",
+          "start": 0.913,
+          "end": 1.082
+        },
+        {
+          "text": "pub,",
+          "start": 1.142,
+          "end": 1.396
+        },
+        {
+          "text": "Facebook",
+          "start": 1.456,
+          "end": 1.907
+        },
+        {
+          "text": "a",
+          "start": 1.967,
+          "end": 2.023
+        },
+        {
+          "text": "besoin",
+          "start": 2.083,
+          "end": 2.421
+        },
+        {
+          "text": "de",
+          "start": 2.481,
+          "end": 2.594
+        },
+        {
+          "text": "quelques",
+          "start": 2.654,
+          "end": 3.105
+        },
+        {
+          "text": "jours",
+          "start": 3.165,
+          "end": 3.447
+        },
+        {
+          "text": "pour",
+          "start": 3.507,
+          "end": 3.733
+        },
+        {
+          "text": "comprendre",
+          "start": 3.793,
+          "end": 4.356
+        },
+        {
+          "text": "a",
+          "start": 4.416,
+          "end": 4.473
+        },
+        {
+          "text": "qui",
+          "start": 4.533,
+          "end": 4.702
+        },
+        {
+          "text": "la",
+          "start": 4.762,
+          "end": 4.875
+        },
+        {
+          "text": "montrer.",
+          "start": 4.935,
+          "end": 5.47
+        },
+        {
+          "text": "Ca",
+          "start": 5.53,
+          "end": 5.643
+        },
+        {
+          "text": "s'appelle",
+          "start": 5.703,
+          "end": 6.154
+        },
+        {
+          "text": "la",
+          "start": 6.214,
+          "end": 6.327
+        },
+        {
+          "text": "phase",
+          "start": 6.387,
+          "end": 6.669
+        },
+        {
+          "text": "d'apprentissage.",
+          "start": 6.729,
+          "end": 7.659
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "path": "audio/lines/03.wav",
+      "duration_s": 8.619,
+      "words": [
+        {
+          "text": "Le",
+          "start": 0,
+          "end": 0.104
+        },
+        {
+          "text": "probleme,",
+          "start": 0.164,
+          "end": 0.66
+        },
+        {
+          "text": "c'est",
+          "start": 0.72,
+          "end": 0.929
+        },
+        {
+          "text": "que",
+          "start": 0.989,
+          "end": 1.145
+        },
+        {
+          "text": "la",
+          "start": 1.205,
+          "end": 1.31
+        },
+        {
+          "text": "plupart",
+          "start": 1.37,
+          "end": 1.735
+        },
+        {
+          "text": "des",
+          "start": 1.795,
+          "end": 1.951
+        },
+        {
+          "text": "gens",
+          "start": 2.011,
+          "end": 2.22
+        },
+        {
+          "text": "n'attendent",
+          "start": 2.28,
+          "end": 2.802
+        },
+        {
+          "text": "pas.",
+          "start": 2.862,
+          "end": 3.149
+        },
+        {
+          "text": "Ils",
+          "start": 3.209,
+          "end": 3.365
+        },
+        {
+          "text": "voient",
+          "start": 3.425,
+          "end": 3.738
+        },
+        {
+          "text": "que",
+          "start": 3.798,
+          "end": 3.955
+        },
+        {
+          "text": "ca",
+          "start": 4.015,
+          "end": 4.119
+        },
+        {
+          "text": "marche",
+          "start": 4.179,
+          "end": 4.492
+        },
+        {
+          "text": "pas",
+          "start": 4.552,
+          "end": 4.709
+        },
+        {
+          "text": "encore,",
+          "start": 4.769,
+          "end": 5.16
+        },
+        {
+          "text": "et",
+          "start": 5.22,
+          "end": 5.324
+        },
+        {
+          "text": "ils",
+          "start": 5.384,
+          "end": 5.541
+        },
+        {
+          "text": "changent",
+          "start": 5.601,
+          "end": 6.018
+        },
+        {
+          "text": "le",
+          "start": 6.078,
+          "end": 6.183
+        },
+        {
+          "text": "texte,",
+          "start": 6.243,
+          "end": 6.582
+        },
+        {
+          "text": "l'image,",
+          "start": 6.642,
+          "end": 7.033
+        },
+        {
+          "text": "ou",
+          "start": 7.093,
+          "end": 7.197
+        },
+        {
+          "text": "le",
+          "start": 7.257,
+          "end": 7.362
+        },
+        {
+          "text": "budget",
+          "start": 7.422,
+          "end": 7.735
+        },
+        {
+          "text": "tout",
+          "start": 7.795,
+          "end": 8.003
+        },
+        {
+          "text": "de",
+          "start": 8.063,
+          "end": 8.168
+        },
+        {
+          "text": "suite.",
+          "start": 8.228,
+          "end": 8.619
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "path": "audio/lines/04.wav",
+      "duration_s": 8.661,
+      "words": [
+        {
+          "text": "Sauf",
+          "start": 0,
+          "end": 0.22
+        },
+        {
+          "text": "que",
+          "start": 0.28,
+          "end": 0.446
+        },
+        {
+          "text": "des",
+          "start": 0.506,
+          "end": 0.671
+        },
+        {
+          "text": "que",
+          "start": 0.731,
+          "end": 0.896
+        },
+        {
+          "text": "tu",
+          "start": 0.956,
+          "end": 1.066
+        },
+        {
+          "text": "modifies",
+          "start": 1.126,
+          "end": 1.567
+        },
+        {
+          "text": "quelque",
+          "start": 1.627,
+          "end": 2.013
+        },
+        {
+          "text": "chose,",
+          "start": 2.073,
+          "end": 2.431
+        },
+        {
+          "text": "Facebook",
+          "start": 2.491,
+          "end": 2.931
+        },
+        {
+          "text": "recommence",
+          "start": 2.991,
+          "end": 3.542
+        },
+        {
+          "text": "a",
+          "start": 3.602,
+          "end": 3.657
+        },
+        {
+          "text": "zero.",
+          "start": 3.717,
+          "end": 4.075
+        },
+        {
+          "text": "Toute",
+          "start": 4.135,
+          "end": 4.411
+        },
+        {
+          "text": "l'avance",
+          "start": 4.471,
+          "end": 4.856
+        },
+        {
+          "text": "qu'il",
+          "start": 4.916,
+          "end": 5.137
+        },
+        {
+          "text": "avait",
+          "start": 5.197,
+          "end": 5.472
+        },
+        {
+          "text": "prise",
+          "start": 5.532,
+          "end": 5.807
+        },
+        {
+          "text": "est",
+          "start": 5.867,
+          "end": 6.033
+        },
+        {
+          "text": "perdue,",
+          "start": 6.093,
+          "end": 6.506
+        },
+        {
+          "text": "et",
+          "start": 6.566,
+          "end": 6.676
+        },
+        {
+          "text": "ta",
+          "start": 6.736,
+          "end": 6.846
+        },
+        {
+          "text": "pub",
+          "start": 6.906,
+          "end": 7.071
+        },
+        {
+          "text": "redevient",
+          "start": 7.131,
+          "end": 7.627
+        },
+        {
+          "text": "chere",
+          "start": 7.687,
+          "end": 7.963
+        },
+        {
+          "text": "pour",
+          "start": 8.023,
+          "end": 8.243
+        },
+        {
+          "text": "rien.",
+          "start": 8.303,
+          "end": 8.661
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "path": "audio/lines/05.wav",
+      "duration_s": 10.368,
+      "words": [
+        {
+          "text": "La",
+          "start": 0,
+          "end": 0.11
+        },
+        {
+          "text": "bonne",
+          "start": 0.17,
+          "end": 0.444
+        },
+        {
+          "text": "methode:",
+          "start": 0.504,
+          "end": 0.97
+        },
+        {
+          "text": "tu",
+          "start": 1.03,
+          "end": 1.139
+        },
+        {
+          "text": "laisses",
+          "start": 1.199,
+          "end": 1.583
+        },
+        {
+          "text": "la",
+          "start": 1.643,
+          "end": 1.753
+        },
+        {
+          "text": "pub",
+          "start": 1.813,
+          "end": 1.977
+        },
+        {
+          "text": "tourner",
+          "start": 2.037,
+          "end": 2.421
+        },
+        {
+          "text": "au",
+          "start": 2.481,
+          "end": 2.591
+        },
+        {
+          "text": "moins",
+          "start": 2.651,
+          "end": 2.925
+        },
+        {
+          "text": "3",
+          "start": 2.985,
+          "end": 3.04
+        },
+        {
+          "text": "a",
+          "start": 3.1,
+          "end": 3.154
+        },
+        {
+          "text": "4",
+          "start": 3.214,
+          "end": 3.269
+        },
+        {
+          "text": "jours",
+          "start": 3.329,
+          "end": 3.603
+        },
+        {
+          "text": "sans",
+          "start": 3.663,
+          "end": 3.883
+        },
+        {
+          "text": "y",
+          "start": 3.943,
+          "end": 3.998
+        },
+        {
+          "text": "toucher,",
+          "start": 4.058,
+          "end": 4.524
+        },
+        {
+          "text": "meme",
+          "start": 4.584,
+          "end": 4.803
+        },
+        {
+          "text": "si",
+          "start": 4.863,
+          "end": 4.972
+        },
+        {
+          "text": "les",
+          "start": 5.032,
+          "end": 5.197
+        },
+        {
+          "text": "premiers",
+          "start": 5.257,
+          "end": 5.696
+        },
+        {
+          "text": "resultats",
+          "start": 5.756,
+          "end": 6.249
+        },
+        {
+          "text": "semblent",
+          "start": 6.309,
+          "end": 6.748
+        },
+        {
+          "text": "faibles.",
+          "start": 6.808,
+          "end": 7.328
+        },
+        {
+          "text": "C'est",
+          "start": 7.388,
+          "end": 7.608
+        },
+        {
+          "text": "apres",
+          "start": 7.668,
+          "end": 7.942
+        },
+        {
+          "text": "ca",
+          "start": 8.002,
+          "end": 8.111
+        },
+        {
+          "text": "que",
+          "start": 8.171,
+          "end": 8.336
+        },
+        {
+          "text": "tu",
+          "start": 8.396,
+          "end": 8.506
+        },
+        {
+          "text": "regardes",
+          "start": 8.566,
+          "end": 9.004
+        },
+        {
+          "text": "vraiment",
+          "start": 9.064,
+          "end": 9.503
+        },
+        {
+          "text": "si",
+          "start": 9.563,
+          "end": 9.672
+        },
+        {
+          "text": "ca",
+          "start": 9.732,
+          "end": 9.842
+        },
+        {
+          "text": "marche.",
+          "start": 9.902,
+          "end": 10.368
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "path": "audio/lines/06.wav",
+      "duration_s": 3.989,
+      "words": [
+        {
+          "text": "Abonne-toi",
+          "start": 0,
+          "end": 0.495
+        },
+        {
+          "text": "si",
+          "start": 0.555,
+          "end": 0.665
+        },
+        {
+          "text": "tu",
+          "start": 0.725,
+          "end": 0.835
+        },
+        {
+          "text": "veux",
+          "start": 0.895,
+          "end": 1.115
+        },
+        {
+          "text": "en",
+          "start": 1.175,
+          "end": 1.285
+        },
+        {
+          "text": "apprendre",
+          "start": 1.345,
+          "end": 1.841
+        },
+        {
+          "text": "plus",
+          "start": 1.901,
+          "end": 2.121
+        },
+        {
+          "text": "sur",
+          "start": 2.181,
+          "end": 2.346
+        },
+        {
+          "text": "comment",
+          "start": 2.406,
+          "end": 2.791
+        },
+        {
+          "text": "gerer",
+          "start": 2.851,
+          "end": 3.126
+        },
+        {
+          "text": "ta",
+          "start": 3.186,
+          "end": 3.296
+        },
+        {
+          "text": "publicite.",
+          "start": 3.356,
+          "end": 3.989
+        }
+      ]
+    }
+  ],
+  "sfx": [],
+  "total_duration_s": 46.656
+}
