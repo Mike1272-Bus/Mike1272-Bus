@@ -1,0 +1,13 @@
+{
+  "scene": "02-situation",
+  "duration_s": 6.8,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "top card mid sine-wave idle (~1.2px/2.9s period) and bottom card mid sine-wave idle (~1.0px/2.6s period, quarter-cycle phase offset from the top card), both amplitudes ramped to zero over the final 20% of the idle window so both cards are at rest by the last frame; vertical gap between the two halves stays >100px throughout",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "pink ground push-slides in from xPercent 100 to 0 over 0.5s; top card starts at y -460 rotation -9deg scale 0, bottom card at y +460 rotation 9deg scale 0, both off-screen/collapsed at t=0",
+    "from_rest": true
+  }
+}

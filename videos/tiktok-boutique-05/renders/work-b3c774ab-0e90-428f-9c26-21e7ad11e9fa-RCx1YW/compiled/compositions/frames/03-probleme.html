@@ -1,0 +1,256 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --white: #ffffff;
+      --offwhite: #fffdf5;
+      --blue: #c0f7fe;
+      --pink: #fe90e8;
+      --yellow: #f7cb46;
+      --cream: #ffdc8b;
+      --green: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+
+    /* ---- full-bleed ground (own clip layer, never on #root) ---- */
+    .prb03-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--cream);
+      will-change: transform, filter, opacity;
+    }
+    .prb03-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+      opacity: 0.5;
+    }
+
+    /* ---- decorations nested in the ground: no separate clip/track needed ---- */
+    .prb03-rect {
+      position: absolute;
+      left: -36px;
+      top: -18px;
+      width: 150px;
+      height: 96px;
+      background: var(--blue);
+      border: 3px solid var(--black);
+      opacity: 0;
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+    .prb03-star-wrap {
+      position: absolute;
+      top: 64px;
+      right: 56px;
+      width: 130px;
+      height: 130px;
+      opacity: 0;
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+    .prb03-star-outer,
+    .prb03-star-inner {
+      position: absolute;
+      clip-path: polygon(
+        50% 0%, 61.8% 35.3%, 97.6% 35.3%, 68.8% 57.4%, 79.4% 91.8%,
+        50% 70.5%, 20.6% 91.8%, 31.2% 57.4%, 2.4% 35.3%, 38.2% 35.3%
+      );
+    }
+    .prb03-star-outer { inset: 0; background: var(--black); }
+    .prb03-star-inner { inset: 9%; background: var(--pink); }
+
+    .prb03-square {
+      position: absolute;
+      right: 80px;
+      top: 1300px;
+      width: 100px;
+      height: 100px;
+      background: var(--green);
+      border: 3px solid var(--black);
+      opacity: 0;
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    .prb03-counter {
+      position: absolute;
+      left: 80px;
+      top: 1300px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: 0.05em;
+      color: var(--black);
+      opacity: 0;
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    /* ---- label-pill: opens the region ---- */
+    .prb03-pill-wrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 90px;
+    }
+    .prb03-pill {
+      font-family: var(--f-display);
+      font-weight: 900;
+      font-size: 30px;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--white);
+      border: 4px solid var(--black);
+      box-shadow: 8px 8px 0 var(--black);
+      border-radius: 9999px;
+      padding: 16px 36px;
+      white-space: nowrap;
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+
+    /* ---- hero photo card (780px wide = ~72% of the 1080px frame,
+       height fit to the photo's own aspect so it reads as a framed
+       photo rather than a crop) ---- */
+    .prb03-hero-card {
+      position: absolute;
+      left: 150px;
+      top: 460px;
+      width: 780px;
+      height: 442px;
+      background: var(--white);
+      border: 4px solid var(--black);
+      box-shadow: 8px 8px 0 var(--black);
+      padding: 14px;
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+    .prb03-hero-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--offwhite);
+    }
+  </style>
+
+  <div id="root" data-composition-id="03-probleme" data-duration="7.9" data-width="1080" data-height="1920">
+    <div class="prb03-bg clip" data-start="0" data-duration="7.9" data-track-index="0">
+      <div class="prb03-rect" id="prb03-rect"></div>
+      <div class="prb03-star-wrap" id="prb03-star">
+        <div class="prb03-star-outer"></div>
+        <div class="prb03-star-inner"></div>
+      </div>
+      <div class="prb03-square" id="prb03-square"></div>
+      <div class="prb03-counter" id="prb03-counter">03</div>
+    </div>
+
+    <div class="prb03-pill-wrap clip" data-start="0" data-duration="7.9" data-track-index="1">
+      <div class="prb03-pill" id="prb03-pill">C'EST HUMAIN</div>
+    </div>
+
+    <div class="prb03-hero-card clip" data-start="0" data-duration="7.9" data-track-index="2" id="prb03-hero">
+      <img class="prb03-hero-img" src="assets/probleme-occupee-dm.jpg" alt="" />
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      var bg = ".prb03-bg";
+      var rect = "#prb03-rect";
+      var star = "#prb03-star";
+      var square = "#prb03-square";
+      var counter = "#prb03-counter";
+      var pill = "#prb03-pill";
+      var hero = document.getElementById("prb03-hero");
+
+      var HERO_ROT = 3;
+      gsap.set(hero, { rotation: HERO_ROT });
+
+      // ---- Scene 1 (0.0-0.5s): cream canvas wash zoom-through-cuts in
+      // (Z-scale + blur + opacity, per the cut catalog). ----
+      tl.fromTo(
+        bg,
+        { scale: 1.08, opacity: 0.5, filter: "blur(10px)" },
+        { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.42, ease: "power2.out" },
+        0
+      );
+      tl.fromTo(rect, { scale: 0, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -8, duration: 0.5, ease: "power3.out" }, 0.05);
+      tl.fromTo(star, { scale: 0, opacity: 0, rotation: 12 }, { scale: 1, opacity: 1, rotation: 5, duration: 0.4, ease: "power3.out" }, 0.1);
+      tl.fromTo(pill, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.15);
+
+      // ---- Scene 2 (0.3-1.0s): probleme-occupee-dm.jpg spring-pops in,
+      // tilted +3deg, ~72% of frame, centered. ----
+      tl.fromTo(
+        hero,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, rotation: HERO_ROT, duration: 0.55, ease: "power3.out" },
+        0.3
+      );
+
+      // lower-corner trinkets trickle through the tail of the hero's beat,
+      // never front-loaded alongside it at t=0.
+      tl.fromTo(counter, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out" }, 0.9);
+      tl.fromTo(square, { scale: 0, opacity: 0, rotation: 10 }, { scale: 1, opacity: 1, rotation: 6, duration: 0.4, ease: "power3.out" }, 1.05);
+
+      // ---- Scene 3 (1.0-7.4s): continuous sine-wave-loop idle drift for the
+      // rest of the hold. Idle window (6.4s) exceeds the 6s long-idle
+      // threshold -> halved amplitude, slowed period (>=3s), and a
+      // settle-and-fade tail so the frame is visibly still by the last
+      // frame, ahead of the hand-off to the next scene. ----
+      var TOTAL = 7.4;
+      var IDLE_START = 1.0;
+      var IDLE_DUR = TOTAL - IDLE_START; // 6.4s
+      var FADE_FRAC = 0.2;
+      var PERIOD = 3.0; // >=3s per the long-idle rule
+      var CYCLES = IDLE_DUR / PERIOD; // ~2.13, within IDLE_DUR/3..IDLE_DUR/1.5
+      var phase = { p: 0 };
+      var Y_AMP = 1.5; // halved from the 2-3px default (long idle window)
+      var ROT_AMP = 0.35;
+
+      tl.to(
+        phase,
+        {
+          p: Math.PI * 2 * CYCLES,
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var t = phase.p / (Math.PI * 2 * CYCLES);
+            var env = t < 1 - FADE_FRAC ? 1 : Math.max(0, (1 - t) / FADE_FRAC);
+            var s = Math.sin(phase.p);
+            var y = s * Y_AMP * env;
+            var rot = HERO_ROT + Math.sin(phase.p + Math.PI / 2) * ROT_AMP * env;
+            hero.style.transform = "translateY(" + y + "px) rotate(" + rot + "deg)";
+          },
+        },
+        IDLE_START
+      );
+
+      window.__timelines["03-probleme"] = tl;
+    })();
+  </script>
+</template>

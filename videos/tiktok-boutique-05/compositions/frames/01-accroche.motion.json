@@ -1,0 +1,13 @@
+{
+  "scene": "01-accroche",
+  "duration_s": 7.0,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "hero + doodle both mid sine-wave idle (hero ~1.3px/2.8s period, doodle ~1.6px/2.5s period, independent phase), amplitude ramped to zero over the final 20% of the idle window so both are at rest by the last frame",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "blue ground zoom-through-cuts in from scale 1.08/blur 10px/opacity 0.5 over 0.42s; pill, star, hero and doodle all at scale 0 at t=0",
+    "from_rest": true
+  }
+}
