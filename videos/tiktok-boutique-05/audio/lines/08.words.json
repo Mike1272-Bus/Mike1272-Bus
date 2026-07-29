@@ -1,0 +1,62 @@
+[
+  {
+    "id": "w0",
+    "text": "Le",
+    "start": 0,
+    "end": 0.094
+  },
+  {
+    "id": "w1",
+    "text": "lien",
+    "start": 0.154,
+    "end": 0.342
+  },
+  {
+    "id": "w2",
+    "text": "est",
+    "start": 0.402,
+    "end": 0.543
+  },
+  {
+    "id": "w3",
+    "text": "en",
+    "start": 0.603,
+    "end": 0.698
+  },
+  {
+    "id": "w4",
+    "text": "bio",
+    "start": 0.758,
+    "end": 0.899
+  },
+  {
+    "id": "w5",
+    "text": "si",
+    "start": 0.959,
+    "end": 1.053
+  },
+  {
+    "id": "w6",
+    "text": "tu",
+    "start": 1.113,
+    "end": 1.207
+  },
+  {
+    "id": "w7",
+    "text": "veux",
+    "start": 1.267,
+    "end": 1.455
+  },
+  {
+    "id": "w8",
+    "text": "la",
+    "start": 1.515,
+    "end": 1.609
+  },
+  {
+    "id": "w9",
+    "text": "tienne.",
+    "start": 1.669,
+    "end": 2.069
+  }
+]

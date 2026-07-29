@@ -1,0 +1,938 @@
+{
+  "bgm": null,
+  "voices": [
+    {
+      "frame": 1,
+      "path": "audio/lines/01.wav",
+      "duration_s": 6.571,
+      "words": [
+        {
+          "text": "Si",
+          "start": 0,
+          "end": 0.131
+        },
+        {
+          "text": "tu",
+          "start": 0.191,
+          "end": 0.321
+        },
+        {
+          "text": "fais",
+          "start": 0.381,
+          "end": 0.643
+        },
+        {
+          "text": "du",
+          "start": 0.703,
+          "end": 0.834
+        },
+        {
+          "text": "business",
+          "start": 0.894,
+          "end": 1.417
+        },
+        {
+          "text": "en",
+          "start": 1.477,
+          "end": 1.607
+        },
+        {
+          "text": "ligne",
+          "start": 1.667,
+          "end": 1.994
+        },
+        {
+          "text": "avec",
+          "start": 2.054,
+          "end": 2.316
+        },
+        {
+          "text": "WhatsApp,",
+          "start": 2.376,
+          "end": 2.997
+        },
+        {
+          "text": "tu",
+          "start": 3.057,
+          "end": 3.187
+        },
+        {
+          "text": "t'es",
+          "start": 3.247,
+          "end": 3.444
+        },
+        {
+          "text": "sans",
+          "start": 3.504,
+          "end": 3.765
+        },
+        {
+          "text": "doute",
+          "start": 3.825,
+          "end": 4.152
+        },
+        {
+          "text": "deja",
+          "start": 4.212,
+          "end": 4.473
+        },
+        {
+          "text": "retrouve",
+          "start": 4.533,
+          "end": 5.056
+        },
+        {
+          "text": "dans",
+          "start": 5.116,
+          "end": 5.378
+        },
+        {
+          "text": "la",
+          "start": 5.438,
+          "end": 5.569
+        },
+        {
+          "text": "situation",
+          "start": 5.629,
+          "end": 6.217
+        },
+        {
+          "text": "ou...",
+          "start": 6.277,
+          "end": 6.571
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "path": "audio/lines/02.wav",
+      "duration_s": 6.293,
+      "words": [
+        {
+          "text": "...un",
+          "start": 0,
+          "end": 0.103
+        },
+        {
+          "text": "client",
+          "start": 0.163,
+          "end": 0.474
+        },
+        {
+          "text": "te",
+          "start": 0.534,
+          "end": 0.637
+        },
+        {
+          "text": "demande",
+          "start": 0.697,
+          "end": 1.059
+        },
+        {
+          "text": "le",
+          "start": 1.119,
+          "end": 1.222
+        },
+        {
+          "text": "prix.",
+          "start": 1.282,
+          "end": 1.618
+        },
+        {
+          "text": "Le",
+          "start": 1.678,
+          "end": 1.782
+        },
+        {
+          "text": "temps",
+          "start": 1.842,
+          "end": 2.1
+        },
+        {
+          "text": "que",
+          "start": 2.16,
+          "end": 2.316
+        },
+        {
+          "text": "tu",
+          "start": 2.376,
+          "end": 2.479
+        },
+        {
+          "text": "reponds,",
+          "start": 2.539,
+          "end": 2.978
+        },
+        {
+          "text": "deux",
+          "start": 3.038,
+          "end": 3.245
+        },
+        {
+          "text": "heures",
+          "start": 3.305,
+          "end": 3.616
+        },
+        {
+          "text": "apres,",
+          "start": 3.676,
+          "end": 4.012
+        },
+        {
+          "text": "il",
+          "start": 4.072,
+          "end": 4.175
+        },
+        {
+          "text": "a",
+          "start": 4.235,
+          "end": 4.287
+        },
+        {
+          "text": "disparu.",
+          "start": 4.347,
+          "end": 4.838
+        },
+        {
+          "text": "Plus",
+          "start": 4.898,
+          "end": 5.105
+        },
+        {
+          "text": "jamais",
+          "start": 5.165,
+          "end": 5.475
+        },
+        {
+          "text": "de",
+          "start": 5.535,
+          "end": 5.638
+        },
+        {
+          "text": "nouvelles.",
+          "start": 5.698,
+          "end": 6.293
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "path": "audio/lines/03.wav",
+      "duration_s": 6.891,
+      "words": [
+        {
+          "text": "Pourtant",
+          "start": 0,
+          "end": 0.352
+        },
+        {
+          "text": "t'as",
+          "start": 0.412,
+          "end": 0.545
+        },
+        {
+          "text": "rien",
+          "start": 0.605,
+          "end": 0.781
+        },
+        {
+          "text": "fait",
+          "start": 0.841,
+          "end": 1.017
+        },
+        {
+          "text": "de",
+          "start": 1.077,
+          "end": 1.165
+        },
+        {
+          "text": "mal.",
+          "start": 1.225,
+          "end": 1.468
+        },
+        {
+          "text": "T'etais",
+          "start": 1.528,
+          "end": 1.792
+        },
+        {
+          "text": "juste",
+          "start": 1.852,
+          "end": 2.072
+        },
+        {
+          "text": "occupe,",
+          "start": 2.132,
+          "end": 2.463
+        },
+        {
+          "text": "comme",
+          "start": 2.523,
+          "end": 2.743
+        },
+        {
+          "text": "tous",
+          "start": 2.803,
+          "end": 2.979
+        },
+        {
+          "text": "les",
+          "start": 3.039,
+          "end": 3.171
+        },
+        {
+          "text": "jours.",
+          "start": 3.231,
+          "end": 3.562
+        },
+        {
+          "text": "Mais",
+          "start": 3.622,
+          "end": 3.798
+        },
+        {
+          "text": "pour",
+          "start": 3.858,
+          "end": 4.034
+        },
+        {
+          "text": "lui,",
+          "start": 4.094,
+          "end": 4.292
+        },
+        {
+          "text": "t'as",
+          "start": 4.352,
+          "end": 4.485
+        },
+        {
+          "text": "mis",
+          "start": 4.545,
+          "end": 4.677
+        },
+        {
+          "text": "trop",
+          "start": 4.737,
+          "end": 4.913
+        },
+        {
+          "text": "de",
+          "start": 4.973,
+          "end": 5.061
+        },
+        {
+          "text": "temps,",
+          "start": 5.121,
+          "end": 5.408
+        },
+        {
+          "text": "et",
+          "start": 5.468,
+          "end": 5.556
+        },
+        {
+          "text": "il",
+          "start": 5.616,
+          "end": 5.704
+        },
+        {
+          "text": "est",
+          "start": 5.764,
+          "end": 5.896
+        },
+        {
+          "text": "alle",
+          "start": 5.956,
+          "end": 6.132
+        },
+        {
+          "text": "voir",
+          "start": 6.192,
+          "end": 6.368
+        },
+        {
+          "text": "ailleurs.",
+          "start": 6.428,
+          "end": 6.891
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "path": "audio/lines/04.wav",
+      "duration_s": 8.576,
+      "words": [
+        {
+          "text": "Et",
+          "start": 0,
+          "end": 0.099
+        },
+        {
+          "text": "ca,",
+          "start": 0.159,
+          "end": 0.331
+        },
+        {
+          "text": "ca",
+          "start": 0.391,
+          "end": 0.49
+        },
+        {
+          "text": "t'arrive",
+          "start": 0.55,
+          "end": 0.895
+        },
+        {
+          "text": "plus",
+          "start": 0.955,
+          "end": 1.152
+        },
+        {
+          "text": "souvent",
+          "start": 1.212,
+          "end": 1.557
+        },
+        {
+          "text": "que",
+          "start": 1.617,
+          "end": 1.764
+        },
+        {
+          "text": "tu",
+          "start": 1.824,
+          "end": 1.923
+        },
+        {
+          "text": "crois.",
+          "start": 1.983,
+          "end": 2.353
+        },
+        {
+          "text": "Tu",
+          "start": 2.413,
+          "end": 2.511
+        },
+        {
+          "text": "perds",
+          "start": 2.571,
+          "end": 2.818
+        },
+        {
+          "text": "des",
+          "start": 2.878,
+          "end": 3.025
+        },
+        {
+          "text": "ventes",
+          "start": 3.085,
+          "end": 3.381
+        },
+        {
+          "text": "chaque",
+          "start": 3.441,
+          "end": 3.737
+        },
+        {
+          "text": "semaine,",
+          "start": 3.797,
+          "end": 4.216
+        },
+        {
+          "text": "sans",
+          "start": 4.276,
+          "end": 4.473
+        },
+        {
+          "text": "meme",
+          "start": 4.533,
+          "end": 4.73
+        },
+        {
+          "text": "t'en",
+          "start": 4.79,
+          "end": 4.938
+        },
+        {
+          "text": "rendre",
+          "start": 4.998,
+          "end": 5.293
+        },
+        {
+          "text": "compte.",
+          "start": 5.353,
+          "end": 5.772
+        },
+        {
+          "text": "Tu",
+          "start": 5.832,
+          "end": 5.931
+        },
+        {
+          "text": "te",
+          "start": 5.991,
+          "end": 6.089
+        },
+        {
+          "text": "dis",
+          "start": 6.149,
+          "end": 6.297
+        },
+        {
+          "text": "juste",
+          "start": 6.357,
+          "end": 6.604
+        },
+        {
+          "text": "que",
+          "start": 6.664,
+          "end": 6.812
+        },
+        {
+          "text": "les",
+          "start": 6.872,
+          "end": 7.019
+        },
+        {
+          "text": "gens",
+          "start": 7.079,
+          "end": 7.276
+        },
+        {
+          "text": "ne",
+          "start": 7.336,
+          "end": 7.435
+        },
+        {
+          "text": "sont",
+          "start": 7.495,
+          "end": 7.692
+        },
+        {
+          "text": "pas",
+          "start": 7.752,
+          "end": 7.9
+        },
+        {
+          "text": "interesses.",
+          "start": 7.96,
+          "end": 8.576
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "path": "audio/lines/05.wav",
+      "duration_s": 4.715,
+      "words": [
+        {
+          "text": "Mais",
+          "start": 0,
+          "end": 0.196
+        },
+        {
+          "text": "en",
+          "start": 0.256,
+          "end": 0.355
+        },
+        {
+          "text": "vrai,",
+          "start": 0.415,
+          "end": 0.684
+        },
+        {
+          "text": "le",
+          "start": 0.744,
+          "end": 0.843
+        },
+        {
+          "text": "probleme",
+          "start": 0.903,
+          "end": 1.295
+        },
+        {
+          "text": "c'est",
+          "start": 1.355,
+          "end": 1.552
+        },
+        {
+          "text": "pas",
+          "start": 1.612,
+          "end": 1.759
+        },
+        {
+          "text": "ton",
+          "start": 1.819,
+          "end": 1.966
+        },
+        {
+          "text": "produit.",
+          "start": 2.026,
+          "end": 2.492
+        },
+        {
+          "text": "C'est",
+          "start": 2.552,
+          "end": 2.749
+        },
+        {
+          "text": "le",
+          "start": 2.809,
+          "end": 2.907
+        },
+        {
+          "text": "temps",
+          "start": 2.967,
+          "end": 3.212
+        },
+        {
+          "text": "que",
+          "start": 3.272,
+          "end": 3.42
+        },
+        {
+          "text": "ca",
+          "start": 3.48,
+          "end": 3.578
+        },
+        {
+          "text": "prend",
+          "start": 3.638,
+          "end": 3.883
+        },
+        {
+          "text": "pour",
+          "start": 3.943,
+          "end": 4.14
+        },
+        {
+          "text": "repondre.",
+          "start": 4.2,
+          "end": 4.715
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "path": "audio/lines/06.wav",
+      "duration_s": 8.384,
+      "words": [
+        {
+          "text": "Avec",
+          "start": 0,
+          "end": 0.214
+        },
+        {
+          "text": "une",
+          "start": 0.274,
+          "end": 0.434
+        },
+        {
+          "text": "vraie",
+          "start": 0.494,
+          "end": 0.762
+        },
+        {
+          "text": "boutique",
+          "start": 0.822,
+          "end": 1.249
+        },
+        {
+          "text": "en",
+          "start": 1.309,
+          "end": 1.416
+        },
+        {
+          "text": "ligne,",
+          "start": 1.476,
+          "end": 1.824
+        },
+        {
+          "text": "le",
+          "start": 1.884,
+          "end": 1.991
+        },
+        {
+          "text": "client",
+          "start": 2.051,
+          "end": 2.372
+        },
+        {
+          "text": "voit",
+          "start": 2.432,
+          "end": 2.646
+        },
+        {
+          "text": "direct",
+          "start": 2.706,
+          "end": 3.026
+        },
+        {
+          "text": "le",
+          "start": 3.086,
+          "end": 3.193
+        },
+        {
+          "text": "prix,",
+          "start": 3.253,
+          "end": 3.547
+        },
+        {
+          "text": "les",
+          "start": 3.607,
+          "end": 3.768
+        },
+        {
+          "text": "photos,",
+          "start": 3.828,
+          "end": 4.229
+        },
+        {
+          "text": "si",
+          "start": 4.289,
+          "end": 4.396
+        },
+        {
+          "text": "c'est",
+          "start": 4.456,
+          "end": 4.67
+        },
+        {
+          "text": "en",
+          "start": 4.73,
+          "end": 4.837
+        },
+        {
+          "text": "stock.",
+          "start": 4.897,
+          "end": 5.298
+        },
+        {
+          "text": "Il",
+          "start": 5.358,
+          "end": 5.465
+        },
+        {
+          "text": "n'a",
+          "start": 5.525,
+          "end": 5.632
+        },
+        {
+          "text": "plus",
+          "start": 5.692,
+          "end": 5.905
+        },
+        {
+          "text": "besoin",
+          "start": 5.965,
+          "end": 6.286
+        },
+        {
+          "text": "d'attendre",
+          "start": 6.346,
+          "end": 6.827
+        },
+        {
+          "text": "apres",
+          "start": 6.887,
+          "end": 7.155
+        },
+        {
+          "text": "toi",
+          "start": 7.215,
+          "end": 7.375
+        },
+        {
+          "text": "pour",
+          "start": 7.435,
+          "end": 7.649
+        },
+        {
+          "text": "se",
+          "start": 7.709,
+          "end": 7.816
+        },
+        {
+          "text": "decider.",
+          "start": 7.876,
+          "end": 8.384
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "path": "audio/lines/07.wav",
+      "duration_s": 6.4,
+      "words": [
+        {
+          "text": "Il",
+          "start": 0,
+          "end": 0.101
+        },
+        {
+          "text": "peut",
+          "start": 0.161,
+          "end": 0.362
+        },
+        {
+          "text": "commander",
+          "start": 0.422,
+          "end": 0.876
+        },
+        {
+          "text": "a",
+          "start": 0.936,
+          "end": 0.986
+        },
+        {
+          "text": "n'importe",
+          "start": 1.046,
+          "end": 1.449
+        },
+        {
+          "text": "quelle",
+          "start": 1.509,
+          "end": 1.812
+        },
+        {
+          "text": "heure.",
+          "start": 1.872,
+          "end": 2.25
+        },
+        {
+          "text": "Meme",
+          "start": 2.31,
+          "end": 2.511
+        },
+        {
+          "text": "la",
+          "start": 2.571,
+          "end": 2.672
+        },
+        {
+          "text": "nuit,",
+          "start": 2.732,
+          "end": 3.009
+        },
+        {
+          "text": "meme",
+          "start": 3.069,
+          "end": 3.271
+        },
+        {
+          "text": "quand",
+          "start": 3.331,
+          "end": 3.583
+        },
+        {
+          "text": "tu",
+          "start": 3.643,
+          "end": 3.744
+        },
+        {
+          "text": "dors,",
+          "start": 3.804,
+          "end": 4.081
+        },
+        {
+          "text": "ta",
+          "start": 4.141,
+          "end": 4.241
+        },
+        {
+          "text": "boutique",
+          "start": 4.301,
+          "end": 4.705
+        },
+        {
+          "text": "continue",
+          "start": 4.765,
+          "end": 5.168
+        },
+        {
+          "text": "de",
+          "start": 5.228,
+          "end": 5.329
+        },
+        {
+          "text": "vendre",
+          "start": 5.389,
+          "end": 5.691
+        },
+        {
+          "text": "a",
+          "start": 5.751,
+          "end": 5.801
+        },
+        {
+          "text": "ta",
+          "start": 5.861,
+          "end": 5.962
+        },
+        {
+          "text": "place.",
+          "start": 6.022,
+          "end": 6.4
+        }
+      ]
+    },
+    {
+      "frame": 8,
+      "path": "audio/lines/08.wav",
+      "duration_s": 2.069,
+      "words": [
+        {
+          "text": "Le",
+          "start": 0,
+          "end": 0.094
+        },
+        {
+          "text": "lien",
+          "start": 0.154,
+          "end": 0.342
+        },
+        {
+          "text": "est",
+          "start": 0.402,
+          "end": 0.543
+        },
+        {
+          "text": "en",
+          "start": 0.603,
+          "end": 0.698
+        },
+        {
+          "text": "bio",
+          "start": 0.758,
+          "end": 0.899
+        },
+        {
+          "text": "si",
+          "start": 0.959,
+          "end": 1.053
+        },
+        {
+          "text": "tu",
+          "start": 1.113,
+          "end": 1.207
+        },
+        {
+          "text": "veux",
+          "start": 1.267,
+          "end": 1.455
+        },
+        {
+          "text": "la",
+          "start": 1.515,
+          "end": 1.609
+        },
+        {
+          "text": "tienne.",
+          "start": 1.669,
+          "end": 2.069
+        }
+      ]
+    }
+  ],
+  "sfx": [],
+  "total_duration_s": 49.89900000000001
+}

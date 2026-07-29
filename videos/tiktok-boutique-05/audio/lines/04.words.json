@@ -1,0 +1,188 @@
+[
+  {
+    "id": "w0",
+    "text": "Et",
+    "start": 0,
+    "end": 0.099
+  },
+  {
+    "id": "w1",
+    "text": "ca,",
+    "start": 0.159,
+    "end": 0.331
+  },
+  {
+    "id": "w2",
+    "text": "ca",
+    "start": 0.391,
+    "end": 0.49
+  },
+  {
+    "id": "w3",
+    "text": "t'arrive",
+    "start": 0.55,
+    "end": 0.895
+  },
+  {
+    "id": "w4",
+    "text": "plus",
+    "start": 0.955,
+    "end": 1.152
+  },
+  {
+    "id": "w5",
+    "text": "souvent",
+    "start": 1.212,
+    "end": 1.557
+  },
+  {
+    "id": "w6",
+    "text": "que",
+    "start": 1.617,
+    "end": 1.764
+  },
+  {
+    "id": "w7",
+    "text": "tu",
+    "start": 1.824,
+    "end": 1.923
+  },
+  {
+    "id": "w8",
+    "text": "crois.",
+    "start": 1.983,
+    "end": 2.353
+  },
+  {
+    "id": "w9",
+    "text": "Tu",
+    "start": 2.413,
+    "end": 2.511
+  },
+  {
+    "id": "w10",
+    "text": "perds",
+    "start": 2.571,
+    "end": 2.818
+  },
+  {
+    "id": "w11",
+    "text": "des",
+    "start": 2.878,
+    "end": 3.025
+  },
+  {
+    "id": "w12",
+    "text": "ventes",
+    "start": 3.085,
+    "end": 3.381
+  },
+  {
+    "id": "w13",
+    "text": "chaque",
+    "start": 3.441,
+    "end": 3.737
+  },
+  {
+    "id": "w14",
+    "text": "semaine,",
+    "start": 3.797,
+    "end": 4.216
+  },
+  {
+    "id": "w15",
+    "text": "sans",
+    "start": 4.276,
+    "end": 4.473
+  },
+  {
+    "id": "w16",
+    "text": "meme",
+    "start": 4.533,
+    "end": 4.73
+  },
+  {
+    "id": "w17",
+    "text": "t'en",
+    "start": 4.79,
+    "end": 4.938
+  },
+  {
+    "id": "w18",
+    "text": "rendre",
+    "start": 4.998,
+    "end": 5.293
+  },
+  {
+    "id": "w19",
+    "text": "compte.",
+    "start": 5.353,
+    "end": 5.772
+  },
+  {
+    "id": "w20",
+    "text": "Tu",
+    "start": 5.832,
+    "end": 5.931
+  },
+  {
+    "id": "w21",
+    "text": "te",
+    "start": 5.991,
+    "end": 6.089
+  },
+  {
+    "id": "w22",
+    "text": "dis",
+    "start": 6.149,
+    "end": 6.297
+  },
+  {
+    "id": "w23",
+    "text": "juste",
+    "start": 6.357,
+    "end": 6.604
+  },
+  {
+    "id": "w24",
+    "text": "que",
+    "start": 6.664,
+    "end": 6.812
+  },
+  {
+    "id": "w25",
+    "text": "les",
+    "start": 6.872,
+    "end": 7.019
+  },
+  {
+    "id": "w26",
+    "text": "gens",
+    "start": 7.079,
+    "end": 7.276
+  },
+  {
+    "id": "w27",
+    "text": "ne",
+    "start": 7.336,
+    "end": 7.435
+  },
+  {
+    "id": "w28",
+    "text": "sont",
+    "start": 7.495,
+    "end": 7.692
+  },
+  {
+    "id": "w29",
+    "text": "pas",
+    "start": 7.752,
+    "end": 7.9
+  },
+  {
+    "id": "w30",
+    "text": "interesses.",
+    "start": 7.96,
+    "end": 8.576
+  }
+]
