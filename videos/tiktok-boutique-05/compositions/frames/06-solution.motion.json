@@ -1,0 +1,13 @@
+{
+  "scene": "06-solution",
+  "duration_s": 8.8,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "~0px/s, hero at rest (settle-and-fade envelope zeroes idle amplitude by t=8.8s)",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "push-slide wash: bg+dotgrid xPercent 35->0 with opacity 0->1 over 0.5s (rightward slide-in, no vertical component); hero still scale:0 at t=0",
+    "from_rest": false
+  }
+}

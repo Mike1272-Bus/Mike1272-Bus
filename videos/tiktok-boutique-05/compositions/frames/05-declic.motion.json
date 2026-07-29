@@ -1,0 +1,13 @@
+{
+  "scene": "05-declic",
+  "duration_s": 5.2,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "continuous sine drift, hero translateY amplitude ~1.5px / scale amplitude ~0.6%, period ~2.7s, no settle-fade tail (idle >30% of duration halved the amplitude but the loop keeps running to t=5.2s)",
+    "still_moving": true
+  },
+  "entry": {
+    "vector": "zoom-through wash: bg+dotgrid scale 1.35->1.0 with blur 10px->0px over 0.5s (inward Z motion, no lateral px/s); hero still scale:0 at t=0",
+    "from_rest": false
+  }
+}

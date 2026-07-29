@@ -1,0 +1,13 @@
+{
+  "scene": "07-benefice",
+  "duration_s": 6.9,
+  "rules": ["spring-pop-entrance", "sine-wave-loop"],
+  "exit": {
+    "vector": "vertical stack holds — top card (email-confirmation) and bottom card (achat-mobile) each ride an independent-phase sine-wave-loop idle (~1.5px translateY, ~0.006 scale amplitude, periods ~2.9s/2.6s) with a settle-and-fade envelope that ramps amplitude to 0 over each idle's final 20%; both envelopes are engineered to reach zero exactly at t=6.9, so the last rendered frame shows both cards back at their landed rest pose (0px/s residual)",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "in-place — pink ground+dotgrid zoom-through-cut (scale 1.12->1, blur 10px->0px, 0.45s) launches from a static zoomed-in rest state at t=0, 0px/s translation",
+    "from_rest": true
+  }
+}

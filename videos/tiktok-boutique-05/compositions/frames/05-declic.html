@@ -1,0 +1,242 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      container-type: size;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --black: #000000;
+      --white: #ffffff;
+      --offwhite: #fffdf5;
+      --pink: #fe90e8;
+      --blue: #c0f7fe;
+      --green: #99e885;
+      --yellow: #f7cb46;
+      --cream: #ffdc8b;
+    }
+
+    .c5-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--green);
+    }
+
+    .c5-dotgrid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.16) 1.2px, transparent 1.2px);
+      background-size: 26px 26px;
+      opacity: 0.45;
+    }
+
+    .c5-stripe {
+      position: absolute;
+      right: -36px;
+      top: 1502px;
+      width: 240px;
+      height: 78px;
+      background: repeating-linear-gradient(
+        45deg,
+        var(--black) 0px,
+        var(--black) 6px,
+        var(--cream) 6px,
+        var(--cream) 18px
+      );
+      border: 3px solid var(--black);
+      transform-origin: 50% 50%;
+    }
+
+    .c5-star {
+      position: absolute;
+      top: 220px;
+      left: -46px;
+      width: 150px;
+      height: 150px;
+      background: var(--pink);
+      border: 3px solid var(--black);
+      transform-origin: 50% 50%;
+      clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+      );
+    }
+
+    .c5-tilt {
+      position: absolute;
+      left: 74px;
+      top: 280px;
+      width: 116px;
+      height: 116px;
+      background: var(--blue);
+      border: 3px solid var(--black);
+      transform-origin: 50% 50%;
+    }
+
+    .c5-dot-deco {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--yellow);
+      border: 2px solid var(--black);
+      right: 120px;
+      top: 1240px;
+      transform-origin: 50% 50%;
+    }
+
+    .c5-label {
+      position: absolute;
+      top: 130px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: fit-content;
+      background: var(--white);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      padding: 12px 40px;
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--black);
+      transform-origin: 50% 50%;
+    }
+
+    .c5-hero-wrap {
+      position: absolute;
+      left: 50%;
+      top: 460px;
+      width: 734px;
+      height: 734px;
+      margin-left: -367px;
+      transform-origin: 50% 50%;
+    }
+
+    .c5-hero {
+      width: 100%;
+      height: 100%;
+      background: var(--white);
+      border: 4px solid var(--black);
+      box-shadow: 8px 8px 0 var(--black);
+      box-sizing: border-box;
+      padding: 24px;
+    }
+
+    .c5-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+
+  <div id="root" data-composition-id="05-declic" data-duration="5.2" data-width="1080" data-height="1920">
+    <div class="c5-bg clip" data-start="0" data-duration="5.2" data-track-index="0"></div>
+    <div class="c5-dotgrid clip" data-start="0" data-duration="5.2" data-track-index="1"></div>
+    <div class="c5-stripe clip" data-start="0" data-duration="5.2" data-track-index="2"></div>
+    <div class="c5-star clip" data-start="0" data-duration="5.2" data-track-index="3"></div>
+    <div class="c5-dot-deco clip" data-start="0" data-duration="5.2" data-track-index="4"></div>
+
+    <div class="c5-tilt clip" data-start="0" data-duration="5.2" data-track-index="5"></div>
+
+    <div class="c5-label clip" data-start="0" data-duration="5.2" data-track-index="6">Le declic</div>
+
+    <div class="c5-hero-wrap clip" data-start="0" data-duration="5.2" data-track-index="7">
+      <div class="c5-hero">
+        <img src="assets/declic-sablier.png" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    // Scene 1 (0-0.5s): green canvas wash zoom-through-cuts in (Z-scale + blur + opacity).
+    tl.fromTo(
+      ".c5-bg, .c5-dotgrid",
+      { scale: 1.35, opacity: 0, filter: "blur(10px)" },
+      { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "power2.out" },
+      0,
+    );
+
+    // ambient decorations settle in alongside the wash
+    tl.fromTo(
+      ".c5-star",
+      { scale: 0, opacity: 0, rotation: -10 },
+      { scale: 1, opacity: 1, rotation: -10, duration: 0.45, ease: "power3.out" },
+      0.1,
+    );
+    tl.fromTo(
+      ".c5-stripe",
+      { scale: 0, opacity: 0, rotation: 6 },
+      { scale: 1, opacity: 1, rotation: 6, duration: 0.45, ease: "power3.out" },
+      0.15,
+    );
+    tl.fromTo(
+      ".c5-dot-deco",
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out" },
+      0.18,
+    );
+    tl.fromTo(
+      ".c5-label",
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out" },
+      0.12,
+    );
+    tl.fromTo(
+      ".c5-tilt",
+      { scale: 0, opacity: 0, rotation: 8 },
+      { scale: 1, opacity: 1, rotation: 8, duration: 0.4, ease: "power3.out" },
+      0.2,
+    );
+
+    // Scene 2 (0.3-1.0s): declic-sablier.png spring-pops in, centered, tilted -2deg, ~68% of
+    // frame -- a clean reveal beat, no collage.
+    tl.fromTo(
+      ".c5-hero-wrap",
+      { scale: 0, opacity: 0, rotation: -2 },
+      { scale: 1, opacity: 1, rotation: -2, duration: 0.7, ease: "power3.out" },
+      0.3,
+    );
+
+    // Scene 3 (1.0-5.2s): continuous sine-wave-loop idle drift (small, steady) for the rest of
+    // the hold. Idle window (~4.1s) is ~79% of the 5.2s duration -> halved amplitude and a
+    // slowed period per the long-idle rule.
+    const TOTAL = 5.2;
+    const IDLE_START = 1.1;
+    const IDLE_DUR = TOTAL - IDLE_START; // 4.1s
+    const CYCLES = 1.5; // period ~2.7s
+    const phase = { p: 0 };
+    tl.to(
+      phase,
+      {
+        p: Math.PI * 2 * CYCLES,
+        duration: IDLE_DUR,
+        ease: "none",
+        onUpdate: () => {
+          const s = Math.sin(phase.p);
+          const hero = document.querySelector(".c5-hero-wrap");
+          if (hero) {
+            hero.style.transform = `translateY(${s * 1.5}px) scale(${1 + s * 0.006}) rotate(-2deg)`;
+          }
+        },
+      },
+      IDLE_START,
+    );
+
+    window.__timelines["05-declic"] = tl;
+  </script>
+</template>

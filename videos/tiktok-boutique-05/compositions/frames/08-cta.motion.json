@@ -1,0 +1,13 @@
+{
+  "scene": "08-cta",
+  "duration_s": 3.2,
+  "rules": ["spring-pop-entrance", "particle-burst", "sine-wave-loop"],
+  "exit": {
+    "vector": "final frame of the video — CTA sticker holds its landed pose (base rotate -2deg) with a continuous low-amplitude micro-bob (+/-1.3px translateY, +/-0.35deg rotation wobble, ~2.1s period) still running at t=3.2; no fade-to-zero tail authored (deliberate hold per this being the final frame)",
+    "still_moving": true
+  },
+  "entry": {
+    "vector": "in-place — pink/yellow split wash zoom-through-cut (scale 1.15->1, blur 12px->0px, 0.4s) launches from a static full-frame rest state at t=0, 0px/s translation",
+    "from_rest": true
+  }
+}
