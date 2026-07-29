@@ -217,24 +217,12 @@
       0.3,
     );
 
-    // Scene 3 (1.0-1.7s): consequence-femme-bureau.jpg spring-pops in from below, settling in the
-    // BOTTOM half (~44% height), tilted +2deg -- clear vertical gap preserved (top card bottom
-    // 790px, bottom card top 970px -> 180px gap, both fully visible, never overlapping).
-    tl.fromTo(
-      ".c4-card-bottom",
-      { scale: 0, opacity: 0, y: 520, rotation: 2 },
-      { scale: 1, opacity: 1, y: 0, rotation: 2, duration: 0.7, ease: "power3.out" },
-      1.0,
-    );
-
-    // Scene 4 (1.7-9.0s): both cards keep independent-phase sine-wave-loop idle drift for the
-    // rest of the hold. Idle window (~7.2s of 9s) is a large share of the duration -> halved
-    // amplitude, slowed period, settle-and-fade tail so both cards are visibly still before the
-    // hand-off. Distinct CYCLES + a sin-argument offset on the bottom card keep the two phases
-    // independent so they never drift toward each other's half.
+    // Scene 3 (1.1-BOT_START): top card idles alone while the scene holds on it --
+    // the bottom card intentionally does NOT land yet (per the "second image lands
+    // late" rule: images must not both arrive within the first 1-2s of the scene).
     const TOTAL = 9;
-    const IDLE_START = 1.8;
-    const IDLE_DUR = TOTAL - IDLE_START; // 7.2s
+    const IDLE_START = 1.1;
+    const IDLE_DUR = TOTAL - IDLE_START;
 
     const topPhase = { p: 0 };
     const TOP_CYCLES = 2.4; // period ~3s
@@ -246,7 +234,7 @@
         ease: "none",
         onUpdate: () => {
           const t = topPhase.p / (Math.PI * 2 * TOP_CYCLES);
-          const env = t < 0.8 ? 1 : Math.max(0, (1 - t) / 0.2);
+          const env = t < 0.85 ? 1 : Math.max(0, (1 - t) / 0.15);
           const s = Math.sin(topPhase.p);
           const card = document.querySelector(".c4-card-top");
           if (card) {
@@ -257,26 +245,36 @@
       IDLE_START,
     );
 
+    // Scene 4 (BOT_START-9.0s): consequence-femme-bureau.jpg spring-pops in from below
+    // LATE, near the end of the hold, settling in the BOTTOM half (~44% height), tilted
+    // +2deg -- clear vertical gap preserved (top card bottom 790px, bottom card top
+    // 970px -> 180px gap, both fully visible, never overlapping).
+    const BOT_START = TOTAL - 1.8; // 7.2s
+    tl.fromTo(
+      ".c4-card-bottom",
+      { scale: 0, opacity: 0, y: 520, rotation: 2 },
+      { scale: 1, opacity: 1, y: 0, rotation: 2, duration: 0.7, ease: "power3.out" },
+      BOT_START,
+    );
+
+    // brief settle wobble on the bottom card after landing (too little time left for
+    // a full idle loop)
     const botPhase = { p: 0 };
-    const BOT_CYCLES = 2.1; // period ~3.4s -- independent frequency from the top card
-    const BOT_OFFSET = Math.PI / 3; // independent phase -- desynced from the top card's beat
+    const BOT_IDLE_START = BOT_START + 0.75;
+    const BOT_IDLE_DUR = Math.max(TOTAL - BOT_IDLE_START, 0.1);
     tl.to(
       botPhase,
       {
-        p: Math.PI * 2 * BOT_CYCLES,
-        duration: IDLE_DUR,
-        ease: "none",
+        p: Math.PI * 0.6,
+        duration: BOT_IDLE_DUR,
+        ease: "sine.out",
         onUpdate: () => {
-          const t = botPhase.p / (Math.PI * 2 * BOT_CYCLES);
-          const env = t < 0.8 ? 1 : Math.max(0, (1 - t) / 0.2);
-          const s = Math.sin(botPhase.p + BOT_OFFSET);
+          const s = Math.sin(botPhase.p);
           const card = document.querySelector(".c4-card-bottom");
-          if (card) {
-            card.style.transform = `translateY(${s * 1.5 * env}px) scale(${1 + s * 0.006 * env}) rotate(2deg)`;
-          }
+          if (card) card.style.transform = `translateY(${s * 1.2}px) rotate(2deg)`;
         },
       },
-      IDLE_START,
+      BOT_IDLE_START,
     );
 
     window.__timelines["04-consequence"] = tl;

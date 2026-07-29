@@ -208,16 +208,9 @@
       0.3,
     );
 
-    // Scene 3 (1.0-1.7s): meta-logo-reactions.png spring-pops in from below into the BOTTOM half, tilted +2deg.
-    tl.fromTo(
-      ".fe2-card-bottom",
-      { scale: 0, opacity: 0, y: 520, rotation: 2 },
-      { scale: 1, opacity: 1, y: 0, rotation: 2, duration: 0.7, ease: "power3.out" },
-      1.0,
-    );
-
-    // Scene 4 (1.7-7.0s): independent-phase sine-wave-loop idle drift on both cards, small amplitude,
-    // each halved + settle-and-fade tail since the idle window covers most of the 7s duration.
+    // Scene 3 (1.1-TOP_END): top card idles alone while the scene holds on it —
+    // the bottom card intentionally does NOT land yet (per the "second image lands
+    // late" rule: images must not both arrive within the first ~1-2s of the scene).
     const TOTAL = 7.0;
 
     const topPhase = { p: 0 };
@@ -241,25 +234,33 @@
       TOP_START,
     );
 
+    // Scene 4 (BOT_START-TOTAL): meta-logo-reactions.png spring-pops in from below into
+    // the BOTTOM half LATE, near the end of the scene's own hold, tilted +2deg — gives
+    // it its own beat instead of landing right after the top card.
+    const BOT_START = TOTAL - 1.7; // 5.3s: lands with time to read before the cut
+    tl.fromTo(
+      ".fe2-card-bottom",
+      { scale: 0, opacity: 0, y: 520, rotation: 2 },
+      { scale: 1, opacity: 1, y: 0, rotation: 2, duration: 0.7, ease: "power3.out" },
+      BOT_START,
+    );
+    // brief settle hold after landing (too little time left for a full idle loop)
     const botPhase = { p: 0 };
-    const BOT_START = 1.8;
-    const BOT_DUR = TOTAL - BOT_START; // 5.2s
-    const BOT_CYCLES = 2.0; // period ~2.6s, out of phase with top card
+    const BOT_IDLE_START = BOT_START + 0.75;
+    const BOT_IDLE_DUR = TOTAL - BOT_IDLE_START; // ~0.95s
     tl.to(
       botPhase,
       {
-        p: Math.PI * 2 * BOT_CYCLES,
-        duration: BOT_DUR,
-        ease: "none",
+        p: Math.PI * 0.6,
+        duration: Math.max(BOT_IDLE_DUR, 0.1),
+        ease: "sine.out",
         onUpdate: () => {
-          const t = botPhase.p / (Math.PI * 2 * BOT_CYCLES);
-          const env = t < 0.8 ? 1 : Math.max(0, (1 - t) / 0.2);
-          const s = Math.sin(botPhase.p + Math.PI / 2);
+          const s = Math.sin(botPhase.p);
           const card = document.querySelector(".fe2-card-bottom");
-          if (card) card.style.transform = `translateY(${s * 1.5 * env}px) scale(${1 + s * 0.006 * env}) rotate(2deg)`;
+          if (card) card.style.transform = `translateY(${s * 1.2}px) rotate(2deg)`;
         },
       },
-      BOT_START,
+      BOT_IDLE_START,
     );
 
     window.__timelines["04-explication2"] = tl;

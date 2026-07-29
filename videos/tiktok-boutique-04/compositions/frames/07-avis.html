@@ -238,6 +238,8 @@
       // chrome label opens the region
       tl.to(label, { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out" }, 0.15);
 
+      var TOTAL = 6.5;
+
       // ---------------- Scene 2 (0.3-1.0s): top card spring-pops in from above ----------------
       tl.to(
         topCard,
@@ -245,24 +247,13 @@
         0.35
       );
 
-      // ---------------- Scene 3 (1.0-1.7s): bottom card spring-pops in from below ----------------
-      tl.to(
-        bottomCard,
-        { scale: 1, opacity: 1, y: 0, rotation: 2, duration: 0.55, ease: "power3.out" },
-        1.0
-      );
-
-      // connector chip ties the pair together once both have landed
-      tl.to(connector, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 1.65);
-
-      // ---------------- Scene 4 (1.7-6.5s): independent-phase sine-wave-loop idle ----------------
+      // ---------------- Scene 3 (1.1-BOT_START): top card idles alone while the scene
+      // holds on it — the bottom card intentionally does NOT land yet (per the "second
+      // image lands late" rule: images must not both arrive within the first 1-2s). ----------------
       (function () {
-        var TOTAL = 6.5;
-        var IDLE_START = 1.8; // >= bottom card settle (1.55) + 0.1s buffer
-        var IDLE_DUR = TOTAL - IDLE_START; // 4.7s
-        var FADE_FRAC = 0.2;
-
-        // top card: period 2.9s
+        var IDLE_START = 1.1;
+        var IDLE_DUR = TOTAL - IDLE_START;
+        var FADE_FRAC = 0.15;
         var TOP_PERIOD = 2.9;
         var TOP_CYCLES = IDLE_DUR / TOP_PERIOD;
         var topPhase = { p: 0 };
@@ -287,39 +278,41 @@
           },
           IDLE_START
         );
+      })();
 
-        // bottom card: independent (different) period, its own phase
-        var BOTTOM_PERIOD = 2.7;
-        var BOTTOM_CYCLES = IDLE_DUR / BOTTOM_PERIOD;
+      // ---------------- Scene 4 (BOT_START-TOTAL): bottom card spring-pops in from below,
+      // LATE, near the end of the hold — gives it its own beat instead of landing right
+      // after the top card. Connector chip pops once both are visible. ----------------
+      var BOT_START = TOTAL - 1.7; // 4.8s
+      tl.to(
+        bottomCard,
+        { scale: 1, opacity: 1, y: 0, rotation: 2, duration: 0.55, ease: "power3.out" },
+        BOT_START
+      );
+      tl.to(
+        connector,
+        { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.6)" },
+        BOT_START + 0.6
+      );
+
+      // brief settle wobble on the bottom card after landing (too little time left
+      // for a full idle loop)
+      (function () {
         var bottomPhase = { p: 0 };
-        var BOTTOM_Y_AMP = 1.0;
-        var BOTTOM_ROT_AMP = 0.3;
-        var BOTTOM_BASE_ROT = 2;
-
+        var START = BOT_START + 0.65;
+        var DUR = Math.max(TOTAL - START, 0.1);
         tl.to(
           bottomPhase,
           {
-            p: Math.PI * 2 * BOTTOM_CYCLES,
-            duration: IDLE_DUR,
-            ease: "none",
+            p: Math.PI * 0.6,
+            duration: DUR,
+            ease: "sine.out",
             onUpdate: function () {
-              var t = bottomPhase.p / (Math.PI * 2 * BOTTOM_CYCLES);
-              var env = t < 1 - FADE_FRAC ? 1 : (1 - t) / FADE_FRAC;
-              var s = Math.sin(bottomPhase.p + Math.PI / 2); // offset phase vs top card
-              var y = s * BOTTOM_Y_AMP * env;
-              var rot = BOTTOM_BASE_ROT + Math.sin(bottomPhase.p) * BOTTOM_ROT_AMP * env;
-              bottomCard.style.transform = "translateY(" + y + "px) rotate(" + rot + "deg)";
+              var s = Math.sin(bottomPhase.p);
+              bottomCard.style.transform = "translateY(" + s * 1.2 + "px) rotate(2deg)";
             },
           },
-          IDLE_START
-        );
-
-        // connector: small accent pulse, finite repeats (starts after its own
-        // entrance tween fully settles at 1.95s, so scale is never double-driven)
-        tl.to(
-          connector,
-          { scale: 1.05, duration: 1.0, ease: "sine.inOut", yoyo: true, repeat: 3 },
-          1.95
+          START
         );
       })();
 

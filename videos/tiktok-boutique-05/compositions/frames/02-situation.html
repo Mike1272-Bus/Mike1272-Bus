@@ -230,29 +230,13 @@
         0.3
       );
 
-      // ---- Scene 3 (1.0-1.7s): situation-client-parti.png spring-pops in
-      // from below, settling in the BOTTOM half (~44% height, tilted +2deg) —
-      // clear vertical gap preserved, neither card ever crosses the other's half. ----
-      tl.fromTo(
-        bottomCard,
-        { scale: 0, opacity: 0, y: 460, rotation: 9 },
-        { scale: 1, opacity: 1, y: 0, rotation: BOTTOM_ROT, duration: 0.55, ease: "power3.out" },
-        1.0
-      );
-
-      // counter chip settles into the gap once both cards have landed
-      tl.fromTo(counter, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out" }, 1.55);
-
-      // ---- Scene 4 (1.7-6.8s): both cards keep independent-phase
-      // sine-wave-loop idle drift for the rest of the hold. Idle window
-      // (5.1s) is ~75% of the 6.8s duration -> halved amplitude, slowed
-      // period, settle-and-fade tail, and the two cards run different
-      // periods with a quarter-cycle phase offset so they never move in
-      // lockstep and never approach each other's half. ----
+      // ---- Scene 3 (1.1-BOT_START): top card idles alone while the scene holds
+      // on the question — the bottom card (the late reply / lost sale) intentionally
+      // does NOT land yet, echoing the voiceover's "deux heures apres". ----
       var TOTAL = 6.8;
-      var IDLE_START = 1.7;
-      var IDLE_DUR = TOTAL - IDLE_START; // 5.1s
-      var FADE_FRAC = 0.2;
+      var IDLE_START = 1.1;
+      var IDLE_DUR = TOTAL - IDLE_START;
+      var FADE_FRAC = 0.15;
 
       var topPeriod = 2.9;
       var topCycles = IDLE_DUR / topPeriod;
@@ -278,29 +262,39 @@
         IDLE_START
       );
 
-      var bottomPeriod = 2.6; // independent from the top card's period
-      var bottomCycles = IDLE_DUR / bottomPeriod;
-      var bottomPhase = { p: 0 };
-      var BOTTOM_Y_AMP = 1.0;
-      var BOTTOM_ROT_AMP = 0.3;
-
-      tl.to(
-        bottomPhase,
-        {
-          p: Math.PI * 2 * bottomCycles,
-          duration: IDLE_DUR,
-          ease: "none",
-          onUpdate: function () {
-            var t = bottomPhase.p / (Math.PI * 2 * bottomCycles);
-            var env = t < 1 - FADE_FRAC ? 1 : Math.max(0, (1 - t) / FADE_FRAC);
-            var s = Math.sin(bottomPhase.p + Math.PI / 2); // offset phase vs top card
-            var y = s * BOTTOM_Y_AMP * env;
-            var rot = BOTTOM_ROT + Math.sin(bottomPhase.p) * BOTTOM_ROT_AMP * env;
-            bottomCard.style.transform = "translateY(" + y + "px) rotate(" + rot + "deg)";
-          },
-        },
-        IDLE_START
+      // ---- Scene 4 (BOT_START-6.8s): situation-client-parti.png spring-pops in
+      // from below LATE, near the end of the hold, settling in the BOTTOM half
+      // (tilted +2deg) — clear vertical gap preserved, never crosses the top half. ----
+      var BOT_START = TOTAL - 1.7; // 5.1s
+      tl.fromTo(
+        bottomCard,
+        { scale: 0, opacity: 0, y: 460, rotation: 9 },
+        { scale: 1, opacity: 1, y: 0, rotation: BOTTOM_ROT, duration: 0.55, ease: "power3.out" },
+        BOT_START
       );
+
+      // counter chip settles into the gap once the bottom card has landed
+      tl.fromTo(counter, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out" }, BOT_START + 0.55);
+
+      // brief settle wobble on the bottom card (too little time left for a full idle loop)
+      (function () {
+        var bottomPhase = { p: 0 };
+        var START = BOT_START + 0.65;
+        var DUR = Math.max(TOTAL - START, 0.1);
+        tl.to(
+          bottomPhase,
+          {
+            p: Math.PI * 0.6,
+            duration: DUR,
+            ease: "sine.out",
+            onUpdate: function () {
+              var s = Math.sin(bottomPhase.p);
+              bottomCard.style.transform = "translateY(" + s * 1.2 + "px) rotate(" + BOTTOM_ROT + "deg)";
+            },
+          },
+          START
+        );
+      })();
 
       window.__timelines["02-situation"] = tl;
     })();

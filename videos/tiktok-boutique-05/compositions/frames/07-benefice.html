@@ -230,22 +230,15 @@
         TOP_START
       );
 
-      // ---------------- Scene 3 (1.0-1.7s): achat-mobile spring-pops from below into BOTTOM half ----------------
-      var BOT_START = 1.0;
-      var BOT_POP_DUR = 0.7;
-      tl.to(
-        cardBottom,
-        { scale: 1, opacity: 1, y: 0, rotation: 2, duration: BOT_POP_DUR, ease: "power3.out" },
-        BOT_START
-      );
-
-      // ---------------- Scene 4 (1.7-6.9s): independent-phase sine-wave-loop idle drift ----------------
       var TOTAL = 6.9;
 
+      // ---------------- Scene 3 (1.1-BOT_START): top card idles alone while the scene
+      // holds on it -- the bottom card intentionally does NOT land yet (per the
+      // "second image lands late" rule). ----------------
       (function () {
         var START = TOP_START + TOP_POP_DUR + 0.1; // 1.1
-        var DUR = TOTAL - START; // 5.8s
-        var CYCLES = 2.0; // period ~2.9s
+        var DUR = TOTAL - START;
+        var CYCLES = DUR / 2.9; // period ~2.9s
         var phase = { p: 0 };
         tl.to(
           phase,
@@ -255,7 +248,7 @@
             ease: "none",
             onUpdate: function () {
               var t = phase.p / (Math.PI * 2 * CYCLES);
-              var env = t < 0.8 ? 1 : Math.max(0, (1 - t) / 0.2);
+              var env = t < 0.85 ? 1 : Math.max(0, (1 - t) / 0.15);
               var s = Math.sin(phase.p);
               cardTop.style.transform =
                 "translateY(" + (s * 1.5 * env) + "px) scale(" + (1 + s * 0.006 * env) + ") rotate(-2deg)";
@@ -265,23 +258,31 @@
         );
       })();
 
+      // ---------------- Scene 4 (BOT_START-6.9s): achat-mobile spring-pops from below
+      // LATE, near the end of the hold, into the BOTTOM half ----------------
+      var BOT_START = TOTAL - 1.7; // 5.2s
+      var BOT_POP_DUR = 0.7;
+      tl.to(
+        cardBottom,
+        { scale: 1, opacity: 1, y: 0, rotation: 2, duration: BOT_POP_DUR, ease: "power3.out" },
+        BOT_START
+      );
+
+      // brief settle wobble on the bottom card after landing (too little time left
+      // for a full idle loop)
       (function () {
-        var START = BOT_START + BOT_POP_DUR + 0.1; // 1.8
-        var DUR = TOTAL - START; // 5.1s
-        var CYCLES = 1.96; // period ~2.6s, out of phase with top card
+        var START = BOT_START + BOT_POP_DUR + 0.05;
+        var DUR = Math.max(TOTAL - START, 0.1);
         var phase = { p: 0 };
         tl.to(
           phase,
           {
-            p: Math.PI * 2 * CYCLES,
+            p: Math.PI * 0.6,
             duration: DUR,
-            ease: "none",
+            ease: "sine.out",
             onUpdate: function () {
-              var t = phase.p / (Math.PI * 2 * CYCLES);
-              var env = t < 0.8 ? 1 : Math.max(0, (1 - t) / 0.2);
-              var s = Math.sin(phase.p + Math.PI / 2);
-              cardBottom.style.transform =
-                "translateY(" + (s * 1.5 * env) + "px) scale(" + (1 + s * 0.006 * env) + ") rotate(2deg)";
+              var s = Math.sin(phase.p);
+              cardBottom.style.transform = "translateY(" + (s * 1.2) + "px) rotate(2deg)";
             },
           },
           START

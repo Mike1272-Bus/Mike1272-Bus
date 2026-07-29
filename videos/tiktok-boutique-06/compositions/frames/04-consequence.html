@@ -207,23 +207,15 @@
       tl.fromTo(tagTop, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, 0.85);
       tl.fromTo(dotTop, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, 0.9);
 
-      // Scene 3 (1.0-1.7s): bottom card spring-pops in from below, settling tilted +2deg.
-      tl.fromTo(
-        cardBottom,
-        { opacity: 0, scale: 0, y: 560, rotation: 0 },
-        { opacity: 1, scale: 1, y: 0, rotation: 2, duration: 0.7, ease: "power3.out" },
-        1.0
-      );
-      tl.fromTo(tagBottom, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, 1.55);
-      tl.fromTo(dotBottom, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, 1.6);
-
-      // Scene 4 (1.7-9.2s): both cards keep independent-phase sine-wave-loop idle drift.
+      // Scene 3 (1.1-BOT_START): top card idles alone while the scene holds on it --
+      // the bottom card intentionally does NOT land yet (per the "second image lands
+      // late" rule).
       var TOTAL_DURATION = 9.2;
-      var IDLE_START = 1.8;
-      var IDLE_DUR = TOTAL_DURATION - IDLE_START; // 7.4s -> long idle, halved amplitude + settle-fade tail
+      var IDLE_START = 1.1;
+      var IDLE_DUR = TOTAL_DURATION - IDLE_START;
       var Y_AMP = 1.4;
       var SCALE_AMP = 0.006;
-      var FADE_FRAC = 0.2;
+      var FADE_FRAC = 0.15;
 
       var PERIOD_TOP = 3.0;
       var CYCLES_TOP = IDLE_DUR / PERIOD_TOP;
@@ -246,26 +238,37 @@
         IDLE_START
       );
 
-      var PERIOD_BOTTOM = 3.4;
-      var CYCLES_BOTTOM = IDLE_DUR / PERIOD_BOTTOM;
-      var phaseBottom = { p: 0 };
-      tl.to(
-        phaseBottom,
-        {
-          p: Math.PI * 2 * CYCLES_BOTTOM,
-          duration: IDLE_DUR,
-          ease: "none",
-          onUpdate: function () {
-            var t = phaseBottom.p / (Math.PI * 2 * CYCLES_BOTTOM);
-            var env = t < 1 - FADE_FRAC ? 1 : Math.max(0, (1 - t) / FADE_FRAC);
-            var s = Math.sin(phaseBottom.p);
-            var yOff = s * Y_AMP * env;
-            var scaleOff = 1 + s * SCALE_AMP * env;
-            cardBottom.style.transform = "translateY(" + yOff.toFixed(2) + "px) rotate(2deg) scale(" + scaleOff.toFixed(4) + ")";
-          },
-        },
-        IDLE_START
+      // Scene 4 (BOT_START-9.2s): bottom card spring-pops in from below LATE, near the
+      // end of the hold, settling tilted +2deg.
+      var BOT_START = TOTAL_DURATION - 1.8; // 7.4s
+      tl.fromTo(
+        cardBottom,
+        { opacity: 0, scale: 0, y: 560, rotation: 0 },
+        { opacity: 1, scale: 1, y: 0, rotation: 2, duration: 0.7, ease: "power3.out" },
+        BOT_START
       );
+      tl.fromTo(tagBottom, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, BOT_START + 0.55);
+      tl.fromTo(dotBottom, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, BOT_START + 0.6);
+
+      // brief settle wobble on the bottom card (too little time left for a full idle loop)
+      (function () {
+        var phaseBottom = { p: 0 };
+        var START = BOT_START + 0.75;
+        var DUR = Math.max(TOTAL_DURATION - START, 0.1);
+        tl.to(
+          phaseBottom,
+          {
+            p: Math.PI * 0.6,
+            duration: DUR,
+            ease: "sine.out",
+            onUpdate: function () {
+              var s = Math.sin(phaseBottom.p);
+              cardBottom.style.transform = "translateY(" + (s * 1.2).toFixed(2) + "px) rotate(2deg)";
+            },
+          },
+          START
+        );
+      })();
 
       window.__timelines["04-consequence"] = tl;
     })();
