@@ -1,0 +1,137 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+    }
+    #root * { box-sizing: border-box; }
+
+    .exm04-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--offwhite);
+    }
+    .exm04-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+
+    .exm04-counter {
+      position: absolute;
+      left: 60px;
+      top: 90px;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: 26px;
+    }
+
+    .exm04-img {
+      position: absolute;
+      left: 50%;
+      top: 620px;
+      width: 900px;
+      height: 900px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .exm04-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+
+  <div id="root" data-composition-id="04-exemple" data-duration="13.9" data-width="1080" data-height="1920">
+    <div class="exm04-bg clip" data-start="0" data-duration="13.9" data-track-index="0"></div>
+    <div class="exm04-counter clip" data-start="0" data-duration="13.9" data-track-index="1">04</div>
+
+    <div class="exm04-img clip" data-start="0.3" data-duration="2.01" data-track-index="2" id="exm04-img1">
+      <img src="assets/exemple-1-memeprix.png" alt="" />
+    </div>
+    <div class="exm04-img clip" data-start="2.31" data-duration="2.87" data-track-index="2" id="exm04-img2">
+      <img src="assets/exemple-2-profilpro.jpg" alt="" />
+    </div>
+    <div class="exm04-img clip" data-start="5.19" data-duration="2.26" data-track-index="2" id="exm04-img3">
+      <img src="assets/exemple-3-statutflou.jpg" alt="" />
+    </div>
+    <div class="exm04-img clip" data-start="7.45" data-duration="6.45" data-track-index="2" id="exm04-img4">
+      <img src="assets/exemple-4-lechoix.jpg" alt="" />
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      var bg = document.querySelector(".exm04-bg");
+      var counter = document.querySelector(".exm04-counter");
+
+      tl.fromTo(bg, { xPercent: 10, opacity: 0.6 }, { xPercent: 0, opacity: 1, duration: 0.35, ease: "power2.out" }, 0);
+      tl.fromTo(counter, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.8)" }, 0.1);
+
+      function beat(id, start) {
+        var el = document.getElementById(id);
+        tl.fromTo(
+          el,
+          { scale: 0.8, opacity: 0, rotation: 2 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.22, ease: "back.out(2)" },
+          start
+        );
+      }
+
+      // 4 sequential beats, timed to the 4 clauses of the voiceover
+      // (was 3 beats; the middle clause about "profil pro / statut flou" is now
+      // split into its own two images per the user's explicit 4-image request).
+      beat("exm04-img1", 0.3);
+      beat("exm04-img2", 2.31);
+      beat("exm04-img3", 5.19);
+      beat("exm04-img4", 7.45);
+
+      // Beat 4 (7.45-13.9s) is the longest hold (6.45s) -- add a very subtle idle
+      // drift so it doesn't sit fully static.
+      (function () {
+        var el = document.getElementById("exm04-img4");
+        var phase = { p: 0 };
+        var START = 7.45 + 0.3;
+        var DUR = 13.9 - START;
+        tl.to(
+          phase,
+          {
+            p: Math.PI * 2 * (DUR / 3.2),
+            duration: DUR,
+            ease: "none",
+            onUpdate: function () {
+              var s = Math.sin(phase.p);
+              el.style.transform = "translateX(-50%) translateY(" + (s * 1.4).toFixed(2) + "px) scale(1)";
+            },
+          },
+          START
+        );
+      })();
+
+      window.__timelines["04-exemple"] = tl;
+    })();
+  </script>
+</template>

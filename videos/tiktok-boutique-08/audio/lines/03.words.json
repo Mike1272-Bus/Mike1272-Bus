@@ -1,0 +1,104 @@
+[
+  {
+    "id": "w0",
+    "text": "Le",
+    "start": 0,
+    "end": 0.102
+  },
+  {
+    "id": "w1",
+    "text": "vrai",
+    "start": 0.162,
+    "end": 0.366
+  },
+  {
+    "id": "w2",
+    "text": "probleme,",
+    "start": 0.426,
+    "end": 0.91
+  },
+  {
+    "id": "w3",
+    "text": "c'est",
+    "start": 0.97,
+    "end": 1.174
+  },
+  {
+    "id": "w4",
+    "text": "la",
+    "start": 1.234,
+    "end": 1.336
+  },
+  {
+    "id": "w5",
+    "text": "confiance.",
+    "start": 1.396,
+    "end": 1.982
+  },
+  {
+    "id": "w6",
+    "text": "Un",
+    "start": 2.042,
+    "end": 2.144
+  },
+  {
+    "id": "w7",
+    "text": "client",
+    "start": 2.204,
+    "end": 2.509
+  },
+  {
+    "id": "w8",
+    "text": "n'achete",
+    "start": 2.569,
+    "end": 2.926
+  },
+  {
+    "id": "w9",
+    "text": "jamais",
+    "start": 2.986,
+    "end": 3.292
+  },
+  {
+    "id": "w10",
+    "text": "chez",
+    "start": 3.352,
+    "end": 3.556
+  },
+  {
+    "id": "w11",
+    "text": "quelqu'un",
+    "start": 3.616,
+    "end": 4.023
+  },
+  {
+    "id": "w12",
+    "text": "qui",
+    "start": 4.083,
+    "end": 4.236
+  },
+  {
+    "id": "w13",
+    "text": "ne",
+    "start": 4.296,
+    "end": 4.398
+  },
+  {
+    "id": "w14",
+    "text": "lui",
+    "start": 4.458,
+    "end": 4.611
+  },
+  {
+    "id": "w15",
+    "text": "inspire",
+    "start": 4.671,
+    "end": 5.028
+  },
+  {
+    "id": "w16",
+    "text": "rien.",
+    "start": 5.088,
+    "end": 5.419
+  }
+]
