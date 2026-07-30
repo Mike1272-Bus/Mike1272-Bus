@@ -1,0 +1,92 @@
+[
+  {
+    "id": "w0",
+    "text": "La",
+    "start": 0,
+    "end": 0.102
+  },
+  {
+    "id": "w1",
+    "text": "preparation",
+    "start": 0.162,
+    "end": 0.723
+  },
+  {
+    "id": "w2",
+    "text": "compte",
+    "start": 0.783,
+    "end": 1.089
+  },
+  {
+    "id": "w3",
+    "text": "plus",
+    "start": 1.149,
+    "end": 1.353
+  },
+  {
+    "id": "w4",
+    "text": "que",
+    "start": 1.413,
+    "end": 1.566
+  },
+  {
+    "id": "w5",
+    "text": "le",
+    "start": 1.626,
+    "end": 1.728
+  },
+  {
+    "id": "w6",
+    "text": "ciblage,",
+    "start": 1.788,
+    "end": 2.222
+  },
+  {
+    "id": "w7",
+    "text": "et",
+    "start": 2.282,
+    "end": 2.384
+  },
+  {
+    "id": "w8",
+    "text": "un",
+    "start": 2.444,
+    "end": 2.546
+  },
+  {
+    "id": "w9",
+    "text": "client",
+    "start": 2.606,
+    "end": 2.912
+  },
+  {
+    "id": "w10",
+    "text": "n'attend",
+    "start": 2.972,
+    "end": 3.329
+  },
+  {
+    "id": "w11",
+    "text": "jamais",
+    "start": 3.389,
+    "end": 3.695
+  },
+  {
+    "id": "w12",
+    "text": "longtemps",
+    "start": 3.755,
+    "end": 4.214
+  },
+  {
+    "id": "w13",
+    "text": "une",
+    "start": 4.274,
+    "end": 4.426
+  },
+  {
+    "id": "w14",
+    "text": "reponse.",
+    "start": 4.486,
+    "end": 4.971
+  }
+]

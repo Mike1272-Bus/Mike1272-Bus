@@ -1,0 +1,714 @@
+{
+  "bgm": null,
+  "voices": [
+    {
+      "frame": 1,
+      "path": "audio/lines/01.wav",
+      "duration_s": 4.8,
+      "words": [
+        {
+          "text": "Tu",
+          "start": 0,
+          "end": 0.095
+        },
+        {
+          "text": "penses",
+          "start": 0.155,
+          "end": 0.44
+        },
+        {
+          "text": "que",
+          "start": 0.5,
+          "end": 0.643
+        },
+        {
+          "text": "c'est",
+          "start": 0.703,
+          "end": 0.893
+        },
+        {
+          "text": "la",
+          "start": 0.953,
+          "end": 1.048
+        },
+        {
+          "text": "concurrence",
+          "start": 1.108,
+          "end": 1.631
+        },
+        {
+          "text": "qui",
+          "start": 1.691,
+          "end": 1.834
+        },
+        {
+          "text": "t'empeche",
+          "start": 1.894,
+          "end": 2.274
+        },
+        {
+          "text": "de",
+          "start": 2.334,
+          "end": 2.429
+        },
+        {
+          "text": "vendre",
+          "start": 2.489,
+          "end": 2.775
+        },
+        {
+          "text": "?",
+          "start": 2.835,
+          "end": 3.001
+        },
+        {
+          "text": "En",
+          "start": 3.061,
+          "end": 3.156
+        },
+        {
+          "text": "vrai,",
+          "start": 3.216,
+          "end": 3.478
+        },
+        {
+          "text": "c'est",
+          "start": 3.538,
+          "end": 3.728
+        },
+        {
+          "text": "pas",
+          "start": 3.788,
+          "end": 3.931
+        },
+        {
+          "text": "ca",
+          "start": 3.991,
+          "end": 4.086
+        },
+        {
+          "text": "le",
+          "start": 4.146,
+          "end": 4.241
+        },
+        {
+          "text": "probleme.",
+          "start": 4.301,
+          "end": 4.8
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "path": "audio/lines/02.wav",
+      "duration_s": 7.509,
+      "words": [
+        {
+          "text": "Il",
+          "start": 0,
+          "end": 0.099
+        },
+        {
+          "text": "y",
+          "start": 0.159,
+          "end": 0.208
+        },
+        {
+          "text": "a",
+          "start": 0.268,
+          "end": 0.317
+        },
+        {
+          "text": "des",
+          "start": 0.377,
+          "end": 0.525
+        },
+        {
+          "text": "milliers",
+          "start": 0.585,
+          "end": 0.98
+        },
+        {
+          "text": "de",
+          "start": 1.04,
+          "end": 1.139
+        },
+        {
+          "text": "vendeurs",
+          "start": 1.199,
+          "end": 1.594
+        },
+        {
+          "text": "sur",
+          "start": 1.654,
+          "end": 1.802
+        },
+        {
+          "text": "le",
+          "start": 1.862,
+          "end": 1.96
+        },
+        {
+          "text": "meme",
+          "start": 2.02,
+          "end": 2.218
+        },
+        {
+          "text": "produit",
+          "start": 2.278,
+          "end": 2.623
+        },
+        {
+          "text": "que",
+          "start": 2.683,
+          "end": 2.831
+        },
+        {
+          "text": "toi.",
+          "start": 2.891,
+          "end": 3.162
+        },
+        {
+          "text": "Et",
+          "start": 3.222,
+          "end": 3.321
+        },
+        {
+          "text": "pourtant,",
+          "start": 3.381,
+          "end": 3.85
+        },
+        {
+          "text": "certains",
+          "start": 3.91,
+          "end": 4.305
+        },
+        {
+          "text": "vendent",
+          "start": 4.365,
+          "end": 4.71
+        },
+        {
+          "text": "facilement,",
+          "start": 4.77,
+          "end": 5.337
+        },
+        {
+          "text": "sans",
+          "start": 5.397,
+          "end": 5.595
+        },
+        {
+          "text": "avoir",
+          "start": 5.655,
+          "end": 5.901
+        },
+        {
+          "text": "moins",
+          "start": 5.961,
+          "end": 6.208
+        },
+        {
+          "text": "de",
+          "start": 6.268,
+          "end": 6.367
+        },
+        {
+          "text": "concurrents",
+          "start": 6.427,
+          "end": 6.97
+        },
+        {
+          "text": "que",
+          "start": 7.03,
+          "end": 7.178
+        },
+        {
+          "text": "toi.",
+          "start": 7.238,
+          "end": 7.509
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "path": "audio/lines/03.wav",
+      "duration_s": 5.419,
+      "words": [
+        {
+          "text": "Le",
+          "start": 0,
+          "end": 0.102
+        },
+        {
+          "text": "vrai",
+          "start": 0.162,
+          "end": 0.366
+        },
+        {
+          "text": "probleme,",
+          "start": 0.426,
+          "end": 0.91
+        },
+        {
+          "text": "c'est",
+          "start": 0.97,
+          "end": 1.174
+        },
+        {
+          "text": "la",
+          "start": 1.234,
+          "end": 1.336
+        },
+        {
+          "text": "confiance.",
+          "start": 1.396,
+          "end": 1.982
+        },
+        {
+          "text": "Un",
+          "start": 2.042,
+          "end": 2.144
+        },
+        {
+          "text": "client",
+          "start": 2.204,
+          "end": 2.509
+        },
+        {
+          "text": "n'achete",
+          "start": 2.569,
+          "end": 2.926
+        },
+        {
+          "text": "jamais",
+          "start": 2.986,
+          "end": 3.292
+        },
+        {
+          "text": "chez",
+          "start": 3.352,
+          "end": 3.556
+        },
+        {
+          "text": "quelqu'un",
+          "start": 3.616,
+          "end": 4.023
+        },
+        {
+          "text": "qui",
+          "start": 4.083,
+          "end": 4.236
+        },
+        {
+          "text": "ne",
+          "start": 4.296,
+          "end": 4.398
+        },
+        {
+          "text": "lui",
+          "start": 4.458,
+          "end": 4.611
+        },
+        {
+          "text": "inspire",
+          "start": 4.671,
+          "end": 5.028
+        },
+        {
+          "text": "rien.",
+          "start": 5.088,
+          "end": 5.419
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "path": "audio/lines/04.wav",
+      "duration_s": 12.693,
+      "words": [
+        {
+          "text": "Deux",
+          "start": 0,
+          "end": 0.214
+        },
+        {
+          "text": "vendeurs,",
+          "start": 0.274,
+          "end": 0.782
+        },
+        {
+          "text": "meme",
+          "start": 0.842,
+          "end": 1.056
+        },
+        {
+          "text": "produit,",
+          "start": 1.116,
+          "end": 1.571
+        },
+        {
+          "text": "meme",
+          "start": 1.631,
+          "end": 1.845
+        },
+        {
+          "text": "prix.",
+          "start": 1.905,
+          "end": 2.253
+        },
+        {
+          "text": "L'un",
+          "start": 2.313,
+          "end": 2.473
+        },
+        {
+          "text": "a",
+          "start": 2.533,
+          "end": 2.587
+        },
+        {
+          "text": "un",
+          "start": 2.647,
+          "end": 2.754
+        },
+        {
+          "text": "profil",
+          "start": 2.814,
+          "end": 3.135
+        },
+        {
+          "text": "pro,",
+          "start": 3.195,
+          "end": 3.436
+        },
+        {
+          "text": "des",
+          "start": 3.496,
+          "end": 3.656
+        },
+        {
+          "text": "vraies",
+          "start": 3.716,
+          "end": 4.037
+        },
+        {
+          "text": "photos,",
+          "start": 4.097,
+          "end": 4.499
+        },
+        {
+          "text": "des",
+          "start": 4.559,
+          "end": 4.719
+        },
+        {
+          "text": "avis.",
+          "start": 4.779,
+          "end": 5.127
+        },
+        {
+          "text": "L'autre",
+          "start": 5.187,
+          "end": 5.508
+        },
+        {
+          "text": "a",
+          "start": 5.568,
+          "end": 5.621
+        },
+        {
+          "text": "juste",
+          "start": 5.681,
+          "end": 5.949
+        },
+        {
+          "text": "un",
+          "start": 6.009,
+          "end": 6.116
+        },
+        {
+          "text": "statut",
+          "start": 6.176,
+          "end": 6.497
+        },
+        {
+          "text": "WhatsApp",
+          "start": 6.557,
+          "end": 6.985
+        },
+        {
+          "text": "flou.",
+          "start": 7.045,
+          "end": 7.393
+        },
+        {
+          "text": "Le",
+          "start": 7.453,
+          "end": 7.56
+        },
+        {
+          "text": "client",
+          "start": 7.62,
+          "end": 7.941
+        },
+        {
+          "text": "va",
+          "start": 8.001,
+          "end": 8.108
+        },
+        {
+          "text": "choisir",
+          "start": 8.168,
+          "end": 8.542
+        },
+        {
+          "text": "celui",
+          "start": 8.602,
+          "end": 8.87
+        },
+        {
+          "text": "qui",
+          "start": 8.93,
+          "end": 9.09
+        },
+        {
+          "text": "lui",
+          "start": 9.15,
+          "end": 9.311
+        },
+        {
+          "text": "donne",
+          "start": 9.371,
+          "end": 9.638
+        },
+        {
+          "text": "confiance,",
+          "start": 9.698,
+          "end": 10.26
+        },
+        {
+          "text": "pas",
+          "start": 10.32,
+          "end": 10.481
+        },
+        {
+          "text": "celui",
+          "start": 10.541,
+          "end": 10.808
+        },
+        {
+          "text": "qui",
+          "start": 10.868,
+          "end": 11.029
+        },
+        {
+          "text": "est",
+          "start": 11.089,
+          "end": 11.249
+        },
+        {
+          "text": "deux",
+          "start": 11.309,
+          "end": 11.523
+        },
+        {
+          "text": "dollars",
+          "start": 11.583,
+          "end": 11.958
+        },
+        {
+          "text": "moins",
+          "start": 12.018,
+          "end": 12.285
+        },
+        {
+          "text": "cher.",
+          "start": 12.345,
+          "end": 12.693
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "path": "audio/lines/05.wav",
+      "duration_s": 6.293,
+      "words": [
+        {
+          "text": "Avant",
+          "start": 0,
+          "end": 0.263
+        },
+        {
+          "text": "de",
+          "start": 0.323,
+          "end": 0.429
+        },
+        {
+          "text": "te",
+          "start": 0.489,
+          "end": 0.594
+        },
+        {
+          "text": "plaindre",
+          "start": 0.654,
+          "end": 1.075
+        },
+        {
+          "text": "de",
+          "start": 1.135,
+          "end": 1.24
+        },
+        {
+          "text": "la",
+          "start": 1.3,
+          "end": 1.406
+        },
+        {
+          "text": "concurrence,",
+          "start": 1.466,
+          "end": 2.124
+        },
+        {
+          "text": "demande-toi",
+          "start": 2.184,
+          "end": 2.711
+        },
+        {
+          "text": "une",
+          "start": 2.771,
+          "end": 2.929
+        },
+        {
+          "text": "chose:",
+          "start": 2.989,
+          "end": 3.331
+        },
+        {
+          "text": "toi-meme,",
+          "start": 3.391,
+          "end": 3.838
+        },
+        {
+          "text": "tu",
+          "start": 3.898,
+          "end": 4.004
+        },
+        {
+          "text": "ferais",
+          "start": 4.064,
+          "end": 4.38
+        },
+        {
+          "text": "confiance",
+          "start": 4.44,
+          "end": 4.914
+        },
+        {
+          "text": "a",
+          "start": 4.974,
+          "end": 5.026
+        },
+        {
+          "text": "ta",
+          "start": 5.086,
+          "end": 5.192
+        },
+        {
+          "text": "propre",
+          "start": 5.252,
+          "end": 5.567
+        },
+        {
+          "text": "boutique",
+          "start": 5.627,
+          "end": 6.049
+        },
+        {
+          "text": "?",
+          "start": 6.109,
+          "end": 6.293
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "path": "audio/lines/06.wav",
+      "duration_s": 3.776,
+      "words": [
+        {
+          "text": "Le",
+          "start": 0,
+          "end": 0.106
+        },
+        {
+          "text": "lien",
+          "start": 0.166,
+          "end": 0.378
+        },
+        {
+          "text": "est",
+          "start": 0.438,
+          "end": 0.597
+        },
+        {
+          "text": "en",
+          "start": 0.657,
+          "end": 0.763
+        },
+        {
+          "text": "bio",
+          "start": 0.823,
+          "end": 0.982
+        },
+        {
+          "text": "si",
+          "start": 1.042,
+          "end": 1.148
+        },
+        {
+          "text": "tu",
+          "start": 1.208,
+          "end": 1.314
+        },
+        {
+          "text": "veux",
+          "start": 1.374,
+          "end": 1.587
+        },
+        {
+          "text": "inspirer",
+          "start": 1.647,
+          "end": 2.071
+        },
+        {
+          "text": "plus",
+          "start": 2.131,
+          "end": 2.343
+        },
+        {
+          "text": "confiance",
+          "start": 2.403,
+          "end": 2.88
+        },
+        {
+          "text": "a",
+          "start": 2.94,
+          "end": 2.993
+        },
+        {
+          "text": "tes",
+          "start": 3.053,
+          "end": 3.212
+        },
+        {
+          "text": "clients.",
+          "start": 3.272,
+          "end": 3.776
+        }
+      ]
+    }
+  ],
+  "sfx": [],
+  "total_duration_s": 40.489999999999995
+}

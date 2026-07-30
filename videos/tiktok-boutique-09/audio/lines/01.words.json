@@ -1,0 +1,92 @@
+[
+  {
+    "id": "w0",
+    "text": "Cette",
+    "start": 0,
+    "end": 0.23
+  },
+  {
+    "id": "w1",
+    "text": "semaine,",
+    "start": 0.29,
+    "end": 0.681
+  },
+  {
+    "id": "w2",
+    "text": "tu",
+    "start": 0.741,
+    "end": 0.833
+  },
+  {
+    "id": "w3",
+    "text": "as",
+    "start": 0.893,
+    "end": 0.985
+  },
+  {
+    "id": "w4",
+    "text": "vu",
+    "start": 1.045,
+    "end": 1.137
+  },
+  {
+    "id": "w5",
+    "text": "plusieurs",
+    "start": 1.197,
+    "end": 1.611
+  },
+  {
+    "id": "w6",
+    "text": "erreurs",
+    "start": 1.671,
+    "end": 1.993
+  },
+  {
+    "id": "w7",
+    "text": "qui",
+    "start": 2.053,
+    "end": 2.191
+  },
+  {
+    "id": "w8",
+    "text": "te",
+    "start": 2.251,
+    "end": 2.343
+  },
+  {
+    "id": "w9",
+    "text": "coutent",
+    "start": 2.403,
+    "end": 2.725
+  },
+  {
+    "id": "w10",
+    "text": "des",
+    "start": 2.785,
+    "end": 2.923
+  },
+  {
+    "id": "w11",
+    "text": "clients,",
+    "start": 2.983,
+    "end": 3.374
+  },
+  {
+    "id": "w12",
+    "text": "jour",
+    "start": 3.434,
+    "end": 3.618
+  },
+  {
+    "id": "w13",
+    "text": "apres",
+    "start": 3.678,
+    "end": 3.908
+  },
+  {
+    "id": "w14",
+    "text": "jour.",
+    "start": 3.968,
+    "end": 4.267
+  }
+]
