@@ -1,0 +1,110 @@
+[
+  {
+    "id": "w0",
+    "text": "Tu",
+    "start": 0,
+    "end": 0.095
+  },
+  {
+    "id": "w1",
+    "text": "penses",
+    "start": 0.155,
+    "end": 0.44
+  },
+  {
+    "id": "w2",
+    "text": "que",
+    "start": 0.5,
+    "end": 0.643
+  },
+  {
+    "id": "w3",
+    "text": "c'est",
+    "start": 0.703,
+    "end": 0.893
+  },
+  {
+    "id": "w4",
+    "text": "la",
+    "start": 0.953,
+    "end": 1.048
+  },
+  {
+    "id": "w5",
+    "text": "concurrence",
+    "start": 1.108,
+    "end": 1.631
+  },
+  {
+    "id": "w6",
+    "text": "qui",
+    "start": 1.691,
+    "end": 1.834
+  },
+  {
+    "id": "w7",
+    "text": "t'empeche",
+    "start": 1.894,
+    "end": 2.274
+  },
+  {
+    "id": "w8",
+    "text": "de",
+    "start": 2.334,
+    "end": 2.429
+  },
+  {
+    "id": "w9",
+    "text": "vendre",
+    "start": 2.489,
+    "end": 2.775
+  },
+  {
+    "id": "w10",
+    "text": "?",
+    "start": 2.835,
+    "end": 3.001
+  },
+  {
+    "id": "w11",
+    "text": "En",
+    "start": 3.061,
+    "end": 3.156
+  },
+  {
+    "id": "w12",
+    "text": "vrai,",
+    "start": 3.216,
+    "end": 3.478
+  },
+  {
+    "id": "w13",
+    "text": "c'est",
+    "start": 3.538,
+    "end": 3.728
+  },
+  {
+    "id": "w14",
+    "text": "pas",
+    "start": 3.788,
+    "end": 3.931
+  },
+  {
+    "id": "w15",
+    "text": "ca",
+    "start": 3.991,
+    "end": 4.086
+  },
+  {
+    "id": "w16",
+    "text": "le",
+    "start": 4.146,
+    "end": 4.241
+  },
+  {
+    "id": "w17",
+    "text": "probleme.",
+    "start": 4.301,
+    "end": 4.8
+  }
+]

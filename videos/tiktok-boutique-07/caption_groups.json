@@ -1,0 +1,1333 @@
+{
+  "total_duration_s": 45.1,
+  "width": 1080,
+  "height": 1920,
+  "groups": [
+    {
+      "id": "caption-group-0",
+      "frame": 1,
+      "start": 0,
+      "end": 0.5,
+      "text": "Tu penses",
+      "words": [
+        {
+          "id": "caption-word-0-0",
+          "text": "Tu",
+          "start": 0,
+          "end": 0.095
+        },
+        {
+          "id": "caption-word-0-1",
+          "text": "penses",
+          "start": 0.155,
+          "end": 0.44
+        }
+      ]
+    },
+    {
+      "id": "caption-group-1",
+      "frame": 1,
+      "start": 0.5,
+      "end": 0.953,
+      "text": "que c'est",
+      "words": [
+        {
+          "id": "caption-word-1-0",
+          "text": "que",
+          "start": 0.5,
+          "end": 0.643
+        },
+        {
+          "id": "caption-word-1-1",
+          "text": "c'est",
+          "start": 0.703,
+          "end": 0.893
+        }
+      ]
+    },
+    {
+      "id": "caption-group-2",
+      "frame": 1,
+      "start": 0.953,
+      "end": 1.691,
+      "text": "la concurrence",
+      "words": [
+        {
+          "id": "caption-word-2-0",
+          "text": "la",
+          "start": 0.953,
+          "end": 1.048
+        },
+        {
+          "id": "caption-word-2-1",
+          "text": "concurrence",
+          "start": 1.108,
+          "end": 1.631
+        }
+      ]
+    },
+    {
+      "id": "caption-group-3",
+      "frame": 1,
+      "start": 1.691,
+      "end": 2.334,
+      "text": "qui t'empeche",
+      "words": [
+        {
+          "id": "caption-word-3-0",
+          "text": "qui",
+          "start": 1.691,
+          "end": 1.834
+        },
+        {
+          "id": "caption-word-3-1",
+          "text": "t'empeche",
+          "start": 1.894,
+          "end": 2.274
+        }
+      ]
+    },
+    {
+      "id": "caption-group-4",
+      "frame": 1,
+      "start": 2.334,
+      "end": 2.895,
+      "text": "de vendre",
+      "words": [
+        {
+          "id": "caption-word-4-0",
+          "text": "de",
+          "start": 2.334,
+          "end": 2.429
+        },
+        {
+          "id": "caption-word-4-1",
+          "text": "vendre",
+          "start": 2.489,
+          "end": 2.775
+        }
+      ]
+    },
+    {
+      "id": "caption-group-5",
+      "frame": 1,
+      "start": 3.061,
+      "end": 3.538,
+      "text": "En vrai,",
+      "words": [
+        {
+          "id": "caption-word-5-0",
+          "text": "En",
+          "start": 3.061,
+          "end": 3.156
+        },
+        {
+          "id": "caption-word-5-1",
+          "text": "vrai,",
+          "start": 3.216,
+          "end": 3.478
+        }
+      ]
+    },
+    {
+      "id": "caption-group-6",
+      "frame": 1,
+      "start": 3.538,
+      "end": 3.991,
+      "text": "c'est pas",
+      "words": [
+        {
+          "id": "caption-word-6-0",
+          "text": "c'est",
+          "start": 3.538,
+          "end": 3.728
+        },
+        {
+          "id": "caption-word-6-1",
+          "text": "pas",
+          "start": 3.788,
+          "end": 3.931
+        }
+      ]
+    },
+    {
+      "id": "caption-group-7",
+      "frame": 1,
+      "start": 3.991,
+      "end": 4.92,
+      "text": "ca le probleme.",
+      "words": [
+        {
+          "id": "caption-word-7-0",
+          "text": "ca",
+          "start": 3.991,
+          "end": 4.086
+        },
+        {
+          "id": "caption-word-7-1",
+          "text": "le",
+          "start": 4.146,
+          "end": 4.241
+        },
+        {
+          "id": "caption-word-7-2",
+          "text": "probleme.",
+          "start": 4.301,
+          "end": 4.8
+        }
+      ]
+    },
+    {
+      "id": "caption-group-8",
+      "frame": 2,
+      "start": 5.5,
+      "end": 5.768,
+      "text": "Il y",
+      "words": [
+        {
+          "id": "caption-word-8-0",
+          "text": "Il",
+          "start": 5.5,
+          "end": 5.599
+        },
+        {
+          "id": "caption-word-8-1",
+          "text": "y",
+          "start": 5.659,
+          "end": 5.708
+        }
+      ]
+    },
+    {
+      "id": "caption-group-9",
+      "frame": 2,
+      "start": 5.768,
+      "end": 6.085,
+      "text": "a des",
+      "words": [
+        {
+          "id": "caption-word-9-0",
+          "text": "a",
+          "start": 5.768,
+          "end": 5.817
+        },
+        {
+          "id": "caption-word-9-1",
+          "text": "des",
+          "start": 5.877,
+          "end": 6.025
+        }
+      ]
+    },
+    {
+      "id": "caption-group-10",
+      "frame": 2,
+      "start": 6.085,
+      "end": 7.154,
+      "text": "milliers de vendeurs",
+      "words": [
+        {
+          "id": "caption-word-10-0",
+          "text": "milliers",
+          "start": 6.085,
+          "end": 6.48
+        },
+        {
+          "id": "caption-word-10-1",
+          "text": "de",
+          "start": 6.54,
+          "end": 6.639
+        },
+        {
+          "id": "caption-word-10-2",
+          "text": "vendeurs",
+          "start": 6.699,
+          "end": 7.094
+        }
+      ]
+    },
+    {
+      "id": "caption-group-11",
+      "frame": 2,
+      "start": 7.154,
+      "end": 7.52,
+      "text": "sur le",
+      "words": [
+        {
+          "id": "caption-word-11-0",
+          "text": "sur",
+          "start": 7.154,
+          "end": 7.302
+        },
+        {
+          "id": "caption-word-11-1",
+          "text": "le",
+          "start": 7.362,
+          "end": 7.46
+        }
+      ]
+    },
+    {
+      "id": "caption-group-12",
+      "frame": 2,
+      "start": 7.52,
+      "end": 8.183,
+      "text": "meme produit",
+      "words": [
+        {
+          "id": "caption-word-12-0",
+          "text": "meme",
+          "start": 7.52,
+          "end": 7.718
+        },
+        {
+          "id": "caption-word-12-1",
+          "text": "produit",
+          "start": 7.778,
+          "end": 8.123
+        }
+      ]
+    },
+    {
+      "id": "caption-group-13",
+      "frame": 2,
+      "start": 8.183,
+      "end": 8.722,
+      "text": "que toi.",
+      "words": [
+        {
+          "id": "caption-word-13-0",
+          "text": "que",
+          "start": 8.183,
+          "end": 8.331
+        },
+        {
+          "id": "caption-word-13-1",
+          "text": "toi.",
+          "start": 8.391,
+          "end": 8.662
+        }
+      ]
+    },
+    {
+      "id": "caption-group-14",
+      "frame": 2,
+      "start": 8.722,
+      "end": 9.41,
+      "text": "Et pourtant,",
+      "words": [
+        {
+          "id": "caption-word-14-0",
+          "text": "Et",
+          "start": 8.722,
+          "end": 8.821
+        },
+        {
+          "id": "caption-word-14-1",
+          "text": "pourtant,",
+          "start": 8.881,
+          "end": 9.35
+        }
+      ]
+    },
+    {
+      "id": "caption-group-15",
+      "frame": 2,
+      "start": 9.41,
+      "end": 10.897,
+      "text": "certains vendent facilement,",
+      "words": [
+        {
+          "id": "caption-word-15-0",
+          "text": "certains",
+          "start": 9.41,
+          "end": 9.805
+        },
+        {
+          "id": "caption-word-15-1",
+          "text": "vendent",
+          "start": 9.865,
+          "end": 10.21
+        },
+        {
+          "id": "caption-word-15-2",
+          "text": "facilement,",
+          "start": 10.27,
+          "end": 10.837
+        }
+      ]
+    },
+    {
+      "id": "caption-group-16",
+      "frame": 2,
+      "start": 10.897,
+      "end": 11.461,
+      "text": "sans avoir",
+      "words": [
+        {
+          "id": "caption-word-16-0",
+          "text": "sans",
+          "start": 10.897,
+          "end": 11.095
+        },
+        {
+          "id": "caption-word-16-1",
+          "text": "avoir",
+          "start": 11.155,
+          "end": 11.401
+        }
+      ]
+    },
+    {
+      "id": "caption-group-17",
+      "frame": 2,
+      "start": 11.461,
+      "end": 12.53,
+      "text": "moins de concurrents",
+      "words": [
+        {
+          "id": "caption-word-17-0",
+          "text": "moins",
+          "start": 11.461,
+          "end": 11.708
+        },
+        {
+          "id": "caption-word-17-1",
+          "text": "de",
+          "start": 11.768,
+          "end": 11.867
+        },
+        {
+          "id": "caption-word-17-2",
+          "text": "concurrents",
+          "start": 11.927,
+          "end": 12.47
+        }
+      ]
+    },
+    {
+      "id": "caption-group-18",
+      "frame": 2,
+      "start": 12.53,
+      "end": 13.129,
+      "text": "que toi.",
+      "words": [
+        {
+          "id": "caption-word-18-0",
+          "text": "que",
+          "start": 12.53,
+          "end": 12.678
+        },
+        {
+          "id": "caption-word-18-1",
+          "text": "toi.",
+          "start": 12.738,
+          "end": 13.009
+        }
+      ]
+    },
+    {
+      "id": "caption-group-19",
+      "frame": 3,
+      "start": 13.7,
+      "end": 14.126,
+      "text": "Le vrai",
+      "words": [
+        {
+          "id": "caption-word-19-0",
+          "text": "Le",
+          "start": 13.7,
+          "end": 13.802
+        },
+        {
+          "id": "caption-word-19-1",
+          "text": "vrai",
+          "start": 13.862,
+          "end": 14.066
+        }
+      ]
+    },
+    {
+      "id": "caption-group-20",
+      "frame": 3,
+      "start": 14.126,
+      "end": 14.67,
+      "text": "probleme,",
+      "words": [
+        {
+          "id": "caption-word-20-0",
+          "text": "probleme,",
+          "start": 14.126,
+          "end": 14.61
+        }
+      ]
+    },
+    {
+      "id": "caption-group-21",
+      "frame": 3,
+      "start": 14.67,
+      "end": 15.742,
+      "text": "c'est la confiance.",
+      "words": [
+        {
+          "id": "caption-word-21-0",
+          "text": "c'est",
+          "start": 14.67,
+          "end": 14.874
+        },
+        {
+          "id": "caption-word-21-1",
+          "text": "la",
+          "start": 14.934,
+          "end": 15.036
+        },
+        {
+          "id": "caption-word-21-2",
+          "text": "confiance.",
+          "start": 15.096,
+          "end": 15.682
+        }
+      ]
+    },
+    {
+      "id": "caption-group-22",
+      "frame": 3,
+      "start": 15.742,
+      "end": 16.269,
+      "text": "Un client",
+      "words": [
+        {
+          "id": "caption-word-22-0",
+          "text": "Un",
+          "start": 15.742,
+          "end": 15.844
+        },
+        {
+          "id": "caption-word-22-1",
+          "text": "client",
+          "start": 15.904,
+          "end": 16.209
+        }
+      ]
+    },
+    {
+      "id": "caption-group-23",
+      "frame": 3,
+      "start": 16.269,
+      "end": 17.316,
+      "text": "n'achete jamais chez",
+      "words": [
+        {
+          "id": "caption-word-23-0",
+          "text": "n'achete",
+          "start": 16.269,
+          "end": 16.626
+        },
+        {
+          "id": "caption-word-23-1",
+          "text": "jamais",
+          "start": 16.686,
+          "end": 16.992
+        },
+        {
+          "id": "caption-word-23-2",
+          "text": "chez",
+          "start": 17.052,
+          "end": 17.256
+        }
+      ]
+    },
+    {
+      "id": "caption-group-24",
+      "frame": 3,
+      "start": 17.316,
+      "end": 17.996,
+      "text": "quelqu'un qui",
+      "words": [
+        {
+          "id": "caption-word-24-0",
+          "text": "quelqu'un",
+          "start": 17.316,
+          "end": 17.723
+        },
+        {
+          "id": "caption-word-24-1",
+          "text": "qui",
+          "start": 17.783,
+          "end": 17.936
+        }
+      ]
+    },
+    {
+      "id": "caption-group-25",
+      "frame": 3,
+      "start": 17.996,
+      "end": 18.371,
+      "text": "ne lui",
+      "words": [
+        {
+          "id": "caption-word-25-0",
+          "text": "ne",
+          "start": 17.996,
+          "end": 18.098
+        },
+        {
+          "id": "caption-word-25-1",
+          "text": "lui",
+          "start": 18.158,
+          "end": 18.311
+        }
+      ]
+    },
+    {
+      "id": "caption-group-26",
+      "frame": 3,
+      "start": 18.371,
+      "end": 19.239,
+      "text": "inspire rien.",
+      "words": [
+        {
+          "id": "caption-word-26-0",
+          "text": "inspire",
+          "start": 18.371,
+          "end": 18.728
+        },
+        {
+          "id": "caption-word-26-1",
+          "text": "rien.",
+          "start": 18.788,
+          "end": 19.119
+        }
+      ]
+    },
+    {
+      "id": "caption-group-27",
+      "frame": 4,
+      "start": 19.8,
+      "end": 20.642,
+      "text": "Deux vendeurs,",
+      "words": [
+        {
+          "id": "caption-word-27-0",
+          "text": "Deux",
+          "start": 19.8,
+          "end": 20.014
+        },
+        {
+          "id": "caption-word-27-1",
+          "text": "vendeurs,",
+          "start": 20.074,
+          "end": 20.582
+        }
+      ]
+    },
+    {
+      "id": "caption-group-28",
+      "frame": 4,
+      "start": 20.642,
+      "end": 21.431,
+      "text": "meme produit,",
+      "words": [
+        {
+          "id": "caption-word-28-0",
+          "text": "meme",
+          "start": 20.642,
+          "end": 20.856
+        },
+        {
+          "id": "caption-word-28-1",
+          "text": "produit,",
+          "start": 20.916,
+          "end": 21.371
+        }
+      ]
+    },
+    {
+      "id": "caption-group-29",
+      "frame": 4,
+      "start": 21.431,
+      "end": 22.113,
+      "text": "meme prix.",
+      "words": [
+        {
+          "id": "caption-word-29-0",
+          "text": "meme",
+          "start": 21.431,
+          "end": 21.645
+        },
+        {
+          "id": "caption-word-29-1",
+          "text": "prix.",
+          "start": 21.705,
+          "end": 22.053
+        }
+      ]
+    },
+    {
+      "id": "caption-group-30",
+      "frame": 4,
+      "start": 22.113,
+      "end": 22.447,
+      "text": "L'un a",
+      "words": [
+        {
+          "id": "caption-word-30-0",
+          "text": "L'un",
+          "start": 22.113,
+          "end": 22.273
+        },
+        {
+          "id": "caption-word-30-1",
+          "text": "a",
+          "start": 22.333,
+          "end": 22.387
+        }
+      ]
+    },
+    {
+      "id": "caption-group-31",
+      "frame": 4,
+      "start": 22.447,
+      "end": 22.995,
+      "text": "un profil",
+      "words": [
+        {
+          "id": "caption-word-31-0",
+          "text": "un",
+          "start": 22.447,
+          "end": 22.554
+        },
+        {
+          "id": "caption-word-31-1",
+          "text": "profil",
+          "start": 22.614,
+          "end": 22.935
+        }
+      ]
+    },
+    {
+      "id": "caption-group-32",
+      "frame": 4,
+      "start": 22.995,
+      "end": 23.296,
+      "text": "pro,",
+      "words": [
+        {
+          "id": "caption-word-32-0",
+          "text": "pro,",
+          "start": 22.995,
+          "end": 23.236
+        }
+      ]
+    },
+    {
+      "id": "caption-group-33",
+      "frame": 4,
+      "start": 23.296,
+      "end": 24.359,
+      "text": "des vraies photos,",
+      "words": [
+        {
+          "id": "caption-word-33-0",
+          "text": "des",
+          "start": 23.296,
+          "end": 23.456
+        },
+        {
+          "id": "caption-word-33-1",
+          "text": "vraies",
+          "start": 23.516,
+          "end": 23.837
+        },
+        {
+          "id": "caption-word-33-2",
+          "text": "photos,",
+          "start": 23.897,
+          "end": 24.299
+        }
+      ]
+    },
+    {
+      "id": "caption-group-34",
+      "frame": 4,
+      "start": 24.359,
+      "end": 24.987,
+      "text": "des avis.",
+      "words": [
+        {
+          "id": "caption-word-34-0",
+          "text": "des",
+          "start": 24.359,
+          "end": 24.519
+        },
+        {
+          "id": "caption-word-34-1",
+          "text": "avis.",
+          "start": 24.579,
+          "end": 24.927
+        }
+      ]
+    },
+    {
+      "id": "caption-group-35",
+      "frame": 4,
+      "start": 24.987,
+      "end": 25.481,
+      "text": "L'autre a",
+      "words": [
+        {
+          "id": "caption-word-35-0",
+          "text": "L'autre",
+          "start": 24.987,
+          "end": 25.308
+        },
+        {
+          "id": "caption-word-35-1",
+          "text": "a",
+          "start": 25.368,
+          "end": 25.421
+        }
+      ]
+    },
+    {
+      "id": "caption-group-36",
+      "frame": 4,
+      "start": 25.481,
+      "end": 25.976,
+      "text": "juste un",
+      "words": [
+        {
+          "id": "caption-word-36-0",
+          "text": "juste",
+          "start": 25.481,
+          "end": 25.749
+        },
+        {
+          "id": "caption-word-36-1",
+          "text": "un",
+          "start": 25.809,
+          "end": 25.916
+        }
+      ]
+    },
+    {
+      "id": "caption-group-37",
+      "frame": 4,
+      "start": 25.976,
+      "end": 27.253,
+      "text": "statut WhatsApp flou.",
+      "words": [
+        {
+          "id": "caption-word-37-0",
+          "text": "statut",
+          "start": 25.976,
+          "end": 26.297
+        },
+        {
+          "id": "caption-word-37-1",
+          "text": "WhatsApp",
+          "start": 26.357,
+          "end": 26.785
+        },
+        {
+          "id": "caption-word-37-2",
+          "text": "flou.",
+          "start": 26.845,
+          "end": 27.193
+        }
+      ]
+    },
+    {
+      "id": "caption-group-38",
+      "frame": 4,
+      "start": 27.253,
+      "end": 27.801,
+      "text": "Le client",
+      "words": [
+        {
+          "id": "caption-word-38-0",
+          "text": "Le",
+          "start": 27.253,
+          "end": 27.36
+        },
+        {
+          "id": "caption-word-38-1",
+          "text": "client",
+          "start": 27.42,
+          "end": 27.741
+        }
+      ]
+    },
+    {
+      "id": "caption-group-39",
+      "frame": 4,
+      "start": 27.801,
+      "end": 28.402,
+      "text": "va choisir",
+      "words": [
+        {
+          "id": "caption-word-39-0",
+          "text": "va",
+          "start": 27.801,
+          "end": 27.908
+        },
+        {
+          "id": "caption-word-39-1",
+          "text": "choisir",
+          "start": 27.968,
+          "end": 28.342
+        }
+      ]
+    },
+    {
+      "id": "caption-group-40",
+      "frame": 4,
+      "start": 28.402,
+      "end": 28.95,
+      "text": "celui qui",
+      "words": [
+        {
+          "id": "caption-word-40-0",
+          "text": "celui",
+          "start": 28.402,
+          "end": 28.67
+        },
+        {
+          "id": "caption-word-40-1",
+          "text": "qui",
+          "start": 28.73,
+          "end": 28.89
+        }
+      ]
+    },
+    {
+      "id": "caption-group-41",
+      "frame": 4,
+      "start": 28.95,
+      "end": 30.12,
+      "text": "lui donne confiance,",
+      "words": [
+        {
+          "id": "caption-word-41-0",
+          "text": "lui",
+          "start": 28.95,
+          "end": 29.111
+        },
+        {
+          "id": "caption-word-41-1",
+          "text": "donne",
+          "start": 29.171,
+          "end": 29.438
+        },
+        {
+          "id": "caption-word-41-2",
+          "text": "confiance,",
+          "start": 29.498,
+          "end": 30.06
+        }
+      ]
+    },
+    {
+      "id": "caption-group-42",
+      "frame": 4,
+      "start": 30.12,
+      "end": 30.668,
+      "text": "pas celui",
+      "words": [
+        {
+          "id": "caption-word-42-0",
+          "text": "pas",
+          "start": 30.12,
+          "end": 30.281
+        },
+        {
+          "id": "caption-word-42-1",
+          "text": "celui",
+          "start": 30.341,
+          "end": 30.608
+        }
+      ]
+    },
+    {
+      "id": "caption-group-43",
+      "frame": 4,
+      "start": 30.668,
+      "end": 31.109,
+      "text": "qui est",
+      "words": [
+        {
+          "id": "caption-word-43-0",
+          "text": "qui",
+          "start": 30.668,
+          "end": 30.829
+        },
+        {
+          "id": "caption-word-43-1",
+          "text": "est",
+          "start": 30.889,
+          "end": 31.049
+        }
+      ]
+    },
+    {
+      "id": "caption-group-44",
+      "frame": 4,
+      "start": 31.109,
+      "end": 32.145,
+      "text": "deux dollars moins",
+      "words": [
+        {
+          "id": "caption-word-44-0",
+          "text": "deux",
+          "start": 31.109,
+          "end": 31.323
+        },
+        {
+          "id": "caption-word-44-1",
+          "text": "dollars",
+          "start": 31.383,
+          "end": 31.758
+        },
+        {
+          "id": "caption-word-44-2",
+          "text": "moins",
+          "start": 31.818,
+          "end": 32.085
+        }
+      ]
+    },
+    {
+      "id": "caption-group-45",
+      "frame": 4,
+      "start": 32.145,
+      "end": 32.613,
+      "text": "cher.",
+      "words": [
+        {
+          "id": "caption-word-45-0",
+          "text": "cher.",
+          "start": 32.145,
+          "end": 32.493
+        }
+      ]
+    },
+    {
+      "id": "caption-group-46",
+      "frame": 5,
+      "start": 33.3,
+      "end": 33.789,
+      "text": "Avant de",
+      "words": [
+        {
+          "id": "caption-word-46-0",
+          "text": "Avant",
+          "start": 33.3,
+          "end": 33.563
+        },
+        {
+          "id": "caption-word-46-1",
+          "text": "de",
+          "start": 33.623,
+          "end": 33.729
+        }
+      ]
+    },
+    {
+      "id": "caption-group-47",
+      "frame": 5,
+      "start": 33.789,
+      "end": 34.435,
+      "text": "te plaindre",
+      "words": [
+        {
+          "id": "caption-word-47-0",
+          "text": "te",
+          "start": 33.789,
+          "end": 33.894
+        },
+        {
+          "id": "caption-word-47-1",
+          "text": "plaindre",
+          "start": 33.954,
+          "end": 34.375
+        }
+      ]
+    },
+    {
+      "id": "caption-group-48",
+      "frame": 5,
+      "start": 34.435,
+      "end": 35.484,
+      "text": "de la concurrence,",
+      "words": [
+        {
+          "id": "caption-word-48-0",
+          "text": "de",
+          "start": 34.435,
+          "end": 34.54
+        },
+        {
+          "id": "caption-word-48-1",
+          "text": "la",
+          "start": 34.6,
+          "end": 34.706
+        },
+        {
+          "id": "caption-word-48-2",
+          "text": "concurrence,",
+          "start": 34.766,
+          "end": 35.424
+        }
+      ]
+    },
+    {
+      "id": "caption-group-49",
+      "frame": 5,
+      "start": 35.484,
+      "end": 36.691,
+      "text": "demande-toi une chose:",
+      "words": [
+        {
+          "id": "caption-word-49-0",
+          "text": "demande-toi",
+          "start": 35.484,
+          "end": 36.011
+        },
+        {
+          "id": "caption-word-49-1",
+          "text": "une",
+          "start": 36.071,
+          "end": 36.229
+        },
+        {
+          "id": "caption-word-49-2",
+          "text": "chose:",
+          "start": 36.289,
+          "end": 36.631
+        }
+      ]
+    },
+    {
+      "id": "caption-group-50",
+      "frame": 5,
+      "start": 36.691,
+      "end": 37.198,
+      "text": "toi-meme,",
+      "words": [
+        {
+          "id": "caption-word-50-0",
+          "text": "toi-meme,",
+          "start": 36.691,
+          "end": 37.138
+        }
+      ]
+    },
+    {
+      "id": "caption-group-51",
+      "frame": 5,
+      "start": 37.198,
+      "end": 38.274,
+      "text": "tu ferais confiance",
+      "words": [
+        {
+          "id": "caption-word-51-0",
+          "text": "tu",
+          "start": 37.198,
+          "end": 37.304
+        },
+        {
+          "id": "caption-word-51-1",
+          "text": "ferais",
+          "start": 37.364,
+          "end": 37.68
+        },
+        {
+          "id": "caption-word-51-2",
+          "text": "confiance",
+          "start": 37.74,
+          "end": 38.214
+        }
+      ]
+    },
+    {
+      "id": "caption-group-52",
+      "frame": 5,
+      "start": 38.274,
+      "end": 38.552,
+      "text": "a ta",
+      "words": [
+        {
+          "id": "caption-word-52-0",
+          "text": "a",
+          "start": 38.274,
+          "end": 38.326
+        },
+        {
+          "id": "caption-word-52-1",
+          "text": "ta",
+          "start": 38.386,
+          "end": 38.492
+        }
+      ]
+    },
+    {
+      "id": "caption-group-53",
+      "frame": 5,
+      "start": 38.552,
+      "end": 39.469,
+      "text": "propre boutique",
+      "words": [
+        {
+          "id": "caption-word-53-0",
+          "text": "propre",
+          "start": 38.552,
+          "end": 38.867
+        },
+        {
+          "id": "caption-word-53-1",
+          "text": "boutique",
+          "start": 38.927,
+          "end": 39.349
+        }
+      ]
+    },
+    {
+      "id": "caption-group-54",
+      "frame": 6,
+      "start": 40.3,
+      "end": 40.738,
+      "text": "Le lien",
+      "words": [
+        {
+          "id": "caption-word-54-0",
+          "text": "Le",
+          "start": 40.3,
+          "end": 40.406
+        },
+        {
+          "id": "caption-word-54-1",
+          "text": "lien",
+          "start": 40.466,
+          "end": 40.678
+        }
+      ]
+    },
+    {
+      "id": "caption-group-55",
+      "frame": 6,
+      "start": 40.738,
+      "end": 41.123,
+      "text": "est en",
+      "words": [
+        {
+          "id": "caption-word-55-0",
+          "text": "est",
+          "start": 40.738,
+          "end": 40.897
+        },
+        {
+          "id": "caption-word-55-1",
+          "text": "en",
+          "start": 40.957,
+          "end": 41.063
+        }
+      ]
+    },
+    {
+      "id": "caption-group-56",
+      "frame": 6,
+      "start": 41.123,
+      "end": 41.508,
+      "text": "bio si",
+      "words": [
+        {
+          "id": "caption-word-56-0",
+          "text": "bio",
+          "start": 41.123,
+          "end": 41.282
+        },
+        {
+          "id": "caption-word-56-1",
+          "text": "si",
+          "start": 41.342,
+          "end": 41.448
+        }
+      ]
+    },
+    {
+      "id": "caption-group-57",
+      "frame": 6,
+      "start": 41.508,
+      "end": 41.947,
+      "text": "tu veux",
+      "words": [
+        {
+          "id": "caption-word-57-0",
+          "text": "tu",
+          "start": 41.508,
+          "end": 41.614
+        },
+        {
+          "id": "caption-word-57-1",
+          "text": "veux",
+          "start": 41.674,
+          "end": 41.887
+        }
+      ]
+    },
+    {
+      "id": "caption-group-58",
+      "frame": 6,
+      "start": 41.947,
+      "end": 43.24,
+      "text": "inspirer plus confiance",
+      "words": [
+        {
+          "id": "caption-word-58-0",
+          "text": "inspirer",
+          "start": 41.947,
+          "end": 42.371
+        },
+        {
+          "id": "caption-word-58-1",
+          "text": "plus",
+          "start": 42.431,
+          "end": 42.643
+        },
+        {
+          "id": "caption-word-58-2",
+          "text": "confiance",
+          "start": 42.703,
+          "end": 43.18
+        }
+      ]
+    },
+    {
+      "id": "caption-group-59",
+      "frame": 6,
+      "start": 43.24,
+      "end": 44.196,
+      "text": "a tes clients.",
+      "words": [
+        {
+          "id": "caption-word-59-0",
+          "text": "a",
+          "start": 43.24,
+          "end": 43.293
+        },
+        {
+          "id": "caption-word-59-1",
+          "text": "tes",
+          "start": 43.353,
+          "end": 43.512
+        },
+        {
+          "id": "caption-word-59-2",
+          "text": "clients.",
+          "start": 43.572,
+          "end": 44.076
+        }
+      ]
+    }
+  ]
+}
