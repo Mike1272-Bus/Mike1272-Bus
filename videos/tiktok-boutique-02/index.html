@@ -37,7 +37,7 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="31.41"
+      data-duration="28.624"
       data-width="1080"
       data-height="1920"
     >
@@ -47,14 +47,14 @@
         data-composition-id="01-hook"
         data-composition-src="compositions/frames/01-hook.html"
         data-start="0"
-        data-duration="4.34"
+        data-duration="4.004"
         data-track-index="0"
       ></div>
       <audio
         id="el-01-hook-voice"
         src="audio/lines/01-hook.wav"
         data-start="0"
-        data-duration="3.84"
+        data-duration="3.504"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -64,15 +64,15 @@
         class="scene"
         data-composition-id="02-raison1"
         data-composition-src="compositions/frames/02-raison1.html"
-        data-start="3.84"
-        data-duration="6.64"
+        data-start="3.504"
+        data-duration="5.612"
         data-track-index="1"
       ></div>
       <audio
         id="el-02-raison1-voice"
         src="audio/lines/02-raison1.wav"
-        data-start="3.84"
-        data-duration="6.14"
+        data-start="3.504"
+        data-duration="5.112"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -82,15 +82,15 @@
         class="scene"
         data-composition-id="03-raison2"
         data-composition-src="compositions/frames/03-raison2.html"
-        data-start="9.98"
-        data-duration="7.39"
+        data-start="8.616"
+        data-duration="4.604"
         data-track-index="0"
       ></div>
       <audio
         id="el-03-raison2-voice"
         src="audio/lines/03-raison2.wav"
-        data-start="9.98"
-        data-duration="6.89"
+        data-start="8.616"
+        data-duration="4.104"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -100,15 +100,15 @@
         class="scene"
         data-composition-id="04-raison3"
         data-composition-src="compositions/frames/04-raison3.html"
-        data-start="16.87"
-        data-duration="4.94"
+        data-start="12.72"
+        data-duration="5.996"
         data-track-index="1"
       ></div>
       <audio
         id="el-04-raison3-voice"
         src="audio/lines/04-raison3.wav"
-        data-start="16.87"
-        data-duration="4.44"
+        data-start="12.72"
+        data-duration="5.496"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -118,15 +118,15 @@
         class="scene"
         data-composition-id="05-pivot-preuve"
         data-composition-src="compositions/frames/05-pivot-preuve.html"
-        data-start="21.31"
-        data-duration="5.71"
+        data-start="18.216"
+        data-duration="5.804"
         data-track-index="0"
       ></div>
       <audio
         id="el-05-pivot-preuve-voice"
         src="audio/lines/05-pivot-preuve.wav"
-        data-start="21.31"
-        data-duration="5.21"
+        data-start="18.216"
+        data-duration="5.304"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -136,15 +136,15 @@
         class="scene"
         data-composition-id="06-cta"
         data-composition-src="compositions/frames/06-cta.html"
-        data-start="26.52"
-        data-duration="4.89"
+        data-start="23.52"
+        data-duration="5.104"
         data-track-index="1"
       ></div>
       <audio
         id="el-06-cta-voice"
         src="audio/lines/06-cta.wav"
-        data-start="26.52"
-        data-duration="4.49"
+        data-start="23.52"
+        data-duration="4.704"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -156,15 +156,15 @@
       window.__timelines["main"] = gsap.timeline({ paused: true });
       // ── frame transitions (injected by transitions.mjs) ──
       (function () { var tl = window.__timelines["main"];
-        tl.to("#el-01-hook", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 3.84);
-        tl.fromTo("#el-02-raison1", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 3.84);
-        tl.to("#el-02-raison1", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 9.98);
-        tl.fromTo("#el-03-raison2", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 9.98);
-        tl.to("#el-03-raison2", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 16.87);
-        tl.fromTo("#el-04-raison3", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 16.87);
-        tl.to("#el-04-raison3", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 21.31);
-        tl.fromTo("#el-05-pivot-preuve", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 21.31);
-        tl.to({}, { duration: 31.41 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+        tl.to("#el-01-hook", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 3.504);
+        tl.fromTo("#el-02-raison1", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 3.504);
+        tl.to("#el-02-raison1", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 8.616);
+        tl.fromTo("#el-03-raison2", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 8.616);
+        tl.to("#el-03-raison2", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 12.72);
+        tl.fromTo("#el-04-raison3", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 12.72);
+        tl.to("#el-04-raison3", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 18.216);
+        tl.fromTo("#el-05-pivot-preuve", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 18.216);
+        tl.to({}, { duration: 28.624 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
       })();
     </script>
   </body>
