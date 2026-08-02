@@ -1,5 +1,5 @@
 <template>
-  <div id="root" data-composition-id="01-hook" data-duration="4.4" style="position: relative; width: 1080px; height: 1920px; overflow: hidden;" data-width="1080" data-height="1920">
+  <div id="root" data-composition-id="01-hook" data-duration="4.34" style="position: relative; width: 1080px; height: 1920px; overflow: hidden;" data-width="1080" data-height="1920">
 
     <!-- directional/depth blur filter for the photo's push-enter streak -->
     <svg width="0" height="0" aria-hidden="true" style="position: absolute">
@@ -9,14 +9,14 @@
     </svg>
 
     <!-- track 0: real staged photo, full-bleed, push-enters then dims under the overlay -->
-    <div class="clip fr01hook-photo-wrap" data-start="0" data-duration="4.4" data-track-index="0"
+    <div class="clip fr01hook-photo-wrap" data-start="0" data-duration="4.34" data-track-index="0"
       style="position: absolute; inset: 0; overflow: hidden; background: #000000;">
       <img id="fr01hook-photo" src="assets/whatsapp-open-photo.jpg" alt=""
         style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% 42%; filter: url(#fr01hook-streak); transform-origin: 50% 50%;" />
     </div>
 
     <!-- track 1: dark overlay — settles to ~65% black so the photo reads at ~35% strength -->
-    <div class="clip fr01hook-overlay" data-start="0" data-duration="4.4" data-track-index="1"
+    <div class="clip fr01hook-overlay" data-start="0" data-duration="4.34" data-track-index="1"
       style="position: absolute; inset: 0; background: #000000; opacity: 0;"></div>
 
     <!-- track 2: number pill, spring-pops in with a small dot burst marking its landing -->
