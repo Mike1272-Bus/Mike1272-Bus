@@ -37,7 +37,7 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="30"
+      data-duration="31.32"
       data-width="1080"
       data-height="1920"
     >
@@ -47,59 +47,107 @@
         data-composition-id="01-hook"
         data-composition-src="compositions/frames/01-hook.html"
         data-start="0"
-        data-duration="4.4"
+        data-duration="4.221"
         data-track-index="0"
       ></div>
+      <audio
+        id="el-01-hook-voice"
+        src="audio/lines/01-hook.wav"
+        data-start="0"
+        data-duration="3.821"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
 
       <div
         id="el-02-outil1"
         class="scene"
         data-composition-id="02-outil1"
         data-composition-src="compositions/frames/02-outil1.html"
-        data-start="4"
-        data-duration="5.5"
+        data-start="3.821"
+        data-duration="9.518"
         data-track-index="1"
       ></div>
+      <audio
+        id="el-02-outil1-voice"
+        src="audio/lines/02-outil1.wav"
+        data-start="3.821"
+        data-duration="9.018"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
 
       <div
         id="el-03-outil2"
         class="scene"
         data-composition-id="03-outil2"
         data-composition-src="compositions/frames/03-outil2.html"
-        data-start="9"
-        data-duration="5.4"
+        data-start="12.839"
+        data-duration="4.421"
         data-track-index="0"
       ></div>
+      <audio
+        id="el-03-outil2-voice"
+        src="audio/lines/03-outil2.wav"
+        data-start="12.839"
+        data-duration="4.021"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
 
       <div
         id="el-04-outil3"
         class="scene"
         data-composition-id="04-outil3"
         data-composition-src="compositions/frames/04-outil3.html"
-        data-start="14"
-        data-duration="5.5"
+        data-start="16.86"
+        data-duration="4.935"
         data-track-index="1"
       ></div>
+      <audio
+        id="el-04-outil3-voice"
+        src="audio/lines/04-outil3.wav"
+        data-start="16.86"
+        data-duration="4.435"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
 
       <div
         id="el-05-outil4"
         class="scene"
         data-composition-id="05-outil4"
         data-composition-src="compositions/frames/05-outil4.html"
-        data-start="19"
-        data-duration="5.4"
+        data-start="21.295"
+        data-duration="5.621"
         data-track-index="0"
       ></div>
+      <audio
+        id="el-05-outil4-voice"
+        src="audio/lines/05-outil4.wav"
+        data-start="21.295"
+        data-duration="5.221"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
 
       <div
         id="el-06-cta"
         class="scene"
         data-composition-id="06-cta"
         data-composition-src="compositions/frames/06-cta.html"
-        data-start="24"
-        data-duration="6"
+        data-start="26.516"
+        data-duration="4.804"
         data-track-index="1"
       ></div>
+      <audio
+        id="el-06-cta-voice"
+        src="audio/lines/06-cta.wav"
+        data-start="26.516"
+        data-duration="4.804"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
 
     </div>
 
@@ -108,17 +156,17 @@
       window.__timelines["main"] = gsap.timeline({ paused: true });
       // ── frame transitions (injected by transitions.mjs) ──
       (function () { var tl = window.__timelines["main"];
-        tl.to("#el-01-hook", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 4);
-        tl.fromTo("#el-02-outil1", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 4);
-        tl.to("#el-02-outil1", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 9);
-        tl.fromTo("#el-03-outil2", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 9);
-        tl.to("#el-03-outil2", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 14);
-        tl.fromTo("#el-04-outil3", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 14);
-        tl.to("#el-04-outil3", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 19);
-        tl.fromTo("#el-05-outil4", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 19);
-        tl.to("#el-05-outil4", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 24);
-        tl.fromTo("#el-06-cta", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 24);
-        tl.to({}, { duration: 30 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+        tl.to("#el-01-hook", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 3.821);
+        tl.fromTo("#el-02-outil1", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 3.821);
+        tl.to("#el-02-outil1", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 12.839);
+        tl.fromTo("#el-03-outil2", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 12.839);
+        tl.to("#el-03-outil2", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 16.86);
+        tl.fromTo("#el-04-outil3", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 16.86);
+        tl.to("#el-04-outil3", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 21.295);
+        tl.fromTo("#el-05-outil4", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 21.295);
+        tl.to("#el-05-outil4", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 26.516);
+        tl.fromTo("#el-06-cta", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 26.516);
+        tl.to({}, { duration: 31.32 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
       })();
     </script>
   </body>
