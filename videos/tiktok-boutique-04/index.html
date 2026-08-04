@@ -37,7 +37,7 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="44"
+      data-duration="34.922"
       data-width="1080"
       data-height="1920"
     >
@@ -47,14 +47,14 @@
         data-composition-id="01-accroche"
         data-composition-src="compositions/frames/01-accroche.html"
         data-start="0"
-        data-duration="4.5"
+        data-duration="3.459"
         data-track-index="0"
       ></div>
       <audio
         id="el-01-accroche-voice"
         src="audio/lines/01.wav"
         data-start="0"
-        data-duration="4"
+        data-duration="2.959"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -64,15 +64,15 @@
         class="scene"
         data-composition-id="02-suite"
         data-composition-src="compositions/frames/02-suite.html"
-        data-start="4"
-        data-duration="5.4"
+        data-start="2.959"
+        data-duration="4.492"
         data-track-index="1"
       ></div>
       <audio
         id="el-02-suite-voice"
         src="audio/lines/02.wav"
-        data-start="4"
-        data-duration="5"
+        data-start="2.959"
+        data-duration="4.092"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -82,15 +82,15 @@
         class="scene"
         data-composition-id="03-explication1"
         data-composition-src="compositions/frames/03-explication1.html"
-        data-start="9"
-        data-duration="5.5"
+        data-start="7.052"
+        data-duration="4.598"
         data-track-index="0"
       ></div>
       <audio
         id="el-03-explication1-voice"
         src="audio/lines/03.wav"
-        data-start="9"
-        data-duration="5"
+        data-start="7.052"
+        data-duration="4.098"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -100,15 +100,15 @@
         class="scene"
         data-composition-id="04-explication2"
         data-composition-src="compositions/frames/04-explication2.html"
-        data-start="14"
-        data-duration="7.4"
+        data-start="11.150"
+        data-duration="6.268"
         data-track-index="1"
       ></div>
       <audio
         id="el-04-explication2-voice"
         src="audio/lines/04.wav"
-        data-start="14"
-        data-duration="7"
+        data-start="11.150"
+        data-duration="5.868"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -118,15 +118,15 @@
         class="scene"
         data-composition-id="05-consequence1"
         data-composition-src="compositions/frames/05-consequence1.html"
-        data-start="21"
-        data-duration="7"
+        data-start="17.018"
+        data-duration="5.883"
         data-track-index="0"
       ></div>
       <audio
         id="el-05-consequence1-voice"
         src="audio/lines/05.wav"
-        data-start="21"
-        data-duration="6.5"
+        data-start="17.018"
+        data-duration="5.383"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -136,15 +136,15 @@
         class="scene"
         data-composition-id="06-consequence2"
         data-composition-src="compositions/frames/06-consequence2.html"
-        data-start="27.5"
-        data-duration="6.9"
+        data-start="22.401"
+        data-duration="5.804"
         data-track-index="1"
       ></div>
       <audio
         id="el-06-consequence2-voice"
         src="audio/lines/06.wav"
-        data-start="27.5"
-        data-duration="6.5"
+        data-start="22.401"
+        data-duration="5.404"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -154,15 +154,15 @@
         class="scene"
         data-composition-id="07-avis"
         data-composition-src="compositions/frames/07-avis.html"
-        data-start="34"
-        data-duration="6.9"
+        data-start="27.805"
+        data-duration="5.449"
         data-track-index="0"
       ></div>
       <audio
         id="el-07-avis-voice"
         src="audio/lines/07.wav"
-        data-start="34"
-        data-duration="6.5"
+        data-start="27.805"
+        data-duration="5.049"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -172,15 +172,15 @@
         class="scene"
         data-composition-id="08-cta"
         data-composition-src="compositions/frames/08-cta.html"
-        data-start="40.5"
-        data-duration="3.5"
+        data-start="32.854"
+        data-duration="2.067"
         data-track-index="1"
       ></div>
       <audio
         id="el-08-cta-voice"
         src="audio/lines/08.wav"
-        data-start="40.5"
-        data-duration="3.5"
+        data-start="32.854"
+        data-duration="2.067"
         data-track-index="10"
         data-volume="1"
       ></audio>
@@ -192,7 +192,7 @@
         data-composition-id="captions"
         data-composition-src="compositions/captions.html"
         data-start="0"
-        data-duration="44"
+        data-duration="34.922"
         data-track-index="2"
       ></div>
 
@@ -203,21 +203,21 @@
       window.__timelines["main"] = gsap.timeline({ paused: true });
       // ── frame transitions (injected by transitions.mjs) ──
       (function () { var tl = window.__timelines["main"];
-        tl.to("#el-01-accroche", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 4);
-        tl.fromTo("#el-02-suite", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 4);
-        tl.to("#el-02-suite", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 9);
-        tl.fromTo("#el-03-explication1", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 9);
-        tl.to("#el-03-explication1", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 14);
-        tl.fromTo("#el-04-explication2", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 14);
-        tl.to("#el-04-explication2", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 21);
-        tl.fromTo("#el-05-consequence1", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 21);
-        tl.to("#el-05-consequence1", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 27.5);
-        tl.fromTo("#el-06-consequence2", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 27.5);
-        tl.to("#el-06-consequence2", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 34);
-        tl.fromTo("#el-07-avis", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 34);
-        tl.to("#el-07-avis", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 40.5);
-        tl.fromTo("#el-08-cta", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 40.5);
-        tl.to({}, { duration: 44 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+        tl.to("#el-01-accroche", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 2.959);
+        tl.fromTo("#el-02-suite", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 2.959);
+        tl.to("#el-02-suite", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 7.052);
+        tl.fromTo("#el-03-explication1", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 7.052);
+        tl.to("#el-03-explication1", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 11.150);
+        tl.fromTo("#el-04-explication2", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 11.150);
+        tl.to("#el-04-explication2", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 17.018);
+        tl.fromTo("#el-05-consequence1", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 17.018);
+        tl.to("#el-05-consequence1", { x: -1080, duration: 0.5, ease: "power3.inOut" }, 22.401);
+        tl.fromTo("#el-06-consequence2", { x: 1080, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 22.401);
+        tl.to("#el-06-consequence2", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 27.805);
+        tl.fromTo("#el-07-avis", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 27.805);
+        tl.to("#el-07-avis", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 32.854);
+        tl.fromTo("#el-08-cta", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 32.854);
+        tl.to({}, { duration: 34.922 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
       })();
     </script>
   </body>
