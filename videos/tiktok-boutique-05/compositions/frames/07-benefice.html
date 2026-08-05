@@ -159,6 +159,24 @@
     }
     .bn07-tag-top { background: var(--yellow); }
     .bn07-tag-bottom { background: var(--blue); }
+
+    .bn07-md-badge {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform-origin: 50% 50%;
+    }
+    .bn07-md-badge svg { width: 54px; height: 54px; }
+    .bn07-md-1 { left: 350px; top: 855px; }
+    .bn07-md-2 { left: 610px; top: 855px; }
   </style>
 
   <div class="clip bn07-bg" data-start="0" data-duration="7.3" data-track-index="0"></div>
@@ -184,6 +202,13 @@
       <img src="assets/benefice-achat-mobile.jpg" alt="" />
     </div>
     <div class="bn07-tag bn07-tag-bottom">Achat facile</div>
+  </div>
+
+  <div class="clip bn07-md-badge bn07-md-1" id="bn07-md1" data-start="0" data-duration="7.3" data-track-index="8">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="var(--green)" stroke="black" stroke-width="2.5"/><path d="M12 20l5 5 11-11" stroke="black" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+  </div>
+  <div class="clip bn07-md-badge bn07-md-2" id="bn07-md2" data-start="0" data-duration="7.3" data-track-index="9">
+    <svg viewBox="0 0 40 40"><path d="M4 6h4l3 20h20l3-13H12" stroke="black" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="33" r="2.5" fill="black"/><circle cx="27" cy="33" r="2.5" fill="black"/></svg>
   </div>
 
   <script>
@@ -288,6 +313,12 @@
           START
         );
       })();
+
+      // Extra motion-design accents in the gap between the two cards, so the
+      // wait before the late bottom card never goes more than ~1.4s without a
+      // new image landing.
+      tl.fromTo("#bn07-md1", { scale: 0, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.4, ease: "back.out(1.8)" }, 2.5);
+      tl.fromTo("#bn07-md2", { scale: 0, opacity: 0, rotation: 12 }, { scale: 1, opacity: 1, rotation: 4, duration: 0.4, ease: "back.out(1.8)" }, 3.9);
 
       window.__timelines["07-benefice"] = tl;
     })();

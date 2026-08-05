@@ -139,6 +139,24 @@
       object-fit: contain;
       display: block;
     }
+
+    .c5-md-badge {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform-origin: 50% 50%;
+    }
+    .c5-md-badge svg { width: 54px; height: 54px; }
+    .c5-md-1 { right: 60px; top: 200px; }
+    .c5-md-2 { left: 490px; top: 1310px; }
   </style>
 
   <div id="root" data-composition-id="05-declic" data-duration="5.7" data-width="1080" data-height="1920">
@@ -156,6 +174,13 @@
       <div class="c5-hero">
         <img src="assets/declic-sablier.png" alt="" />
       </div>
+    </div>
+
+    <div class="c5-md-badge c5-md-1 clip" id="c5-md1" data-start="0" data-duration="5.7" data-track-index="8">
+      <svg viewBox="0 0 40 40"><path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" fill="var(--yellow)" stroke="black" stroke-width="2"/></svg>
+    </div>
+    <div class="c5-md-badge c5-md-2 clip" id="c5-md2" data-start="0" data-duration="5.7" data-track-index="9">
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="var(--blue)" stroke="black" stroke-width="2.5"/><path d="M20 11v9l7 4" stroke="black" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
     </div>
   </div>
 
@@ -236,6 +261,11 @@
       },
       IDLE_START,
     );
+
+    // Extra motion-design accents so the hold never goes more than ~1.8s
+    // without a new image landing.
+    tl.fromTo("#c5-md1", { scale: 0, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.4, ease: "back.out(1.8)" }, 2.9);
+    tl.fromTo("#c5-md2", { scale: 0, opacity: 0, rotation: 12 }, { scale: 1, opacity: 1, rotation: 4, duration: 0.4, ease: "back.out(1.8)" }, 4.7);
 
     window.__timelines["05-declic"] = tl;
   </script>

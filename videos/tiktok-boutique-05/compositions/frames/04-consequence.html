@@ -148,6 +148,25 @@
     .c4-card-bottom .c4-tag {
       background: var(--green);
     }
+
+    .c4-md-badge {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform-origin: 50% 50%;
+    }
+    .c4-md-badge svg { width: 54px; height: 54px; }
+    .c4-md-1 { left: 200px; top: 840px; }
+    .c4-md-2 { left: 490px; top: 840px; }
+    .c4-md-3 { left: 780px; top: 840px; }
   </style>
 
   <div id="root" data-composition-id="04-consequence" data-duration="9.4" data-width="1080" data-height="1920">
@@ -167,6 +186,16 @@
     <div class="c4-card c4-card-bottom clip" data-start="0" data-duration="9.4" data-track-index="7">
       <img src="assets/consequence-femme-bureau.jpg" alt="" />
       <div class="c4-tag">Journee normale</div>
+    </div>
+
+    <div class="c4-md-badge c4-md-1 clip" id="c4-md1" data-start="0" data-duration="9.4" data-track-index="8">
+      <svg viewBox="0 0 40 40"><path d="M20 6c-5 0-8 4-8 9v6l-3 5h22l-3-5v-6c0-5-3-9-8-9Z" fill="var(--cream)" stroke="black" stroke-width="2.5"/><circle cx="20" cy="33" r="3" fill="var(--cream)" stroke="black" stroke-width="2.5"/></svg>
+    </div>
+    <div class="c4-md-badge c4-md-2 clip" id="c4-md2" data-start="0" data-duration="9.4" data-track-index="9">
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="var(--yellow)" stroke="black" stroke-width="2.5"/><path d="M20 11v9l7 4" stroke="black" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+    </div>
+    <div class="c4-md-badge c4-md-3 clip" id="c4-md3" data-start="0" data-duration="9.4" data-track-index="10">
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="var(--white)" stroke="black" stroke-width="2.5"/><path d="M13 13l14 14M27 13l-14 14" stroke="black" stroke-width="3" stroke-linecap="round"/></svg>
     </div>
   </div>
 
@@ -276,6 +305,13 @@
       },
       BOT_IDLE_START,
     );
+
+    // Extra motion-design accents in the gap between the two cards, so the
+    // long wait before the late bottom card never goes more than ~1.8s
+    // without a new image landing.
+    tl.fromTo("#c4-md1", { scale: 0, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.4, ease: "back.out(1.8)" }, 2.9);
+    tl.fromTo("#c4-md2", { scale: 0, opacity: 0, rotation: 12 }, { scale: 1, opacity: 1, rotation: 4, duration: 0.4, ease: "back.out(1.8)" }, 4.7);
+    tl.fromTo("#c4-md3", { scale: 0, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.4, ease: "back.out(1.8)" }, 6.5);
 
     window.__timelines["04-consequence"] = tl;
   </script>

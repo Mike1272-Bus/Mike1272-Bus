@@ -92,6 +92,26 @@
       will-change: transform, opacity;
     }
 
+    .acc01-md-badge {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform-origin: 50% 50%;
+      will-change: transform, opacity;
+    }
+    .acc01-md-badge svg { width: 54px; height: 54px; }
+    .acc01-md-1 { left: 55px; top: 250px; }
+    .acc01-md-2 { right: 55px; top: 250px; }
+    .acc01-md-3 { left: 490px; top: 1440px; }
+
     /* ---- label-pill: opens the region ---- */
     .acc01-pill-wrap {
       position: absolute;
@@ -171,6 +191,15 @@
       </div>
       <div class="acc01-square" id="acc01-square"></div>
       <div class="acc01-counter" id="acc01-counter">01</div>
+      <div class="acc01-md-badge acc01-md-1" id="acc01-md1">
+        <svg viewBox="0 0 40 40"><path d="M6 8h28a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H16l-7 6v-6H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z" fill="var(--pink)" stroke="black" stroke-width="2.5"/></svg>
+      </div>
+      <div class="acc01-md-badge acc01-md-2" id="acc01-md2">
+        <svg viewBox="0 0 40 40"><path d="M20 33 C10 26 4 20 4 13.5 C4 8 8.5 4 13.5 4 C17 4 19 6 20 8 C21 6 23 4 26.5 4 C31.5 4 36 8 36 13.5 C36 20 30 26 20 33Z" fill="var(--pink)" stroke="black" stroke-width="2.5"/></svg>
+      </div>
+      <div class="acc01-md-badge acc01-md-3" id="acc01-md3">
+        <svg viewBox="0 0 40 40"><path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" fill="var(--yellow)" stroke="black" stroke-width="2"/></svg>
+      </div>
     </div>
 
     <div class="acc01-pill-wrap clip" data-start="0" data-duration="7.5" data-track-index="1">
@@ -295,6 +324,12 @@
         },
         IDLE_START
       );
+
+      // ---- Extra motion-design accents so no stretch of the hold ever goes
+      // more than ~1.8s without a new image landing (fills the long idle gap). ----
+      tl.fromTo("#acc01-md1", { scale: 0, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.4, ease: "back.out(1.8)" }, 2.8);
+      tl.fromTo("#acc01-md2", { scale: 0, opacity: 0, rotation: 12 }, { scale: 1, opacity: 1, rotation: 4, duration: 0.4, ease: "back.out(1.8)" }, 4.6);
+      tl.fromTo("#acc01-md3", { scale: 0, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.4, ease: "back.out(1.8)" }, 6.4);
 
       window.__timelines["01-accroche"] = tl;
     })();

@@ -155,6 +155,24 @@
       object-fit: contain;
       display: block;
     }
+
+    .ct08-md-badge {
+      position: absolute;
+      left: 490px;
+      top: 1300px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform-origin: 50% 50%;
+    }
+    .ct08-md-badge svg { width: 54px; height: 54px; }
   </style>
 
   <div class="clip ct08-bg" data-start="0" data-duration="3.2" data-track-index="0"></div>
@@ -176,6 +194,10 @@
     <div class="ct08-sticker-inner">
       <img src="assets/cta-link-in-bio.png" alt="" />
     </div>
+  </div>
+
+  <div class="clip ct08-md-badge" id="ct08-md1" data-start="0" data-duration="3.2" data-track-index="7">
+    <svg viewBox="0 0 40 40"><path d="M20 34V8M10 18l10-10 10 10" stroke="black" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
   </div>
 
   <script>
@@ -310,6 +332,15 @@
           IDLE_START
         );
       })();
+
+      // Extra motion-design accent (arrow pointing up toward the bio) so the
+      // hold never goes more than ~1.8s without a new image landing.
+      tl.fromTo(
+        "#ct08-md1",
+        { scale: 0, opacity: 0, rotation: -10 },
+        { scale: 1, opacity: 1, rotation: 0, duration: 0.4, ease: "back.out(1.8)" },
+        2.8
+      );
 
       window.__timelines["08-cta"] = tl;
     })();
