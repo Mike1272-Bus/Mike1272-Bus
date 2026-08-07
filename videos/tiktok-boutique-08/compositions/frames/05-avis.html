@@ -62,17 +62,17 @@
     }
   </style>
 
-  <div id="root" data-composition-id="05-avis" data-duration="7.4" data-width="1080" data-height="1920">
-    <div class="avs05-bg clip" data-start="0" data-duration="7.4" data-track-index="0"></div>
-    <div class="avs05-counter clip" data-start="0" data-duration="7.4" data-track-index="1">05</div>
+  <div id="root" data-composition-id="05-avis" data-duration="5.078277" data-width="1080" data-height="1920">
+    <div class="avs05-bg clip" data-start="0" data-duration="5.078277" data-track-index="0"></div>
+    <div class="avs05-counter clip" data-start="0" data-duration="5.078277" data-track-index="1">05</div>
 
-    <div class="avs05-img clip" data-start="0.3" data-duration="1.88" data-track-index="2" id="avs05-img1">
+    <div class="avs05-img clip" data-start="0.2059" data-duration="1.2902" data-track-index="2" id="avs05-img1">
       <img src="assets/avis-1-stop.jpg" alt="" />
     </div>
-    <div class="avs05-img clip" data-start="2.18" data-duration="1.21" data-track-index="2" id="avs05-img2">
+    <div class="avs05-img clip" data-start="1.4961" data-duration="0.8304" data-track-index="2" id="avs05-img2">
       <img src="assets/avis-2-demandetoi.jpg" alt="" />
     </div>
-    <div class="avs05-img clip" data-start="3.39" data-duration="4.01" data-track-index="2" id="avs05-img3">
+    <div class="avs05-img clip" data-start="2.3265" data-duration="2.7519" data-track-index="2" id="avs05-img3">
       <img src="assets/avis-3-toimeme.png" alt="" />
     </div>
   </div>
@@ -98,17 +98,17 @@
         );
       }
 
-      beat("avs05-img1", 0.3);
-      beat("avs05-img2", 2.18);
-      beat("avs05-img3", 3.39);
+      beat("avs05-img1", 0.2059);
+      beat("avs05-img2", 1.4961);
+      beat("avs05-img3", 2.3265);
 
-      // Scene 4 (3.39-7.0s) is the closing beat and the longest hold of this frame --
-      // add a subtle idle drift so it doesn't sit fully static.
+      // Scene 4 is the closing beat and the longest hold of this frame -- add a
+      // subtle idle drift so it doesn't sit fully static.
       (function () {
         var el = document.getElementById("avs05-img3");
         var phase = { p: 0 };
-        var START = 3.39 + 0.3;
-        var DUR = 7.0 - START;
+        var START = 2.5323;
+        var DUR = 2.146;
         tl.to(
           phase,
           {
