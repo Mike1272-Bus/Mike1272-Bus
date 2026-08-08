@@ -62,17 +62,17 @@
     }
   </style>
 
-  <div id="root" data-composition-id="05-avis" data-duration="5.078277" data-width="1080" data-height="1920">
-    <div class="avs05-bg clip" data-start="0" data-duration="5.078277" data-track-index="0"></div>
-    <div class="avs05-counter clip" data-start="0" data-duration="5.078277" data-track-index="1">05</div>
+  <div id="root" data-composition-id="05-avis" data-duration="5.427687" data-width="1080" data-height="1920">
+    <div class="avs05-bg clip" data-start="0" data-duration="5.427687" data-track-index="0"></div>
+    <div class="avs05-counter clip" data-start="0" data-duration="5.427687" data-track-index="1">05</div>
 
-    <div class="avs05-img clip" data-start="0.2059" data-duration="1.2902" data-track-index="2" id="avs05-img1">
+    <div class="avs05-img clip" data-start="0.2201" data-duration="1.379" data-track-index="2" id="avs05-img1">
       <img src="assets/avis-1-stop.jpg" alt="" />
     </div>
-    <div class="avs05-img clip" data-start="1.4961" data-duration="0.8304" data-track-index="2" id="avs05-img2">
+    <div class="avs05-img clip" data-start="1.5991" data-duration="0.8875" data-track-index="2" id="avs05-img2">
       <img src="assets/avis-2-demandetoi.jpg" alt="" />
     </div>
-    <div class="avs05-img clip" data-start="2.3265" data-duration="2.7519" data-track-index="2" id="avs05-img3">
+    <div class="avs05-img clip" data-start="2.4866" data-duration="2.9411" data-track-index="2" id="avs05-img3">
       <img src="assets/avis-3-toimeme.png" alt="" />
     </div>
   </div>
@@ -98,17 +98,17 @@
         );
       }
 
-      beat("avs05-img1", 0.2059);
-      beat("avs05-img2", 1.4961);
-      beat("avs05-img3", 2.3265);
+      beat("avs05-img1", 0.2201);
+      beat("avs05-img2", 1.5991);
+      beat("avs05-img3", 2.4866);
 
       // Scene 4 is the closing beat and the longest hold of this frame -- add a
       // subtle idle drift so it doesn't sit fully static.
       (function () {
         var el = document.getElementById("avs05-img3");
         var phase = { p: 0 };
-        var START = 2.5323;
-        var DUR = 2.146;
+        var START = 2.7065;
+        var DUR = 2.3212;
         tl.to(
           phase,
           {

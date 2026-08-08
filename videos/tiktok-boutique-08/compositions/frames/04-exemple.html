@@ -62,20 +62,20 @@
     }
   </style>
 
-  <div id="root" data-composition-id="04-exemple" data-duration="9.205646" data-width="1080" data-height="1920">
-    <div class="exm04-bg clip" data-start="0" data-duration="9.205646" data-track-index="0"></div>
-    <div class="exm04-counter clip" data-start="0" data-duration="9.205646" data-track-index="1">04</div>
+  <div id="root" data-composition-id="04-exemple" data-duration="9.874195" data-width="1080" data-height="1920">
+    <div class="exm04-bg clip" data-start="0" data-duration="9.874195" data-track-index="0"></div>
+    <div class="exm04-counter clip" data-start="0" data-duration="9.874195" data-track-index="1">04</div>
 
-    <div class="exm04-img clip" data-start="0.1987" data-duration="1.3312" data-track-index="2" id="exm04-img1">
+    <div class="exm04-img clip" data-start="0.2131" data-duration="1.4279" data-track-index="2" id="exm04-img1">
       <img src="assets/exemple-1-memeprix.png" alt="" />
     </div>
-    <div class="exm04-img clip" data-start="1.5299" data-duration="1.9074" data-track-index="2" id="exm04-img2">
+    <div class="exm04-img clip" data-start="1.641" data-duration="2.0459" data-track-index="2" id="exm04-img2">
       <img src="assets/exemple-2-profilpro.jpg" alt="" />
     </div>
-    <div class="exm04-img clip" data-start="3.4373" data-duration="1.4967" data-track-index="2" id="exm04-img3">
+    <div class="exm04-img clip" data-start="3.6869" data-duration="1.6054" data-track-index="2" id="exm04-img3">
       <img src="assets/exemple-3-statutflou.jpg" alt="" />
     </div>
-    <div class="exm04-img clip" data-start="4.934" data-duration="4.2717" data-track-index="2" id="exm04-img4">
+    <div class="exm04-img clip" data-start="5.2923" data-duration="4.5819" data-track-index="2" id="exm04-img4">
       <img src="assets/exemple-4-lechoix.jpg" alt="" />
     </div>
   </div>
@@ -104,18 +104,18 @@
       // 4 sequential beats, timed to the 4 clauses of the voiceover
       // (was 3 beats; the middle clause about "profil pro / statut flou" is now
       // split into its own two images per the user's explicit 4-image request).
-      beat("exm04-img1", 0.1987);
-      beat("exm04-img2", 1.5299);
-      beat("exm04-img3", 3.4373);
-      beat("exm04-img4", 4.934);
+      beat("exm04-img1", 0.2131);
+      beat("exm04-img2", 1.641);
+      beat("exm04-img3", 3.6869);
+      beat("exm04-img4", 5.2923);
 
       // Beat 4 is the longest hold -- add a very subtle idle drift so it doesn't
       // sit fully static.
       (function () {
         var el = document.getElementById("exm04-img4");
         var phase = { p: 0 };
-        var START = 5.1326;
-        var DUR = 4.073;
+        var START = 5.5053;
+        var DUR = 4.3689;
         tl.to(
           phase,
           {
