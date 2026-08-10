@@ -45,7 +45,7 @@ Kokoro TTS (`ff_siwis`, French) per-line, staged at `audio/lines/NN.wav` with wo
 - voiceover: "La vraie raison, c'est qu'aucun prix n'est jamais affiche nulle part. Alors chacun negocie, parce que personne ne sait a quoi s'attendre avant de t'ecrire."
 - words: audio/lines/03.words.json (duration 8.128s)
 - src: compositions/frames/03-vraiprobleme.html
-- images (5): vraiprobleme-1.png / vraiprobleme-2.jpg / vraiprobleme-3.jpeg / vraiprobleme-4.png / vraiprobleme-5.jpg
+- images (5): vraiprobleme-1.png / vraiprobleme-2.jpg (pubs statut WhatsApp/Instagram reelles, aucun prix affiche) / vraiprobleme-3.jpeg / vraiprobleme-4.png / vraiprobleme-5.jpg
 
 ## Frame 4 — Consequence
 

@@ -21,7 +21,7 @@ Script valide mot pour mot par l'utilisateur avant construction (voir voiceover 
 
 - Accroche (3 images utilisateur): accroche-1.jpg / accroche-2.jpg / accroche-3.jpg
 - Situation (3 images utilisateur): situation-1.jpg / situation-2.jpg / situation-3.png
-- Vrai probleme (5 images utilisateur): vraiprobleme-1.png / vraiprobleme-2.jpg / vraiprobleme-3.jpeg / vraiprobleme-4.png / vraiprobleme-5.jpg
+- Vrai probleme (5 images utilisateur): vraiprobleme-1.png / vraiprobleme-2.jpg (exemples reels de pubs en statut WhatsApp/Instagram — CTA "Learn more"/"Send message"/"Shop now" mais aucun prix affiche) / vraiprobleme-3.jpeg / vraiprobleme-4.png / vraiprobleme-5.jpg
 - Consequence (3 images utilisateur): consequence-1.jpg / consequence-2.png / consequence-3.jpg
 - Declic (4 images utilisateur): declic-1.jpeg / declic-2.jpg / declic-3.jpg / declic-4.jpg
 - Solution (3 images: 2 utilisateur + 1 generee): solution-1.png (**genere** — l'original fourni avait un filigrane 123RF visible) / solution-2.jpg / solution-3.png
