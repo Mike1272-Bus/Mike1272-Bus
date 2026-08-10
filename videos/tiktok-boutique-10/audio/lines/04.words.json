@@ -1,0 +1,146 @@
+[
+  {
+    "id": "w0",
+    "text": "Résultat",
+    "start": 0,
+    "end": 0.37
+  },
+  {
+    "id": "w1",
+    "text": ":",
+    "start": 0.43,
+    "end": 0.545
+  },
+  {
+    "id": "w2",
+    "text": "tu",
+    "start": 0.605,
+    "end": 0.698
+  },
+  {
+    "id": "w3",
+    "text": "répètes",
+    "start": 0.758,
+    "end": 1.081
+  },
+  {
+    "id": "w4",
+    "text": "les",
+    "start": 1.141,
+    "end": 1.28
+  },
+  {
+    "id": "w5",
+    "text": "mêmes",
+    "start": 1.34,
+    "end": 1.571
+  },
+  {
+    "id": "w6",
+    "text": "prix",
+    "start": 1.631,
+    "end": 1.815
+  },
+  {
+    "id": "w7",
+    "text": "toute",
+    "start": 1.875,
+    "end": 2.106
+  },
+  {
+    "id": "w8",
+    "text": "la",
+    "start": 2.166,
+    "end": 2.259
+  },
+  {
+    "id": "w9",
+    "text": "journée,",
+    "start": 2.319,
+    "end": 2.711
+  },
+  {
+    "id": "w10",
+    "text": "et",
+    "start": 2.771,
+    "end": 2.864
+  },
+  {
+    "id": "w11",
+    "text": "certains",
+    "start": 2.924,
+    "end": 3.294
+  },
+  {
+    "id": "w12",
+    "text": "clients",
+    "start": 3.354,
+    "end": 3.677
+  },
+  {
+    "id": "w13",
+    "text": "partent",
+    "start": 3.737,
+    "end": 4.06
+  },
+  {
+    "id": "w14",
+    "text": "juste",
+    "start": 4.12,
+    "end": 4.351
+  },
+  {
+    "id": "w15",
+    "text": "parce",
+    "start": 4.411,
+    "end": 4.642
+  },
+  {
+    "id": "w16",
+    "text": "que",
+    "start": 4.702,
+    "end": 4.841
+  },
+  {
+    "id": "w17",
+    "text": "la",
+    "start": 4.901,
+    "end": 4.993
+  },
+  {
+    "id": "w18",
+    "text": "réponse",
+    "start": 5.053,
+    "end": 5.377
+  },
+  {
+    "id": "w19",
+    "text": "a",
+    "start": 5.437,
+    "end": 5.483
+  },
+  {
+    "id": "w20",
+    "text": "mis",
+    "start": 5.543,
+    "end": 5.682
+  },
+  {
+    "id": "w21",
+    "text": "trop",
+    "start": 5.742,
+    "end": 5.926
+  },
+  {
+    "id": "w22",
+    "text": "de",
+    "start": 5.986,
+    "end": 6.079
+  },
+  {
+    "id": "w23",
+    "text": "temps.",
+    "start": 6.139,
+    "end": 6.485
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "w0",
+    "text": "Écris",
+    "start": 0,
+    "end": 0.245
+  },
+  {
+    "id": "w1",
+    "text": "BOUTIQUE",
+    "start": 0.305,
+    "end": 0.697
+  },
+  {
+    "id": "w2",
+    "text": "en",
+    "start": 0.757,
+    "end": 0.855
+  },
+  {
+    "id": "w3",
+    "text": "message",
+    "start": 0.915,
+    "end": 1.257
+  },
+  {
+    "id": "w4",
+    "text": "si",
+    "start": 1.317,
+    "end": 1.415
+  },
+  {
+    "id": "w5",
+    "text": "tu",
+    "start": 1.475,
+    "end": 1.573
+  },
+  {
+    "id": "w6",
+    "text": "veux",
+    "start": 1.633,
+    "end": 1.829
+  },
+  {
+    "id": "w7",
+    "text": "qu'on",
+    "start": 1.889,
+    "end": 2.085
+  },
+  {
+    "id": "w8",
+    "text": "te",
+    "start": 2.145,
+    "end": 2.243
+  },
+  {
+    "id": "w9",
+    "text": "montre",
+    "start": 2.303,
+    "end": 2.597
+  },
+  {
+    "id": "w10",
+    "text": "comment",
+    "start": 2.657,
+    "end": 3
+  },
+  {
+    "id": "w11",
+    "text": "afficher",
+    "start": 3.06,
+    "end": 3.452
+  },
+  {
+    "id": "w12",
+    "text": "tes",
+    "start": 3.512,
+    "end": 3.659
+  },
+  {
+    "id": "w13",
+    "text": "prix",
+    "start": 3.719,
+    "end": 3.914
+  },
+  {
+    "id": "w14",
+    "text": "clairement.",
+    "start": 3.974,
+    "end": 4.587
+  }
+]

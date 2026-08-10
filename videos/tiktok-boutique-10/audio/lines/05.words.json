@@ -1,0 +1,146 @@
+[
+  {
+    "id": "w0",
+    "text": "Quand",
+    "start": 0,
+    "end": 0.261
+  },
+  {
+    "id": "w1",
+    "text": "le",
+    "start": 0.321,
+    "end": 0.425
+  },
+  {
+    "id": "w2",
+    "text": "prix",
+    "start": 0.485,
+    "end": 0.694
+  },
+  {
+    "id": "w3",
+    "text": "est",
+    "start": 0.754,
+    "end": 0.91
+  },
+  {
+    "id": "w4",
+    "text": "visible",
+    "start": 0.97,
+    "end": 1.335
+  },
+  {
+    "id": "w5",
+    "text": "dès",
+    "start": 1.395,
+    "end": 1.552
+  },
+  {
+    "id": "w6",
+    "text": "le",
+    "start": 1.612,
+    "end": 1.716
+  },
+  {
+    "id": "w7",
+    "text": "départ,",
+    "start": 1.776,
+    "end": 2.168
+  },
+  {
+    "id": "w8",
+    "text": "sur",
+    "start": 2.228,
+    "end": 2.384
+  },
+  {
+    "id": "w9",
+    "text": "une",
+    "start": 2.444,
+    "end": 2.601
+  },
+  {
+    "id": "w10",
+    "text": "vraie",
+    "start": 2.661,
+    "end": 2.921
+  },
+  {
+    "id": "w11",
+    "text": "fiche",
+    "start": 2.981,
+    "end": 3.242
+  },
+  {
+    "id": "w12",
+    "text": "produit,",
+    "start": 3.302,
+    "end": 3.746
+  },
+  {
+    "id": "w13",
+    "text": "le",
+    "start": 3.806,
+    "end": 3.91
+  },
+  {
+    "id": "w14",
+    "text": "client",
+    "start": 3.97,
+    "end": 4.283
+  },
+  {
+    "id": "w15",
+    "text": "sait",
+    "start": 4.343,
+    "end": 4.552
+  },
+  {
+    "id": "w16",
+    "text": "déjà",
+    "start": 4.612,
+    "end": 4.82
+  },
+  {
+    "id": "w17",
+    "text": "à",
+    "start": 4.88,
+    "end": 4.932
+  },
+  {
+    "id": "w18",
+    "text": "quoi",
+    "start": 4.992,
+    "end": 5.201
+  },
+  {
+    "id": "w19",
+    "text": "s'attendre",
+    "start": 5.261,
+    "end": 5.731
+  },
+  {
+    "id": "w20",
+    "text": "avant",
+    "start": 5.791,
+    "end": 6.051
+  },
+  {
+    "id": "w21",
+    "text": "même",
+    "start": 6.111,
+    "end": 6.32
+  },
+  {
+    "id": "w22",
+    "text": "de",
+    "start": 6.38,
+    "end": 6.484
+  },
+  {
+    "id": "w23",
+    "text": "t'écrire.",
+    "start": 6.544,
+    "end": 7.04
+  }
+]
