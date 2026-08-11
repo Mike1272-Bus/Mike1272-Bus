@@ -70,17 +70,17 @@
   <div id="root" data-composition-id="01-accroche" data-duration="9.39" data-width="1080" data-height="1920">
     <div class="acc01-bg clip" data-start="0" data-duration="9.39" data-track-index="0"></div>
     <div class="acc01-counter clip" data-start="0" data-duration="9.39" data-track-index="1">01</div>
-      <div class="acc01-img clip" data-start="0.3" data-duration="2.2725" data-track-index="2" id="acc01-img1">
-        <img src="assets/accroche-1.jpg" alt="" />
+      <div class="acc01-img clip" data-start="0.3" data-duration="4.794" data-track-index="2" id="acc01-img1">
+        <img src="assets/accroche-1.png" alt="" />
       </div>
-      <div class="acc01-img clip" data-start="2.5725" data-duration="2.2725" data-track-index="2" id="acc01-img2">
+      <div class="acc01-img clip" data-start="5.094" data-duration="1.187" data-track-index="2" id="acc01-img2">
         <img src="assets/accroche-2.jpg" alt="" />
       </div>
-      <div class="acc01-img clip" data-start="4.845" data-duration="2.2725" data-track-index="2" id="acc01-img3">
+      <div class="acc01-img clip" data-start="6.281" data-duration="1.019" data-track-index="2" id="acc01-img3">
         <img src="assets/accroche-3.jpg" alt="" />
       </div>
-      <div class="acc01-img clip" data-start="7.1175" data-duration="2.2725" data-track-index="2" id="acc01-img4">
-        <img src="assets/accroche-4.png" alt="" />
+      <div class="acc01-img clip" data-start="7.3" data-duration="2.09" data-track-index="2" id="acc01-img4">
+        <img src="assets/accroche-4.jpg" alt="" />
       </div>
   </div>
 
@@ -100,12 +100,12 @@
       }
 
       beat("acc01-img1", 0.3);
-      beat("acc01-img2", 2.5725);
-      beat("acc01-img3", 4.845);
-      beat("acc01-img4", 7.1175);
+      beat("acc01-img2", 5.094);
+      beat("acc01-img3", 6.281);
+      beat("acc01-img4", 7.3);
 
       var phase = { p: 0 };
-      var IDLE_START = 7.5175;
+      var IDLE_START = 7.7;
       var IDLE_DUR = 9.39 - IDLE_START;
       if (IDLE_DUR > 0.3) {
         tl.to(phase, {

@@ -70,17 +70,17 @@
   <div id="root" data-composition-id="05-declic" data-duration="12.8" data-width="1080" data-height="1920">
     <div class="dcl05-bg clip" data-start="0" data-duration="12.8" data-track-index="0"></div>
     <div class="dcl05-counter clip" data-start="0" data-duration="12.8" data-track-index="1">05</div>
-      <div class="dcl05-img clip" data-start="0.3" data-duration="3.125" data-track-index="2" id="dcl05-img1">
+      <div class="dcl05-img clip" data-start="0.3" data-duration="3.505" data-track-index="2" id="dcl05-img1">
         <img src="assets/declic-1.jpg" alt="" />
       </div>
-      <div class="dcl05-img clip" data-start="3.425" data-duration="3.125" data-track-index="2" id="dcl05-img2">
-        <img src="assets/declic-2.jpg" alt="" />
+      <div class="dcl05-img clip" data-start="3.805" data-duration="2.642" data-track-index="2" id="dcl05-img2">
+        <img src="assets/declic-2.png" alt="" />
       </div>
-      <div class="dcl05-img clip" data-start="6.55" data-duration="3.125" data-track-index="2" id="dcl05-img3">
+      <div class="dcl05-img clip" data-start="6.447" data-duration="1.953" data-track-index="2" id="dcl05-img3">
         <img src="assets/declic-3.jpg" alt="" />
       </div>
-      <div class="dcl05-img clip" data-start="9.675" data-duration="3.125" data-track-index="2" id="dcl05-img4">
-        <img src="assets/declic-4.png" alt="" />
+      <div class="dcl05-img clip" data-start="8.4" data-duration="4.4" data-track-index="2" id="dcl05-img4">
+        <img src="assets/declic-4.jpg" alt="" />
       </div>
   </div>
 
@@ -100,12 +100,12 @@
       }
 
       beat("dcl05-img1", 0.3);
-      beat("dcl05-img2", 3.425);
-      beat("dcl05-img3", 6.55);
-      beat("dcl05-img4", 9.675);
+      beat("dcl05-img2", 3.805);
+      beat("dcl05-img3", 6.447);
+      beat("dcl05-img4", 8.4);
 
       var phase = { p: 0 };
-      var IDLE_START = 10.075;
+      var IDLE_START = 8.8;
       var IDLE_DUR = 12.8 - IDLE_START;
       if (IDLE_DUR > 0.3) {
         tl.to(phase, {

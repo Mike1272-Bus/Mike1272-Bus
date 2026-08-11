@@ -70,11 +70,14 @@
   <div id="root" data-composition-id="04-consequence" data-duration="8.61" data-width="1080" data-height="1920">
     <div class="csq04-bg clip" data-start="0" data-duration="8.61" data-track-index="0"></div>
     <div class="csq04-counter clip" data-start="0" data-duration="8.61" data-track-index="1">04</div>
-      <div class="csq04-img clip" data-start="0.3" data-duration="4.155" data-track-index="2" id="csq04-img1">
-        <img src="assets/consequence-1.jpg" alt="" />
+      <div class="csq04-img clip" data-start="0.3" data-duration="2.083" data-track-index="2" id="csq04-img1">
+        <img src="assets/consequence-1.jpeg" alt="" />
       </div>
-      <div class="csq04-img clip" data-start="4.455" data-duration="4.155" data-track-index="2" id="csq04-img2">
+      <div class="csq04-img clip" data-start="2.383" data-duration="2.523" data-track-index="2" id="csq04-img2">
         <img src="assets/consequence-2.jpg" alt="" />
+      </div>
+      <div class="csq04-img clip" data-start="4.906" data-duration="3.704" data-track-index="2" id="csq04-img3">
+        <img src="assets/consequence-3.png" alt="" />
       </div>
   </div>
 
@@ -94,10 +97,11 @@
       }
 
       beat("csq04-img1", 0.3);
-      beat("csq04-img2", 4.455);
+      beat("csq04-img2", 2.383);
+      beat("csq04-img3", 4.906);
 
       var phase = { p: 0 };
-      var IDLE_START = 4.855;
+      var IDLE_START = 5.306;
       var IDLE_DUR = 8.61 - IDLE_START;
       if (IDLE_DUR > 0.3) {
         tl.to(phase, {
@@ -106,7 +110,7 @@
           ease: "none",
           onUpdate: function () {
             var s = Math.sin(phase.p);
-            document.getElementById("csq04-img2").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+            document.getElementById("csq04-img3").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
           },
         }, IDLE_START);
       }

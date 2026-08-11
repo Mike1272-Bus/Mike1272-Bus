@@ -70,20 +70,23 @@
   <div id="root" data-composition-id="06-solution" data-duration="13.59" data-width="1080" data-height="1920">
     <div class="sol06-bg clip" data-start="0" data-duration="13.59" data-track-index="0"></div>
     <div class="sol06-counter clip" data-start="0" data-duration="13.59" data-track-index="1">06</div>
-      <div class="sol06-img clip" data-start="0.3" data-duration="2.658" data-track-index="2" id="sol06-img1">
-        <img src="assets/solution-1.jpg" alt="" />
+      <div class="sol06-img clip" data-start="0.3" data-duration="0.462" data-track-index="2" id="sol06-img1">
+        <img src="assets/solution-1.png" alt="" />
       </div>
-      <div class="sol06-img clip" data-start="2.958" data-duration="2.658" data-track-index="2" id="sol06-img2">
+      <div class="sol06-img clip" data-start="0.762" data-duration="0.988" data-track-index="2" id="sol06-img2">
         <img src="assets/solution-2.jpg" alt="" />
       </div>
-      <div class="sol06-img clip" data-start="5.616" data-duration="2.658" data-track-index="2" id="sol06-img3">
-        <img src="assets/solution-3.png" alt="" />
+      <div class="sol06-img clip" data-start="1.75" data-duration="2.235" data-track-index="2" id="sol06-img3">
+        <img src="assets/solution-3.jpg" alt="" />
       </div>
-      <div class="sol06-img clip" data-start="8.274" data-duration="2.658" data-track-index="2" id="sol06-img4">
+      <div class="sol06-img clip" data-start="3.985" data-duration="2.585" data-track-index="2" id="sol06-img4">
         <img src="assets/solution-4.jpg" alt="" />
       </div>
-      <div class="sol06-img clip" data-start="10.932" data-duration="2.658" data-track-index="2" id="sol06-img5">
+      <div class="sol06-img clip" data-start="6.57" data-duration="3.191" data-track-index="2" id="sol06-img5">
         <img src="assets/solution-5.jpg" alt="" />
+      </div>
+      <div class="sol06-img clip" data-start="9.761" data-duration="3.829" data-track-index="2" id="sol06-img6">
+        <img src="assets/solution-6.png" alt="" />
       </div>
   </div>
 
@@ -103,13 +106,14 @@
       }
 
       beat("sol06-img1", 0.3);
-      beat("sol06-img2", 2.958);
-      beat("sol06-img3", 5.616);
-      beat("sol06-img4", 8.274);
-      beat("sol06-img5", 10.932);
+      beat("sol06-img2", 0.762);
+      beat("sol06-img3", 1.75);
+      beat("sol06-img4", 3.985);
+      beat("sol06-img5", 6.57);
+      beat("sol06-img6", 9.761);
 
       var phase = { p: 0 };
-      var IDLE_START = 11.332;
+      var IDLE_START = 10.161;
       var IDLE_DUR = 13.59 - IDLE_START;
       if (IDLE_DUR > 0.3) {
         tl.to(phase, {
@@ -118,7 +122,7 @@
           ease: "none",
           onUpdate: function () {
             var s = Math.sin(phase.p);
-            document.getElementById("sol06-img5").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+            document.getElementById("sol06-img6").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
           },
         }, IDLE_START);
       }

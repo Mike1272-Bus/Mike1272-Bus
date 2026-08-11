@@ -70,14 +70,23 @@
   <div id="root" data-composition-id="02-situation" data-duration="16.35" data-width="1080" data-height="1920">
     <div class="sit02-bg clip" data-start="0" data-duration="16.35" data-track-index="0"></div>
     <div class="sit02-counter clip" data-start="0" data-duration="16.35" data-track-index="1">02</div>
-      <div class="sit02-img clip" data-start="0.3" data-duration="5.35" data-track-index="2" id="sit02-img1">
-        <img src="assets/situation-1.png" alt="" />
+      <div class="sit02-img clip" data-start="0.3" data-duration="3.234" data-track-index="2" id="sit02-img1">
+        <img src="assets/situation-1.jpg" alt="" />
       </div>
-      <div class="sit02-img clip" data-start="5.65" data-duration="5.35" data-track-index="2" id="sit02-img2">
+      <div class="sit02-img clip" data-start="3.534" data-duration="1.644" data-track-index="2" id="sit02-img2">
         <img src="assets/situation-2.jpg" alt="" />
       </div>
-      <div class="sit02-img clip" data-start="11" data-duration="5.35" data-track-index="2" id="sit02-img3">
+      <div class="sit02-img clip" data-start="5.178" data-duration="1.333" data-track-index="2" id="sit02-img3">
         <img src="assets/situation-3.jpg" alt="" />
+      </div>
+      <div class="sit02-img clip" data-start="6.511" data-duration="3.928" data-track-index="2" id="sit02-img4">
+        <img src="assets/situation-4.jpg" alt="" />
+      </div>
+      <div class="sit02-img clip" data-start="10.439" data-duration="2.87" data-track-index="2" id="sit02-img5">
+        <img src="assets/situation-5.jpg" alt="" />
+      </div>
+      <div class="sit02-img clip" data-start="13.309" data-duration="3.041" data-track-index="2" id="sit02-img6">
+        <img src="assets/situation-6.png" alt="" />
       </div>
   </div>
 
@@ -97,11 +106,14 @@
       }
 
       beat("sit02-img1", 0.3);
-      beat("sit02-img2", 5.65);
-      beat("sit02-img3", 11);
+      beat("sit02-img2", 3.534);
+      beat("sit02-img3", 5.178);
+      beat("sit02-img4", 6.511);
+      beat("sit02-img5", 10.439);
+      beat("sit02-img6", 13.309);
 
       var phase = { p: 0 };
-      var IDLE_START = 11.4;
+      var IDLE_START = 13.709;
       var IDLE_DUR = 16.35 - IDLE_START;
       if (IDLE_DUR > 0.3) {
         tl.to(phase, {
@@ -110,7 +122,7 @@
           ease: "none",
           onUpdate: function () {
             var s = Math.sin(phase.p);
-            document.getElementById("sit02-img3").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+            document.getElementById("sit02-img6").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
           },
         }, IDLE_START);
       }

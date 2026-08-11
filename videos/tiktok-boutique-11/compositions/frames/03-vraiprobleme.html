@@ -70,14 +70,20 @@
   <div id="root" data-composition-id="03-vraiprobleme" data-duration="9.98" data-width="1080" data-height="1920">
     <div class="vrp03-bg clip" data-start="0" data-duration="9.98" data-track-index="0"></div>
     <div class="vrp03-counter clip" data-start="0" data-duration="9.98" data-track-index="1">03</div>
-      <div class="vrp03-img clip" data-start="0.3" data-duration="3.2267" data-track-index="2" id="vrp03-img1">
-        <img src="assets/vraiprobleme-1.jpg" alt="" />
+      <div class="vrp03-img clip" data-start="0.3" data-duration="2.535" data-track-index="2" id="vrp03-img1">
+        <img src="assets/vraiprobleme-1.png" alt="" />
       </div>
-      <div class="vrp03-img clip" data-start="3.5267" data-duration="3.2267" data-track-index="2" id="vrp03-img2">
-        <img src="assets/vraiprobleme-2.png" alt="" />
+      <div class="vrp03-img clip" data-start="2.835" data-duration="1.103" data-track-index="2" id="vrp03-img2">
+        <img src="assets/vraiprobleme-2.jpg" alt="" />
       </div>
-      <div class="vrp03-img clip" data-start="6.7534" data-duration="3.2266" data-track-index="2" id="vrp03-img3">
+      <div class="vrp03-img clip" data-start="3.938" data-duration="1.888" data-track-index="2" id="vrp03-img3">
         <img src="assets/vraiprobleme-3.jpg" alt="" />
+      </div>
+      <div class="vrp03-img clip" data-start="5.826" data-duration="2.269" data-track-index="2" id="vrp03-img4">
+        <img src="assets/vraiprobleme-4.jpg" alt="" />
+      </div>
+      <div class="vrp03-img clip" data-start="8.095" data-duration="1.885" data-track-index="2" id="vrp03-img5">
+        <img src="assets/vraiprobleme-5.jpg" alt="" />
       </div>
   </div>
 
@@ -97,11 +103,13 @@
       }
 
       beat("vrp03-img1", 0.3);
-      beat("vrp03-img2", 3.5267);
-      beat("vrp03-img3", 6.7534);
+      beat("vrp03-img2", 2.835);
+      beat("vrp03-img3", 3.938);
+      beat("vrp03-img4", 5.826);
+      beat("vrp03-img5", 8.095);
 
       var phase = { p: 0 };
-      var IDLE_START = 7.1534;
+      var IDLE_START = 8.495;
       var IDLE_DUR = 9.98 - IDLE_START;
       if (IDLE_DUR > 0.3) {
         tl.to(phase, {
@@ -110,7 +118,7 @@
           ease: "none",
           onUpdate: function () {
             var s = Math.sin(phase.p);
-            document.getElementById("vrp03-img3").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+            document.getElementById("vrp03-img5").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
           },
         }, IDLE_START);
       }

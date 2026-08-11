@@ -70,14 +70,17 @@
   <div id="root" data-composition-id="07-benefice" data-duration="13.046" data-width="1080" data-height="1920">
     <div class="bnf07-bg clip" data-start="0" data-duration="13.046" data-track-index="0"></div>
     <div class="bnf07-counter clip" data-start="0" data-duration="13.046" data-track-index="1">07</div>
-      <div class="bnf07-img clip" data-start="0.3" data-duration="4.2487" data-track-index="2" id="bnf07-img1">
-        <img src="assets/benefice-1.jpg" alt="" />
+      <div class="bnf07-img clip" data-start="0.3" data-duration="1.969" data-track-index="2" id="bnf07-img1">
+        <img src="assets/benefice-1.webp" alt="" />
       </div>
-      <div class="bnf07-img clip" data-start="4.5487" data-duration="4.2487" data-track-index="2" id="bnf07-img2">
+      <div class="bnf07-img clip" data-start="2.269" data-duration="1.995" data-track-index="2" id="bnf07-img2">
         <img src="assets/benefice-2.jpg" alt="" />
       </div>
-      <div class="bnf07-img clip" data-start="8.7974" data-duration="4.2486" data-track-index="2" id="bnf07-img3">
-        <img src="assets/benefice-3.png" alt="" />
+      <div class="bnf07-img clip" data-start="4.264" data-duration="4.897" data-track-index="2" id="bnf07-img3">
+        <img src="assets/benefice-3.jpg" alt="" />
+      </div>
+      <div class="bnf07-img clip" data-start="9.161" data-duration="3.885" data-track-index="2" id="bnf07-img4">
+        <img src="assets/benefice-4.jpg" alt="" />
       </div>
   </div>
 
@@ -97,11 +100,12 @@
       }
 
       beat("bnf07-img1", 0.3);
-      beat("bnf07-img2", 4.5487);
-      beat("bnf07-img3", 8.7974);
+      beat("bnf07-img2", 2.269);
+      beat("bnf07-img3", 4.264);
+      beat("bnf07-img4", 9.161);
 
       var phase = { p: 0 };
-      var IDLE_START = 9.1974;
+      var IDLE_START = 9.561;
       var IDLE_DUR = 13.046 - IDLE_START;
       if (IDLE_DUR > 0.3) {
         tl.to(phase, {
@@ -110,7 +114,7 @@
           ease: "none",
           onUpdate: function () {
             var s = Math.sin(phase.p);
-            document.getElementById("bnf07-img3").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+            document.getElementById("bnf07-img4").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
           },
         }, IDLE_START);
       }
