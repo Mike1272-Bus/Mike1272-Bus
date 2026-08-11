@@ -1,0 +1,122 @@
+[
+  {
+    "id": "w0",
+    "text": "Résultat",
+    "start": 0,
+    "end": 0.641
+  },
+  {
+    "id": "w1",
+    "text": ":",
+    "start": 0.701,
+    "end": 0.901
+  },
+  {
+    "id": "w2",
+    "text": "le",
+    "start": 0.961,
+    "end": 1.121
+  },
+  {
+    "id": "w3",
+    "text": "client",
+    "start": 1.181,
+    "end": 1.662
+  },
+  {
+    "id": "w4",
+    "text": "hésite,",
+    "start": 1.722,
+    "end": 2.323
+  },
+  {
+    "id": "w5",
+    "text": "il",
+    "start": 2.383,
+    "end": 2.543
+  },
+  {
+    "id": "w6",
+    "text": "a",
+    "start": 2.603,
+    "end": 2.683
+  },
+  {
+    "id": "w7",
+    "text": "peur",
+    "start": 2.743,
+    "end": 3.064
+  },
+  {
+    "id": "w8",
+    "text": "de",
+    "start": 3.124,
+    "end": 3.284
+  },
+  {
+    "id": "w9",
+    "text": "payer",
+    "start": 3.344,
+    "end": 3.745
+  },
+  {
+    "id": "w10",
+    "text": "pour",
+    "start": 3.805,
+    "end": 4.125
+  },
+  {
+    "id": "w11",
+    "text": "rien,",
+    "start": 4.185,
+    "end": 4.626
+  },
+  {
+    "id": "w12",
+    "text": "et",
+    "start": 4.686,
+    "end": 4.846
+  },
+  {
+    "id": "w13",
+    "text": "il",
+    "start": 4.906,
+    "end": 5.066
+  },
+  {
+    "id": "w14",
+    "text": "part",
+    "start": 5.126,
+    "end": 5.447
+  },
+  {
+    "id": "w15",
+    "text": "sans",
+    "start": 5.507,
+    "end": 5.827
+  },
+  {
+    "id": "w16",
+    "text": "même",
+    "start": 5.887,
+    "end": 6.208
+  },
+  {
+    "id": "w17",
+    "text": "t'écrire",
+    "start": 6.268,
+    "end": 6.828
+  },
+  {
+    "id": "w18",
+    "text": "pour",
+    "start": 6.888,
+    "end": 7.209
+  },
+  {
+    "id": "w19",
+    "text": "vérifier.",
+    "start": 7.269,
+    "end": 8.11
+  }
+]

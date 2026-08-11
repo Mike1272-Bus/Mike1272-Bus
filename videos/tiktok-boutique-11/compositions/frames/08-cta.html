@@ -1,0 +1,138 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background: transparent;
+      font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    }
+    #root * { box-sizing: border-box; }
+
+    .cta08-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #fe90e8 55%, #f7cb46 55%);
+    }
+    .cta08-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+
+    .cta08-img {
+      position: absolute;
+      left: 50%;
+      top: 0px;
+      width: 1080px;
+      height: 1920px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .cta08-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .cta08-particle-field {
+      position: absolute;
+      left: 50%;
+      top: 1070px;
+      width: 0;
+      height: 0;
+    }
+    .cta08-particle {
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 50%;
+      opacity: 0;
+    }
+  </style>
+
+  <div id="root" data-composition-id="08-cta" data-duration="4.5" data-width="1080" data-height="1920">
+    <div class="cta08-bg clip" data-start="0" data-duration="4.5" data-track-index="0"></div>
+
+    <div class="cta08-img clip" data-start="0.3" data-duration="4.2" data-track-index="1" id="cta08-img">
+      <img src="assets/cta-1.png" alt="" />
+      <div class="cta08-particle-field" id="cta08-particle-field"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+
+      var prand = function (n) {
+        var x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+        return x - Math.floor(x);
+      };
+
+      var bg = document.querySelector(".cta08-bg");
+      var card = document.getElementById("cta08-img");
+      var field = document.getElementById("cta08-particle-field");
+
+      var PARTICLE_COUNT = 8;
+      var palette = ["#000000", "#FFFDF5", "#99E885", "#C0F7FE"];
+      var parts = [];
+      for (var i = 0; i < PARTICLE_COUNT; i++) {
+        var el = document.createElement("div");
+        el.className = "cta08-particle";
+        var size = 6 + prand(i * 3 + 1) * 4;
+        el.style.width = size + "px";
+        el.style.height = size + "px";
+        el.style.background = palette[i % palette.length];
+        el.style.border = "2px solid #000";
+        field.appendChild(el);
+
+        var angle = prand(i * 5 + 2) * Math.PI * 2;
+        var speed = 220 + prand(i * 7 + 3) * 160;
+        parts.push({ el: el, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed });
+      }
+
+      var tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(bg, { scale: 1.06, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" }, 0);
+
+      tl.fromTo(
+        card,
+        { scale: 0.85, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)" },
+        0.3
+      );
+
+      var drive = { T: 0 };
+      var FLIGHT_DUR = 0.55;
+      var FADE_FRAC = 0.3;
+      tl.fromTo(
+        drive,
+        { T: 0 },
+        {
+          T: 1,
+          duration: FLIGHT_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var t = drive.T * FLIGHT_DUR;
+            var fade = Math.min(1, (1 - drive.T) / FADE_FRAC);
+            parts.forEach(function (p) {
+              var x = p.vx * t;
+              var y = p.vy * t + 0.5 * 60 * t * t;
+              p.el.style.transform = "translate(" + x + "px, " + y + "px)";
+              p.el.style.opacity = String(drive.T === 0 ? 0 : fade);
+            });
+          },
+        },
+        0.7
+      );
+
+      window.__timelines["08-cta"] = tl;
+    })();
+  </script>
+</template>
