@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="./vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #FFFFFF; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="116.846"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div
+        id="el-01"
+        class="scene"
+        data-composition-id="01"
+        data-composition-src="compositions/frames/01.html"
+        data-start="0"
+        data-duration="11.95"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-02"
+        class="scene"
+        data-composition-id="02"
+        data-composition-src="compositions/frames/02.html"
+        data-start="11.95"
+        data-duration="19.44"
+        data-track-index="1"
+      ></div>
+      <div
+        id="el-03"
+        class="scene"
+        data-composition-id="03"
+        data-composition-src="compositions/frames/03.html"
+        data-start="31.39"
+        data-duration="12.69"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-04"
+        class="scene"
+        data-composition-id="04"
+        data-composition-src="compositions/frames/04.html"
+        data-start="44.08"
+        data-duration="17.81"
+        data-track-index="1"
+      ></div>
+      <div
+        id="el-05"
+        class="scene"
+        data-composition-id="05"
+        data-composition-src="compositions/frames/05.html"
+        data-start="61.89"
+        data-duration="13.95"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-06"
+        class="scene"
+        data-composition-id="06"
+        data-composition-src="compositions/frames/06.html"
+        data-start="75.84"
+        data-duration="17.49"
+        data-track-index="1"
+      ></div>
+      <div
+        id="el-07"
+        class="scene"
+        data-composition-id="07"
+        data-composition-src="compositions/frames/07.html"
+        data-start="93.33"
+        data-duration="15.3"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-08"
+        class="scene"
+        data-composition-id="08"
+        data-composition-src="compositions/frames/08.html"
+        data-start="108.63"
+        data-duration="8.216"
+        data-track-index="1"
+      ></div>
+
+      <audio
+        id="el-voice"
+        src="audio/voice.mp3"
+        data-start="0"
+        data-duration="116.846"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+      (function () { var tl = window.__timelines["main"];
+        tl.to("#el-01", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 11.95);
+        tl.fromTo("#el-02", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 11.95);
+        tl.to("#el-02", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 31.39);
+        tl.fromTo("#el-03", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 31.39);
+        tl.to("#el-03", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 44.08);
+        tl.fromTo("#el-04", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 44.08);
+        tl.to("#el-04", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 61.89);
+        tl.fromTo("#el-05", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 61.89);
+        tl.to("#el-05", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 75.84);
+        tl.fromTo("#el-06", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 75.84);
+        tl.to("#el-06", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 93.33);
+        tl.fromTo("#el-07", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 93.33);
+        tl.to("#el-07", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 108.63);
+        tl.fromTo("#el-08", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 108.63);
+        tl.to({}, { duration: 116.846 }, 0);
+      })();
+    </script>
+  </body>
+</html>

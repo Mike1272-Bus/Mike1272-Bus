@@ -1,0 +1,134 @@
+[
+  {
+    "id": "w0",
+    "text": "Mon",
+    "start": 0,
+    "end": 0.329
+  },
+  {
+    "id": "w1",
+    "text": "avis",
+    "start": 0.389,
+    "end": 0.827
+  },
+  {
+    "id": "w2",
+    "text": ":",
+    "start": 0.887,
+    "end": 1.162
+  },
+  {
+    "id": "w3",
+    "text": "ton",
+    "start": 1.222,
+    "end": 1.551
+  },
+  {
+    "id": "w4",
+    "text": "produit",
+    "start": 1.611,
+    "end": 2.378
+  },
+  {
+    "id": "w5",
+    "text": "est",
+    "start": 2.438,
+    "end": 2.767
+  },
+  {
+    "id": "w6",
+    "text": "bon.",
+    "start": 2.827,
+    "end": 3.43
+  },
+  {
+    "id": "w7",
+    "text": "Le",
+    "start": 3.49,
+    "end": 3.709
+  },
+  {
+    "id": "w8",
+    "text": "problème,",
+    "start": 3.769,
+    "end": 4.811
+  },
+  {
+    "id": "w9",
+    "text": "c'est",
+    "start": 4.871,
+    "end": 5.309
+  },
+  {
+    "id": "w10",
+    "text": "que",
+    "start": 5.369,
+    "end": 5.698
+  },
+  {
+    "id": "w11",
+    "text": "ta",
+    "start": 5.758,
+    "end": 5.978
+  },
+  {
+    "id": "w12",
+    "text": "page",
+    "start": 6.038,
+    "end": 6.476
+  },
+  {
+    "id": "w13",
+    "text": "ressemble",
+    "start": 6.536,
+    "end": 7.523
+  },
+  {
+    "id": "w14",
+    "text": "à",
+    "start": 7.583,
+    "end": 7.693
+  },
+  {
+    "id": "w15",
+    "text": "un",
+    "start": 7.753,
+    "end": 7.972
+  },
+  {
+    "id": "w16",
+    "text": "profil",
+    "start": 8.032,
+    "end": 8.69
+  },
+  {
+    "id": "w17",
+    "text": "personnel,",
+    "start": 8.75,
+    "end": 9.901
+  },
+  {
+    "id": "w18",
+    "text": "pas",
+    "start": 9.961,
+    "end": 10.29
+  },
+  {
+    "id": "w19",
+    "text": "à",
+    "start": 10.35,
+    "end": 10.459
+  },
+  {
+    "id": "w20",
+    "text": "un",
+    "start": 10.519,
+    "end": 10.739
+  },
+  {
+    "id": "w21",
+    "text": "business.",
+    "start": 10.799,
+    "end": 11.95
+  }
+]

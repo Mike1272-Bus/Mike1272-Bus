@@ -1,0 +1,137 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+    }
+    #root * { box-sizing: border-box; }
+
+    .sc04-bg { position: absolute; inset: 0; background-color: #f7cb46; }
+    .sc04-bg::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(0,0,0,0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+    .sc04-counter {
+      position: absolute; left: 60px; top: 90px;
+      width: 84px; height: 84px; border-radius: 50%;
+      background: #fff; border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-display); font-weight: 800; font-size: 26px;
+    }
+    .sc04-phrase {
+      position: absolute; left: 90px; right: 90px; top: 50%;
+      transform: translateY(-50%) scale(0.7);
+      font-family: var(--f-display); font-weight: 900; font-size: 76px; line-height: 1.14;
+      color: var(--black); text-align: center; text-transform: uppercase;
+      opacity: 0;
+      background: var(--offwhite);
+      border: 6px solid var(--black); box-shadow: 12px 12px 0 var(--black);
+      padding: 40px 36px;
+    }
+    .sc04-cursor {
+      position: absolute; width: 54px; height: 54px;
+      transform: translate(-6px, -4px) scale(0);
+      opacity: 0;
+      filter: drop-shadow(3px 4px 0 rgba(0,0,0,0.35));
+      z-index: 5;
+    }
+    .sc04-ripple {
+      position: absolute; left: 6px; top: 4px;
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 4px solid var(--black); opacity: 0;
+    }
+  </style>
+
+  <div id="root" data-composition-id="04" data-duration="17.81" data-width="1080" data-height="1920">
+    <div class="sc04-bg clip" data-start="0" data-duration="17.81" data-track-index="0"></div>
+    <div class="sc04-counter clip" data-start="0" data-duration="17.81" data-track-index="1">04</div>
+      <div class="sc04-phrase" id="sc04-phrase0">Même si ton</div>
+      <div class="sc04-phrase" id="sc04-phrase1">produit est excellent,</div>
+      <div class="sc04-phrase" id="sc04-phrase2">cette première impression</div>
+      <div class="sc04-phrase" id="sc04-phrase3">suffit à faire</div>
+      <div class="sc04-phrase" id="sc04-phrase4">fuir quelqu'un avant</div>
+      <div class="sc04-phrase" id="sc04-phrase5">même qu'il te</div>
+      <div class="sc04-phrase" id="sc04-phrase6">pose une question.</div>
+      <div class="sc04-cursor" id="sc04-cursor0" style="left:760px; top:520px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc04-ripple" id="sc04-ripple0"></div>
+      </div>
+      <div class="sc04-cursor" id="sc04-cursor1" style="left:260px; top:1300px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc04-ripple" id="sc04-ripple1"></div>
+      </div>
+      <div class="sc04-cursor" id="sc04-cursor2" style="left:800px; top:1350px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc04-ripple" id="sc04-ripple2"></div>
+      </div>
+      <div class="sc04-cursor" id="sc04-cursor3" style="left:230px; top:560px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc04-ripple" id="sc04-ripple3"></div>
+      </div>
+      <div class="sc04-cursor" id="sc04-cursor4" style="left:780px; top:1000px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc04-ripple" id="sc04-ripple4"></div>
+      </div>
+      <div class="sc04-cursor" id="sc04-cursor5" style="left:250px; top:980px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc04-ripple" id="sc04-ripple5"></div>
+      </div>
+      <div class="sc04-cursor" id="sc04-cursor6" style="left:740px; top:1420px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc04-ripple" id="sc04-ripple6"></div>
+      </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      function showPhrase(i, start, dur) {
+        var phrase = document.getElementById("sc04-phrase" + i);
+        var cursor = document.getElementById("sc04-cursor" + i);
+        var ripple = document.getElementById("sc04-ripple" + i);
+        var prevPhrase = i > 0 ? document.getElementById("sc04-phrase" + (i - 1)) : null;
+        var prevCursor = i > 0 ? document.getElementById("sc04-cursor" + (i - 1)) : null;
+
+        if (prevPhrase) {
+          tl.to(prevPhrase, { opacity: 0, scale: 0.85, duration: 0.18, ease: "power2.in" }, start - 0.02);
+        }
+        if (prevCursor) {
+          tl.to(prevCursor, { opacity: 0, scale: 0, duration: 0.15, ease: "power2.in" }, start - 0.02);
+        }
+
+        // cursor arrives just before the phrase pops in, then "clicks"
+        tl.fromTo(cursor, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, start);
+        tl.to(cursor, { scale: 0.8, duration: 0.08, ease: "power1.in" }, start + 0.18);
+        tl.to(cursor, { scale: 1, duration: 0.1, ease: "power1.out" }, start + 0.26);
+        tl.fromTo(ripple, { opacity: 0.6, scale: 0.3 }, { opacity: 0, scale: 2.2, duration: 0.4, ease: "power2.out" }, start + 0.2);
+
+        tl.fromTo(
+          phrase,
+          { opacity: 0, scale: 0.7, rotation: -2 },
+          { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2)" },
+          start + 0.22
+        );
+      }
+
+      showPhrase(0, 0, 1.5510);
+      showPhrase(1, 1.551, 3.3040);
+      showPhrase(2, 4.855, 3.6850);
+      showPhrase(3, 8.54, 2.0090);
+      showPhrase(4, 10.549, 2.7700);
+      showPhrase(5, 13.319, 1.7040);
+      showPhrase(6, 15.023, 2.7870);
+
+      window.__timelines["04"] = tl;
+    })();
+  </script>
+</template>

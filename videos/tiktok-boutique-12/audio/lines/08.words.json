@@ -1,0 +1,80 @@
+[
+  {
+    "id": "w0",
+    "text": "Écris",
+    "start": 0,
+    "end": 0.59
+  },
+  {
+    "id": "w1",
+    "text": "\"MARQUE\"",
+    "start": 0.65,
+    "end": 1.359
+  },
+  {
+    "id": "w2",
+    "text": "en",
+    "start": 1.419,
+    "end": 1.655
+  },
+  {
+    "id": "w3",
+    "text": "message",
+    "start": 1.715,
+    "end": 2.541
+  },
+  {
+    "id": "w4",
+    "text": "si",
+    "start": 2.601,
+    "end": 2.837
+  },
+  {
+    "id": "w5",
+    "text": "tu",
+    "start": 2.897,
+    "end": 3.133
+  },
+  {
+    "id": "w6",
+    "text": "veux",
+    "start": 3.193,
+    "end": 3.665
+  },
+  {
+    "id": "w7",
+    "text": "qu'on",
+    "start": 3.725,
+    "end": 4.198
+  },
+  {
+    "id": "w8",
+    "text": "t'aide",
+    "start": 4.258,
+    "end": 4.848
+  },
+  {
+    "id": "w9",
+    "text": "à",
+    "start": 4.908,
+    "end": 5.026
+  },
+  {
+    "id": "w10",
+    "text": "professionnaliser",
+    "start": 5.086,
+    "end": 7.093
+  },
+  {
+    "id": "w11",
+    "text": "ta",
+    "start": 7.153,
+    "end": 7.389
+  },
+  {
+    "id": "w12",
+    "text": "page.",
+    "start": 7.449,
+    "end": 8.216
+  }
+]
