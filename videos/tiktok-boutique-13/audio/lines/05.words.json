@@ -1,0 +1,200 @@
+[
+  {
+    "id": "w0",
+    "text": "Tu",
+    "start": 0,
+    "end": 0.162
+  },
+  {
+    "id": "w1",
+    "text": "l'as",
+    "start": 0.222,
+    "end": 0.465
+  },
+  {
+    "id": "w2",
+    "text": "déjà",
+    "start": 0.525,
+    "end": 0.849
+  },
+  {
+    "id": "w3",
+    "text": "vécu",
+    "start": 0.909,
+    "end": 1.233
+  },
+  {
+    "id": "w4",
+    "text": ":",
+    "start": 1.293,
+    "end": 1.496
+  },
+  {
+    "id": "w5",
+    "text": "un",
+    "start": 1.556,
+    "end": 1.718
+  },
+  {
+    "id": "w6",
+    "text": "client",
+    "start": 1.778,
+    "end": 2.264
+  },
+  {
+    "id": "w7",
+    "text": "intéressé,",
+    "start": 2.324,
+    "end": 3.174
+  },
+  {
+    "id": "w8",
+    "text": "qui",
+    "start": 3.234,
+    "end": 3.477
+  },
+  {
+    "id": "w9",
+    "text": "négocie,",
+    "start": 3.537,
+    "end": 4.226
+  },
+  {
+    "id": "w10",
+    "text": "qui",
+    "start": 4.285,
+    "end": 4.529
+  },
+  {
+    "id": "w11",
+    "text": "dit",
+    "start": 4.588,
+    "end": 4.832
+  },
+  {
+    "id": "w12",
+    "text": "\"je",
+    "start": 4.891,
+    "end": 5.053
+  },
+  {
+    "id": "w13",
+    "text": "vais",
+    "start": 5.113,
+    "end": 5.437
+  },
+  {
+    "id": "w14",
+    "text": "payer\"",
+    "start": 5.497,
+    "end": 5.902
+  },
+  {
+    "id": "w15",
+    "text": "—",
+    "start": 5.962,
+    "end": 6.043
+  },
+  {
+    "id": "w16",
+    "text": "et",
+    "start": 6.103,
+    "end": 6.265
+  },
+  {
+    "id": "w17",
+    "text": "puis",
+    "start": 6.325,
+    "end": 6.649
+  },
+  {
+    "id": "w18",
+    "text": "plus",
+    "start": 6.709,
+    "end": 7.033
+  },
+  {
+    "id": "w19",
+    "text": "rien.",
+    "start": 7.093,
+    "end": 7.62
+  },
+  {
+    "id": "w20",
+    "text": "Ce",
+    "start": 7.68,
+    "end": 7.842
+  },
+  {
+    "id": "w21",
+    "text": "n'est",
+    "start": 7.902,
+    "end": 8.226
+  },
+  {
+    "id": "w22",
+    "text": "pas",
+    "start": 8.286,
+    "end": 8.529
+  },
+  {
+    "id": "w23",
+    "text": "le",
+    "start": 8.589,
+    "end": 8.751
+  },
+  {
+    "id": "w24",
+    "text": "prix",
+    "start": 8.811,
+    "end": 9.135
+  },
+  {
+    "id": "w25",
+    "text": "qui",
+    "start": 9.195,
+    "end": 9.438
+  },
+  {
+    "id": "w26",
+    "text": "l'a",
+    "start": 9.498,
+    "end": 9.66
+  },
+  {
+    "id": "w27",
+    "text": "arrêté.",
+    "start": 9.72,
+    "end": 10.409
+  },
+  {
+    "id": "w28",
+    "text": "C'est",
+    "start": 10.469,
+    "end": 10.793
+  },
+  {
+    "id": "w29",
+    "text": "le",
+    "start": 10.853,
+    "end": 11.015
+  },
+  {
+    "id": "w30",
+    "text": "moment",
+    "start": 11.075,
+    "end": 11.561
+  },
+  {
+    "id": "w31",
+    "text": "de",
+    "start": 11.621,
+    "end": 11.783
+  },
+  {
+    "id": "w32",
+    "text": "payer.",
+    "start": 11.843,
+    "end": 12.45
+  }
+]

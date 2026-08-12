@@ -1,0 +1,96 @@
+<template>
+  <style>
+    #root { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif; --black:#000; --offwhite:#fffdf5; }
+    #root * { box-sizing: border-box; }
+    .sc09-bg { position: absolute; inset: 0; background-color: #f7cb46; }
+    .sc09-bg::before { content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(0,0,0,0.08) 1.2px, transparent 1.6px); background-size: 24px 24px; }
+    .sc09-counter { position: absolute; left: 60px; top: 90px; width: 84px; height: 84px; border-radius: 50%;
+      background: #fff; border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black);
+      display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-weight: 800; font-size: 26px; }
+    .sc09-phrase { position: absolute; left: 90px; right: 90px; top: 50%; transform: translateY(-50%) scale(0.7);
+      font-family: var(--f-display); font-weight: 900; font-size: 72px; line-height: 1.14; color: var(--black);
+      text-align: center; text-transform: uppercase; opacity: 0; background: var(--offwhite);
+      border: 6px solid var(--black); box-shadow: 12px 12px 0 var(--black); padding: 40px 36px; }
+    .sc09-cursor { position: absolute; width: 54px; height: 54px; transform: translate(-6px, -4px) scale(0);
+      opacity: 0; filter: drop-shadow(3px 4px 0 rgba(0,0,0,0.35)); z-index: 5; }
+    .sc09-ripple { position: absolute; left: 6px; top: 4px; width: 30px; height: 30px; border-radius: 50%;
+      border: 4px solid var(--black); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="09" data-duration="9.02" data-width="1080" data-height="1920">
+    <div class="sc09-bg clip" data-start="0" data-duration="9.02" data-track-index="0"></div>
+    <div class="sc09-counter clip" data-start="0" data-duration="9.02" data-track-index="1">09</div>
+      <div class="sc09-phrase" id="sc09-phrase0">Un bon produit</div>
+      <div class="sc09-phrase" id="sc09-phrase1">reste important.</div>
+      <div class="sc09-phrase" id="sc09-phrase2">Mais si le</div>
+      <div class="sc09-phrase" id="sc09-phrase3">moment de payer</div>
+      <div class="sc09-phrase" id="sc09-phrase4">fait peur,</div>
+      <div class="sc09-phrase" id="sc09-phrase5">même le meilleur</div>
+      <div class="sc09-phrase" id="sc09-phrase6">produit du monde</div>
+      <div class="sc09-phrase" id="sc09-phrase7">reste invendu.</div>
+      <div class="sc09-cursor" id="sc09-cursor0" style="left:760px; top:520px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc09-ripple" id="sc09-ripple0"></div>
+      </div>
+      <div class="sc09-cursor" id="sc09-cursor1" style="left:260px; top:1300px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc09-ripple" id="sc09-ripple1"></div>
+      </div>
+      <div class="sc09-cursor" id="sc09-cursor2" style="left:800px; top:1350px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc09-ripple" id="sc09-ripple2"></div>
+      </div>
+      <div class="sc09-cursor" id="sc09-cursor3" style="left:230px; top:560px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc09-ripple" id="sc09-ripple3"></div>
+      </div>
+      <div class="sc09-cursor" id="sc09-cursor4" style="left:780px; top:1000px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc09-ripple" id="sc09-ripple4"></div>
+      </div>
+      <div class="sc09-cursor" id="sc09-cursor5" style="left:250px; top:980px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc09-ripple" id="sc09-ripple5"></div>
+      </div>
+      <div class="sc09-cursor" id="sc09-cursor6" style="left:740px; top:1420px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc09-ripple" id="sc09-ripple6"></div>
+      </div>
+      <div class="sc09-cursor" id="sc09-cursor7" style="left:300px; top:480px;">
+        <svg width="54" height="54" viewBox="0 0 24 24"><path d="M4 2 L4 20 L8.5 16.5 L11 22 L13.5 21 L11 15.5 L17 15.5 Z" fill="#fffdf5" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="sc09-ripple" id="sc09-ripple7"></div>
+      </div>
+  </div>
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+      function showPhrase(i, start, dur) {
+        var phrase = document.getElementById("sc09-phrase" + i);
+        var cursor = document.getElementById("sc09-cursor" + i);
+        var ripple = document.getElementById("sc09-ripple" + i);
+        var prevPhrase = i > 0 ? document.getElementById("sc09-phrase" + (i - 1)) : null;
+        var prevCursor = i > 0 ? document.getElementById("sc09-cursor" + (i - 1)) : null;
+        if (prevPhrase) tl.to(prevPhrase, { opacity: 0, scale: 0.85, duration: 0.18, ease: "power2.in" }, start - 0.02);
+        if (prevCursor) tl.to(prevCursor, { opacity: 0, scale: 0, duration: 0.15, ease: "power2.in" }, start - 0.02);
+        tl.fromTo(cursor, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, start);
+        tl.to(cursor, { scale: 0.8, duration: 0.08, ease: "power1.in" }, start + 0.18);
+        tl.to(cursor, { scale: 1, duration: 0.1, ease: "power1.out" }, start + 0.26);
+        tl.fromTo(ripple, { opacity: 0.6, scale: 0.3 }, { opacity: 0, scale: 2.2, duration: 0.4, ease: "power2.out" }, start + 0.2);
+        tl.fromTo(phrase, { opacity: 0, scale: 0.7, rotation: -2 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2)" }, start + 0.22);
+      }
+      showPhrase(0, 0, 1.1050);
+      showPhrase(1, 1.105, 1.3910);
+      showPhrase(2, 2.496, 0.7960);
+      showPhrase(3, 3.292, 1.1820);
+      showPhrase(4, 4.474, 0.8520);
+      showPhrase(5, 5.326, 1.2580);
+      showPhrase(6, 6.584, 1.2590);
+      showPhrase(7, 7.843, 1.1770);
+
+      window.__timelines["09"] = tl;
+    })();
+  </script>
+</template>

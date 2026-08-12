@@ -1,0 +1,188 @@
+[
+  {
+    "id": "w0",
+    "text": "Résultat",
+    "start": 0,
+    "end": 0.535
+  },
+  {
+    "id": "w1",
+    "text": ":",
+    "start": 0.595,
+    "end": 0.763
+  },
+  {
+    "id": "w2",
+    "text": "moins",
+    "start": 0.823,
+    "end": 1.157
+  },
+  {
+    "id": "w3",
+    "text": "d'hésitation",
+    "start": 1.217,
+    "end": 1.954
+  },
+  {
+    "id": "w4",
+    "text": "au",
+    "start": 2.014,
+    "end": 2.148
+  },
+  {
+    "id": "w5",
+    "text": "moment",
+    "start": 2.208,
+    "end": 2.609
+  },
+  {
+    "id": "w6",
+    "text": "de",
+    "start": 2.669,
+    "end": 2.803
+  },
+  {
+    "id": "w7",
+    "text": "payer,",
+    "start": 2.863,
+    "end": 3.298
+  },
+  {
+    "id": "w8",
+    "text": "moins",
+    "start": 3.358,
+    "end": 3.693
+  },
+  {
+    "id": "w9",
+    "text": "de",
+    "start": 3.753,
+    "end": 3.887
+  },
+  {
+    "id": "w10",
+    "text": "clients",
+    "start": 3.947,
+    "end": 4.415
+  },
+  {
+    "id": "w11",
+    "text": "qui",
+    "start": 4.475,
+    "end": 4.676
+  },
+  {
+    "id": "w12",
+    "text": "disparaissent",
+    "start": 4.736,
+    "end": 5.606
+  },
+  {
+    "id": "w13",
+    "text": "après",
+    "start": 5.666,
+    "end": 6.001
+  },
+  {
+    "id": "w14",
+    "text": "avoir",
+    "start": 6.061,
+    "end": 6.395
+  },
+  {
+    "id": "w15",
+    "text": "dit",
+    "start": 6.455,
+    "end": 6.656
+  },
+  {
+    "id": "w16",
+    "text": "\"je",
+    "start": 6.716,
+    "end": 6.85
+  },
+  {
+    "id": "w17",
+    "text": "vais",
+    "start": 6.91,
+    "end": 7.178
+  },
+  {
+    "id": "w18",
+    "text": "payer\"",
+    "start": 7.238,
+    "end": 7.573
+  },
+  {
+    "id": "w19",
+    "text": "—",
+    "start": 7.633,
+    "end": 7.699
+  },
+  {
+    "id": "w20",
+    "text": "et",
+    "start": 7.759,
+    "end": 7.893
+  },
+  {
+    "id": "w21",
+    "text": "toi,",
+    "start": 7.953,
+    "end": 8.255
+  },
+  {
+    "id": "w22",
+    "text": "tu",
+    "start": 8.315,
+    "end": 8.448
+  },
+  {
+    "id": "w23",
+    "text": "arrêtes",
+    "start": 8.508,
+    "end": 8.977
+  },
+  {
+    "id": "w24",
+    "text": "de",
+    "start": 9.037,
+    "end": 9.171
+  },
+  {
+    "id": "w25",
+    "text": "jouer",
+    "start": 9.231,
+    "end": 9.565
+  },
+  {
+    "id": "w26",
+    "text": "les",
+    "start": 9.625,
+    "end": 9.826
+  },
+  {
+    "id": "w27",
+    "text": "comptables",
+    "start": 9.886,
+    "end": 10.556
+  },
+  {
+    "id": "w28",
+    "text": "toute",
+    "start": 10.616,
+    "end": 10.95
+  },
+  {
+    "id": "w29",
+    "text": "la",
+    "start": 11.01,
+    "end": 11.144
+  },
+  {
+    "id": "w30",
+    "text": "journée.",
+    "start": 11.204,
+    "end": 11.84
+  }
+]

@@ -1,0 +1,188 @@
+[
+  {
+    "id": "w0",
+    "text": "Et",
+    "start": 0,
+    "end": 0.147
+  },
+  {
+    "id": "w1",
+    "text": "le",
+    "start": 0.207,
+    "end": 0.354
+  },
+  {
+    "id": "w2",
+    "text": "Mobile",
+    "start": 0.414,
+    "end": 0.855
+  },
+  {
+    "id": "w3",
+    "text": "Money,",
+    "start": 0.915,
+    "end": 1.393
+  },
+  {
+    "id": "w4",
+    "text": "aussi",
+    "start": 1.453,
+    "end": 1.82
+  },
+  {
+    "id": "w5",
+    "text": "pratique",
+    "start": 1.88,
+    "end": 2.468
+  },
+  {
+    "id": "w6",
+    "text": "soit-il,",
+    "start": 2.528,
+    "end": 3.079
+  },
+  {
+    "id": "w7",
+    "text": "ajoute",
+    "start": 3.139,
+    "end": 3.58
+  },
+  {
+    "id": "w8",
+    "text": "encore",
+    "start": 3.64,
+    "end": 4.081
+  },
+  {
+    "id": "w9",
+    "text": "une",
+    "start": 4.141,
+    "end": 4.362
+  },
+  {
+    "id": "w10",
+    "text": "étape",
+    "start": 4.422,
+    "end": 4.789
+  },
+  {
+    "id": "w11",
+    "text": ":",
+    "start": 4.849,
+    "end": 5.033
+  },
+  {
+    "id": "w12",
+    "text": "capture",
+    "start": 5.093,
+    "end": 5.607
+  },
+  {
+    "id": "w13",
+    "text": "d'écran,",
+    "start": 5.667,
+    "end": 6.218
+  },
+  {
+    "id": "w14",
+    "text": "vérification",
+    "start": 6.278,
+    "end": 7.16
+  },
+  {
+    "id": "w15",
+    "text": "manuelle,",
+    "start": 7.22,
+    "end": 7.918
+  },
+  {
+    "id": "w16",
+    "text": "attente...",
+    "start": 7.978,
+    "end": 8.677
+  },
+  {
+    "id": "w17",
+    "text": "chaque",
+    "start": 8.737,
+    "end": 9.178
+  },
+  {
+    "id": "w18",
+    "text": "étape",
+    "start": 9.238,
+    "end": 9.605
+  },
+  {
+    "id": "w19",
+    "text": "en",
+    "start": 9.665,
+    "end": 9.812
+  },
+  {
+    "id": "w20",
+    "text": "plus,",
+    "start": 9.872,
+    "end": 10.276
+  },
+  {
+    "id": "w21",
+    "text": "c'est",
+    "start": 10.336,
+    "end": 10.63
+  },
+  {
+    "id": "w22",
+    "text": "un",
+    "start": 10.69,
+    "end": 10.837
+  },
+  {
+    "id": "w23",
+    "text": "client",
+    "start": 10.897,
+    "end": 11.338
+  },
+  {
+    "id": "w24",
+    "text": "qui",
+    "start": 11.398,
+    "end": 11.619
+  },
+  {
+    "id": "w25",
+    "text": "peut",
+    "start": 11.679,
+    "end": 11.972
+  },
+  {
+    "id": "w26",
+    "text": "abandonner",
+    "start": 12.032,
+    "end": 12.767
+  },
+  {
+    "id": "w27",
+    "text": "en",
+    "start": 12.827,
+    "end": 12.974
+  },
+  {
+    "id": "w28",
+    "text": "cours",
+    "start": 13.034,
+    "end": 13.402
+  },
+  {
+    "id": "w29",
+    "text": "de",
+    "start": 13.462,
+    "end": 13.609
+  },
+  {
+    "id": "w30",
+    "text": "route.",
+    "start": 13.669,
+    "end": 14.22
+  }
+]

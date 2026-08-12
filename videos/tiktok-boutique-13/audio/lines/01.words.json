@@ -1,0 +1,152 @@
+[
+  {
+    "id": "w0",
+    "text": "Mon",
+    "start": 0,
+    "end": 0.18
+  },
+  {
+    "id": "w1",
+    "text": "avis,",
+    "start": 0.24,
+    "end": 0.57
+  },
+  {
+    "id": "w2",
+    "text": "et",
+    "start": 0.63,
+    "end": 0.75
+  },
+  {
+    "id": "w3",
+    "text": "je",
+    "start": 0.81,
+    "end": 0.93
+  },
+  {
+    "id": "w4",
+    "text": "sais",
+    "start": 0.99,
+    "end": 1.23
+  },
+  {
+    "id": "w5",
+    "text": "qu'il",
+    "start": 1.29,
+    "end": 1.53
+  },
+  {
+    "id": "w6",
+    "text": "va",
+    "start": 1.59,
+    "end": 1.71
+  },
+  {
+    "id": "w7",
+    "text": "en",
+    "start": 1.77,
+    "end": 1.89
+  },
+  {
+    "id": "w8",
+    "text": "surprendre",
+    "start": 1.95,
+    "end": 2.55
+  },
+  {
+    "id": "w9",
+    "text": "certains",
+    "start": 2.61,
+    "end": 3.09
+  },
+  {
+    "id": "w10",
+    "text": ":",
+    "start": 3.15,
+    "end": 3.3
+  },
+  {
+    "id": "w11",
+    "text": "le",
+    "start": 3.36,
+    "end": 3.48
+  },
+  {
+    "id": "w12",
+    "text": "vrai",
+    "start": 3.54,
+    "end": 3.78
+  },
+  {
+    "id": "w13",
+    "text": "frein",
+    "start": 3.84,
+    "end": 4.14
+  },
+  {
+    "id": "w14",
+    "text": "de",
+    "start": 4.2,
+    "end": 4.32
+  },
+  {
+    "id": "w15",
+    "text": "ton",
+    "start": 4.38,
+    "end": 4.56
+  },
+  {
+    "id": "w16",
+    "text": "e-commerce,",
+    "start": 4.62,
+    "end": 5.25
+  },
+  {
+    "id": "w17",
+    "text": "c'est",
+    "start": 5.31,
+    "end": 5.55
+  },
+  {
+    "id": "w18",
+    "text": "pas",
+    "start": 5.61,
+    "end": 5.79
+  },
+  {
+    "id": "w19",
+    "text": "ton",
+    "start": 5.85,
+    "end": 6.03
+  },
+  {
+    "id": "w20",
+    "text": "produit",
+    "start": 6.09,
+    "end": 6.51
+  },
+  {
+    "id": "w21",
+    "text": "—",
+    "start": 6.57,
+    "end": 6.63
+  },
+  {
+    "id": "w22",
+    "text": "c'est",
+    "start": 6.69,
+    "end": 6.93
+  },
+  {
+    "id": "w23",
+    "text": "le",
+    "start": 6.99,
+    "end": 7.11
+  },
+  {
+    "id": "w24",
+    "text": "paiement.",
+    "start": 7.17,
+    "end": 7.8
+  }
+]
