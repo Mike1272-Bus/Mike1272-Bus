@@ -1,0 +1,219 @@
+<template id="captions-template" data-composition-id="captions" data-width="1080" data-height="1920">
+
+
+<style data-brand-tokens>
+      :root {
+      --black: #000000;
+      --white: #FFFFFF;
+      --offwhite: #FFFDF5;
+      --pink: #FE90E8;
+      --blue: #C0F7FE;
+      --green: #99E885;
+      --yellow: #F7CB46;
+      --cream: #FFDC8B;
+      --cap-ink: #000000;
+      --cap-canvas: #FFFFFF;
+      --cap-accent: #F7CB46;
+      --cap-accent-2: #FFDC8B;
+      --font-display: "Inter", system-ui, serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --cap-band-top: 1600px;
+      --cap-band-height: 320px;
+      }
+    </style>
+
+<style>
+  #captions-root {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .caption-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+  }
+  /* the keep-out band, from captionBand(H) — frame content stays above it */
+  .caption-stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--cap-band-top, 900px);
+    height: var(--cap-band-height, 180px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .caption-group {
+    /* every group is absolutely stacked over the SAME band — exactly one shown at a
+       time via opacity. Must be absolute: in-flow groups would lay out side-by-side. */
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+
+  /* THE bordered card — 4px black border + 8px hard offset shadow (solid black,
+     zero blur, bottom-right — blockframe's sacred depth), square corners */
+  .caption-pill {
+    max-width: 80%;
+    padding: 18px 40px 22px;
+    background: var(--cap-canvas, #ffffff);
+    border: 4px solid var(--cap-ink, #000000);
+    border-radius: 0;
+    box-shadow: 8px 8px 0 var(--cap-ink, #000000);
+  }
+  .caption-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.12em 0.32em;
+    font-family: "Inter", system-ui, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(38px, 4.2vw, 56px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  /* upcoming — faded black ink, no stamp */
+  .caption-word {
+    display: inline-block;
+    padding: 0 0.1em;
+    color: color-mix(in srgb, var(--cap-ink, #000000) 40%, var(--cap-canvas, #ffffff));
+  }
+  /* current word — THE yellow stamp-block (box-shadow spread = a hard square block
+     w/o layout shift; no blur), black ink reading on top — blockframe's signature stamp */
+  .caption-word.is-active {
+    color: var(--cap-ink, #000000);
+    background: var(--cap-accent, #f7cb46);
+    box-shadow: 0 0 0 0.08em var(--cap-accent, #f7cb46);
+  }
+  /* already spoken — solid black ink, stamp cleared */
+  .caption-word.is-spoken {
+    color: var(--cap-ink, #000000);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* optional per-word accents (dormant until a word-classer tags them) */
+  /* brand / key term — heavier ink weight, blockframe's display is already 900 */
+  .caption-word.cap-brand {
+    color: var(--cap-ink, #000000);
+  }
+  /* numerals / data — the body voice, slightly recessed */
+  .caption-word.cap-num {
+    font-family: "Inter", ui-monospace, monospace;
+    color: color-mix(in srgb, var(--cap-ink, #000000) 74%, var(--cap-canvas, #ffffff));
+  }
+  /* emphasis — a cream hard underline bar (the second-chroma accent) */
+  .caption-word.cap-cta {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-decoration-color: var(--cap-accent-2, #ffdc8b);
+    text-underline-offset: 0.12em;
+  }
+
+  @media (max-aspect-ratio: 9/16) {
+    .caption-pill {
+      max-width: 92%;
+    }
+    .caption-line {
+      font-size: clamp(34px, 5.4vw, 48px);
+    }
+  }
+</style>
+
+<div
+  id="captions-root"
+  data-composition-id="captions"
+  data-timeline-locked
+  data-start="0"
+  data-duration="80.6922"
+  data-fps="30"
+  data-width="1080"
+  data-height="1920"
+>
+  <div class="caption-layer" aria-hidden="true">
+    <div id="caption-stage" class="caption-stage"></div>
+  </div>
+</div>
+
+<script>
+  // captions.mjs injects the engine's scene-aware groups + real duration here.
+  var GROUPS = [{"id": "caption-group-0", "frame": 1, "start": 0, "end": 0.813, "text": "Voici un autre", "words": [{"id": "caption-word-0-0", "text": "Voici", "start": 0, "end": 0.289}, {"id": "caption-word-0-1", "text": "un", "start": 0.349, "end": 0.464}, {"id": "caption-word-0-2", "text": "autre", "start": 0.524, "end": 0.813}]}, {"id": "caption-group-1", "frame": 1, "start": 0.873, "end": 1.858, "text": "probl\u00e8me quand tu", "words": [{"id": "caption-word-1-0", "text": "probl\u00e8me", "start": 0.873, "end": 1.334}, {"id": "caption-word-1-1", "text": "quand", "start": 1.394, "end": 1.683}, {"id": "caption-word-1-2", "text": "tu", "start": 1.743, "end": 1.858}]}, {"id": "caption-group-2", "frame": 1, "start": 1.918, "end": 2.847, "text": "fais du business", "words": [{"id": "caption-word-2-0", "text": "fais", "start": 1.918, "end": 2.149}, {"id": "caption-word-2-1", "text": "du", "start": 2.209, "end": 2.325}, {"id": "caption-word-2-2", "text": "business", "start": 2.385, "end": 2.847}]}, {"id": "caption-group-3", "frame": 1, "start": 2.907, "end": 3.546, "text": "en ligne en", "words": [{"id": "caption-word-3-0", "text": "en", "start": 2.907, "end": 3.022}, {"id": "caption-word-3-1", "text": "ligne", "start": 3.082, "end": 3.371}, {"id": "caption-word-3-2", "text": "en", "start": 3.431, "end": 3.546}]}, {"id": "caption-group-4", "frame": 1, "start": 3.606, "end": 4.592, "text": "postant juste des", "words": [{"id": "caption-word-4-0", "text": "postant", "start": 3.606, "end": 4.01}, {"id": "caption-word-4-1", "text": "juste", "start": 4.07, "end": 4.359}, {"id": "caption-word-4-2", "text": "des", "start": 4.419, "end": 4.592}]}, {"id": "caption-group-5", "frame": 1, "start": 4.652, "end": 5.753, "text": "photos sur WhatsApp", "words": [{"id": "caption-word-5-0", "text": "photos", "start": 4.652, "end": 4.998}, {"id": "caption-word-5-1", "text": "sur", "start": 5.058, "end": 5.231}, {"id": "caption-word-5-2", "text": "WhatsApp", "start": 5.291, "end": 5.753}]}, {"id": "caption-group-6", "frame": 1, "start": 5.813, "end": 6.421, "text": "ou TikTok,", "words": [{"id": "caption-word-6-0", "text": "ou", "start": 5.813, "end": 5.929}, {"id": "caption-word-6-1", "text": "TikTok,", "start": 5.989, "end": 6.421}]}, {"id": "caption-group-7", "frame": 1, "start": 6.481, "end": 7.294, "text": "sans une vraie", "words": [{"id": "caption-word-7-0", "text": "sans", "start": 6.481, "end": 6.712}, {"id": "caption-word-7-1", "text": "une", "start": 6.772, "end": 6.946}, {"id": "caption-word-7-2", "text": "vraie", "start": 7.006, "end": 7.294}]}, {"id": "caption-group-8", "frame": 1, "start": 7.354, "end": 7.96, "text": "boutique.", "words": [{"id": "caption-word-8-0", "text": "boutique.", "start": 7.354, "end": 7.96}]}, {"id": "caption-group-9", "frame": 2, "start": 7.9602, "end": 9.0102, "text": "Un client commande,", "words": [{"id": "caption-word-9-0", "text": "Un", "start": 7.9602, "end": 8.0662}, {"id": "caption-word-9-1", "text": "client", "start": 8.1262, "end": 8.4452}, {"id": "caption-word-9-2", "text": "commande,", "start": 8.5052, "end": 9.0102}]}, {"id": "caption-group-10", "frame": 2, "start": 9.0702, "end": 9.7742, "text": "tu lui donnes", "words": [{"id": "caption-word-10-0", "text": "tu", "start": 9.0702, "end": 9.1762}, {"id": "caption-word-10-1", "text": "lui", "start": 9.2362, "end": 9.3952}, {"id": "caption-word-10-2", "text": "donnes", "start": 9.4552, "end": 9.7742}]}, {"id": "caption-group-11", "frame": 2, "start": 9.8342, "end": 10.7512, "text": "ton num\u00e9ro Mobile", "words": [{"id": "caption-word-11-0", "text": "ton", "start": 9.8342, "end": 9.9932}, {"id": "caption-word-11-1", "text": "num\u00e9ro", "start": 10.0532, "end": 10.3722}, {"id": "caption-word-11-2", "text": "Mobile", "start": 10.4322, "end": 10.7512}]}, {"id": "caption-group-12", "frame": 2, "start": 10.8112, "end": 11.1562, "text": "Money,", "words": [{"id": "caption-word-12-0", "text": "Money,", "start": 10.8112, "end": 11.1562}]}, {"id": "caption-group-13", "frame": 2, "start": 11.2162, "end": 12.0262, "text": "et deux minutes", "words": [{"id": "caption-word-13-0", "text": "et", "start": 11.2162, "end": 11.3222}, {"id": "caption-word-13-1", "text": "deux", "start": 11.3822, "end": 11.5942}, {"id": "caption-word-13-2", "text": "minutes", "start": 11.6542, "end": 12.0262}]}, {"id": "caption-group-14", "frame": 2, "start": 12.0862, "end": 12.9502, "text": "apr\u00e8s il t'envoie", "words": [{"id": "caption-word-14-0", "text": "apr\u00e8s", "start": 12.0862, "end": 12.3522}, {"id": "caption-word-14-1", "text": "il", "start": 12.4122, "end": 12.5182}, {"id": "caption-word-14-2", "text": "t'envoie", "start": 12.5782, "end": 12.9502}]}, {"id": "caption-group-15", "frame": 2, "start": 13.0102, "end": 13.9802, "text": "une capture d'\u00e9cran", "words": [{"id": "caption-word-15-0", "text": "une", "start": 13.0102, "end": 13.1692}, {"id": "caption-word-15-1", "text": "capture", "start": 13.2292, "end": 13.6012}, {"id": "caption-word-15-2", "text": "d'\u00e9cran", "start": 13.6612, "end": 13.9802}]}, {"id": "caption-group-16", "frame": 2, "start": 14.0402, "end": 14.1732, "text": ":", "words": [{"id": "caption-word-16-0", "text": ":", "start": 14.0402, "end": 14.1732}]}, {"id": "caption-group-17", "frame": 2, "start": 14.2332, "end": 14.5782, "text": "voil\u00e0,", "words": [{"id": "caption-word-17-0", "text": "voil\u00e0,", "start": 14.2332, "end": 14.5782}]}, {"id": "caption-group-18", "frame": 2, "start": 14.6382, "end": 15.3622, "text": "c'est envoy\u00e9.", "words": [{"id": "caption-word-18-0", "text": "c'est", "start": 14.6382, "end": 14.8502}, {"id": "caption-word-18-1", "text": "envoy\u00e9.", "start": 14.9102, "end": 15.3622}]}, {"id": "caption-group-19", "frame": 2, "start": 15.4222, "end": 16.1262, "text": "Il attend que", "words": [{"id": "caption-word-19-0", "text": "Il", "start": 15.4222, "end": 15.5282}, {"id": "caption-word-19-1", "text": "attend", "start": 15.5882, "end": 15.9072}, {"id": "caption-word-19-2", "text": "que", "start": 15.9672, "end": 16.1262}]}, {"id": "caption-group-20", "frame": 2, "start": 16.1862, "end": 16.9962, "text": "tu confirmes et", "words": [{"id": "caption-word-20-0", "text": "tu", "start": 16.1862, "end": 16.2922}, {"id": "caption-word-20-1", "text": "confirmes", "start": 16.3522, "end": 16.8302}, {"id": "caption-word-20-2", "text": "et", "start": 16.8902, "end": 16.9962}]}, {"id": "caption-group-21", "frame": 2, "start": 17.0562, "end": 17.8672, "text": "que tu pr\u00e9pares", "words": [{"id": "caption-word-21-0", "text": "que", "start": 17.0562, "end": 17.2162}, {"id": "caption-word-21-1", "text": "tu", "start": 17.2762, "end": 17.3822}, {"id": "caption-word-21-2", "text": "pr\u00e9pares", "start": 17.4422, "end": 17.8672}]}, {"id": "caption-group-22", "frame": 2, "start": 17.9272, "end": 18.6512, "text": "sa commande.", "words": [{"id": "caption-word-22-0", "text": "sa", "start": 17.9272, "end": 18.0332}, {"id": "caption-word-22-1", "text": "commande.", "start": 18.0932, "end": 18.6512}]}, {"id": "caption-group-23", "frame": 3, "start": 18.6511, "end": 20.1761, "text": "Sans vraie boutique,", "words": [{"id": "caption-word-23-0", "text": "Sans", "start": 18.6511, "end": 18.9551}, {"id": "caption-word-23-1", "text": "vraie", "start": 19.0151, "end": 19.3951}, {"id": "caption-word-23-2", "text": "boutique,", "start": 19.4551, "end": 20.1761}]}, {"id": "caption-group-24", "frame": 3, "start": 20.2361, "end": 21.1151, "text": "tu n'as aucun", "words": [{"id": "caption-word-24-0", "text": "tu", "start": 20.2361, "end": 20.3881}, {"id": "caption-word-24-1", "text": "n'as", "start": 20.4481, "end": 20.6761}, {"id": "caption-word-24-2", "text": "aucun", "start": 20.7361, "end": 21.1151}]}, {"id": "caption-group-25", "frame": 3, "start": 21.1751, "end": 22.4351, "text": "moyen de v\u00e9rifier", "words": [{"id": "caption-word-25-0", "text": "moyen", "start": 21.1751, "end": 21.5551}, {"id": "caption-word-25-1", "text": "de", "start": 21.6151, "end": 21.7671}, {"id": "caption-word-25-2", "text": "v\u00e9rifier", "start": 21.8271, "end": 22.4351}]}, {"id": "caption-group-26", "frame": 3, "start": 22.4951, "end": 23.6781, "text": "\u00e7a autrement que", "words": [{"id": "caption-word-26-0", "text": "\u00e7a", "start": 22.4951, "end": 22.6461}, {"id": "caption-word-26-1", "text": "autrement", "start": 22.7061, "end": 23.3901}, {"id": "caption-word-26-2", "text": "que", "start": 23.4501, "end": 23.6781}]}, {"id": "caption-group-27", "frame": 3, "start": 23.7381, "end": 24.6171, "text": "sa parole et", "words": [{"id": "caption-word-27-0", "text": "sa", "start": 23.7381, "end": 23.8901}, {"id": "caption-word-27-1", "text": "parole", "start": 23.9501, "end": 24.4051}, {"id": "caption-word-27-2", "text": "et", "start": 24.4651, "end": 24.6171}]}, {"id": "caption-group-28", "frame": 3, "start": 24.6771, "end": 25.4591, "text": "une image,", "words": [{"id": "caption-word-28-0", "text": "une", "start": 24.6771, "end": 24.9051}, {"id": "caption-word-28-1", "text": "image,", "start": 24.9651, "end": 25.4591}]}, {"id": "caption-group-29", "frame": 3, "start": 25.5191, "end": 26.5501, "text": "et une capture", "words": [{"id": "caption-word-29-0", "text": "et", "start": 25.5191, "end": 25.6711}, {"id": "caption-word-29-1", "text": "une", "start": 25.7311, "end": 25.9581}, {"id": "caption-word-29-2", "text": "capture", "start": 26.0181, "end": 26.5501}]}, {"id": "caption-group-30", "frame": 3, "start": 26.6101, "end": 27.1801, "text": "d'\u00e9cran,", "words": [{"id": "caption-word-30-0", "text": "d'\u00e9cran,", "start": 26.6101, "end": 27.1801}]}, {"id": "caption-group-31", "frame": 3, "start": 27.2401, "end": 28.1951, "text": "\u00e7a se modifie", "words": [{"id": "caption-word-31-0", "text": "\u00e7a", "start": 27.2401, "end": 27.3921}, {"id": "caption-word-31-1", "text": "se", "start": 27.4521, "end": 27.6031}, {"id": "caption-word-31-2", "text": "modifie", "start": 27.6631, "end": 28.1951}]}, {"id": "caption-group-32", "frame": 3, "start": 28.2551, "end": 29.8941, "text": "facilement en quelques", "words": [{"id": "caption-word-32-0", "text": "facilement", "start": 28.2551, "end": 29.0141}, {"id": "caption-word-32-1", "text": "en", "start": 29.0741, "end": 29.2261}, {"id": "caption-word-32-2", "text": "quelques", "start": 29.2861, "end": 29.8941}]}, {"id": "caption-group-33", "frame": 3, "start": 29.9541, "end": 31.2131, "text": "secondes avec une", "words": [{"id": "caption-word-33-0", "text": "secondes", "start": 29.9541, "end": 30.5611}, {"id": "caption-word-33-1", "text": "avec", "start": 30.6211, "end": 30.9251}, {"id": "caption-word-33-2", "text": "une", "start": 30.9851, "end": 31.2131}]}, {"id": "caption-group-34", "frame": 3, "start": 31.2731, "end": 32.9661, "text": "application gratuite.", "words": [{"id": "caption-word-34-0", "text": "application", "start": 31.2731, "end": 32.1081}, {"id": "caption-word-34-1", "text": "gratuite.", "start": 32.1681, "end": 32.9661}]}, {"id": "caption-group-35", "frame": 4, "start": 32.966, "end": 33.906, "text": "Alors tu livres", "words": [{"id": "caption-word-35-0", "text": "Alors", "start": 32.966, "end": 33.281}, {"id": "caption-word-35-1", "text": "tu", "start": 33.341, "end": 33.468}, {"id": "caption-word-35-2", "text": "livres", "start": 33.528, "end": 33.906}]}, {"id": "caption-group-36", "frame": 4, "start": 33.966, "end": 34.878, "text": "en confiance.", "words": [{"id": "caption-word-36-0", "text": "en", "start": 33.966, "end": 34.092}, {"id": "caption-word-36-1", "text": "confiance.", "start": 34.152, "end": 34.878}]}, {"id": "caption-group-37", "frame": 4, "start": 34.938, "end": 35.661, "text": "Et parfois,", "words": [{"id": "caption-word-37-0", "text": "Et", "start": 34.938, "end": 35.064}, {"id": "caption-word-37-1", "text": "parfois,", "start": 35.124, "end": 35.661}]}, {"id": "caption-group-38", "frame": 4, "start": 35.721, "end": 37.103, "text": "l'argent n'arrive jamais", "words": [{"id": "caption-word-38-0", "text": "l'argent", "start": 35.721, "end": 36.162}, {"id": "caption-word-38-1", "text": "n'arrive", "start": 36.222, "end": 36.664}, {"id": "caption-word-38-2", "text": "jamais", "start": 36.724, "end": 37.103}]}, {"id": "caption-group-39", "frame": 4, "start": 37.163, "end": 38.197, "text": "sur ton compte.", "words": [{"id": "caption-word-39-0", "text": "sur", "start": 37.163, "end": 37.352}, {"id": "caption-word-39-1", "text": "ton", "start": 37.412, "end": 37.601}, {"id": "caption-word-39-2", "text": "compte.", "start": 37.661, "end": 38.197}]}, {"id": "caption-group-40", "frame": 4, "start": 38.257, "end": 39.135, "text": "Le produit est", "words": [{"id": "caption-word-40-0", "text": "Le", "start": 38.257, "end": 38.384}, {"id": "caption-word-40-1", "text": "produit", "start": 38.444, "end": 38.885}, {"id": "caption-word-40-2", "text": "est", "start": 38.945, "end": 39.135}]}, {"id": "caption-group-41", "frame": 4, "start": 39.195, "end": 39.605, "text": "parti,", "words": [{"id": "caption-word-41-0", "text": "parti,", "start": 39.195, "end": 39.605}]}, {"id": "caption-group-42", "frame": 4, "start": 39.665, "end": 40.353, "text": "le client a", "words": [{"id": "caption-word-42-0", "text": "le", "start": 39.665, "end": 39.791}, {"id": "caption-word-42-1", "text": "client", "start": 39.851, "end": 40.229}, {"id": "caption-word-42-2", "text": "a", "start": 40.289, "end": 40.353}]}, {"id": "caption-group-43", "frame": 4, "start": 40.413, "end": 40.949, "text": "disparu,", "words": [{"id": "caption-word-43-0", "text": "disparu,", "start": 40.413, "end": 40.949}]}, {"id": "caption-group-44", "frame": 4, "start": 41.009, "end": 41.76, "text": "et t'as perdu", "words": [{"id": "caption-word-44-0", "text": "et", "start": 41.009, "end": 41.135}, {"id": "caption-word-44-1", "text": "t'as", "start": 41.195, "end": 41.384}, {"id": "caption-word-44-2", "text": "perdu", "start": 41.444, "end": 41.76}]}, {"id": "caption-group-45", "frame": 4, "start": 41.82, "end": 42.382, "text": "\u00e0 la fois", "words": [{"id": "caption-word-45-0", "text": "\u00e0", "start": 41.82, "end": 41.883}, {"id": "caption-word-45-1", "text": "la", "start": 41.943, "end": 42.069}, {"id": "caption-word-45-2", "text": "fois", "start": 42.129, "end": 42.382}]}, {"id": "caption-group-46", "frame": 4, "start": 42.442, "end": 43.508, "text": "ta marchandise et", "words": [{"id": "caption-word-46-0", "text": "ta", "start": 42.442, "end": 42.568}, {"id": "caption-word-46-1", "text": "marchandise", "start": 42.628, "end": 43.322}, {"id": "caption-word-46-2", "text": "et", "start": 43.382, "end": 43.508}]}, {"id": "caption-group-47", "frame": 4, "start": 43.568, "end": 44.29, "text": "ton temps.", "words": [{"id": "caption-word-47-0", "text": "ton", "start": 43.568, "end": 43.757}, {"id": "caption-word-47-1", "text": "temps.", "start": 43.817, "end": 44.29}]}, {"id": "caption-group-48", "frame": 5, "start": 44.2905, "end": 44.8765, "text": "Le r\u00e9flexe \u00e0", "words": [{"id": "caption-word-48-0", "text": "Le", "start": 44.2905, "end": 44.3835}, {"id": "caption-word-48-1", "text": "r\u00e9flexe", "start": 44.4435, "end": 44.7695}, {"id": "caption-word-48-2", "text": "\u00e0", "start": 44.8295, "end": 44.8765}]}, {"id": "caption-group-49", "frame": 5, "start": 44.9365, "end": 45.2385, "text": "avoir,", "words": [{"id": "caption-word-49-0", "text": "avoir,", "start": 44.9365, "end": 45.2385}]}, {"id": "caption-group-50", "frame": 5, "start": 45.2985, "end": 46.0005, "text": "c'est simple :", "words": [{"id": "caption-word-50-0", "text": "c'est", "start": 45.2985, "end": 45.4845}, {"id": "caption-word-50-1", "text": "simple", "start": 45.5445, "end": 45.8245}, {"id": "caption-word-50-2", "text": ":", "start": 45.8845, "end": 46.0005}]}, {"id": "caption-group-51", "frame": 5, "start": 46.0605, "end": 46.6465, "text": "ne jamais te", "words": [{"id": "caption-word-51-0", "text": "ne", "start": 46.0605, "end": 46.1535}, {"id": "caption-word-51-1", "text": "jamais", "start": 46.2135, "end": 46.4935}, {"id": "caption-word-51-2", "text": "te", "start": 46.5535, "end": 46.6465}]}, {"id": "caption-group-52", "frame": 5, "start": 46.7065, "end": 47.1985, "text": "fier \u00e0 une", "words": [{"id": "caption-word-52-0", "text": "fier", "start": 46.7065, "end": 46.8925}, {"id": "caption-word-52-1", "text": "\u00e0", "start": 46.9525, "end": 46.9985}, {"id": "caption-word-52-2", "text": "une", "start": 47.0585, "end": 47.1985}]}, {"id": "caption-group-53", "frame": 5, "start": 47.2585, "end": 48.2395, "text": "image qu'on t'envoie.", "words": [{"id": "caption-word-53-0", "text": "image", "start": 47.2585, "end": 47.4915}, {"id": "caption-word-53-1", "text": "qu'on", "start": 47.5515, "end": 47.7375}, {"id": "caption-word-53-2", "text": "t'envoie.", "start": 47.7975, "end": 48.2395}]}, {"id": "caption-group-54", "frame": 5, "start": 48.2995, "end": 49.0255, "text": "La vraie preuve", "words": [{"id": "caption-word-54-0", "text": "La", "start": 48.2995, "end": 48.3935}, {"id": "caption-word-54-1", "text": "vraie", "start": 48.4535, "end": 48.6855}, {"id": "caption-word-54-2", "text": "preuve", "start": 48.7455, "end": 49.0255}]}, {"id": "caption-group-55", "frame": 5, "start": 49.0855, "end": 50.0435, "text": "doit venir d'ailleurs", "words": [{"id": "caption-word-55-0", "text": "doit", "start": 49.0855, "end": 49.2715}, {"id": "caption-word-55-1", "text": "venir", "start": 49.3315, "end": 49.5645}, {"id": "caption-word-55-2", "text": "d'ailleurs", "start": 49.6245, "end": 50.0435}]}, {"id": "caption-group-56", "frame": 5, "start": 50.1035, "end": 50.7355, "text": "que du client", "words": [{"id": "caption-word-56-0", "text": "que", "start": 50.1035, "end": 50.2425}, {"id": "caption-word-56-1", "text": "du", "start": 50.3025, "end": 50.3955}, {"id": "caption-word-56-2", "text": "client", "start": 50.4555, "end": 50.7355}]}, {"id": "caption-group-57", "frame": 5, "start": 50.7955, "end": 51.2375, "text": "lui-m\u00eame.", "words": [{"id": "caption-word-57-0", "text": "lui-m\u00eame.", "start": 50.7955, "end": 51.2375}]}, {"id": "caption-group-58", "frame": 6, "start": 51.2375, "end": 52.1345, "text": "Avec une vraie", "words": [{"id": "caption-word-58-0", "text": "Avec", "start": 51.2375, "end": 51.4965}, {"id": "caption-word-58-1", "text": "une", "start": 51.5565, "end": 51.7505}, {"id": "caption-word-58-2", "text": "vraie", "start": 51.8105, "end": 52.1345}]}, {"id": "caption-group-59", "frame": 6, "start": 52.1945, "end": 53.3835, "text": "boutique en ligne,", "words": [{"id": "caption-word-59-0", "text": "boutique", "start": 52.1945, "end": 52.7125}, {"id": "caption-word-59-1", "text": "en", "start": 52.7725, "end": 52.9025}, {"id": "caption-word-59-2", "text": "ligne,", "start": 52.9625, "end": 53.3835}]}, {"id": "caption-group-60", "frame": 6, "start": 53.4435, "end": 54.5355, "text": "le paiement passe", "words": [{"id": "caption-word-60-0", "text": "le", "start": 53.4435, "end": 53.5735}, {"id": "caption-word-60-1", "text": "paiement", "start": 53.6335, "end": 54.1515}, {"id": "caption-word-60-2", "text": "passe", "start": 54.2115, "end": 54.5355}]}, {"id": "caption-group-61", "frame": 6, "start": 54.5955, "end": 55.2975, "text": "par un lien", "words": [{"id": "caption-word-61-0", "text": "par", "start": 54.5955, "end": 54.7895}, {"id": "caption-word-61-1", "text": "un", "start": 54.8495, "end": 54.9785}, {"id": "caption-word-61-2", "text": "lien", "start": 55.0385, "end": 55.2975}]}, {"id": "caption-group-62", "frame": 6, "start": 55.3575, "end": 56.8385, "text": "automatique qui t'envoie", "words": [{"id": "caption-word-62-0", "text": "automatique", "start": 55.3575, "end": 56.0705}, {"id": "caption-word-62-1", "text": "qui", "start": 56.1305, "end": 56.3245}, {"id": "caption-word-62-2", "text": "t'envoie", "start": 56.3845, "end": 56.8385}]}, {"id": "caption-group-63", "frame": 6, "start": 56.8985, "end": 58.4105, "text": "sa propre notification,", "words": [{"id": "caption-word-63-0", "text": "sa", "start": 56.8985, "end": 57.0275}, {"id": "caption-word-63-1", "text": "propre", "start": 57.0875, "end": 57.4765}, {"id": "caption-word-63-2", "text": "notification,", "start": 57.5365, "end": 58.4105}]}, {"id": "caption-group-64", "frame": 6, "start": 58.4705, "end": 60.0485, "text": "ind\u00e9pendante du client.", "words": [{"id": "caption-word-64-0", "text": "ind\u00e9pendante", "start": 58.4705, "end": 59.2485}, {"id": "caption-word-64-1", "text": "du", "start": 59.3085, "end": 59.4375}, {"id": "caption-word-64-2", "text": "client.", "start": 59.4975, "end": 60.0485}]}, {"id": "caption-group-65", "frame": 6, "start": 60.1085, "end": 61.1075, "text": "Cette preuve-l\u00e0,", "words": [{"id": "caption-word-65-0", "text": "Cette", "start": 60.1085, "end": 60.4315}, {"id": "caption-word-65-1", "text": "preuve-l\u00e0,", "start": 60.4915, "end": 61.1075}]}, {"id": "caption-group-66", "frame": 6, "start": 61.1675, "end": 62.1945, "text": "personne ne peut", "words": [{"id": "caption-word-66-0", "text": "personne", "start": 61.1675, "end": 61.6855}, {"id": "caption-word-66-1", "text": "ne", "start": 61.7455, "end": 61.8755}, {"id": "caption-word-66-2", "text": "peut", "start": 61.9355, "end": 62.1945}]}, {"id": "caption-group-67", "frame": 6, "start": 62.2545, "end": 63.1885, "text": "la fabriquer.", "words": [{"id": "caption-word-67-0", "text": "la", "start": 62.2545, "end": 62.3835}, {"id": "caption-word-67-1", "text": "fabriquer.", "start": 62.4435, "end": 63.1885}]}, {"id": "caption-group-68", "frame": 7, "start": 63.1885, "end": 63.8525, "text": "Tu ne perds", "words": [{"id": "caption-word-68-0", "text": "Tu", "start": 63.1885, "end": 63.3095}, {"id": "caption-word-68-1", "text": "ne", "start": 63.3695, "end": 63.4905}, {"id": "caption-word-68-2", "text": "perds", "start": 63.5505, "end": 63.8525}]}, {"id": "caption-group-69", "frame": 7, "start": 63.9125, "end": 65.0615, "text": "plus de marchandise", "words": [{"id": "caption-word-69-0", "text": "plus", "start": 63.9125, "end": 64.1545}, {"id": "caption-word-69-1", "text": "de", "start": 64.2145, "end": 64.3355}, {"id": "caption-word-69-2", "text": "marchandise", "start": 64.3955, "end": 65.0615}]}, {"id": "caption-group-70", "frame": 7, "start": 65.1215, "end": 65.7555, "text": "pour rien,", "words": [{"id": "caption-word-70-0", "text": "pour", "start": 65.1215, "end": 65.3635}, {"id": "caption-word-70-1", "text": "rien,", "start": 65.4235, "end": 65.7555}]}, {"id": "caption-group-71", "frame": 7, "start": 65.8155, "end": 66.5405, "text": "tu ne passes", "words": [{"id": "caption-word-71-0", "text": "tu", "start": 65.8155, "end": 65.9365}, {"id": "caption-word-71-1", "text": "ne", "start": 65.9965, "end": 66.1175}, {"id": "caption-word-71-2", "text": "passes", "start": 66.1775, "end": 66.5405}]}, {"id": "caption-group-72", "frame": 7, "start": 66.6005, "end": 67.3255, "text": "plus pour le", "words": [{"id": "caption-word-72-0", "text": "plus", "start": 66.6005, "end": 66.8425}, {"id": "caption-word-72-1", "text": "pour", "start": 66.9025, "end": 67.1445}, {"id": "caption-word-72-2", "text": "le", "start": 67.2045, "end": 67.3255}]}, {"id": "caption-group-73", "frame": 7, "start": 67.3855, "end": 68.5335, "text": "vendeur m\u00e9fiant qui", "words": [{"id": "caption-word-73-0", "text": "vendeur", "start": 67.3855, "end": 67.8085}, {"id": "caption-word-73-1", "text": "m\u00e9fiant", "start": 67.8685, "end": 68.2925}, {"id": "caption-word-73-2", "text": "qui", "start": 68.3525, "end": 68.5335}]}, {"id": "caption-group-74", "frame": 7, "start": 68.5935, "end": 69.3795, "text": "doute de tout", "words": [{"id": "caption-word-74-0", "text": "doute", "start": 68.5935, "end": 68.8965}, {"id": "caption-word-74-1", "text": "de", "start": 68.9565, "end": 69.0775}, {"id": "caption-word-74-2", "text": "tout", "start": 69.1375, "end": 69.3795}]}, {"id": "caption-group-75", "frame": 7, "start": 69.4395, "end": 70.0135, "text": "le monde,", "words": [{"id": "caption-word-75-0", "text": "le", "start": 69.4395, "end": 69.5595}, {"id": "caption-word-75-1", "text": "monde,", "start": 69.6195, "end": 70.0135}]}, {"id": "caption-group-76", "frame": 7, "start": 70.0735, "end": 70.7985, "text": "et tu livres", "words": [{"id": "caption-word-76-0", "text": "et", "start": 70.0735, "end": 70.1945}, {"id": "caption-word-76-1", "text": "tu", "start": 70.2545, "end": 70.3755}, {"id": "caption-word-76-2", "text": "livres", "start": 70.4355, "end": 70.7985}]}, {"id": "caption-group-77", "frame": 7, "start": 70.8585, "end": 72.0365, "text": "l'esprit tranquille,", "words": [{"id": "caption-word-77-0", "text": "l'esprit", "start": 70.8585, "end": 71.2815}, {"id": "caption-word-77-1", "text": "tranquille,", "start": 71.3415, "end": 72.0365}]}, {"id": "caption-group-78", "frame": 7, "start": 72.0965, "end": 73.4875, "text": "seulement quand l'argent", "words": [{"id": "caption-word-78-0", "text": "seulement", "start": 72.0965, "end": 72.6415}, {"id": "caption-word-78-1", "text": "quand", "start": 72.7015, "end": 73.0035}, {"id": "caption-word-78-2", "text": "l'argent", "start": 73.0635, "end": 73.4875}]}, {"id": "caption-group-79", "frame": 7, "start": 73.5475, "end": 74.6045, "text": "est vraiment l\u00e0.", "words": [{"id": "caption-word-79-0", "text": "est", "start": 73.5475, "end": 73.7285}, {"id": "caption-word-79-1", "text": "vraiment", "start": 73.7885, "end": 74.2725}, {"id": "caption-word-79-2", "text": "l\u00e0.", "start": 74.3325, "end": 74.6045}]}, {"id": "caption-group-80", "frame": 8, "start": 74.6047, "end": 75.5227, "text": "\u00c9cris PREUVE en", "words": [{"id": "caption-word-80-0", "text": "\u00c9cris", "start": 74.6047, "end": 74.9117}, {"id": "caption-word-80-1", "text": "PREUVE", "start": 74.9717, "end": 75.3397}, {"id": "caption-word-80-2", "text": "en", "start": 75.3997, "end": 75.5227}]}, {"id": "caption-group-81", "frame": 8, "start": 75.5827, "end": 76.3787, "text": "message si tu", "words": [{"id": "caption-word-81-0", "text": "message", "start": 75.5827, "end": 76.0127}, {"id": "caption-word-81-1", "text": "si", "start": 76.0727, "end": 76.1957}, {"id": "caption-word-81-2", "text": "tu", "start": 76.2557, "end": 76.3787}]}, {"id": "caption-group-82", "frame": 8, "start": 76.4387, "end": 77.6027, "text": "veux savoir comment", "words": [{"id": "caption-word-82-0", "text": "veux", "start": 76.4387, "end": 76.6837}, {"id": "caption-word-82-1", "text": "savoir", "start": 76.7437, "end": 77.1127}, {"id": "caption-word-82-2", "text": "comment", "start": 77.1727, "end": 77.6027}]}, {"id": "caption-group-83", "frame": 8, "start": 77.6627, "end": 78.8877, "text": "v\u00e9rifier un paiement", "words": [{"id": "caption-word-83-0", "text": "v\u00e9rifier", "start": 77.6627, "end": 78.1537}, {"id": "caption-word-83-1", "text": "un", "start": 78.2137, "end": 78.3367}, {"id": "caption-word-83-2", "text": "paiement", "start": 78.3967, "end": 78.8877}]}, {"id": "caption-group-84", "frame": 8, "start": 78.9477, "end": 79.8047, "text": "sans jamais te", "words": [{"id": "caption-word-84-0", "text": "sans", "start": 78.9477, "end": 79.1937}, {"id": "caption-word-84-1", "text": "jamais", "start": 79.2537, "end": 79.6217}, {"id": "caption-word-84-2", "text": "te", "start": 79.6817, "end": 79.8047}]}, {"id": "caption-group-85", "frame": 8, "start": 79.8647, "end": 80.6917, "text": "faire avoir.", "words": [{"id": "caption-word-85-0", "text": "faire", "start": 79.8647, "end": 80.1717}, {"id": "caption-word-85-1", "text": "avoir.", "start": 80.2317, "end": 80.6917}]}];
+  var DURATION = 80.6922;
+
+  (function () {
+    var stage = document.getElementById("caption-stage");
+
+    // build DOM: one .caption-group per group, .caption-word per word
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.createElement("div");
+      groupEl.className = "caption-group";
+      groupEl.id = "caption-group-" + g;
+      var pill = document.createElement("div");
+      pill.className = "caption-pill";
+      var line = document.createElement("div");
+      line.className = "caption-line";
+      (group.words || []).forEach(function (w, i) {
+        var span = document.createElement("span");
+        span.className = "caption-word";
+        span.id = "caption-word-" + g + "-" + i;
+        span.textContent = String(w.text);
+        line.appendChild(span);
+      });
+      pill.appendChild(line);
+      groupEl.appendChild(pill);
+      stage.appendChild(groupEl);
+    });
+
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.getElementById("caption-group-" + g);
+      var words = group.words || [];
+      var next = GROUPS[g + 1];
+      var isLast = g === GROUPS.length - 1;
+      var start = Math.max(0, Number(group.start));
+      var end = isLast ? DURATION : Math.min(Number(next.start), Number(group.end) + 0.3);
+      if (end <= start) end = start + 0.01;
+
+      // group on/off — exactly one group visible at a time
+      tl.set(groupEl, { opacity: 1 }, start);
+      tl.set(groupEl, { opacity: 0 }, end);
+
+      // 3-state karaoke via className SETS — seek-safe (gsap.set applies on the
+      // engine's frame-by-frame seek; .call callbacks would NOT fire).
+      words.forEach(function (w, i) {
+        var el = document.getElementById("caption-word-" + g + "-" + i);
+        var at = Math.max(start, Number(w.start));
+        tl.set(el, { className: "caption-word" }, start); // upcoming (also resets on reverse-seek)
+        tl.set(el, { className: "caption-word is-active" }, at); // current
+        tl.fromTo(el, { scale: 0.86 }, { scale: 1, duration: 0.2, ease: "back.out(2.4)" }, at);
+        if (i + 1 < words.length) {
+          var nextAt = Math.max(start, Number(words[i + 1].start));
+          tl.set(el, { className: "caption-word is-spoken" }, nextAt); // demote when next activates
+        }
+      });
+      if (words.length) {
+        var lastEl = document.getElementById("caption-word-" + g + "-" + (words.length - 1));
+        var lastSpoken = Math.min(end, Number(words[words.length - 1].end) + 0.1);
+        tl.set(lastEl, { className: "caption-word is-spoken" }, lastSpoken);
+      }
+    });
+
+    // full-span anchor so the sub-comp timeline spans the whole video
+    tl.to({}, { duration: DURATION }, 0);
+    window.__timelines["captions"] = tl;
+  })();
+</script>
+
+<style>
+  .caption-line { line-height: 1.1 !important; }
+</style>
+</template>

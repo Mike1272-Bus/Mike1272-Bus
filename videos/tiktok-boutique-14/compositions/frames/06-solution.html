@@ -1,0 +1,133 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+      --blue-bg: #c0f7fe;
+      --pink-bg: #fe90e8;
+      --cream-bg: #ffdc8b;
+      --yellow-bg: #f7cb46;
+      --green-bg: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+
+    .sol06-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--blue-bg);
+    }
+    .sol06-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+
+    .sol06-counter {
+      position: absolute;
+      left: 60px;
+      top: 90px;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: 26px;
+    }
+
+    .sol06-img {
+      position: absolute;
+      left: 50%;
+      top: 620px;
+      width: 900px;
+      height: 900px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .sol06-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+
+  <div id="root" data-composition-id="06-solution" data-duration="11.951" data-width="1080" data-height="1920">
+    <div class="sol06-bg clip" data-start="0" data-duration="11.951" data-track-index="0"></div>
+    <div class="sol06-counter clip" data-start="0" data-duration="11.951" data-track-index="1">06</div>
+      <div class="sol06-img clip" data-start="0.3" data-duration="1.906" data-track-index="2" id="sol06-img1">
+        <img src="assets/s6-1.jpeg" alt="" />
+      </div>
+      <div class="sol06-img clip" data-start="2.206" data-duration="1.406" data-track-index="2" id="sol06-img2">
+        <img src="assets/s6-2.jpeg" alt="" />
+      </div>
+      <div class="sol06-img clip" data-start="3.612" data-duration="1.281" data-track-index="2" id="sol06-img3">
+        <img src="assets/s6-3.jpeg" alt="" />
+      </div>
+      <div class="sol06-img clip" data-start="4.893" data-duration="2.34" data-track-index="2" id="sol06-img4">
+        <img src="assets/s6-4.jpeg" alt="" />
+      </div>
+      <div class="sol06-img clip" data-start="7.233" data-duration="1.638" data-track-index="2" id="sol06-img5">
+        <img src="assets/s6-5.jpeg" alt="" />
+      </div>
+      <div class="sol06-img clip" data-start="8.871" data-duration="3.08" data-track-index="2" id="sol06-img6">
+        <img src="assets/s6-6.png" alt="" />
+      </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      function beat(id, start) {
+        var el = document.getElementById(id);
+        tl.fromTo(
+          el,
+          { scale: 0.55, opacity: 0, rotation: -4 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.22, ease: "back.out(2.2)" },
+          start
+        );
+      }
+
+      beat("sol06-img1", 0.3);
+      beat("sol06-img2", 2.206);
+      beat("sol06-img3", 3.612);
+      beat("sol06-img4", 4.893);
+      beat("sol06-img5", 7.233);
+      beat("sol06-img6", 8.871);
+
+      var phase = { p: 0 };
+      var IDLE_START = 9.271;
+      var IDLE_DUR = 11.951 - IDLE_START;
+      if (IDLE_DUR > 0.3) {
+        tl.to(phase, {
+          p: Math.PI * 2 * (IDLE_DUR / 2.5),
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var s = Math.sin(phase.p);
+            document.getElementById("sol06-img6").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+          },
+        }, IDLE_START);
+      }
+
+      window.__timelines["06-solution"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,104 @@
+[
+  {
+    "id": "w0",
+    "text": "Écris",
+    "start": 0,
+    "end": 0.307
+  },
+  {
+    "id": "w1",
+    "text": "PREUVE",
+    "start": 0.367,
+    "end": 0.735
+  },
+  {
+    "id": "w2",
+    "text": "en",
+    "start": 0.795,
+    "end": 0.918
+  },
+  {
+    "id": "w3",
+    "text": "message",
+    "start": 0.978,
+    "end": 1.408
+  },
+  {
+    "id": "w4",
+    "text": "si",
+    "start": 1.468,
+    "end": 1.591
+  },
+  {
+    "id": "w5",
+    "text": "tu",
+    "start": 1.651,
+    "end": 1.774
+  },
+  {
+    "id": "w6",
+    "text": "veux",
+    "start": 1.834,
+    "end": 2.079
+  },
+  {
+    "id": "w7",
+    "text": "savoir",
+    "start": 2.139,
+    "end": 2.508
+  },
+  {
+    "id": "w8",
+    "text": "comment",
+    "start": 2.568,
+    "end": 2.998
+  },
+  {
+    "id": "w9",
+    "text": "vérifier",
+    "start": 3.058,
+    "end": 3.549
+  },
+  {
+    "id": "w10",
+    "text": "un",
+    "start": 3.609,
+    "end": 3.732
+  },
+  {
+    "id": "w11",
+    "text": "paiement",
+    "start": 3.792,
+    "end": 4.283
+  },
+  {
+    "id": "w12",
+    "text": "sans",
+    "start": 4.343,
+    "end": 4.589
+  },
+  {
+    "id": "w13",
+    "text": "jamais",
+    "start": 4.649,
+    "end": 5.017
+  },
+  {
+    "id": "w14",
+    "text": "te",
+    "start": 5.077,
+    "end": 5.2
+  },
+  {
+    "id": "w15",
+    "text": "faire",
+    "start": 5.26,
+    "end": 5.567
+  },
+  {
+    "id": "w16",
+    "text": "avoir.",
+    "start": 5.627,
+    "end": 6.087
+  }
+]
