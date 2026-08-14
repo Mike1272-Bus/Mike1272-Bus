@@ -1,0 +1,114 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+      --blue-bg: #c0f7fe;
+      --pink-bg: #fe90e8;
+      --cream-bg: #ffdc8b;
+      --yellow-bg: #f7cb46;
+      --green-bg: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+
+    .dcl05-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--green-bg);
+    }
+    .dcl05-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+
+    .dcl05-counter {
+      position: absolute;
+      left: 60px;
+      top: 90px;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: 26px;
+    }
+
+    .dcl05-img {
+      position: absolute;
+      left: 50%;
+      top: 620px;
+      width: 900px;
+      height: 900px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .dcl05-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+
+  <div id="root" data-composition-id="05-declic" data-duration="13.4443" data-width="1080" data-height="1920">
+    <div class="dcl05-bg clip" data-start="0" data-duration="13.4443" data-track-index="0"></div>
+    <div class="dcl05-counter clip" data-start="0" data-duration="13.4443" data-track-index="1">05</div>
+      <div class="dcl05-img clip" data-start="0.3" data-duration="2.673" data-track-index="2" id="dcl05-img1">
+        <img src="assets/s5-1.png" alt="" />
+      </div>
+      <div class="dcl05-img clip" data-start="2.973" data-duration="2.96" data-track-index="2" id="dcl05-img2">
+        <img src="assets/s5-2.jpg" alt="" />
+      </div>
+      <div class="dcl05-img clip" data-start="5.933" data-duration="3.338" data-track-index="2" id="dcl05-img3">
+        <img src="assets/s5-3.jpg" alt="" />
+      </div>
+      <div class="dcl05-img clip" data-start="9.271" data-duration="2.822" data-track-index="2" id="dcl05-img4">
+        <img src="assets/s5-4.jpg" alt="" />
+      </div>
+      <div class="dcl05-img clip" data-start="12.093" data-duration="1.3513" data-track-index="2" id="dcl05-img5">
+        <img src="assets/s5-5.jpg" alt="" />
+      </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      function beat(id, start) {
+        var el = document.getElementById(id);
+        tl.fromTo(
+          el,
+          { scale: 0.55, opacity: 0, rotation: -4 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.22, ease: "back.out(2.2)" },
+          start
+        );
+      }
+
+      beat("dcl05-img1", 0.3);
+      beat("dcl05-img2", 2.973);
+      beat("dcl05-img3", 5.933);
+      beat("dcl05-img4", 9.271);
+      beat("dcl05-img5", 12.093);
+
+      window.__timelines["05-declic"] = tl;
+    })();
+  </script>
+</template>

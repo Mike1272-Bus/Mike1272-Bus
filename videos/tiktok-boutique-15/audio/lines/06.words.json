@@ -1,0 +1,230 @@
+[
+  {
+    "id": "w0",
+    "text": "Mets",
+    "start": 0,
+    "end": 0.2
+  },
+  {
+    "id": "w1",
+    "text": "un",
+    "start": 0.26,
+    "end": 0.361
+  },
+  {
+    "id": "w2",
+    "text": "vrai",
+    "start": 0.421,
+    "end": 0.621
+  },
+  {
+    "id": "w3",
+    "text": "chiffre",
+    "start": 0.681,
+    "end": 1.031
+  },
+  {
+    "id": "w4",
+    "text": "ou",
+    "start": 1.091,
+    "end": 1.192
+  },
+  {
+    "id": "w5",
+    "text": "une",
+    "start": 1.252,
+    "end": 1.402
+  },
+  {
+    "id": "w6",
+    "text": "note",
+    "start": 1.462,
+    "end": 1.662
+  },
+  {
+    "id": "w7",
+    "text": "visible",
+    "start": 1.722,
+    "end": 2.073
+  },
+  {
+    "id": "w8",
+    "text": "dès",
+    "start": 2.133,
+    "end": 2.283
+  },
+  {
+    "id": "w9",
+    "text": "les",
+    "start": 2.343,
+    "end": 2.493
+  },
+  {
+    "id": "w10",
+    "text": "premières",
+    "start": 2.553,
+    "end": 3.004
+  },
+  {
+    "id": "w11",
+    "text": "secondes,",
+    "start": 3.064,
+    "end": 3.54
+  },
+  {
+    "id": "w12",
+    "text": "genre",
+    "start": 3.6,
+    "end": 3.85
+  },
+  {
+    "id": "w13",
+    "text": "4.8",
+    "start": 3.91,
+    "end": 4.011
+  },
+  {
+    "id": "w14",
+    "text": "étoiles,",
+    "start": 4.071,
+    "end": 4.496
+  },
+  {
+    "id": "w15",
+    "text": "200",
+    "start": 4.556,
+    "end": 4.707
+  },
+  {
+    "id": "w16",
+    "text": "clients",
+    "start": 4.767,
+    "end": 5.117
+  },
+  {
+    "id": "w17",
+    "text": "servis,",
+    "start": 5.177,
+    "end": 5.553
+  },
+  {
+    "id": "w18",
+    "text": "directement",
+    "start": 5.613,
+    "end": 6.164
+  },
+  {
+    "id": "w19",
+    "text": "sur",
+    "start": 6.224,
+    "end": 6.374
+  },
+  {
+    "id": "w20",
+    "text": "ta",
+    "start": 6.434,
+    "end": 6.534
+  },
+  {
+    "id": "w21",
+    "text": "pub",
+    "start": 6.594,
+    "end": 6.745
+  },
+  {
+    "id": "w22",
+    "text": "Facebook",
+    "start": 6.805,
+    "end": 7.205
+  },
+  {
+    "id": "w23",
+    "text": "ou",
+    "start": 7.265,
+    "end": 7.365
+  },
+  {
+    "id": "w24",
+    "text": "en",
+    "start": 7.425,
+    "end": 7.526
+  },
+  {
+    "id": "w25",
+    "text": "haut",
+    "start": 7.586,
+    "end": 7.786
+  },
+  {
+    "id": "w26",
+    "text": "de",
+    "start": 7.846,
+    "end": 7.946
+  },
+  {
+    "id": "w27",
+    "text": "ta",
+    "start": 8.006,
+    "end": 8.106
+  },
+  {
+    "id": "w28",
+    "text": "boutique,",
+    "start": 8.166,
+    "end": 8.642
+  },
+  {
+    "id": "w29",
+    "text": "pas",
+    "start": 8.702,
+    "end": 8.852
+  },
+  {
+    "id": "w30",
+    "text": "trois",
+    "start": 8.912,
+    "end": 9.163
+  },
+  {
+    "id": "w31",
+    "text": "clics",
+    "start": 9.223,
+    "end": 9.473
+  },
+  {
+    "id": "w32",
+    "text": "plus",
+    "start": 9.533,
+    "end": 9.734
+  },
+  {
+    "id": "w33",
+    "text": "loin",
+    "start": 9.794,
+    "end": 9.994
+  },
+  {
+    "id": "w34",
+    "text": "dans",
+    "start": 10.054,
+    "end": 10.254
+  },
+  {
+    "id": "w35",
+    "text": "un",
+    "start": 10.314,
+    "end": 10.414
+  },
+  {
+    "id": "w36",
+    "text": "onglet",
+    "start": 10.474,
+    "end": 10.775
+  },
+  {
+    "id": "w37",
+    "text": "avis.",
+    "start": 10.835,
+    "end": 11.161
+  }
+]

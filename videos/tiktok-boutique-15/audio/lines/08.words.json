@@ -1,0 +1,104 @@
+[
+  {
+    "id": "w0",
+    "text": "Écris",
+    "start": 0,
+    "end": 0.32
+  },
+  {
+    "id": "w1",
+    "text": "PUB",
+    "start": 0.38,
+    "end": 0.573
+  },
+  {
+    "id": "w2",
+    "text": "en",
+    "start": 0.633,
+    "end": 0.761
+  },
+  {
+    "id": "w3",
+    "text": "message",
+    "start": 0.821,
+    "end": 1.269
+  },
+  {
+    "id": "w4",
+    "text": "si",
+    "start": 1.329,
+    "end": 1.457
+  },
+  {
+    "id": "w5",
+    "text": "tu",
+    "start": 1.517,
+    "end": 1.645
+  },
+  {
+    "id": "w6",
+    "text": "veux",
+    "start": 1.705,
+    "end": 1.962
+  },
+  {
+    "id": "w7",
+    "text": "savoir",
+    "start": 2.022,
+    "end": 2.406
+  },
+  {
+    "id": "w8",
+    "text": "exactement",
+    "start": 2.466,
+    "end": 3.107
+  },
+  {
+    "id": "w9",
+    "text": "où",
+    "start": 3.167,
+    "end": 3.295
+  },
+  {
+    "id": "w10",
+    "text": "placer",
+    "start": 3.355,
+    "end": 3.739
+  },
+  {
+    "id": "w11",
+    "text": "cette",
+    "start": 3.799,
+    "end": 4.12
+  },
+  {
+    "id": "w12",
+    "text": "preuve",
+    "start": 4.18,
+    "end": 4.564
+  },
+  {
+    "id": "w13",
+    "text": "pour",
+    "start": 4.624,
+    "end": 4.881
+  },
+  {
+    "id": "w14",
+    "text": "que",
+    "start": 4.941,
+    "end": 5.133
+  },
+  {
+    "id": "w15",
+    "text": "ça",
+    "start": 5.193,
+    "end": 5.321
+  },
+  {
+    "id": "w16",
+    "text": "marche.",
+    "start": 5.381,
+    "end": 5.925
+  }
+]

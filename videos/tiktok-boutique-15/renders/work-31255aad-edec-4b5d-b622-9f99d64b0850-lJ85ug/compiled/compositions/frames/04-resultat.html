@@ -1,0 +1,113 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+      --blue-bg: #c0f7fe;
+      --pink-bg: #fe90e8;
+      --cream-bg: #ffdc8b;
+      --yellow-bg: #f7cb46;
+      --green-bg: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+
+    .res04-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--yellow-bg);
+    }
+    .res04-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+
+    .res04-counter {
+      position: absolute;
+      left: 60px;
+      top: 90px;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: 26px;
+    }
+
+    .res04-img {
+      position: absolute;
+      left: 50%;
+      top: 620px;
+      width: 900px;
+      height: 900px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .res04-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+
+  <div id="root" data-composition-id="04-resultat" data-duration="13.5754" data-width="1080" data-height="1920">
+    <div class="res04-bg clip" data-start="0" data-duration="13.5754" data-track-index="0"></div>
+    <div class="res04-counter clip" data-start="0" data-duration="13.5754" data-track-index="1">04</div>
+      <div class="res04-img clip" data-start="0.3" data-duration="13.2754" data-track-index="2" id="res04-img1">
+        <img src="assets/s4-1.png" alt="" />
+      </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      function beat(id, start) {
+        var el = document.getElementById(id);
+        tl.fromTo(
+          el,
+          { scale: 0.55, opacity: 0, rotation: -4 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.22, ease: "back.out(2.2)" },
+          start
+        );
+      }
+
+      beat("res04-img1", 0.3);
+
+      var phase = { p: 0 };
+      var IDLE_START = 0.7;
+      var IDLE_DUR = 13.5754 - IDLE_START;
+      if (IDLE_DUR > 0.3) {
+        tl.to(phase, {
+          p: Math.PI * 2 * (IDLE_DUR / 2.5),
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var s = Math.sin(phase.p);
+            document.getElementById("res04-img1").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+          },
+        }, IDLE_START);
+      }
+
+      window.__timelines["04-resultat"] = tl;
+    })();
+  </script>
+</template>

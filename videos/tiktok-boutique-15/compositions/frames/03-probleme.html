@@ -1,0 +1,133 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+      --blue-bg: #c0f7fe;
+      --pink-bg: #fe90e8;
+      --cream-bg: #ffdc8b;
+      --yellow-bg: #f7cb46;
+      --green-bg: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+
+    .prb03-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--cream-bg);
+    }
+    .prb03-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+
+    .prb03-counter {
+      position: absolute;
+      left: 60px;
+      top: 90px;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: 26px;
+    }
+
+    .prb03-img {
+      position: absolute;
+      left: 50%;
+      top: 620px;
+      width: 900px;
+      height: 900px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .prb03-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+
+  <div id="root" data-composition-id="03-probleme" data-duration="13.4806" data-width="1080" data-height="1920">
+    <div class="prb03-bg clip" data-start="0" data-duration="13.4806" data-track-index="0"></div>
+    <div class="prb03-counter clip" data-start="0" data-duration="13.4806" data-track-index="1">03</div>
+      <div class="prb03-img clip" data-start="0.3" data-duration="2.674" data-track-index="2" id="prb03-img1">
+        <img src="assets/s3-1.jpeg" alt="" />
+      </div>
+      <div class="prb03-img clip" data-start="2.974" data-duration="2.214" data-track-index="2" id="prb03-img2">
+        <img src="assets/s3-2.jpeg" alt="" />
+      </div>
+      <div class="prb03-img clip" data-start="5.188" data-duration="1.858" data-track-index="2" id="prb03-img3">
+        <img src="assets/s3-3.jpeg" alt="" />
+      </div>
+      <div class="prb03-img clip" data-start="7.046" data-duration="1.562" data-track-index="2" id="prb03-img4">
+        <img src="assets/s3-4.jpeg" alt="" />
+      </div>
+      <div class="prb03-img clip" data-start="8.608" data-duration="2.254" data-track-index="2" id="prb03-img5">
+        <img src="assets/s3-5.jpeg" alt="" />
+      </div>
+      <div class="prb03-img clip" data-start="10.862" data-duration="2.6186" data-track-index="2" id="prb03-img6">
+        <img src="assets/s3-6.jpeg" alt="" />
+      </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      function beat(id, start) {
+        var el = document.getElementById(id);
+        tl.fromTo(
+          el,
+          { scale: 0.55, opacity: 0, rotation: -4 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.22, ease: "back.out(2.2)" },
+          start
+        );
+      }
+
+      beat("prb03-img1", 0.3);
+      beat("prb03-img2", 2.974);
+      beat("prb03-img3", 5.188);
+      beat("prb03-img4", 7.046);
+      beat("prb03-img5", 8.608);
+      beat("prb03-img6", 10.862);
+
+      var phase = { p: 0 };
+      var IDLE_START = 11.262;
+      var IDLE_DUR = 13.4806 - IDLE_START;
+      if (IDLE_DUR > 0.3) {
+        tl.to(phase, {
+          p: Math.PI * 2 * (IDLE_DUR / 2.5),
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var s = Math.sin(phase.p);
+            document.getElementById("prb03-img6").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+          },
+        }, IDLE_START);
+      }
+
+      window.__timelines["03-probleme"] = tl;
+    })();
+  </script>
+</template>
