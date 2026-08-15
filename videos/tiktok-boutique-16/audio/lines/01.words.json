@@ -1,0 +1,98 @@
+[
+  {
+    "id": "w0",
+    "text": "Le",
+    "start": 0,
+    "end": 0.111
+  },
+  {
+    "id": "w1",
+    "text": "vrai",
+    "start": 0.171,
+    "end": 0.393
+  },
+  {
+    "id": "w2",
+    "text": "problème",
+    "start": 0.453,
+    "end": 0.896
+  },
+  {
+    "id": "w3",
+    "text": "n'est",
+    "start": 0.956,
+    "end": 1.178
+  },
+  {
+    "id": "w4",
+    "text": "pas",
+    "start": 1.238,
+    "end": 1.404
+  },
+  {
+    "id": "w5",
+    "text": "le",
+    "start": 1.464,
+    "end": 1.575
+  },
+  {
+    "id": "w6",
+    "text": "manque",
+    "start": 1.635,
+    "end": 1.967
+  },
+  {
+    "id": "w7",
+    "text": "de",
+    "start": 2.027,
+    "end": 2.138
+  },
+  {
+    "id": "w8",
+    "text": "clients.",
+    "start": 2.198,
+    "end": 2.725
+  },
+  {
+    "id": "w9",
+    "text": "C'est",
+    "start": 2.785,
+    "end": 3.007
+  },
+  {
+    "id": "w10",
+    "text": "le",
+    "start": 3.067,
+    "end": 3.177
+  },
+  {
+    "id": "w11",
+    "text": "manque",
+    "start": 3.237,
+    "end": 3.57
+  },
+  {
+    "id": "w12",
+    "text": "de",
+    "start": 3.63,
+    "end": 3.741
+  },
+  {
+    "id": "w13",
+    "text": "clients",
+    "start": 3.801,
+    "end": 4.189
+  },
+  {
+    "id": "w14",
+    "text": "qui",
+    "start": 4.249,
+    "end": 4.415
+  },
+  {
+    "id": "w15",
+    "text": "reviennent.",
+    "start": 4.475,
+    "end": 5.168
+  }
+]

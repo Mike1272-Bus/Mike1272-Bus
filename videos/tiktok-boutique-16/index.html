@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="./vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #FFFFFF; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="109.6881" data-width="1080" data-height="1920">
+      <div
+        id="el-01"
+        class="scene"
+        data-composition-id="01"
+        data-composition-src="compositions/frames/01-accroche.html"
+        data-start="0"
+        data-duration="5.168"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-02"
+        class="scene"
+        data-composition-id="02"
+        data-composition-src="compositions/frames/02-situation.html"
+        data-start="5.168"
+        data-duration="11.794"
+        data-track-index="1"
+      ></div>
+      <div
+        id="el-03"
+        class="scene"
+        data-composition-id="03"
+        data-composition-src="compositions/frames/03-probleme.html"
+        data-start="16.962"
+        data-duration="13.9298"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-04"
+        class="scene"
+        data-composition-id="04"
+        data-composition-src="compositions/frames/04-resultat.html"
+        data-start="30.8918"
+        data-duration="15.1741"
+        data-track-index="1"
+      ></div>
+      <div
+        id="el-05"
+        class="scene"
+        data-composition-id="05"
+        data-composition-src="compositions/frames/05-declic.html"
+        data-start="46.0659"
+        data-duration="9.6795"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-06"
+        class="scene"
+        data-composition-id="06"
+        data-composition-src="compositions/frames/06-strategie.html"
+        data-start="55.7454"
+        data-duration="21.6777"
+        data-track-index="1"
+      ></div>
+      <div
+        id="el-07"
+        class="scene"
+        data-composition-id="07"
+        data-composition-src="compositions/frames/07-boutique.html"
+        data-start="77.4231"
+        data-duration="16.2644"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-08"
+        class="scene"
+        data-composition-id="08"
+        data-composition-src="compositions/frames/08-benefice.html"
+        data-start="93.6875"
+        data-duration="9.315"
+        data-track-index="1"
+      ></div>
+      <div
+        id="el-09"
+        class="scene"
+        data-composition-id="09"
+        data-composition-src="compositions/frames/09-cta.html"
+        data-start="103.0025"
+        data-duration="6.6856"
+        data-track-index="0"
+      ></div>
+
+      <audio
+        id="el-voice"
+        src="audio/voice.mp3"
+        data-start="0"
+        data-duration="109.6881"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-captions"
+        class="scene"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions.html"
+        data-start="0"
+        data-duration="109.6881"
+        data-track-index="2"
+      ></div>
+
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+      (function () { var tl = window.__timelines["main"];
+        tl.to("#el-01", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 5.168);
+        tl.fromTo("#el-02", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 5.168);
+        tl.to("#el-02", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 16.962);
+        tl.fromTo("#el-03", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 16.962);
+        tl.to("#el-03", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 30.8918);
+        tl.fromTo("#el-04", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 30.8918);
+        tl.to("#el-04", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 46.0659);
+        tl.fromTo("#el-05", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 46.0659);
+        tl.to("#el-05", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 55.7454);
+        tl.fromTo("#el-06", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 55.7454);
+        tl.to("#el-06", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 77.4231);
+        tl.fromTo("#el-07", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 77.4231);
+        tl.to("#el-07", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 93.6875);
+        tl.fromTo("#el-08", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 93.6875);
+        tl.to("#el-08", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 103.0025);
+        tl.fromTo("#el-09", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 103.0025);
+        tl.to({}, { duration: 109.6881 }, 0);
+      })();
+    </script>
+  </body>
+</html>

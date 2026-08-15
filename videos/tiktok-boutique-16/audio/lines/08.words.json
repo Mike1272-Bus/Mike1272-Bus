@@ -1,0 +1,134 @@
+[
+  {
+    "id": "w0",
+    "text": "Tu",
+    "start": 0,
+    "end": 0.13
+  },
+  {
+    "id": "w1",
+    "text": "arrêtes",
+    "start": 0.19,
+    "end": 0.647
+  },
+  {
+    "id": "w2",
+    "text": "de",
+    "start": 0.707,
+    "end": 0.837
+  },
+  {
+    "id": "w3",
+    "text": "dépendre",
+    "start": 0.897,
+    "end": 1.419
+  },
+  {
+    "id": "w4",
+    "text": "uniquement",
+    "start": 1.479,
+    "end": 2.131
+  },
+  {
+    "id": "w5",
+    "text": "de",
+    "start": 2.191,
+    "end": 2.322
+  },
+  {
+    "id": "w6",
+    "text": "nouveaux",
+    "start": 2.382,
+    "end": 2.904
+  },
+  {
+    "id": "w7",
+    "text": "clients.",
+    "start": 2.964,
+    "end": 3.583
+  },
+  {
+    "id": "w8",
+    "text": "Chaque",
+    "start": 3.643,
+    "end": 4.035
+  },
+  {
+    "id": "w9",
+    "text": "vente",
+    "start": 4.095,
+    "end": 4.421
+  },
+  {
+    "id": "w10",
+    "text": "devient",
+    "start": 4.481,
+    "end": 4.937
+  },
+  {
+    "id": "w11",
+    "text": "le",
+    "start": 4.997,
+    "end": 5.128
+  },
+  {
+    "id": "w12",
+    "text": "début",
+    "start": 5.188,
+    "end": 5.514
+  },
+  {
+    "id": "w13",
+    "text": "d'une",
+    "start": 5.574,
+    "end": 5.835
+  },
+  {
+    "id": "w14",
+    "text": "relation,",
+    "start": 5.895,
+    "end": 6.514
+  },
+  {
+    "id": "w15",
+    "text": "pas",
+    "start": 6.574,
+    "end": 6.77
+  },
+  {
+    "id": "w16",
+    "text": "juste",
+    "start": 6.83,
+    "end": 7.156
+  },
+  {
+    "id": "w17",
+    "text": "une",
+    "start": 7.216,
+    "end": 7.412
+  },
+  {
+    "id": "w18",
+    "text": "transaction",
+    "start": 7.472,
+    "end": 8.189
+  },
+  {
+    "id": "w19",
+    "text": "qui",
+    "start": 8.249,
+    "end": 8.445
+  },
+  {
+    "id": "w20",
+    "text": "se",
+    "start": 8.505,
+    "end": 8.635
+  },
+  {
+    "id": "w21",
+    "text": "termine.",
+    "start": 8.695,
+    "end": 9.315
+  }
+]

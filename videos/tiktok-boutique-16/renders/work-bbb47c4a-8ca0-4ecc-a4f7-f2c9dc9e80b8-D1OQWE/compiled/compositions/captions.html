@@ -1,0 +1,219 @@
+<template id="captions-template" data-composition-id="captions" data-width="1080" data-height="1920">
+
+
+<style data-brand-tokens>
+      :root {
+      --black: #000000;
+      --white: #FFFFFF;
+      --offwhite: #FFFDF5;
+      --pink: #FE90E8;
+      --blue: #C0F7FE;
+      --green: #99E885;
+      --yellow: #F7CB46;
+      --cream: #FFDC8B;
+      --cap-ink: #000000;
+      --cap-canvas: #FFFFFF;
+      --cap-accent: #F7CB46;
+      --cap-accent-2: #FFDC8B;
+      --font-display: "Inter", system-ui, serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --cap-band-top: 1600px;
+      --cap-band-height: 320px;
+      }
+    </style>
+
+<style>
+  #captions-root {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .caption-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+  }
+  /* the keep-out band, from captionBand(H) — frame content stays above it */
+  .caption-stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--cap-band-top, 900px);
+    height: var(--cap-band-height, 180px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .caption-group {
+    /* every group is absolutely stacked over the SAME band — exactly one shown at a
+       time via opacity. Must be absolute: in-flow groups would lay out side-by-side. */
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+
+  /* THE bordered card — 4px black border + 8px hard offset shadow (solid black,
+     zero blur, bottom-right — blockframe's sacred depth), square corners */
+  .caption-pill {
+    max-width: 80%;
+    padding: 18px 40px 22px;
+    background: var(--cap-canvas, #ffffff);
+    border: 4px solid var(--cap-ink, #000000);
+    border-radius: 0;
+    box-shadow: 8px 8px 0 var(--cap-ink, #000000);
+  }
+  .caption-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.12em 0.32em;
+    font-family: "Inter", system-ui, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(38px, 4.2vw, 56px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  /* upcoming — faded black ink, no stamp */
+  .caption-word {
+    display: inline-block;
+    padding: 0 0.1em;
+    color: color-mix(in srgb, var(--cap-ink, #000000) 40%, var(--cap-canvas, #ffffff));
+  }
+  /* current word — THE yellow stamp-block (box-shadow spread = a hard square block
+     w/o layout shift; no blur), black ink reading on top — blockframe's signature stamp */
+  .caption-word.is-active {
+    color: var(--cap-ink, #000000);
+    background: var(--cap-accent, #f7cb46);
+    box-shadow: 0 0 0 0.08em var(--cap-accent, #f7cb46);
+  }
+  /* already spoken — solid black ink, stamp cleared */
+  .caption-word.is-spoken {
+    color: var(--cap-ink, #000000);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* optional per-word accents (dormant until a word-classer tags them) */
+  /* brand / key term — heavier ink weight, blockframe's display is already 900 */
+  .caption-word.cap-brand {
+    color: var(--cap-ink, #000000);
+  }
+  /* numerals / data — the body voice, slightly recessed */
+  .caption-word.cap-num {
+    font-family: "Inter", ui-monospace, monospace;
+    color: color-mix(in srgb, var(--cap-ink, #000000) 74%, var(--cap-canvas, #ffffff));
+  }
+  /* emphasis — a cream hard underline bar (the second-chroma accent) */
+  .caption-word.cap-cta {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-decoration-color: var(--cap-accent-2, #ffdc8b);
+    text-underline-offset: 0.12em;
+  }
+
+  @media (max-aspect-ratio: 9/16) {
+    .caption-pill {
+      max-width: 92%;
+    }
+    .caption-line {
+      font-size: clamp(34px, 5.4vw, 48px);
+    }
+  }
+</style>
+
+<div
+  id="captions-root"
+  data-composition-id="captions"
+  data-timeline-locked
+  data-start="0"
+  data-duration="109.6881"
+  data-fps="30"
+  data-width="1080"
+  data-height="1920"
+>
+  <div class="caption-layer" aria-hidden="true">
+    <div id="caption-stage" class="caption-stage"></div>
+  </div>
+</div>
+
+<script>
+  // captions.mjs injects the engine's scene-aware groups + real duration here.
+  var GROUPS = [{"id": "caption-group-0", "frame": 1, "start": 0, "end": 0.896, "text": "Le vrai probl\u00e8me", "words": [{"id": "caption-word-0-0", "text": "Le", "start": 0, "end": 0.111}, {"id": "caption-word-0-1", "text": "vrai", "start": 0.171, "end": 0.393}, {"id": "caption-word-0-2", "text": "probl\u00e8me", "start": 0.453, "end": 0.896}]}, {"id": "caption-group-1", "frame": 1, "start": 0.956, "end": 1.575, "text": "n'est pas le", "words": [{"id": "caption-word-1-0", "text": "n'est", "start": 0.956, "end": 1.178}, {"id": "caption-word-1-1", "text": "pas", "start": 1.238, "end": 1.404}, {"id": "caption-word-1-2", "text": "le", "start": 1.464, "end": 1.575}]}, {"id": "caption-group-2", "frame": 1, "start": 1.635, "end": 2.725, "text": "manque de clients.", "words": [{"id": "caption-word-2-0", "text": "manque", "start": 1.635, "end": 1.967}, {"id": "caption-word-2-1", "text": "de", "start": 2.027, "end": 2.138}, {"id": "caption-word-2-2", "text": "clients.", "start": 2.198, "end": 2.725}]}, {"id": "caption-group-3", "frame": 1, "start": 2.785, "end": 3.57, "text": "C'est le manque", "words": [{"id": "caption-word-3-0", "text": "C'est", "start": 2.785, "end": 3.007}, {"id": "caption-word-3-1", "text": "le", "start": 3.067, "end": 3.177}, {"id": "caption-word-3-2", "text": "manque", "start": 3.237, "end": 3.57}]}, {"id": "caption-group-4", "frame": 1, "start": 3.63, "end": 4.415, "text": "de clients qui", "words": [{"id": "caption-word-4-0", "text": "de", "start": 3.63, "end": 3.741}, {"id": "caption-word-4-1", "text": "clients", "start": 3.801, "end": 4.189}, {"id": "caption-word-4-2", "text": "qui", "start": 4.249, "end": 4.415}]}, {"id": "caption-group-5", "frame": 1, "start": 4.475, "end": 5.168, "text": "reviennent.", "words": [{"id": "caption-word-5-0", "text": "reviennent.", "start": 4.475, "end": 5.168}]}, {"id": "caption-group-6", "frame": 2, "start": 5.168, "end": 5.975, "text": "Tu passes ton", "words": [{"id": "caption-word-6-0", "text": "Tu", "start": 5.168, "end": 5.293}, {"id": "caption-word-6-1", "text": "passes", "start": 5.353, "end": 5.728}, {"id": "caption-word-6-2", "text": "ton", "start": 5.788, "end": 5.975}]}, {"id": "caption-group-7", "frame": 2, "start": 6.035, "end": 7.03, "text": "temps \u00e0 chercher", "words": [{"id": "caption-word-7-0", "text": "temps", "start": 6.035, "end": 6.348}, {"id": "caption-word-7-1", "text": "\u00e0", "start": 6.408, "end": 6.47}, {"id": "caption-word-7-2", "text": "chercher", "start": 6.53, "end": 7.03}]}, {"id": "caption-group-8", "frame": 2, "start": 7.09, "end": 8.366, "text": "de nouveaux clients,", "words": [{"id": "caption-word-8-0", "text": "de", "start": 7.09, "end": 7.215}, {"id": "caption-word-8-1", "text": "nouveaux", "start": 7.275, "end": 7.775}, {"id": "caption-word-8-2", "text": "clients,", "start": 7.835, "end": 8.366}]}, {"id": "caption-group-9", "frame": 2, "start": 8.426, "end": 8.954, "text": "un post,", "words": [{"id": "caption-word-9-0", "text": "un", "start": 8.426, "end": 8.551}, {"id": "caption-word-9-1", "text": "post,", "start": 8.611, "end": 8.954}]}, {"id": "caption-group-10", "frame": 2, "start": 9.014, "end": 9.543, "text": "une pub,", "words": [{"id": "caption-word-10-0", "text": "une", "start": 9.014, "end": 9.202}, {"id": "caption-word-10-1", "text": "pub,", "start": 9.262, "end": 9.543}]}, {"id": "caption-group-11", "frame": 2, "start": 9.603, "end": 10.381, "text": "une relance,", "words": [{"id": "caption-word-11-0", "text": "une", "start": 9.603, "end": 9.79}, {"id": "caption-word-11-1", "text": "relance,", "start": 9.85, "end": 10.381}]}, {"id": "caption-group-12", "frame": 2, "start": 10.441, "end": 11.436, "text": "pendant que ceux", "words": [{"id": "caption-word-12-0", "text": "pendant", "start": 10.441, "end": 10.879}, {"id": "caption-word-12-1", "text": "que", "start": 10.939, "end": 11.126}, {"id": "caption-word-12-2", "text": "ceux", "start": 11.186, "end": 11.436}]}, {"id": "caption-group-13", "frame": 2, "start": 11.496, "end": 12.241, "text": "qui ont d\u00e9j\u00e0", "words": [{"id": "caption-word-13-0", "text": "qui", "start": 11.496, "end": 11.684}, {"id": "caption-word-13-1", "text": "ont", "start": 11.744, "end": 11.931}, {"id": "caption-word-13-2", "text": "d\u00e9j\u00e0", "start": 11.991, "end": 12.241}]}, {"id": "caption-group-14", "frame": 2, "start": 12.301, "end": 13.233, "text": "achet\u00e9 chez toi", "words": [{"id": "caption-word-14-0", "text": "achet\u00e9", "start": 12.301, "end": 12.676}, {"id": "caption-word-14-1", "text": "chez", "start": 12.736, "end": 12.986}, {"id": "caption-word-14-2", "text": "toi", "start": 13.046, "end": 13.233}]}, {"id": "caption-group-15", "frame": 2, "start": 13.293, "end": 14.663, "text": "disparaissent dans ton", "words": [{"id": "caption-word-15-0", "text": "disparaissent", "start": 13.293, "end": 14.105}, {"id": "caption-word-15-1", "text": "dans", "start": 14.165, "end": 14.415}, {"id": "caption-word-15-2", "text": "ton", "start": 14.475, "end": 14.663}]}, {"id": "caption-group-16", "frame": 2, "start": 14.723, "end": 15.564, "text": "fil WhatsApp,", "words": [{"id": "caption-word-16-0", "text": "fil", "start": 14.723, "end": 14.91}, {"id": "caption-word-16-1", "text": "WhatsApp,", "start": 14.97, "end": 15.564}]}, {"id": "caption-group-17", "frame": 2, "start": 15.624, "end": 16.962, "text": "sans jamais revenir.", "words": [{"id": "caption-word-17-0", "text": "sans", "start": 15.624, "end": 15.874}, {"id": "caption-word-17-1", "text": "jamais", "start": 15.934, "end": 16.308}, {"id": "caption-word-17-2", "text": "revenir.", "start": 16.368, "end": 16.962}]}, {"id": "caption-group-18", "frame": 3, "start": 16.962, "end": 17.749, "text": "Une fois la", "words": [{"id": "caption-word-18-0", "text": "Une", "start": 16.962, "end": 17.184}, {"id": "caption-word-18-1", "text": "fois", "start": 17.244, "end": 17.541}, {"id": "caption-word-18-2", "text": "la", "start": 17.601, "end": 17.749}]}, {"id": "caption-group-19", "frame": 3, "start": 17.809, "end": 18.721, "text": "vente faite,", "words": [{"id": "caption-word-19-0", "text": "vente", "start": 17.809, "end": 18.179}, {"id": "caption-word-19-1", "text": "faite,", "start": 18.239, "end": 18.721}]}, {"id": "caption-group-20", "frame": 3, "start": 18.781, "end": 19.271, "text": "il n'y a", "words": [{"id": "caption-word-20-0", "text": "il", "start": 18.781, "end": 18.929}, {"id": "caption-word-20-1", "text": "n'y", "start": 18.989, "end": 19.137}, {"id": "caption-word-20-2", "text": "a", "start": 19.197, "end": 19.271}]}, {"id": "caption-group-21", "frame": 3, "start": 19.331, "end": 20.896, "text": "souvent aucun suivi.", "words": [{"id": "caption-word-21-0", "text": "souvent", "start": 19.331, "end": 19.85}, {"id": "caption-word-21-1", "text": "aucun", "start": 19.91, "end": 20.28}, {"id": "caption-word-21-2", "text": "suivi.", "start": 20.34, "end": 20.896}]}, {"id": "caption-group-22", "frame": 3, "start": 20.956, "end": 21.928, "text": "Pas de merci,", "words": [{"id": "caption-word-22-0", "text": "Pas", "start": 20.956, "end": 21.178}, {"id": "caption-word-22-1", "text": "de", "start": 21.238, "end": 21.386}, {"id": "caption-word-22-2", "text": "merci,", "start": 21.446, "end": 21.928}]}, {"id": "caption-group-23", "frame": 3, "start": 21.988, "end": 22.922, "text": "pas de rappel", "words": [{"id": "caption-word-23-0", "text": "pas", "start": 21.988, "end": 22.21}, {"id": "caption-word-23-1", "text": "de", "start": 22.27, "end": 22.418}, {"id": "caption-word-23-2", "text": "rappel", "start": 22.478, "end": 22.922}]}, {"id": "caption-group-24", "frame": 3, "start": 22.982, "end": 24.139, "text": "quand un nouveau", "words": [{"id": "caption-word-24-0", "text": "quand", "start": 22.982, "end": 23.353}, {"id": "caption-word-24-1", "text": "un", "start": 23.413, "end": 23.561}, {"id": "caption-word-24-2", "text": "nouveau", "start": 23.621, "end": 24.139}]}, {"id": "caption-group-25", "frame": 3, "start": 24.199, "end": 25.185, "text": "stock arrive,", "words": [{"id": "caption-word-25-0", "text": "stock", "start": 24.199, "end": 24.57}, {"id": "caption-word-25-1", "text": "arrive,", "start": 24.63, "end": 25.185}]}, {"id": "caption-group-26", "frame": 3, "start": 25.245, "end": 25.727, "text": "rien.", "words": [{"id": "caption-word-26-0", "text": "rien.", "start": 25.245, "end": 25.727}]}, {"id": "caption-group-27", "frame": 3, "start": 25.787, "end": 26.722, "text": "Le client est", "words": [{"id": "caption-word-27-0", "text": "Le", "start": 25.787, "end": 25.935}, {"id": "caption-word-27-1", "text": "client", "start": 25.995, "end": 26.44}, {"id": "caption-word-27-2", "text": "est", "start": 26.5, "end": 26.722}]}, {"id": "caption-group-28", "frame": 3, "start": 26.782, "end": 27.865, "text": "trait\u00e9 comme un", "words": [{"id": "caption-word-28-0", "text": "trait\u00e9", "start": 26.782, "end": 27.226}, {"id": "caption-word-28-1", "text": "comme", "start": 27.286, "end": 27.657}, {"id": "caption-word-28-2", "text": "un", "start": 27.717, "end": 27.865}]}, {"id": "caption-group-29", "frame": 3, "start": 27.925, "end": 28.837, "text": "coup unique,", "words": [{"id": "caption-word-29-0", "text": "coup", "start": 27.925, "end": 28.221}, {"id": "caption-word-29-1", "text": "unique,", "start": 28.281, "end": 28.837}]}, {"id": "caption-group-30", "frame": 3, "start": 28.897, "end": 30.054, "text": "jamais comme une", "words": [{"id": "caption-word-30-0", "text": "jamais", "start": 28.897, "end": 29.341}, {"id": "caption-word-30-1", "text": "comme", "start": 29.401, "end": 29.772}, {"id": "caption-word-30-2", "text": "une", "start": 29.832, "end": 30.054}]}, {"id": "caption-group-31", "frame": 3, "start": 30.114, "end": 30.892, "text": "relation.", "words": [{"id": "caption-word-31-0", "text": "relation.", "start": 30.114, "end": 30.892}]}, {"id": "caption-group-32", "frame": 4, "start": 30.8918, "end": 31.6918, "text": "R\u00e9sultat :", "words": [{"id": "caption-word-32-0", "text": "R\u00e9sultat", "start": 30.8918, "end": 31.4558}, {"id": "caption-word-32-1", "text": ":", "start": 31.5158, "end": 31.6918}]}, {"id": "caption-group-33", "frame": 4, "start": 31.7518, "end": 32.2948, "text": "tu es en", "words": [{"id": "caption-word-33-0", "text": "tu", "start": 31.7518, "end": 31.8928}, {"id": "caption-word-33-1", "text": "es", "start": 31.9528, "end": 32.0938}, {"id": "caption-word-33-2", "text": "en", "start": 32.1538, "end": 32.2948}]}, {"id": "caption-group-34", "frame": 4, "start": 32.3548, "end": 33.8848, "text": "course permanente pour", "words": [{"id": "caption-word-34-0", "text": "course", "start": 32.3548, "end": 32.7778}, {"id": "caption-word-34-1", "text": "permanente", "start": 32.8378, "end": 33.5428}, {"id": "caption-word-34-2", "text": "pour", "start": 33.6028, "end": 33.8848}]}, {"id": "caption-group-35", "frame": 4, "start": 33.9448, "end": 35.2628, "text": "trouver de nouveaux", "words": [{"id": "caption-word-35-0", "text": "trouver", "start": 33.9448, "end": 34.4378}, {"id": "caption-word-35-1", "text": "de", "start": 34.4978, "end": 34.6388}, {"id": "caption-word-35-2", "text": "nouveaux", "start": 34.6988, "end": 35.2628}]}, {"id": "caption-group-36", "frame": 4, "start": 35.3228, "end": 35.9218, "text": "clients,", "words": [{"id": "caption-word-36-0", "text": "clients,", "start": 35.3228, "end": 35.9218}]}, {"id": "caption-group-37", "frame": 4, "start": 35.9818, "end": 36.7108, "text": "plus cher,", "words": [{"id": "caption-word-37-0", "text": "plus", "start": 35.9818, "end": 36.2638}, {"id": "caption-word-37-1", "text": "cher,", "start": 36.3238, "end": 36.7108}]}, {"id": "caption-group-38", "frame": 4, "start": 36.7708, "end": 37.8528, "text": "plus incertain,", "words": [{"id": "caption-word-38-0", "text": "plus", "start": 36.7708, "end": 37.0528}, {"id": "caption-word-38-1", "text": "incertain,", "start": 37.1128, "end": 37.8528}]}, {"id": "caption-group-39", "frame": 4, "start": 37.9128, "end": 38.7378, "text": "alors que tu", "words": [{"id": "caption-word-39-0", "text": "alors", "start": 37.9128, "end": 38.2658}, {"id": "caption-word-39-1", "text": "que", "start": 38.3258, "end": 38.5368}, {"id": "caption-word-39-2", "text": "tu", "start": 38.5968, "end": 38.7378}]}, {"id": "caption-group-40", "frame": 4, "start": 38.7978, "end": 39.3868, "text": "as d\u00e9j\u00e0,", "words": [{"id": "caption-word-40-0", "text": "as", "start": 38.7978, "end": 38.9388}, {"id": "caption-word-40-1", "text": "d\u00e9j\u00e0,", "start": 38.9988, "end": 39.3868}]}, {"id": "caption-group-41", "frame": 4, "start": 39.4468, "end": 40.6238, "text": "quelque part dans", "words": [{"id": "caption-word-41-0", "text": "quelque", "start": 39.4468, "end": 39.9398}, {"id": "caption-word-41-1", "text": "part", "start": 39.9998, "end": 40.2818}, {"id": "caption-word-41-2", "text": "dans", "start": 40.3418, "end": 40.6238}]}, {"id": "caption-group-42", "frame": 4, "start": 40.6838, "end": 41.6248, "text": "tes messages,", "words": [{"id": "caption-word-42-0", "text": "tes", "start": 40.6838, "end": 40.8948}, {"id": "caption-word-42-1", "text": "messages,", "start": 40.9548, "end": 41.6248}]}, {"id": "caption-group-43", "frame": 4, "start": 41.6848, "end": 42.5098, "text": "une liste de", "words": [{"id": "caption-word-43-0", "text": "une", "start": 41.6848, "end": 41.8958}, {"id": "caption-word-43-1", "text": "liste", "start": 41.9558, "end": 42.3088}, {"id": "caption-word-43-2", "text": "de", "start": 42.3688, "end": 42.5098}]}, {"id": "caption-group-44", "frame": 4, "start": 42.5698, "end": 44.0988, "text": "clients satisfaits que", "words": [{"id": "caption-word-44-0", "text": "clients", "start": 42.5698, "end": 43.0628}, {"id": "caption-word-44-1", "text": "satisfaits", "start": 43.1228, "end": 43.8278}, {"id": "caption-word-44-2", "text": "que", "start": 43.8878, "end": 44.0988}]}, {"id": "caption-group-45", "frame": 4, "start": 44.1588, "end": 45.2658, "text": "t'as juste jamais", "words": [{"id": "caption-word-45-0", "text": "t'as", "start": 44.1588, "end": 44.3708}, {"id": "caption-word-45-1", "text": "juste", "start": 44.4308, "end": 44.7828}, {"id": "caption-word-45-2", "text": "jamais", "start": 44.8428, "end": 45.2658}]}, {"id": "caption-group-46", "frame": 4, "start": 45.3258, "end": 46.0658, "text": "relanc\u00e9s.", "words": [{"id": "caption-word-46-0", "text": "relanc\u00e9s.", "start": 45.3258, "end": 46.0658}]}, {"id": "caption-group-47", "frame": 5, "start": 46.0659, "end": 47.0639, "text": "Un client qui", "words": [{"id": "caption-word-47-0", "text": "Un", "start": 46.0659, "end": 46.2259}, {"id": "caption-word-47-1", "text": "client", "start": 46.2859, "end": 46.7639}, {"id": "caption-word-47-2", "text": "qui", "start": 46.8239, "end": 47.0639}]}, {"id": "caption-group-48", "frame": 5, "start": 47.1239, "end": 48.7599, "text": "revient co\u00fbte presque", "words": [{"id": "caption-word-48-0", "text": "revient", "start": 47.1239, "end": 47.6829}, {"id": "caption-word-48-1", "text": "co\u00fbte", "start": 47.7429, "end": 48.1419}, {"id": "caption-word-48-2", "text": "presque", "start": 48.2019, "end": 48.7599}]}, {"id": "caption-group-49", "frame": 5, "start": 48.8199, "end": 50.4169, "text": "z\u00e9ro \u00e0 reconqu\u00e9rir.", "words": [{"id": "caption-word-49-0", "text": "z\u00e9ro", "start": 48.8199, "end": 49.1389}, {"id": "caption-word-49-1", "text": "\u00e0", "start": 49.1989, "end": 49.2789}, {"id": "caption-word-49-2", "text": "reconqu\u00e9rir.", "start": 49.3389, "end": 50.4169}]}, {"id": "caption-group-50", "frame": 5, "start": 50.4769, "end": 51.9139, "text": "Un nouveau client,", "words": [{"id": "caption-word-50-0", "text": "Un", "start": 50.4769, "end": 50.6359}, {"id": "caption-word-50-1", "text": "nouveau", "start": 50.6959, "end": 51.2549}, {"id": "caption-word-50-2", "text": "client,", "start": 51.3149, "end": 51.9139}]}, {"id": "caption-group-51", "frame": 5, "start": 51.9739, "end": 52.3329, "text": "lui,", "words": [{"id": "caption-word-51-0", "text": "lui,", "start": 51.9739, "end": 52.3329}]}, {"id": "caption-group-52", "frame": 5, "start": 52.3929, "end": 53.4699, "text": "faut d'abord le", "words": [{"id": "caption-word-52-0", "text": "faut", "start": 52.3929, "end": 52.7119}, {"id": "caption-word-52-1", "text": "d'abord", "start": 52.7719, "end": 53.2509}, {"id": "caption-word-52-2", "text": "le", "start": 53.3109, "end": 53.4699}]}, {"id": "caption-group-53", "frame": 5, "start": 53.5299, "end": 55.0869, "text": "convaincre depuis le", "words": [{"id": "caption-word-53-0", "text": "convaincre", "start": 53.5299, "end": 54.3279}, {"id": "caption-word-53-1", "text": "depuis", "start": 54.3879, "end": 54.8669}, {"id": "caption-word-53-2", "text": "le", "start": 54.9269, "end": 55.0869}]}, {"id": "caption-group-54", "frame": 5, "start": 55.1469, "end": 55.7449, "text": "d\u00e9but.", "words": [{"id": "caption-word-54-0", "text": "d\u00e9but.", "start": 55.1469, "end": 55.7449}]}, {"id": "caption-group-55", "frame": 6, "start": 55.7454, "end": 56.9144, "text": "Laisse-moi te donner", "words": [{"id": "caption-word-55-0", "text": "Laisse-moi", "start": 55.7454, "end": 56.3004}, {"id": "caption-word-55-1", "text": "te", "start": 56.3604, "end": 56.4844}, {"id": "caption-word-55-2", "text": "donner", "start": 56.5444, "end": 56.9144}]}, {"id": "caption-group-56", "frame": 6, "start": 56.9744, "end": 58.0824, "text": "une strat\u00e9gie pour", "words": [{"id": "caption-word-56-0", "text": "une", "start": 56.9744, "end": 57.1594}, {"id": "caption-word-56-1", "text": "strat\u00e9gie", "start": 57.2194, "end": 57.7754}, {"id": "caption-word-56-2", "text": "pour", "start": 57.8354, "end": 58.0824}]}, {"id": "caption-group-57", "frame": 6, "start": 58.1424, "end": 58.3584, "text": "\u00e7a,", "words": [{"id": "caption-word-57-0", "text": "\u00e7a,", "start": 58.1424, "end": 58.3584}]}, {"id": "caption-group-58", "frame": 6, "start": 58.4184, "end": 59.5254, "text": "simple et gratuite", "words": [{"id": "caption-word-58-0", "text": "simple", "start": 58.4184, "end": 58.7884}, {"id": "caption-word-58-1", "text": "et", "start": 58.8484, "end": 58.9724}, {"id": "caption-word-58-2", "text": "gratuite", "start": 59.0324, "end": 59.5254}]}, {"id": "caption-group-59", "frame": 6, "start": 59.5854, "end": 59.7404, "text": ":", "words": [{"id": "caption-word-59-0", "text": ":", "start": 59.5854, "end": 59.7404}]}, {"id": "caption-group-60", "frame": 6, "start": 59.8004, "end": 61.0004, "text": "apr\u00e8s chaque vente,", "words": [{"id": "caption-word-60-0", "text": "apr\u00e8s", "start": 59.8004, "end": 60.1084}, {"id": "caption-word-60-1", "text": "chaque", "start": 60.1684, "end": 60.5394}, {"id": "caption-word-60-2", "text": "vente,", "start": 60.5994, "end": 61.0004}]}, {"id": "caption-group-61", "frame": 6, "start": 61.0604, "end": 61.9214, "text": "note le num\u00e9ro", "words": [{"id": "caption-word-61-0", "text": "note", "start": 61.0604, "end": 61.3074}, {"id": "caption-word-61-1", "text": "le", "start": 61.3674, "end": 61.4904}, {"id": "caption-word-61-2", "text": "num\u00e9ro", "start": 61.5504, "end": 61.9214}]}, {"id": "caption-group-62", "frame": 6, "start": 61.9814, "end": 62.8414, "text": "du client dans", "words": [{"id": "caption-word-62-0", "text": "du", "start": 61.9814, "end": 62.1044}, {"id": "caption-word-62-1", "text": "client", "start": 62.1644, "end": 62.5344}, {"id": "caption-word-62-2", "text": "dans", "start": 62.5944, "end": 62.8414}]}, {"id": "caption-group-63", "frame": 6, "start": 62.9014, "end": 63.6384, "text": "un carnet ou", "words": [{"id": "caption-word-63-0", "text": "un", "start": 62.9014, "end": 63.0254}, {"id": "caption-word-63-1", "text": "carnet", "start": 63.0854, "end": 63.4554}, {"id": "caption-word-63-2", "text": "ou", "start": 63.5154, "end": 63.6384}]}, {"id": "caption-group-64", "frame": 6, "start": 63.6984, "end": 64.4364, "text": "un fichier \u00e0", "words": [{"id": "caption-word-64-0", "text": "un", "start": 63.6984, "end": 63.8224}, {"id": "caption-word-64-1", "text": "fichier", "start": 63.8824, "end": 64.3144}, {"id": "caption-word-64-2", "text": "\u00e0", "start": 64.3744, "end": 64.4364}]}, {"id": "caption-group-65", "frame": 6, "start": 64.4964, "end": 64.8974, "text": "part.", "words": [{"id": "caption-word-65-0", "text": "part.", "start": 64.4964, "end": 64.8974}]}, {"id": "caption-group-66", "frame": 6, "start": 64.9574, "end": 65.9414, "text": "D\u00e8s qu'un nouveau", "words": [{"id": "caption-word-66-0", "text": "D\u00e8s", "start": 64.9574, "end": 65.1424}, {"id": "caption-word-66-1", "text": "qu'un", "start": 65.2024, "end": 65.4494}, {"id": "caption-word-66-2", "text": "nouveau", "start": 65.5094, "end": 65.9414}]}, {"id": "caption-group-67", "frame": 6, "start": 66.0014, "end": 66.8324, "text": "stock arrive,", "words": [{"id": "caption-word-67-0", "text": "stock", "start": 66.0014, "end": 66.3104}, {"id": "caption-word-67-1", "text": "arrive,", "start": 66.3704, "end": 66.8324}]}, {"id": "caption-group-68", "frame": 6, "start": 66.8924, "end": 67.4454, "text": "ou qu'il y", "words": [{"id": "caption-word-68-0", "text": "ou", "start": 66.8924, "end": 67.0164}, {"id": "caption-word-68-1", "text": "qu'il", "start": 67.0764, "end": 67.3234}, {"id": "caption-word-68-2", "text": "y", "start": 67.3834, "end": 67.4454}]}, {"id": "caption-group-69", "frame": 6, "start": 67.5054, "end": 68.2424, "text": "a une petite", "words": [{"id": "caption-word-69-0", "text": "a", "start": 67.5054, "end": 67.5664}, {"id": "caption-word-69-1", "text": "une", "start": 67.6264, "end": 67.8114}, {"id": "caption-word-69-2", "text": "petite", "start": 67.8714, "end": 68.2424}]}, {"id": "caption-group-70", "frame": 6, "start": 68.3024, "end": 68.9504, "text": "r\u00e9duction,", "words": [{"id": "caption-word-70-0", "text": "r\u00e9duction,", "start": 68.3024, "end": 68.9504}]}, {"id": "caption-group-71", "frame": 6, "start": 69.0104, "end": 69.9324, "text": "tu leur envoies", "words": [{"id": "caption-word-71-0", "text": "tu", "start": 69.0104, "end": 69.1334}, {"id": "caption-word-71-1", "text": "leur", "start": 69.1934, "end": 69.4404}, {"id": "caption-word-71-2", "text": "envoies", "start": 69.5004, "end": 69.9324}]}, {"id": "caption-group-72", "frame": 6, "start": 69.9924, "end": 71.1314, "text": "un message group\u00e9,", "words": [{"id": "caption-word-72-0", "text": "un", "start": 69.9924, "end": 70.1164}, {"id": "caption-word-72-1", "text": "message", "start": 70.1764, "end": 70.6084}, {"id": "caption-word-72-2", "text": "group\u00e9,", "start": 70.6684, "end": 71.1314}]}, {"id": "caption-group-73", "frame": 6, "start": 71.1914, "end": 71.9594, "text": "juste \u00e0 eux,", "words": [{"id": "caption-word-73-0", "text": "juste", "start": 71.1914, "end": 71.4994}, {"id": "caption-word-73-1", "text": "\u00e0", "start": 71.5594, "end": 71.6214}, {"id": "caption-word-73-2", "text": "eux,", "start": 71.6814, "end": 71.9594}]}, {"id": "caption-group-74", "frame": 6, "start": 72.0194, "end": 72.6324, "text": "pas \u00e0 tout", "words": [{"id": "caption-word-74-0", "text": "pas", "start": 72.0194, "end": 72.2044}, {"id": "caption-word-74-1", "text": "\u00e0", "start": 72.2644, "end": 72.3264}, {"id": "caption-word-74-2", "text": "tout", "start": 72.3864, "end": 72.6324}]}, {"id": "caption-group-75", "frame": 6, "start": 72.6924, "end": 73.3394, "text": "le monde.", "words": [{"id": "caption-word-75-0", "text": "le", "start": 72.6924, "end": 72.8164}, {"id": "caption-word-75-1", "text": "monde.", "start": 72.8764, "end": 73.3394}]}, {"id": "caption-group-76", "frame": 6, "start": 73.3994, "end": 74.0744, "text": "Rien que \u00e7a", "words": [{"id": "caption-word-76-0", "text": "Rien", "start": 73.3994, "end": 73.6464}, {"id": "caption-word-76-1", "text": "que", "start": 73.7064, "end": 73.8914}, {"id": "caption-word-76-2", "text": "\u00e7a", "start": 73.9514, "end": 74.0744}]}, {"id": "caption-group-77", "frame": 6, "start": 74.1344, "end": 75.1184, "text": "suffit \u00e0 ramener", "words": [{"id": "caption-word-77-0", "text": "suffit", "start": 74.1344, "end": 74.5054}, {"id": "caption-word-77-1", "text": "\u00e0", "start": 74.5654, "end": 74.6264}, {"id": "caption-word-77-2", "text": "ramener", "start": 74.6864, "end": 75.1184}]}, {"id": "caption-group-78", "frame": 6, "start": 75.1784, "end": 76.1634, "text": "une bonne partie", "words": [{"id": "caption-word-78-0", "text": "une", "start": 75.1784, "end": 75.3644}, {"id": "caption-word-78-1", "text": "bonne", "start": 75.4244, "end": 75.7324}, {"id": "caption-word-78-2", "text": "partie", "start": 75.7924, "end": 76.1634}]}, {"id": "caption-group-79", "frame": 6, "start": 76.2234, "end": 77.4234, "text": "\u00e0 revenir acheter.", "words": [{"id": "caption-word-79-0", "text": "\u00e0", "start": 76.2234, "end": 76.2844}, {"id": "caption-word-79-1", "text": "revenir", "start": 76.3444, "end": 76.7764}, {"id": "caption-word-79-2", "text": "acheter.", "start": 76.8364, "end": 77.4234}]}, {"id": "caption-group-80", "frame": 7, "start": 77.4231, "end": 78.1041, "text": "Et avec une", "words": [{"id": "caption-word-80-0", "text": "Et", "start": 77.4231, "end": 77.5481}, {"id": "caption-word-80-1", "text": "avec", "start": 77.6081, "end": 77.8571}, {"id": "caption-word-80-2", "text": "une", "start": 77.9171, "end": 78.1041}]}, {"id": "caption-group-81", "frame": 7, "start": 78.1641, "end": 79.2181, "text": "vraie boutique en", "words": [{"id": "caption-word-81-0", "text": "vraie", "start": 78.1641, "end": 78.4751}, {"id": "caption-word-81-1", "text": "boutique", "start": 78.5351, "end": 79.0341}, {"id": "caption-word-81-2", "text": "en", "start": 79.0941, "end": 79.2181}]}, {"id": "caption-group-82", "frame": 7, "start": 79.2781, "end": 79.6841, "text": "ligne,", "words": [{"id": "caption-word-82-0", "text": "ligne,", "start": 79.2781, "end": 79.6841}]}, {"id": "caption-group-83", "frame": 7, "start": 79.7441, "end": 80.7981, "text": "\u00e7a devient encore", "words": [{"id": "caption-word-83-0", "text": "\u00e7a", "start": 79.7441, "end": 79.8681}, {"id": "caption-word-83-1", "text": "devient", "start": 79.9281, "end": 80.3641}, {"id": "caption-word-83-2", "text": "encore", "start": 80.4241, "end": 80.7981}]}, {"id": "caption-group-84", "frame": 7, "start": 80.8581, "end": 81.7571, "text": "plus simple :", "words": [{"id": "caption-word-84-0", "text": "plus", "start": 80.8581, "end": 81.1071}, {"id": "caption-word-84-1", "text": "simple", "start": 81.1671, "end": 81.5411}, {"id": "caption-word-84-2", "text": ":", "start": 81.6011, "end": 81.7571}]}, {"id": "caption-group-85", "frame": 7, "start": 81.8171, "end": 83.4331, "text": "chaque commande enregistre", "words": [{"id": "caption-word-85-0", "text": "chaque", "start": 81.8171, "end": 82.1911}, {"id": "caption-word-85-1", "text": "commande", "start": 82.2511, "end": 82.7491}, {"id": "caption-word-85-2", "text": "enregistre", "start": 82.8091, "end": 83.4331}]}, {"id": "caption-group-86", "frame": 7, "start": 83.4931, "end": 85.4201, "text": "automatiquement les coordonn\u00e9es", "words": [{"id": "caption-word-86-0", "text": "automatiquement", "start": 83.4931, "end": 84.4271}, {"id": "caption-word-86-1", "text": "les", "start": 84.4871, "end": 84.6741}, {"id": "caption-word-86-2", "text": "coordonn\u00e9es", "start": 84.7341, "end": 85.4201}]}, {"id": "caption-group-87", "frame": 7, "start": 85.4801, "end": 86.1941, "text": "du client.", "words": [{"id": "caption-word-87-0", "text": "du", "start": 85.4801, "end": 85.6041}, {"id": "caption-word-87-1", "text": "client.", "start": 85.6641, "end": 86.1941}]}, {"id": "caption-group-88", "frame": 7, "start": 86.2541, "end": 86.8721, "text": "Tu peux le", "words": [{"id": "caption-word-88-0", "text": "Tu", "start": 86.2541, "end": 86.3791}, {"id": "caption-word-88-1", "text": "peux", "start": 86.4391, "end": 86.6881}, {"id": "caption-word-88-2", "text": "le", "start": 86.7481, "end": 86.8721}]}, {"id": "caption-group-89", "frame": 7, "start": 86.9321, "end": 87.9871, "text": "recontacter en un", "words": [{"id": "caption-word-89-0", "text": "recontacter", "start": 86.9321, "end": 87.6181}, {"id": "caption-word-89-1", "text": "en", "start": 87.6781, "end": 87.8021}, {"id": "caption-word-89-2", "text": "un", "start": 87.8621, "end": 87.9871}]}, {"id": "caption-group-90", "frame": 7, "start": 88.0471, "end": 88.3901, "text": "clic,", "words": [{"id": "caption-word-90-0", "text": "clic,", "start": 88.0471, "end": 88.3901}]}, {"id": "caption-group-91", "frame": 7, "start": 88.4501, "end": 89.3511, "text": "nouveau stock,", "words": [{"id": "caption-word-91-0", "text": "nouveau", "start": 88.4501, "end": 88.8861}, {"id": "caption-word-91-1", "text": "stock,", "start": 88.9461, "end": 89.3511}]}, {"id": "caption-group-92", "frame": 7, "start": 89.4111, "end": 90.4661, "text": "r\u00e9duction pour un", "words": [{"id": "caption-word-92-0", "text": "r\u00e9duction", "start": 89.4111, "end": 89.9721}, {"id": "caption-word-92-1", "text": "pour", "start": 90.0321, "end": 90.2811}, {"id": "caption-word-92-2", "text": "un", "start": 90.3411, "end": 90.4661}]}, {"id": "caption-group-93", "frame": 7, "start": 90.5261, "end": 91.4891, "text": "deuxi\u00e8me achat,", "words": [{"id": "caption-word-93-0", "text": "deuxi\u00e8me", "start": 90.5261, "end": 91.0241}, {"id": "caption-word-93-1", "text": "achat,", "start": 91.0841, "end": 91.4891}]}, {"id": "caption-group-94", "frame": 7, "start": 91.5491, "end": 92.9151, "text": "sans rien reconstruire", "words": [{"id": "caption-word-94-0", "text": "sans", "start": 91.5491, "end": 91.7981}, {"id": "caption-word-94-1", "text": "rien", "start": 91.8581, "end": 92.1081}, {"id": "caption-word-94-2", "text": "reconstruire", "start": 92.1681, "end": 92.9151}]}, {"id": "caption-group-95", "frame": 7, "start": 92.9751, "end": 93.6871, "text": "\u00e0 la main.", "words": [{"id": "caption-word-95-0", "text": "\u00e0", "start": 92.9751, "end": 93.0381}, {"id": "caption-word-95-1", "text": "la", "start": 93.0981, "end": 93.2221}, {"id": "caption-word-95-2", "text": "main.", "start": 93.2821, "end": 93.6871}]}, {"id": "caption-group-96", "frame": 8, "start": 93.6875, "end": 94.5245, "text": "Tu arr\u00eates de", "words": [{"id": "caption-word-96-0", "text": "Tu", "start": 93.6875, "end": 93.8175}, {"id": "caption-word-96-1", "text": "arr\u00eates", "start": 93.8775, "end": 94.3345}, {"id": "caption-word-96-2", "text": "de", "start": 94.3945, "end": 94.5245}]}, {"id": "caption-group-97", "frame": 8, "start": 94.5845, "end": 96.0095, "text": "d\u00e9pendre uniquement de", "words": [{"id": "caption-word-97-0", "text": "d\u00e9pendre", "start": 94.5845, "end": 95.1065}, {"id": "caption-word-97-1", "text": "uniquement", "start": 95.1665, "end": 95.8185}, {"id": "caption-word-97-2", "text": "de", "start": 95.8785, "end": 96.0095}]}, {"id": "caption-group-98", "frame": 8, "start": 96.0695, "end": 97.2705, "text": "nouveaux clients.", "words": [{"id": "caption-word-98-0", "text": "nouveaux", "start": 96.0695, "end": 96.5915}, {"id": "caption-word-98-1", "text": "clients.", "start": 96.6515, "end": 97.2705}]}, {"id": "caption-group-99", "frame": 8, "start": 97.3305, "end": 98.6245, "text": "Chaque vente devient", "words": [{"id": "caption-word-99-0", "text": "Chaque", "start": 97.3305, "end": 97.7225}, {"id": "caption-word-99-1", "text": "vente", "start": 97.7825, "end": 98.1085}, {"id": "caption-word-99-2", "text": "devient", "start": 98.1685, "end": 98.6245}]}, {"id": "caption-group-100", "frame": 8, "start": 98.6845, "end": 99.5225, "text": "le d\u00e9but d'une", "words": [{"id": "caption-word-100-0", "text": "le", "start": 98.6845, "end": 98.8155}, {"id": "caption-word-100-1", "text": "d\u00e9but", "start": 98.8755, "end": 99.2015}, {"id": "caption-word-100-2", "text": "d'une", "start": 99.2615, "end": 99.5225}]}, {"id": "caption-group-101", "frame": 8, "start": 99.5825, "end": 100.2015, "text": "relation,", "words": [{"id": "caption-word-101-0", "text": "relation,", "start": 99.5825, "end": 100.2015}]}, {"id": "caption-group-102", "frame": 8, "start": 100.2615, "end": 101.0995, "text": "pas juste une", "words": [{"id": "caption-word-102-0", "text": "pas", "start": 100.2615, "end": 100.4575}, {"id": "caption-word-102-1", "text": "juste", "start": 100.5175, "end": 100.8435}, {"id": "caption-word-102-2", "text": "une", "start": 100.9035, "end": 101.0995}]}, {"id": "caption-group-103", "frame": 8, "start": 101.1595, "end": 102.3225, "text": "transaction qui se", "words": [{"id": "caption-word-103-0", "text": "transaction", "start": 101.1595, "end": 101.8765}, {"id": "caption-word-103-1", "text": "qui", "start": 101.9365, "end": 102.1325}, {"id": "caption-word-103-2", "text": "se", "start": 102.1925, "end": 102.3225}]}, {"id": "caption-group-104", "frame": 8, "start": 102.3825, "end": 103.0025, "text": "termine.", "words": [{"id": "caption-word-104-0", "text": "termine.", "start": 102.3825, "end": 103.0025}]}, {"id": "caption-group-105", "frame": 9, "start": 103.0025, "end": 104.1005, "text": "\u00c9cris FIDELE en", "words": [{"id": "caption-word-105-0", "text": "\u00c9cris", "start": 103.0025, "end": 103.3785}, {"id": "caption-word-105-1", "text": "FIDELE", "start": 103.4385, "end": 103.8905}, {"id": "caption-word-105-2", "text": "en", "start": 103.9505, "end": 104.1005}]}, {"id": "caption-group-106", "frame": 9, "start": 104.1605, "end": 105.1085, "text": "message si tu", "words": [{"id": "caption-word-106-0", "text": "message", "start": 104.1605, "end": 104.6875}, {"id": "caption-word-106-1", "text": "si", "start": 104.7475, "end": 104.8975}, {"id": "caption-word-106-2", "text": "tu", "start": 104.9575, "end": 105.1085}]}, {"id": "caption-group-107", "frame": 9, "start": 105.1685, "end": 106.5665, "text": "veux savoir comment", "words": [{"id": "caption-word-107-0", "text": "veux", "start": 105.1685, "end": 105.4685}, {"id": "caption-word-107-1", "text": "savoir", "start": 105.5285, "end": 105.9805}, {"id": "caption-word-107-2", "text": "comment", "start": 106.0405, "end": 106.5665}]}, {"id": "caption-group-108", "frame": 9, "start": 106.6265, "end": 108.3265, "text": "relancer facilement tes", "words": [{"id": "caption-word-108-0", "text": "relancer", "start": 106.6265, "end": 107.2285}, {"id": "caption-word-108-1", "text": "facilement", "start": 107.2885, "end": 108.0415}, {"id": "caption-word-108-2", "text": "tes", "start": 108.1015, "end": 108.3265}]}, {"id": "caption-group-109", "frame": 9, "start": 108.3865, "end": 109.6885, "text": "anciens clients.", "words": [{"id": "caption-word-109-0", "text": "anciens", "start": 108.3865, "end": 108.9135}, {"id": "caption-word-109-1", "text": "clients.", "start": 108.9735, "end": 109.6885}]}];
+  var DURATION = 109.6881;
+
+  (function () {
+    var stage = document.getElementById("caption-stage");
+
+    // build DOM: one .caption-group per group, .caption-word per word
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.createElement("div");
+      groupEl.className = "caption-group";
+      groupEl.id = "caption-group-" + g;
+      var pill = document.createElement("div");
+      pill.className = "caption-pill";
+      var line = document.createElement("div");
+      line.className = "caption-line";
+      (group.words || []).forEach(function (w, i) {
+        var span = document.createElement("span");
+        span.className = "caption-word";
+        span.id = "caption-word-" + g + "-" + i;
+        span.textContent = String(w.text);
+        line.appendChild(span);
+      });
+      pill.appendChild(line);
+      groupEl.appendChild(pill);
+      stage.appendChild(groupEl);
+    });
+
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.getElementById("caption-group-" + g);
+      var words = group.words || [];
+      var next = GROUPS[g + 1];
+      var isLast = g === GROUPS.length - 1;
+      var start = Math.max(0, Number(group.start));
+      var end = isLast ? DURATION : Math.min(Number(next.start), Number(group.end) + 0.3);
+      if (end <= start) end = start + 0.01;
+
+      // group on/off — exactly one group visible at a time
+      tl.set(groupEl, { opacity: 1 }, start);
+      tl.set(groupEl, { opacity: 0 }, end);
+
+      // 3-state karaoke via className SETS — seek-safe (gsap.set applies on the
+      // engine's frame-by-frame seek; .call callbacks would NOT fire).
+      words.forEach(function (w, i) {
+        var el = document.getElementById("caption-word-" + g + "-" + i);
+        var at = Math.max(start, Number(w.start));
+        tl.set(el, { className: "caption-word" }, start); // upcoming (also resets on reverse-seek)
+        tl.set(el, { className: "caption-word is-active" }, at); // current
+        tl.fromTo(el, { scale: 0.86 }, { scale: 1, duration: 0.2, ease: "back.out(2.4)" }, at);
+        if (i + 1 < words.length) {
+          var nextAt = Math.max(start, Number(words[i + 1].start));
+          tl.set(el, { className: "caption-word is-spoken" }, nextAt); // demote when next activates
+        }
+      });
+      if (words.length) {
+        var lastEl = document.getElementById("caption-word-" + g + "-" + (words.length - 1));
+        var lastSpoken = Math.min(end, Number(words[words.length - 1].end) + 0.1);
+        tl.set(lastEl, { className: "caption-word is-spoken" }, lastSpoken);
+      }
+    });
+
+    // full-span anchor so the sub-comp timeline spans the whole video
+    tl.to({}, { duration: DURATION }, 0);
+    window.__timelines["captions"] = tl;
+  })();
+</script>
+
+<style>
+  .caption-line { line-height: 1.1 !important; }
+</style>
+</template>

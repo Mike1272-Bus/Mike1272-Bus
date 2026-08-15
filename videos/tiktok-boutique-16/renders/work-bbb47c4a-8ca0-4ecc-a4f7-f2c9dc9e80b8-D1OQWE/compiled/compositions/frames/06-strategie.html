@@ -1,0 +1,145 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+      --blue-bg: #c0f7fe;
+      --pink-bg: #fe90e8;
+      --cream-bg: #ffdc8b;
+      --yellow-bg: #f7cb46;
+      --green-bg: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+
+    .str06-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--yellow-bg);
+    }
+    .str06-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+
+    .str06-counter {
+      position: absolute;
+      left: 60px;
+      top: 90px;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: 26px;
+    }
+
+    .str06-img {
+      position: absolute;
+      left: 50%;
+      top: 620px;
+      width: 900px;
+      height: 900px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .str06-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+
+  <div id="root" data-composition-id="06-strategie" data-duration="21.6777" data-width="1080" data-height="1920">
+    <div class="str06-bg clip" data-start="0" data-duration="21.6777" data-track-index="0"></div>
+    <div class="str06-counter clip" data-start="0" data-duration="21.6777" data-track-index="1">06</div>
+      <div class="str06-img clip" data-start="0.3" data-duration="3.755" data-track-index="2" id="str06-img1">
+        <img src="assets/s6-1.jpeg" alt="" />
+      </div>
+      <div class="str06-img clip" data-start="4.055" data-duration="1.26" data-track-index="2" id="str06-img2">
+        <img src="assets/s6-2.jpeg" alt="" />
+      </div>
+      <div class="str06-img clip" data-start="5.315" data-duration="3.897" data-track-index="2" id="str06-img3">
+        <img src="assets/s6-3.jpeg" alt="" />
+      </div>
+      <div class="str06-img clip" data-start="9.212" data-duration="1.935" data-track-index="2" id="str06-img4">
+        <img src="assets/s6-4.jpeg" alt="" />
+      </div>
+      <div class="str06-img clip" data-start="11.147" data-duration="2.118" data-track-index="2" id="str06-img5">
+        <img src="assets/s6-5.png" alt="" />
+      </div>
+      <div class="str06-img clip" data-start="13.265" data-duration="2.181" data-track-index="2" id="str06-img6">
+        <img src="assets/s6-6.jpeg" alt="" />
+      </div>
+      <div class="str06-img clip" data-start="15.446" data-duration="0.828" data-track-index="2" id="str06-img7">
+        <img src="assets/s6-7.jpeg" alt="" />
+      </div>
+      <div class="str06-img clip" data-start="16.274" data-duration="1.38" data-track-index="2" id="str06-img8">
+        <img src="assets/s6-8.jpeg" alt="" />
+      </div>
+      <div class="str06-img clip" data-start="17.654" data-duration="4.0237" data-track-index="2" id="str06-img9">
+        <img src="assets/s6-9.jpeg" alt="" />
+      </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      function beat(id, start) {
+        var el = document.getElementById(id);
+        tl.fromTo(
+          el,
+          { scale: 0.55, opacity: 0, rotation: -4 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.22, ease: "back.out(2.2)" },
+          start
+        );
+      }
+
+      beat("str06-img1", 0.3);
+      beat("str06-img2", 4.055);
+      beat("str06-img3", 5.315);
+      beat("str06-img4", 9.212);
+      beat("str06-img5", 11.147);
+      beat("str06-img6", 13.265);
+      beat("str06-img7", 15.446);
+      beat("str06-img8", 16.274);
+      beat("str06-img9", 17.654);
+
+      var phase = { p: 0 };
+      var IDLE_START = 18.054;
+      var IDLE_DUR = 21.6777 - IDLE_START;
+      if (IDLE_DUR > 0.3) {
+        tl.to(phase, {
+          p: Math.PI * 2 * (IDLE_DUR / 2.5),
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var s = Math.sin(phase.p);
+            document.getElementById("str06-img9").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+          },
+        }, IDLE_START);
+      }
+
+      window.__timelines["06-strategie"] = tl;
+    })();
+  </script>
+</template>
