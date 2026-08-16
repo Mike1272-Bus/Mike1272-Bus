@@ -1,0 +1,137 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+      --blue-bg: #c0f7fe;
+      --pink-bg: #fe90e8;
+      --cream-bg: #ffdc8b;
+      --yellow-bg: #f7cb46;
+      --green-bg: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+
+    .f05-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--pink-bg);
+    }
+    .f05-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+
+    .f05-counter {
+      position: absolute;
+      left: 60px;
+      top: 90px;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: 26px;
+    }
+
+    .f05-img {
+      position: absolute;
+      left: 50%;
+      top: 620px;
+      width: 900px;
+      height: 900px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .f05-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+
+  <div id="root" data-composition-id="05-crm" data-duration="19.221" data-width="1080" data-height="1920">
+    <div class="f05-bg clip" data-start="0" data-duration="19.221" data-track-index="0"></div>
+    <div class="f05-counter clip" data-start="0" data-duration="19.221" data-track-index="1">05</div>
+      <div class="f05-img clip" data-start="0" data-duration="2.158" data-track-index="2" id="f05-img1">
+        <img src="assets/s5-1.jpeg" alt="" />
+      </div>
+      <div class="f05-img clip" data-start="2.158" data-duration="2.943" data-track-index="2" id="f05-img2">
+        <img src="assets/s5-2.jpeg" alt="" />
+      </div>
+      <div class="f05-img clip" data-start="5.101" data-duration="1.227" data-track-index="2" id="f05-img3">
+        <img src="assets/s5-3.jpeg" alt="" />
+      </div>
+      <div class="f05-img clip" data-start="6.328" data-duration="3.759" data-track-index="2" id="f05-img4">
+        <img src="assets/s5-4.png" alt="" />
+      </div>
+      <div class="f05-img clip" data-start="10.087" data-duration="0.619" data-track-index="2" id="f05-img5">
+        <img src="assets/s5-5.jpeg" alt="" />
+      </div>
+      <div class="f05-img clip" data-start="10.706" data-duration="4.307" data-track-index="2" id="f05-img6">
+        <img src="assets/s5-6.jpeg" alt="" />
+      </div>
+      <div class="f05-img clip" data-start="15.013" data-duration="4.208" data-track-index="2" id="f05-img7">
+        <img src="assets/s5-7.png" alt="" />
+      </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      function beat(id, start) {
+        var el = document.getElementById(id);
+        tl.fromTo(
+          el,
+          { scale: 0.55, opacity: 0, rotation: -4 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.22, ease: "back.out(2.2)" },
+          start
+        );
+      }
+
+      beat("f05-img1", 0);
+      beat("f05-img2", 2.158);
+      beat("f05-img3", 5.101);
+      beat("f05-img4", 6.328);
+      beat("f05-img5", 10.087);
+      beat("f05-img6", 10.706);
+      beat("f05-img7", 15.013);
+
+      var phase = { p: 0 };
+      var IDLE_START = 15.413;
+      var IDLE_DUR = 19.221 - IDLE_START;
+      if (IDLE_DUR > 0.3) {
+        tl.to(phase, {
+          p: Math.PI * 2 * (IDLE_DUR / 2.5),
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var s = Math.sin(phase.p);
+            document.getElementById("f05-img7").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+          },
+        }, IDLE_START);
+      }
+
+      window.__timelines["05-crm"] = tl;
+    })();
+  </script>
+</template>

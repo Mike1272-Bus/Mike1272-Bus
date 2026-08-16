@@ -1,0 +1,464 @@
+[
+  {
+    "id": "w0",
+    "text": "Cette",
+    "start": 0,
+    "end": 0.191
+  },
+  {
+    "id": "w1",
+    "text": "semaine,",
+    "start": 0.251,
+    "end": 0.576
+  },
+  {
+    "id": "w2",
+    "text": "on",
+    "start": 0.636,
+    "end": 0.713
+  },
+  {
+    "id": "w3",
+    "text": "a",
+    "start": 0.773,
+    "end": 0.811
+  },
+  {
+    "id": "w4",
+    "text": "couvert",
+    "start": 0.871,
+    "end": 1.139
+  },
+  {
+    "id": "w5",
+    "text": "tout",
+    "start": 1.199,
+    "end": 1.352
+  },
+  {
+    "id": "w6",
+    "text": "ce",
+    "start": 1.412,
+    "end": 1.488
+  },
+  {
+    "id": "w7",
+    "text": "qu'il",
+    "start": 1.548,
+    "end": 1.701
+  },
+  {
+    "id": "w8",
+    "text": "faut",
+    "start": 1.761,
+    "end": 1.914
+  },
+  {
+    "id": "w9",
+    "text": "pour",
+    "start": 1.974,
+    "end": 2.127
+  },
+  {
+    "id": "w10",
+    "text": "amorcer",
+    "start": 2.187,
+    "end": 2.455
+  },
+  {
+    "id": "w11",
+    "text": "cette",
+    "start": 2.515,
+    "end": 2.706
+  },
+  {
+    "id": "w12",
+    "text": "transformation",
+    "start": 2.766,
+    "end": 3.302
+  },
+  {
+    "id": "w13",
+    "text": ":",
+    "start": 3.362,
+    "end": 3.458
+  },
+  {
+    "id": "w14",
+    "text": "comment",
+    "start": 3.518,
+    "end": 3.785
+  },
+  {
+    "id": "w15",
+    "text": "afficher",
+    "start": 3.845,
+    "end": 4.151
+  },
+  {
+    "id": "w16",
+    "text": "vos",
+    "start": 4.211,
+    "end": 4.326
+  },
+  {
+    "id": "w17",
+    "text": "prix",
+    "start": 4.386,
+    "end": 4.539
+  },
+  {
+    "id": "w18",
+    "text": "clairement",
+    "start": 4.599,
+    "end": 4.982
+  },
+  {
+    "id": "w19",
+    "text": "pour",
+    "start": 5.042,
+    "end": 5.195
+  },
+  {
+    "id": "w20",
+    "text": "arrêter",
+    "start": 5.255,
+    "end": 5.522
+  },
+  {
+    "id": "w21",
+    "text": "les",
+    "start": 5.582,
+    "end": 5.697
+  },
+  {
+    "id": "w22",
+    "text": "négociations",
+    "start": 5.757,
+    "end": 6.216
+  },
+  {
+    "id": "w23",
+    "text": "sans",
+    "start": 6.276,
+    "end": 6.429
+  },
+  {
+    "id": "w24",
+    "text": "fin,",
+    "start": 6.489,
+    "end": 6.661
+  },
+  {
+    "id": "w25",
+    "text": "l'outil",
+    "start": 6.721,
+    "end": 6.951
+  },
+  {
+    "id": "w26",
+    "text": "gratuit",
+    "start": 7.011,
+    "end": 7.279
+  },
+  {
+    "id": "w27",
+    "text": "qui",
+    "start": 7.339,
+    "end": 7.453
+  },
+  {
+    "id": "w28",
+    "text": "prouve",
+    "start": 7.513,
+    "end": 7.743
+  },
+  {
+    "id": "w29",
+    "text": "que",
+    "start": 7.803,
+    "end": 7.918
+  },
+  {
+    "id": "w30",
+    "text": "vous",
+    "start": 7.978,
+    "end": 8.131
+  },
+  {
+    "id": "w31",
+    "text": "êtes",
+    "start": 8.191,
+    "end": 8.344
+  },
+  {
+    "id": "w32",
+    "text": "une",
+    "start": 8.404,
+    "end": 8.518
+  },
+  {
+    "id": "w33",
+    "text": "entreprise",
+    "start": 8.578,
+    "end": 8.961
+  },
+  {
+    "id": "w34",
+    "text": "sérieuse,",
+    "start": 9.021,
+    "end": 9.384
+  },
+  {
+    "id": "w35",
+    "text": "comment",
+    "start": 9.444,
+    "end": 9.712
+  },
+  {
+    "id": "w36",
+    "text": "sécuriser",
+    "start": 9.772,
+    "end": 10.116
+  },
+  {
+    "id": "w37",
+    "text": "vos",
+    "start": 10.176,
+    "end": 10.291
+  },
+  {
+    "id": "w38",
+    "text": "paiements",
+    "start": 10.351,
+    "end": 10.695
+  },
+  {
+    "id": "w39",
+    "text": "avec",
+    "start": 10.755,
+    "end": 10.908
+  },
+  {
+    "id": "w40",
+    "text": "un",
+    "start": 10.968,
+    "end": 11.045
+  },
+  {
+    "id": "w41",
+    "text": "vrai",
+    "start": 11.105,
+    "end": 11.258
+  },
+  {
+    "id": "w42",
+    "text": "lien",
+    "start": 11.318,
+    "end": 11.471
+  },
+  {
+    "id": "w43",
+    "text": "automatique,",
+    "start": 11.531,
+    "end": 12.009
+  },
+  {
+    "id": "w44",
+    "text": "comment",
+    "start": 12.069,
+    "end": 12.337
+  },
+  {
+    "id": "w45",
+    "text": "reconnaître",
+    "start": 12.397,
+    "end": 12.818
+  },
+  {
+    "id": "w46",
+    "text": "une",
+    "start": 12.878,
+    "end": 12.992
+  },
+  {
+    "id": "w47",
+    "text": "fausse",
+    "start": 13.052,
+    "end": 13.282
+  },
+  {
+    "id": "w48",
+    "text": "preuve",
+    "start": 13.342,
+    "end": 13.571
+  },
+  {
+    "id": "w49",
+    "text": "de",
+    "start": 13.631,
+    "end": 13.708
+  },
+  {
+    "id": "w50",
+    "text": "paiement",
+    "start": 13.768,
+    "end": 14.074
+  },
+  {
+    "id": "w51",
+    "text": "avant",
+    "start": 14.134,
+    "end": 14.325
+  },
+  {
+    "id": "w52",
+    "text": "de",
+    "start": 14.385,
+    "end": 14.462
+  },
+  {
+    "id": "w53",
+    "text": "livrer,",
+    "start": 14.522,
+    "end": 14.808
+  },
+  {
+    "id": "w54",
+    "text": "l'erreur",
+    "start": 14.868,
+    "end": 15.136
+  },
+  {
+    "id": "w55",
+    "text": "qui",
+    "start": 15.196,
+    "end": 15.311
+  },
+  {
+    "id": "w56",
+    "text": "fait",
+    "start": 15.371,
+    "end": 15.524
+  },
+  {
+    "id": "w57",
+    "text": "fuir",
+    "start": 15.584,
+    "end": 15.737
+  },
+  {
+    "id": "w58",
+    "text": "90",
+    "start": 15.797,
+    "end": 15.874
+  },
+  {
+    "id": "w59",
+    "text": "pourcent",
+    "start": 15.934,
+    "end": 16.24
+  },
+  {
+    "id": "w60",
+    "text": "des",
+    "start": 16.3,
+    "end": 16.414
+  },
+  {
+    "id": "w61",
+    "text": "visiteurs",
+    "start": 16.474,
+    "end": 16.819
+  },
+  {
+    "id": "w62",
+    "text": "de",
+    "start": 16.879,
+    "end": 16.955
+  },
+  {
+    "id": "w63",
+    "text": "vos",
+    "start": 17.015,
+    "end": 17.13
+  },
+  {
+    "id": "w64",
+    "text": "publicités,",
+    "start": 17.19,
+    "end": 17.63
+  },
+  {
+    "id": "w65",
+    "text": "et",
+    "start": 17.69,
+    "end": 17.766
+  },
+  {
+    "id": "w66",
+    "text": "pourquoi",
+    "start": 17.826,
+    "end": 18.132
+  },
+  {
+    "id": "w67",
+    "text": "les",
+    "start": 18.192,
+    "end": 18.307
+  },
+  {
+    "id": "w68",
+    "text": "clients",
+    "start": 18.367,
+    "end": 18.635
+  },
+  {
+    "id": "w69",
+    "text": "qui",
+    "start": 18.695,
+    "end": 18.809
+  },
+  {
+    "id": "w70",
+    "text": "reviennent",
+    "start": 18.869,
+    "end": 19.252
+  },
+  {
+    "id": "w71",
+    "text": "valent",
+    "start": 19.312,
+    "end": 19.542
+  },
+  {
+    "id": "w72",
+    "text": "plus",
+    "start": 19.602,
+    "end": 19.755
+  },
+  {
+    "id": "w73",
+    "text": "cher",
+    "start": 19.815,
+    "end": 19.968
+  },
+  {
+    "id": "w74",
+    "text": "que",
+    "start": 20.028,
+    "end": 20.142
+  },
+  {
+    "id": "w75",
+    "text": "les",
+    "start": 20.202,
+    "end": 20.317
+  },
+  {
+    "id": "w76",
+    "text": "nouveaux.",
+    "start": 20.377,
+    "end": 20.779
+  }
+]

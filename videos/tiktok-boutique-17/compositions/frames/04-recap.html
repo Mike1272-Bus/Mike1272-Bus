@@ -1,0 +1,169 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+      --blue-bg: #c0f7fe;
+      --pink-bg: #fe90e8;
+      --cream-bg: #ffdc8b;
+      --yellow-bg: #f7cb46;
+      --green-bg: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+
+    .f04-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--green-bg);
+    }
+    .f04-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+
+    .f04-counter {
+      position: absolute;
+      left: 60px;
+      top: 90px;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: 26px;
+    }
+
+    .f04-img {
+      position: absolute;
+      left: 50%;
+      top: 620px;
+      width: 900px;
+      height: 900px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .f04-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+
+  <div id="root" data-composition-id="04-recap" data-duration="20.779" data-width="1080" data-height="1920">
+    <div class="f04-bg clip" data-start="0" data-duration="20.779" data-track-index="0"></div>
+    <div class="f04-counter clip" data-start="0" data-duration="20.779" data-track-index="1">04</div>
+      <div class="f04-img clip" data-start="0" data-duration="0.636" data-track-index="2" id="f04-img1">
+        <img src="assets/s4-1.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="0.636" data-duration="1.338" data-track-index="2" id="f04-img2">
+        <img src="assets/s4-2.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="1.974" data-duration="1.544" data-track-index="2" id="f04-img3">
+        <img src="assets/s4-3.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="3.518" data-duration="1.524" data-track-index="2" id="f04-img4">
+        <img src="assets/s4-4.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="5.042" data-duration="1.679" data-track-index="2" id="f04-img5">
+        <img src="assets/s4-5.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="6.721" data-duration="1.257" data-track-index="2" id="f04-img6">
+        <img src="assets/s4-6.jpg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="7.978" data-duration="1.466" data-track-index="2" id="f04-img7">
+        <img src="assets/s4-7.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="9.444" data-duration="1.524" data-track-index="2" id="f04-img8">
+        <img src="assets/s4-8.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="10.968" data-duration="1.101" data-track-index="2" id="f04-img9">
+        <img src="assets/s4-9.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="12.069" data-duration="2.065" data-track-index="2" id="f04-img10">
+        <img src="assets/s4-10.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="14.134" data-duration="0.734" data-track-index="2" id="f04-img11">
+        <img src="assets/s4-11.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="14.868" data-duration="0.929" data-track-index="2" id="f04-img12">
+        <img src="assets/s4-12.png" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="15.797" data-duration="1.893" data-track-index="2" id="f04-img13">
+        <img src="assets/s4-13.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="17.69" data-duration="1.622" data-track-index="2" id="f04-img14">
+        <img src="assets/s4-14.jpeg" alt="" />
+      </div>
+      <div class="f04-img clip" data-start="19.312" data-duration="1.467" data-track-index="2" id="f04-img15">
+        <img src="assets/s4-15.jpeg" alt="" />
+      </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      function beat(id, start) {
+        var el = document.getElementById(id);
+        tl.fromTo(
+          el,
+          { scale: 0.55, opacity: 0, rotation: -4 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.22, ease: "back.out(2.2)" },
+          start
+        );
+      }
+
+      beat("f04-img1", 0);
+      beat("f04-img2", 0.636);
+      beat("f04-img3", 1.974);
+      beat("f04-img4", 3.518);
+      beat("f04-img5", 5.042);
+      beat("f04-img6", 6.721);
+      beat("f04-img7", 7.978);
+      beat("f04-img8", 9.444);
+      beat("f04-img9", 10.968);
+      beat("f04-img10", 12.069);
+      beat("f04-img11", 14.134);
+      beat("f04-img12", 14.868);
+      beat("f04-img13", 15.797);
+      beat("f04-img14", 17.69);
+      beat("f04-img15", 19.312);
+
+      var phase = { p: 0 };
+      var IDLE_START = 19.712;
+      var IDLE_DUR = 20.779 - IDLE_START;
+      if (IDLE_DUR > 0.3) {
+        tl.to(phase, {
+          p: Math.PI * 2 * (IDLE_DUR / 2.5),
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var s = Math.sin(phase.p);
+            document.getElementById("f04-img15").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+          },
+        }, IDLE_START);
+      }
+
+      window.__timelines["04-recap"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="./vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #FFFFFF; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="83.76" data-width="1080" data-height="1920">
+      <div
+        id="el-01"
+        class="scene"
+        data-composition-id="01"
+        data-composition-src="compositions/frames/01-accroche.html"
+        data-start="0"
+        data-duration="8.661333"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-02"
+        class="scene"
+        data-composition-id="02"
+        data-composition-src="compositions/frames/02-presentation.html"
+        data-start="9.011"
+        data-duration="9.429333"
+        data-track-index="1"
+      ></div>
+      <div
+        id="el-03"
+        class="scene"
+        data-composition-id="03"
+        data-composition-src="compositions/frames/03-vision.html"
+        data-start="18.791"
+        data-duration="14.122667"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-04"
+        class="scene"
+        data-composition-id="04"
+        data-composition-src="compositions/frames/04-recap.html"
+        data-start="33.263"
+        data-duration="20.778667"
+        data-track-index="1"
+      ></div>
+      <div
+        id="el-05"
+        class="scene"
+        data-composition-id="05"
+        data-composition-src="compositions/frames/05-crm.html"
+        data-start="54.392"
+        data-duration="19.221333"
+        data-track-index="0"
+      ></div>
+      <div
+        id="el-06"
+        class="scene"
+        data-composition-id="06"
+        data-composition-src="compositions/frames/06-cta.html"
+        data-start="73.963"
+        data-duration="9.728"
+        data-track-index="1"
+      ></div>
+
+      <audio
+        id="el-voice"
+        src="audio/voice.mp3"
+        data-start="0"
+        data-duration="83.76"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-captions"
+        class="scene"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions.html"
+        data-start="0"
+        data-duration="83.76"
+        data-track-index="2"
+      ></div>
+
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+      (function () { var tl = window.__timelines["main"];
+        tl.to("#el-01", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 9.011);
+        tl.fromTo("#el-02", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 9.011);
+        tl.to("#el-02", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 18.791);
+        tl.fromTo("#el-03", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 18.791);
+        tl.to("#el-03", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 33.263);
+        tl.fromTo("#el-04", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 33.263);
+        tl.to("#el-04", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 54.392);
+        tl.fromTo("#el-05", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 54.392);
+        tl.to("#el-05", { x: -1080, duration: 0.4, ease: "power3.inOut" }, 73.963);
+        tl.fromTo("#el-06", { x: 1080, opacity: 1 }, { x: 0, duration: 0.4, ease: "power3.inOut" }, 73.963);
+        tl.to({}, { duration: 83.76 }, 0);
+      })();
+    </script>
+  </body>
+</html>
