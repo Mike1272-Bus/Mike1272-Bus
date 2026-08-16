@@ -67,19 +67,19 @@
     }
   </style>
 
-  <div id="root" data-composition-id="02-presentation" data-duration="9.429" data-width="1080" data-height="1920">
-    <div class="f02-bg clip" data-start="0" data-duration="9.429" data-track-index="0"></div>
-    <div class="f02-counter clip" data-start="0" data-duration="9.429" data-track-index="1">02</div>
-      <div class="f02-img clip" data-start="0" data-duration="2.235" data-track-index="2" id="f02-img1">
+  <div id="root" data-composition-id="02-presentation" data-duration="9.237" data-width="1080" data-height="1920">
+    <div class="f02-bg clip" data-start="0" data-duration="9.237" data-track-index="0"></div>
+    <div class="f02-counter clip" data-start="0" data-duration="9.237" data-track-index="1">02</div>
+      <div class="f02-img clip" data-start="0" data-duration="2.189" data-track-index="2" id="f02-img1">
         <img src="assets/s2-1.png" alt="" />
       </div>
-      <div class="f02-img clip" data-start="2.235" data-duration="2.328" data-track-index="2" id="f02-img2">
+      <div class="f02-img clip" data-start="2.189" data-duration="2.28" data-track-index="2" id="f02-img2">
         <img src="assets/s2-2.jpeg" alt="" />
       </div>
-      <div class="f02-img clip" data-start="4.563" data-duration="2.08" data-track-index="2" id="f02-img3">
+      <div class="f02-img clip" data-start="4.469" data-duration="2.039" data-track-index="2" id="f02-img3">
         <img src="assets/s2-3.jpeg" alt="" />
       </div>
-      <div class="f02-img clip" data-start="6.643" data-duration="2.786" data-track-index="2" id="f02-img4">
+      <div class="f02-img clip" data-start="6.508" data-duration="2.729" data-track-index="2" id="f02-img4">
         <img src="assets/s2-4.jpeg" alt="" />
       </div>
   </div>
@@ -100,13 +100,13 @@
       }
 
       beat("f02-img1", 0);
-      beat("f02-img2", 2.235);
-      beat("f02-img3", 4.563);
-      beat("f02-img4", 6.643);
+      beat("f02-img2", 2.189);
+      beat("f02-img3", 4.469);
+      beat("f02-img4", 6.508);
 
       var phase = { p: 0 };
-      var IDLE_START = 7.043;
-      var IDLE_DUR = 9.429 - IDLE_START;
+      var IDLE_START = 6.908;
+      var IDLE_DUR = 9.237 - IDLE_START;
       if (IDLE_DUR > 0.3) {
         tl.to(phase, {
           p: Math.PI * 2 * (IDLE_DUR / 2.5),

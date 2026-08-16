@@ -67,28 +67,28 @@
     }
   </style>
 
-  <div id="root" data-composition-id="05-crm" data-duration="19.221" data-width="1080" data-height="1920">
-    <div class="f05-bg clip" data-start="0" data-duration="19.221" data-track-index="0"></div>
-    <div class="f05-counter clip" data-start="0" data-duration="19.221" data-track-index="1">05</div>
-      <div class="f05-img clip" data-start="0" data-duration="2.158" data-track-index="2" id="f05-img1">
+  <div id="root" data-composition-id="05-crm" data-duration="19.136" data-width="1080" data-height="1920">
+    <div class="f05-bg clip" data-start="0" data-duration="19.136" data-track-index="0"></div>
+    <div class="f05-counter clip" data-start="0" data-duration="19.136" data-track-index="1">05</div>
+      <div class="f05-img clip" data-start="0" data-duration="2.149" data-track-index="2" id="f05-img1">
         <img src="assets/s5-1.jpeg" alt="" />
       </div>
-      <div class="f05-img clip" data-start="2.158" data-duration="2.943" data-track-index="2" id="f05-img2">
+      <div class="f05-img clip" data-start="2.149" data-duration="2.93" data-track-index="2" id="f05-img2">
         <img src="assets/s5-2.jpeg" alt="" />
       </div>
-      <div class="f05-img clip" data-start="5.101" data-duration="1.227" data-track-index="2" id="f05-img3">
+      <div class="f05-img clip" data-start="5.079" data-duration="1.221" data-track-index="2" id="f05-img3">
         <img src="assets/s5-3.jpeg" alt="" />
       </div>
-      <div class="f05-img clip" data-start="6.328" data-duration="3.759" data-track-index="2" id="f05-img4">
+      <div class="f05-img clip" data-start="6.3" data-duration="3.743" data-track-index="2" id="f05-img4">
         <img src="assets/s5-4.png" alt="" />
       </div>
-      <div class="f05-img clip" data-start="10.087" data-duration="0.619" data-track-index="2" id="f05-img5">
+      <div class="f05-img clip" data-start="10.043" data-duration="0.616" data-track-index="2" id="f05-img5">
         <img src="assets/s5-5.jpeg" alt="" />
       </div>
-      <div class="f05-img clip" data-start="10.706" data-duration="4.307" data-track-index="2" id="f05-img6">
+      <div class="f05-img clip" data-start="10.659" data-duration="4.288" data-track-index="2" id="f05-img6">
         <img src="assets/s5-6.jpeg" alt="" />
       </div>
-      <div class="f05-img clip" data-start="15.013" data-duration="4.208" data-track-index="2" id="f05-img7">
+      <div class="f05-img clip" data-start="14.947" data-duration="4.189" data-track-index="2" id="f05-img7">
         <img src="assets/s5-7.png" alt="" />
       </div>
   </div>
@@ -109,16 +109,16 @@
       }
 
       beat("f05-img1", 0);
-      beat("f05-img2", 2.158);
-      beat("f05-img3", 5.101);
-      beat("f05-img4", 6.328);
-      beat("f05-img5", 10.087);
-      beat("f05-img6", 10.706);
-      beat("f05-img7", 15.013);
+      beat("f05-img2", 2.149);
+      beat("f05-img3", 5.079);
+      beat("f05-img4", 6.3);
+      beat("f05-img5", 10.043);
+      beat("f05-img6", 10.659);
+      beat("f05-img7", 14.947);
 
       var phase = { p: 0 };
-      var IDLE_START = 15.413;
-      var IDLE_DUR = 19.221 - IDLE_START;
+      var IDLE_START = 15.347;
+      var IDLE_DUR = 19.136 - IDLE_START;
       if (IDLE_DUR > 0.3) {
         tl.to(phase, {
           p: Math.PI * 2 * (IDLE_DUR / 2.5),

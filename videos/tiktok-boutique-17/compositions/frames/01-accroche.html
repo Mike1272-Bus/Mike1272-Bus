@@ -67,25 +67,25 @@
     }
   </style>
 
-  <div id="root" data-composition-id="01-accroche" data-duration="8.661" data-width="1080" data-height="1920">
-    <div class="f01-bg clip" data-start="0" data-duration="8.661" data-track-index="0"></div>
-    <div class="f01-counter clip" data-start="0" data-duration="8.661" data-track-index="1">01</div>
-      <div class="f01-img clip" data-start="0" data-duration="1.823" data-track-index="2" id="f01-img1">
+  <div id="root" data-composition-id="01-accroche" data-duration="8.277" data-width="1080" data-height="1920">
+    <div class="f01-bg clip" data-start="0" data-duration="8.277" data-track-index="0"></div>
+    <div class="f01-counter clip" data-start="0" data-duration="8.277" data-track-index="1">01</div>
+      <div class="f01-img clip" data-start="0" data-duration="1.743" data-track-index="2" id="f01-img1">
         <img src="assets/s1-1.jpeg" alt="" />
       </div>
-      <div class="f01-img clip" data-start="1.823" data-duration="1.155" data-track-index="2" id="f01-img2">
+      <div class="f01-img clip" data-start="1.743" data-duration="1.104" data-track-index="2" id="f01-img2">
         <img src="assets/s1-2.png" alt="" />
       </div>
-      <div class="f01-img clip" data-start="2.978" data-duration="1.914" data-track-index="2" id="f01-img3">
+      <div class="f01-img clip" data-start="2.847" data-duration="1.83" data-track-index="2" id="f01-img3">
         <img src="assets/s1-3.jpeg" alt="" />
       </div>
-      <div class="f01-img clip" data-start="4.892" data-duration="0.608" data-track-index="2" id="f01-img4">
+      <div class="f01-img clip" data-start="4.677" data-duration="0.582" data-track-index="2" id="f01-img4">
         <img src="assets/s1-4.jpeg" alt="" />
       </div>
-      <div class="f01-img clip" data-start="5.5" data-duration="0.699" data-track-index="2" id="f01-img5">
+      <div class="f01-img clip" data-start="5.259" data-duration="0.666" data-track-index="2" id="f01-img5">
         <img src="assets/s1-5.png" alt="" />
       </div>
-      <div class="f01-img clip" data-start="6.199" data-duration="2.462" data-track-index="2" id="f01-img6">
+      <div class="f01-img clip" data-start="5.925" data-duration="2.352" data-track-index="2" id="f01-img6">
         <img src="assets/s1-6.jpeg" alt="" />
       </div>
   </div>
@@ -106,15 +106,15 @@
       }
 
       beat("f01-img1", 0);
-      beat("f01-img2", 1.823);
-      beat("f01-img3", 2.978);
-      beat("f01-img4", 4.892);
-      beat("f01-img5", 5.5);
-      beat("f01-img6", 6.199);
+      beat("f01-img2", 1.743);
+      beat("f01-img3", 2.847);
+      beat("f01-img4", 4.677);
+      beat("f01-img5", 5.259);
+      beat("f01-img6", 5.925);
 
       var phase = { p: 0 };
-      var IDLE_START = 6.599;
-      var IDLE_DUR = 8.661 - IDLE_START;
+      var IDLE_START = 6.325;
+      var IDLE_DUR = 8.277 - IDLE_START;
       if (IDLE_DUR > 0.3) {
         tl.to(phase, {
           p: Math.PI * 2 * (IDLE_DUR / 2.5),
