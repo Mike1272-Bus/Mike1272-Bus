@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="./vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root {
+        position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        font-family: "Arial Black", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+        --black: #000000; --cream: #FFFDF5; --yellow: #F7CB46;
+      }
+      #root * { box-sizing: border-box; }
+
+      .scene { position: absolute; inset: 0; background: var(--cream); }
+      .scene-inner { position: absolute; inset: 0; opacity: 0; }
+      .dotgrid { position: absolute; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.09) 2.4px, transparent 2.8px); background-size: 32px 32px; }
+
+      .counter {
+        position: absolute; top: 90px; left: 60px; width: 84px; height: 84px; border-radius: 50%;
+        background: #fff; border: 5px solid var(--black); box-shadow: 6px 6px 0 var(--black);
+        display: flex; align-items: center; justify-content: center;
+        font-family: var(--f-display); font-weight: 900; font-size: 26px;
+      }
+      .logo {
+        position: absolute; top: 96px; right: 60px; width: 72px; height: 72px; border-radius: 50%;
+        background: #fff; border: 4px solid var(--black); box-shadow: 5px 5px 0 var(--black);
+        display: flex; align-items: center; justify-content: center; overflow: hidden;
+      }
+      .logo img { width: 68%; height: 68%; object-fit: contain; }
+      .technique {
+        position: absolute; bottom: 130px; left: 50%; transform: translateX(-50%);
+        background: var(--yellow); border: 5px solid var(--black); box-shadow: 7px 7px 0 var(--black);
+        border-radius: 999px; padding: 16px 34px; white-space: nowrap;
+        font-family: var(--f-display); font-weight: 900; font-size: 26px; text-transform: uppercase; color: #000;
+      }
+
+      .stage { position: absolute; left: 50%; top: 780px; transform: translateX(-50%); perspective: 1600px; }
+      .frame {
+        position: relative; width: 820px; height: 820px; background: #fff;
+        border: 9px solid var(--black); box-shadow: 16px 16px 0 var(--black); border-radius: 10px;
+        overflow: hidden;
+      }
+      .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+      .caption-overlay {
+        position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 36px 44px;
+        background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0));
+      }
+      .caption-overlay .word {
+        display: inline-block; font-family: var(--f-display); font-weight: 900; font-size: 46px;
+        text-transform: uppercase; color: #fff; margin-right: 14px; transform: translateY(60px); opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+
+      <!-- 1 : Ken Burns -->
+      <div id="sc1" class="scene clip" data-start="0" data-duration="2.2" data-track-index="0">
+        <div class="scene-inner" id="sc1-inner">
+          <div class="dotgrid"></div>
+          <div class="counter">01</div><div class="logo"><img src="assets/adg-logo-transparent.png"/></div>
+          <div class="stage"><div class="frame"><img id="img1" src="assets/l01-imagemarque.jpeg"/></div></div>
+          <div class="technique">Ken Burns — zoom + pan</div>
+        </div>
+      </div>
+
+      <!-- 2 : Wipe reveal -->
+      <div id="sc2" class="scene clip" data-start="2.2" data-duration="2.2" data-track-index="1">
+        <div class="scene-inner" id="sc2-inner">
+          <div class="dotgrid"></div>
+          <div class="counter">02</div><div class="logo"><img src="assets/adg-logo-transparent.png"/></div>
+          <div class="stage"><div class="frame" id="frame2" style="clip-path: inset(0 100% 0 0);"><img src="assets/l03-negocie.jpeg"/></div></div>
+          <div class="technique">Reveal par masque</div>
+        </div>
+      </div>
+
+      <!-- 3 : Iris circulaire -->
+      <div id="sc3" class="scene clip" data-start="4.4" data-duration="2.2" data-track-index="0">
+        <div class="scene-inner" id="sc3-inner">
+          <div class="dotgrid"></div>
+          <div class="counter">03</div><div class="logo"><img src="assets/adg-logo-transparent.png"/></div>
+          <div class="stage"><div class="frame" id="frame3" style="clip-path: circle(0% at 50% 50%);"><img src="assets/l04-livraisonretard.jpeg"/></div></div>
+          <div class="technique">Iris circulaire</div>
+        </div>
+      </div>
+
+      <!-- 4 : Bascule 3D -->
+      <div id="sc4" class="scene clip" data-start="6.6" data-duration="2.2" data-track-index="1">
+        <div class="scene-inner" id="sc4-inner">
+          <div class="dotgrid"></div>
+          <div class="counter">04</div><div class="logo"><img src="assets/adg-logo-transparent.png"/></div>
+          <div class="stage"><div class="frame" id="frame4" style="transform-style:preserve-3d; opacity:0;"><img src="assets/l05-inspirerconfiance.jpeg"/></div></div>
+          <div class="technique">Bascule 3D</div>
+        </div>
+      </div>
+
+      <!-- 5 : Parallaxe -->
+      <div id="sc5" class="scene clip" data-start="8.8" data-duration="2.2" data-track-index="0">
+        <div class="scene-inner" id="sc5-inner">
+          <div class="dotgrid"></div>
+          <div class="counter">05</div><div class="logo"><img src="assets/adg-logo-transparent.png"/></div>
+          <div class="stage"><div class="frame"><img id="img5" src="assets/l06-boutiqueenligne.jpeg" style="width:130%; height:130%; left:-15%; top:-15%;"/></div></div>
+          <div class="technique">Parallaxe</div>
+        </div>
+      </div>
+
+      <!-- 6 : Whip pan -->
+      <div id="sc6" class="scene clip" data-start="11.0" data-duration="2.2" data-track-index="1">
+        <div class="scene-inner" id="sc6-inner">
+          <div class="dotgrid"></div>
+          <div class="counter">06</div><div class="logo"><img src="assets/adg-logo-transparent.png"/></div>
+          <div class="stage"><div class="frame" id="frame6" style="opacity:0;"><img src="assets/l07-petitsvendeurs.jpg"/></div></div>
+          <div class="technique">Whip pan</div>
+        </div>
+      </div>
+
+      <!-- 7 : Diagonale -->
+      <div id="sc7" class="scene clip" data-start="13.2" data-duration="2.2" data-track-index="0">
+        <div class="scene-inner" id="sc7-inner">
+          <div class="dotgrid"></div>
+          <div class="counter">07</div><div class="logo"><img src="assets/adg-logo-transparent.png"/></div>
+          <div class="stage"><div class="frame" id="frame7" style="clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);"><img src="assets/l08-dejapaye.jpeg"/></div></div>
+          <div class="technique">Diagonale</div>
+        </div>
+      </div>
+
+      <!-- 8 : Stores / blinds -->
+      <div id="sc8" class="scene clip" data-start="15.4" data-duration="2.2" data-track-index="1">
+        <div class="scene-inner" id="sc8-inner">
+          <div class="dotgrid"></div>
+          <div class="counter">08</div><div class="logo"><img src="assets/adg-logo-transparent.png"/></div>
+          <div class="stage">
+            <div class="frame" style="position:relative;">
+              <img src="assets/l08-doitreponse.jpeg"/>
+              <div id="blinds8" style="position:absolute; inset:0; display:flex;"></div>
+            </div>
+          </div>
+          <div class="technique">Effet stores</div>
+        </div>
+      </div>
+
+      <!-- 9 : Légende cinétique -->
+      <div id="sc9" class="scene clip" data-start="17.6" data-duration="2.2" data-track-index="0">
+        <div class="scene-inner" id="sc9-inner">
+          <div class="dotgrid"></div>
+          <div class="counter">09</div><div class="logo"><img src="assets/adg-logo-transparent.png"/></div>
+          <div class="stage">
+            <div class="frame">
+              <img src="assets/l08-prendauserieux.jpeg"/>
+              <div class="caption-overlay" id="cap9">
+                <span class="word">ON</span><span class="word">TE</span><span class="word">PREND</span><span class="word">AU</span><span class="word">SÉRIEUX</span>
+              </div>
+            </div>
+          </div>
+          <div class="technique">Légende cinétique</div>
+        </div>
+      </div>
+
+      <!-- 10 : Focus pull -->
+      <div id="sc10" class="scene clip" data-start="19.8" data-duration="2.2" data-track-index="1">
+        <div class="scene-inner" id="sc10-inner">
+          <div class="dotgrid"></div>
+          <div class="counter">10</div><div class="logo"><img src="assets/adg-logo-transparent.png"/></div>
+          <div class="stage"><div class="frame"><img id="img10" src="assets/l08-vraieentreprise.jpeg" style="filter: blur(18px);"/></div></div>
+          <div class="technique">Focus pull</div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      var starts = [0, 2.2, 4.4, 6.6, 8.8, 11.0, 13.2, 15.4, 17.6, 19.8];
+      for (var i = 1; i <= 10; i++) {
+        var s = starts[i - 1];
+        var end = s + 2.2;
+        tl.to("#sc" + i + "-inner", { opacity: 1, duration: 0.25 }, s);
+        if (i < 10) {
+          tl.to("#sc" + i + "-inner", { opacity: 0, duration: 0.2 }, end - 0.2);
+          tl.set("#sc" + i + "-inner", { opacity: 0 }, end);
+        }
+      }
+
+      // 1: Ken Burns — slow zoom + pan for the whole hold
+      tl.fromTo("#img1", { scale: 1.0, x: 0, y: 0 }, { scale: 1.18, x: -26, y: -18, duration: 2.2, ease: "none" }, 0);
+
+      // 2: Wipe reveal — clip-path sweeps open left-to-right
+      tl.to("#frame2", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power3.inOut" }, 2.45);
+
+      // 3: Iris circular reveal
+      tl.to("#frame3", { clipPath: "circle(75% at 50% 50%)", duration: 0.8, ease: "power2.out" }, 4.65);
+
+      // 4: 3D flip-in
+      tl.fromTo("#frame4",
+        { opacity: 0, rotationY: -100, transformPerspective: 1600 },
+        { opacity: 1, rotationY: 0, duration: 0.75, ease: "power3.out" },
+        6.85
+      );
+
+      // 5: Parallax — background image drifts continuously behind the fixed frame border
+      tl.fromTo("#img5", { x: 0, y: 0 }, { x: -70, y: 40, duration: 2.2, ease: "none" }, 8.8);
+
+      // 6: Whip pan — fast horizontal entrance with motion blur
+      tl.fromTo("#frame6",
+        { opacity: 0, x: -1300, filter: "blur(26px)" },
+        { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.32, ease: "power1.out" },
+        11.15
+      );
+
+      // 7: Diagonal wipe via clip-path polygon
+      tl.to("#frame7", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", duration: 0.75, ease: "power2.inOut" }, 13.45);
+
+      // 8: Venetian blinds reveal — 10 deterministic vertical strips
+      var blindsRoot = document.getElementById("blinds8");
+      var N_BLINDS = 10;
+      for (var b = 0; b < N_BLINDS; b++) {
+        var strip = document.createElement("div");
+        strip.id = "blind" + b;
+        strip.style.flex = "1";
+        strip.style.background = "#FFFDF5";
+        blindsRoot.appendChild(strip);
+        tl.to("#blind" + b, { scaleY: 0, transformOrigin: (b % 2 === 0 ? "top" : "bottom"), duration: 0.45, ease: "power2.inOut" }, 15.65 + b * 0.035);
+      }
+
+      // 9: Kinetic caption over the photo
+      var words9 = document.querySelectorAll("#cap9 .word");
+      words9.forEach(function (w, i) {
+        tl.to(w, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 17.85 + i * 0.09);
+      });
+
+      // 10: Focus pull — blur/zoom settles into focus
+      tl.fromTo("#img10", { scale: 1.2 }, { filter: "blur(0px)", scale: 1.0, duration: 0.9, ease: "power2.out" }, 20.0);
+
+      tl.to({}, { duration: 22 }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
