@@ -3,138 +3,120 @@
     "id": "w0",
     "text": "C'est",
     "start": 0,
-    "end": 0.209
+    "end": 0.212
   },
   {
     "id": "w1",
     "text": "une",
-    "start": 0.269,
-    "end": 0.426
+    "start": 0.272,
+    "end": 0.431
   },
   {
     "id": "w2",
     "text": "nouvelle",
-    "start": 0.486,
-    "end": 0.903
+    "start": 0.491,
+    "end": 0.915
   },
   {
     "id": "w3",
     "text": "façon",
-    "start": 0.963,
-    "end": 1.224
+    "start": 0.975,
+    "end": 1.241
   },
   {
     "id": "w4",
     "text": "pour",
-    "start": 1.284,
-    "end": 1.493
+    "start": 1.301,
+    "end": 1.513
   },
   {
     "id": "w5",
     "text": "vendre",
-    "start": 1.553,
-    "end": 1.867
+    "start": 1.573,
+    "end": 1.891
   },
   {
     "id": "w6",
     "text": "en",
-    "start": 1.927,
-    "end": 2.031
+    "start": 1.951,
+    "end": 2.057
   },
   {
     "id": "w7",
     "text": "ligne.",
-    "start": 2.091,
-    "end": 2.483
+    "start": 2.117,
+    "end": 2.515
   },
   {
     "id": "w8",
     "text": "Écris",
-    "start": 2.543,
-    "end": 2.804
+    "start": 2.575,
+    "end": 2.84
   },
   {
     "id": "w9",
     "text": "Kit",
-    "start": 2.864,
-    "end": 3.021
+    "start": 2.9,
+    "end": 3.059
   },
   {
     "id": "w10",
     "text": "en",
-    "start": 3.081,
-    "end": 3.185
+    "start": 3.119,
+    "end": 3.225
   },
   {
     "id": "w11",
-    "text": "message",
-    "start": 3.245,
-    "end": 3.611
+    "text": "commentaire",
+    "start": 3.285,
+    "end": 3.868
   },
   {
     "id": "w12",
-    "text": "si",
-    "start": 3.671,
-    "end": 3.775
+    "text": "pour",
+    "start": 3.928,
+    "end": 4.141
   },
   {
     "id": "w13",
-    "text": "tu",
-    "start": 3.835,
-    "end": 3.94
+    "text": "avoir",
+    "start": 4.201,
+    "end": 4.466
   },
   {
     "id": "w14",
-    "text": "veux",
-    "start": 4,
-    "end": 4.208
+    "text": "le",
+    "start": 4.526,
+    "end": 4.632
   },
   {
     "id": "w15",
-    "text": "rattraper",
-    "start": 4.268,
-    "end": 4.738
+    "text": "guide",
+    "start": 4.692,
+    "end": 4.957
   },
   {
     "id": "w16",
-    "text": "ce",
-    "start": 4.798,
-    "end": 4.903
+    "text": "et",
+    "start": 5.017,
+    "end": 5.123
   },
   {
     "id": "w17",
-    "text": "que",
-    "start": 4.963,
-    "end": 5.12
+    "text": "le",
+    "start": 5.183,
+    "end": 5.289
   },
   {
     "id": "w18",
-    "text": "tu",
-    "start": 5.18,
-    "end": 5.284
+    "text": "système",
+    "start": 5.349,
+    "end": 5.72
   },
   {
     "id": "w19",
-    "text": "as",
-    "start": 5.344,
-    "end": 5.448
-  },
-  {
-    "id": "w20",
-    "text": "manqué",
-    "start": 5.508,
-    "end": 5.822
-  },
-  {
-    "id": "w21",
-    "text": "cette",
-    "start": 5.882,
-    "end": 6.143
-  },
-  {
-    "id": "w22",
-    "text": "semaine.",
-    "start": 6.203,
-    "end": 6.699
+    "text": "gratuitement.",
+    "start": 5.78,
+    "end": 6.549
   }
 ]

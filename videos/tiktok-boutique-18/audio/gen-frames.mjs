@@ -126,7 +126,10 @@ function renderScene(scene) {
       <img src="assets/adg-logo-transparent.png" alt="ADG" />
     </div>
     <div class="fcta-text clip" data-start="0.4" data-duration="${scene.dur - 0.4}" data-track-index="4" id="${prefix}-ctatext">
-      ÉCRIS "KIT"<br>EN MESSAGE
+      ÉCRIS "KIT"<br>EN COMMENTAIRE
+    </div>
+    <div class="fcta-sub clip" data-start="0.7" data-duration="${scene.dur - 0.7}" data-track-index="5" id="${prefix}-ctasub">
+      🎁 Guide + système offerts
     </div>` : "";
 
   const ctaStyles = scene.n === "09" ? `
@@ -139,14 +142,21 @@ function renderScene(scene) {
     .fcta-badge img { width: 68%; height: 68%; object-fit: contain; }
     .fcta-text {
       position: absolute; top: 1420px; left: 50px; right: 50px; text-align: center;
-      font-family: var(--f-display); font-weight: 900; font-size: 62px; line-height: 1.18;
+      font-family: var(--f-display); font-weight: 900; font-size: 56px; line-height: 1.18;
       text-transform: uppercase; color: #000; opacity: 0;
+    }
+    .fcta-sub {
+      position: absolute; top: 1640px; left: 50%; transform: translateX(-50%); opacity: 0;
+      background: #fff; border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black);
+      border-radius: 999px; padding: 16px 32px; white-space: nowrap;
+      font-family: var(--f-display); font-weight: 900; font-size: 26px; color: #000;
     }
   ` : "";
 
   const ctaAnim = scene.n === "09" ? `
       tl.fromTo("#${prefix}-badge", { scale: 0.4, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.35, ease: "back.out(2)" }, 0);
       tl.fromTo("#${prefix}-ctatext", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.4);
+      tl.fromTo("#${prefix}-ctasub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0.7);
   ` : "";
 
   return `<template>
