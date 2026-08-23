@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="./vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root {
+        position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        font-family: "Arial Black", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+        --black: #000000; --cream: #FFFDF5; --yellow: #F7CB46;
+      }
+      #root * { box-sizing: border-box; }
+
+      .scene { position: absolute; inset: 0; }
+      .scene-inner { position: absolute; inset: 0; opacity: 0; }
+      .dotgrid { position: absolute; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.09) 2.4px, transparent 2.8px); background-size: 32px 32px; }
+
+      .kicker {
+        position: absolute; top: 120px; left: 50%; transform: translateX(-50%);
+        background: var(--black); color: var(--yellow); font-family: var(--f-display);
+        font-weight: 900; font-size: 20px; text-transform: uppercase; letter-spacing: 0.04em;
+        padding: 10px 26px; border-radius: 999px; white-space: nowrap;
+      }
+
+      /* Scene 1 — kinetic typography */
+      #s1 { background: var(--cream); }
+      .kw-row { position: absolute; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 18px; top: 780px; }
+      .kw {
+        position: relative; overflow: hidden; padding: 6px 0; height: 132px;
+      }
+      .kw span {
+        display: block; font-family: var(--f-display); font-weight: 900; text-transform: uppercase;
+        font-size: 108px; line-height: 1; color: var(--black); transform: translateY(110%);
+      }
+      .kw .bar {
+        position: absolute; inset: 0; background: var(--yellow); transform: scaleX(0); transform-origin: left center;
+      }
+
+      /* Scene 2 — shape morph */
+      #s2 { background: var(--yellow); }
+      .morph-stage { position: absolute; left: 50%; top: 760px; transform: translate(-50%, -50%); }
+      .morph-shape {
+        width: 320px; height: 320px; background: var(--black); border-radius: 50%;
+      }
+      .morph-label {
+        position: absolute; left: 50%; top: 1180px; transform: translateX(-50%);
+        font-family: var(--f-display); font-weight: 900; font-size: 40px; text-transform: uppercase;
+        color: var(--black); text-align: center; opacity: 0; white-space: nowrap;
+      }
+
+      /* Scene 3 — icon + count-up */
+      #s3 { background: var(--cream); }
+      .chart-wrap { position: absolute; left: 50%; top: 700px; transform: translateX(-50%); display: flex; align-items: flex-end; gap: 22px; height: 300px; }
+      .bar-el { width: 64px; background: var(--black); border-radius: 6px 6px 0 0; transform: scaleY(0); transform-origin: bottom; }
+      .bar-el.b2 { background: var(--yellow); border: 4px solid var(--black); }
+      .count-num {
+        position: absolute; left: 50%; top: 1120px; transform: translateX(-50%);
+        font-family: var(--f-display); font-weight: 900; font-size: 140px; color: var(--black);
+      }
+      .count-label {
+        position: absolute; left: 50%; top: 1330px; transform: translateX(-50%);
+        font-family: var(--f-display); font-weight: 900; font-size: 30px; text-transform: uppercase;
+        color: var(--black); text-align: center; white-space: nowrap; opacity: 0;
+      }
+
+      /* Scene 4 — 3D card + particles */
+      #s4 { background: var(--black); perspective: 1400px; }
+      .particle {
+        position: absolute; border-radius: 50%; background: var(--yellow); opacity: 0.85;
+      }
+      .card3d {
+        position: absolute; left: 50%; top: 960px; transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
+        transform-style: preserve-3d; width: 640px; height: 640px;
+        background: var(--cream); border: 10px solid var(--black); border-radius: 16px;
+        box-shadow: 22px 22px 0 rgba(247,203,70,0.9);
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px;
+        opacity: 0;
+      }
+      .card3d .mark {
+        width: 160px; height: 160px; border-radius: 50%; background: var(--yellow);
+        border: 6px solid var(--black); display: flex; align-items: center; justify-content: center;
+        font-family: var(--f-display); font-weight: 900; font-size: 60px;
+      }
+      .card3d .title {
+        font-family: var(--f-display); font-weight: 900; font-size: 52px; text-transform: uppercase;
+        color: var(--black); text-align: center; line-height: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="18" data-width="1080" data-height="1920">
+
+      <!-- SCENE 1 : kinetic typography (0 - 4.3s) -->
+      <div id="s1" class="scene clip" data-start="0" data-duration="4.3" data-track-index="0">
+        <div class="scene-inner" id="s1-inner">
+        <div class="dotgrid"></div>
+        <div class="kicker">Blockframe motion</div>
+        <div class="kw-row">
+          <div class="kw"><span id="kw1">VRAI</span><div class="bar" id="bar1"></div></div>
+          <div class="kw"><span id="kw2">MOTION</span><div class="bar" id="bar2"></div></div>
+          <div class="kw"><span id="kw3">DESIGN.</span><div class="bar" id="bar3"></div></div>
+        </div>
+        </div>
+      </div>
+
+      <!-- SCENE 2 : shape morph (4.3 - 8.8s) -->
+      <div id="s2" class="scene clip" data-start="4.3" data-duration="4.5" data-track-index="1">
+        <div class="scene-inner" id="s2-inner">
+        <div class="dotgrid"></div>
+        <div class="kicker">Morph de forme</div>
+        <div class="morph-stage">
+          <div class="morph-shape" id="morphShape"></div>
+        </div>
+        <div class="morph-label" id="morphLabel">PAS JUSTE UN FONDU —<br>UNE VRAIE TRANSFORMATION</div>
+        </div>
+      </div>
+
+      <!-- SCENE 3 : icon + count-up (8.8 - 14.0s) -->
+      <div id="s3" class="scene clip" data-start="8.8" data-duration="5.2" data-track-index="2">
+        <div class="scene-inner" id="s3-inner">
+        <div class="dotgrid"></div>
+        <div class="kicker">Compteur animé</div>
+        <div class="chart-wrap">
+          <div class="bar-el" id="chartBar1" style="height:120px;"></div>
+          <div class="bar-el" id="chartBar2" style="height:190px;"></div>
+          <div class="bar-el b2" id="chartBar3" style="height:280px;"></div>
+        </div>
+        <div class="count-num"><span id="countNum">0</span>%</div>
+        <div class="count-label" id="countLabel">DE PORTÉE EN PLUS</div>
+        </div>
+      </div>
+
+      <!-- SCENE 4 : 3D card + particles (14.0 - 18.0s) -->
+      <div id="s4" class="scene clip" data-start="14.0" data-duration="4.0" data-track-index="3">
+        <div class="scene-inner" id="s4-inner">
+        <div id="particles"></div>
+        <div class="card3d" id="card3d">
+          <div class="mark">A</div>
+          <div class="title">ÇA, C'EST DU<br>VRAI MOTION<br>DESIGN</div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // ---- Scene transitions (opacity in/out on the inner, non-clip wrappers) ----
+      tl.to("#s1-inner", { opacity: 1, duration: 0.3 }, 0);
+      tl.to("#s1-inner", { opacity: 0, duration: 0.3 }, 4.0);
+      tl.set("#s1-inner", { opacity: 0 }, 4.3);
+      tl.to("#s2-inner", { opacity: 1, duration: 0.3 }, 4.3);
+      tl.to("#s2-inner", { opacity: 0, duration: 0.3 }, 8.5);
+      tl.set("#s2-inner", { opacity: 0 }, 8.8);
+      tl.to("#s3-inner", { opacity: 1, duration: 0.3 }, 8.8);
+      tl.to("#s3-inner", { opacity: 0, duration: 0.3 }, 13.7);
+      tl.set("#s3-inner", { opacity: 0 }, 14.0);
+      tl.to("#s4-inner", { opacity: 1, duration: 0.4 }, 14.0);
+
+      // ---- Scene 1: kinetic typography — wipe reveal per word ----
+      function wipeWord(word, bar, start) {
+        tl.to(bar, { scaleX: 1, duration: 0.35, ease: "power2.inOut", transformOrigin: "left center" }, start);
+        tl.set(word, { y: "0%" }, start + 0.02);
+        tl.to(bar, { scaleX: 0, transformOrigin: "right center", duration: 0.35, ease: "power2.inOut" }, start + 0.42);
+      }
+      wipeWord("#kw1", "#bar1", 0.3);
+      wipeWord("#kw2", "#bar2", 0.95);
+      wipeWord("#kw3", "#bar3", 1.6);
+
+      // ---- Scene 2: shape morph — circle -> rounded square, with rotation pulse ----
+      tl.to("#morphShape", { borderRadius: "20%", rotation: 45, duration: 0.9, ease: "power3.inOut" }, 4.6);
+      tl.to("#morphShape", { scale: 1.15, duration: 0.35, ease: "power2.out" }, 5.5);
+      tl.to("#morphShape", { scale: 1, borderRadius: "50%", rotation: 90, duration: 0.9, ease: "power3.inOut" }, 5.9);
+      tl.to("#morphShape", { borderRadius: "16%", rotation: 135, duration: 0.9, ease: "power3.inOut" }, 6.9);
+      tl.to("#morphLabel", { opacity: 1, y: -10, duration: 0.4, ease: "power2.out" }, 5.1);
+
+      // ---- Scene 3: bars grow, then number counts up ----
+      tl.to("#chartBar1", { scaleY: 1, duration: 0.5, ease: "back.out(1.6)" }, 9.0);
+      tl.to("#chartBar2", { scaleY: 1, duration: 0.5, ease: "back.out(1.6)" }, 9.2);
+      tl.to("#chartBar3", { scaleY: 1, duration: 0.5, ease: "back.out(1.6)" }, 9.4);
+      var counter = { v: 0 };
+      tl.to(counter, {
+        v: 300, duration: 1.6, ease: "power2.out",
+        onUpdate: function () {
+          document.getElementById("countNum").textContent = Math.round(counter.v);
+        },
+      }, 9.9);
+      tl.to("#countLabel", { opacity: 1, y: -8, duration: 0.4, ease: "power2.out" }, 11.1);
+
+      // ---- Scene 4: deterministic floating particles + 3D tilt card ----
+      var particlePositions = [
+        { x: 120, y: 260, s: 14 }, { x: 860, y: 340, s: 20 }, { x: 220, y: 620, s: 10 },
+        { x: 900, y: 720, s: 16 }, { x: 80, y: 1080, s: 12 }, { x: 950, y: 1180, s: 18 },
+        { x: 160, y: 1480, s: 14 }, { x: 880, y: 1560, s: 10 }, { x: 520, y: 200, s: 12 },
+        { x: 540, y: 1720, s: 16 }
+      ];
+      var particlesRoot = document.getElementById("particles");
+      particlePositions.forEach(function (p, i) {
+        var el = document.createElement("div");
+        el.className = "particle";
+        el.id = "p" + i;
+        el.style.left = p.x + "px";
+        el.style.top = p.y + "px";
+        el.style.width = p.s + "px";
+        el.style.height = p.s + "px";
+        particlesRoot.appendChild(el);
+        var phase = { p: i * 0.6 };
+        tl.to(phase, {
+          p: phase.p + Math.PI * 2 * 1.4,
+          duration: 4.0,
+          ease: "none",
+          onUpdate: function () {
+            var dy = Math.sin(phase.p) * 22;
+            var dx = Math.cos(phase.p * 0.7) * 14;
+            el.style.transform = "translate(" + dx.toFixed(1) + "px," + dy.toFixed(1) + "px)";
+          },
+        }, 14.0);
+      });
+
+      tl.fromTo("#card3d",
+        { opacity: 0, rotationX: 26, rotationY: -30, scale: 0.7 },
+        { opacity: 1, rotationX: 0, rotationY: 0, scale: 1, duration: 0.7, ease: "back.out(1.5)" },
+        14.2
+      );
+      tl.to("#card3d", { rotationY: 8, rotationX: -4, duration: 1.0, ease: "sine.inOut" }, 15.4);
+      tl.to("#card3d", { rotationY: -6, rotationX: 3, duration: 1.0, ease: "sine.inOut" }, 16.4);
+      tl.to("#card3d", { rotationY: 0, rotationX: 0, duration: 0.6, ease: "sine.inOut" }, 17.4);
+
+      tl.to({}, { duration: 18 }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
