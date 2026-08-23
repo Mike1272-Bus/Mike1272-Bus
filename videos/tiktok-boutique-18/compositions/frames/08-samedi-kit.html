@@ -1,0 +1,184 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+      --blue-bg: #c0f7fe;
+      --pink-bg: #fe90e8;
+      --cream-bg: #ffdc8b;
+      --yellow-bg: #f7cb46;
+      --green-bg: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+    .fbg { position: absolute; inset: 0; }
+    .fbg::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(0,0,0,0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+    .fcounter {
+      position: absolute; left: 60px; top: 90px;
+      width: 84px; height: 84px; border-radius: 50%;
+      background: #ffffff; border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-display); font-weight: 800; font-size: 26px;
+    }
+    .flogo {
+      position: absolute; right: 50px; top: 92px;
+      width: 80px; height: 80px; border-radius: 50%;
+      background: #ffffff; border: 4px solid var(--black); box-shadow: 5px 5px 0 var(--black);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .flogo img { width: 70%; height: 70%; object-fit: contain; display: block; }
+    .fimg {
+      position: absolute; left: 50%; top: 620px;
+      width: 900px; height: 900px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .fimg img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .fimg.cover img { object-fit: cover; }
+  
+    .f08-bgfill { background-color: var(--yellow-bg); }
+    
+  </style>
+
+  <div id="root" data-composition-id="08-samedi-kit" data-duration="26.325" data-width="1080" data-height="1920">
+    <div class="fbg f08-bgfill clip" data-start="0" data-duration="26.325" data-track-index="0"></div>
+    <div class="fcounter clip" data-start="0" data-duration="26.325" data-track-index="1">08</div>
+    <div class="flogo clip" data-start="0" data-duration="26.325" data-track-index="1">
+      <img src="assets/adg-logo-transparent.png" alt="ADG" />
+    </div>
+      <div class="fimg cover clip" data-start="0" data-duration="0.489" data-track-index="2" id="f08-img1">
+        <img src="assets/l08-etsamedi.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="0.489" data-duration="1.117" data-track-index="2" id="f08-img2">
+        <img src="assets/l08-solution.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="1.606" data-duration="0.15" data-track-index="2" id="f08-img3">
+        <img src="assets/l08-kit-b.png" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="1.744" data-duration="1.973" data-track-index="2" id="f08-img4">
+        <img src="assets/l08-deuxchoses.png" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="3.717" data-duration="0.977" data-track-index="2" id="f08-img5">
+        <img src="assets/l08-guide.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="4.694" data-duration="0.685" data-track-index="2" id="f08-img6">
+        <img src="assets/l08-etapeparetape.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="5.379" data-duration="1.385" data-track-index="2" id="f08-img7">
+        <img src="assets/l08-structurer.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="6.764" data-duration="2.505" data-track-index="2" id="f08-img8">
+        <img src="assets/l08-systeme-generated.png" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="9.269" data-duration="0.15" data-track-index="2" id="f08-img9">
+        <img src="assets/l08-notes-client.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="9.406" data-duration="1.8" data-track-index="2" id="f08-img10">
+        <img src="assets/l08-dejapaye.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="11.206" data-duration="1.587" data-track-index="2" id="f08-img11">
+        <img src="assets/l08-daterelance.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="12.793" data-duration="1.016" data-track-index="2" id="f08-img12">
+        <img src="assets/l08-plusbesoin.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="13.809" data-duration="1.056" data-track-index="2" id="f08-img13">
+        <img src="assets/l08-semainesmessages.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="14.865" data-duration="0.723" data-track-index="2" id="f08-img14">
+        <img src="assets/l08-poursouvenir.jpg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="15.588" data-duration="1.195" data-track-index="2" id="f08-img15">
+        <img src="assets/l08-doitreponse.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="16.783" data-duration="2.194" data-track-index="2" id="f08-img16">
+        <img src="assets/l08-ouvrespage-generated.png" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="18.977" data-duration="0.764" data-track-index="2" id="f08-img17">
+        <img src="assets/l08-payeattend.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="19.741" data-duration="2.149" data-track-index="2" id="f08-img18">
+        <img src="assets/l08-plusachete-generated.png" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="21.89" data-duration="0.15" data-track-index="2" id="f08-img19">
+        <img src="assets/l08-vraieentreprise.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="22.028" data-duration="3.459" data-track-index="2" id="f08-img20">
+        <img src="assets/l08-prendauserieux.jpeg" alt="" />
+      </div>
+      <div class="fimg cover clip" data-start="25.487" data-duration="0.838" data-track-index="2" id="f08-img21">
+        <img src="assets/l08-parmitantdautres.jpg" alt="" />
+      </div>
+
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      function beat(id, start) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        tl.fromTo(
+          el,
+          { scale: 0.55, opacity: 0, rotation: -4 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.22, ease: "back.out(2.2)" },
+          start
+        );
+      }
+
+      beat("f08-img1", 0);
+      beat("f08-img2", 0.489);
+      beat("f08-img3", 1.606);
+      beat("f08-img4", 1.744);
+      beat("f08-img5", 3.717);
+      beat("f08-img6", 4.694);
+      beat("f08-img7", 5.379);
+      beat("f08-img8", 6.764);
+      beat("f08-img9", 9.269);
+      beat("f08-img10", 9.406);
+      beat("f08-img11", 11.206);
+      beat("f08-img12", 12.793);
+      beat("f08-img13", 13.809);
+      beat("f08-img14", 14.865);
+      beat("f08-img15", 15.588);
+      beat("f08-img16", 16.783);
+      beat("f08-img17", 18.977);
+      beat("f08-img18", 19.741);
+      beat("f08-img19", 21.89);
+      beat("f08-img20", 22.028);
+      beat("f08-img21", 25.487);
+
+      var phase = { p: 0 };
+      var IDLE_START = 25.887;
+      var IDLE_DUR = 26.325 - IDLE_START;
+      if (IDLE_DUR > 0.3) {
+        tl.to(phase, {
+          p: Math.PI * 2 * (IDLE_DUR / 2.5),
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var s = Math.sin(phase.p);
+            document.getElementById("f08-img21").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+          },
+        }, IDLE_START);
+      }
+
+
+      window.__timelines["08-samedi-kit"] = tl;
+    })();
+  </script>
+</template>

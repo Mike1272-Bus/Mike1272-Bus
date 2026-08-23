@@ -1,0 +1,92 @@
+[
+  {
+    "id": "w0",
+    "text": "Jeudi,",
+    "start": 0,
+    "end": 0.327
+  },
+  {
+    "id": "w1",
+    "text": "on",
+    "start": 0.387,
+    "end": 0.487
+  },
+  {
+    "id": "w2",
+    "text": "a",
+    "start": 0.547,
+    "end": 0.597
+  },
+  {
+    "id": "w3",
+    "text": "vu",
+    "start": 0.657,
+    "end": 0.758
+  },
+  {
+    "id": "w4",
+    "text": "qu'une",
+    "start": 0.818,
+    "end": 1.069
+  },
+  {
+    "id": "w5",
+    "text": "vraie",
+    "start": 1.129,
+    "end": 1.38
+  },
+  {
+    "id": "w6",
+    "text": "boutique",
+    "start": 1.44,
+    "end": 1.842
+  },
+  {
+    "id": "w7",
+    "text": "en",
+    "start": 1.902,
+    "end": 2.003
+  },
+  {
+    "id": "w8",
+    "text": "ligne",
+    "start": 2.063,
+    "end": 2.314
+  },
+  {
+    "id": "w9",
+    "text": "remplace",
+    "start": 2.374,
+    "end": 2.776
+  },
+  {
+    "id": "w10",
+    "text": "des",
+    "start": 2.836,
+    "end": 2.986
+  },
+  {
+    "id": "w11",
+    "text": "dizaines",
+    "start": 3.046,
+    "end": 3.448
+  },
+  {
+    "id": "w12",
+    "text": "de",
+    "start": 3.508,
+    "end": 3.609
+  },
+  {
+    "id": "w13",
+    "text": "messages",
+    "start": 3.669,
+    "end": 4.071
+  },
+  {
+    "id": "w14",
+    "text": "répétés.",
+    "start": 4.131,
+    "end": 4.608
+  }
+]

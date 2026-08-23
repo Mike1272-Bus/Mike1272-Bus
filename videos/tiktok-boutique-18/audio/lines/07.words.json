@@ -1,0 +1,86 @@
+[
+  {
+    "id": "w0",
+    "text": "Vendredi,",
+    "start": 0,
+    "end": 0.427
+  },
+  {
+    "id": "w1",
+    "text": "trois",
+    "start": 0.487,
+    "end": 0.712
+  },
+  {
+    "id": "w2",
+    "text": "erreurs",
+    "start": 0.772,
+    "end": 1.086
+  },
+  {
+    "id": "w3",
+    "text": "simples",
+    "start": 1.146,
+    "end": 1.461
+  },
+  {
+    "id": "w4",
+    "text": "qui",
+    "start": 1.521,
+    "end": 1.656
+  },
+  {
+    "id": "w5",
+    "text": "coûtent",
+    "start": 1.716,
+    "end": 2.031
+  },
+  {
+    "id": "w6",
+    "text": "des",
+    "start": 2.091,
+    "end": 2.225
+  },
+  {
+    "id": "w7",
+    "text": "ventes",
+    "start": 2.285,
+    "end": 2.555
+  },
+  {
+    "id": "w8",
+    "text": "à",
+    "start": 2.615,
+    "end": 2.66
+  },
+  {
+    "id": "w9",
+    "text": "presque",
+    "start": 2.72,
+    "end": 3.035
+  },
+  {
+    "id": "w10",
+    "text": "tous",
+    "start": 3.095,
+    "end": 3.274
+  },
+  {
+    "id": "w11",
+    "text": "les",
+    "start": 3.334,
+    "end": 3.469
+  },
+  {
+    "id": "w12",
+    "text": "petits",
+    "start": 3.529,
+    "end": 3.799
+  },
+  {
+    "id": "w13",
+    "text": "vendeurs.",
+    "start": 3.859,
+    "end": 4.331
+  }
+]

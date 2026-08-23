@@ -1,0 +1,123 @@
+<template>
+  <style>
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --f-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --black: #000000;
+      --offwhite: #fffdf5;
+      --blue-bg: #c0f7fe;
+      --pink-bg: #fe90e8;
+      --cream-bg: #ffdc8b;
+      --yellow-bg: #f7cb46;
+      --green-bg: #99e885;
+    }
+    #root * { box-sizing: border-box; }
+    .fbg { position: absolute; inset: 0; }
+    .fbg::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(0,0,0,0.08) 1.2px, transparent 1.6px);
+      background-size: 24px 24px;
+    }
+    .fcounter {
+      position: absolute; left: 60px; top: 90px;
+      width: 84px; height: 84px; border-radius: 50%;
+      background: #ffffff; border: 4px solid var(--black); box-shadow: 6px 6px 0 var(--black);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-display); font-weight: 800; font-size: 26px;
+    }
+    .flogo {
+      position: absolute; right: 50px; top: 92px;
+      width: 80px; height: 80px; border-radius: 50%;
+      background: #ffffff; border: 4px solid var(--black); box-shadow: 5px 5px 0 var(--black);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .flogo img { width: 70%; height: 70%; object-fit: contain; display: block; }
+    .fimg {
+      position: absolute; left: 50%; top: 620px;
+      width: 900px; height: 900px;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .fimg img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .fimg.cover img { object-fit: cover; }
+  
+    .f09-bgfill { background-color: var(--yellow-bg); }
+    
+    .fcta-badge {
+      position: absolute; top: 130px; left: 50%; transform: translateX(-50%);
+      width: 300px; height: 300px; border-radius: 50%; background: #fff;
+      border: 7px solid var(--black); box-shadow: 12px 12px 0 var(--black);
+      display: flex; align-items: center; justify-content: center; opacity: 0;
+    }
+    .fcta-badge img { width: 68%; height: 68%; object-fit: contain; }
+    .fcta-text {
+      position: absolute; top: 1420px; left: 50px; right: 50px; text-align: center;
+      font-family: var(--f-display); font-weight: 900; font-size: 62px; line-height: 1.18;
+      text-transform: uppercase; color: #000; opacity: 0;
+    }
+  
+  </style>
+
+  <div id="root" data-composition-id="09-cta" data-duration="6.699" data-width="1080" data-height="1920">
+    <div class="fbg f09-bgfill clip" data-start="0" data-duration="6.699" data-track-index="0"></div>
+    <div class="fcounter clip" data-start="0" data-duration="6.699" data-track-index="1">09</div>
+      <div class="fimg cover clip" data-start="0" data-duration="6.699" data-track-index="2" id="f09-img1">
+        <img src="assets/l09-nouvellefacon.jpeg" alt="" />
+      </div>
+
+    <div class="fcta-badge clip" data-start="0" data-duration="6.699" data-track-index="3" id="f09-badge">
+      <img src="assets/adg-logo-transparent.png" alt="ADG" />
+    </div>
+    <div class="fcta-text clip" data-start="0.4" data-duration="6.2989999999999995" data-track-index="4" id="f09-ctatext">
+      ÉCRIS "KIT"<br>EN MESSAGE
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      function beat(id, start) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        tl.fromTo(
+          el,
+          { scale: 0.55, opacity: 0, rotation: -4 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.22, ease: "back.out(2.2)" },
+          start
+        );
+      }
+
+      beat("f09-img1", 0);
+
+      var phase = { p: 0 };
+      var IDLE_START = 0.400;
+      var IDLE_DUR = 6.699 - IDLE_START;
+      if (IDLE_DUR > 0.3) {
+        tl.to(phase, {
+          p: Math.PI * 2 * (IDLE_DUR / 2.5),
+          duration: IDLE_DUR,
+          ease: "none",
+          onUpdate: function () {
+            var s = Math.sin(phase.p);
+            document.getElementById("f09-img1").style.transform = "translateX(-50%) translateY(" + (s * 6).toFixed(2) + "px)";
+          },
+        }, IDLE_START);
+      }
+
+      tl.fromTo("#f09-badge", { scale: 0.4, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.fromTo("#f09-ctatext", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.4);
+  
+
+      window.__timelines["09-cta"] = tl;
+    })();
+  </script>
+</template>

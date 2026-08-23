@@ -1,0 +1,22 @@
+[
+  {
+    "image": "l03-lundi.jpeg",
+    "start": 0,
+    "duration": 0.403
+  },
+  {
+    "image": "l03-prixaffiche.png",
+    "start": 0.403,
+    "duration": 1.712
+  },
+  {
+    "image": "l03-negocie.jpeg",
+    "start": 2.115,
+    "duration": 1.751
+  },
+  {
+    "image": "l03-nimportequi.jpeg",
+    "start": 3.866,
+    "duration": 1.638
+  }
+]

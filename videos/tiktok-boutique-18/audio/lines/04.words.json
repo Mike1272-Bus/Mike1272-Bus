@@ -1,0 +1,98 @@
+[
+  {
+    "id": "w0",
+    "text": "Mardi,",
+    "start": 0,
+    "end": 0.357
+  },
+  {
+    "id": "w1",
+    "text": "on",
+    "start": 0.417,
+    "end": 0.527
+  },
+  {
+    "id": "w2",
+    "text": "a",
+    "start": 0.587,
+    "end": 0.642
+  },
+  {
+    "id": "w3",
+    "text": "vu",
+    "start": 0.702,
+    "end": 0.812
+  },
+  {
+    "id": "w4",
+    "text": "que",
+    "start": 0.872,
+    "end": 1.037
+  },
+  {
+    "id": "w5",
+    "text": "sans",
+    "start": 1.097,
+    "end": 1.317
+  },
+  {
+    "id": "w6",
+    "text": "suivi",
+    "start": 1.377,
+    "end": 1.652
+  },
+  {
+    "id": "w7",
+    "text": "clair,",
+    "start": 1.712,
+    "end": 2.069
+  },
+  {
+    "id": "w8",
+    "text": "une",
+    "start": 2.129,
+    "end": 2.294
+  },
+  {
+    "id": "w9",
+    "text": "livraison",
+    "start": 2.354,
+    "end": 2.849
+  },
+  {
+    "id": "w10",
+    "text": "en",
+    "start": 2.909,
+    "end": 3.018
+  },
+  {
+    "id": "w11",
+    "text": "retard",
+    "start": 3.078,
+    "end": 3.408
+  },
+  {
+    "id": "w12",
+    "text": "devient",
+    "start": 3.468,
+    "end": 3.853
+  },
+  {
+    "id": "w13",
+    "text": "un",
+    "start": 3.913,
+    "end": 4.023
+  },
+  {
+    "id": "w14",
+    "text": "client",
+    "start": 4.083,
+    "end": 4.413
+  },
+  {
+    "id": "w15",
+    "text": "perdu.",
+    "start": 4.473,
+    "end": 4.885
+  }
+]

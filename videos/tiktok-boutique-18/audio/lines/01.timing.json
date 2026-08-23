@@ -1,0 +1,37 @@
+[
+  {
+    "image": "l01-decouvert.jpeg",
+    "start": 0,
+    "duration": 2.032
+  },
+  {
+    "image": "l01-bloquevendeur.jpeg",
+    "start": 2.032,
+    "duration": 1.489
+  },
+  {
+    "image": "l01-confiance.jpeg",
+    "start": 3.521,
+    "duration": 0.78
+  },
+  {
+    "image": "l01-livraison.jpeg",
+    "start": 4.301,
+    "duration": 0.166
+  },
+  {
+    "image": "l01-imagemarque.jpeg",
+    "start": 4.467,
+    "duration": 1.614
+  },
+  {
+    "image": "l01-vraieboutique.jpeg",
+    "start": 6.081,
+    "duration": 1.052
+  },
+  {
+    "image": "l01-erreursventes.jpeg",
+    "start": 7.133,
+    "duration": 2.296
+  }
+]

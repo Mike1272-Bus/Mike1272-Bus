@@ -1,0 +1,80 @@
+[
+  {
+    "id": "w0",
+    "text": "Abonne-toi",
+    "start": 0,
+    "end": 0.451
+  },
+  {
+    "id": "w1",
+    "text": "avant",
+    "start": 0.511,
+    "end": 0.762
+  },
+  {
+    "id": "w2",
+    "text": "de",
+    "start": 0.822,
+    "end": 0.922
+  },
+  {
+    "id": "w3",
+    "text": "continuer.",
+    "start": 0.982,
+    "end": 1.558
+  },
+  {
+    "id": "w4",
+    "text": "Chaque",
+    "start": 1.618,
+    "end": 1.919
+  },
+  {
+    "id": "w5",
+    "text": "semaine,",
+    "start": 1.979,
+    "end": 2.405
+  },
+  {
+    "id": "w6",
+    "text": "une",
+    "start": 2.465,
+    "end": 2.616
+  },
+  {
+    "id": "w7",
+    "text": "nouvelle",
+    "start": 2.676,
+    "end": 3.077
+  },
+  {
+    "id": "w8",
+    "text": "leçon",
+    "start": 3.137,
+    "end": 3.387
+  },
+  {
+    "id": "w9",
+    "text": "pour",
+    "start": 3.447,
+    "end": 3.648
+  },
+  {
+    "id": "w10",
+    "text": "vendre",
+    "start": 3.708,
+    "end": 4.009
+  },
+  {
+    "id": "w11",
+    "text": "plus",
+    "start": 4.069,
+    "end": 4.269
+  },
+  {
+    "id": "w12",
+    "text": "sérieusement.",
+    "start": 4.329,
+    "end": 5.056
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "image": "l04-mardi.jpeg",
+    "start": 0,
+    "duration": 0.417
+  },
+  {
+    "image": "l04-suiviclair.jpeg",
+    "start": 0.417,
+    "duration": 1.712
+  },
+  {
+    "image": "l04-livraisonretard.jpeg",
+    "start": 2.129,
+    "duration": 1.339
+  },
+  {
+    "image": "l04-clientperdu.jpeg",
+    "start": 3.468,
+    "duration": 1.417
+  }
+]
