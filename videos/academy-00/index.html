@@ -29,46 +29,51 @@
 
       .clip { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; }
 
-      .media-wrap { position: absolute; inset: 0; overflow: hidden; background: var(--ink); }
-      .media-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 50%; }
-
-      .darken { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,5,0) 45%, rgba(10,10,5,0.75) 100%); }
-
-      .dotgrid {
-        position: absolute; inset: 0;
-        background-image: radial-gradient(circle, rgba(10,10,5,0.14) 3px, transparent 3px);
-        background-size: 34px 34px;
+      /* ---- persistent global background (never timed, always painted first) ---- */
+      .bg-layer { position: absolute; inset: 0; background: var(--ink); overflow: hidden; }
+      .bg-dotgrid {
+        position: absolute; inset: -40px;
+        background-image: radial-gradient(circle, rgba(255,253,245,0.09) 3px, transparent 3px);
+        background-size: 38px 38px;
       }
+      .bg-stripe { position: absolute; width: 1900px; height: 220px; background: rgba(247,203,70,0.07); transform: rotate(-14deg); }
+      #stripe1 { top: 260px; left: -520px; }
+      #stripe2 { top: 1180px; left: -680px; background: rgba(247,203,70,0.05); }
 
-      /* ---- caption bar ---- */
-      .caption-bar { position: absolute; left: 0; right: 0; bottom: 200px; display: flex; justify-content: center; padding: 0 56px; }
-      .caption-inner {
-        background: var(--cream); border: 5px solid var(--ink); border-radius: 10px;
-        box-shadow: 12px 12px 0 var(--ink);
-        padding: 26px 32px; max-width: 940px; transform-origin: 50% 100%;
+      /* ---- bounded shot card (photo or text — never full screen) ---- */
+      .shot-card {
+        position: absolute; left: 110px; top: 300px; width: 860px; height: 1000px;
+        border: 8px solid var(--cream); box-shadow: 18px 18px 0 rgba(0,0,0,0.55);
+        overflow: hidden; background: var(--cream); opacity: 0;
       }
-      .caption-inner p {
-        font-family: "Work Sans", sans-serif; font-weight: 800; font-size: 46px; line-height: 1.22;
-        color: var(--ink); text-align: center; text-wrap: balance;
+      .shot-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .shot-card.ink { background: var(--ink); border-color: var(--yellow); }
+      .card-inner {
+        position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 22px; padding: 0 50px; text-align: center;
       }
-
-      /* ---- blockframe placeholder card scenes ---- */
-      .bf-card { position: absolute; inset: 0; background: var(--cream); }
-      .bf-card-inner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; padding: 0 70px 480px; text-align: center; }
-      .bf-eyebrow {
-        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.08em; text-transform: uppercase;
-        color: var(--ink); background: var(--yellow); border: 4px solid var(--ink); border-radius: 999px; padding: 10px 26px;
-        opacity: 0; transform-origin: 50% 50%;
+      .card-eyebrow {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--ink); background: var(--yellow); border: 3px solid var(--ink); border-radius: 999px; padding: 8px 22px;
       }
-      .bf-title {
+      .shot-card.ink .card-eyebrow { background: var(--cream); }
+      .card-title {
         font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase; color: var(--ink);
-        font-size: 96px; line-height: 0.98; text-wrap: balance;
-        opacity: 0; transform-origin: 50% 50%;
+        font-size: 66px; line-height: 1.0; text-wrap: balance;
       }
-      .bf-sub { font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); opacity: 0.75; max-width: 780px; }
+      .shot-card.ink .card-title { color: var(--cream); }
+
+      /* ---- kinetic word-chunk captions ---- */
+      .kcap-zone { position: absolute; left: 0; right: 0; bottom: 300px; display: flex; justify-content: center; padding: 0 60px; }
+      .kcap {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 64px; line-height: 1.05; text-align: center; text-wrap: balance; opacity: 0;
+        text-shadow: 4px 4px 0 rgba(0,0,0,0.5);
+      }
+      .kcap.c1 { color: var(--cream); }
+      .kcap.c2 { color: var(--yellow); }
 
       /* ---- CTA scene ---- */
-      .cta-scene { position: absolute; inset: 0; background: var(--ink); }
       .cta-inner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; padding: 0 64px; text-align: center; }
       .cta-badge {
         background: var(--yellow); border: 6px solid var(--cream); border-radius: 14px;
@@ -77,9 +82,8 @@
       }
       .cta-badge span { font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 84px; color: var(--ink); letter-spacing: -0.01em; }
       .cta-line { font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 36px; color: var(--cream); max-width: 820px; line-height: 1.4; opacity: 0; }
-      .cta-foot { font-family: "Work Sans", sans-serif; font-weight: 800; font-size: 30px; color: var(--yellow); letter-spacing: 0.02em; }
 
-      /* ---- hard-wipe cut transitions ---- */
+      /* ---- hard-wipe transitions (only at the 3 major beat changes) ---- */
       .wipe-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 20; }
       .wipe-bar { position: absolute; inset: 0; background: var(--yellow); transform: translateX(-100%); }
     </style>
@@ -87,89 +91,76 @@
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="33" data-width="1080" data-height="1920">
 
-      <!-- SCENE 1a — salarié (0.00 - 1.80) -->
-      <div id="s1a" class="clip" data-start="0" data-duration="1.8" data-track-index="1">
-        <div class="media-wrap">
-          <img id="s1a-img" src="assets/images/salarie.jpg" alt="" />
-        </div>
-        <div class="darken"></div>
+      <!-- persistent background, not timed -->
+      <div class="bg-layer">
+        <div class="bg-dotgrid"></div>
+        <div id="stripe1" class="bg-stripe"></div>
+        <div id="stripe2" class="bg-stripe"></div>
       </div>
 
-      <!-- SCENE 1b — étudiant (1.80 - 3.60) -->
-      <div id="s1b" class="clip" data-start="1.8" data-duration="1.8" data-track-index="1">
-        <div class="media-wrap">
-          <img id="s1b-img" src="assets/images/etudiant.jpg" alt="" style="object-position: 38% 42%;" />
-        </div>
-        <div class="darken"></div>
+      <!-- ===== CARDS (bounded, never full-screen) ===== -->
+      <div id="card1" class="clip" data-start="0" data-duration="1.72" data-track-index="1">
+        <div id="card1-box" class="shot-card"><img src="assets/images/salarie.jpg" alt="" style="object-position:50% 22%;" /></div>
       </div>
-
-      <!-- SCENE 1c — sans emploi, en attente de vrai média (3.60 - 7.744) -->
-      <div id="s1c" class="clip" data-start="3.6" data-duration="4.144" data-track-index="1">
-        <div class="bf-card">
-          <div class="dotgrid"></div>
-          <div id="s1c-inner" class="bf-card-inner">
-            <div class="bf-eyebrow">La question à te poser</div>
-            <div class="bf-title" style="font-size:76px;">SANS EMPLOI ?</div>
+      <div id="card2" class="clip" data-start="1.72" data-duration="0.43" data-track-index="1">
+        <div id="card2-box" class="shot-card"><img src="assets/images/etudiant.jpg" alt="" style="object-position:38% 40%;" /></div>
+      </div>
+      <div id="card3" class="clip" data-start="2.15" data-duration="1.29" data-track-index="1">
+        <div id="card3-box" class="shot-card">
+          <div class="card-inner">
+            <div class="card-eyebrow">La question à te poser</div>
+            <div class="card-title" style="font-size:58px;">SANS EMPLOI ?</div>
+          </div>
+        </div>
+      </div>
+      <div id="card4" class="clip" data-start="7.894" data-duration="1.61" data-track-index="1">
+        <div id="card4-box" class="shot-card"><img src="assets/images/diplomes.jpg" alt="" style="object-position:62% 50%;" /></div>
+      </div>
+      <div id="card5" class="clip" data-start="9.5" data-duration="2.0" data-track-index="1">
+        <div id="card5-box" class="shot-card"><img src="assets/images/diplomes.jpg" alt="" style="object-position:30% 62%; transform:scale(1.18);" /></div>
+      </div>
+      <div id="card6" class="clip" data-start="21.53" data-duration="1.084" data-track-index="1">
+        <div id="card6-box" class="shot-card ink">
+          <div class="card-inner">
+            <div class="card-eyebrow">Le business dont on parle</div>
+            <div class="card-title">PRODUITS<br/>DIGITAUX</div>
           </div>
         </div>
       </div>
 
-      <!-- SCENE 2 — diplômes (7.894 - 14.315) -->
-      <div id="s2" class="clip" data-start="7.894" data-duration="6.421" data-track-index="1">
-        <div class="media-wrap">
-          <img id="s2-img" src="assets/images/diplomes.jpg" alt="" style="object-position: 62% 50%;" />
-        </div>
-        <div class="darken"></div>
-      </div>
-
-      <!-- SCENE 3 — produits digitaux, en attente de vrai média (14.465 - 22.614) -->
-      <div id="s3" class="clip" data-start="14.465" data-duration="8.149" data-track-index="1">
-        <div class="bf-card" style="background:var(--ink);">
-          <div id="s3-inner" class="bf-card-inner">
-            <div class="bf-eyebrow" style="background:var(--cream);">Le business dont on parle</div>
-            <div class="bf-title" style="color:var(--cream);">PRODUITS<br/>DIGITAUX</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SCENE 4 — CTA (22.764 - 32.855) -->
+      <!-- ===== SCENE 4 — CTA (22.764 - 32.855), the one deliberate pause ===== -->
       <div id="s4" class="clip" data-start="22.764" data-duration="10.091" data-track-index="1">
-        <div class="cta-scene">
-          <div class="dotgrid" style="opacity:0.5;"></div>
-          <div id="s4-inner" class="cta-inner">
-            <div class="cta-badge"><span>ABONNE-TOI</span></div>
-            <p class="cta-line">On en parle tous les jours. D'ici la fin de la semaine, tu sauras comment transformer ce que tu sais déjà faire en revenu.</p>
-          </div>
+        <div id="s4-inner" class="cta-inner">
+          <div class="cta-badge"><span>ABONNE-TOI</span></div>
+          <p class="cta-line">On en parle tous les jours. D'ici la fin de la semaine, tu sauras comment transformer ce que tu sais déjà faire en revenu.</p>
         </div>
       </div>
 
-      <!-- CAPTIONS (track 2, follow the 4 script lines regardless of visual cuts) -->
-      <div id="cap1" class="clip" data-start="0" data-duration="7.744" data-track-index="2">
-        <div class="caption-bar"><div id="cap1-inner" class="caption-inner"><p>Que tu sois salarié, étudiant ou sans emploi, il y a une question que tu devrais te poser.</p></div></div>
-      </div>
-      <div id="cap2" class="clip" data-start="7.894" data-duration="6.421" data-track-index="2">
-        <div class="caption-bar"><div id="cap2-inner" class="caption-inner"><p>On nous a longtemps vendu l'idée d'acquérir des compétences, sans jamais nous dire quoi en faire.</p></div></div>
-      </div>
-      <div id="cap3" class="clip" data-start="14.465" data-duration="8.149" data-track-index="2">
-        <div class="caption-bar"><div id="cap3-inner" class="caption-inner"><p>Dans cette série, on va t'apprendre à les transformer en revenu grâce aux produits digitaux.</p></div></div>
-      </div>
+      <!-- ===== KINETIC CAPTIONS — one word-chunk at a time, track 2 ===== -->
+      <div id="k101" class="clip" data-start="0" data-duration="1.29" data-track-index="2"><div class="kcap-zone"><div id="k101-t" class="kcap c1">QUE TU SOIS</div></div></div>
+      <div id="k102" class="clip" data-start="1.29" data-duration="0.43" data-track-index="2"><div class="kcap-zone"><div id="k102-t" class="kcap c2">SALARIÉ,</div></div></div>
+      <div id="k103" class="clip" data-start="1.72" data-duration="0.43" data-track-index="2"><div class="kcap-zone"><div id="k103-t" class="kcap c1">ÉTUDIANT</div></div></div>
+      <div id="k104" class="clip" data-start="2.15" data-duration="1.29" data-track-index="2"><div class="kcap-zone"><div id="k104-t" class="kcap c2">OU SANS EMPLOI,</div></div></div>
+      <div id="k105" class="clip" data-start="3.44" data-duration="2.15" data-track-index="2"><div class="kcap-zone"><div id="k105-t" class="kcap c1">IL Y A UNE QUESTION</div></div></div>
+      <div id="k106" class="clip" data-start="5.59" data-duration="1.29" data-track-index="2"><div class="kcap-zone"><div id="k106-t" class="kcap c2">QUE TU DEVRAIS</div></div></div>
+      <div id="k107" class="clip" data-start="6.88" data-duration="0.86" data-track-index="2"><div class="kcap-zone"><div id="k107-t" class="kcap c1">TE POSER.</div></div></div>
 
-      <!-- HARD-WIPE TRANSITIONS at every scene cut (painted above everything else) -->
-      <div id="wipe1" class="clip" data-start="1.72" data-duration="0.16" data-track-index="8">
-        <div class="wipe-layer"><div id="wipe1-bar" class="wipe-bar"></div></div>
-      </div>
-      <div id="wipe2" class="clip" data-start="3.52" data-duration="0.16" data-track-index="8">
-        <div class="wipe-layer"><div id="wipe2-bar" class="wipe-bar"></div></div>
-      </div>
-      <div id="wipe3" class="clip" data-start="7.739" data-duration="0.16" data-track-index="8">
-        <div class="wipe-layer"><div id="wipe3-bar" class="wipe-bar"></div></div>
-      </div>
-      <div id="wipe4" class="clip" data-start="14.31" data-duration="0.16" data-track-index="8">
-        <div class="wipe-layer"><div id="wipe4-bar" class="wipe-bar"></div></div>
-      </div>
-      <div id="wipe5" class="clip" data-start="22.609" data-duration="0.16" data-track-index="8">
-        <div class="wipe-layer"><div id="wipe5-bar" class="wipe-bar"></div></div>
-      </div>
+      <div id="k201" class="clip" data-start="7.894" data-duration="1.61" data-track-index="2"><div class="kcap-zone"><div id="k201-t" class="kcap c1">ON NOUS A LONGTEMPS</div></div></div>
+      <div id="k202" class="clip" data-start="9.5" data-duration="0.8" data-track-index="2"><div class="kcap-zone"><div id="k202-t" class="kcap c2">VENDU L'IDÉE</div></div></div>
+      <div id="k203" class="clip" data-start="10.3" data-duration="1.2" data-track-index="2"><div class="kcap-zone"><div id="k203-t" class="kcap c1">D'ACQUÉRIR DES COMPÉTENCES,</div></div></div>
+      <div id="k204" class="clip" data-start="11.5" data-duration="1.61" data-track-index="2"><div class="kcap-zone"><div id="k204-t" class="kcap c2">SANS JAMAIS NOUS DIRE</div></div></div>
+      <div id="k205" class="clip" data-start="13.11" data-duration="1.2" data-track-index="2"><div class="kcap-zone"><div id="k205-t" class="kcap c1">QUOI EN FAIRE.</div></div></div>
+
+      <div id="k301" class="clip" data-start="14.465" data-duration="1.63" data-track-index="2"><div class="kcap-zone"><div id="k301-t" class="kcap c1">DANS CETTE SÉRIE,</div></div></div>
+      <div id="k302" class="clip" data-start="16.1" data-duration="1.63" data-track-index="2"><div class="kcap-zone"><div id="k302-t" class="kcap c2">ON VA T'APPRENDRE</div></div></div>
+      <div id="k303" class="clip" data-start="17.73" data-duration="1.63" data-track-index="2"><div class="kcap-zone"><div id="k303-t" class="kcap c1">À LES TRANSFORMER</div></div></div>
+      <div id="k304" class="clip" data-start="19.36" data-duration="2.17" data-track-index="2"><div class="kcap-zone"><div id="k304-t" class="kcap c2">EN REVENU GRÂCE AUX</div></div></div>
+      <div id="k305" class="clip" data-start="21.53" data-duration="1.084" data-track-index="2"><div class="kcap-zone" style="bottom:820px;"><div id="k305-t" class="kcap c1">PRODUITS DIGITAUX.</div></div></div>
+
+      <!-- ===== HARD-WIPE TRANSITIONS — only the 3 major beat changes ===== -->
+      <div id="wipeA" class="clip" data-start="7.739" data-duration="0.16" data-track-index="8"><div class="wipe-layer"><div id="wipeA-bar" class="wipe-bar"></div></div></div>
+      <div id="wipeB" class="clip" data-start="14.31" data-duration="0.16" data-track-index="8"><div class="wipe-layer"><div id="wipeB-bar" class="wipe-bar"></div></div></div>
+      <div id="wipeC" class="clip" data-start="22.609" data-duration="0.16" data-track-index="8"><div class="wipe-layer"><div id="wipeC-bar" class="wipe-bar"></div></div></div>
 
       <!-- AUDIO (reference voiceover — Kokoro placeholder, to be replaced) -->
       <audio id="vo1" class="clip" data-start="0" data-duration="7.744" data-track-index="9" src="audio/lines/01.wav"></audio>
@@ -183,53 +174,55 @@
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
 
-      // ---- Scene 1a — salarié: punch-settle then slow creep ----
-      tl.fromTo("#s1a-img", { scale: 1.25 }, { scale: 1.08, duration: 0.35, ease: "power3.out" }, 0);
-      tl.to("#s1a-img", { scale: 1.18, duration: 1.45, ease: "none" }, 0.35);
+      // ---- ambient background drift (constant, whole video) ----
+      tl.fromTo("#stripe1", { xPercent: -8 }, { xPercent: 8, duration: 33, ease: "none" }, 0);
+      tl.fromTo("#stripe2", { xPercent: 6 }, { xPercent: -10, duration: 33, ease: "none" }, 0);
 
-      // ---- Scene 1b — étudiant: punch-settle + pan, then slow creep ----
-      tl.fromTo("#s1b-img", { scale: 1.3, xPercent: -6 }, { scale: 1.12, xPercent: 0, duration: 0.35, ease: "power3.out" }, 1.8);
-      tl.to("#s1b-img", { scale: 1.24, xPercent: 4, duration: 1.45, ease: "none" }, 2.15);
+      // ---- cards: fast slide-in + rotation settle, quick fade-scale out ----
+      const cards = [
+        { id: "card1-box", start: 0,     dur: 1.72,  side: "left",  rot: -3 },
+        { id: "card2-box", start: 1.72,  dur: 0.43,  side: "right", rot: 3 },
+        { id: "card3-box", start: 2.15,  dur: 1.29,  side: "left",  rot: -2.4 },
+        { id: "card4-box", start: 7.894, dur: 1.61,  side: "right", rot: 2.6 },
+        { id: "card5-box", start: 9.5,   dur: 2.0,   side: "left",  rot: -2.8 },
+        { id: "card6-box", start: 21.53, dur: 1.084, side: "up",    rot: 0 },
+      ];
+      cards.forEach(({ id, start, dur, side, rot }) => {
+        const from = side === "left" ? { xPercent: -130, rotation: rot - 6 }
+                   : side === "right" ? { xPercent: 130, rotation: rot + 6 }
+                   : { yPercent: 40, rotation: 0 };
+        tl.fromTo(`#${id}`, { opacity: 0, scale: 0.92, ...from },
+          { opacity: 1, scale: 1, xPercent: 0, yPercent: 0, rotation: rot, duration: 0.16, ease: "power3.out" }, start);
+        tl.to(`#${id}`, { opacity: 0, scale: 0.9, duration: 0.1, ease: "power1.in" }, start + dur - 0.1);
+        tl.set(`#${id}`, { opacity: 0 }, start + dur);
+      });
 
-      // ---- Scene 1c — placeholder card: stagger pop reveal, timed right as wipe2 clears ----
-      tl.fromTo("#s1c .bf-eyebrow", { opacity: 0, scale: 0.7, y: -14 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, 3.66);
-      tl.fromTo("#s1c .bf-title", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(1.8)" }, 3.74);
-      tl.set(["#s1c .bf-eyebrow", "#s1c .bf-title"], { opacity: 0 }, 7.744);
+      // ---- kinetic captions: pop per chunk, hard-killed at boundary ----
+      const chunks = [
+        "k101","k102","k103","k104","k105","k106","k107",
+        "k201","k202","k203","k204","k205",
+        "k301","k302","k303","k304","k305",
+      ];
+      const chunkTiming = {
+        k101:[0,1.29], k102:[1.29,0.43], k103:[1.72,0.43], k104:[2.15,1.29], k105:[3.44,2.15], k106:[5.59,1.29], k107:[6.88,0.86],
+        k201:[7.894,1.61], k202:[9.5,0.8], k203:[10.3,1.2], k204:[11.5,1.61], k205:[13.11,1.2],
+        k301:[14.465,1.63], k302:[16.1,1.63], k303:[17.73,1.63], k304:[19.36,2.17], k305:[21.53,1.084],
+      };
+      chunks.forEach((k) => {
+        const [start, dur] = chunkTiming[k];
+        const sel = `#${k}-t`;
+        tl.fromTo(sel, { opacity: 0, scale: 0.8, y: 22 }, { opacity: 1, scale: 1, y: 0, duration: 0.16, ease: "back.out(2.4)" }, start);
+        tl.to(sel, { opacity: 0, scale: 0.92, duration: 0.1, ease: "power1.in" }, start + dur - 0.1);
+        tl.set(sel, { opacity: 0 }, start + dur);
+      });
 
-      // ---- Scene 2 — diplômes: punch-settle + slight rotation, then slow creep ----
-      tl.fromTo("#s2-img", { scale: 1.22, rotation: 1.1 }, { scale: 1.06, rotation: 0, duration: 0.4, ease: "power3.out" }, 7.894);
-      tl.to("#s2-img", { scale: 1.17, rotation: -0.7, duration: 6.021, ease: "none" }, 8.294);
-
-      // ---- Scene 3 — produits digitaux: big reveal, timed right as wipe4 clears, plus idle pulse for the long hold ----
-      tl.fromTo("#s3 .bf-eyebrow", { opacity: 0, scale: 0.7, y: -14 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, 14.5);
-      tl.fromTo("#s3 .bf-title", { opacity: 0, scale: 0.8, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.9)" }, 14.62);
-      tl.to("#s3 .bf-title", { scale: 1.045, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, 15.2);
-      tl.set(["#s3 .bf-eyebrow", "#s3 .bf-title"], { opacity: 0 }, 22.614);
-
-      // ---- Scene 4 — CTA: elastic badge pop + line, idle pulse for the hold ----
+      // ---- Scene 4 — CTA: the one deliberate pause, elastic badge pop + idle pulse ----
       tl.fromTo("#s4 .cta-badge", { opacity: 0, scale: 0.6, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.55, ease: "elastic.out(1,0.6)" }, 22.85);
       tl.fromTo("#s4 .cta-line", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 23.25);
       tl.to("#s4 .cta-badge", { scale: 1.04, duration: 1.3, ease: "sine.inOut", yoyo: true, repeat: 5 }, 23.6);
 
-      // ---- Captions — punchy scale-pop in/out, hard-killed at boundaries ----
-      [
-        ["#cap1-inner", 0, 7.744],
-        ["#cap2-inner", 7.894, 6.421],
-        ["#cap3-inner", 14.465, 8.149],
-      ].forEach(([sel, start, dur]) => {
-        tl.fromTo(sel, { opacity: 0, scale: 0.92, y: 14 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(1.6)" }, start);
-        tl.to(sel, { opacity: 0, duration: 0.15, ease: "power1.in" }, start + dur - 0.15);
-        tl.set(sel, { opacity: 0 }, start + dur);
-      });
-
-      // ---- Hard-wipe transitions: fast in, fast out, covering each cut ----
-      [
-        ["#wipe1-bar", 1.72],
-        ["#wipe2-bar", 3.52],
-        ["#wipe3-bar", 7.739],
-        ["#wipe4-bar", 14.31],
-        ["#wipe5-bar", 22.609],
-      ].forEach(([sel, start]) => {
+      // ---- Hard-wipe transitions at the 3 major beat changes ----
+      [["#wipeA-bar", 7.739], ["#wipeB-bar", 14.31], ["#wipeC-bar", 22.609]].forEach(([sel, start]) => {
         tl.fromTo(sel, { xPercent: -100 }, { xPercent: 0, duration: 0.08, ease: "power4.in" }, start);
         tl.to(sel, { xPercent: 100, duration: 0.08, ease: "power4.out" }, start + 0.08);
       });
