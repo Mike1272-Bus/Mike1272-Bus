@@ -30,23 +30,37 @@
       .clip { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; }
 
       /* ---- persistent global background (never timed, always painted first) ---- */
-      .bg-layer { position: absolute; inset: 0; background: var(--cream); overflow: hidden; }
-      .bg-dotgrid {
-        position: absolute; inset: -40px;
-        background-image: radial-gradient(circle, rgba(10,10,5,0.10) 3px, transparent 3px);
-        background-size: 38px 38px;
+      .bg-layer { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+      .bg-grid {
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(to right, rgba(10,10,5,0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(10,10,5,0.08) 1px, transparent 1px);
+        background-size: 54px 54px;
       }
-      .bg-stripe { position: absolute; width: 1900px; height: 220px; background: rgba(247,203,70,0.35); transform: rotate(-14deg); }
-      #stripe1 { top: 260px; left: -520px; }
-      #stripe2 { top: 1180px; left: -680px; background: rgba(247,203,70,0.22); }
 
-      /* ---- bounded shot card (photo or text — never full screen) ---- */
+      /* ---- full-screen media (real photos/videos now fill the whole canvas) ---- */
       .shot-card {
-        position: absolute; left: 110px; top: 300px; width: 860px; height: 1000px;
-        border: 8px solid var(--ink); box-shadow: 18px 18px 0 var(--ink);
+        position: absolute; inset: 0;
         overflow: hidden; background: var(--cream); opacity: 0;
       }
       .shot-card img, .shot-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+      /* ---- speech-bubble captions (used under every image/video beat) ---- */
+      .bubble-zone { position: absolute; left: 0; right: 0; bottom: 260px; display: flex; justify-content: center; padding: 0 60px; z-index: 5; }
+      .speech-bubble {
+        position: relative; display: inline-block; max-width: 920px; padding: 28px 42px 40px;
+        border-radius: 30px; font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 50px; line-height: 1.08; text-align: center; text-wrap: balance; opacity: 0;
+      }
+      .speech-bubble::after {
+        content: ""; position: absolute; left: 54px; bottom: -20px;
+        width: 0; height: 0; border-left: 6px solid transparent; border-right: 30px solid transparent;
+      }
+      .speech-bubble.yellow { background: var(--yellow); color: var(--ink); }
+      .speech-bubble.yellow::after { border-top: 24px solid var(--yellow); }
+      .speech-bubble.ink { background: var(--ink); color: var(--cream); }
+      .speech-bubble.ink::after { border-top: 24px solid var(--ink); }
 
       /* ---- straight, non-overlapping row cards (paragraph 1 enumeration) ---- */
       .row-card {
@@ -134,18 +148,13 @@
       #piece3 { left: 0; top: 104px; }
       #piece4 { left: 104px; top: 104px; }
 
-      /* ---- 4-up product grid (placed all at once) ---- */
-      .pd-grid { position: absolute; top: 560px; width: 240px; height: 340px; border: 6px solid var(--ink); box-shadow: 10px 10px 0 var(--ink); overflow: hidden; opacity: 0; background: var(--cream); }
+      /* ---- 4-up product grid (placed all at once, big 2x2 mosaic) ---- */
+      .pd-grid { position: absolute; width: 490px; height: 560px; border: 6px solid var(--ink); box-shadow: 10px 10px 0 var(--ink); overflow: hidden; opacity: 0; background: var(--cream); }
       .pd-grid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-      #pd1 { left: 30px; }
-      #pd2 { left: 290px; }
-      #pd3 { left: 550px; }
-      #pd4 { left: 810px; }
-      .pd-label {
-        position: absolute; top: 940px; left: 0; right: 0; text-align: center;
-        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
-        font-size: 44px; color: var(--ink); opacity: 0;
-      }
+      #pd1 { left: 40px; top: 240px; }
+      #pd2 { left: 550px; top: 240px; }
+      #pd3 { left: 40px; top: 820px; }
+      #pd4 { left: 550px; top: 820px; }
       .shot-card.ink { background: var(--ink); border-color: var(--yellow); }
       .card-inner {
         position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
@@ -191,9 +200,7 @@
 
       <!-- persistent background, not timed -->
       <div class="bg-layer">
-        <div class="bg-dotgrid"></div>
-        <div id="stripe1" class="bg-stripe"></div>
-        <div id="stripe2" class="bg-stripe"></div>
+        <div class="bg-grid"></div>
       </div>
 
       <!-- ===== PARAGRAPH 1 — word-mapped: text / image / image / text / image / illustration / video ===== -->
@@ -228,7 +235,7 @@
         <div id="p1video-box" class="shot-card">
           <video id="p1video-el" src="assets/video/laptop-earning.mp4" muted playsinline data-start="5.364" data-duration="2.38" data-media-start="2"></video>
         </div>
-        <div id="p1video-label" class="row-label" style="top:1330px; left:110px; width:860px; font-size:40px;">RENTABILISER.</div>
+        <div class="bubble-zone"><div id="p1video-label" class="speech-bubble yellow">RENTABILISER.</div></div>
       </div>
 
       <!-- ===== PARAGRAPH 2 — video / illustration / image ===== -->
@@ -236,7 +243,7 @@
         <div id="p2a-box" class="shot-card">
           <video id="p2a-el" src="assets/video/vendu-idee-competences.mp4" muted playsinline data-start="7.894" data-duration="2.627" data-media-start="0.5"></video>
         </div>
-        <div id="p2a-label" class="row-label" style="top:1330px; left:110px; width:860px; font-size:38px;">ON NOUS VEND UNE IDÉE.</div>
+        <div class="bubble-zone"><div id="p2a-label" class="speech-bubble ink">ON NOUS VEND UNE IDÉE.</div></div>
       </div>
 
       <div id="p2b" class="clip" data-start="10.521" data-duration="2.335" data-track-index="1">
@@ -249,7 +256,7 @@
 
       <div id="p2c" class="clip" data-start="12.856" data-duration="1.46" data-track-index="1">
         <div id="p2c-box" class="shot-card"><img src="assets/images/une-fois-quon-les-a.jpg" alt="" style="object-position:60% 25%;" /></div>
-        <div id="p2c-label" class="row-label" style="top:1330px; left:110px; width:860px; font-size:38px;">UNE FOIS QU'ON LES A.</div>
+        <div class="bubble-zone"><div id="p2c-label" class="speech-bubble yellow">UNE FOIS QU'ON LES A.</div></div>
       </div>
 
       <!-- ===== PARAGRAPH 3 — illustration / video / video / illustration / 4-image grid ===== -->
@@ -266,14 +273,14 @@
         <div id="p3b-box" class="shot-card">
           <video id="p3b-el" src="assets/video/on-va-tapprendre.mp4" muted playsinline data-start="15.443" data-duration="1.956" data-media-start="0.5"></video>
         </div>
-        <div id="p3b-label" class="row-label" style="top:1330px; left:110px; width:860px; font-size:38px;">ON T'APPREND À LES TRANSFORMER.</div>
+        <div class="bubble-zone"><div id="p3b-label" class="speech-bubble ink">ON T'APPREND À LES TRANSFORMER.</div></div>
       </div>
 
       <div id="p3c">
         <div id="p3c-box" class="shot-card">
           <video id="p3c-el" src="assets/video/revenu-business.mp4" muted playsinline data-start="17.399" data-duration="1.956" data-media-start="1"></video>
         </div>
-        <div id="p3c-label" class="row-label" style="top:1330px; left:110px; width:860px; font-size:38px;">EN REVENU.</div>
+        <div class="bubble-zone"><div id="p3c-label" class="speech-bubble yellow">EN REVENU.</div></div>
       </div>
 
       <div id="p3d" class="clip" data-start="19.355" data-duration="2.282" data-track-index="1">
@@ -293,7 +300,7 @@
         <div id="pd2" class="pd-grid"><img src="assets/images/pd2.jpeg" alt="" /></div>
         <div id="pd3" class="pd-grid"><img src="assets/images/pd3.jpeg" alt="" /></div>
         <div id="pd4" class="pd-grid"><img src="assets/images/pd4.jpeg" alt="" /></div>
-        <div id="pd-label" class="pd-label">PRODUITS DIGITAUX.</div>
+        <div class="bubble-zone"><div id="pd-label" class="speech-bubble ink">PRODUITS DIGITAUX.</div></div>
       </div>
 
       <!-- ===== PARAGRAPH 4 — illustration / video / illustration / illustration / illustration / video / video ===== -->
@@ -346,14 +353,14 @@
         <div id="p4f-box" class="shot-card">
           <video id="p4f-el" src="assets/video/sais-deja-faire.mp4" muted playsinline data-start="29.3949" data-duration="1.7298" data-media-start="0.5"></video>
         </div>
-        <div id="p4f-label" class="row-label" style="top:1330px; left:110px; width:860px; font-size:38px;">CE QUE TU SAIS DÉJÀ FAIRE.</div>
+        <div class="bubble-zone"><div id="p4f-label" class="speech-bubble ink">CE QUE TU SAIS DÉJÀ FAIRE.</div></div>
       </div>
 
       <div id="p4g">
         <div id="p4g-box" class="shot-card">
           <video id="p4g-el" src="assets/video/laptop-earning.mp4" muted playsinline data-start="31.1247" data-duration="1.7298" data-media-start="4"></video>
         </div>
-        <div id="p4g-label" class="row-label" style="top:1330px; left:110px; width:860px; font-size:38px;">ÇA TE RAPPORTE.</div>
+        <div class="bubble-zone"><div id="p4g-label" class="speech-bubble yellow">ÇA TE RAPPORTE.</div></div>
       </div>
 
       <!-- ===== HARD-WIPE TRANSITIONS — only the 3 major beat changes ===== -->
@@ -372,10 +379,6 @@
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-
-      // ---- ambient background drift (constant, whole video) ----
-      tl.fromTo("#stripe1", { xPercent: -8 }, { xPercent: 8, duration: 33, ease: "none" }, 0);
-      tl.fromTo("#stripe2", { xPercent: 6 }, { xPercent: -10, duration: 33, ease: "none" }, 0);
 
       // ---- paragraph 1 — text beats: straight pop, no slide/rotation ----
       [["#p1a-t", 0, 0.894], ["#p1b-t", 1.49, 0.298]].forEach(([sel, start, dur]) => {
