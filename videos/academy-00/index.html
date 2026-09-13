@@ -68,7 +68,7 @@
       #row3-label { left: 720px; }
 
       /* ---- paragraph-1 text-only beats (above the row) ---- */
-      .p1-text { position: absolute; left: 0; right: 0; top: 300px; display: flex; justify-content: center; padding: 0 80px; text-align: center; }
+      .p1-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 80px; text-align: center; }
       .p1-text span {
         font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
         font-size: 88px; line-height: 1.0; color: var(--ink); opacity: 0; text-wrap: balance;
@@ -168,6 +168,7 @@
         <div id="p1video-box" class="shot-card">
           <video id="p1video-el" src="assets/video/laptop-earning.mp4" muted playsinline data-start="5.364" data-duration="2.38" data-media-start="2"></video>
         </div>
+        <div id="p1video-label" class="row-label" style="top:1330px; left:110px; width:860px; font-size:40px;">RENTABILISER.</div>
       </div>
 
       <div id="card4" class="clip" data-start="7.894" data-duration="1.61" data-track-index="1">
@@ -253,7 +254,8 @@
 
       // ---- paragraph 1 — video card: "comment rentabiliser ce que tu as déjà appris ?" ----
       tl.fromTo("#p1video-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 5.364);
-      tl.set("#p1video-box", { opacity: 0 }, 7.744);
+      tl.fromTo("#p1video-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 5.42);
+      tl.set(["#p1video-box", "#p1video-label"], { opacity: 0 }, 7.744);
 
       // ---- cards: fast slide-in + rotation settle, quick fade-scale out ----
       const cards = [
