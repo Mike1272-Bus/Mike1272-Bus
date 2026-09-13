@@ -18,8 +18,10 @@ série Michaelson Digital Academy. Raconte, à la première personne, l'histoire
 d'un oncle menuisier qui a transformé vingt ans de métier en guide numérique
 vendu en ligne — sans quitter son atelier. Le ton doit toucher une émotion
 (peur de finir fatigué et sans rien, fierté, espoir) avant d'informer. Aucun
-jargon ("organique" interdit). Se termine par un CTA mot-clé en commentaire
-("GUIDE"), mécanique déjà en place sur ce compte.
+jargon ("organique" interdit). On est encore en phase d'attraction : pas de
+CTA mot-clé en commentaire sur cet épisode, juste une invitation simple à
+s'abonner pour la suite. Le CTA "GUIDE" arrivera sur un épisode plus tardif
+du pilier, une fois l'audience chauffée.
 
 ## Assets
 
@@ -36,7 +38,7 @@ via media-use (Pexels/Unsplash/Mixkit/Coverr), pas de formes abstraites.
   toutes les vidéos précédentes de ce compte : jaune #F7CB46, noir/encre
   #0A0A05, crème #FFFDF5, display Arial Black/Archivo Black, fond à pois,
   bordures épaisses + ombre portée dure (pas de flou).
-- CTA final : badge "ÉCRIS GUIDE EN COMMENTAIRE".
+- CTA final : badge "ABONNE-TOI" (simple, pas de mot-clé).
 
 ## Notes
 

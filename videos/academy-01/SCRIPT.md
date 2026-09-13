@@ -22,7 +22,7 @@ Aujourd'hui, David vend son guide pendant qu'il est dans son atelier, en train d
 
 Si toi aussi tu as une compétence que tu utilises depuis des années, tu as peut-être déjà un produit digital sans le savoir.
 
-Écris "GUIDE" en commentaire, et je t'envoie exactement comment David a fait, étape par étape.
+Cette semaine, je te montre étape par étape comment David a fait. Abonne-toi pour ne rien rater.
 
 ---
 
@@ -31,4 +31,4 @@ Si toi aussi tu as une compétence que tu utilises depuis des années, tu as peu
 - Enchaîne directement sur academy-00 ("que tu sois salarié, étudiant ou sans emploi... rentabiliser ce que tu sais déjà") en reprenant le mot "rentabiliser" et l'idée d'une seule compétence.
 - Registre "vous" au tout début (citation de la question de David, ton un peu plus formel/pédagogique du préambule), puis bascule en "tu" dès qu'on s'adresse directement au spectateur — à trancher si tu préfères un seul registre du début à la fin.
 - Respecte les règles du compte : pas de tiret long, pas d'énumération calée à trois éléments par réflexe (le rythme "une vente... puis une autre" reste narratif, pas une liste), pas de virgule d'Oxford, aucun jargon ("organique" absent).
-- CTA mot-clé "GUIDE" en commentaire, cohérent avec le brief existant.
+- CTA : simple abonnement, pas de mot-clé en commentaire. On est encore en phase d'attraction, le CTA "GUIDE" (conversion) arrivera sur un épisode plus tardif du pilier une fois l'audience chauffée.
