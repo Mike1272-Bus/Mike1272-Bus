@@ -87,37 +87,27 @@
         font-size: 54px; line-height: 1.15; color: var(--ink); text-wrap: balance; opacity: 0;
       }
 
-      /* ---- generic small illustration card (paragraphs 2-3 generated icons) ---- */
-      .icon-card {
-        position: absolute; left: 190px; top: 640px; width: 700px; height: 500px;
-        background: var(--cream); border: 8px solid var(--ink); box-shadow: 16px 16px 0 var(--ink);
-        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px;
-        opacity: 0; padding: 0 40px; text-align: center;
+      /* ---- full-canvas generated illustrations (Blockframe Motion style, paragraphs 2-3) ---- */
+      .fx-scene {
+        position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 44px; padding: 0 70px; text-align: center;
       }
-      .icon-card.ink { background: var(--ink); }
-      .icon-shape { width: 150px; height: 150px; display: flex; align-items: center; justify-content: center; }
-      .icon-box {
-        width: 130px; height: 100px; border: 7px dashed var(--ink); border-radius: 8px;
-        display: flex; align-items: center; justify-content: center;
+      .fx-scene.yellow-bg { background: var(--yellow); }
+      .fx-eyebrow {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--yellow); background: var(--ink); border-radius: 999px; padding: 10px 24px; opacity: 0;
       }
-      .icon-box span { font-family: "Archivo Black", sans-serif; font-size: 60px; color: var(--ink); }
-      .icon-slate { width: 150px; height: 120px; position: relative; }
-      .icon-slate .top { position: absolute; top: 0; left: 0; width: 150px; height: 34px; background: var(--ink); border-radius: 4px 4px 0 0; transform-origin: 4px 30px; }
-      .icon-slate .body { position: absolute; top: 34px; left: 0; width: 150px; height: 86px; background: var(--ink); border-radius: 0 0 4px 4px; }
-      .bubble-cluster { position: relative; width: 220px; height: 150px; }
-      .bubble {
-        position: absolute; background: var(--yellow); border: 5px solid var(--ink); border-radius: 16px;
-        display: flex; align-items: center; justify-content: center; opacity: 0;
-        font-family: "Archivo Black", sans-serif; font-size: 30px; color: var(--ink);
-      }
-      #bub1 { width: 90px; height: 60px; left: 0; top: 10px; }
-      #bub2 { width: 110px; height: 68px; left: 90px; top: 60px; }
-      #bub3 { width: 76px; height: 52px; left: 30px; top: 90px; }
-      .icon-card-label {
+      .fx-scene.yellow-bg .fx-eyebrow { color: var(--ink); background: var(--cream); }
+      .fx-title {
         font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
-        font-size: 38px; line-height: 1.1; color: var(--ink); text-wrap: balance;
+        font-size: 72px; line-height: 1.0; color: var(--ink); text-wrap: balance; opacity: 0;
       }
-      .icon-card.ink .icon-card-label { color: var(--cream); }
+      .fx-morph { width: 220px; height: 220px; background: var(--ink); opacity: 0; }
+      .fx-wipe-wrap { position: relative; display: inline-block; overflow: hidden; }
+      .fx-wipe-bar { position: absolute; inset: 0; background: var(--yellow); transform: scaleX(1); transform-origin: right; }
+      .fx-bars { display: flex; align-items: flex-end; gap: 22px; height: 220px; }
+      .fx-bars .bar { width: 64px; background: var(--ink); transform-origin: bottom; transform: scaleY(0); }
+      .fx-bars .bar.accent { background: var(--yellow); border: 4px solid var(--ink); }
 
       /* ---- 4-up product grid (placed all at once) ---- */
       .pd-grid { position: absolute; top: 560px; width: 240px; height: 340px; border: 6px solid var(--ink); box-shadow: 10px 10px 0 var(--ink); overflow: hidden; opacity: 0; background: var(--cream); }
@@ -225,9 +215,10 @@
       </div>
 
       <div id="p2b" class="clip" data-start="10.521" data-duration="2.335" data-track-index="1">
-        <div id="p2b-card" class="icon-card">
-          <div class="icon-shape"><div class="icon-box"><span>?</span></div></div>
-          <div class="icon-card-label">SANS JAMAIS NOUS DIRE<br/>CE QU'ON EN FAIT.</div>
+        <div class="fx-scene yellow-bg">
+          <div id="p2b-eyebrow" class="fx-eyebrow">AUCUNE RÉPONSE</div>
+          <div id="p2b-morph" class="fx-morph"></div>
+          <div id="p2b-title" class="fx-title">SANS JAMAIS NOUS DIRE<br/>CE QU'ON EN FAIT</div>
         </div>
       </div>
 
@@ -238,9 +229,11 @@
 
       <!-- ===== PARAGRAPH 3 — illustration / video / video / illustration / 4-image grid ===== -->
       <div id="p3a" class="clip" data-start="14.465" data-duration="0.978" data-track-index="1">
-        <div id="p3a-card" class="icon-card">
-          <div class="icon-shape"><div class="icon-slate"><div id="slate-top" class="top"></div><div class="body"></div></div></div>
-          <div class="icon-card-label">DANS CETTE SÉRIE.</div>
+        <div class="fx-scene">
+          <div class="fx-wipe-wrap">
+            <div id="p3a-title" class="fx-title" style="opacity:1;">DANS CETTE<br/>SÉRIE</div>
+            <div id="p3a-wipe" class="fx-wipe-bar"></div>
+          </div>
         </div>
       </div>
 
@@ -259,13 +252,14 @@
       </div>
 
       <div id="p3d" class="clip" data-start="19.355" data-duration="2.282" data-track-index="1">
-        <div id="p3d-card" class="icon-card">
-          <div class="bubble-cluster">
-            <div id="bub1" class="bubble">!</div>
-            <div id="bub2" class="bubble">$</div>
-            <div id="bub3" class="bubble">?</div>
+        <div class="fx-scene">
+          <div id="p3d-eyebrow" class="fx-eyebrow">ON EN PARLE</div>
+          <div class="fx-bars">
+            <div id="bar1" class="bar" style="height:120px;"></div>
+            <div id="bar2" class="bar accent" style="height:180px;"></div>
+            <div id="bar3" class="bar" style="height:220px;"></div>
           </div>
-          <div class="icon-card-label">TOUT LE MONDE<br/>COMMENCE À EN PARLER.</div>
+          <div id="p3d-title" class="fx-title">TOUT LE MONDE<br/>COMMENCE À EN PARLER</div>
         </div>
       </div>
 
@@ -340,20 +334,23 @@
       tl.fromTo("#p2a-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 7.95);
       tl.set(["#p2a-box", "#p2a-label"], { opacity: 0 }, 10.521);
 
-      // ---- paragraph 2 — p2b illustration: "sans jamais nous dire ce qu'on en fait" (shaking box) ----
-      tl.fromTo("#p2b-card", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 10.521);
-      tl.to("#p2b-card .icon-box", { rotation: -6, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 5 }, 10.9);
-      tl.set("#p2b-card", { opacity: 0 }, 12.856);
+      // ---- paragraph 2 — p2b illustration: "sans jamais nous dire ce qu'on en fait" (Blockframe Motion: shape morph) ----
+      tl.fromTo("#p2b-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 10.521);
+      tl.fromTo("#p2b-morph", { opacity: 0, borderRadius: "0%", rotation: 0 }, { opacity: 1, duration: 0.15 }, 10.65);
+      tl.to("#p2b-morph", { borderRadius: "38%", rotation: 45, duration: 0.9, ease: "power2.inOut" }, 10.75);
+      tl.to("#p2b-morph", { borderRadius: "0%", rotation: 90, duration: 0.7, ease: "power2.inOut" }, 11.7);
+      tl.fromTo("#p2b-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 10.9);
+      tl.set(["#p2b-eyebrow", "#p2b-morph", "#p2b-title"], { opacity: 0 }, 12.856);
 
       // ---- paragraph 2 — p2c image: "une fois qu'on les a." ----
       tl.fromTo("#p2c-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 12.856);
       tl.fromTo("#p2c-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 12.92);
       tl.set(["#p2c-box", "#p2c-label"], { opacity: 0 }, 14.315);
 
-      // ---- paragraph 3 — p3a illustration: "dans cette série" (clapperboard) ----
-      tl.fromTo("#p3a-card", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.2)" }, 14.465);
-      tl.fromTo("#slate-top", { rotation: -22 }, { rotation: 0, duration: 0.22, ease: "power2.out" }, 14.62);
-      tl.set("#p3a-card", { opacity: 0 }, 15.443);
+      // ---- paragraph 3 — p3a illustration: "dans cette série" (Blockframe Motion: hard wipe-reveal) ----
+      tl.fromTo("#p3a-wipe", { scaleX: 1 }, { scaleX: 0, duration: 0.28, ease: "power4.inOut" }, 14.465);
+      tl.set("#p3a-title", { opacity: 0 }, 15.443);
+      tl.set("#p3a-wipe", { opacity: 0 }, 15.443);
 
       // ---- paragraph 3 — p3b video: "on va t'apprendre à les transformer" ----
       tl.fromTo("#p3b-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 15.443);
@@ -365,12 +362,13 @@
       tl.fromTo("#p3c-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 17.46);
       tl.set(["#p3c-box", "#p3c-label"], { opacity: 0 }, 19.355);
 
-      // ---- paragraph 3 — p3d illustration: "dont tout le monde commence à parler" (bubble buzz) ----
-      tl.fromTo("#p3d-card", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, 19.355);
-      [["#bub1", 19.55], ["#bub2", 19.75], ["#bub3", 19.95]].forEach(([sel, start]) => {
-        tl.fromTo(sel, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.6)" }, start);
+      // ---- paragraph 3 — p3d illustration: "dont tout le monde commence à parler" (Blockframe Motion: growing bars) ----
+      tl.fromTo("#p3d-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 19.355);
+      [["#bar1", 19.5, 0.35], ["#bar2", 19.62, 0.4], ["#bar3", 19.76, 0.45]].forEach(([sel, start, dur]) => {
+        tl.to(sel, { scaleY: 1, duration: dur, ease: "power2.out" }, start);
       });
-      tl.set("#p3d-card", { opacity: 0 }, 21.637);
+      tl.fromTo("#p3d-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 20.4);
+      tl.set(["#p3d-eyebrow", "#bar1", "#bar2", "#bar3", "#p3d-title"], { opacity: 0 }, 21.637);
 
       // ---- paragraph 3 — p3e: 4 "produits digitaux" images, placed together at once ----
       tl.fromTo(["#pd1", "#pd2", "#pd3", "#pd4"], { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.2)" }, 21.637);
