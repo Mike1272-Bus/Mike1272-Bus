@@ -46,7 +46,46 @@
         border: 8px solid var(--ink); box-shadow: 18px 18px 0 var(--ink);
         overflow: hidden; background: var(--cream); opacity: 0;
       }
-      .shot-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .shot-card img, .shot-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+      /* ---- straight, non-overlapping row cards (paragraph 1 enumeration) ---- */
+      .row-card {
+        position: absolute; top: 520px; width: 320px; height: 520px;
+        border: 7px solid var(--ink); box-shadow: 12px 12px 0 var(--ink);
+        overflow: hidden; background: var(--cream); opacity: 0;
+      }
+      .row-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      #row1 { left: 40px; }
+      #row2 { left: 380px; }
+      #row3 { left: 720px; }
+      .row-label {
+        position: absolute; top: 1058px; width: 320px; text-align: center;
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 32px; line-height: 1.05; color: var(--ink); opacity: 0;
+      }
+      #row1-label { left: 40px; }
+      #row2-label { left: 380px; }
+      #row3-label { left: 720px; }
+
+      /* ---- paragraph-1 text-only beats (above the row) ---- */
+      .p1-text { position: absolute; left: 0; right: 0; top: 300px; display: flex; justify-content: center; padding: 0 80px; text-align: center; }
+      .p1-text span {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 88px; line-height: 1.0; color: var(--ink); opacity: 0; text-wrap: balance;
+      }
+
+      /* ---- motion illustration: "il y a une question que tu devrais te poser" ---- */
+      .illus-wrap { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; padding: 0 70px; text-align: center; }
+      .illus-mark {
+        width: 280px; height: 280px; border-radius: 50%; background: var(--yellow);
+        border: 8px solid var(--ink); box-shadow: 14px 14px 0 var(--ink);
+        display: flex; align-items: center; justify-content: center; opacity: 0;
+      }
+      .illus-mark span { font-family: "Archivo Black", sans-serif; font-size: 170px; color: var(--ink); line-height: 1; }
+      .illus-phrase {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 54px; line-height: 1.15; color: var(--ink); text-wrap: balance; opacity: 0;
+      }
       .shot-card.ink { background: var(--ink); border-color: var(--yellow); }
       .card-inner {
         position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
@@ -97,21 +136,40 @@
         <div id="stripe2" class="bg-stripe"></div>
       </div>
 
-      <!-- ===== CARDS (bounded, never full-screen) ===== -->
-      <div id="card1" class="clip" data-start="0" data-duration="1.72" data-track-index="1">
-        <div id="card1-box" class="shot-card"><img src="assets/images/salarie.jpg" alt="" style="object-position:50% 22%;" /></div>
+      <!-- ===== PARAGRAPH 1 — word-mapped: text / image / image / text / image / illustration / video ===== -->
+      <div id="p1a" class="clip" data-start="0" data-duration="0.894" data-track-index="1">
+        <div class="p1-text"><span id="p1a-t">QUE TU SOIS</span></div>
       </div>
-      <div id="card2" class="clip" data-start="1.72" data-duration="0.43" data-track-index="1">
-        <div id="card2-box" class="shot-card"><img src="assets/images/etudiant.jpg" alt="" style="object-position:38% 40%;" /></div>
+
+      <div id="row1c" class="clip" data-start="0.894" data-duration="1.49" data-track-index="1">
+        <div id="row1" class="row-card"><img src="assets/images/salarie.jpg" alt="" style="object-position:65% 25%;" /></div>
+        <div id="row1-label" class="row-label">SALARIÉ.</div>
       </div>
-      <div id="card3" class="clip" data-start="2.15" data-duration="1.29" data-track-index="1">
-        <div id="card3-box" class="shot-card">
-          <div class="card-inner">
-            <div class="card-eyebrow">La question à te poser</div>
-            <div class="card-title" style="font-size:58px;">SANS EMPLOI ?</div>
-          </div>
+      <div id="row2c" class="clip" data-start="1.192" data-duration="1.192" data-track-index="1">
+        <div id="row2" class="row-card"><img src="assets/images/etudiant.jpg" alt="" style="object-position:38% 40%;" /></div>
+        <div id="row2-label" class="row-label">ÉTUDIANT.</div>
+      </div>
+      <div id="p1b" class="clip" data-start="1.49" data-duration="0.298" data-track-index="1">
+        <div class="p1-text"><span id="p1b-t">OU</span></div>
+      </div>
+      <div id="row3c" class="clip" data-start="1.788" data-duration="0.596" data-track-index="1">
+        <div id="row3" class="row-card"><img src="assets/images/sans-emploi.jpg" alt="" style="object-position:65% 30%;" /></div>
+        <div id="row3-label" class="row-label">SANS EMPLOI.</div>
+      </div>
+
+      <div id="p1illus" class="clip" data-start="2.384" data-duration="2.98" data-track-index="1">
+        <div class="illus-wrap">
+          <div id="illus-mark" class="illus-mark"><span>?</span></div>
+          <div id="illus-phrase" class="illus-phrase">IL Y A UNE QUESTION<br/>QUE TU DEVRAIS TE POSER</div>
         </div>
       </div>
+
+      <div id="p1video">
+        <div id="p1video-box" class="shot-card">
+          <video id="p1video-el" src="assets/video/laptop-earning.mp4" muted playsinline data-start="5.364" data-duration="2.38" data-media-start="2"></video>
+        </div>
+      </div>
+
       <div id="card4" class="clip" data-start="7.894" data-duration="1.61" data-track-index="1">
         <div id="card4-box" class="shot-card"><img src="assets/images/diplomes.jpg" alt="" style="object-position:62% 50%;" /></div>
       </div>
@@ -135,15 +193,7 @@
         </div>
       </div>
 
-      <!-- ===== KINETIC CAPTIONS — one word-chunk at a time, track 2 ===== -->
-      <div id="k101" class="clip" data-start="0" data-duration="1.29" data-track-index="2"><div class="kcap-zone"><div id="k101-t" class="kcap c1">QUE TU SOIS</div></div></div>
-      <div id="k102" class="clip" data-start="1.29" data-duration="0.43" data-track-index="2"><div class="kcap-zone"><div id="k102-t" class="kcap c2">SALARIÉ,</div></div></div>
-      <div id="k103" class="clip" data-start="1.72" data-duration="0.43" data-track-index="2"><div class="kcap-zone"><div id="k103-t" class="kcap c1">ÉTUDIANT</div></div></div>
-      <div id="k104" class="clip" data-start="2.15" data-duration="1.29" data-track-index="2"><div class="kcap-zone"><div id="k104-t" class="kcap c2">OU SANS EMPLOI,</div></div></div>
-      <div id="k105" class="clip" data-start="3.44" data-duration="2.15" data-track-index="2"><div class="kcap-zone"><div id="k105-t" class="kcap c1">IL Y A UNE QUESTION</div></div></div>
-      <div id="k106" class="clip" data-start="5.59" data-duration="1.29" data-track-index="2"><div class="kcap-zone"><div id="k106-t" class="kcap c2">QUE TU DEVRAIS</div></div></div>
-      <div id="k107" class="clip" data-start="6.88" data-duration="0.86" data-track-index="2"><div class="kcap-zone"><div id="k107-t" class="kcap c1">TE POSER.</div></div></div>
-
+      <!-- ===== KINETIC CAPTIONS — one word-chunk at a time, track 2 (paragraphs 2-3 only; paragraph 1 is word-mapped above) ===== -->
       <div id="k201" class="clip" data-start="7.894" data-duration="1.61" data-track-index="2"><div class="kcap-zone"><div id="k201-t" class="kcap c1">ON NOUS A LONGTEMPS</div></div></div>
       <div id="k202" class="clip" data-start="9.5" data-duration="0.8" data-track-index="2"><div class="kcap-zone"><div id="k202-t" class="kcap c2">VENDU L'IDÉE</div></div></div>
       <div id="k203" class="clip" data-start="10.3" data-duration="1.2" data-track-index="2"><div class="kcap-zone"><div id="k203-t" class="kcap c1">D'ACQUÉRIR DES COMPÉTENCES,</div></div></div>
@@ -177,11 +227,36 @@
       tl.fromTo("#stripe1", { xPercent: -8 }, { xPercent: 8, duration: 33, ease: "none" }, 0);
       tl.fromTo("#stripe2", { xPercent: 6 }, { xPercent: -10, duration: 33, ease: "none" }, 0);
 
+      // ---- paragraph 1 — text beats: straight pop, no slide/rotation ----
+      [["#p1a-t", 0, 0.894], ["#p1b-t", 1.49, 0.298]].forEach(([sel, start, dur]) => {
+        tl.fromTo(sel, { opacity: 0, scale: 0.8, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.15, ease: "back.out(2.4)" }, start);
+        tl.set(sel, { opacity: 0 }, start + dur);
+      });
+
+      // ---- paragraph 1 — row cards: straight pop-in (no tilt), stay visible, all cut together ----
+      const rowCards = [
+        { id: "row1", lbl: "row1-label", start: 0.894, dur: 1.49 },
+        { id: "row2", lbl: "row2-label", start: 1.192, dur: 1.192 },
+        { id: "row3", lbl: "row3-label", start: 1.788, dur: 0.596 },
+      ];
+      rowCards.forEach(({ id, lbl, start, dur }) => {
+        tl.fromTo(`#${id}`, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2.2)" }, start);
+        tl.fromTo(`#${lbl}`, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, start + 0.05);
+        tl.set([`#${id}`, `#${lbl}`], { opacity: 0 }, start + dur);
+      });
+
+      // ---- paragraph 1 — motion illustration: "il y a une question que tu devrais te poser" ----
+      tl.fromTo("#illus-mark", { opacity: 0, scale: 0.5, rotation: -20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "elastic.out(1,0.55)" }, 2.384);
+      tl.fromTo("#illus-phrase", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 2.9);
+      tl.to("#illus-mark", { rotation: 8, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, 2.9);
+      tl.set(["#illus-mark", "#illus-phrase"], { opacity: 0 }, 5.364);
+
+      // ---- paragraph 1 — video card: "comment rentabiliser ce que tu as déjà appris ?" ----
+      tl.fromTo("#p1video-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 5.364);
+      tl.set("#p1video-box", { opacity: 0 }, 7.744);
+
       // ---- cards: fast slide-in + rotation settle, quick fade-scale out ----
       const cards = [
-        { id: "card1-box", start: 0,     dur: 1.72,  side: "left",  rot: -3 },
-        { id: "card2-box", start: 1.72,  dur: 0.43,  side: "right", rot: 3 },
-        { id: "card3-box", start: 2.15,  dur: 1.29,  side: "left",  rot: -2.4 },
         { id: "card4-box", start: 7.894, dur: 1.61,  side: "right", rot: 2.6 },
         { id: "card5-box", start: 9.5,   dur: 2.0,   side: "left",  rot: -2.8 },
         { id: "card6-box", start: 21.53, dur: 1.084, side: "up",    rot: 0 },
@@ -198,12 +273,10 @@
 
       // ---- kinetic captions: pop per chunk, hard-killed at boundary ----
       const chunks = [
-        "k101","k102","k103","k104","k105","k106","k107",
         "k201","k202","k203","k204","k205",
         "k301","k302","k303","k304","k305",
       ];
       const chunkTiming = {
-        k101:[0,1.29], k102:[1.29,0.43], k103:[1.72,0.43], k104:[2.15,1.29], k105:[3.44,2.15], k106:[5.59,1.29], k107:[6.88,0.86],
         k201:[7.894,1.61], k202:[9.5,0.8], k203:[10.3,1.2], k204:[11.5,1.61], k205:[13.11,1.2],
         k301:[14.465,1.63], k302:[16.1,1.63], k303:[17.73,1.63], k304:[19.36,2.17], k305:[21.53,1.084],
       };
