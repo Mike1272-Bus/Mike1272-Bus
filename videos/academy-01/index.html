@@ -1,58 +1,490 @@
 <!doctype html>
-<html lang="en" data-resolution="portrait">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="vendor/gsap.min.js"></script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      @font-face {
+        font-family: "Work Sans";
+        src: url("vendor/fonts/work-sans-variable.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
       }
-      html,
-      body {
-        margin: 0;
-        width: 1080px;
-        height: 1920px;
-        overflow: hidden;
-        background: #000;
+      @font-face {
+        font-family: "Archivo Black";
+        src: url("vendor/fonts/archivo-black-400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
       }
-      body {
-        font-family: "Inter", sans-serif;
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #FFFDF5; }
+      body { font-family: "Work Sans", sans-serif; }
+
+      :root {
+        --yellow: #F7CB46;
+        --ink: #0A0A05;
+        --cream: #FFFDF5;
       }
-      code,
-      pre,
-      .monospace {
-        font-family: "JetBrains Mono", monospace;
+
+      .clip { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; }
+
+      /* ---- persistent global background ---- */
+      .bg-layer { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+      .bg-grid {
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(to right, rgba(10,10,5,0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(10,10,5,0.08) 1px, transparent 1px);
+        background-size: 54px 54px;
       }
+
+      /* ---- full-screen media ---- */
+      .shot-card { position: absolute; inset: 0; overflow: hidden; background: var(--cream); opacity: 0; }
+      .shot-card img, .shot-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .shot-card.landscape {
+        inset: auto; left: 40px; top: 640px; width: 1000px; height: 563px;
+        border: 7px solid var(--ink); box-shadow: 12px 12px 0 var(--ink);
+      }
+      .shot-card.ink { background: var(--ink); border-color: var(--yellow); }
+
+      /* ---- speech-bubble captions ---- */
+      .bubble-zone { position: absolute; left: 0; right: 0; bottom: 260px; display: flex; justify-content: center; padding: 0 60px; z-index: 5; }
+      .speech-bubble {
+        position: relative; display: inline-block; max-width: 920px; padding: 28px 42px 40px;
+        border-radius: 30px; font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 50px; line-height: 1.08; text-align: center; text-wrap: balance; opacity: 0;
+      }
+      .speech-bubble::after {
+        content: ""; position: absolute; left: 54px; bottom: -20px;
+        width: 0; height: 0; border-left: 6px solid transparent; border-right: 30px solid transparent;
+      }
+      .speech-bubble.yellow { background: var(--yellow); color: var(--ink); }
+      .speech-bubble.yellow::after { border-top: 24px solid var(--yellow); }
+      .speech-bubble.ink { background: var(--ink); color: var(--cream); }
+      .speech-bubble.ink::after { border-top: 24px solid var(--ink); }
+
+      /* ---- plain kinetic text beats ---- */
+      .p1-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 80px; text-align: center; }
+      .p1-text span {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 84px; line-height: 1.05; color: var(--ink); opacity: 0; text-wrap: balance;
+      }
+
+      /* ---- full-canvas generated illustrations (Blockframe Motion style) ---- */
+      .fx-scene {
+        position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 44px; padding: 0 70px; text-align: center;
+      }
+      .fx-eyebrow {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--yellow); background: var(--ink); border-radius: 999px; padding: 10px 24px; opacity: 0;
+      }
+      .fx-title {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 68px; line-height: 1.05; color: var(--ink); text-wrap: balance; opacity: 0;
+      }
+      .fx-bars { display: flex; align-items: flex-end; gap: 22px; height: 220px; }
+      .fx-bars .bar { width: 64px; background: var(--ink); transform-origin: bottom; transform: scaleY(0); }
+      .fx-bars .bar.accent { background: var(--yellow); border: 4px solid var(--ink); }
+
+      .fx-glow { position: absolute; width: 220px; height: 220px; border-radius: 50%; background: var(--yellow); opacity: 0; }
+      .fx-bulb { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; opacity: 0; }
+      .fx-bulb .glass { width: 140px; height: 140px; border-radius: 50%; background: var(--yellow); border: 8px solid var(--ink); }
+      .fx-bulb .base { width: 56px; height: 28px; background: var(--ink); border-radius: 0 0 8px 8px; margin-top: -6px; }
+
+      .fx-pieces { position: relative; width: 204px; height: 204px; }
+      .fx-piece { position: absolute; width: 100px; height: 100px; background: var(--ink); opacity: 0; }
+      .fx-piece.accent { background: var(--yellow); border: 4px solid var(--ink); }
+      #p3-piece1 { left: 0; top: 0; }
+      #p3-piece2 { left: 104px; top: 0; }
+      #p3-piece3 { left: 0; top: 104px; }
+      #p3-piece4 { left: 104px; top: 104px; }
+
+      /* ---- beat 4: head opens, ideas fly out, become products ---- */
+      .fx-head { position: relative; width: 170px; height: 170px; }
+      .fx-head-ball { position: absolute; inset: 0; border-radius: 50%; background: var(--ink); opacity: 0; }
+      .fx-head-lid {
+        position: absolute; top: -6px; left: 0; width: 170px; height: 88px; border-radius: 170px 170px 0 0;
+        background: var(--yellow); border: 5px solid var(--ink); transform-origin: 50% 100%; opacity: 0;
+      }
+      .fx-word {
+        position: absolute; background: var(--ink); color: var(--cream); font-family: "Archivo Black", sans-serif;
+        font-size: 24px; padding: 10px 22px; border-radius: 999px; opacity: 0; white-space: nowrap;
+      }
+      .fx-prod-row { display: flex; gap: 28px; align-items: center; }
+      .fx-prod-doc { width: 130px; height: 164px; background: var(--cream); border: 6px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); opacity: 0; position: relative; }
+      .fx-prod-doc .ln { position: absolute; left: 18px; right: 18px; height: 10px; background: var(--yellow); }
+      .fx-prod-play { width: 146px; height: 146px; background: var(--yellow); border: 6px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); opacity: 0; display: flex; align-items: center; justify-content: center; }
+      .fx-prod-play .tri { width: 0; height: 0; border-top: 26px solid transparent; border-bottom: 26px solid transparent; border-left: 40px solid var(--ink); margin-left: 10px; }
+
+      /* ---- beat 10: idea -> package -> phone -> sales -> cash ---- */
+      .fx-box { width: 150px; height: 150px; background: var(--ink); position: relative; opacity: 0; }
+      .fx-box .flap { position: absolute; top: 0; width: 75px; height: 56px; background: var(--yellow); border: 4px solid var(--ink); transform-origin: top center; }
+      .fx-box .flap.left { left: -4px; transform: rotate(-78deg); }
+      .fx-box .flap.right { right: -4px; transform: rotate(78deg); }
+
+      .fx-phone { width: 118px; height: 220px; border-radius: 22px; background: var(--ink); position: relative; opacity: 0; }
+      .fx-phone .screen { position: absolute; inset: 8px; border-radius: 14px; background: var(--yellow); }
+
+      .fx-cash { position: relative; width: 220px; height: 150px; }
+      .fx-bill { position: absolute; width: 150px; height: 84px; background: var(--yellow); border: 5px solid var(--ink); border-radius: 8px; opacity: 0; }
+      #p10-bill1 { left: 0; top: 40px; }
+      #p10-bill2 { left: 35px; top: 16px; }
+      #p10-bill3 { left: 70px; top: 0; }
+
+      /* ---- beat 13: cash streams out of a laptop ---- */
+      .fx-laptop { width: 260px; height: 176px; position: relative; }
+      .fx-laptop .base { position: absolute; bottom: 0; left: -12px; width: 284px; height: 14px; background: var(--ink); border-radius: 4px; }
+      .fx-laptop .screen { position: absolute; bottom: 14px; left: 20px; width: 220px; height: 140px; background: var(--ink); border-radius: 8px 8px 0 0; }
+      .fx-laptop .screen-inner { position: absolute; inset: 7px; background: var(--yellow); }
+      .fx-stream-bill { position: absolute; width: 90px; height: 52px; background: var(--yellow); border: 4px solid var(--ink); border-radius: 6px; opacity: 0; }
+
+      /* ---- 4-up mosaic (skills) ---- */
+      .pd-grid { position: absolute; width: 490px; height: 560px; border: 6px solid var(--ink); box-shadow: 10px 10px 0 var(--ink); overflow: hidden; opacity: 0; background: var(--cream); }
+      .pd-grid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      #sk1 { left: 40px; top: 240px; }
+      #sk2 { left: 550px; top: 240px; }
+      #sk3 { left: 40px; top: 820px; }
+      #sk4 { left: 550px; top: 820px; }
+
+      /* ---- CTA scene ---- */
+      .card-inner {
+        position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 30px; padding: 0 60px; text-align: center;
+      }
+      .cta-badge {
+        background: var(--yellow); border: 6px solid var(--ink); border-radius: 14px;
+        box-shadow: 14px 14px 0 var(--ink); padding: 30px 46px; opacity: 0; transform-origin: 50% 50%;
+      }
+      .cta-badge span { font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 76px; color: var(--ink); letter-spacing: -0.01em; }
+      .cta-line { font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 34px; color: var(--cream); max-width: 780px; line-height: 1.4; opacity: 0; }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="10"
-      data-width="1080"
-      data-height="1920"
-    >
-      
-      
+    <div id="root" data-composition-id="main" data-start="0" data-duration="43.861" data-width="1080" data-height="1920">
 
-      <!--
-        Add your clips here. Example:
-        <div id="title" class="clip" data-start="0" data-duration="5" data-track-index="1"
-             style="font-size: 64px; color: #fff; padding: 40px">
-          Hello World
+      <div class="bg-layer"><div class="bg-grid"></div></div>
+
+      <!-- ===== BEAT 1 — hook ===== -->
+      <div id="p1" class="clip" data-start="0" data-duration="1.7067" data-track-index="1">
+        <div class="p1-text"><span id="p1-t">MAIS QU'EST-CE QU'UN<br/>PRODUIT DIGITAL ?</span></div>
+      </div>
+
+      <!-- ===== BEAT 2 — David, menuisier ===== -->
+      <div id="p2">
+        <div id="p2-box" class="shot-card landscape">
+          <video id="p2-el" src="assets/video/david-atelier.mp4" muted playsinline data-start="1.7067" data-duration="5.4461" data-media-start="1.2"></video>
         </div>
-      -->
+        <div class="bubble-zone"><div id="p2-label" class="speech-bubble yellow">MON ONCLE DAVID.<br/>20 ANS DE MENUISERIE.</div></div>
+      </div>
+
+      <!-- ===== BEAT 3 — transformer (pieces assemble) ===== -->
+      <div id="p3" class="clip" data-start="7.1528" data-duration="1.6018" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p3-eyebrow" class="fx-eyebrow">TRANSFORMER</div>
+          <div class="fx-pieces">
+            <div id="p3-piece1" class="fx-piece"></div>
+            <div id="p3-piece2" class="fx-piece accent"></div>
+            <div id="p3-piece3" class="fx-piece accent"></div>
+            <div id="p3-piece4" class="fx-piece"></div>
+          </div>
+          <div id="p3-title" class="fx-title">IL VOULAIT SAVOIR<br/>COMMENT</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 4 — head opens, ideas become products ===== -->
+      <div id="p4" class="clip" data-start="8.7546" data-duration="2.2425" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-head">
+            <div id="p4-ball" class="fx-head-ball"></div>
+            <div id="p4-lid" class="fx-head-lid"></div>
+          </div>
+          <div id="p4-w1" class="fx-word" style="left:-40px; top:-40px;">SAVOIR</div>
+          <div id="p4-w2" class="fx-word" style="right:-60px; top:-20px;">IDÉES</div>
+          <div id="p4-w3" class="fx-word" style="left:20px; top:-90px;">MÉTIER</div>
+          <div class="fx-prod-row">
+            <div id="p4-doc" class="fx-prod-doc">
+              <div class="ln" style="top:26px;"></div><div class="ln" style="top:52px;"></div><div class="ln" style="top:78px;"></div><div class="ln" style="top:104px;"></div>
+            </div>
+            <div id="p4-play" class="fx-prod-play"><div class="tri"></div></div>
+          </div>
+          <div id="p4-title" class="fx-title">TOUT CE QU'IL SAVAIT<br/>EN PRODUIT DIGITAL</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 5a — pour enfin rentabiliser ===== -->
+      <div id="p5a">
+        <div id="p5a-box" class="shot-card landscape">
+          <video id="p5a-el" src="assets/video/rentabiliser.mp4" muted playsinline data-start="10.9971" data-duration="0.9611" data-media-start="1"></video>
+        </div>
+        <div class="bubble-zone"><div id="p5a-label" class="speech-bubble ink">POUR ENFIN<br/>RENTABILISER</div></div>
+      </div>
+
+      <!-- ===== BEAT 5b — sa compétence ===== -->
+      <div id="p5b" class="clip" data-start="11.9582" data-duration="0.6407" data-track-index="1">
+        <div id="p5b-box" class="shot-card landscape">
+          <img src="assets/images/sa-competence.jpg" alt="" style="object-position:50% 35%;" />
+        </div>
+        <div class="bubble-zone"><div id="p5b-label" class="speech-bubble yellow">SA COMPÉTENCE.</div></div>
+      </div>
+
+      <!-- ===== BEAT 6 — il suffit d'une seule compétence (mosaic) ===== -->
+      <div id="p6" class="clip" data-start="12.5989" data-duration="3.8443" data-track-index="1">
+        <div id="sk1" class="pd-grid"><img src="assets/images/competence-1.jpg" alt="" /></div>
+        <div id="sk2" class="pd-grid"><img src="assets/images/competence-2.jpg" alt="" /></div>
+        <div id="sk3" class="pd-grid"><img src="assets/images/competence-3.jpg" alt="" /></div>
+        <div id="sk4" class="pd-grid"><img src="assets/images/competence-4.jpg" alt="" /></div>
+        <div class="bubble-zone"><div id="p6-label" class="speech-bubble ink">IL SUFFIT D'UNE<br/>SEULE COMPÉTENCE.</div></div>
+      </div>
+
+      <!-- ===== BEAT 7 — premiers revenus en ligne ===== -->
+      <div id="p7">
+        <div id="p7-box" class="shot-card landscape">
+          <video id="p7-el" src="assets/video/revenus-en-ligne.mp4" muted playsinline data-start="16.4432" data-duration="2.8832" data-media-start="1"></video>
+        </div>
+        <div class="bubble-zone"><div id="p7-label" class="speech-bubble yellow">TES PREMIERS REVENUS<br/>EN LIGNE.</div></div>
+      </div>
+
+      <!-- ===== BEAT 8 — certains en vivent aujourd'hui ===== -->
+      <div id="p8">
+        <div id="p8-box" class="shot-card landscape">
+          <video id="p8-el" src="assets/video/en-vivent.mp4" muted playsinline data-start="19.3264" data-duration="1.2814" data-media-start="0.4"></video>
+        </div>
+        <div class="bubble-zone"><div id="p8-label" class="speech-bubble ink">CERTAINS EN VIVENT<br/>AUJOURD'HUI.</div></div>
+      </div>
+
+      <!-- ===== BEAT 9 — transition ===== -->
+      <div id="p9" class="clip" data-start="20.6078" data-duration="2.048" data-track-index="1">
+        <div class="p1-text"><span id="p9-t">ALORS JE VAIS COMMENCER<br/>PAR LE PRÉAMBULE.</span></div>
+      </div>
+
+      <!-- ===== BEAT 10 — emballer -> phone -> ventes -> cash ===== -->
+      <div id="p10" class="clip" data-start="22.6558" data-duration="9.792" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p10-eyebrow" class="fx-eyebrow">UN SEUL EMBALLAGE</div>
+
+          <div id="p10-glow" class="fx-glow"></div>
+          <div id="p10-bulb" class="fx-bulb"><div class="glass"></div><div class="base"></div></div>
+
+          <div id="p10-box" class="fx-box"><div class="flap left"></div><div class="flap right"></div></div>
+
+          <div id="p10-phone" class="fx-phone"><div class="screen"></div></div>
+
+          <div id="p10-bars" class="fx-bars">
+            <div id="p10-bar1" class="bar" style="height:120px;"></div>
+            <div id="p10-bar2" class="bar accent" style="height:180px;"></div>
+            <div id="p10-bar3" class="bar" style="height:220px;"></div>
+          </div>
+
+          <div id="p10-cash" class="fx-cash">
+            <div id="p10-bill1" class="fx-bill"></div>
+            <div id="p10-bill2" class="fx-bill"></div>
+            <div id="p10-bill3" class="fx-bill"></div>
+          </div>
+
+          <div id="p10-title" class="fx-title">ON L'EMBALLE UNE FOIS.<br/>ON LE VEND ENCORE ET ENCORE.</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 11 — un peu comme un livre ===== -->
+      <div id="p11">
+        <div id="p11-box" class="shot-card">
+          <video id="p11-el" src="assets/video/comme-un-livre.mp4" muted playsinline data-start="32.4478" data-duration="1.4836" data-media-start="1"></video>
+        </div>
+        <div class="bubble-zone"><div id="p11-label" class="speech-bubble yellow">UN PEU COMME<br/>UN LIVRE.</div></div>
+      </div>
+
+      <!-- ===== BEAT 12 — l'auteur l'écrit une fois ===== -->
+      <div id="p12">
+        <div id="p12-box" class="shot-card landscape">
+          <video id="p12-el" src="assets/video/auteur-ecrit.mp4" muted playsinline data-start="33.9314" data-duration="1.1869" data-media-start="1.5"></video>
+        </div>
+        <div class="bubble-zone"><div id="p12-label" class="speech-bubble ink">L'AUTEUR L'ÉCRIT<br/>UNE FOIS.</div></div>
+      </div>
+
+      <!-- ===== BEAT 13 — il continue à se vendre (cash from laptop) ===== -->
+      <div id="p13" class="clip" data-start="35.1183" data-duration="2.6705" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-laptop">
+            <div class="screen"><div class="screen-inner"></div></div>
+            <div class="base"></div>
+            <div id="p13-b1" class="fx-stream-bill" style="left:50px; top:-10px;"></div>
+            <div id="p13-b2" class="fx-stream-bill" style="left:100px; top:-40px;"></div>
+            <div id="p13-b3" class="fx-stream-bill" style="left:150px; top:-70px;"></div>
+          </div>
+          <div id="p13-title" class="fx-title">IL CONTINUE À SE VENDRE<br/>PENDANT DES ANNÉES.</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 14 — même quand l'auteur dort ===== -->
+      <div id="p14" class="clip" data-start="37.7888" data-duration="1.1869" data-track-index="1">
+        <div id="p14-box" class="shot-card landscape">
+          <img src="assets/images/auteur-dort.jpg" alt="" style="object-position:60% 40%;" />
+        </div>
+        <div class="bubble-zone"><div id="p14-label" class="speech-bubble yellow">MÊME QUAND<br/>L'AUTEUR DORT.</div></div>
+      </div>
+
+      <!-- ===== BEAT 15 — CTA suspense ===== -->
+      <div id="p15q" class="clip" data-start="38.9757" data-duration="2.1715" data-track-index="1">
+        <div class="p1-text"><span id="p15q-t">ET POUR DAVID...<br/>EST-CE QUE ÇA A MARCHÉ ?</span></div>
+      </div>
+
+      <div id="p15c">
+        <div id="p15c-box" class="shot-card ink">
+          <div class="card-inner">
+            <div id="p15-badge" class="cta-badge" style="opacity:0;"><span>LA SUITE<br/>DEMAIN</span></div>
+            <div id="p15-line" class="cta-line" style="opacity:0;">Abonne-toi pour ne pas la manquer.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUDIO -->
+      <audio id="vo1" class="clip" data-start="0" data-duration="1.7067" data-track-index="9" src="audio/lines/01.wav"></audio>
+      <audio id="vo2" class="clip" data-start="1.7067" data-duration="18.9011" data-track-index="9" src="audio/lines/02.wav"></audio>
+      <audio id="vo3" class="clip" data-start="20.6078" data-duration="2.048" data-track-index="9" src="audio/lines/03.wav"></audio>
+      <audio id="vo4" class="clip" data-start="22.6558" data-duration="16.3199" data-track-index="9" src="audio/lines/04.wav"></audio>
+      <audio id="vo5" class="clip" data-start="38.9757" data-duration="4.8853" data-track-index="9" src="audio/lines/05.wav"></audio>
+
     </div>
 
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      // Example: tl.from("#title", { opacity: 0, y: -50, duration: 1 }, 0);
+
+      // ---- beat 1 ----
+      tl.fromTo("#p1-t", { opacity: 0, scale: 0.8, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(2.2)" }, 0);
+      tl.set("#p1-t", { opacity: 0 }, 1.7067);
+
+      // ---- beat 2 ----
+      tl.fromTo("#p2-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 1.7067);
+      tl.fromTo("#p2-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 1.78);
+      tl.set(["#p2-box", "#p2-label"], { opacity: 0 }, 7.1528);
+
+      // ---- beat 3: pieces assemble ----
+      tl.fromTo("#p3-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 7.1528);
+      const p3pieces = [
+        { id: "p3-piece1", x: -60, y: -70, rot: -20 },
+        { id: "p3-piece2", x: 70, y: -80, rot: 18 },
+        { id: "p3-piece3", x: -75, y: 55, rot: 14 },
+        { id: "p3-piece4", x: 60, y: 90, rot: -16 },
+      ];
+      p3pieces.forEach(({ id, x, y, rot }, i) => {
+        tl.fromTo(`#${id}`, { opacity: 0, x, y, rotation: rot }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 0.3, ease: "power3.out" }, 7.28 + i * 0.05);
+      });
+      tl.fromTo("#p3-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 7.6);
+      tl.set(["#p3-eyebrow", "#p3-piece1", "#p3-piece2", "#p3-piece3", "#p3-piece4", "#p3-title"], { opacity: 0 }, 8.7546);
+
+      // ---- beat 4: head opens, words fly, become products ----
+      tl.fromTo("#p4-ball", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 8.7546);
+      tl.fromTo("#p4-lid", { opacity: 0, rotation: 0 }, { opacity: 1, duration: 0.15 }, 8.83);
+      tl.to("#p4-lid", { rotation: -35, y: -14, duration: 0.3, ease: "power2.out" }, 8.98);
+      [["#p4-w1", 9.05], ["#p4-w2", 9.12], ["#p4-w3", 9.19]].forEach(([sel, start]) => {
+        tl.fromTo(sel, { opacity: 0, y: 10, scale: 0.6 }, { opacity: 1, y: -50, scale: 1, duration: 0.35, ease: "power2.out" }, start);
+      });
+      tl.to(["#p4-w1", "#p4-w2", "#p4-w3"], { opacity: 0, y: -90, duration: 0.25, ease: "power1.in" }, 9.75);
+      tl.fromTo("#p4-doc", { opacity: 0, scale: 0.6, x: -20 }, { opacity: 1, scale: 1, x: 0, duration: 0.28, ease: "back.out(2.2)" }, 9.85);
+      tl.fromTo("#p4-play", { opacity: 0, scale: 0.6, x: 20 }, { opacity: 1, scale: 1, x: 0, duration: 0.28, ease: "back.out(2.2)" }, 9.92);
+      tl.fromTo("#p4-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 10.1);
+      tl.set(["#p4-ball", "#p4-lid", "#p4-w1", "#p4-w2", "#p4-w3", "#p4-doc", "#p4-play", "#p4-title"], { opacity: 0 }, 10.9971);
+
+      // ---- beat 5a ----
+      tl.fromTo("#p5a-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, 10.9971);
+      tl.fromTo("#p5a-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 11.04);
+      tl.set(["#p5a-box", "#p5a-label"], { opacity: 0 }, 11.9582);
+
+      // ---- beat 5b ----
+      tl.fromTo("#p5b-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, 11.9582);
+      tl.fromTo("#p5b-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 12.0);
+      tl.set(["#p5b-box", "#p5b-label"], { opacity: 0 }, 12.5989);
+
+      // ---- beat 6: mosaic ----
+      tl.fromTo(["#sk1", "#sk2", "#sk3", "#sk4"], { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.2)" }, 12.5989);
+      tl.fromTo("#p6-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 12.66);
+      tl.set(["#sk1", "#sk2", "#sk3", "#sk4", "#p6-label"], { opacity: 0 }, 16.4432);
+
+      // ---- beat 7 ----
+      tl.fromTo("#p7-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 16.4432);
+      tl.fromTo("#p7-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 16.5);
+      tl.set(["#p7-box", "#p7-label"], { opacity: 0 }, 19.3264);
+
+      // ---- beat 8 ----
+      tl.fromTo("#p8-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 19.3264);
+      tl.fromTo("#p8-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.15, ease: "power2.out" }, 19.38);
+      tl.set(["#p8-box", "#p8-label"], { opacity: 0 }, 20.6078);
+
+      // ---- beat 9 ----
+      tl.fromTo("#p9-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(2.2)" }, 20.6078);
+      tl.set("#p9-t", { opacity: 0 }, 22.6558);
+
+      // ---- beat 10: idea -> box -> phone -> sales -> cash ----
+      const p10s0 = 22.6558, p10stage = 9.792 / 5;
+      const p10s1 = p10s0 + p10stage, p10s2 = p10s1 + p10stage, p10s3 = p10s2 + p10stage, p10s4 = p10s3 + p10stage, p10end = p10s4 + p10stage;
+
+      tl.fromTo("#p10-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, p10s0);
+      tl.fromTo("#p10-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, p10s0 + 0.15);
+
+      // stage 1: idea (bulb)
+      tl.fromTo("#p10-glow", { opacity: 0, scale: 0.6 }, { opacity: 0.35, scale: 1.15, duration: 0.4, ease: "power2.out" }, p10s0);
+      tl.fromTo("#p10-bulb", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, p10s0 + 0.1);
+      tl.set(["#p10-glow", "#p10-bulb"], { opacity: 0 }, p10s1);
+
+      // stage 2: package
+      tl.fromTo("#p10-box", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, p10s1);
+      tl.fromTo("#p10-box .flap.left", { rotation: -78 }, { rotation: 0, duration: 0.3, ease: "power2.inOut" }, p10s1 + 0.2);
+      tl.fromTo("#p10-box .flap.right", { rotation: 78 }, { rotation: 0, duration: 0.3, ease: "power2.inOut" }, p10s1 + 0.22);
+      tl.set("#p10-box", { opacity: 0 }, p10s2);
+
+      // stage 3: phone
+      tl.fromTo("#p10-phone", { opacity: 0, scale: 0.6, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.2)" }, p10s2);
+      tl.set("#p10-phone", { opacity: 0 }, p10s3);
+
+      // stage 4: sales (bars)
+      [["#p10-bar1", p10s3, 0.32], ["#p10-bar2", p10s3 + 0.12, 0.36], ["#p10-bar3", p10s3 + 0.24, 0.4]].forEach(([sel, start, dur]) => {
+        tl.to(sel, { scaleY: 1, duration: dur, ease: "power2.out" }, start);
+      });
+      tl.set(["#p10-bar1", "#p10-bar2", "#p10-bar3"], { opacity: 0 }, p10s4);
+
+      // stage 5: cash
+      [["#p10-bill1", p10s4], ["#p10-bill2", p10s4 + 0.1], ["#p10-bill3", p10s4 + 0.2]].forEach(([sel, start]) => {
+        tl.fromTo(sel, { opacity: 0, scale: 0.6, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.28, ease: "back.out(2.2)" }, start);
+      });
+
+      tl.set(["#p10-eyebrow", "#p10-title", "#p10-bill1", "#p10-bill2", "#p10-bill3"], { opacity: 0 }, p10end);
+
+      // ---- beat 11 ----
+      tl.fromTo("#p11-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 32.4478);
+      tl.fromTo("#p11-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.15, ease: "power2.out" }, 32.5);
+      tl.set(["#p11-box", "#p11-label"], { opacity: 0 }, 33.9314);
+
+      // ---- beat 12 ----
+      tl.fromTo("#p12-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, 33.9314);
+      tl.fromTo("#p12-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 33.97);
+      tl.set(["#p12-box", "#p12-label"], { opacity: 0 }, 35.1183);
+
+      // ---- beat 13: cash streams from laptop ----
+      tl.fromTo(".fx-laptop .screen", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 35.1183);
+      tl.fromTo(".fx-laptop .base", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 35.1183);
+      tl.fromTo("#p13-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 35.25);
+      [["#p13-b1", 35.35], ["#p13-b2", 35.7], ["#p13-b3", 36.05]].forEach(([sel, start]) => {
+        tl.fromTo(sel, { opacity: 0, y: 0, rotation: 0 }, { opacity: 1, y: -140, rotation: -12, duration: 1.1, ease: "power1.out" }, start);
+        tl.to(sel, { opacity: 0, duration: 0.2 }, start + 1.0);
+      });
+      tl.set([".fx-laptop .screen", ".fx-laptop .base", "#p13-title"], { opacity: 0 }, 37.7888);
+
+      // ---- beat 14 ----
+      tl.fromTo("#p14-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, 37.7888);
+      tl.fromTo("#p14-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 37.83);
+      tl.set(["#p14-box", "#p14-label"], { opacity: 0 }, 38.9757);
+
+      // ---- beat 15: suspense CTA ----
+      tl.fromTo("#p15q-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.2)" }, 38.9757);
+      tl.set("#p15q-t", { opacity: 0 }, 41.1472);
+
+      tl.fromTo("#p15c-box", { opacity: 0 }, { opacity: 1, duration: 0.16 }, 41.1472);
+      tl.fromTo("#p15-badge", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "elastic.out(1,0.6)" }, 41.2);
+      tl.fromTo("#p15-line", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 42.2329);
+
       window.__timelines["main"] = tl;
     </script>
   </body>
