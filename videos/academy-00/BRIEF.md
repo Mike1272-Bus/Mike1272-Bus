@@ -25,7 +25,7 @@ puis pousse à s'abonner.
 - assets/images/salarie.jpg — photo réelle envoyée par l'utilisateur (homme au bureau, N&B) — plan 1
 - assets/images/etudiant.jpg — photo réelle envoyée par l'utilisateur (étudiant en bibliothèque) — plan 2
 - assets/images/diplomes.jpg — photo réelle envoyée par l'utilisateur (pile de diplômes vierges) — plan 4
-- audio/lines/01-04.wav — voix Kokoro de référence (ff_siwis) UNIQUEMENT pour caler le minutage ; sera remplacée par un enregistrement réel de l'utilisateur, retiming à refaire à réception
+- audio/real/voice-full.wav — vraie voix de l'utilisateur (remplace la référence Kokoro), minutage de toute la vidéo recalé proportionnellement sur sa durée réelle
 
 ## Customizations
 
