@@ -12,5 +12,5 @@ async function shoot(file, width, height, out) {
 }
 
 (async () => {
-  await shoot('avatar.html', 1080, 1080, path.resolve(__dirname, 'michaelson-cube-avatar.jpg'));
+  await shoot('avatar-full.html', 1080, 1080, path.resolve(__dirname, 'michaelson-cube-avatar-full.jpg'));
 })();
