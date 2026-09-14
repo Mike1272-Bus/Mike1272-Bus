@@ -10,7 +10,7 @@ Légende : 🎬 vidéo à envoyer · 🖼️ image(s) à envoyer · ✨ illustra
 | 1 | « Mais qu'est-ce qu'un produit digital ? » | 🔤 texte kinétique plein écran, pas de média |
 | 2 | Voilà la question que mon oncle David, vingt ans de menuiserie derrière lui, m'a posée un jour. | 🎬 menuisier dans son atelier |
 | 3 | Il voulait savoir comment transformer | ✨ transformation motion design : un état incomplet devient un état complet |
-| 4 | tout ce qu'il savait en produit digital | ✨ tête d'une personne qui s'ouvre, des idées sous forme de mots en sortent, elles forment un livret à la fin (mots au choix de Claude) |
+| 4 | tout ce qu'il savait en produit digital | ✨🖼️ tête d'une personne qui s'ouvre, des idées sous forme de mots en sortent (mots au choix de Claude), puis elles se transforment en vrais produits digitaux : 4 images à envoyer (templates, ebook...) |
 | 5 | pour enfin rentabiliser sa compétence | 🎬 personne avec de l'argent |
 | 6 | il suffit d'une seule compétence | 🖼️ 4 images illustrant des compétences, posées en mosaïque d'un coup (même traitement que le pd-grid de produits digitaux dans academy-00) |
 | 7 | pour commencer à gagner ses premiers revenus en ligne. | 🎬 à envoyer |
@@ -34,9 +34,10 @@ Légende : 🎬 vidéo à envoyer · 🖼️ image(s) à envoyer · ✨ illustra
 
 Beats 2, 5, 7, 8, 11, 12, 14, 15, 17, 20 — vidéos/photos réelles, à envoyer par GitHub comme d'habitude.
 Beat 6 — les 4 images "compétences" pour la mosaïque.
+Beat 4 — 4 images de vrais produits digitaux (templates, ebook...) pour la fin de l'illustration.
 
 ## Illustrations à concevoir (✨)
 
-Beats 3, 4, 10, 13, 18, 19 — dans le style motion design de référence envoyé (flou de mouvement
+Beats 3, 4 (partie tête/idées), 10, 13, 18, 19 — dans le style motion design de référence envoyé (flou de mouvement
 directionnel, aberration chromatique/glow sur le texte kinétique, lignes courbes qui se dessinent comme
 liant entre éléments, zoom de forme pour les transitions), pas les captures d'écran réelles de la référence.
