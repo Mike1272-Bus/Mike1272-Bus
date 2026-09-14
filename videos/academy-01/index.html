@@ -84,61 +84,75 @@
         font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
         font-size: 68px; line-height: 1.05; color: var(--ink); text-wrap: balance; opacity: 0;
       }
-      .fx-bars { display: flex; align-items: flex-end; gap: 22px; height: 220px; }
-      .fx-bars .bar { width: 64px; background: var(--ink); transform-origin: bottom; transform: scaleY(0); }
-      .fx-bars .bar.accent { background: var(--yellow); border: 4px solid var(--ink); }
+      .fx-bars { display: flex; align-items: flex-end; gap: 30px; height: 300px; }
+      .fx-bars .bar { width: 88px; background: var(--ink); transform-origin: bottom; transform: scaleY(0); }
+      .fx-bars .bar.accent { background: var(--yellow); border: 5px solid var(--ink); }
 
-      .fx-glow { position: absolute; width: 220px; height: 220px; border-radius: 50%; background: var(--yellow); opacity: 0; }
+      .fx-glow { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: var(--yellow); opacity: 0; }
       .fx-bulb { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; opacity: 0; }
-      .fx-bulb .glass { width: 140px; height: 140px; border-radius: 50%; background: var(--yellow); border: 8px solid var(--ink); }
-      .fx-bulb .base { width: 56px; height: 28px; background: var(--ink); border-radius: 0 0 8px 8px; margin-top: -6px; }
+      .fx-bulb .glass { width: 190px; height: 190px; border-radius: 50%; background: var(--yellow); border: 10px solid var(--ink); }
+      .fx-bulb .base { width: 74px; height: 36px; background: var(--ink); border-radius: 0 0 10px 10px; margin-top: -8px; }
+      .fx-bulb .ray { position: absolute; background: var(--ink); border-radius: 4px; opacity: 0.8; }
 
-      .fx-pieces { position: relative; width: 204px; height: 204px; }
-      .fx-piece { position: absolute; width: 100px; height: 100px; background: var(--ink); opacity: 0; }
-      .fx-piece.accent { background: var(--yellow); border: 4px solid var(--ink); }
+      .fx-pieces { position: relative; width: 280px; height: 280px; }
+      .fx-piece { position: absolute; width: 136px; height: 136px; background: var(--ink); opacity: 0; }
+      .fx-piece.accent { background: var(--yellow); border: 5px solid var(--ink); }
       #p3-piece1 { left: 0; top: 0; }
-      #p3-piece2 { left: 104px; top: 0; }
-      #p3-piece3 { left: 0; top: 104px; }
-      #p3-piece4 { left: 104px; top: 104px; }
+      #p3-piece2 { left: 144px; top: 0; }
+      #p3-piece3 { left: 0; top: 144px; }
+      #p3-piece4 { left: 144px; top: 144px; }
+      .fx-check {
+        position: absolute; right: -26px; bottom: -26px; width: 88px; height: 88px; border-radius: 50%;
+        background: var(--yellow); border: 6px solid var(--ink); display: flex; align-items: center; justify-content: center;
+        font-family: "Archivo Black", sans-serif; font-size: 48px; color: var(--ink); opacity: 0;
+      }
 
       /* ---- beat 4: head opens, ideas fly out, become products ---- */
-      .fx-head { position: relative; width: 170px; height: 170px; }
+      .fx-head { position: relative; width: 240px; height: 240px; }
       .fx-head-ball { position: absolute; inset: 0; border-radius: 50%; background: var(--ink); opacity: 0; }
       .fx-head-lid {
-        position: absolute; top: -6px; left: 0; width: 170px; height: 88px; border-radius: 170px 170px 0 0;
-        background: var(--yellow); border: 5px solid var(--ink); transform-origin: 50% 100%; opacity: 0;
+        position: absolute; top: -8px; left: 0; width: 240px; height: 124px; border-radius: 240px 240px 0 0;
+        background: var(--yellow); border: 6px solid var(--ink); transform-origin: 50% 100%; opacity: 0;
       }
       .fx-word {
         position: absolute; background: var(--ink); color: var(--cream); font-family: "Archivo Black", sans-serif;
-        font-size: 24px; padding: 10px 22px; border-radius: 999px; opacity: 0; white-space: nowrap;
+        font-size: 32px; padding: 14px 28px; border-radius: 999px; opacity: 0; white-space: nowrap; border: 3px solid var(--yellow);
       }
-      .fx-prod-row { display: flex; gap: 28px; align-items: center; }
-      .fx-prod-doc { width: 130px; height: 164px; background: var(--cream); border: 6px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); opacity: 0; position: relative; }
-      .fx-prod-doc .ln { position: absolute; left: 18px; right: 18px; height: 10px; background: var(--yellow); }
-      .fx-prod-play { width: 146px; height: 146px; background: var(--yellow); border: 6px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); opacity: 0; display: flex; align-items: center; justify-content: center; }
-      .fx-prod-play .tri { width: 0; height: 0; border-top: 26px solid transparent; border-bottom: 26px solid transparent; border-left: 40px solid var(--ink); margin-left: 10px; }
 
-      /* ---- beat 10: idea -> package -> phone -> sales -> cash ---- */
-      .fx-box { width: 150px; height: 150px; background: var(--ink); position: relative; opacity: 0; }
-      .fx-box .flap { position: absolute; top: 0; width: 75px; height: 56px; background: var(--yellow); border: 4px solid var(--ink); transform-origin: top center; }
-      .fx-box .flap.left { left: -4px; transform: rotate(-78deg); }
-      .fx-box .flap.right { right: -4px; transform: rotate(78deg); }
+      /* ---- beat 10: idea -> package -> real formats -> phone -> sales -> cash ---- */
+      .fx-box { width: 210px; height: 210px; background: var(--ink); position: relative; opacity: 0; }
+      .fx-box .flap { position: absolute; top: 0; width: 105px; height: 78px; background: var(--yellow); border: 5px solid var(--ink); transform-origin: top center; }
+      .fx-box .flap.left { left: -5px; transform: rotate(-78deg); }
+      .fx-box .flap.right { right: -5px; transform: rotate(78deg); }
 
-      .fx-phone { width: 118px; height: 220px; border-radius: 22px; background: var(--ink); position: relative; opacity: 0; }
-      .fx-phone .screen { position: absolute; inset: 8px; border-radius: 14px; background: var(--yellow); }
+      .fx-phone { width: 160px; height: 300px; border-radius: 30px; background: var(--ink); position: relative; opacity: 0; }
+      .fx-phone .screen { position: absolute; inset: 10px; border-radius: 20px; background: var(--yellow); }
+      .fx-phone .notif { position: absolute; left: 16px; right: 16px; top: 30px; height: 40px; border-radius: 8px; background: var(--ink); opacity: 0; }
 
-      .fx-cash { position: relative; width: 220px; height: 150px; }
-      .fx-bill { position: absolute; width: 150px; height: 84px; background: var(--yellow); border: 5px solid var(--ink); border-radius: 8px; opacity: 0; }
-      #p10-bill1 { left: 0; top: 40px; }
-      #p10-bill2 { left: 35px; top: 16px; }
-      #p10-bill3 { left: 70px; top: 0; }
+      .fx-cash { position: relative; width: 300px; height: 200px; }
+      .fx-bill { position: absolute; width: 190px; height: 108px; background: var(--yellow); border: 6px solid var(--ink); border-radius: 10px; opacity: 0; }
+      .fx-coin { position: absolute; width: 54px; height: 54px; border-radius: 50%; background: var(--yellow); border: 5px solid var(--ink); opacity: 0; }
+      #p10-bill1 { left: 0; top: 60px; }
+      #p10-bill2 { left: 55px; top: 24px; }
+      #p10-bill3 { left: 110px; top: 0; }
+      #p10-coin1 { left: 250px; top: 20px; }
+      #p10-coin2 { left: -30px; top: 100px; }
+
+      /* ---- beat 10b/c/d: real formats (video / fichier / formation) ---- */
+      .fx-format-title {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 30px; letter-spacing: 0.04em; color: var(--ink); background: var(--yellow);
+        border: 4px solid var(--ink); border-radius: 10px; padding: 12px 26px; opacity: 0;
+        position: absolute; top: 560px; left: 0; right: 0; margin: 0 auto; width: fit-content;
+      }
 
       /* ---- beat 13: cash streams out of a laptop ---- */
-      .fx-laptop { width: 260px; height: 176px; position: relative; }
-      .fx-laptop .base { position: absolute; bottom: 0; left: -12px; width: 284px; height: 14px; background: var(--ink); border-radius: 4px; }
-      .fx-laptop .screen { position: absolute; bottom: 14px; left: 20px; width: 220px; height: 140px; background: var(--ink); border-radius: 8px 8px 0 0; }
-      .fx-laptop .screen-inner { position: absolute; inset: 7px; background: var(--yellow); }
-      .fx-stream-bill { position: absolute; width: 90px; height: 52px; background: var(--yellow); border: 4px solid var(--ink); border-radius: 6px; opacity: 0; }
+      .fx-laptop { width: 340px; height: 230px; position: relative; }
+      .fx-laptop .base { position: absolute; bottom: 0; left: -16px; width: 372px; height: 18px; background: var(--ink); border-radius: 5px; }
+      .fx-laptop .screen { position: absolute; bottom: 18px; left: 26px; width: 288px; height: 184px; background: var(--ink); border-radius: 10px 10px 0 0; }
+      .fx-laptop .screen-inner { position: absolute; inset: 9px; background: var(--yellow); }
+      .fx-stream-bill { position: absolute; width: 118px; height: 68px; background: var(--yellow); border: 5px solid var(--ink); border-radius: 8px; opacity: 0; }
+      .fx-stream-coin { position: absolute; width: 46px; height: 46px; border-radius: 50%; background: var(--yellow); border: 4px solid var(--ink); opacity: 0; }
 
       /* ---- 4-up mosaic (skills) ---- */
       .pd-grid { position: absolute; width: 490px; height: 560px; border: 6px solid var(--ink); box-shadow: 10px 10px 0 var(--ink); overflow: hidden; opacity: 0; background: var(--cream); }
@@ -188,27 +202,27 @@
             <div id="p3-piece2" class="fx-piece accent"></div>
             <div id="p3-piece3" class="fx-piece accent"></div>
             <div id="p3-piece4" class="fx-piece"></div>
+            <div id="p3-check" class="fx-check">✓</div>
           </div>
           <div id="p3-title" class="fx-title">IL VOULAIT SAVOIR<br/>COMMENT</div>
         </div>
       </div>
 
-      <!-- ===== BEAT 4 — head opens, ideas become products ===== -->
+      <!-- ===== BEAT 4 — head opens, ideas become the 4 real digital products ===== -->
       <div id="p4" class="clip" data-start="8.7546" data-duration="2.2425" data-track-index="1">
         <div class="fx-scene">
+          <div id="p4-eyebrow" class="fx-eyebrow">IDÉES → PRODUIT</div>
           <div class="fx-head">
             <div id="p4-ball" class="fx-head-ball"></div>
             <div id="p4-lid" class="fx-head-lid"></div>
           </div>
-          <div id="p4-w1" class="fx-word" style="left:-40px; top:-40px;">SAVOIR</div>
-          <div id="p4-w2" class="fx-word" style="right:-60px; top:-20px;">IDÉES</div>
-          <div id="p4-w3" class="fx-word" style="left:20px; top:-90px;">MÉTIER</div>
-          <div class="fx-prod-row">
-            <div id="p4-doc" class="fx-prod-doc">
-              <div class="ln" style="top:26px;"></div><div class="ln" style="top:52px;"></div><div class="ln" style="top:78px;"></div><div class="ln" style="top:104px;"></div>
-            </div>
-            <div id="p4-play" class="fx-prod-play"><div class="tri"></div></div>
-          </div>
+          <div id="p4-w1" class="fx-word" style="left:-50px; top:-50px;">SAVOIR</div>
+          <div id="p4-w2" class="fx-word" style="right:-80px; top:-30px;">IDÉES</div>
+          <div id="p4-w3" class="fx-word" style="left:30px; top:-120px;">MÉTIER</div>
+          <div id="p4pd1" class="pd-grid"><img src="assets/images/pd1.jpg" alt="" /></div>
+          <div id="p4pd2" class="pd-grid"><img src="assets/images/pd2.jpeg" alt="" /></div>
+          <div id="p4pd3" class="pd-grid"><img src="assets/images/pd3.jpeg" alt="" /></div>
+          <div id="p4pd4" class="pd-grid"><img src="assets/images/pd4.jpeg" alt="" /></div>
           <div id="p4-title" class="fx-title">TOUT CE QU'IL SAVAIT<br/>EN PRODUIT DIGITAL</div>
         </div>
       </div>
@@ -259,32 +273,45 @@
         <div class="p1-text"><span id="p9-t">ALORS JE VAIS COMMENCER<br/>PAR LE PRÉAMBULE.</span></div>
       </div>
 
-      <!-- ===== BEAT 10 — emballer -> phone -> ventes -> cash ===== -->
+      <!-- ===== BEAT 10 — emballer -> vidéo/fichier/formation -> phone -> ventes -> cash ===== -->
       <div id="p10" class="clip" data-start="22.6558" data-duration="9.792" data-track-index="1">
         <div class="fx-scene">
-          <div id="p10-eyebrow" class="fx-eyebrow">UN SEUL EMBALLAGE</div>
-
+          <!-- 10a: idea + package -->
+          <div id="p10a-eyebrow" class="fx-eyebrow">PRODUIT DIGITAL</div>
           <div id="p10-glow" class="fx-glow"></div>
           <div id="p10-bulb" class="fx-bulb"><div class="glass"></div><div class="base"></div></div>
-
           <div id="p10-box" class="fx-box"><div class="flap left"></div><div class="flap right"></div></div>
+          <div id="p10a-title" class="fx-title">UN SAVOIR QU'ON EMBALLE<br/>UNE SEULE FOIS</div>
 
-          <div id="p10-phone" class="fx-phone"><div class="screen"></div></div>
-
+          <!-- 10e: phone -> sales -> cash -->
+          <div id="p10-phone" class="fx-phone"><div class="screen"></div><div class="notif"></div></div>
           <div id="p10-bars" class="fx-bars">
-            <div id="p10-bar1" class="bar" style="height:120px;"></div>
-            <div id="p10-bar2" class="bar accent" style="height:180px;"></div>
-            <div id="p10-bar3" class="bar" style="height:220px;"></div>
+            <div id="p10-bar1" class="bar" style="height:160px;"></div>
+            <div id="p10-bar2" class="bar accent" style="height:230px;"></div>
+            <div id="p10-bar3" class="bar" style="height:300px;"></div>
           </div>
-
           <div id="p10-cash" class="fx-cash">
             <div id="p10-bill1" class="fx-bill"></div>
             <div id="p10-bill2" class="fx-bill"></div>
             <div id="p10-bill3" class="fx-bill"></div>
+            <div id="p10-coin1" class="fx-coin"></div>
+            <div id="p10-coin2" class="fx-coin"></div>
           </div>
-
-          <div id="p10-title" class="fx-title">ON L'EMBALLE UNE FOIS.<br/>ON LE VEND ENCORE ET ENCORE.</div>
+          <div id="p10e-eyebrow" class="fx-eyebrow">SANS JAMAIS LE REFAIRE</div>
+          <div id="p10e-title" class="fx-title">ON LE VEND<br/>ENCORE ET ENCORE</div>
         </div>
+
+        <!-- 10b: dans une vidéo -->
+        <div id="p10b-box" class="shot-card" style="opacity:0;"><img src="assets/images/dans-une-video.jpeg" alt="" /></div>
+        <div id="p10b-title" class="fx-format-title">DANS UNE VIDÉO,</div>
+
+        <!-- 10c: un fichier -->
+        <div id="p10c-box" class="shot-card landscape" style="opacity:0;"><img src="assets/images/dans-un-fichier.jpg" alt="" /></div>
+        <div id="p10c-title" class="fx-format-title">UN FICHIER</div>
+
+        <!-- 10d: ou une petite formation -->
+        <div id="p10d-box" class="shot-card landscape" style="opacity:0;"><img src="assets/images/une-formation.jpg" alt="" style="object-position:50% 30%;" /></div>
+        <div id="p10d-title" class="fx-format-title">OU UNE PETITE FORMATION,</div>
       </div>
 
       <!-- ===== BEAT 11 — un peu comme un livre ===== -->
@@ -309,9 +336,11 @@
           <div class="fx-laptop">
             <div class="screen"><div class="screen-inner"></div></div>
             <div class="base"></div>
-            <div id="p13-b1" class="fx-stream-bill" style="left:50px; top:-10px;"></div>
-            <div id="p13-b2" class="fx-stream-bill" style="left:100px; top:-40px;"></div>
-            <div id="p13-b3" class="fx-stream-bill" style="left:150px; top:-70px;"></div>
+            <div id="p13-b1" class="fx-stream-bill" style="left:60px; top:-10px;"></div>
+            <div id="p13-b2" class="fx-stream-bill" style="left:130px; top:-50px;"></div>
+            <div id="p13-b3" class="fx-stream-bill" style="left:200px; top:-90px;"></div>
+            <div id="p13-c1" class="fx-stream-coin" style="left:20px; top:-40px;"></div>
+            <div id="p13-c2" class="fx-stream-coin" style="left:270px; top:-20px;"></div>
           </div>
           <div id="p13-title" class="fx-title">IL CONTINUE À SE VENDRE<br/>PENDANT DES ANNÉES.</div>
         </div>
@@ -373,20 +402,21 @@
         tl.fromTo(`#${id}`, { opacity: 0, x, y, rotation: rot }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 0.3, ease: "power3.out" }, 7.28 + i * 0.05);
       });
       tl.fromTo("#p3-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 7.6);
-      tl.set(["#p3-eyebrow", "#p3-piece1", "#p3-piece2", "#p3-piece3", "#p3-piece4", "#p3-title"], { opacity: 0 }, 8.7546);
+      tl.fromTo("#p3-check", { opacity: 0, scale: 0.3, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.6)" }, 7.85);
+      tl.set(["#p3-eyebrow", "#p3-piece1", "#p3-piece2", "#p3-piece3", "#p3-piece4", "#p3-check", "#p3-title"], { opacity: 0 }, 8.7546);
 
-      // ---- beat 4: head opens, words fly, become products ----
+      // ---- beat 4: head opens, words fly, become the 4 real products ----
+      tl.fromTo("#p4-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 8.7546);
       tl.fromTo("#p4-ball", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 8.7546);
       tl.fromTo("#p4-lid", { opacity: 0, rotation: 0 }, { opacity: 1, duration: 0.15 }, 8.83);
-      tl.to("#p4-lid", { rotation: -35, y: -14, duration: 0.3, ease: "power2.out" }, 8.98);
+      tl.to("#p4-lid", { rotation: -35, y: -18, duration: 0.3, ease: "power2.out" }, 8.98);
       [["#p4-w1", 9.05], ["#p4-w2", 9.12], ["#p4-w3", 9.19]].forEach(([sel, start]) => {
-        tl.fromTo(sel, { opacity: 0, y: 10, scale: 0.6 }, { opacity: 1, y: -50, scale: 1, duration: 0.35, ease: "power2.out" }, start);
+        tl.fromTo(sel, { opacity: 0, y: 10, scale: 0.6 }, { opacity: 1, y: -60, scale: 1, duration: 0.35, ease: "power2.out" }, start);
       });
-      tl.to(["#p4-w1", "#p4-w2", "#p4-w3"], { opacity: 0, y: -90, duration: 0.25, ease: "power1.in" }, 9.75);
-      tl.fromTo("#p4-doc", { opacity: 0, scale: 0.6, x: -20 }, { opacity: 1, scale: 1, x: 0, duration: 0.28, ease: "back.out(2.2)" }, 9.85);
-      tl.fromTo("#p4-play", { opacity: 0, scale: 0.6, x: 20 }, { opacity: 1, scale: 1, x: 0, duration: 0.28, ease: "back.out(2.2)" }, 9.92);
-      tl.fromTo("#p4-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 10.1);
-      tl.set(["#p4-ball", "#p4-lid", "#p4-w1", "#p4-w2", "#p4-w3", "#p4-doc", "#p4-play", "#p4-title"], { opacity: 0 }, 10.9971);
+      tl.to(["#p4-w1", "#p4-w2", "#p4-w3", "#p4-ball", "#p4-lid"], { opacity: 0, y: -100, duration: 0.25, ease: "power1.in" }, 9.55);
+      tl.fromTo(["#p4pd1", "#p4pd2", "#p4pd3", "#p4pd4"], { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.2)" }, 9.75);
+      tl.fromTo("#p4-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 9.95);
+      tl.set(["#p4-eyebrow", "#p4-ball", "#p4-lid", "#p4-w1", "#p4-w2", "#p4-w3", "#p4pd1", "#p4pd2", "#p4pd3", "#p4pd4", "#p4-title"], { opacity: 0 }, 10.9971);
 
       // ---- beat 5a ----
       tl.fromTo("#p5a-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, 10.9971);
@@ -417,40 +447,53 @@
       tl.fromTo("#p9-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(2.2)" }, 20.6078);
       tl.set("#p9-t", { opacity: 0 }, 22.6558);
 
-      // ---- beat 10: idea -> box -> phone -> sales -> cash ----
-      const p10s0 = 22.6558, p10stage = 9.792 / 5;
-      const p10s1 = p10s0 + p10stage, p10s2 = p10s1 + p10stage, p10s3 = p10s2 + p10stage, p10s4 = p10s3 + p10stage, p10end = p10s4 + p10stage;
+      // ---- beat 10: idea+emballe -> vidéo/fichier/formation (real photos) -> phone -> sales -> cash ----
+      const p10a0 = 22.6558, p10b0 = 26.5133, p10c0 = 27.4035, p10d0 = 27.997, p10e0 = 29.1839, p10end = 32.4479;
 
-      tl.fromTo("#p10-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, p10s0);
-      tl.fromTo("#p10-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, p10s0 + 0.15);
+      // 10a: idea (bulb) then package (box)
+      tl.fromTo("#p10a-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, p10a0);
+      tl.fromTo("#p10a-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, p10a0 + 0.15);
+      tl.fromTo("#p10-glow", { opacity: 0, scale: 0.6 }, { opacity: 0.35, scale: 1.15, duration: 0.4, ease: "power2.out" }, p10a0);
+      tl.fromTo("#p10-bulb", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, p10a0 + 0.1);
+      tl.to(["#p10-glow", "#p10-bulb"], { opacity: 0, duration: 0.2 }, p10a0 + 1.5);
+      tl.fromTo("#p10-box", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, p10a0 + 1.7);
+      tl.fromTo("#p10-box .flap.left", { rotation: -78 }, { rotation: 0, duration: 0.35, ease: "power2.inOut" }, p10a0 + 1.95);
+      tl.fromTo("#p10-box .flap.right", { rotation: 78 }, { rotation: 0, duration: 0.35, ease: "power2.inOut" }, p10a0 + 1.98);
+      tl.set(["#p10a-eyebrow", "#p10a-title", "#p10-box"], { opacity: 0 }, p10b0);
 
-      // stage 1: idea (bulb)
-      tl.fromTo("#p10-glow", { opacity: 0, scale: 0.6 }, { opacity: 0.35, scale: 1.15, duration: 0.4, ease: "power2.out" }, p10s0);
-      tl.fromTo("#p10-bulb", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, p10s0 + 0.1);
-      tl.set(["#p10-glow", "#p10-bulb"], { opacity: 0 }, p10s1);
+      // 10b: dans une vidéo (real photo, full-bleed)
+      tl.fromTo("#p10b-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, p10b0);
+      tl.fromTo("#p10b-title", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, p10b0 + 0.05);
+      tl.set(["#p10b-box", "#p10b-title"], { opacity: 0 }, p10c0);
 
-      // stage 2: package
-      tl.fromTo("#p10-box", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, p10s1);
-      tl.fromTo("#p10-box .flap.left", { rotation: -78 }, { rotation: 0, duration: 0.3, ease: "power2.inOut" }, p10s1 + 0.2);
-      tl.fromTo("#p10-box .flap.right", { rotation: 78 }, { rotation: 0, duration: 0.3, ease: "power2.inOut" }, p10s1 + 0.22);
-      tl.set("#p10-box", { opacity: 0 }, p10s2);
+      // 10c: un fichier (real photo, landscape card)
+      tl.fromTo("#p10c-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "back.out(2)" }, p10c0);
+      tl.fromTo("#p10c-title", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.12, ease: "power2.out" }, p10c0 + 0.04);
+      tl.set(["#p10c-box", "#p10c-title"], { opacity: 0 }, p10d0);
 
-      // stage 3: phone
-      tl.fromTo("#p10-phone", { opacity: 0, scale: 0.6, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.2)" }, p10s2);
-      tl.set("#p10-phone", { opacity: 0 }, p10s3);
+      // 10d: ou une petite formation (real photo, landscape card)
+      tl.fromTo("#p10d-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, p10d0);
+      tl.fromTo("#p10d-title", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, p10d0 + 0.05);
+      tl.set(["#p10d-box", "#p10d-title"], { opacity: 0 }, p10e0);
 
-      // stage 4: sales (bars)
-      [["#p10-bar1", p10s3, 0.32], ["#p10-bar2", p10s3 + 0.12, 0.36], ["#p10-bar3", p10s3 + 0.24, 0.4]].forEach(([sel, start, dur]) => {
+      // 10e: phone -> sales (bars) -> cash
+      tl.fromTo("#p10e-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, p10e0);
+      tl.fromTo("#p10e-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, p10e0 + 0.15);
+
+      tl.fromTo("#p10-phone", { opacity: 0, scale: 0.6, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.2)" }, p10e0);
+      tl.fromTo("#p10-phone .notif", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, p10e0 + 0.4);
+      tl.set("#p10-phone", { opacity: 0 }, p10e0 + 1.1);
+
+      [["#p10-bar1", p10e0 + 1.1, 0.32], ["#p10-bar2", p10e0 + 1.22, 0.36], ["#p10-bar3", p10e0 + 1.34, 0.4]].forEach(([sel, start, dur]) => {
         tl.to(sel, { scaleY: 1, duration: dur, ease: "power2.out" }, start);
       });
-      tl.set(["#p10-bar1", "#p10-bar2", "#p10-bar3"], { opacity: 0 }, p10s4);
+      tl.set(["#p10-bar1", "#p10-bar2", "#p10-bar3"], { opacity: 0 }, p10e0 + 2.1);
 
-      // stage 5: cash
-      [["#p10-bill1", p10s4], ["#p10-bill2", p10s4 + 0.1], ["#p10-bill3", p10s4 + 0.2]].forEach(([sel, start]) => {
+      [["#p10-bill1", p10e0 + 2.1], ["#p10-bill2", p10e0 + 2.18], ["#p10-bill3", p10e0 + 2.26], ["#p10-coin1", p10e0 + 2.34], ["#p10-coin2", p10e0 + 2.4]].forEach(([sel, start]) => {
         tl.fromTo(sel, { opacity: 0, scale: 0.6, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.28, ease: "back.out(2.2)" }, start);
       });
 
-      tl.set(["#p10-eyebrow", "#p10-title", "#p10-bill1", "#p10-bill2", "#p10-bill3"], { opacity: 0 }, p10end);
+      tl.set(["#p10e-eyebrow", "#p10e-title", "#p10-bill1", "#p10-bill2", "#p10-bill3", "#p10-coin1", "#p10-coin2"], { opacity: 0 }, p10end);
 
       // ---- beat 11 ----
       tl.fromTo("#p11-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 32.4478);
@@ -466,9 +509,9 @@
       tl.fromTo(".fx-laptop .screen", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 35.1183);
       tl.fromTo(".fx-laptop .base", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 35.1183);
       tl.fromTo("#p13-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 35.25);
-      [["#p13-b1", 35.35], ["#p13-b2", 35.7], ["#p13-b3", 36.05]].forEach(([sel, start]) => {
-        tl.fromTo(sel, { opacity: 0, y: 0, rotation: 0 }, { opacity: 1, y: -140, rotation: -12, duration: 1.1, ease: "power1.out" }, start);
-        tl.to(sel, { opacity: 0, duration: 0.2 }, start + 1.0);
+      [["#p13-b1", 35.35, -12], ["#p13-b2", 35.6, 10], ["#p13-b3", 35.85, -8], ["#p13-c1", 35.5, 20], ["#p13-c2", 35.95, -16]].forEach(([sel, start, rot]) => {
+        tl.fromTo(sel, { opacity: 0, y: 0, rotation: 0 }, { opacity: 1, y: -180, rotation: rot, duration: 1.3, ease: "power1.out" }, start);
+        tl.to(sel, { opacity: 0, duration: 0.2 }, start + 1.15);
       });
       tl.set([".fx-laptop .screen", ".fx-laptop .base", "#p13-title"], { opacity: 0 }, 37.7888);
 
