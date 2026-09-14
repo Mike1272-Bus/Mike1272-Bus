@@ -1,0 +1,322 @@
+<title>Michaelson Logomarks</title>
+<style>
+  :root {
+    --bg: #FFFDF5;
+    --bg-raised: #FFFFFF;
+    --fg: #0A0A05;
+    --accent: #F7CB46;
+    --line: rgba(10,10,5,0.14);
+    --muted: #6E6656;
+    --muted-2: #948C78;
+    --brand-cream: #FFFDF5;
+    --brand-ink: #0A0A05;
+    --brand-yellow: #F7CB46;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14130E;
+      --bg-raised: #1C1B14;
+      --fg: #FBF8EE;
+      --line: rgba(251,248,238,0.16);
+      --muted: #BAB09A;
+      --muted-2: #8C8471;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14130E;
+    --bg-raised: #1C1B14;
+    --fg: #FBF8EE;
+    --line: rgba(251,248,238,0.16);
+    --muted: #BAB09A;
+    --muted-2: #8C8471;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 44px 44px;
+    color: var(--fg);
+    font-family: "Work Sans", sans-serif;
+    padding: 56px 24px 96px;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg);
+    background: var(--accent); border: 2px solid var(--fg); border-radius: 999px;
+    padding: 7px 16px 7px 12px;
+  }
+  .eyebrow::before { content: "●"; font-size: 8px; }
+
+  header { max-width: 780px; margin-bottom: 64px; }
+  header h1 {
+    font-family: "Archivo Black", sans-serif; font-weight: 400;
+    font-size: clamp(34px, 5.4vw, 58px); line-height: 1.03; text-wrap: balance;
+    margin: 22px 0 20px; letter-spacing: -0.01em;
+  }
+  header p {
+    font-size: 17px; line-height: 1.62; color: var(--muted); max-width: 62ch;
+  }
+
+  .sources {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px;
+  }
+  .sources span {
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.04em;
+    color: var(--muted-2); border: 1px solid var(--line); border-radius: 8px;
+    padding: 6px 10px; background: var(--bg-raised);
+  }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 28px;
+  }
+
+  .concept {
+    background: var(--bg-raised);
+    border: 3px solid var(--fg);
+    box-shadow: 9px 9px 0 var(--fg);
+    border-radius: 4px;
+    padding: 28px 26px 30px;
+    display: flex; flex-direction: column; gap: 20px;
+    opacity: 0; animation: rise 0.5s ease-out forwards;
+  }
+  .concept:nth-child(1) { animation-delay: 0.02s; }
+  .concept:nth-child(2) { animation-delay: 0.09s; }
+  .concept:nth-child(3) { animation-delay: 0.16s; }
+  .concept:nth-child(4) { animation-delay: 0.23s; }
+  .concept:nth-child(5) { animation-delay: 0.30s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) {
+    .concept { animation: none; opacity: 1; }
+  }
+
+  .concept-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .concept-num {
+    font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 600;
+    color: var(--muted-2); letter-spacing: 0.04em;
+  }
+  .concept-name {
+    font-family: "Archivo Black", sans-serif; font-weight: 400; font-size: 21px;
+    letter-spacing: -0.005em;
+  }
+
+  .swatches { display: flex; gap: 12px; }
+  .swatch {
+    flex: 1; aspect-ratio: 1; border-radius: 6px; border: 2px solid var(--fg);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .swatch svg { width: 62%; height: 62%; }
+  .swatch.on-cream { background: var(--brand-cream); }
+  .swatch.on-ink { background: var(--brand-ink); }
+
+  .lockup { display: flex; align-items: center; gap: 12px; padding-top: 2px; }
+  .lockup svg { width: 34px; height: 34px; flex-shrink: 0; }
+  .lockup-text {
+    font-family: "Archivo Black", sans-serif; font-weight: 400;
+    font-size: 15px; line-height: 1.08; letter-spacing: 0.01em;
+  }
+  .lockup-text .sub { display: block; color: var(--muted); font-size: 10px; letter-spacing: 0.14em; margin-top: 3px; font-family: "Work Sans", sans-serif; font-weight: 700; }
+
+  .rationale { font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+  .rationale b { color: var(--fg); font-weight: 700; }
+
+  .meta-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    border-top: 1px solid var(--line); padding-top: 16px; margin-top: auto;
+  }
+  .profile-preview { display: flex; align-items: center; gap: 8px; }
+  .profile-preview .ring {
+    width: 30px; height: 30px; border-radius: 50%; background: var(--brand-ink);
+    border: 2px solid var(--fg); display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .profile-preview .ring svg { width: 68%; height: 68%; }
+  .profile-preview span {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--muted-2);
+  }
+  .hexes { display: flex; gap: 6px; }
+  .hexes i {
+    width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--fg); display: block;
+  }
+
+  footer {
+    max-width: 780px; margin: 72px auto 0; padding-top: 28px; border-top: 1px solid var(--line);
+    font-size: 14px; color: var(--muted); line-height: 1.6;
+  }
+
+  @media (max-width: 460px) {
+    body { padding: 40px 16px 72px; }
+    .swatches { gap: 8px; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Identité de marque — Michaelson Digital Academy</span>
+    <h1>Cinq pistes de logo, une seule grammaire visuelle.</h1>
+    <p>Chaque piste part d'une idée différente de tes références — le globe, la pierre facettée, le bouton play en cercles superposés, la courbe de croissance — mais toutes sont redessinées à plat, sans dégradé ni flou, dans les trois couleurs déjà utilisées sur toute la série vidéo : encre, jaune et crème. L'objectif : que le logo se sente comme le même studio que les vidéos, pas comme un ajout à part.</p>
+    <div class="sources">
+      <span>réf. 1 — globe monde</span>
+      <span>réf. 2 — pierre facettée</span>
+      <span>réf. 3 — play en cercles</span>
+      <span>réf. 4 — courbe de croissance</span>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- Concept 1 -->
+    <article class="concept">
+      <div class="concept-head">
+        <span class="concept-num">01</span>
+        <span class="concept-name">Signal Play</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch on-cream">
+          <svg viewBox="0 0 200 200"><polygon points="55,40 55,160 155,100" fill="#0A0A05"/><line x1="128" y1="97" x2="176" y2="49" stroke="#F7CB46" stroke-width="10" stroke-linecap="round"/><polygon points="178,28 197,45 171,56" fill="#F7CB46"/></svg>
+        </div>
+        <div class="swatch on-ink">
+          <svg viewBox="0 0 200 200"><polygon points="55,40 55,160 155,100" fill="#FFFDF5"/><line x1="128" y1="97" x2="176" y2="49" stroke="#F7CB46" stroke-width="10" stroke-linecap="round"/><polygon points="178,28 197,45 171,56" fill="#F7CB46"/></svg>
+        </div>
+      </div>
+      <div class="lockup">
+        <svg viewBox="0 0 200 200"><polygon points="55,40 55,160 155,100" fill="#0A0A05"/><line x1="128" y1="97" x2="176" y2="49" stroke="#F7CB46" stroke-width="10" stroke-linecap="round"/><polygon points="178,28 197,45 171,56" fill="#F7CB46"/></svg>
+        <div class="lockup-text">MICHAELSON<span class="sub">DIGITAL ACADEMY</span></div>
+      </div>
+      <p class="rationale">Le triangle play (réf. 3) dont la pointe se prolonge en flèche montante (réf. 4) : chaque vidéo est présentée comme un revenu qui démarre. Le plus littéral des cinq — bon candidat pour l'avatar TikTok.</p>
+      <div class="meta-row">
+        <div class="profile-preview">
+          <div class="ring"><svg viewBox="0 0 200 200"><polygon points="55,40 55,160 155,100" fill="#FFFDF5"/><line x1="128" y1="97" x2="176" y2="49" stroke="#F7CB46" stroke-width="10" stroke-linecap="round"/><polygon points="178,28 197,45 171,56" fill="#F7CB46"/></svg></div>
+          <span>aperçu profil</span>
+        </div>
+        <div class="hexes"><i style="background:#0A0A05"></i><i style="background:#F7CB46"></i><i style="background:#FFFDF5"></i></div>
+      </div>
+    </article>
+
+    <!-- Concept 2 -->
+    <article class="concept">
+      <div class="concept-head">
+        <span class="concept-num">02</span>
+        <span class="concept-name">World Peak</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch on-cream">
+          <svg viewBox="0 0 200 200"><defs><clipPath id="gc1"><circle cx="100" cy="100" r="70"/></clipPath></defs><circle cx="100" cy="100" r="70" fill="#0A0A05"/><g clip-path="url(#gc1)"><ellipse cx="100" cy="100" rx="70" ry="22" fill="none" stroke="#F7CB46" stroke-width="4"/><ellipse cx="100" cy="100" rx="26" ry="70" fill="none" stroke="#F7CB46" stroke-width="4"/></g><polygon points="148,178 166,178 157,150" fill="#F7CB46"/></svg>
+        </div>
+        <div class="swatch on-ink">
+          <svg viewBox="0 0 200 200"><defs><clipPath id="gc2"><circle cx="100" cy="100" r="70"/></clipPath></defs><circle cx="100" cy="100" r="70" fill="#FFFDF5"/><g clip-path="url(#gc2)"><ellipse cx="100" cy="100" rx="70" ry="22" fill="none" stroke="#F7CB46" stroke-width="4"/><ellipse cx="100" cy="100" rx="26" ry="70" fill="none" stroke="#F7CB46" stroke-width="4"/></g><polygon points="148,178 166,178 157,150" fill="#F7CB46"/></svg>
+        </div>
+      </div>
+      <div class="lockup">
+        <svg viewBox="0 0 200 200"><defs><clipPath id="gc3"><circle cx="100" cy="100" r="70"/></clipPath></defs><circle cx="100" cy="100" r="70" fill="#0A0A05"/><g clip-path="url(#gc3)"><ellipse cx="100" cy="100" rx="70" ry="22" fill="none" stroke="#F7CB46" stroke-width="4"/><ellipse cx="100" cy="100" rx="26" ry="70" fill="none" stroke="#F7CB46" stroke-width="4"/></g><polygon points="148,178 166,178 157,150" fill="#F7CB46"/></svg>
+        <div class="lockup-text">MICHAELSON<span class="sub">DIGITAL ACADEMY</span></div>
+      </div>
+      <p class="rationale">Le globe de la réf. 1, redessiné sans le morceau noir flottant, avec un petit repère planté dessus : ta compétence, vendue n'importe où dans le monde. Le plus "sérieux" des cinq, utile si tu vises aussi un public hors RDC.</p>
+      <div class="meta-row">
+        <div class="profile-preview">
+          <div class="ring"><svg viewBox="0 0 200 200"><defs><clipPath id="gc4"><circle cx="100" cy="100" r="70"/></clipPath></defs><circle cx="100" cy="100" r="70" fill="#FFFDF5"/><g clip-path="url(#gc4)"><ellipse cx="100" cy="100" rx="70" ry="22" fill="none" stroke="#F7CB46" stroke-width="4"/><ellipse cx="100" cy="100" rx="26" ry="70" fill="none" stroke="#F7CB46" stroke-width="4"/></g><polygon points="148,178 166,178 157,150" fill="#F7CB46"/></svg></div>
+          <span>aperçu profil</span>
+        </div>
+        <div class="hexes"><i style="background:#0A0A05"></i><i style="background:#F7CB46"></i><i style="background:#FFFDF5"></i></div>
+      </div>
+    </article>
+
+    <!-- Concept 3 -->
+    <article class="concept">
+      <div class="concept-head">
+        <span class="concept-num">03</span>
+        <span class="concept-name">Facet Mark</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch on-cream">
+          <svg viewBox="0 0 200 200"><polygon points="100,20 172,100 100,100" fill="#0A0A05"/><polygon points="172,100 100,180 100,100" fill="#F7CB46"/><polygon points="100,180 28,100 100,100" fill="#0A0A05"/><polygon points="28,100 100,20 100,100" fill="#F7CB46"/><polygon points="100,20 172,100 100,180 28,100" fill="none" stroke="#0A0A05" stroke-width="3"/></svg>
+        </div>
+        <div class="swatch on-ink">
+          <svg viewBox="0 0 200 200"><polygon points="100,20 172,100 100,100" fill="#FFFDF5"/><polygon points="172,100 100,180 100,100" fill="#F7CB46"/><polygon points="100,180 28,100 100,100" fill="#FFFDF5"/><polygon points="28,100 100,20 100,100" fill="#F7CB46"/><polygon points="100,20 172,100 100,180 28,100" fill="none" stroke="#FFFDF5" stroke-width="3"/></svg>
+        </div>
+      </div>
+      <div class="lockup">
+        <svg viewBox="0 0 200 200"><polygon points="100,20 172,100 100,100" fill="#0A0A05"/><polygon points="172,100 100,180 100,100" fill="#F7CB46"/><polygon points="100,180 28,100 100,100" fill="#0A0A05"/><polygon points="28,100 100,20 100,100" fill="#F7CB46"/><polygon points="100,20 172,100 100,180 28,100" fill="none" stroke="#0A0A05" stroke-width="3"/></svg>
+        <div class="lockup-text">MICHAELSON<span class="sub">DIGITAL ACADEMY</span></div>
+      </div>
+      <p class="rationale">La pierre de la réf. 2, mais taillée à plat en quatre facettes seulement — pas de dégradé, pas de flou, pour rester dans la même famille que les cartons "Blockframe" des vidéos. Lecture : un savoir-faire brut, retaillé en quelque chose qui a de la valeur.</p>
+      <div class="meta-row">
+        <div class="profile-preview">
+          <div class="ring"><svg viewBox="0 0 200 200"><polygon points="100,20 172,100 100,100" fill="#FFFDF5"/><polygon points="172,100 100,180 100,100" fill="#F7CB46"/><polygon points="100,180 28,100 100,100" fill="#FFFDF5"/><polygon points="28,100 100,20 100,100" fill="#F7CB46"/></svg></div>
+          <span>aperçu profil</span>
+        </div>
+        <div class="hexes"><i style="background:#0A0A05"></i><i style="background:#F7CB46"></i><i style="background:#FFFDF5"></i></div>
+      </div>
+    </article>
+
+    <!-- Concept 4 -->
+    <article class="concept">
+      <div class="concept-head">
+        <span class="concept-num">04</span>
+        <span class="concept-name">Ledger Bars</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch on-cream">
+          <svg viewBox="0 0 200 200"><rect x="25" y="130" width="26" height="35" fill="#0A0A05"/><rect x="61" y="95" width="26" height="70" fill="#0A0A05"/><rect x="97" y="60" width="26" height="105" fill="#0A0A05"/><rect x="133" y="35" width="26" height="130" fill="#F7CB46"/><polygon points="163,8 184,30 154,34" fill="#F7CB46"/></svg>
+        </div>
+        <div class="swatch on-ink">
+          <svg viewBox="0 0 200 200"><rect x="25" y="130" width="26" height="35" fill="#FFFDF5"/><rect x="61" y="95" width="26" height="70" fill="#FFFDF5"/><rect x="97" y="60" width="26" height="105" fill="#FFFDF5"/><rect x="133" y="35" width="26" height="130" fill="#F7CB46"/><polygon points="163,8 184,30 154,34" fill="#F7CB46"/></svg>
+        </div>
+      </div>
+      <div class="lockup">
+        <svg viewBox="0 0 200 200"><rect x="25" y="130" width="26" height="35" fill="#0A0A05"/><rect x="61" y="95" width="26" height="70" fill="#0A0A05"/><rect x="97" y="60" width="26" height="105" fill="#0A0A05"/><rect x="133" y="35" width="26" height="130" fill="#F7CB46"/><polygon points="163,8 184,30 154,34" fill="#F7CB46"/></svg>
+        <div class="lockup-text">MICHAELSON<span class="sub">DIGITAL ACADEMY</span></div>
+      </div>
+      <p class="rationale">La courbe de la réf. 4, ramenée à quatre barres et une pointe de flèche. Le plus "preuve de résultat" des cinq : convient bien si le logo doit aussi vivre sur des miniatures ou des visuels de témoignage/vente, pas seulement en intro de vidéo.</p>
+      <div class="meta-row">
+        <div class="profile-preview">
+          <div class="ring"><svg viewBox="0 0 200 200"><rect x="25" y="130" width="26" height="35" fill="#FFFDF5"/><rect x="61" y="95" width="26" height="70" fill="#FFFDF5"/><rect x="97" y="60" width="26" height="105" fill="#FFFDF5"/><rect x="133" y="35" width="26" height="130" fill="#F7CB46"/><polygon points="163,8 184,30 154,34" fill="#F7CB46"/></svg></div>
+          <span>aperçu profil</span>
+        </div>
+        <div class="hexes"><i style="background:#0A0A05"></i><i style="background:#F7CB46"></i><i style="background:#FFFDF5"></i></div>
+      </div>
+    </article>
+
+    <!-- Concept 5 -->
+    <article class="concept">
+      <div class="concept-head">
+        <span class="concept-num">05</span>
+        <span class="concept-name">Academy Seal</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch on-cream">
+          <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="85" fill="none" stroke="#0A0A05" stroke-width="9"/><circle cx="100" cy="100" r="96" fill="none" stroke="#0A0A05" stroke-width="5" stroke-dasharray="5 11"/><polygon points="78,64 78,136 136,100" fill="#F7CB46"/><path d="M72,152 L100,134 L128,152" fill="none" stroke="#0A0A05" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="swatch on-ink">
+          <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="85" fill="none" stroke="#FFFDF5" stroke-width="9"/><circle cx="100" cy="100" r="96" fill="none" stroke="#FFFDF5" stroke-width="5" stroke-dasharray="5 11"/><polygon points="78,64 78,136 136,100" fill="#F7CB46"/><path d="M72,152 L100,134 L128,152" fill="none" stroke="#FFFDF5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="lockup">
+        <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="85" fill="none" stroke="#0A0A05" stroke-width="9"/><circle cx="100" cy="100" r="96" fill="none" stroke="#0A0A05" stroke-width="5" stroke-dasharray="5 11"/><polygon points="78,64 78,136 136,100" fill="#F7CB46"/><path d="M72,152 L100,134 L128,152" fill="none" stroke="#0A0A05" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="lockup-text">MICHAELSON<span class="sub">DIGITAL ACADEMY</span></div>
+      </div>
+      <p class="rationale">Les cercles superposés de la réf. 3 simplifiés en anneau de sceau, avec le play au centre et un petit chevron de progression en dessous, comme un ruban de diplôme. Le plus "institution qui forme" des cinq, le mieux adapté si tu veux que la marque dépasse un seul compte TikTok.</p>
+      <div class="meta-row">
+        <div class="profile-preview">
+          <div class="ring"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="85" fill="none" stroke="#FFFDF5" stroke-width="9"/><circle cx="100" cy="100" r="96" fill="none" stroke="#FFFDF5" stroke-width="5" stroke-dasharray="5 11"/><polygon points="78,64 78,136 136,100" fill="#F7CB46"/><path d="M72,152 L100,134 L128,152" fill="none" stroke="#FFFDF5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>aperçu profil</span>
+        </div>
+        <div class="hexes"><i style="background:#0A0A05"></i><i style="background:#F7CB46"></i><i style="background:#FFFDF5"></i></div>
+      </div>
+    </article>
+
+  </div>
+
+  <footer>
+    Dis-moi laquelle des cinq pistes développer : je peux la décliner en variantes (monochrome, favicon 32px, version animée en ouverture de vidéo) et l'intégrer directement dans l'intro academy-00.
+  </footer>
+</div>
