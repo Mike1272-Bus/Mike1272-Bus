@@ -66,7 +66,7 @@
     padding: 56px 40px; display: flex; flex-direction: column; align-items: center; gap: 28px;
     margin-bottom: 24px;
   }
-  .hero svg { width: 220px; height: 220px; }
+  .hero-scene { width: min(340px, 82vw); height: auto; display: block; }
   .lockup-h { display: flex; align-items: center; gap: 18px; }
   .lockup-h svg { width: 58px; height: 58px; }
   .wordmark {
@@ -132,20 +132,59 @@
   <header>
     <span class="eyebrow">Direction retenue</span>
     <h1>La DA jouet-play, en version Michaelson.</h1>
-    <p>Ta référence prise telle quelle : trois cercles qui se superposent avec un vrai mélange de couleur aux jonctions, un triangle play blanc découpé au centre, et un petit nuage de points de couleur autour. Rien de la palette Blockframe des vidéos — c'est cette DA-là, seule.</p>
+    <p>Ta référence prise telle quelle : trois cercles qui se superposent avec un vrai mélange de couleur aux jonctions, un triangle play blanc découpé au centre, et un petit nuage de points de couleur autour. Rien de la palette Blockframe des vidéos — c'est cette DA-là, seule. En scène : le logo qui sort de l'écran du téléphone à la place de la main et du colis, sur un filigrane de carte du monde.</p>
   </header>
 
   <div class="hero">
-    <svg viewBox="0 0 220 220">
-      <circle cx="52" cy="42" r="12" fill="#FF1F6D"/>
-      <circle cx="82" cy="36" r="7" fill="#FFD54A"/>
-      <circle cx="188" cy="72" r="6" fill="#2377D8"/>
-      <circle cx="203" cy="93" r="10" fill="#7CC13B"/>
-      <circle cx="128" cy="196" r="11" fill="#6B2C91"/>
-      <circle cx="95" cy="110" r="68" fill="#FF1F6D"/>
-      <circle cx="133" cy="86" r="60" fill="#FFD54A" fill-opacity="0.82"/>
-      <circle cx="139" cy="134" r="60" fill="#3FC6F0" fill-opacity="0.82"/>
-      <polygon points="80,68 80,152 166,110" fill="#FFFFFF"/>
+    <svg class="hero-scene" viewBox="0 0 400 440">
+      <defs>
+        <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#FFE3EE"/>
+          <stop offset="1" stop-color="#E1F3FF"/>
+        </linearGradient>
+      </defs>
+
+      <!-- watermark world map -->
+      <g opacity="0.55">
+        <circle cx="70" cy="80" r="34" fill="#DCD6E4"/>
+        <circle cx="96" cy="58" r="22" fill="#DCD6E4"/>
+        <circle cx="54" cy="112" r="20" fill="#DCD6E4"/>
+        <circle cx="92" cy="185" r="20" fill="#DCD6E4"/>
+        <circle cx="102" cy="217" r="14" fill="#DCD6E4"/>
+        <circle cx="192" cy="60" r="16" fill="#DCD6E4"/>
+        <circle cx="208" cy="50" r="11" fill="#DCD6E4"/>
+        <circle cx="202" cy="118" r="28" fill="#DCD6E4"/>
+        <circle cx="197" cy="160" r="20" fill="#DCD6E4"/>
+        <circle cx="212" cy="192" r="14" fill="#DCD6E4"/>
+        <circle cx="286" cy="64" r="40" fill="#DCD6E4"/>
+        <circle cx="328" cy="84" r="30" fill="#DCD6E4"/>
+        <circle cx="306" cy="116" r="24" fill="#DCD6E4"/>
+        <circle cx="336" cy="200" r="18" fill="#DCD6E4"/>
+        <circle cx="358" cy="206" r="12" fill="#DCD6E4"/>
+      </g>
+
+      <!-- phone -->
+      <ellipse cx="200" cy="428" rx="70" ry="12" fill="#1E1523" opacity="0.12"/>
+      <rect x="140" y="205" width="120" height="215" rx="22" fill="#1E1523"/>
+      <rect x="150" y="219" width="100" height="172" rx="13" fill="url(#screenGrad)"/>
+      <rect x="184" y="211" width="32" height="6" rx="3" fill="#1E1523"/>
+      <rect x="176" y="401" width="48" height="5" rx="2.5" fill="#3B3142"/>
+
+      <!-- contact shadow where the mark meets the screen -->
+      <ellipse cx="200" cy="222" rx="50" ry="9" fill="#1E1523" opacity="0.18"/>
+
+      <!-- logo emerging from the screen -->
+      <g transform="translate(200,165) scale(0.62) translate(-110,-110)">
+        <circle cx="52" cy="42" r="12" fill="#FF1F6D"/>
+        <circle cx="82" cy="36" r="7" fill="#FFD54A"/>
+        <circle cx="188" cy="72" r="6" fill="#2377D8"/>
+        <circle cx="203" cy="93" r="10" fill="#7CC13B"/>
+        <circle cx="128" cy="196" r="11" fill="#6B2C91"/>
+        <circle cx="95" cy="110" r="68" fill="#FF1F6D"/>
+        <circle cx="133" cy="86" r="60" fill="#FFD54A" fill-opacity="0.82"/>
+        <circle cx="139" cy="134" r="60" fill="#3FC6F0" fill-opacity="0.82"/>
+        <polygon points="80,68 80,152 166,110" fill="#FFFFFF"/>
+      </g>
     </svg>
     <div class="lockup-h">
       <svg viewBox="0 0 220 220">
@@ -242,6 +281,6 @@
   </div>
 
   <footer>
-    Le triangle play reste blanc plein (pas de découpe transparente) donc il reste net sur n'importe quel fond, clair ou sombre. Dis-moi si je pousse cette direction dans l'intro academy-00 à la place du badge jaune/encre actuel, ou si elle reste réservée au logo/profil.
+    Le triangle play reste blanc plein (pas de découpe transparente) donc il reste net sur n'importe quel fond, clair ou sombre. La carte du monde en filigrane et l'effet "sort du téléphone" ne vivent que dans cette scène de présentation — les tuiles claire/sombre et les variantes plus haut restent le mark nu, pour un usage logo/favicon simple. Dis-moi si je pousse cette scène (téléphone + carte) dans l'intro academy-00, ou si elle reste réservée à la présentation du logo.
   </footer>
 </div>
