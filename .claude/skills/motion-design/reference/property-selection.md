@@ -1,40 +1,95 @@
-# Property Selection — what to animate, and why
+# Property Selection
 
-Two separate questions live here: which property best *communicates* the intended change, and which properties are cheap vs. expensive to animate at runtime. Both matter; performance never justifies communicating the wrong thing, but among properties that communicate equally well, always pick the cheap one.
+## Position
 
-## Performance tier (web/app runtime contexts)
+| Direction | Meaning |
+|-----------|---------|
+| Upward | Growth, improvement, aspiration |
+| Downward | Settling, completion, grounding |
+| Leftward | Regression, backward, departure |
+| Rightward | Progression, forward, arrival |
+| Toward center | Focus, convergence |
+| Away from center | Distribution, expansion |
 
-**Cheap (compositor-only, animate freely):**
-- `transform` (translateX/Y/Z, scale, rotate) — does not trigger layout or paint in most modern browser engines, runs on the GPU compositor thread.
-- `opacity` — same, compositor-only.
-- `filter` in moderation (blur, brightness) — GPU-accelerated in most engines but heavier than transform/opacity; fine for occasional use, avoid animating heavy blur radii on many simultaneous elements.
+## Scale
 
-**Expensive (triggers layout and/or paint — avoid animating every frame):**
-- `top` / `left` / `right` / `bottom` (with `position: absolute/relative`) — triggers layout recalculation. Use `transform: translate()` instead for the same visual result at a fraction of the cost.
-- `width` / `height` — triggers layout. If the end goal is a size change, prefer `transform: scale()` when the content doesn't need to reflow, or accept the layout cost deliberately when it does (e.g. an accordion that must actually reflow surrounding content).
-- `margin` / `padding` — triggers layout, same guidance as width/height.
-- `box-shadow` (animating its spread/blur directly) — triggers paint on every frame; if a shadow needs to animate, consider animating a pseudo-element's opacity instead (fade between a fixed set of pre-defined shadow states) rather than interpolating the shadow values themselves.
-- `background-position` on large images — paint-heavy; fine for small elements, avoid on full-viewport backgrounds animated continuously.
+| Direction | Meaning |
+|-----------|---------|
+| Scale up | Importance, activation, proximity |
+| Scale down | Deprioritization, distance |
+| Pulse | Attention, heartbeat, life |
+| Breathing | Presence, waiting |
 
-**Rule of thumb:** if it's not `transform`, `opacity`, or (sparingly) `filter`, ask whether the same visual result is achievable with one of those three before reaching for a layout-triggering property, especially for anything looping or running on every frame (ambient motion, drag-follow, scroll-linked effects).
+## Rotation
 
-## Property selection for communication (independent of runtime)
+| Range | Meaning |
+|-------|---------|
+| Small (5-15°) | Subtle adjustment |
+| Medium (45-90°) | Transformation |
+| Full (360°) | Completion, processing |
+| Continuous | Ongoing activity |
 
-| Communicating... | Prefer animating |
-|---|---|
-| Presence / absence | `opacity` |
-| Position change, arrival, departure | `transform: translate` |
-| Emphasis, weight, impact | `transform: scale` (with squash/stretch asymmetry per Disney #1) |
-| Direction, orientation, playful energy | `transform: rotate` |
-| Depth, layering | `transform: translateZ` / scale + opacity combined (things "further away" are smaller, dimmer) |
-| State/identity change (this became that) | shape/color morph, or a well-timed crossfade between two fixed representations |
-| Urgency, alert | color plus a fast, sharp transform — never color alone, since color-only changes are easy to miss peripherally |
-| Continuous "alive" signal | slow opacity or scale pulse (`patterns/ambient-continuous.md`) |
+## Opacity
+
+| Direction | Meaning |
+|-----------|---------|
+| Fade in | Arrival, enablement |
+| Fade out | Departure, disablement |
+| Partial | Secondary, disabled state |
+
+**Rule**: NEVER opacity alone for important state changes. Combine with position or scale.
 
 ## Color
 
-Color transitions (background-color, color, border-color, fill) are relatively cheap to animate but easy to overuse as the *only* signal — color-blind viewers and anyone not looking directly at the element can miss a color-only change entirely. Pair meaningful color changes with a shape/transform/icon change wherever the color is communicating something the viewer needs to act on (errors, required fields, alerts) — color alone is acceptable for low-stakes cosmetic state (hover tint) but not for anything functionally important.
+| Transition | Meaning |
+|-----------|---------|
+| To green | Success, go |
+| To red | Error, stop |
+| To blue | Trust, active |
+| To gray | Disabled, inactive |
+| Brightening | Activation, focus |
+| Dimming | Deactivation, background |
 
-## HyperFrames / pre-rendered video context
+## Combined Properties
 
-Since this repo's video output is pre-rendered frame-by-frame rather than running live in a browser, the GPU-compositor-cost argument above matters less for the *final* video (every frame renders regardless of cost). It still matters for **render time** during iteration (a composition full of layout-triggering animated properties on many elements renders slower per frame) and it still matters for **correctness** — `transform`-based animation composes predictably with GSAP timelines and seek-to-any-frame determinism (required by this repo's rendering pipeline) in ways that some layout-triggering properties can behave inconsistently with when the timeline is scrubbed rather than played forward continuously. Default to transform/opacity here for both reasons.
+| Combination | Best For |
+|-------------|----------|
+| Position + Opacity | Content appearing/disappearing |
+| Scale + Opacity | Cards, modals, notifications |
+| Position + Scale | Selected items, focused content |
+| Rotation + Scale | Celebrations, playful activation |
+| Position + Rotation | Organic transitions |
+| Color + Scale | State emphasis |
+
+Primary property carries meaning; secondary adds polish. Two properties is the sweet spot.
+
+## Property Selection by Goal
+
+| Goal | Primary | Secondary | Avoid |
+|------|---------|-----------|-------|
+| Entrance | position | opacity | rotation |
+| Exit | position | opacity | scale up |
+| Button press | scale | color | position |
+| Hover | scale or color | opacity | position |
+| Success | scale | color + opacity | position |
+| Error | position (shake) | color | scale |
+| Loading | rotation | opacity | position |
+| Toggle | position | color | rotation |
+| Notification | position + scale | opacity | rotation |
+| Delete | scale + opacity | position | grow |
+| Selection | scale | color, opacity | rotation |
+| Progress | position or scale | color | opacity |
+
+## Performance
+
+| Property | Performance |
+|----------|-------------|
+| transform (translate, scale, rotate) | Excellent — GPU-accelerated |
+| opacity | Excellent — GPU-accelerated |
+| color / background-color | Good — triggers paint |
+| clip-path | Good — GPU on modern browsers |
+| width / height | Poor — triggers layout |
+| margin / padding | Poor — triggers layout |
+| box-shadow | Poor — expensive paint |
+
+**Rule**: Prefer transform + opacity for all motion.

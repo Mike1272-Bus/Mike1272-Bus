@@ -1,32 +1,81 @@
-# Ambient / Continuous Patterns — loops, breathing, parallax
+# Ambient & Continuous Patterns
 
-Motion that runs without user input, often indefinitely. The design problem is different from discrete entrance/exit/feedback motion: it has to be sustainable to look at for an unbounded amount of time, which means lower amplitude and stricter loop-seamlessness than almost any other category.
+Ambient amplitude: 10-20% of primary motion. Never compete for attention.
 
-## Core rule: subtlety scales inversely with duration-on-screen
+## Breathing / Pulse
 
-A one-shot 400ms animation can be bold. An ambient loop the viewer might look at for 30 seconds needs to be dramatically more restrained than intuition suggests — what looks "too subtle to bother with" in an isolated preview is usually correct once it's actually looping in context. If an ambient effect is noticeable enough to *name* after a few seconds of looking at it, it's very likely too strong.
+- Scale oscillation 0.98-1.02, sine ease-in-out, 2000-4000ms/cycle
+- Alt: opacity oscillation 0.7-1.0
 
-## Breathing / idle pulse
-**What:** a slow, low-amplitude scale or opacity oscillation (e.g. scale 1.0 ↔ 1.02, or opacity 0.9 ↔ 1.0), signaling "this is alive/active/waiting" without demanding attention.
-**Use when:** indicating an idle-but-active state (a waiting call-to-action, a live indicator, an element inviting interaction without being urgent about it).
-**Parameters:** long period (2-4s per full cycle), smooth sine-like easing (`ease-in-out`, never a sharp curve — sharp easing on a loop reads as mechanical ticking rather than breathing), never full-stop at either extreme (should feel continuous, not like two snapped poses).
-**Watch out:** never breathe more than one element in a given view unless they're explicitly meant to feel connected — multiple independent breathing elements at different phases reads as visual static.
+| Context | Scale Range | Duration | Opacity Range |
+|---------|-----------|----------|--------------|
+| Active indicator | 0.95-1.05 | 2000ms | 0.6-1.0 |
+| Waiting/idle | 0.98-1.02 | 3000ms | 0.8-1.0 |
+| Background element | 0.99-1.01 | 4000ms | 0.9-1.0 |
+| CTA attention | 0.97-1.03 | 2500ms | 0.7-1.0 |
 
-## Looping micro-animation
-**What:** a short (1-3s) animation that repeats seamlessly — a subtle icon animation, a looping illustration detail.
-**Parameters:** the hard requirement is a **seamless loop point** — the last frame's velocity/position must match the first frame's, or the seam reads as a stutter every cycle, which is far more distracting over a loop than a single hard cut would be once. Test by watching 3+ consecutive loops, not one.
-**Watch out:** looping motion placed anywhere near a focused task (a text input, a reading area) actively competes for attention and measurably hurts task completion — see `context-adaptation.md`'s focus/concentration row. Ambient motion belongs in peripheral, decorative, or explicitly-idle contexts only.
+Pulsing >±5% scale becomes attention-demanding.
+
+## Floating / Hovering
+
+- Y position ±5-15px, sine ease-in-out, 3000-5000ms/cycle
+- Optional: slight rotation ±2-3°, offset 30% of position cycle
+
+**Layered floating** (multiple elements — different durations prevent sync):
+- Element 1: 4000ms, ±10px
+- Element 2: 5500ms, ±8px (offset 30%)
+- Element 3: 3500ms, ±12px (offset 60%)
+
+## Gradient Shift
+
+- Background-position or gradient angle shift
+- Duration: 8000-20000ms/cycle; range: ±10-20% position or ±15° angle
+- Easing: linear or sine; should be imperceptible at a glance
 
 ## Parallax
-**What:** background/foreground layers moving at different rates relative to a scroll or pointer position, creating a sense of depth.
-**Parameters:** keep the rate differential moderate (background at 30-60% of foreground's rate is usually enough to read as depth; larger differentials start to feel like a gimmick or, worse, nauseating). Background layers should generally move *slower* than foreground, matching real-world depth-of-field intuition (Pillar 2, physics).
-**Watch out:** this is one of the two ambient patterns (with autoplay carousels) most likely to trigger vestibular discomfort — always provide the reduced-motion fallback from `context-adaptation.md`, and never make parallax the *only* way information is conveyed (it should be a texture, never load-bearing for comprehension).
 
-## Auto-advancing / autoplay content (carousels, rotating banners)
-**What:** content that changes on a timer without user input.
-**Parameters:** if used at all, the transition itself should follow the relevant entrance/exit pattern (`entrance-exit.md`) — but seriously reconsider the pattern itself first: autoplaying rotation is one of the most consistently disliked ambient patterns in usability research, because it removes viewer control over reading pace and frequently changes content exactly when the viewer was about to read it.
-**Watch out:** if autoplay is genuinely required (a lot of business contexts demand it), always pause on hover/focus and provide manual controls — non-negotiable both for accessibility and for basic respect of reading speed.
+| Layer | Speed Ratio | Content |
+|-------|------------|---------|
+| Foreground | 1.0x | Interactive, text |
+| Midground | 0.5x | Decorative, cards |
+| Background | 0.2x | Patterns, scenery |
+| Deep background | 0.1x | Texture, atmospheric |
 
-## For pre-rendered video (this repo's context)
+**Scroll-driven**: total displacement <100px; avoid on mobile; never parallax text
+**Mouse-driven**: foreground 10-20px max, background 5-10px opposite direction, 100-200ms interpolation
 
-"Ambient" in a fixed-duration video (not a live loop) usually means: does the background have any subtle drift, or does a decorative element idle-pulse behind the main content while VO plays over it? Same amplitude rule applies — a background element that's more active than the foreground content it's supporting is a staging failure (Disney #3), not an ambient enhancement. When this repo's compositions include persistent background layers (grids, gradients), the default should be near-static — reserve any drift for a specific reason, not as a default "make it feel alive" reflex, which more often just competes with the actual content.
+## Continuous Rotation
+
+- Spinners: linear easing, 1000-2000ms/revolution
+
+| Variant | Speed | Use Case |
+|---------|-------|----------|
+| Slow spin | 10-30s/rev | Background decoration |
+| Gear-like | 3-5s/rev | Technical/mechanical |
+| Orbital | 5-15s/rev | Space/science theme |
+| Wobble | 2-4s/cycle, sine | Playful idle |
+
+## Shimmer / Gleam
+
+- Gradient sweep left-to-right, 1500-2500ms/sweep
+- Pause 2000-5000ms between sweeps
+- Opacity gradient: 0%→30%→0%
+- Use for: skeleton loading, premium accents, "new" badges
+
+## Particle Ambient
+
+### Snow/Falling: 10-20 elements, 20-60px/s down, ±10-20px drift, 3-8px, 30-70% opacity
+### Dust/Motes: 5-10 elements, 10-30px/s mixed, 2-5px, 20-50% opacity
+### Sparkle/Stars: 8-15 elements, opacity pulse 0→100%→0, 500-1500ms/sparkle, random stagger
+
+**Performance**: <20 ambient elements, transform+opacity only, larger/fewer over small/numerous
+
+## Combining Ambient Layers
+
+| Layer | Type | Example |
+|-------|------|---------|
+| Background | Gradient shift or parallax | Slow color temperature change |
+| Midground | Floating or particles | Gentle floating elements |
+| Foreground | Breathing or shimmer | Subtle pulse on content |
+
+Total ambient: max 20% of primary motion's visual energy.

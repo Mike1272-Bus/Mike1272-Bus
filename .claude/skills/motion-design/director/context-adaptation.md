@@ -1,34 +1,83 @@
-# Context Adaptation — platform, accessibility, performance
+# Context Adaptation
 
-Everything in `core-philosophy.md`, `motion-personality.md`, and `emotion-mapping.md` describes the *ideal* motion for a purpose. This document describes the constraints that can override that ideal — and they always win when they conflict.
+## Platform Scaling
 
-## Accessibility: `prefers-reduced-motion`
+| Platform | Duration Modifier | Complexity | Physics |
+|----------|------------------|------------|---------|
+| Desktop | 1.0x (baseline) | Full | All types |
+| Tablet | 0.9x | Standard | Most types |
+| Mobile | 0.8x | Reduced (1-2 properties) | Snappy only |
+| Watch | 0.6x | Minimal (1 property) | None |
+| TV/Kiosk | 1.3x | Full | All types |
 
-Some viewers have vestibular disorders or motion sensitivity where parallax, large-scale movement, or continuous ambient motion causes real physical discomfort (dizziness, nausea), not just annoyance. This is a hard requirement, not a nice-to-have.
+**Mobile rules**: prefer opacity + transform; touch feedback <100ms; reduce stagger budgets by 30%; avoid parallax
+**Desktop opportunities**: hover states, cursor tracking, multi-column stagger, spatial choreography
 
-- **Detect and respect** the OS-level `prefers-reduced-motion: reduce` media query in any web/app context. When set:
-  - Replace large-scale movement (slides, parallax, scale transforms crossing significant screen distance) with **cross-fades**. The state change still communicates (Pillar 1, purpose is preserved) without the vestibular trigger.
-  - Kill purely ambient/decorative continuous motion entirely (background parallax, idle breathing loops, auto-playing carousels) — these have the lowest purpose-to-risk ratio.
-  - Keep functionally necessary motion (a loading spinner communicating "still working") but ideally swap it for a lower-amplitude or opacity-pulse variant instead of a spatial one.
-- **This does not apply to pre-rendered video content** (the video files this repo produces) the same way — a viewer choosing to press play on a video has different expectations than passively encountering ambient UI motion. But it fully applies to anything in a companion web app, landing page, or interactive deck this skill might also be used for.
+## Accessibility
 
-## Platform conventions
+### prefers-reduced-motion
 
-Motion that feels natural on one platform can feel foreign on another, because viewers carry platform-specific expectations:
+| Original Motion | Reduced Alternative |
+|----------------|-------------------|
+| Slide entrance | Opacity fade only |
+| Bounce/spring | Instant or simple ease-out |
+| Parallax | Static positioning |
+| Auto-playing | Paused, user-initiated |
+| Complex choreography | Single fade |
+| Continuous ambient | Static or subtle opacity pulse |
 
-- **Short-form vertical video (TikTok/Reels/Shorts)** — Bold-archetype energy is the norm, fast cuts, high information density, motion needs to read clearly even when the viewer is half-attentive with sound off; captions/text motion must be legible in <1s.
-- **Native mobile app UI** — platform easing conventions exist for a reason (iOS's springs, Android's Material motion) and departing from them without a strong reason makes an app feel subtly "off" even to viewers who can't articulate why.
-- **Desktop web** — generally more tolerant of longer/subtler motion since attention spans and viewing distance differ from mobile; Elegant-archetype pacing that would feel slow on mobile can feel appropriately considered on desktop.
-- **Print-adjacent / static export contexts** — no motion at all is the constraint; design the single best frame instead (see `disney-principles.md` #12, Appeal — the freeze-frame test matters literally here).
+Reduced motion means: remove spatial movement, keep opacity, remove spring easing, reduce duration 50%+, never auto-play loops.
 
-## Performance budget
+### Vestibular Triggers (avoid or provide alternatives)
+- Large-scale zoom, full-screen position transitions
+- Spinning elements >100px, parallax >2 layers, rapid direction changes
 
-A beautifully choreographed sequence that drops frames is worse than a simpler one that doesn't — jank itself communicates "cheap" and "broken," overriding whatever the motion was designed to say (this can invalidate all three pillars at once).
+### Cognitive Accessibility
+- Same interaction = same animation every time
+- Pause controls for animations >5 seconds
+- Don't convey critical info through motion alone
 
-- **Animate compositor-friendly properties** — `transform` (translate/scale/rotate) and `opacity` run on the GPU compositor in most modern engines and are close to free. Animating `top`/`left`/`width`/`height`/`margin` forces layout recalculation on every frame and is the most common cause of janky "smooth in theory, choppy in practice" motion. Full detail in `reference/property-selection.md`.
-- **Budget for the slowest target device**, not the development machine. A sequence with 15 simultaneously-animating elements that's smooth on a dev laptop may drop frames on a mid-range phone — reduce simultaneous animating element count, or stagger them so fewer are active at any single frame, rather than reducing quality of each individual tween.
-- **Video export contexts** (this repo's HyperFrames pipeline) don't have live-performance jank risk since frames are pre-rendered deterministically — but render time itself is a budget (complex per-frame compositing multiplies render duration), and it's still worth avoiding unnecessarily expensive per-frame CSS (heavy blur/filter stacks, huge DOM counts) purely for render-pipeline efficiency.
+## Performance Budgets
 
-## Resolving conflicts
+| Tier | Properties | Max Elements |
+|------|-----------|-------------|
+| Optimal | transform, opacity | Unlimited (GPU) |
+| Good | + color, clip-path | 10-15 |
+| Acceptable | + width, height, margin | 5-8 |
+| Avoid | box-shadow, border-radius, filter | 1-3 |
 
-When the ideal motion (from purpose/personality/emotion) conflicts with a constraint in this document, the constraint wins, but look for a version of the original intent that survives the constraint rather than just deleting the motion: reduced-motion → cross-fade instead of slide (purpose intact, vestibular risk removed); performance-constrained → fewer simultaneously-animating elements with the same stagger *shape*, not zero choreography.
+- Target 60fps (16.67ms/frame); animation logic <10ms/frame
+- will-change sparingly; keep animated elements <20 per viewport
+- Stagger reduces peak load vs simultaneous
+- Fallback: 30fps acceptable for ambient
+
+## Content Type Adaptation
+
+| Content Type | Personality | Duration | Motion Density |
+|-------------|-------------|----------|---------------|
+| Financial | Corporate/Premium | 250-500ms | Low |
+| Social media | Playful | 150-300ms | Medium |
+| Enterprise SaaS | Corporate | 200-400ms | Low |
+| Gaming | Energetic | 100-250ms | High |
+| Healthcare | Corporate/Calm | 300-600ms | Very low |
+| E-commerce | Varies | 200-400ms | Medium |
+| Editorial | Premium | 350-600ms | Low |
+| Children's apps | Playful | 150-300ms | High |
+
+## Responsive Motion
+
+| Container Width | Max Displacement | Duration |
+|----------------|-----------------|----------|
+| <400px | 20% of width | 0.8x |
+| 400-800px | 25% of width | 1.0x |
+| 800-1200px | 20% of width | 1.0x |
+| >1200px | 15% of width | 1.1x |
+
+- Small viewport: sequential, one element at a time
+- Medium: standard stagger, 2-3 columns
+- Large: full choreography, center-out stagger, parallax
+
+## Dark Mode
+- Reduce motion intensity 10-20% (bright on dark = more impact)
+- Subtler ambient motion; careful with opacity values
+- Avoid pure white flashes

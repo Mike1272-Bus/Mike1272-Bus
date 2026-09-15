@@ -1,38 +1,62 @@
-# Narrative Structure — the micro-story framework
+# Narrative Structure
 
-Every piece of motion that lasts more than a single instantaneous cut, whether it's a 200ms button press or a 40-second brand video, works better when it has a **setup → build → payoff** shape rather than being one continuous undifferentiated motion. This is a fractal structure: it applies at the scale of a single micro-interaction and at the scale of an entire video's pacing.
+## Four-Act Structure
 
-## The three beats
+### Act 1: Anticipation (10-20%)
+- Wind-up: small motion opposite to main direction
+- Gathering: elements pull together before dispersing
+- Dimming: context fades for focus; Tension: hold compressed ~50ms
+- Skip for <150ms interactions and hover states
 
-**Setup** — establishes the starting state and, ideally, plants a small piece of anticipation (Disney principle #2). Brief. Its job is to make sure the viewer's eye is in the right place and knows *something* is about to happen, without giving away what.
+### Act 2: Action (30-50%)
+Peak energy. The primary communicative motion.
+- Fast+direct (sharp easing) → alerts
+- Smooth+flowing (gentle easing, curves) → transitions
+- Explosive+expanding (expo, radial) → celebrations
+- Controlled+precise (linear-ish) → data charts
 
-**Build** — the motion itself moves through its main transformation. This is where most of the duration budget goes, and where the emotion-mapped parameters (`emotion-mapping.md`) do their work: speed, easing, overshoot trajectory.
+### Act 3: Reaction (10-20%)
+- Shadows adjust: 50-100ms after primary
+- Siblings shift: 50-150ms after primary
+- Environment ripples: 100-200ms after primary
+- Counter-motion: simultaneous with action
+- Skip for simple toggles/checkboxes
 
-**Payoff** — the settle, the moment the viewer's eye is told "this is the result, look at it." Must include a genuine hold — even 100-150ms of stillness — or the payoff never registers as a payoff, it just reads as motion that happened to stop. This is the most commonly skipped beat: designers spend all their effort on the build and let the payoff be an instant, silent stop.
+### Act 4: Resolution (20-30%)
+- Overshoot settle (spring/back-easing); opacity reaches final (ease-out)
+- 100-200ms breathing room before next motion
+- Even 50ms of settling transforms the feel
 
-## At micro-interaction scale (100-400ms total)
+## Scaling to Duration
 
-A button press: setup = tiny anticipatory compress (20-30ms), build = the color/scale transition (60-150ms), payoff = settle with a beat of stillness before it's interactive again. Skipping setup is usually fine at this scale (not every micro-interaction needs anticipation), but skipping the payoff hold is not — an interaction that immediately allows the next action with zero settle time feels twitchy.
+| Total | Anticipation | Action | Reaction | Resolution |
+|-------|-------------|--------|----------|------------|
+| 100-200ms | skip | 60-70% | skip | 30-40% |
+| 200-400ms | 10-15% | 40-50% | 10-15% | 25-30% |
+| 400-800ms | 15-20% | 30-40% | 15-20% | 20-25% |
+| 800ms+ | 20% | 30-35% | 15-20% | 25-30% |
 
-## At scene scale (2-8 seconds)
+## Multi-Beat Narratives
 
-A card expanding into a detail view: setup = the card getting a subtle pre-expansion cue, build = the expansion + content reveal (often choreographed, see `choreography.md`), payoff = the final layout holding still long enough to actually be read before anything else can happen. The payoff hold duration should scale with how much the viewer needs to process — a payoff with new text to read needs longer stillness than a payoff that's purely visual.
+Transitions: overlap (fluid) | sequential (clear) | simultaneous (parallel)
 
-## At full-video scale (this repo's use case: 20-60s vertical video)
+Progressions:
+- **Build-Up**: low → rising → peak → settling
+- **Cycle**: depart → peak → return → repeat
+- **Impact**: sudden action → ripple → slow settle
 
-The same three beats operate at the level of the whole piece, and *also* recursively within each scene:
-- **Setup** = the hook (first 1-3s) — plant the question or tension, minimal resolution yet.
-- **Build** = the body — each beat itself often has its own mini setup/build/payoff, and the beats should escalate (see "escalation," below) rather than repeat the same energy level throughout.
-- **Payoff** = the CTA or resolution — and it needs its own hold. A CTA card that flashes for 0.3s and cuts to black is a payoff with no beat to land; give it real screen time.
+## By Personality
 
-## Escalation across beats
+| Personality | Anticipation | Action | Resolution |
+|------------|-------------|--------|------------|
+| Playful | Exaggerated wind-up | Bouncy, overshoot | Wobble settle |
+| Premium | Subtle tension | Smooth, controlled | Elegant ease |
+| Corporate | Minimal/none | Direct, efficient | Clean stop |
+| Energetic | Quick gather | Explosive | Fast snap |
 
-A sequence of scenes that are all "build" energy with no differentiation flattens into monotony — even if each individual scene is well-crafted. Deliberately vary intensity: a quiet/held beat (payoff of the previous idea, or a breath) followed by a punchier beat (a new idea's setup+build) reads as *pacing*; uniform intensity throughout reads as *noise*, regardless of quality. This is the same principle as Bold archetype's "quiet beats make loud beats land" (`motion-personality.md`), generalized to structure.
+## Common Patterns
 
-## Cliffhangers and multi-part content
-
-For content deliberately split across parts (e.g., "part 1 of a series"), the payoff of part 1 is intentionally incomplete — it resolves the immediate tension of part 1's own build, but deliberately leaves the larger question open. This still needs a real hold (don't cut mid-motion), it just holds on an *unresolved* state rather than a resolved one — the stillness communicates "this is the note we're ending on," even when that note is a question.
-
-## Diagnostic use
-
-If a piece of motion "feels flat" or "doesn't land" despite good individual tweens, check: is there an actual payoff hold, or does it just stop? Is there any setup/anticipation, or does it start cold? Is the build the only beat present, stretched to fill the whole duration? Missing payoff-hold is the single most common structural defect in otherwise well-executed motion.
+- **Reveal**: tension (dim, scale 95%) → emerge (100%, full opacity) → surroundings adjust → settled
+- **Departure**: gather (scale 98%) → exit → close gap → layout settles
+- **Transformation**: destabilize (vibration) → morph → secondary appears → new state breathing
+- **Celebration**: compress (50-100ms) → burst (scale, particles) → settle → calm with positive state

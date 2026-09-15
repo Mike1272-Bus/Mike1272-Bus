@@ -1,27 +1,71 @@
-# Emotion Mapping — target feeling to motion parameters
+# Emotion-to-Motion Mapping
 
-A lookup from the emotion a moment should evoke to concrete motion parameters. Cross-reference with the project's archetype (`motion-personality.md`): the emotion sets direction, the archetype sets how far and how it's textured.
+## Core Table
 
-| Emotion | Duration | Easing | Overshoot | Secondary motion | Notes |
-|---|---|---|---|---|---|
-| **Trust / reliability** | 150-250ms | smooth ease-out, no elastic | none | none | Consistency matters more than any single instance — same parameters every time this state occurs. |
-| **Urgency** | 80-150ms | sharp ease-out or linear-ish | none, or a single hard flash | a pulse/flash accent color | Speed itself communicates urgency; a slow "urgent" animation is a contradiction the viewer will feel even if they can't name it. |
-| **Delight / celebration** | 300-600ms total sequence | elastic or back.out with visible overshoot | yes, generous | confetti/particles, secondary bounce | This is the one place to spend your biggest motion budget — reserve elasticity for genuine wins so it stays special. |
-| **Calm / reassurance** | 300-500ms | very soft ease (expo-out family) | none | gentle fade paired with movement | Pair movement with opacity fade, not movement alone — a fade softens arrival. |
-| **Confidence** | 150-250ms | firm ease-out, decisive | small (5-10%), not elastic | none | Arrives and plants — no wobble, no hesitation, no overshoot correction. |
-| **Playfulness** | 200-350ms | back.out with moderate overshoot | yes, moderate | small wiggle/rotation | Fine for routine interactions in a Playful-archetype product; reserve for emphasis-only in other archetypes. |
-| **Surprise** | very fast onset (<100ms), then hold | sharp in, soft out | can be large | flash or scale-punch | The suddenness IS the surprise — anticipation (Disney principle #2) should be minimal or absent here, on purpose. |
-| **Anticipation / buildup** | 200-400ms lead-in before the payoff | ease-in (slow start, building) | none during buildup | a small counter-move (Disney #2) | The buildup itself should NOT resolve the tension — save the release for the payoff beat. |
-| **Sadness / error / failure** | 200-350ms | soft ease, slightly heavier/slower than neutral | none, or a small "sink" (slight downward settle) | muted color shift, no bright flash | Avoid bounce or elastic here entirely — it reads as mocking rather than sympathetic. |
-| **Focus / concentration** | minimal — near-instant or no motion at all | — | — | — | The correct motion for "help the user focus" is often *the absence of motion*. Ambient/looping motion near a focused task is a bug, not a feature (see `context-adaptation.md`). |
+| Emotion | Character | Path | Easing | Duration |
+|---------|----------|------|--------|----------|
+| Joy/Delight | Bouncy, arcs, overshoot | Curved, upward | ease-out-back | 200-400ms |
+| Calm/Serenity | Smooth, flowing | Gentle curves | sine ease-in-out | 500-1000ms |
+| Urgency/Alert | Sharp, fast, direct | Straight lines | ease-out | 100-200ms |
+| Sadness/Weight | Slow, downward | Drooping curves | cubic ease-in-out | 600-1200ms |
+| Surprise/Impact | Sudden, expanding | Radial outward | ease-out-expo | 150-300ms |
+| Elegance/Grace | Slow, controlled | Long smooth arcs | (0.4, 0, 0.2, 1) | 400-700ms |
+| Playfulness | Bouncy, irregular | Arcs, squiggly | ease-out-back | 200-350ms |
+| Confidence | Direct, decisive | Straight, horizontal | ease-out | 200-400ms |
+| Curiosity | Exploratory, varied | Mixed, circular | varied | 300-500ms |
+| Tenderness | Soft, gentle | Very subtle curves | soft ease-in-out | 600-1000ms |
 
-## Compound and transitional emotions
+## Path as Emotional Language
 
-Real moments are rarely one pure emotion. A "success after a long wait" moment is both **relief** (calm parameters: soft ease, fade) and **delight** (celebration parameters: overshoot, secondary motion) — sequence them: relief beat first (the tension releases), delight beat second (the reward lands), rather than trying to blend both parameter sets into one confused tween. This sequencing is exactly the micro-story shape in `narrative-structure.md`.
+| Path Type | Connotation |
+|-----------|------------|
+| Angular/sharp | Tense, urgent, mechanical |
+| Curved/smooth | Relaxed, friendly, organic |
+| Spiral | Playful, whimsical |
+| Straight diagonal | Dynamic, purposeful |
+| Vertical up | Growth, achievement |
+| Vertical down | Settling, gravity |
+| Horizontal | Journey, progress |
+| Radial outward | Explosion, release |
+| Radial inward | Focus, convergence |
 
-## Using this table
+## Emotional Intensity
 
-1. Name the emotion (or compound emotion) from `core-philosophy.md` Pillar 1's purpose statement.
-2. Pull the row's parameters as a *starting point*, not gospel.
-3. Adjust intensity to the project's archetype — a Precise-archetype product's "delight" still won't overshoot as much as a Playful-archetype product's "delight," but it should still overshoot *more than its own baseline* to register as the special emotion.
-4. If two adjacent moments in the same flow map to very different rows, that's a signal there needs to be a transitional beat between them (see `narrative-structure.md`) rather than an instant emotional whiplash.
+| Intensity | Characteristics | When |
+|-----------|----------------|------|
+| Low | Subtle opacity, tiny shifts | Ambient, routine |
+| Medium | Visible but not demanding | Most UI interactions |
+| High | Demands attention, large displacement | Errors, celebrations, onboarding |
+
+## Color Psychology
+
+| Color | Emotion | Animation Pairing |
+|-------|---------|------------------|
+| Blue | Trust, calm | Smooth, medium transitions |
+| Green | Success, growth | Upward, expansion, gentle overshoot |
+| Red | Alert, urgency | Sharp, fast, horizontal shakes |
+| Orange | Energy, warmth | Bouncy, diagonal paths |
+| Purple | Premium, mystery | Slow reveals, elegant easing |
+| Yellow | Optimism, caution | Quick pulses |
+| Teal | Modern, clarity | Clean, snappy transitions |
+
+### Color Transition Rules
+- Success: transition TO green (don't start with it)
+- Error: flash red then settle (don't sustain)
+- Warning: pulse yellow/amber for urgency
+- Neutral: use opacity rather than color change
+
+## Context-Based Emotion Defaults
+
+| Context | Default Emotion |
+|---------|----------------|
+| Form success | Joy + Confidence |
+| Validation error | Mild urgency |
+| Page load | Calm + Confidence |
+| Navigation | Confidence |
+| Notification | Mild surprise |
+| Loading | Calm |
+| Onboarding | Curiosity + Delight |
+| Dashboard | Calm + Confidence |
+| Purchase complete | Joy + Confidence |
+| Delete/remove | Calm (respectful departure) |

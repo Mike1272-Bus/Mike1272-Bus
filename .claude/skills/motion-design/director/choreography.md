@@ -1,42 +1,93 @@
-# Choreography — coordinating multiple elements
+# Choreography
 
-A single element animating is a tween. Multiple elements animating together is choreography, and it fails or succeeds on structure, not on how good any individual tween looks.
+## Coordinated Entry Rules
 
-## Establish a leader
+### 1. Lead with the Hero
+- Hero gets largest displacement and most attention-grabbing easing
+- Supporting elements are subtler in every dimension
 
-Every multi-element sequence needs exactly one element the eye is told to follow first. Everything else is either a **follower** (moves in response to / after the leader) or **ambient** (moves independently, at low visual weight, never competing for primary attention). If nothing is designated the leader, the viewer's eye has to guess, and guessing reads as chaos even if every individual motion is well-crafted (this is Disney principle #3, Staging, applied to groups).
+### 2. Spatial Origin Consistency
+All elements enter from same direction or shared origin. Mixed directions = chaos.
 
-Practical tie-breaker for "who's the leader": whichever element the user's action was most directly about, or whichever element carries the content that matters most to the current purpose (`core-philosophy.md` Pillar 1).
+### 3. Counter-Motion
 
-## Stagger
+| Hero Motion | Counter-Motion | Speed Ratio |
+|-------------|---------------|-------------|
+| Enters left | Background shifts right | 20-30% |
+| Scales up | Shadow scales down | 10-20% |
+| Rotates CW | Ambient drifts CCW | 15-25% |
+| Lifts (Y up) | Shadow spreads + softens | 20-30% |
 
-The default tool for "multiple similar elements, one implied order." Rules of thumb:
+## Sequence Structure
 
-- **Stagger delay: 40-100ms** between siblings for UI-scale lists (cards, list rows, nav items). Below ~40ms it reads as simultaneous; above ~100ms per item it starts to feel slow for anything more than ~6 items.
-- **Direction should match reading/visual order** — top-to-bottom for a vertical list, left-to-right for a horizontal row, outward-from-center for a radial/grid reveal tied to a central action. A stagger direction that fights the eye's natural scan path reads as arbitrary.
-- **Total sequence duration matters more than per-item duration** — for long lists (12+), cap the total stagger spread (e.g., don't stagger 30 items at 80ms each, that's 2.4s just for the stagger; compress the per-item delay or batch them) and see `patterns/multi-element.md` for concrete recipes.
+| Phase | Duration Share | What Happens |
+|-------|--------------|-------------|
+| Setup | 20-30% | Elements enter, scene establishes |
+| Action | 30-40% | Primary motion, hero moment |
+| Resolution | 30-40% | Settle, secondary reactions, breathing |
 
-## Group as a single camera move
+Leave 100-200ms stillness after resolution before new motion.
 
-For elements that must feel like *one thing* moving, not several things moving in coordination (e.g., a card and its shadow, an icon and its label, a multi-layer illustration), treat the group's transform as a single authored move and let members deviate only slightly via `follow through` timing offsets (Disney #5), not via independent easing curves. If two "grouped" elements use noticeably different easing functions, they will read as two things that happen to be near each other, not one object.
+## The 1/3 Rules
 
-## Overlap vs. sequence
+**Distance**: No motion travels >1/3 screen without intermediate keyframe. Break with direction changes, speed variations, or arc adjustments.
 
-Two structural choices for how elements relate in time:
+**Elements**: With 3+ animated elements, max 1/3 active simultaneously. Stagger so element 1 settles as element 3 starts.
 
-- **Sequential** (A finishes, then B starts) — used when B's motion is *caused by* A completing (a confirmation appearing after a submit animation lands). Creates a clear causal read but costs total time.
-- **Overlapping** (B starts before A finishes, typically at 60-80% of A's duration) — used when A and B are part of the same beat and don't need a causal read between them (a card scaling in while its label fades in). Faster, feels more like one cohesive moment. This is the default for most "elements belonging to the same reveal" scenarios — pure sequential chains for unrelated elements feel sluggish.
+## Stagger Patterns
 
-Avoid the common mistake of overlapping elements that DO have a causal relationship (making B start before A visually "finishes causing" it) — that reads as B happening for no reason, since A hasn't visibly resolved yet.
+| Pattern | Description | Best For |
+|---------|------------|----------|
+| Sequential | Reading order | Lists, grids |
+| Center-out | Radiating from center | Hero content, ripples |
+| Random | Varied timing | Organic, particle-like |
+| Wave | Sine-based | Data bars, continuous |
+| Reverse | Bottom-to-top | Exits, backward nav |
 
-## Competing motion
+- All staggered elements use same easing family
+- Vary only start time, not curve
+- Optional: last element gets slight overshoot (punctuation)
 
-If two elements both want to be the leader in the same beat, that's a purpose problem (`core-philosophy.md` Pillar 1), not a choreography problem — go back and decide which one actually matters more right now, or split them into two beats (see `narrative-structure.md`). Choreography can sequence and stagger, but it cannot fix a scene that fundamentally doesn't know what it's about.
+## Shared Motion Events
 
-## Practical checklist for any multi-element scene
+When multiple elements react to one trigger:
+- All start within 50ms of each other
+- Can arrive at different times (staggered landing)
+- Same easing family; motion originates from trigger point
 
-1. Who's the leader? (if unclear, that's the first thing to fix)
-2. What's the stagger direction, and does it match how the eye already wants to scan this layout?
-3. Which elements are grouped (must move as one) vs. independent?
-4. Sequential or overlapping, per relationship — and does that choice match whether there's a causal link?
-5. Total sequence duration — does it still feel like "one moment," or has it sprawled into a long slideshow?
+## Attention Direction
+
+| Technique | Implementation |
+|-----------|---------------|
+| Leading motion | Animate target before context |
+| Following motion | Settle on focal point |
+| Ambient motion | Subtle continuous in periphery |
+| Pointing motion | Directional toward CTA |
+
+### Depth Through Speed
+
+| Layer | Displacement | Speed |
+|-------|-------------|-------|
+| Foreground | 1.0x | Fastest |
+| Midground | 0.5x | Medium |
+| Background | 0.2x | Slowest |
+
+## Common Recipes
+
+### Dashboard Load
+1. Skeletons fade in (100ms)
+2. Hero metric (250ms, ease-out, 100ms delay)
+3. Supporting cards stagger (50ms between, 200ms each)
+4. Chart data draws in (300ms, starts with cards)
+5. Ambient pulse on primary metric
+
+### Modal Open
+1. Background dims (200ms)
+2. Modal scales 95%→100% + fades (300ms, 50ms delay)
+3. Content fades in (200ms, 100ms after modal)
+4. Close button last (150ms)
+
+### List Update (item added)
+1. Existing items shift down (200ms, ease-in-out)
+2. New item fades+slides from top (250ms, ease-out, 50ms delay)
+3. Subtle scale overshoot on land (3-5%)

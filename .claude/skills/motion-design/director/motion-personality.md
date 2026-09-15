@@ -1,43 +1,89 @@
-# Motion Personality — four archetypes + brand identity
+# Motion Personality
 
-Pick ONE archetype per project/brand, once, and apply it everywhere. Mixing archetypes within one product is the single most common cause of motion feeling "off-brand" even when no individual animation is bad.
-
-## The four archetypes
-
-### Precise
-**Feel:** efficient, trustworthy, engineered, fast.
-**Parameters:** short durations (100-200ms), minimal or zero overshoot, easing skews toward `ease-out`/`cubic-bezier(0.4, 0, 0.2, 1)`, straight-line motion over arcs, sharp not soft.
-**Fits:** productivity tools, fintech, developer tools, utilities, dashboards.
-**Signature move:** a settle with no bounce at all — it arrives and stops, like a well-made mechanism.
-**Risk if overused:** can read as cold or robotic if never softened anywhere (e.g., a success state with zero warmth).
+## Four Archetypes
 
 ### Playful
-**Feel:** friendly, energetic, approachable, a little silly.
-**Parameters:** medium durations (200-350ms), visible overshoot (`back.out(1.7)`-ish, elastic on emphasis moments), arcs over straight lines for anything with "character," secondary bounce/wiggle details.
-**Fits:** consumer social apps, kids' products, games, casual/youth-oriented brands.
-**Signature move:** overshoot-and-settle — it goes past the target, then eases back, like it's a little excited.
-**Risk if overused:** everything bouncing all the time reads as chaotic or unserious; reserve the biggest bounces for genuine delight moments (success, reward), keep routine interactions (tab switches, hovers) more restrained even within a Playful system.
 
-### Elegant
-**Feel:** premium, calm, considered, unhurried.
-**Parameters:** longer durations (350-600ms) but ONLY for hero/emphasis moments — routine UI stays fast; very smooth easing (`cubic-bezier(0.16, 1, 0.3, 1)` "expo-out" family), near-zero overshoot but soft settling, generous use of fade alongside movement rather than movement alone.
-**Fits:** luxury, editorial, portfolio, high-end hospitality/real estate, premium subscription products.
-**Signature move:** a slow, silky ease with a fade — never a hard snap, never a bounce.
-**Risk if overused:** slow durations on frequent/repeated interactions (hover, list scroll) make the product feel sluggish rather than premium — Elegant must still be fast where speed is functionally required.
+| Parameter | Value |
+|-----------|-------|
+| Duration | 150-300ms |
+| Easing | ease-out-back / bouncy springs |
+| Overshoot | 10-20% |
+| Paths | Arcs and curves, never straight |
+| Squash-stretch | Yes, on impacts |
 
-### Bold
-**Feel:** confident, loud, kinetic, attention-commanding.
-**Parameters:** fast entrances with hard, high-contrast easing (`power4.out`, sharp wipes), strong exaggeration (principle #10), frequent use of scale/rotation for emphasis, hard-cut transitions (wipes, flashes) alongside eased ones, big typography moves.
-**Fits:** short-form video/social content, sports, streetwear, hype-driven marketing, kinetic-typography brand systems (this is the register the Blockframe visual system in this repo's academy videos uses).
-**Signature move:** a fast hard-wipe or snap-pop with a flash frame, immediately followed by a hold — energy up front, stillness to let it land.
-**Risk if overused:** if EVERY beat is maximum intensity, nothing reads as the emphasis moment; Bold still needs quiet beats to make the loud beats land (see `narrative-structure.md`).
+Signature: bounce settle, squash-stretch on press, rotation wobble, bright color pops, varied stagger timing.
+Use for: children's apps, casual games, social media, celebrations, onboarding, creative tools.
 
-## Choosing an archetype
+### Premium / Luxury
 
-Ask: if this brand's motion were a person's body language, how would they move through a room? Precise = walks a direct line, no wasted motion. Playful = bounces a little with each step. Elegant = glides, unhurried. Bold = strides in fast and plants themselves.
+| Parameter | Value |
+|-----------|-------|
+| Duration | 350-600ms |
+| Easing | cubic-bezier(0.4, 0, 0.2, 1) |
+| Overshoot | 0% |
+| Paths | Smooth curves, subtle parallax |
+| Squash-stretch | Never |
 
-If the product already has a visual identity (typography weight, color saturation, brand voice), the archetype should usually match: heavy display type + saturated color + punchy copy → Bold, not Elegant. Thin type + generous whitespace + restrained copy → Elegant, not Bold. A mismatch between visual identity and motion archetype is as jarring as a mismatch between logo and brand voice.
+Signature: slow fades, subtle scale (98%→100%), generous pauses, minimal properties (opacity+one), ultra-smooth.
+Use for: fashion, finance, luxury brands, premium SaaS, portfolios, editorial.
 
-## Staying consistent without being monotonous
+### Corporate / Professional
 
-One archetype does not mean one animation. Within Bold, a routine tab-switch and a hero brand-reveal are both "Bold" but the hero moment pushes every parameter further (longer hold, harder wipe, bigger scale) while the routine interaction stays quick and restrained. The archetype sets the *character* of the easing/overshoot/hardness; the emotion and hierarchy (see `emotion-mapping.md`, `core-philosophy.md` Pillar 1) set how far to push it for a given moment.
+| Parameter | Value |
+|-----------|-------|
+| Duration | 200-400ms |
+| Easing | cubic-bezier(0.2, 0, 0, 1) |
+| Overshoot | 0-3% |
+| Paths | Mostly straight, small arcs for emphasis |
+| Squash-stretch | No |
+
+Signature: consistent timing, clear state transitions, functional motion, predictable patterns, uniform stagger.
+Use for: enterprise, dashboards, business tools, admin, healthcare, banking.
+
+### Energetic / Dynamic
+
+| Parameter | Value |
+|-----------|-------|
+| Duration | 100-250ms |
+| Easing | ease-out-expo / elastic |
+| Overshoot | 15-30% |
+| Paths | Dramatic arcs, large displacement, diagonal |
+| Squash-stretch | Yes, exaggerated |
+
+Signature: large scale changes (50-150%), fast color transitions, particle bursts, accelerating stagger, bold edge entrances.
+Use for: gaming, sports, music, events, marketing, fitness apps.
+
+## Keyword Matching
+
+| Keywords | Archetype |
+|----------|-----------|
+| fun, whimsical, bouncy, cute, friendly | Playful |
+| elegant, minimal, luxury, sophisticated | Premium |
+| clean, professional, business, dashboard | Corporate |
+| dynamic, energetic, bold, exciting | Energetic |
+| (unspecified) + UI | Corporate (default) |
+| (unspecified) + illustration | Playful (default) |
+
+## Brand Motion Identity
+
+Define three constants for recognizable motion:
+
+### 1. Signature Easing (80% of animations)
+Playful: ease-out-back | Premium: (0.4,0,0.2,1) | Corporate: (0.2,0,0,1) | Energetic: ease-out-expo
+
+### 2. Duration Palette
+
+| Tier | Playful | Premium | Corporate | Energetic |
+|------|---------|---------|-----------|-----------|
+| Quick | 150ms | 350ms | 200ms | 100ms |
+| Standard | 250ms | 500ms | 300ms | 180ms |
+| Slow | 400ms | 800ms | 450ms | 300ms |
+
+### 3. Entrance Pattern
+Playful: bounce up from below | Premium: slow fade + scale 98%→100% | Corporate: slide right + opacity | Energetic: snap from edge + overshoot
+
+## Mixing Archetypes
+- 90% primary archetype; specific moments can borrow another
+- Ease into personality shifts, don't snap
+- Example: corporate dashboard borrows Playful for success state only
