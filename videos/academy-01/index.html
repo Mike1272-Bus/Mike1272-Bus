@@ -71,6 +71,15 @@
         font-size: 84px; line-height: 1.05; color: var(--ink); opacity: 0; text-wrap: balance;
       }
 
+      /* ---- beat 9b: "ÉPISODE 1" typewriter title card ---- */
+      .type-card { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+      .type-text {
+        font-family: "Courier New", Consolas, monospace; font-weight: 700; letter-spacing: 0.02em;
+        font-size: 84px; color: #6B6B66; text-transform: uppercase;
+      }
+      .type-text span { opacity: 0; }
+      #p9b-cursor { opacity: 0; }
+
       /* ---- full-canvas generated illustrations (Blockframe Motion style) ---- */
       .fx-scene {
         position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
@@ -176,7 +185,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="43.861" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="45.161" data-width="1080" data-height="1920">
 
       <div class="bg-layer"><div class="bg-grid"></div></div>
 
@@ -273,8 +282,15 @@
         <div class="p1-text"><span id="p9-t">ALORS JE VAIS COMMENCER<br/>PAR LE PRÉAMBULE.</span></div>
       </div>
 
+      <!-- ===== BEAT 9b — "ÉPISODE 1" typewriter title card ===== -->
+      <div id="p9b" class="clip" data-start="22.6558" data-duration="1.3" data-track-index="1">
+        <div class="type-card">
+          <span class="type-text"><span id="p9b-c1">É</span><span id="p9b-c2">P</span><span id="p9b-c3">I</span><span id="p9b-c4">S</span><span id="p9b-c5">O</span><span id="p9b-c6">D</span><span id="p9b-c7">E</span><span id="p9b-sp">&nbsp;</span><span id="p9b-c8">1</span><span id="p9b-cursor">&#9608;</span></span>
+        </div>
+      </div>
+
       <!-- ===== BEAT 10 — emballer -> vidéo/fichier/formation -> phone -> ventes -> cash ===== -->
-      <div id="p10" class="clip" data-start="22.6558" data-duration="9.792" data-track-index="1">
+      <div id="p10" class="clip" data-start="23.9558" data-duration="9.792" data-track-index="1">
         <div class="fx-scene">
           <!-- 10a: idea + package -->
           <div id="p10a-eyebrow" class="fx-eyebrow">PRODUIT DIGITAL</div>
@@ -317,7 +333,7 @@
       <!-- ===== BEAT 11 — un peu comme un livre ===== -->
       <div id="p11">
         <div id="p11-box" class="shot-card">
-          <video id="p11-el" src="assets/video/comme-un-livre.mp4" muted playsinline data-start="32.4478" data-duration="1.4836" data-media-start="1"></video>
+          <video id="p11-el" src="assets/video/comme-un-livre.mp4" muted playsinline data-start="33.7478" data-duration="1.4836" data-media-start="1"></video>
         </div>
         <div class="bubble-zone"><div id="p11-label" class="speech-bubble yellow">UN PEU COMME<br/>UN LIVRE.</div></div>
       </div>
@@ -325,13 +341,13 @@
       <!-- ===== BEAT 12 — l'auteur l'écrit une fois ===== -->
       <div id="p12">
         <div id="p12-box" class="shot-card landscape">
-          <video id="p12-el" src="assets/video/auteur-ecrit.mp4" muted playsinline data-start="33.9314" data-duration="1.1869" data-media-start="1.5"></video>
+          <video id="p12-el" src="assets/video/auteur-ecrit.mp4" muted playsinline data-start="35.2314" data-duration="1.1869" data-media-start="1.5"></video>
         </div>
         <div class="bubble-zone"><div id="p12-label" class="speech-bubble ink">L'AUTEUR L'ÉCRIT<br/>UNE FOIS.</div></div>
       </div>
 
       <!-- ===== BEAT 13 — il continue à se vendre (cash from laptop) ===== -->
-      <div id="p13" class="clip" data-start="35.1183" data-duration="2.6705" data-track-index="1">
+      <div id="p13" class="clip" data-start="36.4183" data-duration="2.6705" data-track-index="1">
         <div class="fx-scene">
           <div class="fx-laptop">
             <div class="screen"><div class="screen-inner"></div></div>
@@ -347,7 +363,7 @@
       </div>
 
       <!-- ===== BEAT 14 — même quand l'auteur dort ===== -->
-      <div id="p14" class="clip" data-start="37.7888" data-duration="1.1869" data-track-index="1">
+      <div id="p14" class="clip" data-start="39.0888" data-duration="1.1869" data-track-index="1">
         <div id="p14-box" class="shot-card landscape">
           <img src="assets/images/auteur-dort.jpg" alt="" style="object-position:60% 40%;" />
         </div>
@@ -355,7 +371,7 @@
       </div>
 
       <!-- ===== BEAT 15 — CTA suspense ===== -->
-      <div id="p15q" class="clip" data-start="38.9757" data-duration="2.1715" data-track-index="1">
+      <div id="p15q" class="clip" data-start="40.2757" data-duration="2.1715" data-track-index="1">
         <div class="p1-text"><span id="p15q-t">ET POUR DAVID...<br/>EST-CE QUE ÇA A MARCHÉ ?</span></div>
       </div>
 
@@ -372,8 +388,9 @@
       <audio id="vo1" class="clip" data-start="0" data-duration="1.7067" data-track-index="9" src="audio/lines/01.wav"></audio>
       <audio id="vo2" class="clip" data-start="1.7067" data-duration="18.9011" data-track-index="9" src="audio/lines/02.wav"></audio>
       <audio id="vo3" class="clip" data-start="20.6078" data-duration="2.048" data-track-index="9" src="audio/lines/03.wav"></audio>
-      <audio id="vo4" class="clip" data-start="22.6558" data-duration="16.3199" data-track-index="9" src="audio/lines/04.wav"></audio>
-      <audio id="vo5" class="clip" data-start="38.9757" data-duration="4.8853" data-track-index="9" src="audio/lines/05.wav"></audio>
+      <audio id="vo4" class="clip" data-start="23.9558" data-duration="16.3199" data-track-index="9" src="audio/lines/04.wav"></audio>
+      <audio id="vo5" class="clip" data-start="40.2757" data-duration="4.8853" data-track-index="9" src="audio/lines/05.wav"></audio>
+      <audio id="sfx-typing" class="clip" data-start="22.6558" data-duration="1.3" data-track-index="9" src="audio/sfx/typing.wav"></audio>
 
     </div>
 
@@ -447,8 +464,14 @@
       tl.fromTo("#p9-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(2.2)" }, 20.6078);
       tl.set("#p9-t", { opacity: 0 }, 22.6558);
 
+      // ---- beat 9b: "ÉPISODE 1" typewriter title card ----
+      const p9bChars = ["#p9b-c1", "#p9b-c2", "#p9b-c3", "#p9b-c4", "#p9b-c5", "#p9b-c6", "#p9b-c7", "#p9b-sp", "#p9b-c8"];
+      p9bChars.forEach((sel, i) => { tl.set(sel, { opacity: 1 }, 22.6558 + i * 0.09); });
+      tl.fromTo("#p9b-cursor", { opacity: 1 }, { opacity: 0, duration: 0.15, repeat: 7, yoyo: true, ease: "steps(1)" }, 22.6558);
+      tl.set([...p9bChars, "#p9b-cursor"], { opacity: 0 }, 23.9558);
+
       // ---- beat 10: idea+emballe -> vidéo/fichier/formation (real photos) -> phone -> sales -> cash ----
-      const p10a0 = 22.6558, p10b0 = 26.5133, p10c0 = 27.4035, p10d0 = 27.997, p10e0 = 29.1839, p10end = 32.4479;
+      const p10a0 = 23.9558, p10b0 = 27.8133, p10c0 = 28.7035, p10d0 = 29.297, p10e0 = 30.4839, p10end = 33.7479;
 
       // 10a: idea (bulb) then package (box)
       tl.fromTo("#p10a-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, p10a0);
@@ -496,37 +519,37 @@
       tl.set(["#p10e-eyebrow", "#p10e-title", "#p10-bill1", "#p10-bill2", "#p10-bill3", "#p10-coin1", "#p10-coin2"], { opacity: 0 }, p10end);
 
       // ---- beat 11 ----
-      tl.fromTo("#p11-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 32.4478);
-      tl.fromTo("#p11-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.15, ease: "power2.out" }, 32.5);
-      tl.set(["#p11-box", "#p11-label"], { opacity: 0 }, 33.9314);
+      tl.fromTo("#p11-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 33.7478);
+      tl.fromTo("#p11-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.15, ease: "power2.out" }, 33.8);
+      tl.set(["#p11-box", "#p11-label"], { opacity: 0 }, 35.2314);
 
       // ---- beat 12 ----
-      tl.fromTo("#p12-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, 33.9314);
-      tl.fromTo("#p12-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 33.97);
-      tl.set(["#p12-box", "#p12-label"], { opacity: 0 }, 35.1183);
+      tl.fromTo("#p12-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, 35.2314);
+      tl.fromTo("#p12-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 35.27);
+      tl.set(["#p12-box", "#p12-label"], { opacity: 0 }, 36.4183);
 
       // ---- beat 13: cash streams from laptop ----
-      tl.fromTo(".fx-laptop .screen", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 35.1183);
-      tl.fromTo(".fx-laptop .base", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 35.1183);
-      tl.fromTo("#p13-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 35.25);
-      [["#p13-b1", 35.35, -12], ["#p13-b2", 35.6, 10], ["#p13-b3", 35.85, -8], ["#p13-c1", 35.5, 20], ["#p13-c2", 35.95, -16]].forEach(([sel, start, rot]) => {
+      tl.fromTo(".fx-laptop .screen", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 36.4183);
+      tl.fromTo(".fx-laptop .base", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 36.4183);
+      tl.fromTo("#p13-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 36.55);
+      [["#p13-b1", 36.65, -12], ["#p13-b2", 36.9, 10], ["#p13-b3", 37.15, -8], ["#p13-c1", 36.8, 20], ["#p13-c2", 37.25, -16]].forEach(([sel, start, rot]) => {
         tl.fromTo(sel, { opacity: 0, y: 0, rotation: 0 }, { opacity: 1, y: -180, rotation: rot, duration: 1.3, ease: "power1.out" }, start);
         tl.to(sel, { opacity: 0, duration: 0.2 }, start + 1.15);
       });
-      tl.set([".fx-laptop .screen", ".fx-laptop .base", "#p13-title"], { opacity: 0 }, 37.7888);
+      tl.set([".fx-laptop .screen", ".fx-laptop .base", "#p13-title"], { opacity: 0 }, 39.0888);
 
       // ---- beat 14 ----
-      tl.fromTo("#p14-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, 37.7888);
-      tl.fromTo("#p14-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 37.83);
-      tl.set(["#p14-box", "#p14-label"], { opacity: 0 }, 38.9757);
+      tl.fromTo("#p14-box", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, 39.0888);
+      tl.fromTo("#p14-label", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.out" }, 39.13);
+      tl.set(["#p14-box", "#p14-label"], { opacity: 0 }, 40.2757);
 
       // ---- beat 15: suspense CTA ----
-      tl.fromTo("#p15q-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.2)" }, 38.9757);
-      tl.set("#p15q-t", { opacity: 0 }, 41.1472);
+      tl.fromTo("#p15q-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.2)" }, 40.2757);
+      tl.set("#p15q-t", { opacity: 0 }, 42.4472);
 
-      tl.fromTo("#p15c-box", { opacity: 0 }, { opacity: 1, duration: 0.16 }, 41.1472);
-      tl.fromTo("#p15-badge", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "elastic.out(1,0.6)" }, 41.2);
-      tl.fromTo("#p15-line", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 42.2329);
+      tl.fromTo("#p15c-box", { opacity: 0 }, { opacity: 1, duration: 0.16 }, 42.4472);
+      tl.fromTo("#p15-badge", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "elastic.out(1,0.6)" }, 42.5);
+      tl.fromTo("#p15-line", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 43.5329);
 
       window.__timelines["main"] = tl;
     </script>
