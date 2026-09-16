@@ -47,6 +47,10 @@
         border: 7px solid var(--ink); box-shadow: 12px 12px 0 var(--ink);
       }
       .shot-card.ink { background: var(--ink); border-color: var(--yellow); }
+      .shot-card.portrait-fit {
+        inset: auto; left: 190px; top: 500px; width: 700px; height: 780px;
+        border: 7px solid var(--ink); box-shadow: 12px 12px 0 var(--ink);
+      }
 
       /* ---- speech-bubble captions ---- */
       .bubble-zone { position: absolute; left: 0; right: 0; bottom: 260px; display: flex; justify-content: center; padding: 0 60px; z-index: 5; }
@@ -111,6 +115,12 @@
         text-transform: uppercase; color: var(--ink); text-align: center; padding: 0 60px;
       }
 
+      /* ---- p1d: learn icon (motion-design fallback) ---- */
+      .fx-learn-icon {
+        width: 160px; height: 160px; border-radius: 50%; background: var(--yellow); border: 7px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-size: 84px; opacity: 0;
+      }
+
       /* ---- p1c: video -> cash converge + burst ---- */
       .fx-converge { position: relative; width: 560px; height: 220px; }
       .fx-conv-video {
@@ -159,6 +169,7 @@
         position: absolute; width: 490px; height: 560px; border: 6px solid var(--ink); box-shadow: 10px 10px 0 var(--ink);
         overflow: hidden; opacity: 0; background: var(--cream);
       }
+      .pd-grid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
       .pd-grid.placeholder {
         border-style: dashed; display: flex; align-items: center; justify-content: center;
       }
@@ -210,20 +221,18 @@
       </div>
 
       <!-- ===== BEAT 1 — "Pour David, ça voulait dire..." ===== -->
-      <div id="p1a" class="clip" data-start="2.6" data-duration="2.4" data-track-index="1">
-        <div class="fx-scene">
-          <div id="p1a-eyebrow" class="fx-eyebrow">POUR DAVID, ÇA VOULAIT DIRE</div>
-          <div id="p1a-title" class="fx-title">FILMER UNE SEULE FOIS<br/>COMMENT IL CONSTRUIT UNE TABLE</div>
+      <div id="p1a">
+        <div id="p1a-box" class="shot-card landscape">
+          <video id="p1a-el" src="assets/video/comment-il-construit-une-table.mp4" muted playsinline data-start="2.6" data-duration="2.4" data-media-start="0.5"></video>
         </div>
+        <div class="bubble-zone"><div id="p1a-label" class="speech-bubble yellow">POUR DAVID, ÇA VOULAIT DIRE...<br/>FILMER UNE SEULE FOIS</div></div>
       </div>
 
-      <div id="p1b" class="clip" data-start="5.0" data-duration="1.8" data-track-index="1">
-        <div class="fx-placeholder">
-          <div id="p1b-card" class="ph-card">
-            <div class="ph-icon">&#127909;</div>
-            <div class="ph-label">Extrait vidéo à venir — David filme son atelier</div>
-          </div>
+      <div id="p1b">
+        <div id="p1b-box" class="shot-card landscape">
+          <video id="p1b-el" src="assets/video/filmer-une-seule-fois.mp4" muted playsinline data-start="5.0" data-duration="1.8" data-media-start="0.5"></video>
         </div>
+        <div class="bubble-zone"><div id="p1b-label" class="speech-bubble ink">COMMENT IL CONSTRUIT<br/>UNE TABLE</div></div>
       </div>
 
       <div id="p1c" class="clip" data-start="6.8" data-duration="1.8" data-track-index="1">
@@ -243,21 +252,17 @@
       </div>
 
       <div id="p1d" class="clip" data-start="8.6" data-duration="1.6" data-track-index="1">
-        <div class="fx-placeholder">
-          <div id="p1d-card" class="ph-card">
-            <div class="ph-icon">&#128218;</div>
-            <div class="ph-label">Extrait vidéo à venir — quelqu'un qui apprend</div>
-          </div>
+        <div class="fx-scene">
+          <div id="p1d-icon" class="fx-learn-icon">&#127891;</div>
+          <div id="p1d-title" class="fx-title">À QUELQU'UN QUI<br/>VEUT APPRENDRE</div>
         </div>
       </div>
 
-      <div id="p1e" class="clip" data-start="10.2" data-duration="1.4" data-track-index="1">
-        <div class="fx-placeholder">
-          <div id="p1e-card" class="ph-card">
-            <div class="ph-icon">&#127760;</div>
-            <div class="ph-label">Extrait vidéo à venir — où qu'il soit</div>
-          </div>
+      <div id="p1e">
+        <div id="p1e-box" class="shot-card landscape">
+          <video id="p1e-el" src="assets/video/ou-quil-soit.mp4" muted playsinline data-start="10.2" data-duration="1.4" data-media-start="0"></video>
         </div>
+        <div class="bubble-zone"><div id="p1e-label" class="speech-bubble yellow">OÙ QU'IL SOIT</div></div>
       </div>
 
       <!-- ===== BEAT 2 — "Au début, il n'y croyait pas" ===== -->
@@ -268,22 +273,16 @@
         </div>
       </div>
 
-      <div id="p2b" class="clip" data-start="13.6" data-duration="1.6" data-track-index="1">
-        <div class="fx-placeholder">
-          <div id="p2b-card" class="ph-card ink-ph">
-            <div class="ph-icon">&#127909;</div>
-            <div class="ph-label">Extrait vidéo à venir — David dans l'atelier</div>
-          </div>
+      <div id="p2b">
+        <div id="p2b-box" class="shot-card landscape">
+          <video id="p2b-el" src="assets/video/qui-va-payer.mp4" muted playsinline data-start="13.6" data-duration="1.6" data-media-start="0.5"></video>
         </div>
         <div class="bubble-zone"><div id="p2b-label" class="speech-bubble yellow">QUI VA PAYER<br/>POUR REGARDER</div></div>
       </div>
 
-      <div id="p2c" class="clip" data-start="15.2" data-duration="1.8" data-track-index="1">
-        <div class="fx-placeholder">
-          <div id="p2c-card" class="ph-card">
-            <div class="ph-icon">&#127909;</div>
-            <div class="ph-label">Extrait vidéo à venir — vieux menuisier au travail</div>
-          </div>
+      <div id="p2c">
+        <div id="p2c-box" class="shot-card landscape">
+          <video id="p2c-el" src="assets/video/vieux-menuisier.mp4" muted playsinline data-start="15.2" data-duration="1.8" data-media-start="0.5"></video>
         </div>
         <div class="bubble-zone"><div id="p2c-label" class="speech-bubble ink">UN VIEUX MENUISIER<br/>TRAVAILLER ?</div></div>
       </div>
@@ -296,31 +295,24 @@
         </div>
       </div>
 
-      <div id="p3b" class="clip" data-start="19.0" data-duration="1.8" data-track-index="1">
-        <div class="fx-placeholder">
-          <div id="p3b-card" class="ph-card">
-            <div class="ph-icon">&#127909;</div>
-            <div class="ph-label">Extrait vidéo à venir — on a filmé son atelier</div>
-          </div>
+      <div id="p3b">
+        <div id="p3b-box" class="shot-card landscape">
+          <video id="p3b-el" src="assets/video/on-a-filme.mp4" muted playsinline data-start="19.0" data-duration="1.8" data-media-start="0.5"></video>
         </div>
+        <div class="bubble-zone"><div id="p3b-label" class="speech-bubble yellow">ON A FILMÉ<br/>SON ATELIER</div></div>
       </div>
 
-      <div id="p3c" class="clip" data-start="20.8" data-duration="1.8" data-track-index="1">
-        <div class="fx-placeholder">
-          <div id="p3c-card" class="ph-card">
-            <div class="ph-icon">&#9995;</div>
-            <div class="ph-label">Extrait vidéo à venir — ses mains, vingt ans de métier</div>
-          </div>
+      <div id="p3c">
+        <div id="p3c-box" class="shot-card landscape">
+          <video id="p3c-el" src="assets/video/atelier-david.mp4" muted playsinline data-start="20.8" data-duration="1.8" data-media-start="0.5"></video>
         </div>
+        <div class="bubble-zone"><div id="p3c-label" class="speech-bubble ink">SES MAINS, VINGT ANS<br/>DE MÉTIER</div></div>
       </div>
 
       <!-- ===== BEAT 4 — "On en a fait un guide simple" ===== -->
       <div id="p4a" class="clip" data-start="22.6" data-duration="1.8" data-track-index="1">
-        <div class="fx-placeholder">
-          <div id="p4a-card" class="ph-card">
-            <div class="ph-icon">&#128220;</div>
-            <div class="ph-label">Couverture du guide à venir</div>
-          </div>
+        <div id="p4a-box" class="shot-card portrait-fit">
+          <img src="assets/images/guide-cover.png" alt="" />
         </div>
         <div class="bubble-zone"><div id="p4a-label" class="speech-bubble yellow">ON EN A FAIT<br/>UN GUIDE SIMPLE</div></div>
       </div>
@@ -348,33 +340,29 @@
         </div>
       </div>
 
-      <div id="p5b" class="clip" data-start="28.8" data-duration="2.0" data-track-index="1">
-        <div class="fx-scene">
+      <div id="p5b">
+        <div id="p5b-box" class="shot-card landscape">
+          <video id="p5b-el" src="assets/video/notification-vente.mp4" muted playsinline data-start="28.8" data-duration="2.0" data-media-start="0.3"></video>
+        </div>
+        <div id="p5b-overlay-zone" class="fx-phone-wrap" style="right:auto; left:50%; margin-left:-280px; bottom:auto; top:1280px;">
           <div id="p5b-n1" class="fx-notif-card">
             <div class="icon">&#10003;</div>
             <div class="text">ET UNE AUTRE A SUIVI<br/>LA SEMAINE D'APRÈS</div>
-          </div>
-          <div id="p5b-n2" class="fx-notif-card">
-            <div class="icon">&#10003;</div>
-            <div class="text">NOUVELLE VENTE</div>
           </div>
         </div>
       </div>
 
       <!-- ===== BEAT 6 — David vend pendant qu'il construit autre chose ===== -->
       <div id="p6a" class="clip" data-start="30.8" data-duration="2.4" data-track-index="1">
-        <div class="fx-scene">
-          <div id="p6a-eyebrow" class="fx-eyebrow">AUJOURD'HUI</div>
-          <div id="p6a-title" class="fx-title">DAVID VEND SON GUIDE<br/>PENDANT QU'IL EST DANS SON ATELIER</div>
+        <div id="p6a-box" class="shot-card portrait-fit">
+          <img src="assets/images/guide-cover.png" alt="" />
         </div>
+        <div class="bubble-zone"><div id="p6a-label" class="speech-bubble ink">AUJOURD'HUI, DAVID VEND<br/>SON GUIDE</div></div>
       </div>
 
-      <div id="p6b" class="clip" data-start="33.2" data-duration="2.2" data-track-index="1">
-        <div class="fx-placeholder">
-          <div id="p6b-card" class="ph-card">
-            <div class="ph-icon">&#128296;</div>
-            <div class="ph-label">Extrait vidéo à venir — en train de construire autre chose</div>
-          </div>
+      <div id="p6b">
+        <div id="p6b-box" class="shot-card landscape">
+          <video id="p6b-el" src="assets/video/atelier-david.mp4" muted playsinline data-start="33.2" data-duration="2.2" data-media-start="5.3"></video>
         </div>
         <div class="fx-phone-wrap">
           <div id="p6b-phone" class="fx-phone"><div class="screen"></div><div class="notif"></div></div>
@@ -383,10 +371,10 @@
 
       <!-- ===== BEAT 7 — "si toi aussi tu as une compétence..." ===== -->
       <div id="p7a" class="clip" data-start="35.4" data-duration="2.4" data-track-index="1">
-        <div id="q1" class="pd-grid placeholder"><span>Image à venir 1</span></div>
-        <div id="q2" class="pd-grid placeholder"><span>Image à venir 2</span></div>
-        <div id="q3" class="pd-grid placeholder"><span>Image à venir 3</span></div>
-        <div id="q4" class="pd-grid placeholder"><span>Image à venir 4</span></div>
+        <div id="q1" class="pd-grid"><img src="assets/images/competence-1.jpg" alt="" /></div>
+        <div id="q2" class="pd-grid"><img src="assets/images/competence-2.jpg" alt="" /></div>
+        <div id="q3" class="pd-grid"><img src="assets/images/competence-3.jpg" alt="" /></div>
+        <div id="q4" class="pd-grid"><img src="assets/images/competence-4.jpg" alt="" /></div>
         <div class="bubble-zone"><div id="p7a-label" class="speech-bubble ink">SI TOI AUSSI TU AS<br/>UNE COMPÉTENCE QUE TU UTILISES</div></div>
       </div>
 
@@ -446,13 +434,14 @@
       tl.set([...p0bChars, "#p0b-cursor"], { opacity: 0 }, 2.6);
 
       // ---- beat 1a: "pour david, ça voulait dire..." ----
-      tl.fromTo("#p1a-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 2.6);
-      tl.fromTo("#p1a-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 2.75);
-      tl.set(["#p1a-eyebrow", "#p1a-title"], { opacity: 0 }, 5.0);
+      tl.fromTo("#p1a-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, 2.6);
+      tl.fromTo("#p1a-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 2.7);
+      tl.set(["#p1a-box", "#p1a-label"], { opacity: 0 }, 5.0);
 
-      // ---- beat 1b: filmer (placeholder) ----
-      tl.fromTo("#p1b-card", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, 5.0);
-      tl.set("#p1b-card", { opacity: 0 }, 6.8);
+      // ---- beat 1b: filmer une seule fois ----
+      tl.fromTo("#p1b-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, 5.0);
+      tl.fromTo("#p1b-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 5.1);
+      tl.set(["#p1b-box", "#p1b-label"], { opacity: 0 }, 6.8);
 
       // ---- beat 1c: vendre cette vidéo (converge + burst) ----
       tl.fromTo("#p1c-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 6.8);
@@ -466,40 +455,46 @@
       });
       tl.set(["#p1c-eyebrow"], { opacity: 0 }, 8.6);
 
-      // ---- beat 1d/1e: apprendre / où qu'il soit (placeholders) ----
-      tl.fromTo("#p1d-card", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 8.6);
-      tl.set("#p1d-card", { opacity: 0 }, 10.2);
-      tl.fromTo("#p1e-card", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 10.2);
-      tl.set("#p1e-card", { opacity: 0 }, 11.6);
+      // ---- beat 1d: à quelqu'un qui veut apprendre (motion design) ----
+      tl.fromTo("#p1d-icon", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.2)" }, 8.6);
+      tl.fromTo("#p1d-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 8.8);
+      tl.set(["#p1d-icon", "#p1d-title"], { opacity: 0 }, 10.2);
+
+      // ---- beat 1e: où qu'il soit ----
+      tl.fromTo("#p1e-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 10.2);
+      tl.fromTo("#p1e-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 10.3);
+      tl.set(["#p1e-box", "#p1e-label"], { opacity: 0 }, 11.6);
 
       // ---- beat 2a: au début, il n'y croyait pas ----
       tl.fromTo("#p2a-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 11.6);
       tl.fromTo("#p2a-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 11.75);
       tl.set(["#p2a-eyebrow", "#p2a-title"], { opacity: 0 }, 13.6);
 
-      // ---- beat 2b/2c: doubt quote over placeholders ----
-      tl.fromTo("#p2b-card", { opacity: 0 }, { opacity: 1, duration: 0.16 }, 13.6);
+      // ---- beat 2b/2c: doubt quote over real footage ----
+      tl.fromTo("#p2b-box", { opacity: 0 }, { opacity: 1, duration: 0.16 }, 13.6);
       tl.fromTo("#p2b-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 13.7);
-      tl.set(["#p2b-card", "#p2b-label"], { opacity: 0 }, 15.2);
-      tl.fromTo("#p2c-card", { opacity: 0 }, { opacity: 1, duration: 0.16 }, 15.2);
+      tl.set(["#p2b-box", "#p2b-label"], { opacity: 0 }, 15.2);
+      tl.fromTo("#p2c-box", { opacity: 0 }, { opacity: 1, duration: 0.16 }, 15.2);
       tl.fromTo("#p2c-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 15.3);
-      tl.set(["#p2c-card", "#p2c-label"], { opacity: 0 }, 17.0);
+      tl.set(["#p2c-box", "#p2c-label"], { opacity: 0 }, 17.0);
 
       // ---- beat 3a: mais on a essayé quand même ----
       tl.fromTo("#p3a-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 17.0);
       tl.fromTo("#p3a-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 17.15);
       tl.set(["#p3a-eyebrow", "#p3a-title"], { opacity: 0 }, 19.0);
 
-      // ---- beat 3b/3c: atelier / mains (placeholders) ----
-      tl.fromTo("#p3b-card", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 19.0);
-      tl.set("#p3b-card", { opacity: 0 }, 20.8);
-      tl.fromTo("#p3c-card", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 20.8);
-      tl.set("#p3c-card", { opacity: 0 }, 22.6);
+      // ---- beat 3b/3c: atelier / mains ----
+      tl.fromTo("#p3b-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 19.0);
+      tl.fromTo("#p3b-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 19.1);
+      tl.set(["#p3b-box", "#p3b-label"], { opacity: 0 }, 20.8);
+      tl.fromTo("#p3c-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 20.8);
+      tl.fromTo("#p3c-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 20.9);
+      tl.set(["#p3c-box", "#p3c-label"], { opacity: 0 }, 22.6);
 
-      // ---- beat 4a: guide cover (placeholder) ----
-      tl.fromTo("#p4a-card", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 22.6);
+      // ---- beat 4a: guide cover ----
+      tl.fromTo("#p4a-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 22.6);
       tl.fromTo("#p4a-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 22.7);
-      tl.set(["#p4a-card", "#p4a-label"], { opacity: 0 }, 24.4);
+      tl.set(["#p4a-box", "#p4a-label"], { opacity: 0 }, 24.4);
 
       // ---- beat 4b: étape par étape (stepped progress) ----
       tl.fromTo("#p4b-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 24.4);
@@ -514,22 +509,21 @@
       tl.fromTo(".fx-notif-card", { opacity: 0, y: -30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(2)" }, 26.6);
       tl.set(".fx-notif-card", { opacity: 0 }, 28.8);
 
-      // ---- beat 5b: deuxième vente x2 ----
-      tl.fromTo("#p5b-n1", { opacity: 0, y: -30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: "back.out(2)" }, 28.8);
-      tl.set("#p5b-n1", { opacity: 0 }, 29.7);
-      tl.fromTo("#p5b-n2", { opacity: 0, y: -30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.26, ease: "back.out(2)" }, 29.7);
-      tl.set("#p5b-n2", { opacity: 0 }, 30.8);
+      // ---- beat 5b: deuxième vente (real footage + notification overlay) ----
+      tl.fromTo("#p5b-box", { opacity: 0 }, { opacity: 1, duration: 0.16 }, 28.8);
+      tl.fromTo("#p5b-n1", { opacity: 0, y: -30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: "back.out(2)" }, 29.1);
+      tl.set(["#p5b-box", "#p5b-n1"], { opacity: 0 }, 30.8);
 
       // ---- beat 6a: aujourd'hui, david vend... ----
-      tl.fromTo("#p6a-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 30.8);
-      tl.fromTo("#p6a-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 30.95);
-      tl.set(["#p6a-eyebrow", "#p6a-title"], { opacity: 0 }, 33.2);
+      tl.fromTo("#p6a-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, 30.8);
+      tl.fromTo("#p6a-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 30.9);
+      tl.set(["#p6a-box", "#p6a-label"], { opacity: 0 }, 33.2);
 
-      // ---- beat 6b: construire autre chose (placeholder + phone overlay) ----
-      tl.fromTo("#p6b-card", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 33.2);
+      // ---- beat 6b: construire autre chose (real footage + phone overlay) ----
+      tl.fromTo("#p6b-box", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 33.2);
       tl.fromTo("#p6b-phone", { opacity: 0, scale: 0.6, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.2)" }, 33.5);
       tl.fromTo("#p6b-phone .notif", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 33.9);
-      tl.set(["#p6b-card", "#p6b-phone"], { opacity: 0 }, 35.4);
+      tl.set(["#p6b-box", "#p6b-phone"], { opacity: 0 }, 35.4);
 
       // ---- beat 7a: 4-up mosaic ----
       tl.fromTo(["#q1", "#q2", "#q3", "#q4"], { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.2)", stagger: 0.06 }, 35.4);
