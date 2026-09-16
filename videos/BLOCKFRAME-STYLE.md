@@ -50,3 +50,27 @@ from the photo itself, not the frame size.
 Apply this sizing from Épisode 2 onward. Episode 1 / academy-01-partie2 are
 not being retroactively re-rendered for this — ask before touching finished,
 already-shared episodes.
+
+## Real logos over generic badges (2026-09-16)
+
+User confirmed: use real, official brand logos (own brand + third-party
+platforms named on screen) instead of generic icon/text badges, wherever a
+named brand appears in the script. Source real logo files from the user's
+asset dropbox (`main` branch) or ask the user to send them directly — do not
+hand-redraw a trademarked mark. `.fx-logo-badge` (168px, 30px radius, 6px ink
+border, 8px offset shadow) is the standard frame for a third-party platform
+logo; `.fx-identity-badge` (260px circle) is the standard frame for the
+DigitalMikaelson mark.
+
+## CTA "Abonne-toi" — standard, permanent pattern (2026-09-16)
+
+**Do not ask again — use this on every future episode by default:**
+a pill-shaped yellow button reading "ABONNE-TOI" pops in
+(`elastic.out(1,0.6)`), then a hand/pointer emoji cursor (`.fx-cursor-hand`)
+slides in from the bottom-right corner of the button and "clicks" it (a quick
+scale-bounce on the cursor + a `.fx-click-ring` burst expanding from the
+click point + the button itself does a small squash-bounce), timed with the
+synthesized click SFX (`audio/sfx/click.wav`). Reuse the exact mechanism from
+academy-01-partie2 / academy-02's beat 10 (`.fx-subscribe-btn`,
+`.fx-cursor-hand`, `.fx-click-ring`) verbatim — only the surrounding text/
+timing changes per episode.
