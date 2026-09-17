@@ -62,6 +62,18 @@ border, 8px offset shadow) is the standard frame for a third-party platform
 logo; `.fx-identity-badge` (260px circle) is the standard frame for the
 DigitalMikaelson mark.
 
+## Script angle — contrarian, not consensus (2026-09-17)
+
+**Standing direction for every future script, starting Épisode 3:** don't
+restate classic digital-marketing advice everyone already knows (e.g. "crée
+un bon produit, fais du contenu, construis une audience, et vends"). Instead,
+name that classic belief explicitly, then go against it — show why the
+common order/assumption is wrong or incomplete, using a concrete case
+(Oncle David) as proof, not another generic tip list. Each script should
+pick one specific belief tied to that episode's VENDRE letter and flip it,
+rather than layering three "leviers" that read like a checklist. This is a
+durable editorial rule — apply it by default, no need to re-ask each time.
+
 ## CTA "Abonne-toi" — standard, permanent pattern (2026-09-16)
 
 **Do not ask again — use this on every future episode by default:**
