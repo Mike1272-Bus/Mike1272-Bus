@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Work Sans";
+        src: url("vendor/fonts/work-sans-variable.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Archivo Black";
+        src: url("vendor/fonts/archivo-black-400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #FFFDF5; }
+      body { font-family: "Work Sans", sans-serif; }
+
+      :root {
+        --yellow: #F7CB46;
+        --ink: #0A0A05;
+        --cream: #FFFDF5;
+      }
+
+      .clip { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; }
+
+      .bg-layer { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+      .bg-grid {
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(to right, rgba(10,10,5,0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(10,10,5,0.08) 1px, transparent 1px);
+        background-size: 54px 54px;
+      }
+
+      /* ---- full-screen media ---- */
+      .shot-card { position: absolute; inset: 0; overflow: hidden; background: var(--cream); opacity: 0; }
+      .shot-card img, .shot-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .shot-card.landscape {
+        inset: auto; left: 40px; top: 640px; width: 1000px; height: 563px;
+        border: 7px solid var(--ink); box-shadow: 12px 12px 0 var(--ink);
+      }
+      .shot-card.ink { background: var(--ink); border-color: var(--yellow); }
+
+      .bubble-zone { position: absolute; left: 0; right: 0; bottom: 260px; display: flex; justify-content: center; padding: 0 60px; z-index: 5; }
+      .speech-bubble {
+        position: relative; display: inline-block; max-width: 920px; padding: 28px 42px 40px;
+        border-radius: 30px; font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 50px; line-height: 1.08; text-align: center; text-wrap: balance; opacity: 0;
+      }
+      .speech-bubble::after {
+        content: ""; position: absolute; left: 54px; bottom: -20px;
+        width: 0; height: 0; border-left: 6px solid transparent; border-right: 30px solid transparent;
+      }
+      .speech-bubble.yellow { background: var(--yellow); color: var(--ink); }
+      .speech-bubble.yellow::after { border-top: 24px solid var(--yellow); }
+      .speech-bubble.ink { background: var(--ink); color: var(--cream); }
+      .speech-bubble.ink::after { border-top: 24px solid var(--ink); }
+
+      .p1-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 80px; text-align: center; }
+      .p1-text span {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 88px; line-height: 1.1; color: var(--ink); opacity: 0; text-wrap: balance;
+      }
+
+      /* ---- hook: typewriter title card ---- */
+      .type-card { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+      .type-text {
+        font-family: "Courier New", Consolas, monospace; font-weight: 700; letter-spacing: 0.02em;
+        font-size: 88px; color: #6B6B66; text-transform: uppercase;
+      }
+      .type-text span { opacity: 0; }
+      #p0-cursor { opacity: 0; }
+
+      /* ---- generated illustration scaffold ---- */
+      .fx-scene {
+        position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 50px; padding: 0 60px; text-align: center;
+      }
+      .fx-eyebrow {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--yellow); background: var(--ink); border-radius: 999px; padding: 16px 34px; opacity: 0;
+      }
+      .fx-title {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 92px; line-height: 1.08; color: var(--ink); text-wrap: balance; opacity: 0;
+      }
+      .fx-title.small { font-size: 68px; }
+
+      /* ---- generic big emoji illustration ---- */
+      .fx-emoji-big { font-size: 190px; opacity: 0; line-height: 1; }
+      .fx-emoji-row { display: flex; gap: 40px; align-items: center; }
+
+      /* ---- ban line overlay (reused from academy-02) ---- */
+      .fx-ban-wrap { position: relative; display: flex; align-items: center; justify-content: center; width: 320px; height: 320px; }
+      .ban-line {
+        position: absolute; left: -10%; right: -10%; top: 50%; height: 20px; margin-top: -10px;
+        background: #D64545; border: 5px solid var(--ink); transform-origin: center; opacity: 0; z-index: 6;
+      }
+
+      /* ---- VENDRE roadmap tracker (reused, highlight-per-letter) ---- */
+      .fx-roadmap { display: flex; align-items: center; }
+      .fx-node {
+        width: 124px; height: 124px; border-radius: 50%; background: var(--cream); border: 7px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-family: "Archivo Black", sans-serif;
+        font-size: 56px; color: var(--ink); opacity: 0; flex: none;
+      }
+      .fx-node.hot { background: var(--yellow); }
+      .fx-node-line { width: 32px; height: 7px; background: var(--ink); opacity: 0; transform-origin: left center; transform: scaleX(0); flex: none; }
+      .fx-roadmap-caption {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); opacity: 0; text-align: center; max-width: 900px;
+      }
+
+      /* ---- numbered list badges (1 / 2 / 3) ---- */
+      .fx-numbadge {
+        width: 190px; height: 190px; border-radius: 50%; background: var(--yellow); border: 8px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-family: "Archivo Black", sans-serif;
+        font-size: 100px; color: var(--ink); opacity: 0;
+      }
+
+      /* ---- checklist intro (three things) ---- */
+      .fx-check-row { display: flex; gap: 40px; }
+      .fx-check-circle {
+        width: 130px; height: 130px; border-radius: 50%; background: var(--yellow); border: 7px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-size: 66px; opacity: 0;
+      }
+
+      /* ---- discussion bubbles (question / opinion / debate) ---- */
+      .fx-discuss-row { display: flex; gap: 34px; }
+      .fx-discuss-bubble {
+        width: 160px; height: 160px; border-radius: 50%; background: var(--cream); border: 7px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-size: 76px; opacity: 0;
+      }
+
+      /* ---- guide unlock (lead magnet) ---- */
+      .fx-lock-wrap { position: relative; width: 320px; height: 320px; display: flex; align-items: center; justify-content: center; }
+      .fx-lock { font-size: 190px; opacity: 0; position: absolute; }
+      .fx-book { font-size: 170px; opacity: 0; position: absolute; }
+      .fx-free-tag {
+        font-family: "Archivo Black", sans-serif; font-size: 38px; text-transform: uppercase; color: var(--ink);
+        background: var(--yellow); border: 5px solid var(--ink); border-radius: 999px; padding: 14px 34px; opacity: 0;
+      }
+
+      /* ---- CTA (subscribe) ---- */
+      .fx-subscribe-btn {
+        background: var(--yellow); border: 7px solid var(--ink); border-radius: 999px; box-shadow: 16px 16px 0 var(--ink);
+        padding: 36px 72px; opacity: 0; transform-origin: 50% 50%; position: relative;
+      }
+      .fx-subscribe-btn span { font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 104px; color: var(--ink); letter-spacing: -0.01em; }
+      .fx-cursor-hand { position: absolute; font-size: 78px; opacity: 0; filter: drop-shadow(4px 4px 0 rgba(10,10,5,0.25)); }
+      .fx-click-ring { position: absolute; width: 54px; height: 54px; border-radius: 50%; border: 5px solid var(--ink); opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="95.8" data-width="1080" data-height="1920">
+
+      <div class="bg-layer"><div class="bg-grid"></div></div>
+
+      <!-- ===== HOOK — "ÉPISODE 4" typewriter ===== -->
+      <div id="p0" class="clip" data-start="0" data-duration="1.3" data-track-index="1">
+        <div class="type-card">
+          <span class="type-text"><span id="p0-c1">É</span><span id="p0-c2">P</span><span id="p0-c3">I</span><span id="p0-c4">S</span><span id="p0-c5">O</span><span id="p0-c6">D</span><span id="p0-c7">E</span><span id="p0-sp">&nbsp;</span><span id="p0-c8">4</span><span id="p0-cursor">&#9608;</span></span>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 1 — la croyance classique ===== -->
+      <div id="p1a" class="clip" data-start="1.300" data-duration="1.466" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p1a-emoji" class="fx-emoji-big">&#128227;</div>
+          <div class="p1-text" style="position:static;"><span id="p1a-t" style="opacity:1; position:static;">ON TE DIT :</span></div>
+        </div>
+      </div>
+
+      <div id="p1b">
+        <div id="p1b-box" class="shot-card landscape">
+          <video id="p1b-el" src="assets/video/likes-commentaires-partages.mp4" muted playsinline data-start="2.766" data-duration="3.909" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p1b-label" class="speech-bubble yellow">PLUS T'AS DE LIKES,<br/>DE COMMENTAIRES, DE PARTAGES</div></div>
+      </div>
+
+      <div id="p1c">
+        <div id="p1c-box" class="shot-card landscape">
+          <video id="p1c-el" src="assets/video/contenu-bon.mp4" muted playsinline data-start="6.675" data-duration="2.443" data-media-start="0.2"></video>
+        </div>
+        <div class="bubble-zone"><div id="p1c-label" class="speech-bubble ink">PLUS TON CONTENU EST BON</div></div>
+      </div>
+
+      <div id="p1d" class="clip" data-start="9.118" data-duration="3.420" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p1d-thumb" class="fx-emoji-big">&#128077;</div>
+          <div id="p1d-title" class="fx-title small">MAIS UN LIKE,<br/>ÇA NE PROUVE RIEN</div>
+        </div>
+      </div>
+
+      <div id="p1e">
+        <div id="p1e-box" class="shot-card landscape">
+          <img id="p1e-el" src="assets/images/sans-regarder.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p1e-label" class="speech-bubble yellow">N'IMPORTE QUI LIKE<br/>SANS MÊME REGARDER</div></div>
+      </div>
+
+      <!-- ===== BEAT 2 — définition dans VENDRE ===== -->
+      <div id="p2a" class="clip" data-start="15.469" data-duration="1.955" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p2a-eyebrow" class="fx-eyebrow">DANS NOTRE STRATÉGIE</div>
+          <div class="fx-roadmap">
+            <div id="p2a-v" class="fx-node">V</div>
+            <div id="p2a-l1" class="fx-node-line"></div>
+            <div id="p2a-e1" class="fx-node hot">E</div>
+            <div id="p2a-l2" class="fx-node-line"></div>
+            <div id="p2a-n" class="fx-node">N</div>
+            <div id="p2a-l3" class="fx-node-line"></div>
+            <div id="p2a-d" class="fx-node">D</div>
+            <div id="p2a-l4" class="fx-node-line"></div>
+            <div id="p2a-r" class="fx-node">R</div>
+            <div id="p2a-l5" class="fx-node-line"></div>
+            <div id="p2a-e2" class="fx-node">E</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="p2b">
+        <div id="p2b-box" class="shot-card landscape">
+          <video id="p2b-el" src="assets/video/e-engagement.mp4" muted playsinline data-start="17.424" data-duration="1.954" data-media-start="0.2"></video>
+        </div>
+        <div class="bubble-zone"><div id="p2b-label" class="speech-bubble ink">LE E, C'EST L'ENGAGEMENT</div></div>
+      </div>
+
+      <div id="p2c">
+        <div id="p2c-box" class="shot-card landscape">
+          <img id="p2c-el" src="assets/images/quelquun-qui-t-a-vu.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p2c-label" class="speech-bubble yellow">C'EST LE MOMENT OÙ QUELQU'UN<br/>QUI T'A VU UNE PREMIÈRE FOIS</div></div>
+      </div>
+
+      <div id="p2d">
+        <div id="p2d-box" class="shot-card landscape">
+          <img id="p2d-el" src="assets/images/commence-interagir.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p2d-label" class="speech-bubble ink">COMMENCE À INTERAGIR<br/>VRAIMENT AVEC TOI</div></div>
+      </div>
+
+      <div id="p2e">
+        <div id="p2e-box" class="shot-card landscape">
+          <video id="p2e-el" src="assets/video/commentaire-partage-message.mp4" muted playsinline data-start="28.173" data-duration="2.932" data-media-start="0.2"></video>
+        </div>
+        <div class="bubble-zone"><div id="p2e-label" class="speech-bubble yellow">UN COMMENTAIRE.<br/>UN PARTAGE. UN MESSAGE.</div></div>
+      </div>
+
+      <div id="p2f" class="clip" data-start="31.105" data-duration="2.931" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-ban-wrap">
+            <div id="p2f-thumb" class="fx-emoji-big">&#128077;</div>
+            <div id="p2f-ban" class="ban-line" style="transform: rotate(-8deg);"></div>
+          </div>
+          <div id="p2f-title" class="fx-title small">PAS UN SIMPLE<br/>RÉFLEXE DE POUCE</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 3 — trois implications concrètes ===== -->
+      <div id="p3a" class="clip" data-start="34.036" data-duration="2.932" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-check-row">
+            <div id="p3a-c1" class="fx-check-circle">&#10003;</div>
+            <div id="p3a-c2" class="fx-check-circle">&#10003;</div>
+            <div id="p3a-c3" class="fx-check-circle">&#10003;</div>
+          </div>
+          <div id="p3a-title" class="fx-title small">ÇA IMPLIQUE TROIS<br/>CHOSES CONCRÈTES</div>
+        </div>
+      </div>
+
+      <div id="p3b" class="clip" data-start="36.968" data-duration="0.488" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p3b-badge" class="fx-numbadge">1</div>
+        </div>
+      </div>
+
+      <div id="p3c">
+        <div id="p3c-box" class="shot-card landscape">
+          <img id="p3c-el" src="assets/images/un-commentaire.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p3c-label" class="speech-bubble ink">UN COMMENTAIRE</div></div>
+      </div>
+
+      <div id="p3d">
+        <div id="p3d-box" class="shot-card landscape">
+          <img id="p3d-el" src="assets/images/like-button.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p3d-label" class="speech-bubble yellow">VAUT PLUS QU'UN LIKE</div></div>
+      </div>
+
+      <div id="p3e">
+        <div id="p3e-box" class="shot-card landscape">
+          <img id="p3e-el" src="assets/images/vrai-interet.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p3e-label" class="speech-bubble ink">ÇA DEMANDE UN EFFORT,<br/>DONC ÇA PROUVE UN VRAI INTÉRÊT</div></div>
+      </div>
+
+      <div id="p3f" class="clip" data-start="45.274" data-duration="0.489" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p3f-badge" class="fx-numbadge">2</div>
+        </div>
+      </div>
+
+      <div id="p3g">
+        <div id="p3g-box" class="shot-card landscape">
+          <img id="p3g-el" src="assets/images/quon-reagisse-suppliques.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p3g-label" class="speech-bubble yellow">L'ENGAGEMENT NE VIENT PAS<br/>DE TOI QUI SUPPLIQUES</div></div>
+      </div>
+
+      <div id="p3h">
+        <div id="p3h-box" class="shot-card landscape">
+          <video id="p3h-el" src="assets/video/quon-reagisse.mp4" muted playsinline data-start="49.671" data-duration="0.978" data-media-start="0.2"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3h-label" class="speech-bubble ink">QU'ON RÉAGISSE</div></div>
+      </div>
+
+      <div id="p3i">
+        <div id="p3i-box" class="shot-card landscape">
+          <video id="p3i-el" src="assets/video/vraie-raison.mp4" muted playsinline data-start="50.649" data-duration="5.863" data-media-start="0.2"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3i-label" class="speech-bubble yellow">IL VIENT DE TON CONTENU<br/>QUI DONNE UNE VRAIE RAISON</div></div>
+      </div>
+
+      <div id="p3j" class="clip" data-start="56.512" data-duration="4.397" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-discuss-row">
+            <div id="p3j-b1" class="fx-discuss-bubble">&#10067;</div>
+            <div id="p3j-b2" class="fx-discuss-bubble">&#128172;</div>
+            <div id="p3j-b3" class="fx-discuss-bubble">&#9878;&#65039;</div>
+          </div>
+          <div id="p3j-title" class="fx-title small">UNE QUESTION,<br/>UNE OPINION TRANCHÉE,<br/>QUELQUE CHOSE À DÉBATTRE</div>
+        </div>
+      </div>
+
+      <div id="p3k" class="clip" data-start="60.909" data-duration="0.489" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p3k-badge" class="fx-numbadge">3</div>
+        </div>
+      </div>
+
+      <div id="p3l">
+        <div id="p3l-box" class="shot-card landscape">
+          <video id="p3l-el" src="assets/video/repondre-commentaires.mp4" muted playsinline data-start="61.398" data-duration="1.466" data-media-start="0.2"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3l-label" class="speech-bubble ink">RÉPONDRE AUX COMMENTAIRES</div></div>
+      </div>
+
+      <div id="p3m">
+        <div id="p3m-box" class="shot-card landscape">
+          <video id="p3m-el" src="assets/video/autant-que-publier.mp4" muted playsinline data-start="62.864" data-duration="1.954" data-media-start="0.2"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3m-label" class="speech-bubble yellow">COMPTE AUTANT QUE PUBLIER</div></div>
+      </div>
+
+      <div id="p3n">
+        <div id="p3n-box" class="shot-card landscape">
+          <video id="p3n-el" src="assets/video/algorithme.mp4" muted playsinline data-start="64.818" data-duration="0.489" data-media-start="0.2"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3n-label" class="speech-bubble ink">L'ALGORITHME</div></div>
+      </div>
+
+      <div id="p3o">
+        <div id="p3o-box" class="shot-card landscape">
+          <video id="p3o-el" src="assets/video/confiance-construisent.mp4" muted playsinline data-start="65.307" data-duration="2.443" data-media-start="0.2"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3o-label" class="speech-bubble yellow">ET LA CONFIANCE<br/>SE CONSTRUISENT</div></div>
+      </div>
+
+      <div id="p3p">
+        <div id="p3p-box" class="shot-card landscape">
+          <video id="p3p-el" src="assets/video/pas-monologue.mp4" muted playsinline data-start="67.750" data-duration="2.931" data-media-start="0.2"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3p-label" class="speech-bubble ink">DANS L'ALLER-RETOUR,<br/>PAS DANS LE MONOLOGUE</div></div>
+      </div>
+
+      <!-- ===== BEAT 5 — le guide gratuit (lead magnet) ===== -->
+      <div id="p5a" class="clip" data-start="70.681" data-duration="9.772" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-lock-wrap">
+            <div id="p5a-lock" class="fx-lock">&#128274;</div>
+            <div id="p5a-book" class="fx-book">&#128214;</div>
+          </div>
+          <div id="p5a-free" class="fx-free-tag">GRATUIT</div>
+          <div id="p5a-title" class="fx-title small">À LA FIN DE CE MODULE,<br/>ACCÈS AU GUIDE DU<br/>MARKETING DIGITAL VENDRE</div>
+        </div>
+      </div>
+
+      <div id="p5b">
+        <div id="p5b-box" class="shot-card landscape">
+          <img id="p5b-el" src="assets/images/guide-menuiserie-cover.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p5b-label" class="speech-bubble yellow">COMMENT ONCLE DAVID<br/>A MONÉTISÉ SA COMPÉTENCE<br/>DE MENUISERIE</div></div>
+      </div>
+
+      <div id="p5c">
+        <div id="p5c-box" class="shot-card landscape">
+          <img id="p5c-el" src="assets/images/produits-digitaux.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p5c-label" class="speech-bubble ink">GRÂCE AUX PRODUITS DIGITAUX</div></div>
+      </div>
+
+      <!-- ===== BEAT 6 — CTA abonne-toi + commente présent ===== -->
+      <div id="p6" class="clip" data-start="89.737" data-duration="6.063" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-subscribe-btn">
+            <span>ABONNE-TOI</span>
+            <div id="p6-ring" class="fx-click-ring" style="right:14px; bottom:8px;"></div>
+            <div id="p6-hand" class="fx-cursor-hand" style="right:-44px; bottom:-34px;">&#128070;</div>
+          </div>
+          <div id="p6-line" class="fx-title small">COMMENTE "PRÉSENT"<br/>POUR MONTRER QUE TU ES LÀ</div>
+        </div>
+      </div>
+
+      <!-- AUDIO -->
+      <audio id="sfx-typing" class="clip" data-start="0" data-duration="1.3" data-track-index="9" src="audio/sfx/typing.wav"></audio>
+      <audio id="vo-main" class="clip" data-start="1.3" data-duration="94.51" data-track-index="8" src="audio/real/voice-final.wav"></audio>
+      <audio id="sfx-click" class="clip" data-start="90.337" data-duration="0.14" data-track-index="10" src="audio/sfx/click.wav"></audio>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // ---- hook: "ÉPISODE 4" typewriter ----
+      const p0Chars = ["#p0-c1", "#p0-c2", "#p0-c3", "#p0-c4", "#p0-c5", "#p0-c6", "#p0-c7", "#p0-sp", "#p0-c8"];
+      p0Chars.forEach((sel, i) => { tl.set(sel, { opacity: 1 }, 0 + i * 0.09); });
+      tl.set("#p0-cursor", { opacity: 1 }, 0);
+      tl.to("#p0-cursor", { opacity: 0, duration: 0.15, repeat: 7, yoyo: true, ease: "steps(1)" }, 0);
+      tl.set([...p0Chars, "#p0-cursor"], { opacity: 0 }, 1.3);
+
+      // ---- p1a: on te dit (megaphone) ----
+      tl.fromTo("#p1a-emoji", { opacity: 0, scale: 0.5, rotation: -10 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.24, ease: "back.out(2.6)" }, 1.3);
+      tl.to("#p1a-emoji", { rotation: 8, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.6);
+      tl.fromTo("#p1a-t", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 1.5);
+      tl.set(["#p1a-emoji", "#p1a-t"], { opacity: 0 }, 2.766);
+
+      // ---- p1b: plus t'as de likes (video, chroma-keyed) ----
+      tl.fromTo("#p1b-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 2.766);
+      tl.fromTo("#p1b-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 2.846);
+      tl.set(["#p1b-box", "#p1b-label"], { opacity: 0 }, 6.675);
+
+      // ---- p1c: plus ton contenu est bon (video) ----
+      tl.fromTo("#p1c-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 6.675);
+      tl.fromTo("#p1c-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 6.755);
+      tl.set(["#p1c-box", "#p1c-label"], { opacity: 0 }, 9.118);
+
+      // ---- p1d: mais un like ça ne prouve rien (thumb deflate) ----
+      tl.fromTo("#p1d-thumb", { opacity: 0, scale: 1.2, filter: "grayscale(0)" }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.4)" }, 9.118);
+      tl.to("#p1d-thumb", { scale: 0.55, filter: "grayscale(1)", opacity: 0.5, duration: 0.6, ease: "power2.in" }, 9.918);
+      tl.fromTo("#p1d-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 9.368);
+      tl.set(["#p1d-thumb", "#p1d-title"], { opacity: 0 }, 12.538);
+
+      // ---- p1e: sans même regarder (image) ----
+      tl.fromTo("#p1e-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 12.538);
+      tl.fromTo("#p1e-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 12.618);
+      tl.set(["#p1e-box", "#p1e-label"], { opacity: 0 }, 15.469);
+
+      // ---- p2a: dans notre stratégie (roadmap, E allumé) ----
+      tl.fromTo("#p2a-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 15.469);
+      const p2aNodes = [["#p2a-v", null], ["#p2a-l1", "line"], ["#p2a-e1", null], ["#p2a-l2", "line"], ["#p2a-n", null], ["#p2a-l3", "line"], ["#p2a-d", null], ["#p2a-l4", "line"], ["#p2a-r", null], ["#p2a-l5", "line"], ["#p2a-e2", null]];
+      p2aNodes.forEach(([sel, kind], i) => {
+        const start = 15.719 + i * 0.09;
+        if (kind === "line") {
+          tl.fromTo(sel, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.1, ease: "power2.out" }, start);
+        } else {
+          tl.fromTo(sel, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.14, ease: "back.out(2.6)" }, start);
+        }
+      });
+      tl.set(["#p2a-eyebrow", "#p2a-v", "#p2a-l1", "#p2a-e1", "#p2a-l2", "#p2a-n", "#p2a-l3", "#p2a-d", "#p2a-l4", "#p2a-r", "#p2a-l5", "#p2a-e2"], { opacity: 0 }, 17.424);
+
+      // ---- p2b: le E c'est l'engagement (video) ----
+      tl.fromTo("#p2b-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 17.424);
+      tl.fromTo("#p2b-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 17.504);
+      tl.set(["#p2b-box", "#p2b-label"], { opacity: 0 }, 19.378);
+
+      // ---- p2c: quelqu'un qui t'a vu (image) ----
+      tl.fromTo("#p2c-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 19.378);
+      tl.fromTo("#p2c-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 19.458);
+      tl.set(["#p2c-box", "#p2c-label"], { opacity: 0 }, 25.241);
+
+      // ---- p2d: commence à interagir (image) ----
+      tl.fromTo("#p2d-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 25.241);
+      tl.fromTo("#p2d-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 25.321);
+      tl.set(["#p2d-box", "#p2d-label"], { opacity: 0 }, 28.173);
+
+      // ---- p2e: un commentaire un partage un message (video) ----
+      tl.fromTo("#p2e-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 28.173);
+      tl.fromTo("#p2e-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 28.253);
+      tl.set(["#p2e-box", "#p2e-label"], { opacity: 0 }, 31.105);
+
+      // ---- p2f: pas un simple réflexe de pouce (thumb + ban line) ----
+      tl.fromTo("#p2f-thumb", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2.4)" }, 31.105);
+      tl.to("#p2f-thumb", { scale: 0.85, duration: 0.09, yoyo: true, repeat: 3, ease: "sine.inOut" }, 31.325);
+      tl.fromTo("#p2f-ban", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.26, ease: "power2.out" }, 31.705);
+      tl.fromTo("#p2f-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 31.355);
+      tl.set(["#p2f-thumb", "#p2f-ban", "#p2f-title"], { opacity: 0 }, 34.036);
+
+      // ---- p3a: ça implique trois choses (checklist) ----
+      tl.fromTo(["#p3a-c1", "#p3a-c2", "#p3a-c3"], { opacity: 0, scale: 0.5, y: -20 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(2.6)", stagger: 0.12 }, 34.036);
+      tl.fromTo("#p3a-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 34.486);
+      tl.set(["#p3a-c1", "#p3a-c2", "#p3a-c3", "#p3a-title"], { opacity: 0 }, 36.968);
+
+      // ---- p3b: badge 1 ----
+      tl.fromTo("#p3b-badge", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.8)" }, 36.968);
+      tl.set("#p3b-badge", { opacity: 0 }, 37.456);
+
+      // ---- p3c: un commentaire (image) ----
+      tl.fromTo("#p3c-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 37.456);
+      tl.fromTo("#p3c-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 37.526);
+      tl.set(["#p3c-box", "#p3c-label"], { opacity: 0 }, 38.434);
+
+      // ---- p3d: vaut plus qu'un like (image) ----
+      tl.fromTo("#p3d-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 38.434);
+      tl.fromTo("#p3d-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 38.504);
+      tl.set(["#p3d-box", "#p3d-label"], { opacity: 0 }, 40.388);
+
+      // ---- p3e: prouve un vrai intérêt (image) ----
+      tl.fromTo("#p3e-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 40.388);
+      tl.fromTo("#p3e-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 40.468);
+      tl.set(["#p3e-box", "#p3e-label"], { opacity: 0 }, 45.274);
+
+      // ---- p3f: badge 2 ----
+      tl.fromTo("#p3f-badge", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.8)" }, 45.274);
+      tl.set("#p3f-badge", { opacity: 0 }, 45.763);
+
+      // ---- p3g: l'engagement ne vient pas de toi qui suppliques (image) ----
+      tl.fromTo("#p3g-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 45.763);
+      tl.fromTo("#p3g-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 45.843);
+      tl.set(["#p3g-box", "#p3g-label"], { opacity: 0 }, 49.671);
+
+      // ---- p3h: qu'on réagisse (video) ----
+      tl.fromTo("#p3h-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 49.671);
+      tl.fromTo("#p3h-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 49.741);
+      tl.set(["#p3h-box", "#p3h-label"], { opacity: 0 }, 50.649);
+
+      // ---- p3i: il vient de ton contenu (video) ----
+      tl.fromTo("#p3i-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 50.649);
+      tl.fromTo("#p3i-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 50.729);
+      tl.set(["#p3i-box", "#p3i-label"], { opacity: 0 }, 56.512);
+
+      // ---- p3j: une question une opinion tranchée (discussion bubbles) ----
+      tl.fromTo(["#p3j-b1", "#p3j-b2", "#p3j-b3"], { opacity: 0, scale: 0.5, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.6)", stagger: 0.14 }, 56.512);
+      tl.fromTo("#p3j-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 57.112);
+      tl.set(["#p3j-b1", "#p3j-b2", "#p3j-b3", "#p3j-title"], { opacity: 0 }, 60.909);
+
+      // ---- p3k: badge 3 ----
+      tl.fromTo("#p3k-badge", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.8)" }, 60.909);
+      tl.set("#p3k-badge", { opacity: 0 }, 61.398);
+
+      // ---- p3l: répondre aux commentaires (video) ----
+      tl.fromTo("#p3l-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 61.398);
+      tl.fromTo("#p3l-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 61.468);
+      tl.set(["#p3l-box", "#p3l-label"], { opacity: 0 }, 62.864);
+
+      // ---- p3m: compte autant que publier (video) ----
+      tl.fromTo("#p3m-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 62.864);
+      tl.fromTo("#p3m-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 62.934);
+      tl.set(["#p3m-box", "#p3m-label"], { opacity: 0 }, 64.818);
+
+      // ---- p3n: l'algorithme (video) ----
+      tl.fromTo("#p3n-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 64.818);
+      tl.fromTo("#p3n-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 64.888);
+      tl.set(["#p3n-box", "#p3n-label"], { opacity: 0 }, 65.307);
+
+      // ---- p3o: et la confiance se construisent (video) ----
+      tl.fromTo("#p3o-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 65.307);
+      tl.fromTo("#p3o-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 65.377);
+      tl.set(["#p3o-box", "#p3o-label"], { opacity: 0 }, 67.750);
+
+      // ---- p3p: pas dans le monologue (video) ----
+      tl.fromTo("#p3p-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 67.750);
+      tl.fromTo("#p3p-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 67.830);
+      tl.set(["#p3p-box", "#p3p-label"], { opacity: 0 }, 70.681);
+
+      // ---- p5a: guide gratuit (unlock) ----
+      tl.fromTo("#p5a-lock", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.4)" }, 70.681);
+      tl.to("#p5a-lock", { opacity: 0, scale: 1.3, rotation: -25, duration: 0.3, ease: "power2.in" }, 71.581);
+      tl.fromTo("#p5a-book", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, 71.831);
+      tl.fromTo("#p5a-free", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.4)" }, 72.181);
+      tl.fromTo("#p5a-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 72.481);
+      tl.set(["#p5a-lock", "#p5a-book", "#p5a-free", "#p5a-title"], { opacity: 0 }, 80.453);
+
+      // ---- p5b: guide de menuiserie d'oncle david (image) ----
+      tl.fromTo("#p5b-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 80.453);
+      tl.fromTo("#p5b-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 80.533);
+      tl.set(["#p5b-box", "#p5b-label"], { opacity: 0 }, 87.782);
+
+      // ---- p5c: grâce aux produits digitaux (image) ----
+      tl.fromTo("#p5c-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 87.782);
+      tl.fromTo("#p5c-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 87.862);
+      tl.set(["#p5c-box", "#p5c-label"], { opacity: 0 }, 89.737);
+
+      // ---- p6: CTA abonne-toi + commente présent ----
+      tl.fromTo(".fx-subscribe-btn", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.26, ease: "elastic.out(1,0.6)" }, 89.737);
+      tl.fromTo("#p6-hand", { opacity: 0, x: 40, y: 40 }, { opacity: 1, x: 0, y: 0, duration: 0.22, ease: "power2.out" }, 90.137);
+      tl.to("#p6-hand", { scale: 0.85, duration: 0.09, yoyo: true, repeat: 1 }, 90.337);
+      tl.set("#p6-ring", { opacity: 1, scale: 0.3 }, 90.337);
+      tl.to("#p6-ring", { opacity: 0, scale: 1.8, duration: 0.22, ease: "power2.out" }, 90.337);
+      tl.set("#p6-ring", { opacity: 0 }, 90.56);
+      tl.to(".fx-subscribe-btn", { scale: 0.94, duration: 0.07, yoyo: true, repeat: 1 }, 90.337);
+      tl.fromTo("#p6-line", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 90.637);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
