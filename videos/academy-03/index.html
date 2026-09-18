@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Work Sans";
+        src: url("vendor/fonts/work-sans-variable.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Archivo Black";
+        src: url("vendor/fonts/archivo-black-400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #FFFDF5; }
+      body { font-family: "Work Sans", sans-serif; }
+
+      :root {
+        --yellow: #F7CB46;
+        --ink: #0A0A05;
+        --cream: #FFFDF5;
+      }
+
+      .clip { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; }
+
+      .bg-layer { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+      .bg-grid {
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(to right, rgba(10,10,5,0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(10,10,5,0.08) 1px, transparent 1px);
+        background-size: 54px 54px;
+      }
+
+      /* ---- full-screen media ---- */
+      .shot-card { position: absolute; inset: 0; overflow: hidden; background: var(--cream); opacity: 0; }
+      .shot-card img, .shot-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .shot-card.landscape {
+        inset: auto; left: 40px; top: 640px; width: 1000px; height: 563px;
+        border: 7px solid var(--ink); box-shadow: 12px 12px 0 var(--ink);
+      }
+      .shot-card.ink { background: var(--ink); border-color: var(--yellow); }
+
+      .bubble-zone { position: absolute; left: 0; right: 0; bottom: 260px; display: flex; justify-content: center; padding: 0 60px; z-index: 5; }
+      .speech-bubble {
+        position: relative; display: inline-block; max-width: 920px; padding: 28px 42px 40px;
+        border-radius: 30px; font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 50px; line-height: 1.08; text-align: center; text-wrap: balance; opacity: 0;
+      }
+      .speech-bubble::after {
+        content: ""; position: absolute; left: 54px; bottom: -20px;
+        width: 0; height: 0; border-left: 6px solid transparent; border-right: 30px solid transparent;
+      }
+      .speech-bubble.yellow { background: var(--yellow); color: var(--ink); }
+      .speech-bubble.yellow::after { border-top: 24px solid var(--yellow); }
+      .speech-bubble.ink { background: var(--ink); color: var(--cream); }
+      .speech-bubble.ink::after { border-top: 24px solid var(--ink); }
+
+      .p1-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 80px; text-align: center; }
+      .p1-text span {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 88px; line-height: 1.1; color: var(--ink); opacity: 0; text-wrap: balance;
+      }
+
+      /* ---- hook: typewriter title card ---- */
+      .type-card { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+      .type-text {
+        font-family: "Courier New", Consolas, monospace; font-weight: 700; letter-spacing: 0.02em;
+        font-size: 88px; color: #6B6B66; text-transform: uppercase;
+      }
+      .type-text span { opacity: 0; }
+      #p0-cursor { opacity: 0; }
+
+      /* ---- generated illustration scaffold (enlarged per BLOCKFRAME-STYLE.md) ---- */
+      .fx-scene {
+        position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 50px; padding: 0 60px; text-align: center;
+      }
+      .fx-eyebrow {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--yellow); background: var(--ink); border-radius: 999px; padding: 16px 34px; opacity: 0;
+      }
+      .fx-title {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 92px; line-height: 1.08; color: var(--ink); text-wrap: balance; opacity: 0;
+      }
+      .fx-title.small { font-size: 68px; }
+
+      /* ---- VENDRE roadmap tracker (reused, highlight-per-letter) ---- */
+      .fx-roadmap { display: flex; align-items: center; }
+      .fx-node {
+        width: 124px; height: 124px; border-radius: 50%; background: var(--cream); border: 7px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-family: "Archivo Black", sans-serif;
+        font-size: 56px; color: var(--ink); opacity: 0; flex: none;
+      }
+      .fx-node.hot { background: var(--yellow); }
+      .fx-node-line { width: 32px; height: 7px; background: var(--ink); opacity: 0; transform-origin: left center; transform: scaleX(0); flex: none; }
+      .fx-roadmap-caption {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); opacity: 0; text-align: center; max-width: 900px;
+      }
+
+      /* ---- V vs N contrast (notoriété vient plus tard) ---- */
+      .fx-vn-row { display: flex; gap: 70px; align-items: flex-end; }
+      .fx-vn-col { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+      .fx-vn-badge {
+        width: 220px; height: 220px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        font-family: "Archivo Black", sans-serif; font-size: 108px; opacity: 0;
+      }
+      .fx-vn-badge.on { background: var(--yellow); border: 8px solid var(--ink); color: var(--ink); }
+      .fx-vn-badge.off { background: transparent; border: 8px solid #9A9A90; color: #6B6B66; }
+      .fx-vn-tag {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 30px; text-transform: uppercase;
+        letter-spacing: 0.04em; border-radius: 999px; padding: 12px 28px; opacity: 0;
+      }
+      .fx-vn-tag.on { background: var(--ink); color: var(--yellow); }
+      .fx-vn-tag.off { background: #EDEDE6; color: #6B6B66; }
+
+      /* ---- numbered list badges (1 / 2 / 3) ---- */
+      .fx-numbadge {
+        width: 190px; height: 190px; border-radius: 50%; background: var(--yellow); border: 8px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-family: "Archivo Black", sans-serif;
+        font-size: 100px; color: var(--ink); opacity: 0;
+      }
+
+      /* ---- rocket launch ("pour te lancer") ---- */
+      .fx-rocket-wrap { position: relative; width: 300px; height: 500px; }
+      .fx-rocket { position: absolute; left: 50%; bottom: 120px; transform: translateX(-50%); font-size: 160px; opacity: 0; z-index: 3; }
+      .fx-flame { position: absolute; left: 50%; bottom: 60px; transform: translateX(-50%); font-size: 90px; opacity: 0; z-index: 2; }
+      .fx-smoke { position: absolute; bottom: 40px; width: 90px; height: 90px; border-radius: 50%; background: #C9C9C0; opacity: 0; }
+      .fx-launch-pad { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 240px; height: 18px; background: var(--ink); border-radius: 6px; opacity: 0; }
+
+      /* ---- hook + calendar (regularity) ---- */
+      .fx-cal-row { display: flex; gap: 24px; }
+      .fx-day {
+        width: 138px; height: 168px; border-radius: 20px; background: var(--cream); border: 7px solid var(--ink);
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; opacity: 0;
+      }
+      .fx-day .dot { width: 34px; height: 34px; border-radius: 50%; background: var(--yellow); border: 4px solid var(--ink); }
+
+      /* ---- quote-callout for the hook example ---- */
+      .fx-quote-mark { font-family: "Archivo Black", sans-serif; font-size: 60px; line-height: 1; opacity: 0.9; }
+
+      /* ---- CTA (subscribe) ---- */
+      .fx-subscribe-btn {
+        background: var(--yellow); border: 7px solid var(--ink); border-radius: 999px; box-shadow: 16px 16px 0 var(--ink);
+        padding: 36px 72px; opacity: 0; transform-origin: 50% 50%; position: relative;
+      }
+      .fx-subscribe-btn span { font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 104px; color: var(--ink); letter-spacing: -0.01em; }
+      .fx-cursor-hand { position: absolute; font-size: 78px; opacity: 0; filter: drop-shadow(4px 4px 0 rgba(10,10,5,0.25)); }
+      .fx-click-ring { position: absolute; width: 54px; height: 54px; border-radius: 50%; border: 5px solid var(--ink); opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="134.1" data-width="1080" data-height="1920">
+
+      <div class="bg-layer"><div class="bg-grid"></div></div>
+
+      <!-- ===== HOOK — "ÉPISODE 3" typewriter ===== -->
+      <div id="p0" class="clip" data-start="0" data-duration="1.3" data-track-index="1">
+        <div class="type-card">
+          <span class="type-text"><span id="p0-c1">É</span><span id="p0-c2">P</span><span id="p0-c3">I</span><span id="p0-c4">S</span><span id="p0-c5">O</span><span id="p0-c6">D</span><span id="p0-c7">E</span><span id="p0-sp">&nbsp;</span><span id="p0-c8">3</span><span id="p0-cursor">&#9608;</span></span>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 1 — la croyance classique, et son inverse ===== -->
+      <div id="p1a" class="clip" data-start="1.3" data-duration="1.3" data-track-index="1">
+        <div class="p1-text"><span id="p1a-t">ON TE DIT :</span></div>
+      </div>
+
+      <div id="p1b">
+        <div id="p1b-box" class="shot-card landscape">
+          <img id="p1b-el" src="assets/images/produits-mosaic.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p1b-label" class="speech-bubble yellow">CRÉE UN BON PRODUIT</div></div>
+      </div>
+
+      <div id="p1c">
+        <div id="p1c-box" class="shot-card landscape">
+          <img id="p1c-el" src="assets/images/ig-grid-phone.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p1c-label" class="speech-bubble ink">FAIS DU CONTENU</div></div>
+      </div>
+
+      <div id="p1d">
+        <div id="p1d-box" class="shot-card landscape">
+          <video id="p1d-el" src="assets/video/construis-audience.mp4" muted playsinline data-start="5.6" data-duration="1.3" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p1d-label" class="speech-bubble yellow">CONSTRUIS UNE AUDIENCE</div></div>
+      </div>
+
+      <div id="p1e">
+        <div id="p1e-box" class="shot-card landscape">
+          <video id="p1e-el" src="assets/video/et-vends.mp4" muted playsinline data-start="6.9" data-duration="1.0" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p1e-label" class="speech-bubble ink">ET VENDS.</div></div>
+      </div>
+
+      <div id="p1f" class="clip" data-start="7.9" data-duration="3.5" data-track-index="1">
+        <div class="p1-text"><span id="p1f-t">MAIS DANS LES FAITS,<br/>L'ORDRE EST INVERSÉ :</span></div>
+      </div>
+
+      <div id="p1g">
+        <div id="p1g-box" class="shot-card landscape">
+          <video id="p1g-el" src="assets/video/pas-besoin-audience.mp4" muted playsinline data-start="11.4" data-duration="3.9" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p1g-label" class="speech-bubble yellow">TU N'AS PAS BESOIN<br/>D'AUDIENCE POUR ÊTRE VISIBLE</div></div>
+      </div>
+
+      <div id="p1h" class="clip" data-start="15.3" data-duration="3.4" data-track-index="1">
+        <div class="p1-text"><span id="p1h-t">LA VISIBILITÉ VIENT<br/>AVANT L'AUDIENCE —<br/>PAS APRÈS.</span></div>
+      </div>
+
+      <!-- ===== BEAT 2 — définition dans VENDRE ===== -->
+      <div id="p2a" class="clip" data-start="18.7" data-duration="4.7" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p2a-eyebrow" class="fx-eyebrow">DANS NOTRE STRATÉGIE VENDRE</div>
+          <div class="fx-roadmap">
+            <div id="p2a-v" class="fx-node hot">V</div>
+            <div id="p2a-l1" class="fx-node-line"></div>
+            <div id="p2a-e1" class="fx-node">E</div>
+            <div id="p2a-l2" class="fx-node-line"></div>
+            <div id="p2a-n" class="fx-node">N</div>
+            <div id="p2a-l3" class="fx-node-line"></div>
+            <div id="p2a-d" class="fx-node">D</div>
+            <div id="p2a-l4" class="fx-node-line"></div>
+            <div id="p2a-r" class="fx-node">R</div>
+            <div id="p2a-l5" class="fx-node-line"></div>
+            <div id="p2a-e2" class="fx-node">E</div>
+          </div>
+          <div id="p2a-caption" class="fx-roadmap-caption">LE V, C'EST LA VISIBILITÉ</div>
+        </div>
+      </div>
+
+      <div id="p2b">
+        <div id="p2b-box" class="shot-card landscape">
+          <video id="p2b-el" src="assets/video/apparaitre-devant-gens.mp4" muted playsinline data-start="23.4" data-duration="6.5" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p2b-label" class="speech-bubble ink">APPARAÎTRE DEVANT DES GENS<br/>QUI NE TE CONNAISSENT PAS ENCORE</div></div>
+      </div>
+
+      <div id="p2c">
+        <div id="p2c-box" class="shot-card landscape">
+          <video id="p2c-el" src="assets/video/avant-toute-vente.mp4" muted playsinline data-start="29.9" data-duration="1.3" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p2c-label" class="speech-bubble yellow">AVANT TOUTE VENTE</div></div>
+      </div>
+
+      <div id="p2d">
+        <div id="p2d-box" class="shot-card landscape">
+          <video id="p2d-el" src="assets/video/gagner-confiance.mp4" muted playsinline data-start="31.2" data-duration="2.6" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p2d-label" class="speech-bubble ink">AVANT MÊME D'AVOIR<br/>GAGNÉ LEUR CONFIANCE</div></div>
+      </div>
+
+      <div id="p2e" class="clip" data-start="33.8" data-duration="6.6" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-vn-row">
+            <div class="fx-vn-col">
+              <div id="p2e-v" class="fx-vn-badge on">V</div>
+              <div id="p2e-vtag" class="fx-vn-tag on">MAINTENANT</div>
+            </div>
+            <div class="fx-vn-col">
+              <div id="p2e-n" class="fx-vn-badge off">N</div>
+              <div id="p2e-ntag" class="fx-vn-tag off">PLUS TARD</div>
+            </div>
+          </div>
+          <div id="p2e-title" class="fx-title small">CE N'EST PAS LA NOTORIÉTÉ —<br/>ÊTRE RECONNU, ÇA VIENDRA<br/>PLUS TARD, AVEC LE N</div>
+        </div>
+      </div>
+
+      <div id="p2f">
+        <div id="p2f-box" class="shot-card landscape">
+          <video id="p2f-el" src="assets/video/visibilite-globe.mp4" muted playsinline data-start="40.4" data-duration="4.8" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p2f-label" class="speech-bubble yellow">C'EST LE FAIT D'ÊTRE VU,<br/>UNE PREMIÈRE FOIS</div></div>
+      </div>
+
+      <!-- ===== BEAT 3 — trois implications concrètes ===== -->
+      <div id="p3a" class="clip" data-start="45.2" data-duration="2.6" data-track-index="1">
+        <div class="p1-text"><span id="p3a-t">ÇA IMPLIQUE TROIS<br/>CHOSES CONCRÈTES</span></div>
+      </div>
+
+      <div id="p3b" class="clip" data-start="47.8" data-duration="3.9" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p3b-badge" class="fx-numbadge">1</div>
+          <div id="p3b-title" class="fx-title small">TU N'AS PAS BESOIN<br/>D'AUDIENCE POUR ÊTRE VISIBLE</div>
+        </div>
+      </div>
+
+      <div id="p3c">
+        <div id="p3c-box" class="shot-card landscape">
+          <video id="p3c-el" src="assets/video/algorithme-montre.mp4" muted playsinline data-start="51.7" data-duration="1.0" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3c-label" class="speech-bubble ink">L'ALGORITHME MONTRE</div></div>
+      </div>
+
+      <div id="p3d">
+        <div id="p3d-box" class="shot-card landscape">
+          <video id="p3d-el" src="assets/video/inconnus-grid.mp4" muted playsinline data-start="52.7" data-duration="2.2" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3d-label" class="speech-bubble yellow">TON CONTENU À DES INCONNUS</div></div>
+      </div>
+
+      <div id="p3e">
+        <div id="p3e-box" class="shot-card landscape">
+          <img id="p3e-el" src="assets/images/10k-followers.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p3e-label" class="speech-bubble ink">QUE TU AIES ZÉRO<br/>OU DIX MILLE ABONNÉS</div></div>
+      </div>
+
+      <div id="p3f" class="clip" data-start="58.4" data-duration="3.5" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p3f-badge" class="fx-numbadge">2</div>
+          <div id="p3f-title" class="fx-title small">TA VISIBILITÉ DÉPEND<br/>DE TON HOOK ET</div>
+        </div>
+      </div>
+
+      <div id="p3g">
+        <div id="p3g-box" class="shot-card landscape">
+          <img id="p3g-el" src="assets/images/format-multi-device.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p3g-label" class="speech-bubble yellow">DE TON FORMAT</div></div>
+      </div>
+
+      <div id="p3h">
+        <div id="p3h-box" class="shot-card landscape">
+          <video id="p3h-el" src="assets/video/subscribed-badge.mp4" muted playsinline data-start="63.2" data-duration="2.6" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3h-label" class="speech-bubble ink">PAS DE QUI TE SUIT DÉJÀ</div></div>
+      </div>
+
+      <div id="p3i" class="clip" data-start="65.8" data-duration="4.8" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p3i-badge" class="fx-numbadge">3</div>
+          <div id="p3i-title" class="fx-title small">ELLE DOIT ARRIVER<br/>AVANT D'ESPÉRER VENDRE,<br/>PAS EN MÊME TEMPS</div>
+        </div>
+      </div>
+
+      <div id="p3j" class="clip" data-start="70.6" data-duration="5.2" data-track-index="1">
+        <div class="p1-text"><span id="p3j-t">TU NE PEUX PAS VENDRE<br/>À QUELQU'UN QUI NE T'A<br/>JAMAIS VU</span></div>
+      </div>
+
+      <!-- ===== BEAT 4 — cas Oncle David ===== -->
+      <div id="p4a">
+        <div id="p4a-box" class="shot-card landscape">
+          <video id="p4a-el" src="assets/video/oncle-david.mp4" muted playsinline data-start="75.8" data-duration="1.3" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p4a-label" class="speech-bubble yellow">REGARDE ONCLE DAVID</div></div>
+      </div>
+
+      <div id="p4b">
+        <div id="p4b-box" class="shot-card landscape">
+          <img id="p4b-el" src="assets/images/public-network-typing.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p4b-label" class="speech-bubble ink">IL N'A PAS ATTENDU D'AVOIR<br/>UN PUBLIC POUR PUBLIER</div></div>
+      </div>
+
+      <div id="p4c">
+        <div id="p4c-box" class="shot-card landscape">
+          <video id="p4c-el" src="assets/video/laptop-poster.mp4" muted playsinline data-start="81.0" data-duration="5.7" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p4c-label" class="speech-bubble yellow">SA PREMIÈRE VIDÉO,<br/>ZÉRO ABONNÉ, ZÉRO AUDIENCE</div></div>
+      </div>
+
+      <div id="p4d">
+        <div id="p4d-box" class="shot-card landscape">
+          <img id="p4d-el" src="assets/images/guide-menuiserie-cover.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p4d-label" class="speech-bubble ink">JUSTE SON GUIDE<br/>DE MENUISERIE</div></div>
+      </div>
+
+      <div id="p4e">
+        <div id="p4e-box" class="shot-card landscape">
+          <video id="p4e-el" src="assets/video/monetiser-competence-ep3.mp4" muted playsinline data-start="88.9" data-duration="6.5" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone">
+          <div id="p4e-label" class="speech-bubble yellow">
+            <span class="fx-quote-mark">&#8220;</span>COMMENT UN MENUISIER<br/>A RÉUSSI À MONÉTISER<br/>SA COMPÉTENCE<span class="fx-quote-mark">&#8221;</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="p4f">
+        <div id="p4f-box" class="shot-card landscape">
+          <img id="p4f-el" src="assets/images/inconnue-laptop.jpg" alt="" />
+        </div>
+        <div class="bubble-zone"><div id="p4f-label" class="speech-bubble ink">VUE PAR DES INCONNUS</div></div>
+      </div>
+
+      <div id="p4g">
+        <div id="p4g-box" class="shot-card landscape">
+          <video id="p4g-el" src="assets/video/followers-counter.mp4" muted playsinline data-start="99.3" data-duration="6.1" data-media-start="0.3"></video>
+        </div>
+        <div class="bubble-zone"><div id="p4g-label" class="speech-bubble yellow">LE HOOK ET LE FORMAT<br/>COMPTENT PLUS QUE<br/>LE NOMBRE DE FOLLOWERS</div></div>
+      </div>
+
+      <!-- ===== BEAT 5 — ce que ça change pour toi (+ fusée) ===== -->
+      <div id="p5a" class="clip" data-start="105.4" data-duration="6.5" data-track-index="1">
+        <div class="p1-text"><span id="p5a-t">ARRÊTE D'ATTENDRE<br/>D'AVOIR "ASSEZ DE PUBLIC"</span></div>
+      </div>
+
+      <div id="p5b" class="clip" data-start="111.9" data-duration="2.3" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-rocket-wrap">
+            <div id="p5b-smoke1" class="fx-smoke" style="left:70px;"></div>
+            <div id="p5b-smoke2" class="fx-smoke" style="left:150px;"></div>
+            <div id="p5b-flame" class="fx-flame" data-layout-allow-overlap>&#128293;</div>
+            <div id="p5b-rocket" class="fx-rocket">&#128640;</div>
+            <div id="p5b-pad" class="fx-launch-pad"></div>
+          </div>
+          <div id="p5b-title" class="fx-title small">POUR TE LANCER</div>
+        </div>
+      </div>
+
+      <div id="p5c" class="clip" data-start="114.2" data-duration="2.6" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-cal-row">
+            <div id="p5c-d1" class="fx-day"><div class="dot"></div></div>
+            <div id="p5c-d2" class="fx-day"><div class="dot"></div></div>
+            <div id="p5c-d3" class="fx-day"><div class="dot"></div></div>
+          </div>
+          <div id="p5c-title" class="fx-title small">PUBLIE AVEC UN VRAI HOOK,<br/>RÉGULIÈREMENT</div>
+        </div>
+      </div>
+
+      <div id="p5d" class="clip" data-start="116.8" data-duration="3.9" data-track-index="1">
+        <div class="p1-text"><span id="p5d-t">LAISSE LA VISIBILITÉ VENIR<br/>AVANT L'AUDIENCE — PAS APRÈS</span></div>
+      </div>
+
+      <!-- ===== BEAT 6 — transition vers l'Engagement ===== -->
+      <div id="p6" class="clip" data-start="120.7" data-duration="9.9" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p6-eyebrow" class="fx-eyebrow">LA MÉTHODE VENDRE</div>
+          <div class="fx-roadmap">
+            <div id="p6-v" class="fx-node">V</div>
+            <div id="p6-l1" class="fx-node-line"></div>
+            <div id="p6-e1" class="fx-node hot">E</div>
+            <div id="p6-l2" class="fx-node-line"></div>
+            <div id="p6-n" class="fx-node">N</div>
+            <div id="p6-l3" class="fx-node-line"></div>
+            <div id="p6-d" class="fx-node">D</div>
+            <div id="p6-l4" class="fx-node-line"></div>
+            <div id="p6-r" class="fx-node">R</div>
+            <div id="p6-l5" class="fx-node-line"></div>
+            <div id="p6-e2" class="fx-node">E</div>
+          </div>
+          <div id="p6-caption" class="fx-roadmap-caption">LA PROCHAINE ÉTAPE :<br/>L'ENGAGEMENT</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 7 — CTA abonne-toi ===== -->
+      <div id="p7" class="clip" data-start="130.6" data-duration="3.5" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-subscribe-btn">
+            <span>ABONNE-TOI</span>
+            <div id="p7-ring" class="fx-click-ring" style="right:14px; bottom:8px;"></div>
+            <div id="p7-hand" class="fx-cursor-hand" style="right:-44px; bottom:-34px;">&#128070;</div>
+          </div>
+          <div id="p7-line" class="fx-title small">POURSUIVONS CETTE<br/>AVENTURE ENSEMBLE.</div>
+        </div>
+      </div>
+
+      <!-- AUDIO -->
+      <audio id="sfx-typing" class="clip" data-start="0" data-duration="1.3" data-track-index="9" src="audio/sfx/typing.wav"></audio>
+      <audio id="sfx-click" class="clip" data-start="131.4" data-duration="0.14" data-track-index="10" src="audio/sfx/click.wav"></audio>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // ---- hook: "ÉPISODE 3" typewriter ----
+      const p0Chars = ["#p0-c1", "#p0-c2", "#p0-c3", "#p0-c4", "#p0-c5", "#p0-c6", "#p0-c7", "#p0-sp", "#p0-c8"];
+      p0Chars.forEach((sel, i) => { tl.set(sel, { opacity: 1 }, 0 + i * 0.09); });
+      tl.fromTo("#p0-cursor", { opacity: 1 }, { opacity: 0, duration: 0.15, repeat: 7, yoyo: true, ease: "steps(1)" }, 0);
+      tl.set([...p0Chars, "#p0-cursor"], { opacity: 0 }, 1.3);
+
+      // ---- p1a: on te dit ----
+      tl.fromTo("#p1a-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.2)" }, 1.3);
+      tl.set("#p1a-t", { opacity: 0 }, 2.6);
+
+      // ---- p1b: crée un bon produit (image) ----
+      tl.fromTo("#p1b-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 2.6);
+      tl.fromTo("#p1b-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 2.7);
+      tl.set(["#p1b-box", "#p1b-label"], { opacity: 0 }, 4.3);
+
+      // ---- p1c: fais du contenu (image) ----
+      tl.fromTo("#p1c-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 4.3);
+      tl.fromTo("#p1c-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 4.4);
+      tl.set(["#p1c-box", "#p1c-label"], { opacity: 0 }, 5.6);
+
+      // ---- p1d: construis une audience (video) ----
+      tl.fromTo("#p1d-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 5.6);
+      tl.fromTo("#p1d-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 5.7);
+      tl.set(["#p1d-box", "#p1d-label"], { opacity: 0 }, 6.9);
+
+      // ---- p1e: et vends (video) ----
+      tl.fromTo("#p1e-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 6.9);
+      tl.fromTo("#p1e-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 7.0);
+      tl.set(["#p1e-box", "#p1e-label"], { opacity: 0 }, 7.9);
+
+      // ---- p1f: mais dans les faits ----
+      tl.fromTo("#p1f-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.2)" }, 7.9);
+      tl.set("#p1f-t", { opacity: 0 }, 11.4);
+
+      // ---- p1g: tu n'as pas besoin d'audience (video) ----
+      tl.fromTo("#p1g-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 11.4);
+      tl.fromTo("#p1g-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 11.5);
+      tl.set(["#p1g-box", "#p1g-label"], { opacity: 0 }, 15.3);
+
+      // ---- p1h: la visibilité vient avant l'audience ----
+      tl.fromTo("#p1h-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.2)" }, 15.3);
+      tl.set("#p1h-t", { opacity: 0 }, 18.7);
+
+      // ---- p2a: dans notre stratégie VENDRE, V allumé ----
+      tl.fromTo("#p2a-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 18.7);
+      const p2aNodes = [["#p2a-v", null], ["#p2a-l1", "line"], ["#p2a-e1", null], ["#p2a-l2", "line"], ["#p2a-n", null], ["#p2a-l3", "line"], ["#p2a-d", null], ["#p2a-l4", "line"], ["#p2a-r", null], ["#p2a-l5", "line"], ["#p2a-e2", null]];
+      p2aNodes.forEach(([sel, kind], i) => {
+        const start = 19.0 + i * 0.14;
+        if (kind === "line") {
+          tl.fromTo(sel, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.15, ease: "power2.out" }, start);
+        } else {
+          tl.fromTo(sel, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.4)" }, start);
+        }
+      });
+      tl.fromTo("#p2a-caption", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 21.0);
+      tl.set(["#p2a-eyebrow", "#p2a-v", "#p2a-l1", "#p2a-e1", "#p2a-l2", "#p2a-n", "#p2a-l3", "#p2a-d", "#p2a-l4", "#p2a-r", "#p2a-l5", "#p2a-e2", "#p2a-caption"], { opacity: 0 }, 23.4);
+
+      // ---- p2b: apparaître devant des gens (video) ----
+      tl.fromTo("#p2b-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 23.4);
+      tl.fromTo("#p2b-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 23.5);
+      tl.set(["#p2b-box", "#p2b-label"], { opacity: 0 }, 29.9);
+
+      // ---- p2c: avant toute vente (video) ----
+      tl.fromTo("#p2c-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 29.9);
+      tl.fromTo("#p2c-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 30.0);
+      tl.set(["#p2c-box", "#p2c-label"], { opacity: 0 }, 31.2);
+
+      // ---- p2d: avant même d'avoir gagné leur confiance (video) ----
+      tl.fromTo("#p2d-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 31.2);
+      tl.fromTo("#p2d-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 31.3);
+      tl.set(["#p2d-box", "#p2d-label"], { opacity: 0 }, 33.8);
+
+      // ---- p2e: V vs N contrast ----
+      tl.fromTo("#p2e-v", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(2.4)" }, 33.8);
+      tl.fromTo("#p2e-vtag", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 34.05);
+      tl.fromTo("#p2e-n", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(2.4)" }, 34.2);
+      tl.fromTo("#p2e-ntag", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 34.45);
+      tl.fromTo("#p2e-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 34.8);
+      tl.set(["#p2e-v", "#p2e-vtag", "#p2e-n", "#p2e-ntag", "#p2e-title"], { opacity: 0 }, 40.4);
+
+      // ---- p2f: la visibilité, être vu (video) ----
+      tl.fromTo("#p2f-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 40.4);
+      tl.fromTo("#p2f-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 40.5);
+      tl.set(["#p2f-box", "#p2f-label"], { opacity: 0 }, 45.2);
+
+      // ---- p3a: ça implique trois choses ----
+      tl.fromTo("#p3a-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.2)" }, 45.2);
+      tl.set("#p3a-t", { opacity: 0 }, 47.8);
+
+      // ---- p3b: badge 1 ----
+      tl.fromTo("#p3b-badge", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.6)" }, 47.8);
+      tl.fromTo("#p3b-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 48.15);
+      tl.set(["#p3b-badge", "#p3b-title"], { opacity: 0 }, 51.7);
+
+      // ---- p3c: l'algorithme montre (video) ----
+      tl.fromTo("#p3c-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 51.7);
+      tl.fromTo("#p3c-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 51.8);
+      tl.set(["#p3c-box", "#p3c-label"], { opacity: 0 }, 52.7);
+
+      // ---- p3d: ton contenu à des inconnus (video) ----
+      tl.fromTo("#p3d-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 52.7);
+      tl.fromTo("#p3d-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 52.8);
+      tl.set(["#p3d-box", "#p3d-label"], { opacity: 0 }, 54.9);
+
+      // ---- p3e: zéro ou dix mille abonnés (image) ----
+      tl.fromTo("#p3e-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 54.9);
+      tl.fromTo("#p3e-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 55.0);
+      tl.set(["#p3e-box", "#p3e-label"], { opacity: 0 }, 58.4);
+
+      // ---- p3f: badge 2 ----
+      tl.fromTo("#p3f-badge", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.6)" }, 58.4);
+      tl.fromTo("#p3f-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 58.75);
+      tl.set(["#p3f-badge", "#p3f-title"], { opacity: 0 }, 61.9);
+
+      // ---- p3g: de ton format (image) ----
+      tl.fromTo("#p3g-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 61.9);
+      tl.fromTo("#p3g-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 62.0);
+      tl.set(["#p3g-box", "#p3g-label"], { opacity: 0 }, 63.2);
+
+      // ---- p3h: pas de qui te suit déjà (video, chroma-keyed subscribe) ----
+      tl.fromTo("#p3h-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 63.2);
+      tl.fromTo("#p3h-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 63.3);
+      tl.set(["#p3h-box", "#p3h-label"], { opacity: 0 }, 65.8);
+
+      // ---- p3i: badge 3 ----
+      tl.fromTo("#p3i-badge", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.6)" }, 65.8);
+      tl.fromTo("#p3i-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 66.15);
+      tl.set(["#p3i-badge", "#p3i-title"], { opacity: 0 }, 70.6);
+
+      // ---- p3j: tu ne peux pas vendre à quelqu'un qui ne t'a jamais vu ----
+      tl.fromTo("#p3j-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.2)" }, 70.6);
+      tl.set("#p3j-t", { opacity: 0 }, 75.8);
+
+      // ---- p4a: regarde oncle david (video) ----
+      tl.fromTo("#p4a-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 75.8);
+      tl.fromTo("#p4a-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 75.9);
+      tl.set(["#p4a-box", "#p4a-label"], { opacity: 0 }, 77.1);
+
+      // ---- p4b: il n'a pas attendu (image) ----
+      tl.fromTo("#p4b-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 77.1);
+      tl.fromTo("#p4b-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 77.2);
+      tl.set(["#p4b-box", "#p4b-label"], { opacity: 0 }, 81.0);
+
+      // ---- p4c: sa première vidéo (video) ----
+      tl.fromTo("#p4c-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 81.0);
+      tl.fromTo("#p4c-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 81.1);
+      tl.set(["#p4c-box", "#p4c-label"], { opacity: 0 }, 86.7);
+
+      // ---- p4d: juste son guide de menuiserie (image) ----
+      tl.fromTo("#p4d-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 86.7);
+      tl.fromTo("#p4d-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 86.8);
+      tl.set(["#p4d-box", "#p4d-label"], { opacity: 0 }, 88.9);
+
+      // ---- p4e: hook quote (video) ----
+      tl.fromTo("#p4e-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 88.9);
+      tl.fromTo("#p4e-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 89.0);
+      tl.set(["#p4e-box", "#p4e-label"], { opacity: 0 }, 95.4);
+
+      // ---- p4f: vue par des inconnus (image) ----
+      tl.fromTo("#p4f-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 95.4);
+      tl.fromTo("#p4f-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 95.5);
+      tl.set(["#p4f-box", "#p4f-label"], { opacity: 0 }, 99.3);
+
+      // ---- p4g: le hook et le format comptent plus (video) ----
+      tl.fromTo("#p4g-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 99.3);
+      tl.fromTo("#p4g-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 99.4);
+      tl.set(["#p4g-box", "#p4g-label"], { opacity: 0 }, 105.4);
+
+      // ---- p5a: arrête d'attendre ----
+      tl.fromTo("#p5a-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.2)" }, 105.4);
+      tl.set("#p5a-t", { opacity: 0 }, 111.9);
+
+      // ---- p5b: pour te lancer (rocket launch) ----
+      tl.fromTo("#p5b-pad", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 111.9);
+      tl.fromTo("#p5b-rocket", { opacity: 0, y: 0, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 111.95);
+      tl.to("#p5b-rocket", { y: -6, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, 112.15);
+      tl.fromTo("#p5b-flame", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.12, repeat: 3, yoyo: true, ease: "sine.inOut" }, 112.15);
+      tl.fromTo("#p5b-smoke1", { opacity: 0, scale: 0.4, x: 0, y: 0 }, { opacity: 0.7, scale: 1.6, x: -50, y: 20, duration: 0.5, ease: "power1.out" }, 112.8);
+      tl.fromTo("#p5b-smoke2", { opacity: 0, scale: 0.4, x: 0, y: 0 }, { opacity: 0.7, scale: 1.8, x: 60, y: 30, duration: 0.55, ease: "power1.out" }, 112.85);
+      tl.to("#p5b-smoke1", { opacity: 0, duration: 0.4 }, 113.3);
+      tl.to("#p5b-smoke2", { opacity: 0, duration: 0.4 }, 113.4);
+      tl.to("#p5b-rocket", { y: -900, duration: 0.85, ease: "power2.in" }, 112.8);
+      tl.to("#p5b-flame", { y: -900, opacity: 0, duration: 0.85, ease: "power2.in" }, 112.8);
+      tl.fromTo("#p5b-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 112.0);
+      tl.set(["#p5b-pad", "#p5b-rocket", "#p5b-flame", "#p5b-smoke1", "#p5b-smoke2", "#p5b-title"], { opacity: 0 }, 114.2);
+
+      // ---- p5c: publie avec un vrai hook, régulièrement (calendar) ----
+      tl.fromTo(["#p5c-d1", "#p5c-d2", "#p5c-d3"], { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.2)", stagger: 0.1 }, 114.2);
+      tl.fromTo("#p5c-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 114.6);
+      tl.set(["#p5c-d1", "#p5c-d2", "#p5c-d3", "#p5c-title"], { opacity: 0 }, 116.8);
+
+      // ---- p5d: laisse la visibilité venir avant l'audience ----
+      tl.fromTo("#p5d-t", { opacity: 0, scale: 0.85, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.22, ease: "back.out(2.2)" }, 116.8);
+      tl.set("#p5d-t", { opacity: 0 }, 120.7);
+
+      // ---- p6: transition vers l'Engagement, E allumé ----
+      tl.fromTo("#p6-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 120.7);
+      const p6Nodes = [["#p6-v", null], ["#p6-l1", "line"], ["#p6-e1", null], ["#p6-l2", "line"], ["#p6-n", null], ["#p6-l3", "line"], ["#p6-d", null], ["#p6-l4", "line"], ["#p6-r", null], ["#p6-l5", "line"], ["#p6-e2", null]];
+      p6Nodes.forEach(([sel, kind], i) => {
+        const start = 121.0 + i * 0.14;
+        if (kind === "line") {
+          tl.fromTo(sel, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.15, ease: "power2.out" }, start);
+        } else {
+          tl.fromTo(sel, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.4)" }, start);
+        }
+      });
+      tl.fromTo("#p6-caption", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 123.0);
+      tl.set(["#p6-eyebrow", "#p6-v", "#p6-l1", "#p6-e1", "#p6-l2", "#p6-n", "#p6-l3", "#p6-d", "#p6-l4", "#p6-r", "#p6-l5", "#p6-e2", "#p6-caption"], { opacity: 0 }, 130.6);
+
+      // ---- p7: CTA abonne-toi ----
+      tl.fromTo(".fx-subscribe-btn", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "elastic.out(1,0.6)" }, 130.6);
+      tl.fromTo("#p7-hand", { opacity: 0, x: 40, y: 40 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power2.out" }, 131.1);
+      tl.to("#p7-hand", { scale: 0.85, duration: 0.1, yoyo: true, repeat: 1 }, 131.4);
+      tl.fromTo("#p7-ring", { opacity: 1, scale: 0.3 }, { opacity: 0, scale: 1.8, duration: 0.3, ease: "power2.out" }, 131.4);
+      tl.to(".fx-subscribe-btn", { scale: 0.94, duration: 0.08, yoyo: true, repeat: 1 }, 131.4);
+      tl.fromTo("#p7-line", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, 131.7);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
