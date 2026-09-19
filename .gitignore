@@ -1,3 +1,7 @@
 .env
 .env.*
 !.env.example
+
+# HyperFrames in-progress render scratch (final mp4/cover are committed explicitly)
+videos/*/renders/.*.hf-transaction-*
+videos/*/renders/work-*
