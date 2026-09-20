@@ -144,12 +144,12 @@ const distPages = [
   iconStepPage({
     bg: "var(--butter)", num: "03", category: "Étape 1", page: 3, total: distTotal,
     title: "Un seul lien", icon: "&#128279;",
-    text: "Choisis un seul endroit où on peut acheter. Toujours le même, partout. Un lien que tu pourrais réciter de mémoire.",
+    text: "Choisis un seul endroit où on peut acheter : un lien WhatsApp, une page Linktree, ou ton catalogue Facebook. Peu importe lequel, du moment qu'il reste le même partout et que tu peux le réciter de mémoire.",
   }),
   iconStepPage({
     bg: "var(--mint)", num: "04", category: "Étape 2", page: 4, total: distTotal,
     title: "Moins de clics", icon: "&#128070;",
-    text: "Entre « je veux acheter » et « j'ai payé », vise deux ou trois clics maximum. Chaque étape en plus, c'est une personne qui abandonne en route.",
+    text: "Entre « je veux acheter » et « j'ai payé », vise deux ou trois clics maximum. Par exemple : la personne ouvre ton lien, elle voit le prix, elle paie par Mobile Money ou t'écrit directement sur WhatsApp. Pas de site compliqué, pas de formulaire à remplir.",
   }),
   iconStepPage({
     bg: "var(--sky)", num: "05", category: "Étape 3", page: 5, total: distTotal,
@@ -197,17 +197,17 @@ const relPages = [
   iconStepPage({
     bg: "var(--butter)", num: "03", category: "Étape 1", page: 3, total: relTotal,
     title: "Garde une trace", icon: "&#128209;",
-    text: "Note qui a acheté. Un contact, un numéro, une liste toute simple suffit. Sans ça, impossible de recontacter qui que ce soit.",
+    text: "Note qui a acheté : un simple carnet, une liste dans ton téléphone, ou un groupe WhatsApp où tu ajoutes chaque nouveau client. Pas besoin d'outil compliqué, juste un endroit où tu retrouves leurs numéros.",
   }),
   iconStepPage({
     bg: "var(--pink)", num: "04", category: "Étape 2", page: 4, total: relTotal,
     title: "Propose du nouveau", icon: "&#128172;",
-    text: "Propose une vraie offre, un vrai message, presque personnel, comme si tu écrivais à quelqu'un que tu connais.",
+    text: "Propose quelque chose de concret : un deuxième produit, une version plus complète, une réduction limitée. Écris-leur directement, comme à quelqu'un que tu connais.",
   }),
   iconStepPage({
     bg: "var(--sky)", num: "05", category: "Étape 3", page: 5, total: relTotal,
     title: "Fais-le régulièrement", icon: "&#128197;",
-    text: "Recontacte tes clients toutes les quelques semaines, même juste pour prendre des nouvelles. Sinon, le lien retombe à zéro.",
+    text: "Recontacte tes clients environ une fois par mois, même juste pour prendre des nouvelles ou partager un conseil gratuit. Sinon, le lien retombe à zéro et tu redeviens un inconnu pour eux.",
   }),
   examplePage({
     bg: "var(--butter)", num: "06", category: "Exemple réel", page: 6, total: relTotal,
