@@ -154,7 +154,7 @@ const distPages = [
   iconStepPage({
     bg: "var(--sky)", num: "05", category: "Étape 3", page: 5, total: distTotal,
     title: "Répète-le partout", icon: "&#128260;",
-    text: "Mets ce lien dans ta bio, sous chaque vidéo, dans tes réponses aux commentaires. Toujours le même, à chaque fois.",
+    text: "Mets ce lien dans ta bio, sous chaque vidéo, dans tes réponses aux commentaires, sans jamais en changer.",
   }),
   examplePage({
     bg: "var(--butter)", num: "06", category: "Exemple réel", page: 6, total: distTotal,
@@ -202,7 +202,7 @@ const relPages = [
   iconStepPage({
     bg: "var(--pink)", num: "04", category: "Étape 2", page: 4, total: relTotal,
     title: "Propose du nouveau", icon: "&#128172;",
-    text: "Ne dis pas juste « achète encore ». Propose une vraie offre, un vrai message, presque personnel, pas une publicité.",
+    text: "Propose une vraie offre, un vrai message, presque personnel, comme si tu écrivais à quelqu'un que tu connais.",
   }),
   iconStepPage({
     bg: "var(--sky)", num: "05", category: "Étape 3", page: 5, total: relTotal,
