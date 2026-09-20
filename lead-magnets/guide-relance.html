@@ -1,0 +1,104 @@
+<!doctype html><html lang="fr"><head><meta charset="UTF-8"><style>
+@font-face { font-family: "Work Sans"; src: url("fonts/work-sans-variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "Archivo Black"; src: url("fonts/archivo-black-400.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { width:1080px; font-family:"Work Sans",sans-serif; }
+:root { --ink:#0A0A05; --cream:#FFFDF5; --mint:#CFF3D8; --sky:#CDEFFA; --pink:#FBD6E9; --butter:#FDEBAE; }
+.page { position:relative; width:1080px; height:1350px; overflow:hidden; page-break-after:always; }
+.page:last-child { page-break-after:auto; }
+.dots { position:absolute; inset:0; background-image:radial-gradient(rgba(10,10,5,0.16) 3px, transparent 3px); background-size:38px 38px; }
+.badge { position:absolute; left:64px; top:64px; width:96px; height:96px; border-radius:50%; background:var(--cream); border:5px solid var(--ink); display:flex; align-items:center; justify-content:center; font-family:"Archivo Black",sans-serif; font-size:38px; color:var(--ink); z-index:3; }
+.pill { position:absolute; right:64px; top:80px; background:var(--ink); color:var(--cream); font-family:"Work Sans",sans-serif; font-weight:700; font-size:24px; letter-spacing:0.06em; text-transform:uppercase; padding:14px 30px; border-radius:999px; z-index:3; }
+.headline { position:absolute; left:64px; top:210px; right:64px; font-family:"Archivo Black",sans-serif; font-weight:400; text-transform:uppercase; font-size:74px; line-height:1.04; color:var(--ink); z-index:3; }
+.card { position:absolute; left:64px; right:64px; background:var(--cream); border:6px solid var(--ink); border-radius:14px; box-shadow:14px 14px 0 var(--ink); padding:46px 50px; z-index:3; }
+.card p { font-family:"Work Sans",sans-serif; font-weight:600; font-size:34px; line-height:1.42; color:var(--ink); }
+.checklist { list-style:none; }
+.checklist li { display:flex; align-items:flex-start; gap:22px; font-family:"Work Sans",sans-serif; font-weight:700; font-size:32px; line-height:1.32; color:var(--ink); margin-bottom:26px; }
+.checklist li:last-child { margin-bottom:0; }
+.x { flex:none; width:40px; height:40px; border-radius:50%; background:#E1544A; color:var(--cream); display:flex; align-items:center; justify-content:center; font-family:"Archivo Black",sans-serif; font-size:22px; margin-top:2px; }
+.icon-ring { position:absolute; left:64px; top:210px; width:190px; height:190px; border-radius:50%; background:var(--cream); border:6px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:96px; z-index:3; box-shadow:10px 10px 0 var(--ink); }
+.footer { position:absolute; left:64px; right:64px; bottom:52px; display:flex; justify-content:space-between; align-items:center; border-top:3px solid rgba(10,10,5,0.25); padding-top:20px; z-index:3; }
+.footer span { font-family:"Work Sans",sans-serif; font-weight:700; font-size:22px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); opacity:0.65; }
+.cover-eyebrow { position:absolute; left:64px; top:110px; background:var(--ink); color:var(--cream); font-family:"Work Sans",sans-serif; font-weight:700; font-size:26px; letter-spacing:0.08em; text-transform:uppercase; padding:16px 34px; border-radius:999px; }
+.cover-title { position:absolute; left:64px; right:64px; top:230px; font-family:"Archivo Black",sans-serif; font-weight:400; text-transform:uppercase; font-size:118px; line-height:1.0; color:var(--ink); }
+.cover-tagline { position:absolute; left:64px; right:120px; top:560px; font-family:"Work Sans",sans-serif; font-weight:600; font-size:40px; line-height:1.35; color:var(--ink); }
+.cover-mark { position:absolute; left:64px; bottom:70px; font-family:"Archivo Black",sans-serif; font-size:30px; color:var(--ink); text-transform:uppercase; }
+.cover-mark small { display:block; font-family:"Work Sans",sans-serif; font-weight:600; font-size:24px; text-transform:none; margin-top:6px; opacity:0.7; }
+.shape { position:absolute; z-index:1; }
+.sq { width:200px; height:200px; border:6px solid var(--ink); background:var(--butter); transform:rotate(-8deg); }
+.ring { width:170px; height:170px; border-radius:50%; border:9px solid var(--ink); }
+.img-card { position:absolute; left:64px; right:64px; top:210px; height:420px; border:6px solid var(--ink); border-radius:14px; box-shadow:14px 14px 0 var(--ink); overflow:hidden; z-index:3; background:var(--ink); }
+.img-card img { width:100%; height:100%; object-fit:cover; }
+.numbadge { flex:none; width:56px; height:56px; border-radius:50%; background:var(--ink); color:var(--cream); font-family:"Archivo Black",sans-serif; font-size:28px; display:flex; align-items:center; justify-content:center; }
+.recap li { display:flex; align-items:center; gap:24px; font-family:"Work Sans",sans-serif; font-weight:700; font-size:32px; color:var(--ink); margin-bottom:24px; }
+.recap li:last-child { margin-bottom:0; }
+</style></head><body><div class="page" style="background:var(--cream)">
+    <div class="dots"></div>
+    <div class="shape sq" style="top:-40px; right:130px;"></div>
+    <div class="shape ring" style="bottom:120px; right:70px; border-color:var(--ink);"></div>
+    <div class="cover-eyebrow">Mini guide</div>
+    <div class="cover-title">La<br/>Relance</div>
+    <div class="cover-tagline">Fais revenir tes clients, au lieu d'en chercher sans arrêt de nouveaux.</div>
+    <div class="cover-mark">DigitalMikaelson<small>Michaelson Digital Academy — Épisode 7</small></div>
+  </div>
+<div class="page" style="background:var(--pink)">
+    <div class="dots"></div>
+    <div class="badge">01</div>
+    <div class="pill">Pourquoi ce guide</div>
+    <div class="headline">Chercher du neuf, ça coûte cher</div>
+    <div class="card" style="top:460px;"><p>Tu passes du temps à chercher de nouvelles personnes, alors que celles qui ont déjà acheté chez toi une fois sont juste là, à côté. Ce guide t'explique comment les faire revenir.</p></div>
+    <div class="footer"><span>Pourquoi ce guide</span><span>1 / 8</span></div>
+  </div>
+<div class="page" style="background:var(--sky)">
+    <div class="dots"></div>
+    <div class="badge">02</div>
+    <div class="pill">Le problème</div>
+    <div class="headline">Ce qu'on oublie de faire</div>
+    <div class="card" style="top:460px;"><ul class="checklist"><li><span class="x">&#10005;</span><span>On ne garde aucune trace de qui a déjà acheté</span></li><li><span class="x">&#10005;</span><span>On ne recontacte jamais après la première vente</span></li><li><span class="x">&#10005;</span><span>Le seul message envoyé, c'est « achète encore »</span></li><li><span class="x">&#10005;</span><span>On attend que les clients reviennent tout seuls</span></li></ul></div>
+    <div class="footer"><span>Le problème</span><span>2 / 8</span></div>
+  </div>
+<div class="page" style="background:var(--butter)">
+    <div class="dots"></div>
+    <div class="badge">03</div>
+    <div class="pill">Étape 1</div>
+    <div class="icon-ring">&#128209;</div>
+    <div class="headline" style="top:440px;">Garde une trace</div>
+    <div class="card" style="top:600px;"><p>Note qui a acheté. Un contact, un numéro, une liste toute simple suffit. Sans ça, impossible de recontacter qui que ce soit.</p></div>
+    <div class="footer"><span>Étape 1</span><span>3 / 8</span></div>
+  </div>
+<div class="page" style="background:var(--pink)">
+    <div class="dots"></div>
+    <div class="badge">04</div>
+    <div class="pill">Étape 2</div>
+    <div class="icon-ring">&#128172;</div>
+    <div class="headline" style="top:440px;">Propose du nouveau</div>
+    <div class="card" style="top:600px;"><p>Ne dis pas juste « achète encore ». Propose une vraie offre, un vrai message, presque personnel, pas une publicité.</p></div>
+    <div class="footer"><span>Étape 2</span><span>4 / 8</span></div>
+  </div>
+<div class="page" style="background:var(--sky)">
+    <div class="dots"></div>
+    <div class="badge">05</div>
+    <div class="pill">Étape 3</div>
+    <div class="icon-ring">&#128197;</div>
+    <div class="headline" style="top:440px;">Fais-le régulièrement</div>
+    <div class="card" style="top:600px;"><p>Recontacte tes clients toutes les quelques semaines, même juste pour prendre des nouvelles. Sinon, le lien retombe à zéro.</p></div>
+    <div class="footer"><span>Étape 3</span><span>5 / 8</span></div>
+  </div>
+<div class="page" style="background:var(--butter)">
+    <div class="dots"></div>
+    <div class="badge">06</div>
+    <div class="pill">Exemple réel</div>
+    <div class="headline">Ce qu'a fait Oncle David</div>
+    <div class="img-card" style="top:400px; height:360px;"><img src="guide-menuiserie-cover.jpg" /></div>
+    <div class="card" style="top:800px;"><p>Après sa première vente, il attendait juste que de nouvelles personnes le découvrent. Un jour, il a réécrit à tous ses anciens clients pour leur proposer un deuxième guide. La moitié ont acheté à nouveau en quelques jours.</p></div>
+    <div class="footer"><span>Exemple réel</span><span>6 / 8</span></div>
+  </div>
+<div class="page" style="background:var(--cream)">
+    <div class="dots"></div>
+    <div class="badge">07</div>
+    <div class="pill">Passe à l'action</div>
+    <div class="headline">À toi de jouer</div>
+    <div class="card" style="top:460px;"><ul class="recap"><li><span class="numbadge">1</span><span>Note qui a déjà acheté</span></li><li><span class="numbadge">2</span><span>Recontacte avec une vraie offre</span></li><li><span class="numbadge">3</span><span>Reviens vers eux régulièrement</span></li></ul></div>
+    <div class="card" style="top:900px; background:var(--ink);"><p style="color:var(--cream);">Abonne-toi à DigitalMikaelson pour la suite de la stratégie VENDRE : l'Évolution (E), au prochain épisode.</p></div>
+    <div class="footer"><span>Passe à l'action</span><span>7 / 8</span></div>
+  </div></body></html>
