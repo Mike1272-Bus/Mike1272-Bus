@@ -32,6 +32,16 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
 .numbadge { flex:none; width:56px; height:56px; border-radius:50%; background:var(--ink); color:var(--cream); font-family:"Archivo Black",sans-serif; font-size:28px; display:flex; align-items:center; justify-content:center; }
 .recap li { display:flex; align-items:center; gap:24px; font-family:"Work Sans",sans-serif; font-weight:700; font-size:32px; color:var(--ink); margin-bottom:24px; }
 .recap li:last-child { margin-bottom:0; }
+
+/* ---- truth page (dark, closing) ---- */
+.page.dark { background:var(--ink); }
+.dark .dots { background-image:radial-gradient(rgba(255,253,245,0.14) 3px, transparent 3px); }
+.dark .badge { background:var(--ink); border-color:var(--cream); color:var(--cream); }
+.dark .pill { background:var(--cream); color:var(--ink); }
+.truth-title { position:absolute; left:64px; right:64px; top:210px; font-family:"Archivo Black",sans-serif; font-weight:400; text-transform:uppercase; font-size:72px; line-height:1.05; color:var(--cream); z-index:3; }
+.truth-text { position:absolute; left:64px; right:64px; top:470px; font-family:"Work Sans",sans-serif; font-weight:600; font-size:36px; line-height:1.48; color:var(--cream); opacity:0.92; z-index:3; }
+.truth-cta { position:absolute; left:64px; right:64px; bottom:170px; background:var(--butter); border:6px solid var(--cream); border-radius:14px; padding:36px 42px; z-index:3; }
+.truth-cta p { font-family:"Work Sans",sans-serif; font-weight:800; font-size:32px; line-height:1.4; color:var(--ink); }
 </style></head><body><div class="page" style="background:var(--cream)">
     <div class="dots"></div>
     <div class="shape sq" style="top:-40px; right:130px;"></div>
@@ -47,7 +57,7 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="pill">Pourquoi ce guide</div>
     <div class="headline">Être connu ne suffit pas</div>
     <div class="card" style="top:460px;"><p>Les gens te connaissent, ils aiment ce que tu fais, certains disent même qu'ils vont acheter. Et pourtant, rien ne se passe. Ce guide t'explique pourquoi, et ce qu'il faut changer.</p></div>
-    <div class="footer"><span>Pourquoi ce guide</span><span>1 / 8</span></div>
+    <div class="footer"><span>Pourquoi ce guide</span><span>1 / 10</span></div>
   </div>
 <div class="page" style="background:var(--sky)">
     <div class="dots"></div>
@@ -55,7 +65,7 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="pill">Le problème</div>
     <div class="headline">Ce qui bloque la vente</div>
     <div class="card" style="top:460px;"><ul class="checklist"><li><span class="x">&#10005;</span><span>Il faut écrire en message privé pour savoir comment acheter</span></li><li><span class="x">&#10005;</span><span>Le lien pour payer change à chaque publication</span></li><li><span class="x">&#10005;</span><span>Il y a plusieurs étapes avant de pouvoir payer</span></li><li><span class="x">&#10005;</span><span>Personne ne sait où te retrouver pour acheter</span></li></ul></div>
-    <div class="footer"><span>Le problème</span><span>2 / 8</span></div>
+    <div class="footer"><span>Le problème</span><span>2 / 10</span></div>
   </div>
 <div class="page" style="background:var(--butter)">
     <div class="dots"></div>
@@ -64,7 +74,7 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="icon-ring">&#128279;</div>
     <div class="headline" style="top:440px;">Un seul lien</div>
     <div class="card" style="top:600px;"><p>Choisis un seul endroit où on peut acheter : un lien WhatsApp, une page Linktree, ou ton catalogue Facebook. Peu importe lequel, du moment qu'il reste le même partout et que tu peux le réciter de mémoire.</p></div>
-    <div class="footer"><span>Étape 1</span><span>3 / 8</span></div>
+    <div class="footer"><span>Étape 1</span><span>3 / 10</span></div>
   </div>
 <div class="page" style="background:var(--mint)">
     <div class="dots"></div>
@@ -73,7 +83,7 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="icon-ring">&#128070;</div>
     <div class="headline" style="top:440px;">Moins de clics</div>
     <div class="card" style="top:600px;"><p>Entre « je veux acheter » et « j'ai payé », vise deux ou trois clics maximum. Par exemple : la personne ouvre ton lien, elle voit le prix, elle paie par Mobile Money ou t'écrit directement sur WhatsApp. Pas de site compliqué, pas de formulaire à remplir.</p></div>
-    <div class="footer"><span>Étape 2</span><span>4 / 8</span></div>
+    <div class="footer"><span>Étape 2</span><span>4 / 10</span></div>
   </div>
 <div class="page" style="background:var(--sky)">
     <div class="dots"></div>
@@ -82,23 +92,41 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="icon-ring">&#128260;</div>
     <div class="headline" style="top:440px;">Répète-le partout</div>
     <div class="card" style="top:600px;"><p>Mets ce lien dans ta bio, sous chaque vidéo, dans tes réponses aux commentaires, sans jamais en changer.</p></div>
-    <div class="footer"><span>Étape 3</span><span>5 / 8</span></div>
+    <div class="footer"><span>Étape 3</span><span>5 / 10</span></div>
+  </div>
+<div class="page" style="background:var(--pink)">
+    <div class="dots"></div>
+    <div class="badge">06</div>
+    <div class="pill">Étape 4</div>
+    <div class="icon-ring">&#9729;</div>
+    <div class="headline" style="top:440px;">Où stocker ton produit</div>
+    <div class="card" style="top:600px;"><p>Utilise une plateforme faite pour ça, comme Selar : elle héberge ton produit, encaisse par Mobile Money, et l'envoie automatiquement après l'achat. Si tu débutes, un simple lien Google Drive envoyé à la main sur WhatsApp suffit pour te lancer.</p></div>
+    <div class="footer"><span>Étape 4</span><span>6 / 10</span></div>
   </div>
 <div class="page" style="background:var(--butter)">
     <div class="dots"></div>
-    <div class="badge">06</div>
+    <div class="badge">07</div>
     <div class="pill">Exemple réel</div>
     <div class="headline">Ce qu'a fait Oncle David</div>
     <div class="img-card" style="top:400px; height:360px;"><img src="guide-menuiserie-cover.jpg" /></div>
     <div class="card" style="top:800px;"><p>Son guide de menuiserie existait depuis des mois. Chaque vente demandait un message privé, et beaucoup abandonnaient avant la réponse. Un seul lien fixe a tout changé : les commandes tombent maintenant chaque semaine.</p></div>
-    <div class="footer"><span>Exemple réel</span><span>6 / 8</span></div>
+    <div class="footer"><span>Exemple réel</span><span>7 / 10</span></div>
   </div>
 <div class="page" style="background:var(--cream)">
     <div class="dots"></div>
-    <div class="badge">07</div>
+    <div class="badge">08</div>
     <div class="pill">Passe à l'action</div>
     <div class="headline">À toi de jouer</div>
     <div class="card" style="top:460px;"><ul class="recap"><li><span class="numbadge">1</span><span>Choisis ton lien unique</span></li><li><span class="numbadge">2</span><span>Réduis le chemin jusqu'au paiement</span></li><li><span class="numbadge">3</span><span>Répète ce lien partout, tout le temps</span></li></ul></div>
     <div class="card" style="top:900px; background:var(--ink);"><p style="color:var(--cream);">Abonne-toi à DigitalMikaelson pour la suite de la stratégie VENDRE : la Relance (R), au prochain épisode.</p></div>
-    <div class="footer"><span>Passe à l'action</span><span>7 / 8</span></div>
+    <div class="footer"><span>Passe à l'action</span><span>8 / 10</span></div>
+  </div>
+<div class="page dark">
+    <div class="dots"></div>
+    <div class="badge">09</div>
+    <div class="pill">Vérité</div>
+    <div class="truth-title">La vérité brutale</div>
+    <div class="truth-text">Ce guide te donne les étapes. Mais la plupart des gens qui le lisent ne les appliquent jamais vraiment, parce que personne n'est là pour repérer leurs erreurs en cours de route. Lire une méthode et être accompagné pour l'appliquer, ce n'est pas la même chose.</div>
+    <div class="truth-cta"><p>C'est exactement pour ça que DigitalMikaelson existe : pas juste des guides, un accompagnement, étape par étape. Abonne-toi pour la suite.</p></div>
+    <div class="footer" style="border-top-color:rgba(255,253,245,0.25);"><span style="color:var(--cream); opacity:0.65;">Vérité</span><span style="color:var(--cream); opacity:0.65;">9 / 10</span></div>
   </div></body></html>

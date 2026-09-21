@@ -39,6 +39,16 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
 .numbadge { flex:none; width:56px; height:56px; border-radius:50%; background:var(--ink); color:var(--cream); font-family:"Archivo Black",sans-serif; font-size:28px; display:flex; align-items:center; justify-content:center; }
 .recap li { display:flex; align-items:center; gap:24px; font-family:"Work Sans",sans-serif; font-weight:700; font-size:32px; color:var(--ink); margin-bottom:24px; }
 .recap li:last-child { margin-bottom:0; }
+
+/* ---- truth page (dark, closing) ---- */
+.page.dark { background:var(--ink); }
+.dark .dots { background-image:radial-gradient(rgba(255,253,245,0.14) 3px, transparent 3px); }
+.dark .badge { background:var(--ink); border-color:var(--cream); color:var(--cream); }
+.dark .pill { background:var(--cream); color:var(--ink); }
+.truth-title { position:absolute; left:64px; right:64px; top:210px; font-family:"Archivo Black",sans-serif; font-weight:400; text-transform:uppercase; font-size:72px; line-height:1.05; color:var(--cream); z-index:3; }
+.truth-text { position:absolute; left:64px; right:64px; top:470px; font-family:"Work Sans",sans-serif; font-weight:600; font-size:36px; line-height:1.48; color:var(--cream); opacity:0.92; z-index:3; }
+.truth-cta { position:absolute; left:64px; right:64px; bottom:170px; background:var(--butter); border:6px solid var(--cream); border-radius:14px; padding:36px 42px; z-index:3; }
+.truth-cta p { font-family:"Work Sans",sans-serif; font-weight:800; font-size:32px; line-height:1.4; color:var(--ink); }
 `;
 
 function coverPage({ bg, eyebrow, title, tagline, episode }) {
@@ -100,6 +110,18 @@ function examplePage({ bg, num, category, title, img, text, page, total }) {
   </div>`;
 }
 
+function truthPage({ num, category, title, text, cta, page, total }) {
+  return `<div class="page dark">
+    <div class="dots"></div>
+    <div class="badge">${num}</div>
+    <div class="pill">${category}</div>
+    <div class="truth-title">${title}</div>
+    <div class="truth-text">${text}</div>
+    <div class="truth-cta"><p>${cta}</p></div>
+    <div class="footer" style="border-top-color:rgba(255,253,245,0.25);"><span style="color:var(--cream); opacity:0.65;">${category}</span><span style="color:var(--cream); opacity:0.65;">${page} / ${total}</span></div>
+  </div>`;
+}
+
 function recapPage({ bg, num, category, title, items, cta, page, total }) {
   const lis = items.map((t, i) => `<li><span class="numbadge">${i + 1}</span><span>${t}</span></li>`).join("");
   return `<div class="page" style="background:${bg}">
@@ -118,7 +140,7 @@ function wrap(pagesHtml) {
 }
 
 // ---------------- GUIDE 1: LA DISTRIBUTION ----------------
-const distTotal = 8;
+const distTotal = 10;
 const distPages = [
   coverPage({
     bg: "var(--cream)",
@@ -156,22 +178,33 @@ const distPages = [
     title: "Répète-le partout", icon: "&#128260;",
     text: "Mets ce lien dans ta bio, sous chaque vidéo, dans tes réponses aux commentaires, sans jamais en changer.",
   }),
+  iconStepPage({
+    bg: "var(--pink)", num: "06", category: "Étape 4", page: 6, total: distTotal,
+    title: "Où stocker ton produit", icon: "&#9729;",
+    text: "Utilise une plateforme faite pour ça, comme Selar : elle héberge ton produit, encaisse par Mobile Money, et l'envoie automatiquement après l'achat. Si tu débutes, un simple lien Google Drive envoyé à la main sur WhatsApp suffit pour te lancer.",
+  }),
   examplePage({
-    bg: "var(--butter)", num: "06", category: "Exemple réel", page: 6, total: distTotal,
+    bg: "var(--butter)", num: "07", category: "Exemple réel", page: 7, total: distTotal,
     title: "Ce qu'a fait Oncle David",
     img: "guide-menuiserie-cover.jpg",
     text: "Son guide de menuiserie existait depuis des mois. Chaque vente demandait un message privé, et beaucoup abandonnaient avant la réponse. Un seul lien fixe a tout changé : les commandes tombent maintenant chaque semaine.",
   }),
   recapPage({
-    bg: "var(--cream)", num: "07", category: "Passe à l'action", page: 7, total: distTotal,
+    bg: "var(--cream)", num: "08", category: "Passe à l'action", page: 8, total: distTotal,
     title: "À toi de jouer",
     items: ["Choisis ton lien unique", "Réduis le chemin jusqu'au paiement", "Répète ce lien partout, tout le temps"],
     cta: "Abonne-toi à DigitalMikaelson pour la suite de la stratégie VENDRE : la Relance (R), au prochain épisode.",
   }),
+  truthPage({
+    num: "09", category: "Vérité", page: 9, total: distTotal,
+    title: "La vérité brutale",
+    text: "Ce guide te donne les étapes. Mais la plupart des gens qui le lisent ne les appliquent jamais vraiment, parce que personne n'est là pour repérer leurs erreurs en cours de route. Lire une méthode et être accompagné pour l'appliquer, ce n'est pas la même chose.",
+    cta: "C'est exactement pour ça que DigitalMikaelson existe : pas juste des guides, un accompagnement, étape par étape. Abonne-toi pour la suite.",
+  }),
 ];
 
 // ---------------- GUIDE 2: LA RELANCE ----------------
-const relTotal = 8;
+const relTotal = 9;
 const relPages = [
   coverPage({
     bg: "var(--cream)",
@@ -220,6 +253,12 @@ const relPages = [
     title: "À toi de jouer",
     items: ["Note qui a déjà acheté", "Recontacte avec une vraie offre", "Reviens vers eux régulièrement"],
     cta: "Abonne-toi à DigitalMikaelson pour la suite de la stratégie VENDRE : l'Évolution (E), au prochain épisode.",
+  }),
+  truthPage({
+    num: "08", category: "Vérité", page: 8, total: relTotal,
+    title: "La vérité brutale",
+    text: "Ce guide te donne la méthode. Mais la plupart des gens qui la lisent ne relancent jamais vraiment leurs clients, parce que personne n'est là pour les pousser à le faire, semaine après semaine. Lire une méthode et être accompagné pour l'appliquer, ce n'est pas la même chose.",
+    cta: "C'est exactement pour ça que DigitalMikaelson existe : pas juste des guides, un accompagnement, étape par étape. Abonne-toi pour la suite.",
   }),
 ];
 

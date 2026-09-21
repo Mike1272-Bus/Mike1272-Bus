@@ -32,6 +32,16 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
 .numbadge { flex:none; width:56px; height:56px; border-radius:50%; background:var(--ink); color:var(--cream); font-family:"Archivo Black",sans-serif; font-size:28px; display:flex; align-items:center; justify-content:center; }
 .recap li { display:flex; align-items:center; gap:24px; font-family:"Work Sans",sans-serif; font-weight:700; font-size:32px; color:var(--ink); margin-bottom:24px; }
 .recap li:last-child { margin-bottom:0; }
+
+/* ---- truth page (dark, closing) ---- */
+.page.dark { background:var(--ink); }
+.dark .dots { background-image:radial-gradient(rgba(255,253,245,0.14) 3px, transparent 3px); }
+.dark .badge { background:var(--ink); border-color:var(--cream); color:var(--cream); }
+.dark .pill { background:var(--cream); color:var(--ink); }
+.truth-title { position:absolute; left:64px; right:64px; top:210px; font-family:"Archivo Black",sans-serif; font-weight:400; text-transform:uppercase; font-size:72px; line-height:1.05; color:var(--cream); z-index:3; }
+.truth-text { position:absolute; left:64px; right:64px; top:470px; font-family:"Work Sans",sans-serif; font-weight:600; font-size:36px; line-height:1.48; color:var(--cream); opacity:0.92; z-index:3; }
+.truth-cta { position:absolute; left:64px; right:64px; bottom:170px; background:var(--butter); border:6px solid var(--cream); border-radius:14px; padding:36px 42px; z-index:3; }
+.truth-cta p { font-family:"Work Sans",sans-serif; font-weight:800; font-size:32px; line-height:1.4; color:var(--ink); }
 </style></head><body><div class="page" style="background:var(--cream)">
     <div class="dots"></div>
     <div class="shape sq" style="top:-40px; right:130px;"></div>
@@ -47,7 +57,7 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="pill">Pourquoi ce guide</div>
     <div class="headline">Chercher du neuf, ça coûte cher</div>
     <div class="card" style="top:460px;"><p>Tu passes du temps à chercher de nouvelles personnes, alors que celles qui ont déjà acheté chez toi une fois sont juste là, à côté. Ce guide t'explique comment les faire revenir.</p></div>
-    <div class="footer"><span>Pourquoi ce guide</span><span>1 / 8</span></div>
+    <div class="footer"><span>Pourquoi ce guide</span><span>1 / 9</span></div>
   </div>
 <div class="page" style="background:var(--sky)">
     <div class="dots"></div>
@@ -55,7 +65,7 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="pill">Le problème</div>
     <div class="headline">Ce qu'on oublie de faire</div>
     <div class="card" style="top:460px;"><ul class="checklist"><li><span class="x">&#10005;</span><span>On ne garde aucune trace de qui a déjà acheté</span></li><li><span class="x">&#10005;</span><span>On ne recontacte jamais après la première vente</span></li><li><span class="x">&#10005;</span><span>Le seul message envoyé, c'est « achète encore »</span></li><li><span class="x">&#10005;</span><span>On attend que les clients reviennent tout seuls</span></li></ul></div>
-    <div class="footer"><span>Le problème</span><span>2 / 8</span></div>
+    <div class="footer"><span>Le problème</span><span>2 / 9</span></div>
   </div>
 <div class="page" style="background:var(--butter)">
     <div class="dots"></div>
@@ -64,7 +74,7 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="icon-ring">&#128209;</div>
     <div class="headline" style="top:440px;">Garde une trace</div>
     <div class="card" style="top:600px;"><p>Note qui a acheté : un simple carnet, une liste dans ton téléphone, ou un groupe WhatsApp où tu ajoutes chaque nouveau client. Pas besoin d'outil compliqué, juste un endroit où tu retrouves leurs numéros.</p></div>
-    <div class="footer"><span>Étape 1</span><span>3 / 8</span></div>
+    <div class="footer"><span>Étape 1</span><span>3 / 9</span></div>
   </div>
 <div class="page" style="background:var(--pink)">
     <div class="dots"></div>
@@ -73,7 +83,7 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="icon-ring">&#128172;</div>
     <div class="headline" style="top:440px;">Propose du nouveau</div>
     <div class="card" style="top:600px;"><p>Propose quelque chose de concret : un deuxième produit, une version plus complète, une réduction limitée. Écris-leur directement, comme à quelqu'un que tu connais.</p></div>
-    <div class="footer"><span>Étape 2</span><span>4 / 8</span></div>
+    <div class="footer"><span>Étape 2</span><span>4 / 9</span></div>
   </div>
 <div class="page" style="background:var(--sky)">
     <div class="dots"></div>
@@ -82,7 +92,7 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="icon-ring">&#128197;</div>
     <div class="headline" style="top:440px;">Fais-le régulièrement</div>
     <div class="card" style="top:600px;"><p>Recontacte tes clients environ une fois par mois, même juste pour prendre des nouvelles ou partager un conseil gratuit. Sinon, le lien retombe à zéro et tu redeviens un inconnu pour eux.</p></div>
-    <div class="footer"><span>Étape 3</span><span>5 / 8</span></div>
+    <div class="footer"><span>Étape 3</span><span>5 / 9</span></div>
   </div>
 <div class="page" style="background:var(--butter)">
     <div class="dots"></div>
@@ -91,7 +101,7 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="headline">Ce qu'a fait Oncle David</div>
     <div class="img-card" style="top:400px; height:360px;"><img src="guide-menuiserie-cover.jpg" /></div>
     <div class="card" style="top:800px;"><p>Après sa première vente, il attendait juste que de nouvelles personnes le découvrent. Un jour, il a réécrit à tous ses anciens clients pour leur proposer un deuxième guide. La moitié ont acheté à nouveau en quelques jours.</p></div>
-    <div class="footer"><span>Exemple réel</span><span>6 / 8</span></div>
+    <div class="footer"><span>Exemple réel</span><span>6 / 9</span></div>
   </div>
 <div class="page" style="background:var(--cream)">
     <div class="dots"></div>
@@ -100,5 +110,14 @@ html,body { width:1080px; font-family:"Work Sans",sans-serif; }
     <div class="headline">À toi de jouer</div>
     <div class="card" style="top:460px;"><ul class="recap"><li><span class="numbadge">1</span><span>Note qui a déjà acheté</span></li><li><span class="numbadge">2</span><span>Recontacte avec une vraie offre</span></li><li><span class="numbadge">3</span><span>Reviens vers eux régulièrement</span></li></ul></div>
     <div class="card" style="top:900px; background:var(--ink);"><p style="color:var(--cream);">Abonne-toi à DigitalMikaelson pour la suite de la stratégie VENDRE : l'Évolution (E), au prochain épisode.</p></div>
-    <div class="footer"><span>Passe à l'action</span><span>7 / 8</span></div>
+    <div class="footer"><span>Passe à l'action</span><span>7 / 9</span></div>
+  </div>
+<div class="page dark">
+    <div class="dots"></div>
+    <div class="badge">08</div>
+    <div class="pill">Vérité</div>
+    <div class="truth-title">La vérité brutale</div>
+    <div class="truth-text">Ce guide te donne la méthode. Mais la plupart des gens qui la lisent ne relancent jamais vraiment leurs clients, parce que personne n'est là pour les pousser à le faire, semaine après semaine. Lire une méthode et être accompagné pour l'appliquer, ce n'est pas la même chose.</div>
+    <div class="truth-cta"><p>C'est exactement pour ça que DigitalMikaelson existe : pas juste des guides, un accompagnement, étape par étape. Abonne-toi pour la suite.</p></div>
+    <div class="footer" style="border-top-color:rgba(255,253,245,0.25);"><span style="color:var(--cream); opacity:0.65;">Vérité</span><span style="color:var(--cream); opacity:0.65;">8 / 9</span></div>
   </div></body></html>
