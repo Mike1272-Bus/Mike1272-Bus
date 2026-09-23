@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Work Sans";
+        src: url("vendor/fonts/work-sans-variable.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Archivo Black";
+        src: url("vendor/fonts/archivo-black-400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #FFFDF5; }
+      body { font-family: "Work Sans", sans-serif; }
+
+      :root { --yellow: #F7CB46; --ink: #0A0A05; --cream: #FFFDF5; }
+
+      .clip { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .bg-layer { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+      .bg-grid {
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(to right, rgba(10,10,5,0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(10,10,5,0.08) 1px, transparent 1px);
+        background-size: 54px 54px;
+      }
+
+      .shot-card { position: absolute; inset: 0; overflow: hidden; background: var(--cream); opacity: 0; }
+      .shot-card img, .shot-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .shot-card.landscape {
+        inset: auto; left: 40px; top: 640px; width: 1000px; height: 563px;
+        border: 7px solid var(--ink); box-shadow: 12px 12px 0 var(--ink);
+      }
+      .shot-card.ink { background: var(--ink); border-color: var(--yellow); }
+
+      .bubble-zone { position: absolute; left: 0; right: 0; bottom: 260px; display: flex; justify-content: center; padding: 0 60px; z-index: 5; }
+      .speech-bubble {
+        position: relative; display: inline-block; max-width: 920px; padding: 28px 42px 40px;
+        border-radius: 30px; font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 50px; line-height: 1.08; text-align: center; text-wrap: balance; opacity: 0;
+      }
+      .speech-bubble::after {
+        content: ""; position: absolute; left: 54px; bottom: -20px;
+        width: 0; height: 0; border-left: 6px solid transparent; border-right: 30px solid transparent;
+      }
+      .speech-bubble.yellow { background: var(--yellow); color: var(--ink); }
+      .speech-bubble.yellow::after { border-top: 24px solid var(--yellow); }
+      .speech-bubble.ink { background: var(--ink); color: var(--cream); }
+      .speech-bubble.ink::after { border-top: 24px solid var(--ink); }
+
+      .hero-caption-zone { position: absolute; left: 0; right: 0; bottom: 200px; display: flex; justify-content: center; padding: 0 60px; z-index: 5; }
+
+      .type-card { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+      .type-text {
+        font-family: "Courier New", Consolas, monospace; font-weight: 700; letter-spacing: 0.02em;
+        font-size: 88px; color: #6B6B66; text-transform: uppercase;
+      }
+      .type-text span { opacity: 0; }
+      #p0-cursor { opacity: 0; }
+
+      .fx-scene {
+        position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 50px; padding: 0 60px; text-align: center;
+      }
+      .fx-eyebrow {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--yellow); background: var(--ink); border-radius: 999px; padding: 16px 34px; opacity: 0;
+      }
+      .fx-title {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 92px; line-height: 1.08; color: var(--ink); text-wrap: balance; opacity: 0;
+      }
+      .fx-title.small { font-size: 68px; }
+      .fx-emoji-big { font-size: 190px; opacity: 0; line-height: 1; }
+
+      .fx-roadmap { display: flex; align-items: center; }
+      .fx-node {
+        width: 124px; height: 124px; border-radius: 50%; background: var(--cream); border: 7px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-family: "Archivo Black", sans-serif;
+        font-size: 56px; color: var(--ink); opacity: 0; flex: none;
+      }
+      .fx-node.hot { background: var(--yellow); }
+      .fx-node-line { width: 32px; height: 7px; background: var(--ink); opacity: 0; transform-origin: left center; transform: scaleX(0); flex: none; }
+
+      .fx-ban-wrap { position: relative; display: flex; align-items: center; justify-content: center; width: 320px; height: 320px; }
+      .ban-line {
+        position: absolute; left: -10%; right: -10%; top: 50%; height: 20px; margin-top: -10px;
+        background: #D64545; border: 5px solid var(--ink); transform-origin: center; opacity: 0; z-index: 6;
+      }
+
+      .fx-compare-row { display: flex; gap: 40px; align-items: stretch; }
+      .fx-compare-panel {
+        width: 420px; background: var(--cream); border: 7px solid var(--ink); border-radius: 20px;
+        box-shadow: 12px 12px 0 var(--ink); padding: 44px 30px; display: flex; flex-direction: column;
+        align-items: center; gap: 24px; opacity: 0;
+      }
+      .fx-compare-panel .glyph { font-size: 110px; line-height: 1; }
+      .fx-compare-panel .label {
+        font-family: "Archivo Black", sans-serif; font-size: 30px; text-transform: uppercase; color: var(--ink); text-align: center;
+      }
+      .fx-compare-panel.good { border-color: #2E9B5C; }
+      .fx-compare-panel.bad { border-color: #D64545; }
+
+      .fx-guide-card {
+        position: absolute; width: 300px; height: 375px; border: 7px solid var(--ink); border-radius: 16px;
+        box-shadow: 14px 14px 0 var(--ink); overflow: hidden; opacity: 0;
+      }
+      .fx-guide-card img { width: 100%; height: 100%; object-fit: cover; }
+
+      .fx-subscribe-btn {
+        background: var(--yellow); border: 7px solid var(--ink); border-radius: 999px; box-shadow: 16px 16px 0 var(--ink);
+        padding: 36px 72px; opacity: 0; transform-origin: 50% 50%; position: relative;
+      }
+      .fx-subscribe-btn span { font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 104px; color: var(--ink); letter-spacing: -0.01em; }
+      .fx-cursor-hand { position: absolute; font-size: 78px; opacity: 0; filter: drop-shadow(4px 4px 0 rgba(10,10,5,0.25)); }
+      .fx-click-ring { position: absolute; width: 54px; height: 54px; border-radius: 50%; border: 5px solid var(--ink); opacity: 0; }
+
+      .fx-zero-wrap { position: relative; display: flex; align-items: center; justify-content: center; width: 320px; height: 320px; }
+      .fx-zero-num {
+        font-family: "Archivo Black", sans-serif; font-size: 220px; color: var(--ink); opacity: 0; line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="105.76" data-width="1080" data-height="1920">
+
+      <div class="bg-layer"><div class="bg-grid"></div></div>
+
+      <!-- ===== HOOK — "ÉPISODE 7" typewriter ===== -->
+      <div id="p0" class="clip" data-start="0" data-duration="1.3" data-track-index="1">
+        <div class="type-card">
+          <span class="type-text"><span id="p0-c1">É</span><span id="p0-c2">P</span><span id="p0-c3">I</span><span id="p0-c4">S</span><span id="p0-c5">O</span><span id="p0-c6">D</span><span id="p0-c7">E</span><span id="p0-sp">&nbsp;</span><span id="p0-c8">7</span><span id="p0-cursor">&#9608;</span></span>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 1 — chercher sans arrêt de nouveaux clients coûte cher ===== -->
+      <div id="p1">
+        <div id="p1-box" class="shot-card">
+          <video id="p1-el" src="assets/video/chercher-nouveaux-clients.mp4" muted playsinline data-start="1.300" data-duration="3.760" data-media-start="0"></video>
+        </div>
+        <div class="hero-caption-zone"><div id="p1-label" class="speech-bubble ink">CHERCHER SANS ARRÊT<br/>DE NOUVEAUX CLIENTS COÛTE CHER</div></div>
+      </div>
+
+      <!-- ===== BEAT 2 — si tu vends déjà un produit digital ===== -->
+      <div id="p2">
+        <div id="p2-box" class="shot-card">
+          <img id="p2-el" src="assets/images/vends-deja-produit-digital.jpg" alt="" />
+        </div>
+        <div class="hero-caption-zone"><div id="p2-label" class="speech-bubble yellow">SI TU VENDS DÉJÀ<br/>UN PRODUIT DIGITAL</div></div>
+      </div>
+
+      <!-- ===== BEAT 3 — regarde ta liste de clients ===== -->
+      <div id="p3">
+        <div id="p3-box" class="shot-card landscape">
+          <video id="p3-el" src="assets/video/regarde-liste-clients.mp4" muted playsinline data-start="8.350" data-duration="2.820" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p3-label" class="speech-bubble ink">REGARDE TA LISTE<br/>DE CLIENTS</div></div>
+      </div>
+
+      <!-- ===== BEAT 4 — la plupart tu ne leur as plus jamais reparlé (chat barré) ===== -->
+      <div id="p4" class="clip" data-start="11.170" data-duration="5.640" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-ban-wrap">
+            <div id="p4-icon" class="fx-emoji-big">&#128172;</div>
+            <div id="p4-ban" class="ban-line" style="transform: rotate(-10deg);"></div>
+          </div>
+          <div id="p4-title" class="fx-title small">LA PLUPART, TU NE LEUR<br/>AS PLUS JAMAIS REPARLÉ</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 5-6 — le problème c'est rarement trouver / c'est qu'on oublie (comparaison) ===== -->
+      <div id="p5" class="clip" data-start="16.810" data-duration="7.520" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p5-title" class="fx-title small">LE PROBLÈME, C'EST<br/>RAREMENT D'EN TROUVER</div>
+          <div class="fx-compare-row">
+            <div id="p5-good" class="fx-compare-panel good">
+              <div class="glyph">&#128269;</div>
+              <div class="label">NOUVEAUX CLIENTS</div>
+            </div>
+            <div id="p5-bad" class="fx-compare-panel bad">
+              <div class="glyph">&#128564;</div>
+              <div class="label">CEUX QU'ON<br/>A DÉJÀ, OUBLIÉS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 7 — roadmap VENDRE, R allumé ===== -->
+      <div id="p7" class="clip" data-start="24.330" data-duration="4.230" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p7-eyebrow" class="fx-eyebrow">DANS NOTRE STRATÉGIE</div>
+          <div class="fx-roadmap">
+            <div id="p7-v" class="fx-node">V</div>
+            <div id="p7-l1" class="fx-node-line"></div>
+            <div id="p7-e1" class="fx-node">E</div>
+            <div id="p7-l2" class="fx-node-line"></div>
+            <div id="p7-n" class="fx-node">N</div>
+            <div id="p7-l3" class="fx-node-line"></div>
+            <div id="p7-d" class="fx-node">D</div>
+            <div id="p7-l4" class="fx-node-line"></div>
+            <div id="p7-r" class="fx-node hot">R</div>
+            <div id="p7-l5" class="fx-node-line"></div>
+            <div id="p7-e2" class="fx-node">E</div>
+          </div>
+          <div id="p7-title" class="fx-title small">C'EST LA RELANCE</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 8 — tu recontactes ceux qui te connaissent déjà ===== -->
+      <div id="p8">
+        <div id="p8-box" class="shot-card landscape">
+          <video id="p8-el" src="assets/video/recontactes-connaissent-deja.mp4" muted playsinline data-start="28.560" data-duration="5.170" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p8-label" class="speech-bubble yellow">TU RECONTACTES CEUX<br/>QUI TE CONNAISSENT DÉJÀ</div></div>
+      </div>
+
+      <!-- ===== BEAT 9 — au lieu de repartir de zéro (0 barré) ===== -->
+      <div id="p9" class="clip" data-start="33.730" data-duration="4.230" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-zero-wrap">
+            <div id="p9-zero" class="fx-zero-num">0</div>
+            <div id="p9-ban" class="ban-line" style="transform: rotate(12deg);"></div>
+          </div>
+          <div id="p9-title" class="fx-title small">AU LIEU DE REPARTIR<br/>DE ZÉRO À CHAQUE FOIS</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 10 — regarde oncle david, il vendait puis plus rien ===== -->
+      <div id="p10">
+        <div id="p10-box" class="shot-card landscape ink">
+          <img id="p10-el" src="assets/images/guide-menuiserie-cover.jpg" alt="" style="opacity:0.55;" />
+        </div>
+        <div class="bubble-zone"><div id="p10-label" class="speech-bubble yellow">IL VENDAIT SON PREMIER<br/>GUIDE, PUIS PLUS RIEN</div></div>
+      </div>
+
+      <!-- ===== BEAT 11 — il attendait que de nouvelles personnes le découvrent ===== -->
+      <div id="p11">
+        <div id="p11-box" class="shot-card landscape">
+          <video id="p11-el" src="assets/video/nouvelles-personnes-decouvrent.mp4" muted playsinline data-start="44.540" data-duration="4.230" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p11-label" class="speech-bubble ink">IL ATTENDAIT QUE DE NOUVELLES<br/>PERSONNES LE DÉCOUVRENT</div></div>
+      </div>
+
+      <!-- ===== BEAT 12 — un jour, il a réécrit à tous ceux qui avaient acheté (stylo) ===== -->
+      <div id="p12" class="clip" data-start="48.770" data-duration="5.640" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p12-icon" class="fx-emoji-big">&#9999;&#65039;</div>
+          <div id="p12-title" class="fx-title small">UN JOUR, IL A RÉÉCRIT<br/>À TOUS CEUX QUI AVAIENT ACHETÉ</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 13 — pour leur proposer un deuxième guide (vertical -> carte horizontale) ===== -->
+      <div id="p13">
+        <div id="p13-box" class="shot-card landscape">
+          <video id="p13-el" src="assets/video/proposer-deuxieme-guide.mp4" muted playsinline data-start="54.410" data-duration="3.760" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p13-label" class="speech-bubble yellow">POUR LEUR PROPOSER UN<br/>DEUXIÈME GUIDE, PLUS AVANCÉ</div></div>
+      </div>
+
+      <!-- ===== BEAT 14 — un message direct, presque personnel ===== -->
+      <div id="p14">
+        <div id="p14-box" class="shot-card landscape">
+          <video id="p14-el" src="assets/video/message-direct-personnel.mp4" muted playsinline data-start="58.170" data-duration="2.350" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p14-label" class="speech-bubble ink">UN MESSAGE DIRECT,<br/>PRESQUE PERSONNEL</div></div>
+      </div>
+
+      <!-- ===== BEAT 15 — pas une pub ===== -->
+      <div id="p15">
+        <div id="p15-box" class="shot-card landscape">
+          <video id="p15-el" src="assets/video/pas-une-pub.mp4" muted playsinline data-start="60.520" data-duration="1.410" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p15-label" class="speech-bubble yellow">PAS UNE PUB</div></div>
+      </div>
+
+      <!-- ===== BEAT 16 — la moitié ont acheté à nouveau en quelques jours ===== -->
+      <div id="p16">
+        <div id="p16-box" class="shot-card landscape ink">
+          <video id="p16-el" src="assets/video/moitie-achete-a-nouveau.mp4" muted playsinline data-start="61.930" data-duration="5.170" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p16-label" class="speech-bubble yellow">LA MOITIÉ ONT ACHETÉ<br/>À NOUVEAU, EN QUELQUES JOURS</div></div>
+      </div>
+
+      <!-- ===== BEAT 17 — maintenant il le fait toutes les quelques semaines (calendrier) ===== -->
+      <div id="p17" class="clip" data-start="67.100" data-duration="3.760" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p17-icon" class="fx-emoji-big">&#128197;</div>
+          <div id="p17-title" class="fx-title small">MAINTENANT, TOUTES<br/>LES QUELQUES SEMAINES</div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 18 — même juste pour prendre des nouvelles ===== -->
+      <div id="p18">
+        <div id="p18-box" class="shot-card landscape">
+          <video id="p18-el" src="assets/video/prendre-des-nouvelles.mp4" muted playsinline data-start="70.860" data-duration="2.820" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p18-label" class="speech-bubble ink">MÊME JUSTE POUR<br/>PRENDRE DES NOUVELLES</div></div>
+      </div>
+
+      <!-- ===== BEAT 19 — résultat, la moitié des ventes vient d'anciens clients ===== -->
+      <div id="p19">
+        <div id="p19-box" class="shot-card landscape">
+          <video id="p19-el" src="assets/video/moitie-ventes-anciens-clients.mp4" muted playsinline data-start="73.680" data-duration="5.170" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p19-label" class="speech-bubble yellow">LA MOITIÉ DE SES VENTES<br/>VIENT D'ANCIENS CLIENTS</div></div>
+      </div>
+
+      <!-- ===== BEAT 20 — une fois que tu sais relancer les mêmes clients ===== -->
+      <div id="p20">
+        <div id="p20-box" class="shot-card landscape">
+          <video id="p20-el" src="assets/video/relancer-clients.mp4" muted playsinline data-start="78.850" data-duration="4.230" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p20-label" class="speech-bubble ink">UNE FOIS QUE TU SAIS<br/>RELANCER LES MÊMES CLIENTS</div></div>
+      </div>
+
+      <!-- ===== BEAT 21 — transformer ce système en quelque chose qui s'améliore tout seul ===== -->
+      <div id="p21">
+        <div id="p21-box" class="shot-card landscape">
+          <video id="p21-el" src="assets/video/systeme-ameliore-seul.mp4" muted playsinline data-start="83.080" data-duration="7.520" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p21-label" class="speech-bubble yellow">UN SYSTÈME QUI<br/>S'AMÉLIORE TOUT SEUL</div></div>
+      </div>
+
+      <!-- ===== BEAT 22 — c'est l'évolution, la dernière lettre ===== -->
+      <div id="p22">
+        <div id="p22-box" class="shot-card landscape">
+          <video id="p22-el" src="assets/video/evolution-derniere-etape.mp4" muted playsinline data-start="90.600" data-duration="2.820" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p22-label" class="speech-bubble ink">C'EST L'ÉVOLUTION,<br/>LA DERNIÈRE LETTRE</div></div>
+      </div>
+
+      <!-- ===== BEAT 23 — roadmap teaser, E (dernier) allumé ===== -->
+      <div id="p23" class="clip" data-start="93.420" data-duration="2.820" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p23-eyebrow" class="fx-eyebrow">PROCHAIN ÉPISODE</div>
+          <div class="fx-roadmap">
+            <div id="p23-v" class="fx-node">V</div>
+            <div id="p23-l1" class="fx-node-line"></div>
+            <div id="p23-e1" class="fx-node">E</div>
+            <div id="p23-l2" class="fx-node-line"></div>
+            <div id="p23-n" class="fx-node">N</div>
+            <div id="p23-l3" class="fx-node-line"></div>
+            <div id="p23-d" class="fx-node">D</div>
+            <div id="p23-l4" class="fx-node-line"></div>
+            <div id="p23-r" class="fx-node">R</div>
+            <div id="p23-l5" class="fx-node-line"></div>
+            <div id="p23-e2" class="fx-node hot">E</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BEAT 24 — CTA: abonne-toi + commente Relance + mini guide ===== -->
+      <div id="p24" class="clip" data-start="96.240" data-duration="9.520" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p24-guide" class="fx-guide-card" style="left:140px; top:230px; transform: rotate(-6deg);">
+            <img src="assets/images/mini-guide-cover.png" alt="" />
+          </div>
+          <div class="fx-subscribe-btn" style="margin-top:420px;">
+            <span>ABONNE-TOI</span>
+            <div id="p24-ring" class="fx-click-ring" style="right:14px; bottom:8px;"></div>
+            <div id="p24-hand" class="fx-cursor-hand" style="right:-4px; bottom:2px;">&#128070;</div>
+          </div>
+          <div id="p24-line" class="fx-title small">COMMENTE "RELANCE"<br/>JE T'ENVOIE LE MINI GUIDE</div>
+        </div>
+      </div>
+
+      <!-- AUDIO -->
+      <audio id="sfx-typing" class="clip" data-start="0" data-duration="1.3" data-track-index="9" src="audio/sfx/typing.wav"></audio>
+      <audio id="sfx-click" class="clip" data-start="96.84" data-duration="0.14" data-track-index="10" src="audio/sfx/click.wav"></audio>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // ---- hook: "ÉPISODE 7" typewriter ----
+      const p0Chars = ["#p0-c1", "#p0-c2", "#p0-c3", "#p0-c4", "#p0-c5", "#p0-c6", "#p0-c7", "#p0-sp", "#p0-c8"];
+      p0Chars.forEach((sel, i) => { tl.set(sel, { opacity: 1 }, 0 + i * 0.09); });
+      tl.set("#p0-cursor", { opacity: 1 }, 0);
+      tl.to("#p0-cursor", { opacity: 0, duration: 0.15, repeat: 7, yoyo: true, ease: "steps(1)" }, 0);
+      tl.set([...p0Chars, "#p0-cursor"], { opacity: 0 }, 1.3);
+
+      // ---- p1: chercher sans arrêt (video) ----
+      tl.fromTo("#p1-box", { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 0.26, ease: "power2.out" }, 1.3);
+      tl.fromTo("#p1-label", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 1.5);
+      tl.set(["#p1-box", "#p1-label"], { opacity: 0 }, 5.06);
+
+      // ---- p2: si tu vends déjà un produit digital (image) ----
+      tl.fromTo("#p2-box", { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, 5.06);
+      tl.fromTo("#p2-label", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 5.22);
+      tl.set(["#p2-box", "#p2-label"], { opacity: 0 }, 8.35);
+
+      // ---- p3: regarde ta liste de clients (video) ----
+      tl.fromTo("#p3-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 8.35);
+      tl.fromTo("#p3-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 8.43);
+      tl.set(["#p3-box", "#p3-label"], { opacity: 0 }, 11.17);
+
+      // ---- p4: la plupart tu ne leur as plus jamais reparlé (chat barré) ----
+      tl.fromTo("#p4-icon", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.4)" }, 11.17);
+      tl.fromTo("#p4-ban", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.26, ease: "power2.out" }, 11.47);
+      tl.fromTo("#p4-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.26, ease: "power2.out" }, 11.57);
+      tl.set(["#p4-icon", "#p4-ban", "#p4-title"], { opacity: 0 }, 16.81);
+
+      // ---- p5-6: le problème c'est rarement d'en trouver / ceux qu'on a oubliés (comparaison) ----
+      tl.fromTo("#p5-title", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 16.81);
+      tl.fromTo("#p5-good", { opacity: 0, y: 30, rotation: -3 }, { opacity: 1, y: 0, rotation: -2, duration: 0.26, ease: "back.out(2.2)" }, 17.21);
+      tl.fromTo("#p5-bad", { opacity: 0, y: 30, rotation: 3 }, { opacity: 1, y: 0, rotation: 2, duration: 0.26, ease: "back.out(2.2)" }, 17.41);
+      tl.to("#p5-bad .glyph", { rotation: -8, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, 17.86);
+      tl.set(["#p5-title", "#p5-good", "#p5-bad"], { opacity: 0 }, 24.33);
+
+      // ---- p7: roadmap R allumé ----
+      tl.fromTo("#p7-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 24.33);
+      const p7Nodes = [["#p7-v", null], ["#p7-l1", "line"], ["#p7-e1", null], ["#p7-l2", "line"], ["#p7-n", null], ["#p7-l3", "line"], ["#p7-d", null], ["#p7-l4", "line"], ["#p7-r", null], ["#p7-l5", "line"], ["#p7-e2", null]];
+      p7Nodes.forEach(([sel, kind], i) => {
+        const start = 24.58 + i * 0.09;
+        if (kind === "line") {
+          tl.fromTo(sel, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.1, ease: "power2.out" }, start);
+        } else {
+          tl.fromTo(sel, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.14, ease: "back.out(2.6)" }, start);
+        }
+      });
+      tl.fromTo("#p7-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 26.17);
+      tl.set(["#p7-eyebrow", "#p7-v", "#p7-l1", "#p7-e1", "#p7-l2", "#p7-n", "#p7-l3", "#p7-d", "#p7-l4", "#p7-r", "#p7-l5", "#p7-e2", "#p7-title"], { opacity: 0 }, 28.56);
+
+      // ---- p8: tu recontactes ceux qui te connaissent déjà (video) ----
+      tl.fromTo("#p8-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 28.56);
+      tl.fromTo("#p8-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 28.66);
+      tl.set(["#p8-box", "#p8-label"], { opacity: 0 }, 33.73);
+
+      // ---- p9: au lieu de repartir de zéro (0 barré) ----
+      tl.fromTo("#p9-zero", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.4)" }, 33.73);
+      tl.fromTo("#p9-ban", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.26, ease: "power2.out" }, 34.03);
+      tl.fromTo("#p9-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.26, ease: "power2.out" }, 34.13);
+      tl.set(["#p9-zero", "#p9-ban", "#p9-title"], { opacity: 0 }, 37.96);
+
+      // ---- p10: regarde oncle david, il vendait puis plus rien ----
+      tl.fromTo("#p10-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 37.96);
+      tl.fromTo("#p10-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 38.04);
+      tl.set(["#p10-box", "#p10-label"], { opacity: 0 }, 44.54);
+
+      // ---- p11: il attendait que de nouvelles personnes le découvrent (video) ----
+      tl.fromTo("#p11-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 44.54);
+      tl.fromTo("#p11-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 44.62);
+      tl.set(["#p11-box", "#p11-label"], { opacity: 0 }, 48.77);
+
+      // ---- p12: un jour il a réécrit (stylo) ----
+      tl.fromTo("#p12-icon", { opacity: 0, scale: 0.6, rotation: -12 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.24, ease: "back.out(2.4)" }, 48.77);
+      tl.to("#p12-icon", { rotation: 8, duration: 0.4, yoyo: true, repeat: 2, ease: "sine.inOut" }, 49.17);
+      tl.fromTo("#p12-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.26, ease: "power2.out" }, 49.07);
+      tl.set(["#p12-icon", "#p12-title"], { opacity: 0 }, 54.41);
+
+      // ---- p13: proposer un deuxième guide (video, carte horizontale) ----
+      tl.fromTo("#p13-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, 54.41);
+      tl.fromTo("#p13-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 54.51);
+      tl.set(["#p13-box", "#p13-label"], { opacity: 0 }, 58.17);
+
+      // ---- p14: un message direct, presque personnel (video) ----
+      tl.fromTo("#p14-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 58.17);
+      tl.fromTo("#p14-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 58.24);
+      tl.set(["#p14-box", "#p14-label"], { opacity: 0 }, 60.52);
+
+      // ---- p15: pas une pub (video) ----
+      tl.fromTo("#p15-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.1, ease: "power2.out" }, 60.52);
+      tl.fromTo("#p15-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.12, ease: "power2.out" }, 60.57);
+      tl.set(["#p15-box", "#p15-label"], { opacity: 0 }, 61.93);
+
+      // ---- p16: la moitié ont acheté à nouveau (video, ink) ----
+      tl.fromTo("#p16-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 61.93);
+      tl.fromTo("#p16-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 62.01);
+      tl.set(["#p16-box", "#p16-label"], { opacity: 0 }, 67.1);
+
+      // ---- p17: maintenant toutes les quelques semaines (calendrier) ----
+      tl.fromTo("#p17-icon", { opacity: 0, scale: 0.6, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.24, ease: "back.out(2.4)" }, 67.1);
+      tl.fromTo("#p17-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.26, ease: "power2.out" }, 67.3);
+      tl.set(["#p17-icon", "#p17-title"], { opacity: 0 }, 70.86);
+
+      // ---- p18: même juste pour prendre des nouvelles (video) ----
+      tl.fromTo("#p18-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 70.86);
+      tl.fromTo("#p18-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 70.93);
+      tl.set(["#p18-box", "#p18-label"], { opacity: 0 }, 73.68);
+
+      // ---- p19: résultat, la moitié des ventes vient d'anciens clients (video) ----
+      tl.fromTo("#p19-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power2.out" }, 73.68);
+      tl.fromTo("#p19-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 73.76);
+      tl.set(["#p19-box", "#p19-label"], { opacity: 0 }, 78.85);
+
+      // ---- p20: une fois que tu sais relancer les mêmes clients (video) ----
+      tl.fromTo("#p20-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, 78.85);
+      tl.fromTo("#p20-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 78.93);
+      tl.set(["#p20-box", "#p20-label"], { opacity: 0 }, 83.08);
+
+      // ---- p21: un système qui s'améliore tout seul (video) ----
+      tl.fromTo("#p21-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, 83.08);
+      tl.fromTo("#p21-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 83.18);
+      tl.set(["#p21-box", "#p21-label"], { opacity: 0 }, 90.6);
+
+      // ---- p22: c'est l'évolution, la dernière lettre (video) ----
+      tl.fromTo("#p22-box", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 90.6);
+      tl.fromTo("#p22-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 90.68);
+      tl.set(["#p22-box", "#p22-label"], { opacity: 0 }, 93.42);
+
+      // ---- p23: roadmap teaser, E (dernier) allumé ----
+      tl.fromTo("#p23-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 93.42);
+      const p23Nodes = [["#p23-v", null], ["#p23-l1", "line"], ["#p23-e1", null], ["#p23-l2", "line"], ["#p23-n", null], ["#p23-l3", "line"], ["#p23-d", null], ["#p23-l4", "line"], ["#p23-r", null], ["#p23-l5", "line"], ["#p23-e2", null]];
+      p23Nodes.forEach(([sel, kind], i) => {
+        const start = 93.67 + i * 0.09;
+        if (kind === "line") {
+          tl.fromTo(sel, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.1, ease: "power2.out" }, start);
+        } else {
+          tl.fromTo(sel, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.14, ease: "back.out(2.6)" }, start);
+        }
+      });
+      tl.set(["#p23-eyebrow", "#p23-v", "#p23-l1", "#p23-e1", "#p23-l2", "#p23-n", "#p23-l3", "#p23-d", "#p23-l4", "#p23-r", "#p23-l5", "#p23-e2"], { opacity: 0 }, 96.24);
+
+      // ---- p24: CTA abonne-toi + commente Relance + mini guide ----
+      tl.fromTo("#p24-guide", { opacity: 0, scale: 0.6, rotation: 4 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.3, ease: "back.out(2.2)" }, 96.24);
+      tl.to("#p24-guide", { y: -18, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, 96.73);
+      tl.fromTo(".fx-subscribe-btn", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.26, ease: "elastic.out(1,0.6)" }, 96.64);
+      tl.fromTo("#p24-hand", { opacity: 0, x: 40, y: 40 }, { opacity: 1, x: 0, y: 0, duration: 0.22, ease: "power2.out" }, 97.04);
+      tl.to("#p24-hand", { scale: 0.85, duration: 0.09, yoyo: true, repeat: 1 }, 97.24);
+      tl.set("#p24-ring", { opacity: 1, scale: 0.3 }, 97.24);
+      tl.to("#p24-ring", { opacity: 0, scale: 1.8, duration: 0.22, ease: "power2.out" }, 97.24);
+      tl.set("#p24-ring", { opacity: 0 }, 97.46);
+      tl.to(".fx-subscribe-btn", { scale: 0.94, duration: 0.07, yoyo: true, repeat: 1 }, 97.24);
+      tl.fromTo("#p24-line", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 97.54);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
