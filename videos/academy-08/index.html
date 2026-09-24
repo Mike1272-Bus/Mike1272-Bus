@@ -384,10 +384,11 @@
       </div>
 
       <!-- ===== p16 — extrait vidéo #7 : "j'accompagne personnellement Oncle David là-dessus" ===== -->
-      <div id="p16" class="clip vid-placeholder" data-start="42.762" data-duration="1.868" data-track-index="1">
-        <div class="glyph">&#127909;</div>
-        <div class="tag">Extrait vidéo #7</div>
-        <div class="desc">"J'accompagne personnellement<br/>Oncle David là-dessus"</div>
+      <div id="p16">
+        <div id="p16-box" class="shot-card landscape">
+          <video id="p16-el" src="assets/video/accompagne-oncle-david.mp4" muted playsinline data-start="42.762" data-duration="1.868" data-media-start="0"></video>
+        </div>
+        <div class="bubble-zone"><div id="p16-label" class="speech-bubble yellow">J'ACCOMPAGNE PERSONNELLEMENT<br/>ONCLE DAVID LÀ-DESSUS</div></div>
       </div>
 
       <!-- ===== p17 — roadmap complète, toutes les lettres allumées ===== -->
@@ -612,17 +613,10 @@
       tl.fromTo("#p4-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.175, ease: "power2.out" }, 7.889);
       tl.set(["#p4-loop", "#p4-title"], { opacity: 0 }, 11.385);
 
-      // ---- p16: extrait vidéo en attente (placeholder) ----
-      const vidPlaceholders = [["#p16", 42.762, 44.631]];
-      vidPlaceholders.forEach(([sel, start, end]) => {
-        tl.fromTo(sel, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.127, ease: "power2.out" }, start);
-        tl.set(sel, { opacity: 0 }, end);
-      });
-
-      // ---- p5/p6/p8/p9/p11/p12/p19/p23/p26: extraits vidéo réels (carte + légende) ----
+      // ---- p5/p6/p8/p9/p11/p12/p16/p19/p23/p26: extraits vidéo réels (carte + légende) ----
       const realShots = [
         ["p5", 11.385, 14.374], ["p6", 14.374, 16.615], ["p8", 19.604, 22.218], ["p9", 22.218, 25.58],
-        ["p11", 29.689, 30.809], ["p12", 30.809, 34.171], ["p19", 50.981, 52.848],
+        ["p11", 29.689, 30.809], ["p12", 30.809, 34.171], ["p16", 42.762, 44.631], ["p19", 50.981, 52.848],
         ["p23", 61.066, 64.801], ["p26", 70.778, 76.007]
       ];
       realShots.forEach(([id, start, end]) => {
