@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Work Sans";
+        src: url("vendor/fonts/work-sans-variable.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Archivo Black";
+        src: url("vendor/fonts/archivo-black-400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #FFFDF5; }
+      body { font-family: "Work Sans", sans-serif; }
+
+      :root { --yellow: #F7CB46; --ink: #0A0A05; --cream: #FFFDF5; --green: #2E9B5C; --red: #D64545; }
+
+      .clip { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .bg-layer { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+      .bg-grid {
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(to right, rgba(10,10,5,0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(10,10,5,0.08) 1px, transparent 1px);
+        background-size: 54px 54px;
+      }
+
+      .type-card { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+      .type-text {
+        font-family: "Courier New", Consolas, monospace; font-weight: 700; letter-spacing: 0.02em;
+        font-size: 88px; color: #6B6B66; text-transform: uppercase;
+      }
+      .type-text span { opacity: 0; }
+      #p0-cursor { opacity: 0; }
+
+      .fx-scene {
+        position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 50px; padding: 0 60px; text-align: center;
+      }
+      .fx-eyebrow {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 32px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--yellow); background: var(--ink); border-radius: 999px; padding: 16px 34px; opacity: 0;
+      }
+      .fx-title {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 92px; line-height: 1.08; color: var(--ink); text-wrap: balance; opacity: 0;
+      }
+      .fx-title.small { font-size: 68px; }
+      .fx-emoji-big { font-size: 190px; opacity: 0; line-height: 1; }
+      .fx-emoji-row { display: flex; gap: 30px; }
+      .fx-emoji-row .fx-emoji-big { font-size: 150px; }
+
+      .fx-roadmap { display: flex; align-items: center; }
+      .fx-node {
+        width: 124px; height: 124px; border-radius: 50%; background: var(--cream); border: 7px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-family: "Archivo Black", sans-serif;
+        font-size: 56px; color: var(--ink); opacity: 0; flex: none;
+      }
+      .fx-node.hot { background: var(--yellow); }
+      .fx-node-line { width: 32px; height: 7px; background: var(--ink); opacity: 0; transform-origin: left center; transform: scaleX(0); flex: none; }
+      .fx-gear-badge {
+        position: absolute; top: -14px; right: -14px; font-size: 40px; opacity: 0;
+        filter: drop-shadow(2px 2px 0 rgba(10,10,5,0.3));
+      }
+      .fx-node-wrap { position: relative; flex: none; }
+
+      /* ---- cross-out mark (X, not a single strike bar) ---- */
+      .fx-ban-wrap { position: relative; display: flex; align-items: center; justify-content: center; width: 320px; height: 320px; }
+      .ban-x {
+        position: absolute; left: -4%; right: -4%; top: 50%; height: 20px; margin-top: -10px;
+        background: var(--red); border: 5px solid var(--ink); transform-origin: center; opacity: 0; z-index: 6;
+      }
+
+      /* ---- buy button (digital product) ---- */
+      .fx-buy-btn {
+        background: var(--yellow); border: 7px solid var(--ink); border-radius: 999px; box-shadow: 12px 12px 0 var(--ink);
+        padding: 26px 56px; opacity: 0; transform-origin: 50% 50%; position: relative;
+      }
+      .fx-buy-btn span { font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 60px; color: var(--ink); letter-spacing: -0.01em; }
+      .fx-cursor-hand { position: absolute; font-size: 78px; opacity: 0; filter: drop-shadow(4px 4px 0 rgba(10,10,5,0.25)); }
+      .fx-click-ring { position: absolute; width: 54px; height: 54px; border-radius: 50%; border: 5px solid var(--ink); opacity: 0; }
+
+      /* ---- stat card (stuck revenue) ---- */
+      .fx-stat-card {
+        width: 620px; background: var(--cream); border: 7px solid var(--ink); border-radius: 20px;
+        box-shadow: 12px 12px 0 var(--ink); padding: 44px 36px; display: flex; flex-direction: column;
+        align-items: center; gap: 20px; opacity: 0;
+      }
+      .fx-stat-month {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.06em;
+        text-transform: uppercase; color: #6B6B66;
+      }
+      .fx-stat-amount {
+        font-family: "Archivo Black", sans-serif; font-size: 76px; color: var(--ink);
+      }
+      .fx-stat-flat { font-size: 44px; }
+
+      /* ---- stuck loop icon ---- */
+      .fx-loop-icon { font-size: 220px; opacity: 0; line-height: 1; }
+
+      /* ---- number jump (60k -> 600k) ---- */
+      .fx-number-row { display: flex; align-items: center; gap: 30px; }
+      .fx-number-box {
+        background: var(--cream); border: 7px solid var(--ink); border-radius: 18px; padding: 30px 40px; opacity: 0;
+      }
+      .fx-number-box.win { background: var(--yellow); }
+      .fx-number-box .val { font-family: "Archivo Black", sans-serif; font-size: 56px; color: var(--ink); }
+      .fx-number-arrow { font-size: 80px; opacity: 0; }
+
+      /* ---- time passing ---- */
+      .fx-time-wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+      .fx-hourglass { font-size: 200px; opacity: 0; line-height: 1; }
+
+      /* ---- shortcut path illustration ---- */
+      .fx-path-wrap { display: flex; flex-direction: column; gap: 36px; width: 100%; max-width: 880px; }
+      .fx-path-row { display: flex; align-items: center; gap: 24px; opacity: 0; }
+      .fx-path-label {
+        font-family: "Archivo Black", sans-serif; font-size: 34px; color: var(--ink); text-transform: uppercase;
+        width: 260px; text-align: left; flex: none;
+      }
+      .fx-path-bar { width: 560px; flex: none; height: 26px; border-radius: 999px; border: 5px solid var(--ink); position: relative; overflow: hidden; }
+      .fx-path-bar.long { background: repeating-linear-gradient(135deg, #D9D9CE 0 18px, #C9C9BC 18px 36px); }
+      .fx-path-bar.short { background: var(--yellow); }
+      .fx-path-dot { position: absolute; top: 50%; left: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--ink); transform: translate(0, -50%); }
+
+      /* ---- crowd dots (most miss it) ---- */
+      .fx-crowd { display: grid; grid-template-columns: repeat(6, 1fr); gap: 26px; }
+      .fx-dot { width: 56px; height: 56px; border-radius: 50%; background: #D9D9CE; border: 4px solid var(--ink); opacity: 0; }
+      .fx-dot.glow { background: var(--yellow); width: 74px; height: 74px; box-shadow: 0 0 0 10px rgba(247,203,70,0.35); }
+
+      /* ---- real-asset placeholders (swap when files arrive) ---- */
+      .shot-card { position: absolute; inset: 0; overflow: hidden; background: var(--cream); opacity: 0; }
+      .shot-card img, .shot-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .shot-card.landscape {
+        inset: auto; left: 40px; top: 640px; width: 1000px; height: 563px;
+        border: 7px solid var(--ink); box-shadow: 12px 12px 0 var(--ink);
+      }
+      .vid-placeholder {
+        position: absolute; inset: auto; left: 40px; top: 640px; width: 1000px; height: 563px;
+        border: 6px dashed var(--ink); border-radius: 12px; background: #F1F1E8; opacity: 0;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 40px; text-align: center;
+      }
+      .vid-placeholder .glyph { font-size: 80px; }
+      .vid-placeholder .tag {
+        font-family: "Archivo Black", sans-serif; font-size: 30px; color: var(--ink); text-transform: uppercase;
+      }
+      .vid-placeholder .desc { font-family: "Work Sans", sans-serif; font-weight: 600; font-size: 26px; color: #55554E; }
+      .bubble-zone { position: absolute; left: 0; right: 0; bottom: 260px; display: flex; justify-content: center; padding: 0 60px; z-index: 5; }
+      .hero-caption-zone { position: absolute; left: 0; right: 0; bottom: 200px; display: flex; justify-content: center; padding: 0 60px; z-index: 5; }
+      .speech-bubble {
+        position: relative; display: inline-block; max-width: 920px; padding: 28px 42px 40px;
+        border-radius: 30px; font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 48px; line-height: 1.08; text-align: center; text-wrap: balance; opacity: 0;
+      }
+      .speech-bubble::after {
+        content: ""; position: absolute; left: 54px; bottom: -20px;
+        width: 0; height: 0; border-left: 6px solid transparent; border-right: 30px solid transparent;
+      }
+      .speech-bubble.yellow { background: var(--yellow); color: var(--ink); }
+      .speech-bubble.yellow::after { border-top: 24px solid var(--yellow); }
+      .speech-bubble.ink { background: var(--ink); color: var(--cream); }
+      .speech-bubble.ink::after { border-top: 24px solid var(--ink); }
+
+      /* ---- 4-image stack (accumulates, does not erase) ---- */
+      .img-stack-wrap { position: relative; width: 900px; height: 1000px; }
+      .img-slot {
+        position: absolute; width: 380px; height: 460px; border: 7px solid var(--ink); border-radius: 16px;
+        box-shadow: 12px 12px 0 var(--ink); background: #F1F1E8; border-style: dashed; opacity: 0;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 20px;
+      }
+      .img-slot .glyph { font-size: 60px; }
+      .img-slot .tag { font-family: "Archivo Black", sans-serif; font-size: 24px; color: var(--ink); text-transform: uppercase; }
+
+      /* ---- product + community blend ---- */
+      .fx-blend-wrap { position: relative; width: 500px; height: 320px; }
+      .fx-blend-icon { position: absolute; font-size: 150px; opacity: 0; }
+
+      /* ---- kinetic word ---- */
+      .fx-kinetic-word {
+        font-family: "Archivo Black", sans-serif; font-size: 120px; color: var(--ink); text-transform: uppercase; opacity: 0;
+      }
+      .fx-comment-chip {
+        display: inline-flex; align-items: center; gap: 16px; background: var(--yellow); border: 6px solid var(--ink);
+        border-radius: 999px; padding: 18px 36px; opacity: 0; box-shadow: 10px 10px 0 var(--ink);
+      }
+      .fx-comment-chip span { font-family: "Archivo Black", sans-serif; font-size: 42px; color: var(--ink); text-transform: uppercase; }
+
+      /* ---- guide/book cover placeholder ---- */
+      .fx-guide-card {
+        position: absolute; width: 340px; height: 425px; border: 7px solid var(--ink); border-radius: 16px;
+        box-shadow: 14px 14px 0 var(--ink); overflow: hidden; opacity: 0; background: var(--ink);
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; text-align: center;
+      }
+      .fx-guide-card img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+      .fx-guide-card .cover-eyebrow {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--yellow);
+      }
+      .fx-guide-card .cover-title {
+        font-family: "Archivo Black", sans-serif; font-size: 34px; color: var(--cream); text-transform: uppercase; line-height: 1.1;
+      }
+
+      .fx-subscribe-btn {
+        background: var(--yellow); border: 7px solid var(--ink); border-radius: 999px; box-shadow: 16px 16px 0 var(--ink);
+        padding: 30px 60px; opacity: 0; transform-origin: 50% 50%; position: relative;
+      }
+      .fx-subscribe-btn span { font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 78px; color: var(--ink); letter-spacing: -0.01em; }
+
+      .fx-msg-icon { font-size: 150px; opacity: 0; line-height: 1; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="114.57" data-width="1080" data-height="1920">
+
+      <div class="bg-layer"><div class="bg-grid"></div></div>
+
+      <!-- ===== HOOK — "ÉPISODE 8" typewriter ===== -->
+      <div id="p0" class="clip" data-start="0" data-duration="1.3" data-track-index="1">
+        <div class="type-card">
+          <span class="type-text"><span id="p0-c1">É</span><span id="p0-c2">P</span><span id="p0-c3">I</span><span id="p0-c4">S</span><span id="p0-c5">O</span><span id="p0-c6">D</span><span id="p0-c7">E</span><span id="p0-sp">&nbsp;</span><span id="p0-c8">8</span><span id="p0-cursor">&#9608;</span></span>
+        </div>
+      </div>
+
+      <!-- ===== p1 — tu vends ton produit digital (motion: produit + clic acheter) ===== -->
+      <div id="p1" class="clip" data-start="1.300" data-duration="2.350" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p1-icon" class="fx-emoji-big">&#128187;</div>
+          <div class="fx-buy-btn" style="position: relative;">
+            <span>ACHETER</span>
+            <div id="p1-ring" class="fx-click-ring" style="right:10px; bottom:6px;"></div>
+            <div id="p1-hand" class="fx-cursor-hand" data-layout-allow-overlap="true" style="right:-6px; bottom:0px;">&#128070;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== p2 — ça marche (emojis) ===== -->
+      <div id="p2" class="clip" data-start="3.650" data-duration="0.940" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-emoji-row">
+            <div id="p2-e1" class="fx-emoji-big">&#9989;</div>
+            <div id="p2-e2" class="fx-emoji-big">&#128176;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== p3 — même chiffre chaque mois (stat card, mois qui changent) ===== -->
+      <div id="p3" class="clip" data-start="4.590" data-duration="4.700" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p3-card" class="fx-stat-card">
+            <div id="p3-month" class="fx-stat-month">JUIN</div>
+            <div class="fx-stat-amount">250.500 FCFA</div>
+            <div class="fx-stat-flat">&#8594;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== p4 — tu ne recules pas mais tu n'avances pas (boucle qui tourne) ===== -->
+      <div id="p4" class="clip" data-start="9.290" data-duration="4.700" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p4-loop" class="fx-loop-icon">&#128257;</div>
+          <div id="p4-title" class="fx-title small">TU NE RECULES PAS,<br/>MAIS TU N'AVANCES PAS NON PLUS</div>
+        </div>
+      </div>
+
+      <!-- ===== p5 — extrait vidéo #1 : "je vais t'expliquer comment passer un nouveau cap" ===== -->
+      <div id="p5" class="clip vid-placeholder" data-start="13.990" data-duration="3.760" data-track-index="1">
+        <div class="glyph">&#127909;</div>
+        <div class="tag">Extrait vidéo #1</div>
+        <div class="desc">"Je vais t'expliquer comment<br/>passer un nouveau cap"</div>
+      </div>
+
+      <!-- ===== p6 — extrait vidéo #2 : "même quand ton business tourne déjà" ===== -->
+      <div id="p6" class="clip vid-placeholder" data-start="17.750" data-duration="2.820" data-track-index="1">
+        <div class="glyph">&#127909;</div>
+        <div class="tag">Extrait vidéo #2</div>
+        <div class="desc">"Même quand ton business<br/>tourne déjà"</div>
+      </div>
+
+      <!-- ===== p7 — roadmap VENDRE, É allumé ===== -->
+      <div id="p7" class="clip" data-start="20.570" data-duration="3.760" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p7-eyebrow" class="fx-eyebrow">DANS NOTRE STRATÉGIE</div>
+          <div class="fx-roadmap">
+            <div id="p7-v" class="fx-node">V</div>
+            <div id="p7-l1" class="fx-node-line"></div>
+            <div id="p7-e1" class="fx-node">E</div>
+            <div id="p7-l2" class="fx-node-line"></div>
+            <div id="p7-n" class="fx-node">N</div>
+            <div id="p7-l3" class="fx-node-line"></div>
+            <div id="p7-d" class="fx-node">D</div>
+            <div id="p7-l4" class="fx-node-line"></div>
+            <div id="p7-r" class="fx-node">R</div>
+            <div id="p7-l5" class="fx-node-line"></div>
+            <div id="p7-e2" class="fx-node hot">É</div>
+          </div>
+          <div id="p7-title" class="fx-title small">C'EST L'ÉVOLUTION</div>
+        </div>
+      </div>
+
+      <!-- ===== p8 — extrait vidéo #3 : "il ne s'agit pas seulement de vendre" ===== -->
+      <div id="p8" class="clip vid-placeholder" data-start="24.330" data-duration="3.290" data-track-index="1">
+        <div class="glyph">&#127909;</div>
+        <div class="tag">Extrait vidéo #3</div>
+        <div class="desc">"Il ne s'agit pas<br/>seulement de vendre"</div>
+      </div>
+
+      <!-- ===== p9 — extrait vidéo #4 : "mais aussi de faire grandir ce qui marche déjà" ===== -->
+      <div id="p9" class="clip vid-placeholder" data-start="27.620" data-duration="4.230" data-track-index="1">
+        <div class="glyph">&#127909;</div>
+        <div class="tag">Extrait vidéo #4</div>
+        <div class="desc">"Mais aussi de faire grandir<br/>ce qui marche déjà"</div>
+      </div>
+
+      <!-- ===== p10 — 60.000 FCFA -> 600.000 FCFA ===== -->
+      <div id="p10" class="clip" data-start="31.850" data-duration="5.170" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-number-row">
+            <div id="p10-a" class="fx-number-box"><div class="val">60.000<br/>FCFA</div></div>
+            <div id="p10-arrow" class="fx-number-arrow">&#8594;</div>
+            <div id="p10-b" class="fx-number-box win"><div class="val">600.000<br/>FCFA</div></div>
+          </div>
+          <div id="p10-title" class="fx-title small">PAR MOIS, PAR EXEMPLE</div>
+        </div>
+      </div>
+
+      <!-- ===== p11 — extrait vidéo #5 : "mais évoluer seul" ===== -->
+      <div id="p11" class="clip vid-placeholder" data-start="37.020" data-duration="1.410" data-track-index="1">
+        <div class="glyph">&#127909;</div>
+        <div class="tag">Extrait vidéo #5</div>
+        <div class="desc">"Mais évoluer seul"</div>
+      </div>
+
+      <!-- ===== p12 — extrait vidéo #6 : "sans personne pour te corriger en cours de route" ===== -->
+      <div id="p12" class="clip vid-placeholder" data-start="38.430" data-duration="4.230" data-track-index="1">
+        <div class="glyph">&#127909;</div>
+        <div class="tag">Extrait vidéo #6</div>
+        <div class="desc">"Sans personne pour te corriger<br/>en cours de route"</div>
+      </div>
+
+      <!-- ===== p13 — ça prend des années (sablier) ===== -->
+      <div id="p13" class="clip" data-start="42.660" data-duration="1.880" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-time-wrap">
+            <div id="p13-hourglass" class="fx-hourglass">&#8987;</div>
+            <div id="p13-title" class="fx-title small">ÇA PREND DES ANNÉES</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== p14 — raccourcir le chemin (illustration long chemin vs raccourci) ===== -->
+      <div id="p14" class="clip" data-start="44.540" data-duration="7.520" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p14-title" class="fx-title small">VOICI COMMENT ON<br/>RACCOURCIT CE CHEMIN</div>
+          <div class="fx-path-wrap">
+            <div id="p14-row1" class="fx-path-row">
+              <div class="fx-path-label">SEUL</div>
+              <div class="fx-path-bar long"><div class="fx-path-dot" id="p14-dot1" style="left:0;"></div></div>
+            </div>
+            <div id="p14-row2" class="fx-path-row">
+              <div class="fx-path-label">ACCOMPAGNÉ</div>
+              <div class="fx-path-bar short"><div class="fx-path-dot" id="p14-dot2" style="left:0;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== p15 — en ce moment (connecteur) ===== -->
+      <div id="p15" class="clip" data-start="52.060" data-duration="1.410" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p15-eyebrow" class="fx-eyebrow">&#8987; EN CE MOMENT</div>
+        </div>
+      </div>
+
+      <!-- ===== p16 — extrait vidéo #7 : "j'accompagne personnellement Oncle David là-dessus" ===== -->
+      <div id="p16" class="clip vid-placeholder" data-start="53.470" data-duration="2.350" data-track-index="1">
+        <div class="glyph">&#127909;</div>
+        <div class="tag">Extrait vidéo #7</div>
+        <div class="desc">"J'accompagne personnellement<br/>Oncle David là-dessus"</div>
+      </div>
+
+      <!-- ===== p17 — roadmap complète, toutes les lettres allumées ===== -->
+      <div id="p17" class="clip" data-start="55.820" data-duration="4.230" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p17-title" class="fx-title small">LE SYSTÈME VENDRE COMPLET</div>
+          <div class="fx-roadmap">
+            <div id="p17-v" class="fx-node hot">V</div>
+            <div id="p17-l1" class="fx-node-line"></div>
+            <div id="p17-e1" class="fx-node hot">E</div>
+            <div id="p17-l2" class="fx-node-line"></div>
+            <div id="p17-n" class="fx-node hot">N</div>
+            <div id="p17-l3" class="fx-node-line"></div>
+            <div id="p17-d" class="fx-node hot">D</div>
+            <div id="p17-l4" class="fx-node-line"></div>
+            <div id="p17-r" class="fx-node hot">R</div>
+            <div id="p17-l5" class="fx-node-line"></div>
+            <div id="p17-e2" class="fx-node hot">É</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== p18 — les six lettres ajustées en direct (icônes clé à molette) ===== -->
+      <div id="p18" class="clip" data-start="60.050" data-duration="3.760" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-roadmap">
+            <div class="fx-node-wrap"><div id="p18-v" class="fx-node hot">V</div><div id="p18-g1" class="fx-gear-badge">&#128295;</div></div>
+            <div id="p18-l1" class="fx-node-line"></div>
+            <div class="fx-node-wrap"><div id="p18-e1" class="fx-node hot">E</div><div id="p18-g2" class="fx-gear-badge">&#128295;</div></div>
+            <div id="p18-l2" class="fx-node-line"></div>
+            <div class="fx-node-wrap"><div id="p18-n" class="fx-node hot">N</div><div id="p18-g3" class="fx-gear-badge">&#128295;</div></div>
+            <div id="p18-l3" class="fx-node-line"></div>
+            <div class="fx-node-wrap"><div id="p18-d" class="fx-node hot">D</div><div id="p18-g4" class="fx-gear-badge">&#128295;</div></div>
+            <div id="p18-l4" class="fx-node-line"></div>
+            <div class="fx-node-wrap"><div id="p18-r" class="fx-node hot">R</div><div id="p18-g5" class="fx-gear-badge">&#128295;</div></div>
+            <div id="p18-l5" class="fx-node-line"></div>
+            <div class="fx-node-wrap"><div id="p18-e2" class="fx-node hot">É</div><div id="p18-g6" class="fx-gear-badge">&#128295;</div></div>
+          </div>
+          <div id="p18-title" class="fx-title small">AJUSTÉES EN DIRECT</div>
+        </div>
+      </div>
+
+      <!-- ===== p19 — extrait vidéo #8 : "sur son business de menuiserie" ===== -->
+      <div id="p19" class="clip vid-placeholder" data-start="63.810" data-duration="2.350" data-track-index="1">
+        <div class="glyph">&#127909;</div>
+        <div class="tag">Extrait vidéo #8</div>
+        <div class="desc">"Sur son business<br/>de menuiserie"</div>
+      </div>
+
+      <!-- ===== p20 — il y a une chose qu'il a comprise (ampoule) ===== -->
+      <div id="p20" class="clip" data-start="66.160" data-duration="4.230" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p20-bulb" class="fx-emoji-big">&#128161;</div>
+          <div id="p20-title" class="fx-title small">IL Y A UNE CHOSE<br/>QU'IL A COMPRISE</div>
+        </div>
+      </div>
+
+      <!-- ===== p21 — que la plupart des gens ratent (points, un seul brille) ===== -->
+      <div id="p21" class="clip" data-start="70.390" data-duration="3.290" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p21-title" class="fx-title small">LA PLUPART DES GENS<br/>RATENT ÇA COMPLÈTEMENT</div>
+          <div class="fx-crowd">
+            <div class="fx-dot" id="p21-d1"></div>
+            <div class="fx-dot" id="p21-d2"></div>
+            <div class="fx-dot" id="p21-d3"></div>
+            <div class="fx-dot glow" id="p21-d4"></div>
+            <div class="fx-dot" id="p21-d5"></div>
+            <div class="fx-dot" id="p21-d6"></div>
+            <div class="fx-dot" id="p21-d7"></div>
+            <div class="fx-dot" id="p21-d8"></div>
+            <div class="fx-dot" id="p21-d9"></div>
+            <div class="fx-dot" id="p21-d10"></div>
+            <div class="fx-dot" id="p21-d11"></div>
+            <div class="fx-dot" id="p21-d12"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== p22 — avoir une compétence ne suffit pas (4 images à venir, empilées) ===== -->
+      <div id="p22" class="clip" data-start="73.680" data-duration="2.820" data-track-index="1">
+        <div class="fx-scene">
+          <div class="img-stack-wrap">
+            <div id="p22-img1" class="img-slot" style="left:20px; top:0px; transform: rotate(-6deg);">
+              <div class="glyph">&#128247;</div><div class="tag">Image 1</div>
+            </div>
+            <div id="p22-img2" class="img-slot" style="left:480px; top:60px; transform: rotate(5deg);">
+              <div class="glyph">&#128247;</div><div class="tag">Image 2</div>
+            </div>
+            <div id="p22-img3" class="img-slot" style="left:100px; top:480px; transform: rotate(4deg);">
+              <div class="glyph">&#128247;</div><div class="tag">Image 3</div>
+            </div>
+            <div id="p22-img4" class="img-slot" style="left:520px; top:520px; transform: rotate(-5deg);">
+              <div class="glyph">&#128247;</div><div class="tag">Image 4</div>
+            </div>
+          </div>
+          <div id="p22-title" class="fx-title small" style="position:absolute; bottom:120px;">AVOIR UNE COMPÉTENCE<br/>NE SUFFIT PAS</div>
+        </div>
+      </div>
+
+      <!-- ===== p23 — extrait vidéo #9 : "il faut aussi avoir envie de sortir de ton quotidien" ===== -->
+      <div id="p23" class="clip vid-placeholder" data-start="76.500" data-duration="4.700" data-track-index="1">
+        <div class="glyph">&#127909;</div>
+        <div class="tag">Extrait vidéo #9</div>
+        <div class="desc">"Il faut aussi avoir envie<br/>de sortir de ton quotidien"</div>
+      </div>
+
+      <!-- ===== p24 — si tu fais partie de ces gens-là (pointage) ===== -->
+      <div id="p24" class="clip" data-start="81.200" data-duration="3.290" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p24-point" class="fx-emoji-big">&#128073;</div>
+          <div id="p24-title" class="fx-title small">SI TU FAIS PARTIE<br/>DE CES GENS-LÀ</div>
+        </div>
+      </div>
+
+      <!-- ===== p25 — le business des produits digitaux est fait pour toi (fusion icônes) ===== -->
+      <div id="p25" class="clip" data-start="84.490" data-duration="4.230" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-blend-wrap">
+            <div id="p25-icon1" class="fx-blend-icon" style="left:20px; top:60px;">&#128187;</div>
+            <div id="p25-icon2" class="fx-blend-icon" style="right:20px; top:60px;">&#10024;</div>
+          </div>
+          <div id="p25-title" class="fx-title small">C'EST FAIT POUR TOI</div>
+        </div>
+      </div>
+
+      <!-- ===== p26 — extrait vidéo #10 : communauté + lives (icône chat) ===== -->
+      <div id="p26" class="clip vid-placeholder" data-start="88.720" data-duration="6.580" data-track-index="1">
+        <div class="glyph">&#127909;</div>
+        <div class="tag">Extrait vidéo #10</div>
+        <div class="desc">"J'ai créé une communauté où je fais<br/>des lives pour accompagner ça de près"</div>
+        <div id="p26-chat" class="fx-emoji-big" style="font-size:100px; opacity:0;">&#128172;</div>
+      </div>
+
+      <!-- ===== p27 — commente "business" (mot clé + puce commentaire) ===== -->
+      <div id="p27" class="clip" data-start="95.300" data-duration="2.820" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p27-word" class="fx-kinetic-word">BUSINESS</div>
+          <div id="p27-chip" class="fx-comment-chip">
+            <span>&#128172; Commente</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== p28 — j'ai écrit un guide pour ça ===== -->
+      <div id="p28" class="clip" data-start="98.120" data-duration="6.580" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p28-guide" class="fx-guide-card" style="left:370px; top:260px; transform: rotate(-5deg);">
+            <div class="cover-eyebrow">GUIDE</div>
+            <div class="cover-title">GAGNE TA VIE<br/>SANS DIPLÔME</div>
+          </div>
+          <div id="p28-title" class="fx-title small" style="margin-top:480px;">J'AI ÉCRIT UN GUIDE POUR ÇA</div>
+        </div>
+      </div>
+
+      <!-- ===== p29 — "Gagne ta vie sans diplôme, transforme ce que tu sais déjà faire en revenu" ===== -->
+      <div id="p29" class="clip" data-start="104.700" data-duration="6.580" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p29-guide" class="fx-guide-card" style="left:370px; top:260px; transform: rotate(-5deg);">
+            <div class="cover-eyebrow">GUIDE</div>
+            <div class="cover-title">GAGNE TA VIE<br/>SANS DIPLÔME</div>
+          </div>
+          <div id="p29-title" class="fx-title small" style="margin-top:480px;">TRANSFORME CE QUE TU SAIS<br/>DÉJÀ FAIRE EN REVENU</div>
+        </div>
+      </div>
+
+      <!-- ===== p30 — écris-moi en message + Abonne-toi ===== -->
+      <div id="p30" class="clip" data-start="111.280" data-duration="3.290" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p30-msg" class="fx-msg-icon">&#9993;&#65039;</div>
+          <div id="p30-title" class="fx-title small">ÉCRIS-MOI EN MESSAGE<br/>ET JE TE L'ENVERRAI</div>
+          <div class="fx-subscribe-btn" id="p30-sub">
+            <span>ABONNE-TOI</span>
+            <div id="p30-ring" class="fx-click-ring" style="right:14px; bottom:8px;"></div>
+            <div id="p30-hand" class="fx-cursor-hand" data-layout-allow-overlap="true" style="right:-4px; bottom:2px;">&#128070;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUDIO -->
+      <audio id="sfx-typing" class="clip" data-start="0" data-duration="1.3" data-track-index="9" src="audio/sfx/typing.wav"></audio>
+      <audio id="sfx-click" class="clip" data-start="112.960" data-duration="0.14" data-track-index="10" src="audio/sfx/click.wav"></audio>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // ---- hook: "ÉPISODE 8" typewriter ----
+      const p0Chars = ["#p0-c1", "#p0-c2", "#p0-c3", "#p0-c4", "#p0-c5", "#p0-c6", "#p0-c7", "#p0-sp", "#p0-c8"];
+      p0Chars.forEach((sel, i) => { tl.set(sel, { opacity: 1 }, 0 + i * 0.09); });
+      tl.set("#p0-cursor", { opacity: 1 }, 0);
+      tl.to("#p0-cursor", { opacity: 0, duration: 0.15, repeat: 7, yoyo: true, ease: "steps(1)" }, 0);
+      tl.set([...p0Chars, "#p0-cursor"], { opacity: 0 }, 1.3);
+
+      // ---- p1: tu vends ton produit digital (icone + clic acheter) ----
+      tl.fromTo("#p1-icon", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.4)" }, 1.3);
+      tl.fromTo(".fx-buy-btn", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.24, ease: "elastic.out(1,0.6)" }, 1.55);
+      tl.fromTo("#p1-hand", { opacity: 0, x: 30, y: 30 }, { opacity: 1, x: 0, y: 0, duration: 0.18, ease: "power2.out" }, 1.9);
+      tl.to("#p1-hand", { scale: 0.85, duration: 0.08, yoyo: true, repeat: 1 }, 2.08);
+      tl.set("#p1-ring", { opacity: 1, scale: 0.3 }, 2.08);
+      tl.to("#p1-ring", { opacity: 0, scale: 1.8, duration: 0.2, ease: "power2.out" }, 2.08);
+      tl.set("#p1-ring", { opacity: 0 }, 2.28);
+      tl.to(".fx-buy-btn", { scale: 0.94, duration: 0.06, yoyo: true, repeat: 1 }, 2.08);
+      tl.set(["#p1-icon", ".fx-buy-btn", "#p1-hand"], { opacity: 0 }, 3.65);
+
+      // ---- p2: ça marche (emojis) ----
+      tl.fromTo("#p2-e1", { opacity: 0, scale: 0.4, rotation: -12 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.2, ease: "back.out(2.6)" }, 3.65);
+      tl.fromTo("#p2-e2", { opacity: 0, scale: 0.4, rotation: 12 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.2, ease: "back.out(2.6)" }, 3.74);
+      tl.set(["#p2-e1", "#p2-e2"], { opacity: 0 }, 4.59);
+
+      // ---- p3: même chiffre chaque mois (mois qui changent) ----
+      tl.fromTo("#p3-card", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, 4.59);
+      const p3Months = ["JUIN", "JUILLET", "AOÛT", "SEPTEMBRE"];
+      const p3Start = 4.99, p3Step = 0.9;
+      p3Months.forEach((m, i) => {
+        const t = p3Start + i * p3Step;
+        tl.call(() => { document.getElementById("p3-month").textContent = m; }, null, t);
+        tl.fromTo("#p3-month", { opacity: 0.3 }, { opacity: 1, duration: 0.14 }, t);
+      });
+      tl.set("#p3-card", { opacity: 0 }, 9.29);
+
+      // ---- p4: tu ne recules pas mais tu n'avances pas (boucle qui tourne) ----
+      tl.fromTo("#p4-loop", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.2)" }, 9.29);
+      tl.to("#p4-loop", { rotation: 360, duration: 2.35, ease: "none", repeat: 1 }, 9.29);
+      tl.fromTo("#p4-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 9.59);
+      tl.set(["#p4-loop", "#p4-title"], { opacity: 0 }, 13.99);
+
+      // ---- p5/p6/p8/p9/p11/p12/p16/p19/p23/p26: extraits video placeholders ----
+      const vidPlaceholders = [
+        ["#p5", 13.99, 17.75], ["#p6", 17.75, 20.57], ["#p8", 24.33, 27.62], ["#p9", 27.62, 31.85],
+        ["#p11", 37.02, 38.43], ["#p12", 38.43, 42.66], ["#p16", 53.47, 55.82], ["#p19", 63.81, 66.16],
+        ["#p23", 76.5, 81.2], ["#p26", 88.72, 95.3]
+      ];
+      vidPlaceholders.forEach(([sel, start, end]) => {
+        tl.fromTo(sel, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power2.out" }, start);
+        tl.set(sel, { opacity: 0 }, end);
+      });
+      tl.fromTo("#p26-chat", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.4)" }, 90.5);
+
+      // ---- p7: roadmap É allumé ----
+      tl.fromTo("#p7-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.16, ease: "power2.out" }, 20.57);
+      const p7Nodes = [["#p7-v", null], ["#p7-l1", "line"], ["#p7-e1", null], ["#p7-l2", "line"], ["#p7-n", null], ["#p7-l3", "line"], ["#p7-d", null], ["#p7-l4", "line"], ["#p7-r", null], ["#p7-l5", "line"], ["#p7-e2", null]];
+      p7Nodes.forEach(([sel, kind], i) => {
+        const start = 20.82 + i * 0.09;
+        if (kind === "line") {
+          tl.fromTo(sel, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.1, ease: "power2.out" }, start);
+        } else {
+          tl.fromTo(sel, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.14, ease: "back.out(2.6)" }, start);
+        }
+      });
+      tl.fromTo("#p7-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 22.4);
+      tl.set(["#p7-eyebrow", "#p7-v", "#p7-l1", "#p7-e1", "#p7-l2", "#p7-n", "#p7-l3", "#p7-d", "#p7-l4", "#p7-r", "#p7-l5", "#p7-e2", "#p7-title"], { opacity: 0 }, 24.33);
+
+      // ---- p10: 60.000 -> 600.000 FCFA ----
+      tl.fromTo("#p10-a", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 31.85);
+      tl.fromTo("#p10-arrow", { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.16, ease: "power2.out" }, 32.15);
+      tl.fromTo("#p10-b", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.26, ease: "back.out(2.4)" }, 32.35);
+      tl.fromTo("#p10-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 32.75);
+      tl.set(["#p10-a", "#p10-arrow", "#p10-b", "#p10-title"], { opacity: 0 }, 37.02);
+
+      // ---- p13: ça prend des années (sablier) ----
+      tl.fromTo("#p13-hourglass", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.2)" }, 42.66);
+      tl.to("#p13-hourglass", { rotation: 180, duration: 0.9, ease: "power1.inOut" }, 42.96);
+      tl.fromTo("#p13-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 42.8);
+      tl.set(["#p13-hourglass", "#p13-title"], { opacity: 0 }, 44.54);
+
+      // ---- p14: raccourcir le chemin ----
+      tl.fromTo("#p14-title", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 44.54);
+      tl.fromTo("#p14-row1", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.22, ease: "power2.out" }, 45.24);
+      tl.fromTo("#p14-dot1", { x: 0 }, { x: 520, duration: 2.4, ease: "power1.inOut" }, 45.5);
+      tl.fromTo("#p14-row2", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.22, ease: "power2.out" }, 48.1);
+      tl.fromTo("#p14-dot2", { x: 0 }, { x: 520, duration: 1.2, ease: "power1.inOut" }, 48.4);
+      tl.set(["#p14-title", "#p14-row1", "#p14-row2"], { opacity: 0 }, 52.06);
+
+      // ---- p15: en ce moment (connecteur) ----
+      tl.fromTo("#p15-eyebrow", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 52.06);
+      tl.set("#p15-eyebrow", { opacity: 0 }, 53.47);
+
+      // ---- p17: roadmap complete ----
+      tl.fromTo("#p17-title", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 55.82);
+      const p17Nodes = ["#p17-v", "#p17-l1", "#p17-e1", "#p17-l2", "#p17-n", "#p17-l3", "#p17-d", "#p17-l4", "#p17-r", "#p17-l5", "#p17-e2"];
+      p17Nodes.forEach((sel, i) => {
+        const start = 56.12 + i * 0.09;
+        const isLine = sel.includes("-l");
+        if (isLine) {
+          tl.fromTo(sel, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.1, ease: "power2.out" }, start);
+        } else {
+          tl.fromTo(sel, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.14, ease: "back.out(2.6)" }, start);
+        }
+      });
+      tl.set(["#p17-title", ...p17Nodes], { opacity: 0 }, 60.05);
+
+      // ---- p18: les six lettres ajustées en direct (gear badges) ----
+      const p18Nodes = ["#p18-v", "#p18-l1", "#p18-e1", "#p18-l2", "#p18-n", "#p18-l3", "#p18-d", "#p18-l4", "#p18-r", "#p18-l5", "#p18-e2"];
+      p18Nodes.forEach((sel, i) => {
+        const start = 60.05 + i * 0.06;
+        const isLine = sel.includes("-l");
+        if (isLine) {
+          tl.fromTo(sel, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.08, ease: "power2.out" }, start);
+        } else {
+          tl.fromTo(sel, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.12, ease: "back.out(2.6)" }, start);
+        }
+      });
+      const p18Gears = ["#p18-g1", "#p18-g2", "#p18-g3", "#p18-g4", "#p18-g5", "#p18-g6"];
+      p18Gears.forEach((sel, i) => {
+        const start = 60.7 + i * 0.36;
+        tl.fromTo(sel, { opacity: 0, scale: 0.4, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.16, ease: "back.out(2.6)" }, start);
+        tl.to(sel, { rotation: 90, duration: 0.3, ease: "power1.inOut" }, start + 0.16);
+      });
+      tl.fromTo("#p18-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 63.2);
+      tl.set(["#p18-title", ...p18Nodes, ...p18Gears], { opacity: 0 }, 63.81);
+
+      // ---- p20: il y a une chose qu'il a comprise (ampoule) ----
+      tl.fromTo("#p20-bulb", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.4)" }, 66.16);
+      tl.to("#p20-bulb", { scale: 1.1, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 66.5);
+      tl.fromTo("#p20-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 66.46);
+      tl.set(["#p20-bulb", "#p20-title"], { opacity: 0 }, 70.39);
+
+      // ---- p21: que la plupart des gens ratent (points) ----
+      tl.fromTo("#p21-title", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 70.39);
+      const p21Dots = ["#p21-d1","#p21-d2","#p21-d3","#p21-d4","#p21-d5","#p21-d6","#p21-d7","#p21-d8","#p21-d9","#p21-d10","#p21-d11","#p21-d12"];
+      p21Dots.forEach((sel, i) => {
+        tl.fromTo(sel, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.12, ease: "back.out(2.4)" }, 70.79 + i * 0.05);
+      });
+      tl.set(["#p21-title", ...p21Dots], { opacity: 0 }, 73.68);
+
+      // ---- p22: avoir une compétence ne suffit pas (4 images empilées, ne s'effacent pas) ----
+      tl.fromTo("#p22-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 73.68);
+      tl.fromTo("#p22-img1", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2.2)" }, 73.78);
+      tl.fromTo("#p22-img2", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2.2)" }, 74.13);
+      tl.fromTo("#p22-img3", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2.2)" }, 74.48);
+      tl.fromTo("#p22-img4", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2.2)" }, 74.83);
+      tl.set(["#p22-title", "#p22-img1", "#p22-img2", "#p22-img3", "#p22-img4"], { opacity: 0 }, 76.5);
+
+      // ---- p24: si tu fais partie de ces gens-là ----
+      tl.fromTo("#p24-point", { opacity: 0, scale: 0.6, rotation: -10 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.22, ease: "back.out(2.4)" }, 81.2);
+      tl.fromTo("#p24-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 81.5);
+      tl.set(["#p24-point", "#p24-title"], { opacity: 0 }, 84.49);
+
+      // ---- p25: fait pour toi (fusion icônes) ----
+      tl.fromTo("#p25-icon1", { opacity: 0, x: -60 }, { opacity: 1, x: -30, duration: 0.3, ease: "power2.out" }, 84.49);
+      tl.fromTo("#p25-icon2", { opacity: 0, x: 60 }, { opacity: 1, x: 30, duration: 0.3, ease: "power2.out" }, 84.69);
+      tl.to(["#p25-icon1", "#p25-icon2"], { scale: 1.08, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 85.1);
+      tl.fromTo("#p25-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 85.3);
+      tl.set(["#p25-icon1", "#p25-icon2", "#p25-title"], { opacity: 0 }, 88.72);
+
+      // ---- p27: commente "business" ----
+      tl.fromTo("#p27-word", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, 95.3);
+      tl.fromTo("#p27-chip", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 95.7);
+      tl.set(["#p27-word", "#p27-chip"], { opacity: 0 }, 98.12);
+
+      // ---- p28: j'ai écrit un guide pour ça ----
+      tl.fromTo("#p28-guide", { opacity: 0, scale: 0.6, rotation: 4 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.3, ease: "back.out(2.2)" }, 98.12);
+      tl.to("#p28-guide", { y: -18, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, 98.6);
+      tl.fromTo("#p28-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 98.5);
+      tl.set(["#p28-guide", "#p28-title"], { opacity: 0 }, 104.7);
+
+      // ---- p29: gagne ta vie sans diplôme (titre du livre) ----
+      tl.fromTo("#p29-guide", { opacity: 0, scale: 0.6, rotation: 4 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.3, ease: "back.out(2.2)" }, 104.7);
+      tl.to("#p29-guide", { y: -18, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, 105.18);
+      tl.fromTo("#p29-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 105.1);
+      tl.set(["#p29-guide", "#p29-title"], { opacity: 0 }, 111.28);
+
+      // ---- p30: écris-moi en message + Abonne-toi ----
+      tl.fromTo("#p30-msg", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.4)" }, 111.28);
+      tl.fromTo("#p30-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 111.58);
+      tl.fromTo("#p30-sub", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.26, ease: "elastic.out(1,0.6)" }, 112.28);
+      tl.fromTo("#p30-hand", { opacity: 0, x: 40, y: 40 }, { opacity: 1, x: 0, y: 0, duration: 0.22, ease: "power2.out" }, 112.68);
+      tl.to("#p30-hand", { scale: 0.85, duration: 0.09, yoyo: true, repeat: 1 }, 112.88);
+      tl.set("#p30-ring", { opacity: 1, scale: 0.3 }, 112.88);
+      tl.to("#p30-ring", { opacity: 0, scale: 1.8, duration: 0.22, ease: "power2.out" }, 112.88);
+      tl.set("#p30-ring", { opacity: 0 }, 113.1);
+      tl.to("#p30-sub", { scale: 0.94, duration: 0.07, yoyo: true, repeat: 1 }, 112.88);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
