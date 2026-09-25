@@ -6,7 +6,7 @@ message: "Ta compétence, même sans diplôme, peut devenir un produit digital q
 destination: instagram-reels
 aspect: 1080x1920
 language: fr
-length: 66s
+length: 85s
 audience: "Jeunes francophones (RDC/Afrique) sans emploi ou sous-payés, cible d'une pub Meta clic-vers-WhatsApp"
 narration: yes
 ---
@@ -20,19 +20,25 @@ ouverte, puis CTA. Ton encourageant, jamais moralisateur. Aucun prix affiché.
 
 ## Voix off (verbatim, VO_MODE, ne pas reformuler)
 
-Environ 177 mots, soit environ 66 s à 2,65 mots/s.
+Environ 225 mots, soit environ 85 s à 2,65 mots/s. Voix générée par
+l'utilisateur sur ElevenLabs.
 
-| Bloc | Texte | Durée estimée |
-|---|---|---|
-| Hook | Vous avez déjà un savoir-faire qui vaut de l'argent. Vous ne le savez juste pas encore. | ~6 s |
-| Promesse | Je vais vous expliquer exactement pourquoi, dans quelques secondes. | ~3,5 s |
-| Partie 1 | Que vous soyez salarié, étudiant, ou sans emploi, vous avez tous une chose en commun : un savoir-faire, dans la cuisine, la couture, les langues, ou la comptabilité. Ce que vous savez déjà faire a de la valeur pour quelqu'un d'autre. | ~15 s |
-| Boucle ouverte 1 | Et pourtant... ce n'est même pas la partie la plus folle. | ~4 s |
-| Partie 2 | Avec un produit digital, vous pouvez enseigner ce que vous savez à quelqu'un à des milliers de kilomètres, sans jamais le rencontrer. | ~8,5 s |
-| Boucle ouverte 2 | Mais ce n'est toujours pas le plus important. | ~3 s |
-| Partie 3 | Mon oncle David est menuisier. Il a transformé son savoir-faire en produit digital, sans budget pub. J'ai écrit le guide qui explique comment faire pareil : comment transformer ce que vous savez déjà faire en produit digital, et le vendre. Pas de blabla, juste ce qu'il faut faire, concrètement. | ~18 s |
-| Boucle ouverte 3 | Et la meilleure partie ? Elle est à portée de main, maintenant. | ~4 s |
-| CTA | Cliquez sur "Envoyer un message", écrivez-moi sur WhatsApp, et je vous accompagne. | ~4,5 s |
+| Bloc | Texte |
+|---|---|
+| Hook | Vous avez déjà un savoir-faire qui vaut de l'argent. Vous ne le savez juste pas encore. |
+| Promesse | Je vais vous expliquer exactement pourquoi, dans quelques secondes. |
+| Partie 1 | Que vous soyez salarié, étudiant, ou sans emploi, vous savez faire quelque chose : cuisiner, coudre, parler une langue, tenir une comptabilité. Et quelqu'un, quelque part, a besoin d'apprendre exactement ça. |
+| Boucle ouverte 1 | Et pourtant... ce n'est même pas la partie la plus folle. |
+| Partie 2 | Avec un produit digital, vous pouvez le lui enseigner à des milliers de kilomètres, sans jamais le rencontrer. Mon oncle David, menuisier, a transformé son savoir-faire en produit digital, sans budget pub. |
+| Boucle ouverte 2 | Mais ce n'est toujours pas le plus important. |
+| Partie 3 | J'ai écrit le guide pour faire pareil. Dedans, je vous explique pourquoi le diplôme n'est pas nécessaire pour commencer. Comment vous faire connaître sur internet. Quelle forme donner à votre produit. Comment le fabriquer et le vendre avec ce que vous avez déjà. Et comment savoir en une semaine si des gens en veulent, sans dépenser un centime. En suivant le guide, vous saurez ce que vous vendez et à qui, vous aurez un premier produit, et vous saurez si des gens sont prêts à le payer. Pas de blabla, juste ce qu'il faut faire, concrètement. |
+| Boucle ouverte 3 | Et la meilleure partie ? Il suffit d'un message pour commencer. |
+| CTA | Cliquez sur "Envoyer un message", écrivez-moi sur WhatsApp, et je vous accompagne. |
+
+Badges à l'écran pendant la Partie 3 : 1. Pas besoin de diplôme,
+2. Se faire connaître, 3. Choisir son produit (+ exemples : petit livre,
+vidéo, modèle à remplir, checklist, kit), 4. Créer et vendre,
+5. Tester en 7 jours.
 
 ## Direction visuelle (validée par l'utilisateur)
 
