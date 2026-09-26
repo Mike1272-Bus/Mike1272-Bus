@@ -22,13 +22,15 @@
       .stage { position: absolute; inset: 0; perspective: 1600px; }
 
       /* cartes photo portrait (hook) */
-      .pcard { position: absolute; width: 330px; height: 430px; }
+      .pcard { position: absolute; width: 262px; height: 360px; }
       .flip { position: absolute; inset: 0; transform-style: preserve-3d; }
       .face { position: absolute; inset: 0; border-radius: 30px; border: 10px solid #fff; overflow: hidden; backface-visibility: hidden; box-shadow: 0 34px 60px rgba(60,30,0,0.28); }
       .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
       .back { background: #111; transform: rotateY(180deg); display: flex; align-items: center; justify-content: center; color: #ff5c00; font-size: 240px; line-height: 1; }
-      .tag { position: absolute; left: 18px; bottom: 18px; background: #111; color: #fff; font-size: 30px; padding: 8px 22px 2px; border-radius: 30px; z-index: 3; }
-      #h1 { left: 90px; top: 430px; } #h2 { left: 375px; top: 350px; z-index: 2; } #h3 { left: 660px; top: 450px; }
+      .tag { position: absolute; left: 16px; bottom: 16px; background: #111; color: #fff; font-size: 28px; padding: 8px 20px 2px; border-radius: 30px; z-index: 3; white-space: nowrap; }
+      .pcard .tag { font-size: 24px; left: 12px; bottom: 14px; padding: 7px 16px 1px; }
+      #h1 { left: 40px; top: 470px; } #h2 { left: 290px; top: 390px; z-index: 2; } #h3 { left: 530px; top: 430px; z-index: 3; } #h4 { left: 778px; top: 490px; }
+      .back { font-size: 190px; }
 
       .pill { position: absolute; z-index: 20; text-align: center; background: #ff5c00; color: #fff; border-radius: 70px; border: 5px solid #111; box-shadow: 12px 12px 0 #111; }
       #badge { left: 230px; top: 900px; width: 620px; font-size: 64px; padding: 26px 0 14px; }
@@ -43,10 +45,9 @@
       .spark svg { width: 100%; height: 100%; fill: #111; }
 
       /* qui : salarié / étudiant / sans emploi */
-      .who { position: absolute; top: 470px; width: 290px; height: 360px; background: #fff; border: 5px solid #111; border-radius: 36px; box-shadow: 12px 12px 0 #111; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
-      .who svg { width: 150px; height: 150px; fill: none; stroke: #111; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
-      .who .lab { font-size: 44px; }
-      #w1 { left: 55px; } #w2 { left: 395px; } #w3 { left: 735px; }
+      .who { position: absolute; top: 440px; width: 300px; height: 420px; }
+      .who .tag { font-size: 32px; }
+      #w1 { left: 45px; } #w2 { left: 390px; top: 400px; z-index: 2; } #w3 { left: 735px; }
 
       /* cartes vidéo */
       .vcard { position: absolute; }
@@ -127,14 +128,17 @@
         <div class="pcard" id="h3"><div class="flip" id="f3">
           <div class="face" id="fr3"><img src="assets/img/hook_or_a.jpg" /><div class="tag">Comptabilité</div></div>
           <div class="face back" id="bk3">?</div></div></div>
+        <div class="pcard" id="h4"><div class="flip" id="f4">
+          <div class="face" id="fr4"><img src="assets/img/hook_montage.jpg" /><div class="tag">Montage vidéo</div></div>
+          <div class="face back" id="bk4">?</div></div></div>
 
         <!-- PROMESSE -->
         <div class="cover" id="cover"><img src="assets/ebook_cover.png" /></div>
 
         <!-- PARTIE 1 -->
-        <div class="who" id="w1">__ICON_JOB__<div class="lab">Salarié</div></div>
-        <div class="who" id="w2">__ICON_STUDENT__<div class="lab">Étudiant</div></div>
-        <div class="who" id="w3">__ICON_SEARCH__<div class="lab">Sans emploi</div></div>
+        <div class="who" id="w1"><div class="face"><img src="assets/img/who_salarie.jpg" style="object-position: 72% 50%" /><div class="tag">Salarié</div></div></div>
+        <div class="who" id="w2"><div class="face"><img src="assets/img/who_etudiant.jpg" style="object-position: 46% 50%" /><div class="tag">Étudiant</div></div></div>
+        <div class="who" id="w3"><div class="face"><img src="assets/img/who_sans_emploi.jpg" style="object-position: 66% 50%" /><div class="tag">Sans emploi</div></div></div>
         __CARDS_P1__
 
         <div id="net"><svg viewBox="0 0 1080 900">
@@ -215,7 +219,7 @@
       const hideAll = ["#h1","#h2","#h3","#badge","#cover","#timer","#w1","#w2","#w3","#k1","#k2","#k3","#k4",
         "#net","#labA","#labB","#d1","#d2","#dv","#kmBadge","#davidTag","#budgetBadge","#cover2","#inside",
         "#st1","#st2","#st3","#st4","#st5","#fmt","#chk","#sg1","#sg2","#sg3","#bubble","#cv","#ctaPanel",
-        "#s1","#s2","#s3","#s4","#flash","#bk1","#bk2","#bk3"];
+        "#s1","#s2","#s3","#s4","#flash","#bk1","#bk2","#bk3","#h4","#bk4"];
       tl.set(hideAll, { autoAlpha: 0 }, 0);
 
       // barre de progression
@@ -227,20 +231,20 @@
       const sparksOut = (at) => OUT(["#s1","#s2","#s3","#s4"], { scale: 0, duration: 0.2 }, at);
 
       // ---------- HOOK ----------
-      [["#h1", -9, 0.1], ["#h2", 3, 0.3], ["#h3", 10, 0.5]].forEach(([s, r, at]) =>
+      [["#h1", -9, 0.08], ["#h2", 3, 0.24], ["#h3", -4, 0.4], ["#h4", 9, 0.56]].forEach(([s, r, at]) =>
         IN(s, { autoAlpha: 1, y: 380, scale: 0.55, rotation: r * -2, rotationX: -55, transformPerspective: 1400 },
               { y: 0, scale: 1, rotation: r, rotationX: 0, duration: 0.5, ease: "back.out(1.5)" }, at));
       sparks(0.6);
       IN("#badge", { autoAlpha: 1, scale: 0, rotation: 12 }, { scale: 1, rotation: -4, duration: 0.4, ease: "back.out(2.2)" }, T.argent - 0.05);
       OUT("#badge", { scale: 0, duration: 0.2, ease: "back.in(2)" }, T.hookFlip - 0.25);
-      [1, 2, 3].forEach((n, i) => {
-        const at = T.hookFlip + i * 0.12;
+      [1, 2, 3, 4].forEach((n, i) => {
+        const at = T.hookFlip + i * 0.1;
         IN("#f" + n, { rotationY: 0 }, { rotationY: 180, duration: 0.5, ease: "power2.inOut" }, at);
         tl.set("#bk" + n, { autoAlpha: 1 }, at + 0.25);
         tl.set("#fr" + n, { autoAlpha: 0 }, at + 0.25);
       });
-      OUT("#h1", { x: -900, rotation: -35, duration: 0.4, ease: "power3.in" }, T.promise - 0.1);
-      OUT("#h3", { x: 900, rotation: 35, duration: 0.4, ease: "power3.in" }, T.promise - 0.1);
+      OUT("#h1", { x: -1000, rotation: -35, duration: 0.4, ease: "power3.in" }, T.promise - 0.1);
+      OUT(["#h3", "#h4"], { x: 1000, rotation: 35, duration: 0.4, ease: "power3.in" }, T.promise - 0.1);
       OUT("#h2", { y: -1300, rotation: 15, duration: 0.4, ease: "power3.in" }, T.promise - 0.05);
       sparksOut(T.promise - 0.1);
 
