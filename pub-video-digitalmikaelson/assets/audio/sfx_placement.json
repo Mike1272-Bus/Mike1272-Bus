@@ -1,0 +1,87 @@
+[
+ {
+  "t": 0.0,
+  "sfx": "whoosh-short",
+  "vol": 0.45
+ },
+ {
+  "t": 2.62,
+  "sfx": "whoosh",
+  "vol": 0.4
+ },
+ {
+  "t": 5.19,
+  "sfx": "riser",
+  "vol": 0.3
+ },
+ {
+  "t": 9.3,
+  "sfx": "impact-bass-1",
+  "vol": 0.5
+ },
+ {
+  "t": 14.5,
+  "sfx": "pop",
+  "vol": 0.35
+ },
+ {
+  "t": 20.53,
+  "sfx": "whoosh-short",
+  "vol": 0.35
+ },
+ {
+  "t": 24.27,
+  "sfx": "impact-bass-2",
+  "vol": 0.45
+ },
+ {
+  "t": 27.78,
+  "sfx": "whoosh-cinematic",
+  "vol": 0.35
+ },
+ {
+  "t": 35.79,
+  "sfx": "impact-bass-2",
+  "vol": 0.45
+ },
+ {
+  "t": 39.6,
+  "sfx": "chime",
+  "vol": 0.3
+ },
+ {
+  "t": 46.72,
+  "sfx": "pop",
+  "vol": 0.4
+ },
+ {
+  "t": 49.83,
+  "sfx": "whoosh-short",
+  "vol": 0.35
+ },
+ {
+  "t": 54.47,
+  "sfx": "pop",
+  "vol": 0.3
+ },
+ {
+  "t": 57.77,
+  "sfx": "riser",
+  "vol": 0.3
+ },
+ {
+  "t": 61.85,
+  "sfx": "impact-bass-1",
+  "vol": 0.5
+ },
+ {
+  "t": 64.6,
+  "sfx": "notification",
+  "vol": 0.4
+ },
+ {
+  "t": 66.7,
+  "sfx": "ping",
+  "vol": 0.35
+ }
+]
