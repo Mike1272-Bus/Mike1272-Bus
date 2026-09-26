@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Work Sans";
+        src: url("vendor/fonts/work-sans-variable.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Archivo Black";
+        src: url("vendor/fonts/archivo-black-400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #FFFDF5; }
+      body { font-family: "Work Sans", sans-serif; }
+
+      :root { --yellow: #F7CB46; --ink: #0A0A05; --cream: #FFFDF5; --green: #2E9B5C; --red: #D64545; }
+
+      .clip { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .bg-layer { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+      .bg-grid {
+        position: absolute; inset: 0;
+        background-image:
+          linear-gradient(to right, rgba(10,10,5,0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(10,10,5,0.08) 1px, transparent 1px);
+        background-size: 54px 54px;
+      }
+
+      .type-card { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+      .type-text {
+        font-family: "Courier New", Consolas, monospace; font-weight: 700; letter-spacing: 0.02em;
+        font-size: 72px; color: #6B6B66; text-transform: uppercase;
+      }
+      .type-text span { opacity: 0; }
+      #p0-cursor { opacity: 0; }
+
+      .fx-scene {
+        position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+        justify-content: center; gap: 50px; padding: 0 60px; text-align: center;
+      }
+      .fx-eyebrow {
+        font-family: "Work Sans", sans-serif; font-weight: 700; font-size: 32px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--yellow); background: var(--ink); border-radius: 999px; padding: 16px 34px; opacity: 0;
+      }
+      .fx-title {
+        font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase;
+        font-size: 92px; line-height: 1.08; color: var(--ink); text-wrap: balance; opacity: 0;
+      }
+      .fx-title.small { font-size: 66px; }
+      .fx-title.big { font-size: 104px; }
+      .fx-emoji-big { font-size: 190px; opacity: 0; line-height: 1; }
+      .fx-emoji-row { display: flex; gap: 24px; align-items: center; }
+
+      /* ---- cross-out mark (X, not a single strike bar) ---- */
+      .fx-ban-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
+      .ban-x {
+        position: absolute; left: -6%; right: -6%; top: 50%; height: 14px; margin-top: -7px;
+        background: var(--red); border: 4px solid var(--ink); transform-origin: center; opacity: 0; z-index: 6;
+      }
+
+      /* ---- skill icon row ---- */
+      .skill-row { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; max-width: 900px; }
+      .skill-chip {
+        display: flex; flex-direction: column; align-items: center; gap: 12px; opacity: 0;
+        background: var(--cream); border: 6px solid var(--ink); border-radius: 20px; padding: 24px 30px;
+        box-shadow: 8px 8px 0 var(--ink);
+      }
+      .skill-chip .glyph { font-size: 70px; }
+      .skill-chip .label { font-family: "Archivo Black", sans-serif; font-size: 26px; color: var(--ink); text-transform: uppercase; }
+
+      /* ---- chain (diplome -> emploi -> salaire) with broken links ---- */
+      .chain-row { display: flex; align-items: center; gap: 14px; }
+      .chain-node {
+        width: 150px; height: 150px; border-radius: 50%; background: var(--cream); border: 7px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-size: 70px; opacity: 0; flex: none;
+      }
+      .chain-link-wrap { position: relative; width: 60px; height: 14px; flex: none; }
+      .chain-link { position: absolute; inset: 0; background: var(--ink); opacity: 0; transform-origin: left center; transform: scaleX(0); }
+
+      /* ---- globe + connection ---- */
+      .globe-wrap { position: relative; display: flex; align-items: center; justify-content: center; gap: 60px; }
+      .globe-emoji { font-size: 220px; opacity: 0; }
+      .globe-dot { width: 26px; height: 26px; border-radius: 50%; background: var(--yellow); border: 5px solid var(--ink); position: absolute; opacity: 0; }
+      .globe-line { position: absolute; height: 5px; background: var(--ink); opacity: 0; transform-origin: left center; }
+
+      /* ---- transform arrow (skill -> product) ---- */
+      .transform-row { display: flex; align-items: center; gap: 40px; }
+      .transform-box {
+        width: 240px; height: 240px; border-radius: 24px; background: var(--cream); border: 7px solid var(--ink);
+        display: flex; align-items: center; justify-content: center; font-size: 110px; opacity: 0; box-shadow: 10px 10px 0 var(--ink);
+      }
+      .transform-box.win { background: var(--yellow); }
+      .transform-arrow { font-size: 90px; opacity: 0; }
+
+      /* ---- infinity + multiplying products ---- */
+      .infinity-wrap { position: relative; width: 700px; height: 500px; display: flex; align-items: center; justify-content: center; }
+      .infinity-symbol { font-size: 220px; opacity: 0; color: var(--ink); position: absolute; }
+      .float-icon { position: absolute; font-size: 70px; opacity: 0; }
+
+      .fx-comment-chip {
+        display: inline-flex; align-items: center; gap: 16px; background: var(--yellow); border: 6px solid var(--ink);
+        border-radius: 999px; padding: 18px 36px; opacity: 0; box-shadow: 10px 10px 0 var(--ink);
+      }
+      .fx-comment-chip span { font-family: "Archivo Black", sans-serif; font-size: 40px; color: var(--ink); text-transform: uppercase; }
+      .fx-kinetic-word {
+        font-family: "Archivo Black", sans-serif; font-size: 108px; color: var(--ink); text-transform: uppercase; opacity: 0;
+      }
+
+      .fx-guide-card {
+        position: absolute; width: 340px; height: 425px; border: 7px solid var(--ink); border-radius: 16px;
+        box-shadow: 14px 14px 0 var(--ink); overflow: hidden; opacity: 0; background: var(--ink);
+      }
+      .fx-guide-card img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+
+      .fx-subscribe-btn {
+        background: var(--yellow); border: 7px solid var(--ink); border-radius: 999px; box-shadow: 16px 16px 0 var(--ink);
+        padding: 28px 56px; opacity: 0; transform-origin: 50% 50%; position: relative;
+      }
+      .fx-subscribe-btn span { font-family: "Archivo Black", sans-serif; font-weight: 400; text-transform: uppercase; font-size: 72px; color: var(--ink); letter-spacing: -0.01em; }
+      .fx-cursor-hand { position: absolute; font-size: 74px; opacity: 0; filter: drop-shadow(4px 4px 0 rgba(10,10,5,0.25)); }
+      .fx-click-ring { position: absolute; width: 50px; height: 50px; border-radius: 50%; border: 5px solid var(--ink); opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="103.29" data-width="1080" data-height="1920">
+
+      <div class="bg-layer"><div class="bg-grid"></div></div>
+
+      <!-- ===== HOOK — "JOUR 1" typewriter ===== -->
+      <div id="p0" class="clip" data-start="0" data-duration="1.3" data-track-index="1">
+        <div class="type-card">
+          <span class="type-text"><span id="p0-c1">J</span><span id="p0-c2">O</span><span id="p0-c3">U</span><span id="p0-c4">R</span><span id="p0-sp">&nbsp;</span><span id="p0-c5">1</span><span id="p0-cursor">&#9608;</span></span>
+        </div>
+      </div>
+
+      <!-- ===== p1 — HOOK: il y a un truc que personne ne te dit à l'école ===== -->
+      <div id="p1" class="clip" data-start="1.300" data-duration="5.640" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-emoji-row">
+            <div id="p1-school" class="fx-emoji-big" style="font-size:170px;">&#127979;</div>
+            <div id="p1-shh" class="fx-emoji-big" style="font-size:130px;">&#129323;</div>
+          </div>
+          <div id="p1-title" class="fx-title small">PERSONNE NE TE DIT ÇA<br/>À L'ÉCOLE</div>
+        </div>
+      </div>
+
+      <!-- ===== p2 — PROMESSE: ce qu'on t'a appris vaut déjà de l'argent ===== -->
+      <div id="p2" class="clip" data-start="6.940" data-duration="8.930" data-track-index="1">
+        <div class="fx-scene">
+          <div class="transform-row">
+            <div id="p2-cap" class="transform-box">&#127891;</div>
+            <div id="p2-arrow" class="transform-arrow">&#8594;</div>
+            <div id="p2-money" class="transform-box win">&#128176;</div>
+          </div>
+          <div id="p2-title" class="fx-title small">ÇA VAUT DÉJÀ DE L'ARGENT<br/>AVEC OU SANS DIPLÔME</div>
+        </div>
+      </div>
+
+      <!-- ===== p3 — on nous a toujours dit... accumuler un max de compétences ===== -->
+      <div id="p3" class="clip" data-start="15.870" data-duration="9.400" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p3-eyebrow" class="fx-eyebrow">ON NOUS A TOUJOURS DIT</div>
+          <div class="fx-emoji-row">
+            <div id="p3-b1" class="fx-emoji-big" style="font-size:150px;">&#128218;</div>
+            <div id="p3-b2" class="fx-emoji-big" style="font-size:150px;">&#128218;</div>
+            <div id="p3-b3" class="fx-emoji-big" style="font-size:150px;">&#128218;</div>
+          </div>
+          <div id="p3-title" class="fx-title small">ACCUMULE UN MAX<br/>DE COMPÉTENCES, ET ÇA PAIERA</div>
+        </div>
+      </div>
+
+      <!-- ===== p4 — anglais, couture, menuiserie, cuisine ===== -->
+      <div id="p4" class="clip" data-start="25.270" data-duration="3.760" data-track-index="1">
+        <div class="fx-scene">
+          <div class="skill-row">
+            <div id="p4-s1" class="skill-chip"><div class="glyph">&#128483;</div><div class="label">Anglais</div></div>
+            <div id="p4-s2" class="skill-chip"><div class="glyph">&#129525;</div><div class="label">Couture</div></div>
+            <div id="p4-s3" class="skill-chip"><div class="glyph">&#129445;</div><div class="label">Menuiserie</div></div>
+            <div id="p4-s4" class="skill-chip"><div class="glyph">&#127859;</div><div class="label">Cuisine</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== p5 — le diplôme ne garantit plus l'emploi ni le salaire (chaîne brisée) ===== -->
+      <div id="p5" class="clip" data-start="29.030" data-duration="7.520" data-track-index="1">
+        <div class="fx-scene">
+          <div class="chain-row">
+            <div id="p5-n1" class="chain-node">&#127891;</div>
+            <div class="chain-link-wrap"><div id="p5-l1" class="chain-link"></div></div>
+            <div id="p5-n2" class="chain-node">&#128188;</div>
+            <div class="chain-link-wrap"><div id="p5-l2" class="chain-link"></div></div>
+            <div id="p5-n3" class="chain-node">&#128181;</div>
+          </div>
+          <div class="fx-ban-wrap" style="width:400px; height:40px; position:absolute; top:900px;">
+            <div id="p5-banA" class="ban-x" style="transform: rotate(20deg);"></div>
+          </div>
+          <div id="p5-title" class="fx-title small">NE GARANTIT PLUS<br/>NI L'EMPLOI, NI LE SALAIRE</div>
+        </div>
+      </div>
+
+      <!-- ===== p6 — boucle: tu devrais te poser cette question ===== -->
+      <div id="p6" class="clip" data-start="36.550" data-duration="3.760" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p6-think" class="fx-emoji-big">&#129300;</div>
+          <div id="p6-title" class="fx-title small">TU DEVRAIS TE POSER<br/>CETTE QUESTION</div>
+        </div>
+      </div>
+
+      <!-- ===== p7 — comment transformer mon savoir-faire en argent ===== -->
+      <div id="p7" class="clip" data-start="40.310" data-duration="5.170" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p7-title" class="fx-title big">COMMENT LE<br/>TRANSFORMER<br/>EN ARGENT ?</div>
+        </div>
+      </div>
+
+      <!-- ===== p8 — un savoir-faire résout un problème, fait gagner du temps ===== -->
+      <div id="p8" class="clip" data-start="45.480" data-duration="8.930" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-emoji-row">
+            <div id="p8-tool" class="fx-emoji-big" style="font-size:170px;">&#128295;</div>
+            <div id="p8-clock" class="fx-emoji-big" style="font-size:170px;">&#9200;</div>
+          </div>
+          <div id="p8-title" class="fx-title small">RÉSOUT UN PROBLÈME,<br/>FAIT GAGNER DU TEMPS</div>
+        </div>
+      </div>
+
+      <!-- ===== p9 — anglais, même à l'autre bout du monde (globe) ===== -->
+      <div id="p9" class="clip" data-start="54.410" data-duration="10.810" data-track-index="1">
+        <div class="fx-scene">
+          <div class="globe-wrap">
+            <div id="p9-globe" class="globe-emoji">&#127760;</div>
+            <div id="p9-dotA" class="globe-dot" style="left:-120px; top:-40px;"></div>
+            <div id="p9-dotB" class="globe-dot" style="right:-120px; top:60px;"></div>
+            <div id="p9-line" class="globe-line" style="left:-90px; top:0px; width:280px; transform: rotate(20deg);"></div>
+          </div>
+          <div id="p9-title" class="fx-title small">MÊME À L'AUTRE BOUT<br/>DU MONDE</div>
+        </div>
+      </div>
+
+      <!-- ===== p10 — boucle: une seule façon de faire ça ===== -->
+      <div id="p10" class="clip" data-start="65.220" data-duration="4.700" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p10-eyebrow" class="fx-eyebrow">&#128161; UNE SEULE FAÇON</div>
+        </div>
+      </div>
+
+      <!-- ===== p11 — pas de stock, pas de matériel, pas de capital (croix) ===== -->
+      <div id="p11" class="clip" data-start="69.920" data-duration="7.520" data-track-index="1">
+        <div class="fx-scene">
+          <div class="skill-row">
+            <div class="fx-ban-wrap" style="width:180px; height:180px;">
+              <div id="p11-i1" class="fx-emoji-big" style="font-size:130px;">&#128230;</div>
+              <div id="p11-banA1" class="ban-x" style="transform: rotate(45deg);"></div>
+              <div id="p11-banA2" class="ban-x" style="transform: rotate(-45deg);"></div>
+            </div>
+            <div class="fx-ban-wrap" style="width:180px; height:180px;">
+              <div id="p11-i2" class="fx-emoji-big" style="font-size:130px;">&#129520;</div>
+              <div id="p11-banB1" class="ban-x" style="transform: rotate(45deg);"></div>
+              <div id="p11-banB2" class="ban-x" style="transform: rotate(-45deg);"></div>
+            </div>
+            <div class="fx-ban-wrap" style="width:180px; height:180px;">
+              <div id="p11-i3" class="fx-emoji-big" style="font-size:130px;">&#128184;</div>
+              <div id="p11-banC1" class="ban-x" style="transform: rotate(45deg);"></div>
+              <div id="p11-banC2" class="ban-x" style="transform: rotate(-45deg);"></div>
+            </div>
+          </div>
+          <div id="p11-title" class="fx-title small">PAS DE STOCK, PAS DE MATÉRIEL,<br/>PAS DE CAPITAL DE DÉPART</div>
+        </div>
+      </div>
+
+      <!-- ===== p12 — juste toi et ton téléphone ===== -->
+      <div id="p12" class="clip" data-start="77.440" data-duration="2.350" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p12-phone" class="fx-emoji-big">&#128241;</div>
+          <div id="p12-title" class="fx-title small">JUSTE TOI ET<br/>TON TÉLÉPHONE</div>
+        </div>
+      </div>
+
+      <!-- ===== p13 — transforme ta compétence en produit digital ===== -->
+      <div id="p13" class="clip" data-start="79.790" data-duration="6.110" data-track-index="1">
+        <div class="fx-scene">
+          <div class="transform-row">
+            <div id="p13-skill" class="transform-box">&#129504;</div>
+            <div id="p13-arrow" class="transform-arrow">&#8594;</div>
+            <div id="p13-product" class="transform-box win">&#128187;</div>
+          </div>
+          <div id="p13-title" class="fx-title small">TRANSFORME TA COMPÉTENCE<br/>EN PRODUIT DIGITAL</div>
+        </div>
+      </div>
+
+      <!-- ===== p14 — et le plus fou ===== -->
+      <div id="p14" class="clip" data-start="85.900" data-duration="1.880" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p14-word" class="fx-kinetic-word">LE PLUS FOU</div>
+        </div>
+      </div>
+
+      <!-- ===== p15 — plusieurs formats, vendre à l'infini même quand tu dors ===== -->
+      <div id="p15" class="clip" data-start="87.780" data-duration="7.520" data-track-index="1">
+        <div class="fx-scene">
+          <div class="infinity-wrap">
+            <div id="p15-inf" class="infinity-symbol">&#8734;</div>
+            <div id="p15-f1" class="float-icon" style="left:60px; top:60px;">&#128196;</div>
+            <div id="p15-f2" class="float-icon" style="right:60px; top:60px;">&#127909;</div>
+            <div id="p15-f3" class="float-icon" style="left:60px; bottom:60px;">&#128230;</div>
+            <div id="p15-f4" class="float-icon" style="right:60px; bottom:60px;">&#128176;</div>
+            <div id="p15-sleep" class="float-icon" style="bottom:-40px; font-size:110px;">&#128564;</div>
+          </div>
+          <div id="p15-title" class="fx-title small">MÊME QUAND TU DORS</div>
+        </div>
+      </div>
+
+      <!-- ===== p16 — je te montre toutes les étapes dans mon guide ===== -->
+      <div id="p16" class="clip" data-start="95.300" data-duration="4.230" data-track-index="1">
+        <div class="fx-scene">
+          <div id="p16-guide" class="fx-guide-card" style="transform: rotate(-5deg);">
+            <img src="assets/images/guide-cover.png" alt="" />
+          </div>
+          <div id="p16-title" class="fx-title small" style="margin-top:460px;">TOUTES LES ÉTAPES<br/>SONT DANS MON GUIDE</div>
+        </div>
+      </div>
+
+      <!-- ===== p17 — commente business + abonne-toi ===== -->
+      <div id="p17" class="clip" data-start="99.530" data-duration="3.760" data-track-index="1">
+        <div class="fx-scene">
+          <div class="fx-comment-chip" id="p17-chip">
+            <span>&#128172; Commente "Business"</span>
+          </div>
+          <div class="fx-subscribe-btn" id="p17-sub">
+            <span>ABONNE-TOI</span>
+            <div id="p17-ring" class="fx-click-ring" style="right:14px; bottom:8px;"></div>
+            <div id="p17-hand" class="fx-cursor-hand" data-layout-allow-overlap="true" style="right:-4px; bottom:2px;">&#128070;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUDIO -->
+      <audio id="sfx-typing" class="clip" data-start="0" data-duration="1.3" data-track-index="9" src="audio/sfx/typing.wav"></audio>
+      <audio id="sfx-click" class="clip" data-start="101.860" data-duration="0.14" data-track-index="10" src="audio/sfx/click.wav"></audio>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // ---- hook: "JOUR 1" typewriter ----
+      const p0Chars = ["#p0-c1", "#p0-c2", "#p0-c3", "#p0-c4", "#p0-sp", "#p0-c5"];
+      p0Chars.forEach((sel, i) => { tl.set(sel, { opacity: 1 }, 0 + i * 0.09); });
+      tl.set("#p0-cursor", { opacity: 1 }, 0);
+      tl.to("#p0-cursor", { opacity: 0, duration: 0.15, repeat: 7, yoyo: true, ease: "steps(1)" }, 0);
+      tl.set([...p0Chars, "#p0-cursor"], { opacity: 0 }, 1.3);
+
+      // ---- p1: hook — personne ne te dit ça à l'école ----
+      tl.fromTo("#p1-school", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, 1.3);
+      tl.fromTo("#p1-shh", { opacity: 0, scale: 0.6, x: 20 }, { opacity: 1, scale: 1, x: 0, duration: 0.3, ease: "back.out(2.2)" }, 1.5);
+      tl.fromTo("#p1-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 1.8);
+      tl.set(["#p1-school", "#p1-shh", "#p1-title"], { opacity: 0 }, 6.94);
+
+      // ---- p2: promesse — ça vaut déjà de l'argent ----
+      tl.fromTo("#p2-cap", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 6.94);
+      tl.fromTo("#p2-arrow", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 7.24);
+      tl.fromTo("#p2-money", { opacity: 0, x: 40, scale: 0.7 }, { opacity: 1, x: 0, scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 7.44);
+      tl.fromTo("#p2-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 7.9);
+      tl.set(["#p2-cap", "#p2-arrow", "#p2-money", "#p2-title"], { opacity: 0 }, 15.87);
+
+      // ---- p3: on nous a toujours dit ----
+      tl.fromTo("#p3-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 15.87);
+      tl.fromTo("#p3-b1", { opacity: 0, scale: 0.4, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.24, ease: "back.out(2.4)" }, 16.17);
+      tl.fromTo("#p3-b2", { opacity: 0, scale: 0.4, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.24, ease: "back.out(2.4)" }, 16.35);
+      tl.fromTo("#p3-b3", { opacity: 0, scale: 0.4, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.24, ease: "back.out(2.4)" }, 16.53);
+      tl.fromTo("#p3-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 16.9);
+      tl.set(["#p3-eyebrow", "#p3-b1", "#p3-b2", "#p3-b3", "#p3-title"], { opacity: 0 }, 25.27);
+
+      // ---- p4: anglais, couture, menuiserie, cuisine ----
+      const p4Skills = ["#p4-s1", "#p4-s2", "#p4-s3", "#p4-s4"];
+      p4Skills.forEach((sel, i) => {
+        tl.fromTo(sel, { opacity: 0, scale: 0.6, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(2.4)" }, 25.27 + i * 0.14);
+      });
+      tl.set(p4Skills, { opacity: 0 }, 29.03);
+
+      // ---- p5: ne garantit plus ni l'emploi ni le salaire (chaîne brisée) ----
+      tl.fromTo("#p5-n1", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.4)" }, 29.03);
+      tl.fromTo("#p5-l1", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.16, ease: "power2.out" }, 29.35);
+      tl.fromTo("#p5-n2", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.4)" }, 29.55);
+      tl.fromTo("#p5-l2", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.16, ease: "power2.out" }, 29.87);
+      tl.fromTo("#p5-n3", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.4)" }, 30.07);
+      tl.fromTo("#p5-banA", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.24, ease: "power2.out" }, 30.5);
+      tl.fromTo("#p5-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 30.8);
+      tl.set(["#p5-n1", "#p5-l1", "#p5-n2", "#p5-l2", "#p5-n3", "#p5-banA", "#p5-title"], { opacity: 0 }, 36.55);
+
+      // ---- p6: tu devrais te poser cette question ----
+      tl.fromTo("#p6-think", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.4)" }, 36.55);
+      tl.to("#p6-think", { rotation: 12, duration: 0.4, yoyo: true, repeat: 2, ease: "sine.inOut" }, 36.9);
+      tl.fromTo("#p6-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 36.85);
+      tl.set(["#p6-think", "#p6-title"], { opacity: 0 }, 40.31);
+
+      // ---- p7: comment le transformer en argent ----
+      tl.fromTo("#p7-title", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, 40.31);
+      tl.set("#p7-title", { opacity: 0 }, 45.48);
+
+      // ---- p8: résout un problème, fait gagner du temps ----
+      tl.fromTo("#p8-tool", { opacity: 0, scale: 0.6, rotation: -20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.26, ease: "back.out(2.4)" }, 45.48);
+      tl.fromTo("#p8-clock", { opacity: 0, scale: 0.6, rotation: 20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.26, ease: "back.out(2.4)" }, 45.7);
+      tl.fromTo("#p8-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 46.0);
+      tl.set(["#p8-tool", "#p8-clock", "#p8-title"], { opacity: 0 }, 54.41);
+
+      // ---- p9: même à l'autre bout du monde (globe) ----
+      tl.fromTo("#p9-globe", { opacity: 0, scale: 0.6, rotation: -10 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.2)" }, 54.41);
+      tl.to("#p9-globe", { rotation: 360, duration: 6, ease: "none" }, 54.71);
+      tl.fromTo("#p9-dotA", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.4)" }, 55.0);
+      tl.fromTo("#p9-dotB", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.4)" }, 55.2);
+      tl.fromTo("#p9-line", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "power2.out" }, 55.4);
+      tl.fromTo("#p9-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 55.8);
+      tl.set(["#p9-globe", "#p9-dotA", "#p9-dotB", "#p9-line", "#p9-title"], { opacity: 0 }, 65.22);
+
+      // ---- p10: une seule façon ----
+      tl.fromTo("#p10-eyebrow", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, 65.22);
+      tl.set("#p10-eyebrow", { opacity: 0 }, 69.92);
+
+      // ---- p11: pas de stock, matériel, capital (croix) ----
+      const p11Icons = [["#p11-i1", "#p11-banA1", "#p11-banA2"], ["#p11-i2", "#p11-banB1", "#p11-banB2"], ["#p11-i3", "#p11-banC1", "#p11-banC2"]];
+      p11Icons.forEach(([icon, banA, banB], i) => {
+        const t = 69.92 + i * 0.2;
+        tl.fromTo(icon, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.2)" }, t);
+        tl.fromTo([banA, banB], { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.2, ease: "power2.out" }, t + 0.18);
+      });
+      tl.fromTo("#p11-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 70.7);
+      tl.set(["#p11-i1", "#p11-banA1", "#p11-banA2", "#p11-i2", "#p11-banB1", "#p11-banB2", "#p11-i3", "#p11-banC1", "#p11-banC2", "#p11-title"], { opacity: 0 }, 77.44);
+
+      // ---- p12: juste toi et ton téléphone ----
+      tl.fromTo("#p12-phone", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.6)" }, 77.44);
+      tl.fromTo("#p12-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 77.72);
+      tl.set(["#p12-phone", "#p12-title"], { opacity: 0 }, 79.79);
+
+      // ---- p13: transforme ta compétence en produit digital ----
+      tl.fromTo("#p13-skill", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.26, ease: "power2.out" }, 79.79);
+      tl.fromTo("#p13-arrow", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 80.1);
+      tl.fromTo("#p13-product", { opacity: 0, x: 40, scale: 0.7 }, { opacity: 1, x: 0, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, 80.3);
+      tl.fromTo("#p13-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 80.7);
+      tl.set(["#p13-skill", "#p13-arrow", "#p13-product", "#p13-title"], { opacity: 0 }, 85.9);
+
+      // ---- p14: le plus fou ----
+      tl.fromTo("#p14-word", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, 85.9);
+      tl.set("#p14-word", { opacity: 0 }, 87.78);
+
+      // ---- p15: plusieurs formats, vendre à l'infini même quand tu dors ----
+      tl.fromTo("#p15-inf", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, 87.78);
+      const p15Floats = ["#p15-f1", "#p15-f2", "#p15-f3", "#p15-f4"];
+      p15Floats.forEach((sel, i) => {
+        tl.fromTo(sel, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.6)" }, 88.1 + i * 0.12);
+      });
+      tl.fromTo("#p15-sleep", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, 88.7);
+      tl.fromTo("#p15-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 89.0);
+      tl.set(["#p15-inf", ...p15Floats, "#p15-sleep", "#p15-title"], { opacity: 0 }, 95.3);
+
+      // ---- p16: toutes les étapes dans mon guide ----
+      tl.fromTo("#p16-guide", { opacity: 0, scale: 0.6, rotation: 4 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.3, ease: "back.out(2.2)" }, 95.3);
+      tl.to("#p16-guide", { y: -16, duration: 0.8, yoyo: true, repeat: 2, ease: "sine.inOut" }, 95.7);
+      tl.fromTo("#p16-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 95.7);
+      tl.set(["#p16-guide", "#p16-title"], { opacity: 0 }, 99.53);
+
+      // ---- p17: commente business + abonne-toi ----
+      tl.fromTo("#p17-chip", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" }, 99.53);
+      tl.fromTo("#p17-sub", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.26, ease: "elastic.out(1,0.6)" }, 100.13);
+      tl.fromTo("#p17-hand", { opacity: 0, x: 40, y: 40 }, { opacity: 1, x: 0, y: 0, duration: 0.22, ease: "power2.out" }, 101.53);
+      tl.to("#p17-hand", { scale: 0.85, duration: 0.09, yoyo: true, repeat: 1 }, 101.73);
+      tl.set("#p17-ring", { opacity: 1, scale: 0.3 }, 101.73);
+      tl.to("#p17-ring", { opacity: 0, scale: 1.8, duration: 0.2, ease: "power2.out" }, 101.73);
+      tl.set("#p17-ring", { opacity: 0 }, 101.93);
+      tl.to("#p17-sub", { scale: 0.94, duration: 0.06, yoyo: true, repeat: 1 }, 101.73);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
