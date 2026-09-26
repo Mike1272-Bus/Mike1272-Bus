@@ -1,887 +1,377 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-resolution="portrait">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/gsap.min.js"></script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        width: 1080px;
-        height: 1920px;
-        overflow: hidden;
-        background: #211e5c;
-      }
-      @font-face { font-family: 'Bricolage Grotesque'; font-weight: 400; src: url('assets/fonts/bricolage-400.ttf') format('truetype'); }
-      @font-face { font-family: 'Bricolage Grotesque'; font-weight: 700; src: url('assets/fonts/bricolage-700.ttf') format('truetype'); }
-      @font-face { font-family: 'Bricolage Grotesque'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
-      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
-      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
-
+      @font-face { font-family: 'Baloo 2'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #fbf6ee; }
       #root {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        font-family: "Work Sans", sans-serif;
-        color: #fff;
+        position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #111;
+        background:
+          repeating-linear-gradient(0deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 54px),
+          repeating-linear-gradient(90deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 54px),
+          radial-gradient(circle at 50% 36%, #fde3c8 0%, #fbf6ee 62%);
       }
-      .clip {
-        position: absolute;
-        inset: 0;
-        width: 1080px;
-        height: 1920px;
-        overflow: hidden;
-      }
+      .abs { position: absolute; }
+      #progress { position: absolute; left: 0; top: 0; width: 1080px; height: 12px; background: #ff5c00; transform-origin: left center; z-index: 50; }
+      .brand { position: absolute; top: 64px; left: 70px; z-index: 40; background: #111; color: #fff; font-size: 28px; letter-spacing: 0.04em; padding: 12px 30px 6px; border-radius: 40px; }
+      .stage { position: absolute; inset: 0; perspective: 1600px; }
 
-      /* f01-hook */
-        #scene-f01-hook {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          font-family: "Work Sans", sans-serif;
-          color: #fff;
-        }
-        #scene-f01-hook .bgzoom {
-          position: absolute;
-          inset: -40px;
-          background: radial-gradient(circle at 30% 20%, rgba(126, 222, 232, 0.16), transparent 55%),
-            radial-gradient(circle at 75% 80%, rgba(247, 199, 42, 0.14), transparent 55%);
-        }
-        #scene-f01-hook .pill {
-          position: absolute;
-          top: 90px;
-          left: 90px;
-          background: #fff;
-          color: #211e5c;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 30px;
-          padding: 16px 34px;
-          border-radius: 40px;
-          letter-spacing: 0.02em;
-        }
-        #scene-f01-hook .line {
-          position: absolute;
-          left: 90px;
-          right: 90px;
-          top: 860px;
-          height: 3px;
-          background: rgba(255, 255, 255, 0.18);
-          transform-origin: left center;
-        }
-        #scene-f01-hook .cat {
-          position: absolute;
-          left: 90px;
-          top: 900px;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 66px;
-          line-height: 1.08;
-          color: #fff;
-          max-width: 900px;
-        }
-        #scene-f01-hook .cat .em {
-          color: #f7c72a;
-        }
+      /* cartes photo portrait (hook) */
+      .pcard { position: absolute; width: 330px; height: 430px; }
+      .flip { position: absolute; inset: 0; transform-style: preserve-3d; }
+      .face { position: absolute; inset: 0; border-radius: 30px; border: 10px solid #fff; overflow: hidden; backface-visibility: hidden; box-shadow: 0 34px 60px rgba(60,30,0,0.28); }
+      .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .back { background: #111; transform: rotateY(180deg); display: flex; align-items: center; justify-content: center; color: #ff5c00; font-size: 240px; line-height: 1; }
+      .tag { position: absolute; left: 18px; bottom: 18px; background: #111; color: #fff; font-size: 30px; padding: 8px 22px 2px; border-radius: 30px; z-index: 3; }
+      #h1 { left: 90px; top: 430px; } #h2 { left: 375px; top: 350px; z-index: 2; } #h3 { left: 660px; top: 450px; }
 
-      /* f02-profiles */
-        #scene-f02-profiles {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          font-family: "Work Sans", sans-serif;
-          color: #fff;
-        }
-        #scene-f02-profiles .cat {
-          position: absolute;
-          left: 90px;
-          top: 130px;
-          right: 90px;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 56px;
-          line-height: 1.1;
-        }
-        #scene-f02-profiles .card {
-          position: absolute;
-          left: 90px;
-          right: 90px;
-          height: 420px;
-          border-radius: 28px;
-          border: 3px dashed rgba(255, 255, 255, 0.45);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 14px;
-        }
-        #scene-f02-profiles .card .pending {
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 26px;
-          color: rgba(255, 255, 255, 0.55);
-          letter-spacing: 0.04em;
-        }
-        #scene-f02-profiles .card .label {
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 40px;
-          color: #f7c72a;
-        }
-        #scene-f02-profiles #card1 {
-          top: 320px;
-        }
-        #scene-f02-profiles #card2 {
-          top: 780px;
-        }
-        #scene-f02-profiles #card3 {
-          top: 1240px;
-        }
+      .pill { position: absolute; z-index: 20; text-align: center; background: #ff5c00; color: #fff; border-radius: 70px; border: 5px solid #111; box-shadow: 12px 12px 0 #111; }
+      #badge { left: 230px; top: 900px; width: 620px; font-size: 64px; padding: 26px 0 14px; }
 
-      /* f03-competence */
-        #scene-f03-competence {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        #scene-f03-competence .glow {
-          position: absolute;
-          width: 1200px;
-          height: 1200px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(247, 199, 42, 0.18), transparent 60%);
-        }
-        #scene-f03-competence .headline {
-          position: relative;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 128px;
-          line-height: 1.05;
-          color: #f7c72a;
-          text-align: center;
-          padding: 0 60px;
-        }
+      .cover { position: absolute; border-radius: 30px; border: 12px solid #fff; overflow: hidden; box-shadow: 0 40px 80px rgba(60,30,0,0.32); }
+      .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      #cover { left: 250px; top: 330px; width: 580px; height: 580px; }
+      #timer { position: absolute; left: 740px; top: 250px; width: 190px; height: 190px; z-index: 6; background: #fff; border: 5px solid #111; border-radius: 50%; box-shadow: 10px 10px 0 #111; }
+      #timer svg { width: 100%; height: 100%; }
 
-      /* f04-domaines */
-        #scene-f04-domaines {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          font-family: "Work Sans", sans-serif;
-          color: #fff;
-        }
-        #scene-f04-domaines .cat {
-          position: absolute;
-          left: 90px;
-          right: 90px;
-          top: 130px;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 46px;
-          line-height: 1.15;
-        }
-        #scene-f04-domaines .tile {
-          position: absolute;
-          left: 90px;
-          right: 90px;
-          height: 340px;
-          border-radius: 24px;
-          overflow: hidden;
-          background: #2b2870;
-        }
-        #scene-f04-domaines .tile img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
-        #scene-f04-domaines .tile .pending {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 3px dashed rgba(255, 255, 255, 0.45);
-          box-sizing: border-box;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 24px;
-          color: rgba(255, 255, 255, 0.55);
-        }
-        #scene-f04-domaines .tile .tag {
-          position: absolute;
-          left: 24px;
-          bottom: 20px;
-          background: #f7c72a;
-          color: #211e5c;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 30px;
-          padding: 8px 22px;
-          border-radius: 30px;
-        }
-        #scene-f04-domaines #t1 {
-          top: 320px;
-        }
-        #scene-f04-domaines #t2 {
-          top: 700px;
-        }
-        #scene-f04-domaines #t3 {
-          top: 1080px;
-        }
-        #scene-f04-domaines #t4 {
-          top: 1460px;
-        }
+      .spark { position: absolute; width: 70px; height: 70px; z-index: 15; }
+      .spark svg { width: 100%; height: 100%; fill: #111; }
 
-      /* f05-probleme */
-        #scene-f05-probleme {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #1a1848;
-          overflow: hidden;
-          font-family: "Work Sans", sans-serif;
-          color: #fff;
-        }
-        #scene-f05-probleme .vignette {
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(circle at 50% 50%, transparent 35%, rgba(0, 0, 0, 0.55) 100%);
-        }
-        #scene-f05-probleme .mais {
-          position: absolute;
-          left: 90px;
-          top: 700px;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 120px;
-          color: rgba(255, 255, 255, 0.5);
-        }
-        #scene-f05-probleme .body {
-          position: absolute;
-          left: 90px;
-          right: 90px;
-          top: 900px;
-          font-size: 46px;
-          line-height: 1.35;
-          font-weight: 400;
-        }
+      /* qui : salarié / étudiant / sans emploi */
+      .who { position: absolute; top: 470px; width: 290px; height: 360px; background: #fff; border: 5px solid #111; border-radius: 36px; box-shadow: 12px 12px 0 #111; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+      .who svg { width: 150px; height: 150px; fill: none; stroke: #111; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .who .lab { font-size: 44px; }
+      #w1 { left: 55px; } #w2 { left: 395px; } #w3 { left: 735px; }
 
-      /* f06-partage */
-        #scene-f06-partage {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          font-family: "Work Sans", sans-serif;
-          color: #fff;
-        }
-        #scene-f06-partage .lock {
-          position: absolute;
-          left: 440px;
-          top: 560px;
-          width: 200px;
-          height: 200px;
-        }
-        #scene-f06-partage .lock svg {
-          width: 100%;
-          height: 100%;
-        }
-        #scene-f06-partage .headline {
-          position: absolute;
-          left: 90px;
-          right: 90px;
-          top: 900px;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 78px;
-          line-height: 1.12;
-          text-align: center;
-          color: #fff;
-        }
-        #scene-f06-partage .headline .w {
-          display: inline-block;
-          opacity: 0;
-        }
+      /* cartes vidéo */
+      .vcard { position: absolute; }
+      .vcard .inner { position: absolute; inset: 0; border-radius: 30px; border: 12px solid #fff; overflow: hidden; box-shadow: 0 34px 60px rgba(60,30,0,0.30); background: #222; }
+      .vcard video, .vcard .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+      .vcard.stack { left: 90px; width: 900px; height: 506px; }
+      #k1 { top: 210px; } #k2 { top: 350px; } #k3 { top: 490px; } #k4 { top: 630px; }
+      .vcard.big { left: 60px; top: 400px; width: 960px; height: 540px; }
 
-      /* f07-distance */
-        #scene-f07-distance {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          font-family: "Work Sans", sans-serif;
-          color: #fff;
-        }
-        #scene-f07-distance .frame {
-          position: absolute;
-          left: 60px;
-          right: 60px;
-          top: 380px;
-          height: 1000px;
-          border-radius: 24px;
-          overflow: hidden;
-        }
-        #scene-f07-distance .frame img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        #scene-f07-distance .caption {
-          position: absolute;
-          left: 90px;
-          right: 90px;
-          top: 1460px;
-          font-size: 48px;
-          line-height: 1.35;
-          text-align: center;
-        }
+      #net { position: absolute; left: 0; top: 300px; width: 1080px; height: 900px; }
+      #net svg { width: 100%; height: 100%; overflow: visible; }
+      .netlab { position: absolute; font-size: 44px; background: #fff; border: 5px solid #111; border-radius: 40px; padding: 10px 28px 2px; box-shadow: 8px 8px 0 #111; }
+      #labA { left: 90px; top: 1000px; } #labB { left: 560px; top: 520px; }
 
-      /* f08-vrai-probleme */
-        #scene-f08-vrai-probleme {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        #scene-f08-vrai-probleme .headline {
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 88px;
-          line-height: 1.15;
-          color: #fff;
-          text-align: center;
-          padding: 0 80px;
-        }
-        #scene-f08-vrai-probleme .headline .em {
-          color: #f7c72a;
-        }
+      #flash { position: absolute; inset: 0; background: #fff; z-index: 45; opacity: 0; visibility: hidden; }
 
-      /* f09-pivot */
-        #scene-f09-pivot {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        #scene-f09-pivot .flash {
-          position: absolute;
-          inset: 0;
-          background: #ffffff;
-          opacity: 0;
-        }
-        #scene-f09-pivot .headline {
-          position: relative;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 118px;
-          line-height: 1.05;
-          color: #f7c72a;
-          text-align: center;
-          padding: 0 60px;
-          opacity: 0;
-        }
-        #scene-f09-pivot .glow {
-          position: absolute;
-          width: 1300px;
-          height: 1300px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(126, 222, 232, 0.22), transparent 60%);
-        }
+      #kmBadge { left: 180px; top: 1000px; width: 720px; font-size: 58px; padding: 24px 0 12px; }
+      #davidTag { left: 60px; top: 300px; font-size: 46px; padding: 16px 36px 6px; background: #111; box-shadow: 10px 10px 0 #ff5c00; }
+      #budgetBadge { left: 300px; top: 1000px; width: 620px; font-size: 62px; padding: 24px 0 12px; background: #ffd60a; color: #111; }
 
-      /* f10-exemple */
-        #scene-f10-exemple {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          font-family: "Work Sans", sans-serif;
-          color: #fff;
-        }
-        #scene-f10-exemple .frame {
-          position: absolute;
-          left: 60px;
-          right: 60px;
-          top: 300px;
-          height: 900px;
-          border-radius: 24px;
-          overflow: hidden;
-        }
-        #scene-f10-exemple .frame img {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        #scene-f10-exemple #f10-b {
-          opacity: 0;
-        }
-        #scene-f10-exemple .tag {
-          position: absolute;
-          left: 90px;
-          right: 90px;
-          top: 1250px;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 34px;
-          color: #7edee8;
-          text-align: center;
-        }
-        #scene-f10-exemple .caption {
-          position: absolute;
-          left: 90px;
-          right: 90px;
-          top: 1330px;
-          font-size: 48px;
-          line-height: 1.35;
-          text-align: center;
-        }
+      #cover2 { left: 240px; top: 360px; width: 600px; height: 600px; z-index: 5; }
+      #inside { position: absolute; left: 370px; top: 250px; font-size: 70px; line-height: 1; }
+      #inside small { display: block; font-size: 34px; color: #c94200; margin-top: 10px; }
+      .step { position: absolute; left: 90px; width: 900px; height: 118px; background: #fff; border: 5px solid #111; border-radius: 60px; box-shadow: 10px 10px 0 #111; display: flex; align-items: center; gap: 28px; padding-left: 16px; font-size: 48px; }
+      .step .num { width: 84px; height: 84px; border-radius: 50%; background: #ff5c00; color: #fff; border: 4px solid #111; display: flex; align-items: center; justify-content: center; font-size: 50px; padding-top: 8px; }
+      #st1 { top: 470px; } #st2 { top: 608px; } #st3 { top: 746px; } #st4 { top: 884px; } #st5 { top: 1022px; }
+      #fmt { position: absolute; left: 90px; top: 1190px; width: 900px; display: flex; gap: 12px; justify-content: center; }
+      #fmt span { background: #111; color: #fff; font-size: 30px; padding: 10px 20px 4px; border-radius: 30px; }
 
-      /* f11-guide */
-        #scene-f11-guide {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          font-family: "Work Sans", sans-serif;
-          color: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        #scene-f11-guide .cover-wrap {
-          position: relative;
-          width: 720px;
-          height: 900px;
-        }
-        #scene-f11-guide .shadow {
-          position: absolute;
-          inset: 14px 14px -14px -14px;
-          background: #121212;
-          border-radius: 22px;
-        }
-        #scene-f11-guide .cover {
-          position: absolute;
-          inset: 0;
-          border-radius: 22px;
-          overflow: hidden;
-          border: 6px solid #f7c72a;
-        }
-        #scene-f11-guide .cover img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: top;
-        }
+      #chk { position: absolute; left: 90px; top: 380px; width: 900px; background: #fff; border: 5px solid #111; border-radius: 44px; box-shadow: 14px 14px 0 #111; padding: 50px 50px 30px; }
+      #chk h2 { font-size: 62px; line-height: 1.05; margin-bottom: 26px; }
+      .row { display: flex; align-items: center; gap: 30px; margin-bottom: 26px; font-size: 44px; line-height: 1.12; }
+      .box { flex: 0 0 76px; height: 76px; border: 5px solid #111; border-radius: 16px; position: relative; background: #fff; }
+      .box svg { position: absolute; left: -6px; top: -14px; width: 92px; height: 92px; fill: none; stroke: #ff5c00; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
 
-      /* f12-transformation */
-        #scene-f12-transformation {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          font-family: "Work Sans", sans-serif;
-          color: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        #scene-f12-transformation .cover-wrap {
-          position: absolute;
-          top: 260px;
-          width: 640px;
-          height: 800px;
-          left: 50%;
-          margin-left: -320px;
-        }
-        #scene-f12-transformation .cover {
-          position: absolute;
-          inset: 0;
-          border-radius: 22px;
-          overflow: hidden;
-          border: 6px solid #f7c72a;
-          box-shadow: 20px 20px 0 #121212;
-        }
-        #scene-f12-transformation .cover img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: top;
-        }
-        #scene-f12-transformation .band {
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 260px;
-          background: #121212;
-          padding: 40px 60px;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 42px;
-          text-align: center;
-          transform: translateY(140%);
-        }
-        #scene-f12-transformation .band .arrow {
-          color: #7edee8;
-          margin: 0 14px;
-        }
+      .sig { position: absolute; left: 0; width: 1080px; text-align: center; line-height: 1; }
+      #sg1 { top: 520px; font-size: 130px; }
+      #sg2 { top: 720px; font-size: 76px; }
+      #sg3 { top: 860px; font-size: 128px; }
+      #sg3 span { background: #ffd60a; padding: 18px 34px 0; border-radius: 24px; color: #c94200; display: inline-block; }
 
-      /* f13-signature */
-        #scene-f13-signature {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 20px;
-        }
-        #scene-f13-signature .line1,
-        #scene-f13-signature .line2 {
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 84px;
-          color: #f7c72a;
-          text-align: center;
-          padding: 0 60px;
-          opacity: 0;
-        }
+      #bubble { position: absolute; left: 150px; top: 700px; width: 780px; display: flex; align-items: flex-end; gap: 24px; }
+      #bubble img { width: 130px; height: 130px; }
+      #bubble .b { flex: 1; background: #fff; border: 5px solid #111; border-radius: 44px 44px 44px 10px; box-shadow: 10px 10px 0 #111; height: 150px; display: flex; align-items: center; justify-content: center; gap: 22px; }
+      #bubble .dot { width: 30px; height: 30px; border-radius: 50%; background: #111; }
 
-      /* f14-cta */
-        #scene-f14-cta {
-          position: absolute;
-          inset: 0;
-          width: 1080px;
-          height: 1920px;
-          background: #211e5c;
-          overflow: hidden;
-          font-family: "Work Sans", sans-serif;
-          color: #fff;
-        }
-        #scene-f14-cta .bar {
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          height: 560px;
-          background: #121212;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 34px;
-        }
-        #scene-f14-cta .wa-row {
-          display: flex;
-          align-items: center;
-          gap: 22px;
-        }
-        #scene-f14-cta .wa-row img {
-          width: 74px;
-          height: 74px;
-        }
-        #scene-f14-cta .wa-row .num {
-          font-size: 44px;
-          font-weight: 700;
-        }
-        #scene-f14-cta .btn {
-          background: #25d366;
-          color: #121212;
-          font-family: "Bricolage Grotesque", sans-serif;
-          font-weight: 800;
-          font-size: 40px;
-          padding: 26px 56px;
-          border-radius: 50px;
-        }
+      #ctaPanel { position: absolute; left: 70px; top: 420px; width: 940px; background: #111; border-radius: 50px; padding: 60px 50px 70px; display: flex; flex-direction: column; align-items: center; gap: 44px; box-shadow: 16px 16px 0 #ff5c00; }
+      #ctaPanel .wa { display: flex; align-items: center; gap: 28px; color: #fff; font-size: 66px; }
+      #ctaPanel .wa img { width: 120px; height: 120px; }
+      #ctaBtn { background: #25d366; color: #111; font-size: 60px; padding: 30px 60px 18px; border-radius: 80px; border: 5px solid #fff; }
+      #ctaPanel .sub { color: #ffd60a; font-size: 44px; }
+
+      /* sous-titres karaoké */
+      #caps { position: absolute; left: 60px; right: 60px; top: 1430px; height: 330px; z-index: 30; }
+      #capsBig { position: absolute; left: 60px; right: 60px; top: 600px; height: 760px; z-index: 30; }
+      .grp { position: absolute; inset: 0; display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-start; column-gap: 18px; row-gap: 4px; text-align: center; }
+      #caps .grp { font-size: 70px; line-height: 1.22; }
+      #capsBig .grp { font-size: 120px; line-height: 1.12; align-content: center; }
+      .w { position: relative; display: inline-block; opacity: 0.3; }
+      .w .hl { position: absolute; left: -10px; right: -10px; top: 6px; bottom: 2px; background: #ffd60a; border-radius: 14px; transform: scaleX(0); z-index: 0; }
+      .w .t { position: relative; z-index: 1; }
+      .w.acc .t { color: #c94200; }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="root"
-      data-width="1080"
-      data-height="1920"
-      data-duration="58"
-    >
-      <div class="clip scene" id="scene-f01-hook" data-start="0" data-duration="3">
-        <div class="bgzoom" id="f01-bg"></div>
-        <div class="pill">DIGITALMIKAELSON</div>
-        <div class="line" id="f01-line"></div>
-        <div class="cat" id="f01-cat">Que vous soyez <span class="em">salarié</span>,<br />étudiant, ou sans emploi,</div>
-      </div>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="91.0" data-width="1080" data-height="1920">
+      <div id="progress"></div>
+      <div class="brand">DIGITALMIKAELSON</div>
 
-      <div class="clip scene" id="scene-f02-profiles" data-start="3" data-duration="3">
-        <div class="cat">vous avez tous une chose en commun :</div>
-        <div class="card" id="card1">
-          <div class="pending">PHOTO À VENIR</div>
-          <div class="label">Salarié</div>
+      <div class="stage">
+        <!-- HOOK -->
+        <div class="pcard" id="h1"><div class="flip" id="f1">
+          <div class="face" id="fr1"><img src="assets/img/hook_or_d.jpg" /><div class="tag">Couture</div></div>
+          <div class="face back" id="bk1">?</div></div></div>
+        <div class="pcard" id="h2"><div class="flip" id="f2">
+          <div class="face" id="fr2"><img src="assets/img/hook_or_b.jpg" /><div class="tag">Menuiserie</div></div>
+          <div class="face back" id="bk2">?</div></div></div>
+        <div class="pcard" id="h3"><div class="flip" id="f3">
+          <div class="face" id="fr3"><img src="assets/img/hook_or_a.jpg" /><div class="tag">Comptabilité</div></div>
+          <div class="face back" id="bk3">?</div></div></div>
+
+        <!-- PROMESSE -->
+        <div class="cover" id="cover"><img src="assets/ebook_cover.png" /></div>
+
+        <!-- PARTIE 1 -->
+        <div class="who" id="w1"><svg viewBox="0 0 100 100"><rect x="15" y="38" width="70" height="46" rx="6"/><path d="M38 38 V28 a6 6 0 0 1 6 -6 h12 a6 6 0 0 1 6 6 v10"/><line x1="15" y1="58" x2="85" y2="58"/></svg><div class="lab">Salarié</div></div>
+        <div class="who" id="w2"><svg viewBox="0 0 100 100"><path d="M6 40 L50 20 L94 40 L50 60 Z"/><path d="M28 48 V70 c0 6 10 12 22 12 s22 -6 22 -12 V48"/><path d="M94 40 V62"/></svg><div class="lab">Étudiant</div></div>
+        <div class="who" id="w3"><svg viewBox="0 0 100 100"><circle cx="44" cy="44" r="24"/><line x1="62" y1="62" x2="84" y2="84"/></svg><div class="lab">Sans emploi</div></div>
+        <div class="vcard stack" id="k1"><div class="inner"><img class="poster" src="assets/clips/cuisiner_last.jpg" /><video id="k1-v" src="assets/clips/cuisiner.mp4" data-start="14.003" data-duration="5.25" data-track-index="2" muted playsinline></video><div class="tag" id="k1-tag">Cuisiner</div></div></div><div class="vcard stack" id="k2"><div class="inner"><img class="poster" src="assets/clips/coudre_last.jpg" /><video id="k2-v" src="assets/clips/coudre.mp4" data-start="17.178" data-duration="3.95" data-track-index="2" muted playsinline></video><div class="tag" id="k2-tag">Coudre</div></div></div><div class="vcard stack" id="k3"><div class="inner"><img class="poster" src="assets/clips/langue_last.jpg" /><video id="k3-v" src="assets/clips/langue.mp4" data-start="18.253" data-duration="6.45" data-track-index="2" muted playsinline></video><div class="tag" id="k3-tag">Parler une langue</div></div></div><div class="vcard stack" id="k4"><div class="inner"><img class="poster" src="assets/clips/comptabilite_last.jpg" /><video id="k4-v" src="assets/clips/comptabilite.mp4" data-start="19.821" data-duration="6.672" data-track-index="2" muted playsinline></video><div class="tag" id="k4-tag">Comptabilité</div></div></div>
+
+        <div id="net"><svg viewBox="0 0 1080 900">
+          <circle cx="540" cy="430" r="380" fill="none" stroke="rgba(0,0,0,0.10)" stroke-width="4" />
+          <ellipse cx="540" cy="430" rx="160" ry="380" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="4" />
+          <line x1="160" y1="430" x2="920" y2="430" stroke="rgba(0,0,0,0.08)" stroke-width="4" />
+          <path id="arc" d="M230 640 Q 470 40 850 250" fill="none" stroke="#ff5c00" stroke-width="10" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000" />
+          <circle id="dotA" cx="230" cy="640" r="26" fill="#111" />
+          <circle id="dotB" cx="850" cy="250" r="26" fill="#ff5c00" stroke="#111" stroke-width="6" />
+        </svg></div>
+        <div class="netlab" id="labA">VOUS</div>
+        <div class="netlab" id="labB">QUELQU'UN</div>
+
+        <!-- PARTIE 2 -->
+        <div class="vcard big" id="d1"><div class="inner"><img class="poster" src="assets/clips/distance_a_last.jpg" /><video id="d1-v" src="assets/clips/distance_a.mp4" data-start="30.378" data-duration="7.17" data-track-index="2" muted playsinline></video></div></div><div class="vcard big" id="d2"><div class="inner"><img class="poster" src="assets/clips/distance_b_last.jpg" /><video id="d2-v" src="assets/clips/distance_b.mp4" data-start="35.292" data-duration="2.256" data-track-index="2" muted playsinline></video></div></div><div class="vcard big" id="dv"><div class="inner"><img class="poster" src="assets/clips/david_last.jpg" /><video id="dv-v" src="assets/clips/david.mp4" data-start="37.548" data-duration="7.5" data-track-index="2" muted playsinline></video></div></div>
+
+        <!-- PARTIE 3 -->
+        <div class="cover" id="cover2"><img src="assets/ebook_cover.png" /></div>
+        <div id="inside">Dans le guide<small>5 étapes, concrètes</small></div>
+        <div class="step" id="st1"><div class="num">1</div>Pas besoin de diplôme</div>
+        <div class="step" id="st2"><div class="num">2</div>Se faire connaître</div>
+        <div class="step" id="st3"><div class="num">3</div>Choisir son produit</div>
+        <div class="step" id="st4"><div class="num">4</div>Créer et vendre</div>
+        <div class="step" id="st5"><div class="num">5</div>Tester en 7 jours</div>
+        <div id="fmt"><span>Petit livre</span><span>Vidéo</span><span>Modèle</span><span>Checklist</span><span>Kit</span></div>
+
+        <div id="chk">
+          <h2>En suivant le guide</h2>
+          <div class="row"><div class="box"><svg viewBox="0 0 100 100"><path id="tk1" d="M18 52 L42 76 L86 22" stroke-dasharray="120" stroke-dashoffset="120"/></svg></div><div id="r1">Vous savez ce que vous vendez, et à qui</div></div>
+          <div class="row"><div class="box"><svg viewBox="0 0 100 100"><path id="tk2" d="M18 52 L42 76 L86 22" stroke-dasharray="120" stroke-dashoffset="120"/></svg></div><div id="r2">Vous avez un premier produit</div></div>
+          <div class="row"><div class="box"><svg viewBox="0 0 100 100"><path id="tk3" d="M18 52 L42 76 L86 22" stroke-dasharray="120" stroke-dashoffset="120"/></svg></div><div id="r3">Vous savez si des gens sont prêts à payer</div></div>
         </div>
-        <div class="card" id="card2">
-          <div class="pending">PHOTO À VENIR</div>
-          <div class="label">Étudiant(e)</div>
-        </div>
-        <div class="card" id="card3">
-          <div class="pending">PHOTO À VENIR</div>
-          <div class="label">Sans emploi</div>
-        </div>
-      </div>
 
-      <div class="clip scene" id="scene-f03-competence" data-start="6" data-duration="3">
-        <div class="glow" id="f03-glow"></div>
-        <div class="headline" id="f03-text">UNE<br />COMPÉTENCE.</div>
-      </div>
+        <div class="sig" id="sg1">PAS DE BLABLA.</div>
+        <div class="sig" id="sg2">JUSTE CE QU'IL FAUT FAIRE,</div>
+        <div class="sig" id="sg3"><span>CONCRÈTEMENT.</span></div>
 
-      <div class="clip scene" id="scene-f04-domaines" data-start="9" data-duration="5">
-        <div class="cat">dans des domaines comme la cuisine, la couture, les langues, ou la comptabilité.</div>
-        <div class="tile" id="t1"><img src="assets/ch3_cuisine.jpg" /><div class="tag">Cuisine</div></div>
-        <div class="tile" id="t2"><img src="assets/ebook_couture.jpg" /><div class="tag">Couture</div></div>
-        <div class="tile" id="t3"><img src="assets/ebook_anglais.jpg" /><div class="tag">Langues</div></div>
-        <div class="tile" id="t4">
-          <div class="pending">PHOTO À VENIR</div>
-          <div class="tag">Comptabilité</div>
-        </div>
-      </div>
+        <div id="bubble"><img src="assets/wa_icon_clean.png" /><div class="b"><div class="dot" id="dt1"></div><div class="dot" id="dt2"></div><div class="dot" id="dt3"></div></div></div>
 
-      <div class="clip scene" id="scene-f05-probleme" data-start="14" data-duration="6">
-        <div class="vignette" id="f05-vig"></div>
-        <div class="mais" id="f05-mais">MAIS...</div>
-        <div class="body" id="f05-body">
-          le problème, c'est qu'une compétence, ce n'est pas un savoir qu'on garde pour soi.
-        </div>
-      </div>
-
-      <div class="clip scene" id="scene-f06-partage" data-start="20" data-duration="3">
-        <div class="lock">
-          <svg viewBox="0 0 100 100">
-            <rect x="25" y="45" width="50" height="40" rx="8" fill="#F7C72A" />
-            <path id="f06-shackle" d="M35 45 V30 A15 15 0 0 1 65 30 V45" fill="none" stroke="#F7C72A" stroke-width="8" />
-            <circle cx="50" cy="63" r="6" fill="#211E5C" />
-          </svg>
-        </div>
-        <div class="headline">
-          <span class="w" id="w1">ON&nbsp;</span><span class="w" id="w2">PARTAGE.&nbsp;</span
-          ><span class="w" id="w3">ON&nbsp;</span><span class="w" id="w4">MONÉTISE.</span>
-        </div>
-      </div>
-
-      <div class="clip scene" id="scene-f07-distance" data-start="23" data-duration="5">
-        <div class="frame"><img id="f07-img" src="assets/ch1_reseau.jpg" /></div>
-        <div class="caption" id="f07-cap">Quelqu'un à l'autre bout du monde pourrait avoir besoin de ce que vous savez faire.</div>
-      </div>
-
-      <div class="clip scene" id="scene-f08-vrai-probleme" data-start="28" data-duration="3">
-        <div class="headline" id="f08-text">LE PROBLÈME :<br /><span class="em">LA DISTANCE.</span></div>
-      </div>
-
-      <div class="clip scene" id="scene-f09-pivot" data-start="31" data-duration="4">
-        <div class="glow"></div>
-        <div class="headline" id="f09-text">TOUT A<br />CHANGÉ.</div>
-        <div class="flash" id="f09-flash"></div>
-      </div>
-
-      <div class="clip scene" id="scene-f10-exemple" data-start="35" data-duration="6">
-        <div class="frame">
-          <img id="f10-a" src="assets/ebook_anglais.jpg" />
-          <img id="f10-b" src="assets/ch1_reseau.jpg" />
-        </div>
-        <div class="tag" id="f10-tag">À DES MILLIERS DE KM</div>
-        <div class="caption" id="f10-cap">
-          Vous pouvez connaître une langue, et l'enseigner sans jamais vous rencontrer.
+        <!-- CTA -->
+        <div class="vcard big" id="cv"><div class="inner"><img class="poster" src="assets/clips/cta_last.jpg" /><video id="cv-v" src="assets/clips/cta.mp4" data-start="84.271" data-duration="3.3" data-track-index="2" muted playsinline></video></div></div>
+        <div id="ctaPanel">
+          <div class="wa"><img src="assets/wa_icon_clean.png" />+243 831 710 181</div>
+          <div id="ctaBtn">ENVOYER UN MESSAGE</div>
+          <div class="sub">Je vous accompagne</div>
         </div>
       </div>
 
-      <div class="clip scene" id="scene-f11-guide" data-start="41" data-duration="3">
-        <div class="cover-wrap" id="f11-wrap">
-          <div class="shadow"></div>
-          <div class="cover"><img src="assets/ebook_cover.png" /></div>
-        </div>
-      </div>
+      <div class="pill" id="badge">VAUT DE L'ARGENT</div>
+      <div id="timer"><svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="34" fill="none" stroke="#eee" stroke-width="9" />
+        <circle id="ring" cx="50" cy="50" r="34" fill="none" stroke="#ff5c00" stroke-width="9" stroke-linecap="round" stroke-dasharray="213.6" stroke-dashoffset="213.6" transform="rotate(-90 50 50)" />
+        <line id="hand" x1="50" y1="50" x2="50" y2="26" stroke="#111" stroke-width="6" stroke-linecap="round" />
+        <circle cx="50" cy="50" r="5" fill="#111" /></svg></div>
+      <div class="pill" id="kmBadge">À DES MILLIERS DE KM</div>
+      <div class="pill" id="davidTag">ONCLE DAVID · MENUISIER</div>
+      <div class="pill" id="budgetBadge">SANS BUDGET PUB</div>
 
-      <div class="clip scene" id="scene-f12-transformation" data-start="44" data-duration="5">
-        <div class="cover-wrap">
-          <div class="cover"><img src="assets/ebook_cover.png" /></div>
-        </div>
-        <div class="band" id="f12-band">
-          COMPÉTENCE<span class="arrow">→</span>PRODUIT<span class="arrow">→</span>VENTE
-        </div>
-      </div>
+      <div class="spark" id="s1" style="left:60px;top:300px"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0Z"/></svg></div>
+      <div class="spark" id="s2" style="left:950px;top:340px"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0Z"/></svg></div>
+      <div class="spark" id="s3" style="left:110px;top:1230px;width:50px;height:50px"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0Z"/></svg></div>
+      <div class="spark" id="s4" style="left:930px;top:1180px;width:56px;height:56px"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0Z"/></svg></div>
 
-      <div class="clip scene" id="scene-f13-signature" data-start="49" data-duration="3">
-        <div class="line1" id="f13-l1">PAS DE BLABLA.</div>
-        <div class="line2" id="f13-l2">JUSTE CE QU'IL FAUT FAIRE.</div>
-      </div>
+      <div id="caps"></div>
+      <div id="capsBig"></div>
+      <div id="flash"></div>
 
-      <div class="clip scene" id="scene-f14-cta" data-start="52" data-duration="6">
-        <div class="bar" id="f14-bar">
-          <div class="wa-row">
-            <img src="assets/wa_icon_clean.png" />
-            <div class="num">+243 831 710 181</div>
-          </div>
-          <div class="btn" id="f14-btn">ENVOYER UN MESSAGE</div>
-        </div>
-      </div>
+      <audio id="mix" src="assets/audio/mix_final.wav" data-start="0" data-duration="91.0" data-track-index="10" data-volume="1"></audio>
     </div>
+
     <script>
       window.__timelines = window.__timelines || {};
-      const rootTl = gsap.timeline({ paused: true });
+      const T = {"hookFlip": 3.363, "argent": 2.042, "promise": 5.875, "promiseEnd": 10.332, "salarie": 11.579, "etudiant": 12.078, "sansEmploi": 12.853, "p1b": 14.003, "cuisiner": 16.344, "coudre": 17.528, "langue": 18.603, "compta": 20.171, "p1c": 21.879, "quelquePart": 23.025, "besoin": 24.412, "b1": 26.493, "b1b": 27.833, "p2": 30.378, "km": 33.665, "distB": 35.492, "david": 37.548, "menuisier": 39.129, "budget": 43.326, "b2": 45.048, "guide": 47.981, "step1": 51.123, "step2": 55.37, "step3": 57.769, "step4": 60.276, "step5": 64.336, "check": 69.504, "tick1": 72.636, "tick2": 74.042, "tick3": 76.252, "sig": 77.003, "sig2": 77.88, "sig3": 79.512, "b3": 80.414, "bubble": 82.262, "cta": 84.271, "ctaCard": 87.571, "whatsapp": 88.082, "end": 91.0};
+      const CAPS = [{"mode": "low", "start": 0.0, "end": 1.442, "words": [{"t": "Vous", "s": 0.0, "e": 0.24, "acc": false}, {"t": "avez", "s": 0.24, "e": 0.481, "acc": false}, {"t": "déjà", "s": 0.481, "e": 0.721, "acc": false}, {"t": "un", "s": 0.721, "e": 0.881, "acc": false}, {"t": "savoir-faire", "s": 0.881, "e": 1.442, "acc": false}], "hide": 1.442}, {"mode": "low", "start": 1.442, "end": 2.443, "words": [{"t": "qui", "s": 1.442, "e": 1.642, "acc": false}, {"t": "vaut", "s": 1.642, "e": 1.882, "acc": false}, {"t": "de", "s": 1.882, "e": 2.042, "acc": false}, {"t": "l'argent.", "s": 2.042, "e": 2.443, "acc": true}], "hide": 2.893}, {"mode": "low", "start": 3.363, "end": 4.387, "words": [{"t": "Vous", "s": 3.363, "e": 3.656, "acc": false}, {"t": "ne", "s": 3.656, "e": 3.851, "acc": false}, {"t": "le", "s": 3.851, "e": 4.046, "acc": false}, {"t": "savez", "s": 4.046, "e": 4.387, "acc": false}], "hide": 4.387}, {"mode": "low", "start": 4.387, "end": 5.362, "words": [{"t": "juste", "s": 4.387, "e": 4.728, "acc": false}, {"t": "pas", "s": 4.728, "e": 4.972, "acc": false}, {"t": "encore.", "s": 4.972, "e": 5.362, "acc": true}], "hide": 5.812}, {"mode": "low", "start": 6.175, "end": 8.482, "words": [{"t": "Je", "s": 6.175, "e": 6.364, "acc": false}, {"t": "vais", "s": 6.364, "e": 6.646, "acc": false}, {"t": "vous", "s": 6.646, "e": 6.928, "acc": false}, {"t": "expliquer", "s": 6.928, "e": 7.446, "acc": false}, {"t": "exactement", "s": 7.446, "e": 8.011, "acc": false}, {"t": "pourquoi,", "s": 8.011, "e": 8.482, "acc": false}], "hide": 8.796}, {"mode": "low", "start": 8.796, "end": 9.864, "words": [{"t": "dans", "s": 8.796, "e": 9.043, "acc": false}, {"t": "quelques", "s": 9.043, "e": 9.453, "acc": false}, {"t": "secondes.", "s": 9.453, "e": 9.864, "acc": true}], "hide": 10.314}, {"mode": "low", "start": 10.582, "end": 12.078, "words": [{"t": "Que", "s": 10.582, "e": 10.859, "acc": false}, {"t": "vous", "s": 10.859, "e": 11.192, "acc": false}, {"t": "soyez", "s": 11.192, "e": 11.579, "acc": false}, {"t": "salarié,", "s": 11.579, "e": 12.078, "acc": false}], "hide": 12.078}, {"mode": "low", "start": 12.078, "end": 13.629, "words": [{"t": "étudiant,", "s": 12.078, "e": 12.632, "acc": false}, {"t": "ou", "s": 12.632, "e": 12.853, "acc": false}, {"t": "sans", "s": 12.853, "e": 13.186, "acc": false}, {"t": "emploi,", "s": 13.186, "e": 13.629, "acc": false}], "hide": 14.079}, {"mode": "low", "start": 14.153, "end": 15.552, "words": [{"t": "vous", "s": 14.153, "e": 14.386, "acc": false}, {"t": "savez", "s": 14.386, "e": 14.658, "acc": false}, {"t": "faire", "s": 14.658, "e": 14.93, "acc": false}, {"t": "quelque", "s": 14.93, "e": 15.28, "acc": false}, {"t": "chose :", "s": 15.28, "e": 15.552, "acc": false}], "hide": 16.002}, {"mode": "low", "start": 16.344, "end": 16.812, "words": [{"t": "cuisiner,", "s": 16.344, "e": 16.812, "acc": false}], "hide": 17.262}, {"mode": "low", "start": 17.528, "end": 17.954, "words": [{"t": "coudre,", "s": 17.528, "e": 17.954, "acc": false}], "hide": 18.404}, {"mode": "low", "start": 18.603, "end": 19.452, "words": [{"t": "parler", "s": 18.603, "e": 18.926, "acc": false}, {"t": "une", "s": 18.926, "e": 19.128, "acc": false}, {"t": "langue,", "s": 19.128, "e": 19.452, "acc": false}], "hide": 19.902}, {"mode": "low", "start": 20.171, "end": 21.239, "words": [{"t": "tenir", "s": 20.171, "e": 20.459, "acc": false}, {"t": "une", "s": 20.459, "e": 20.664, "acc": false}, {"t": "comptabilité.", "s": 20.664, "e": 21.239, "acc": false}], "hide": 21.689}, {"mode": "low", "start": 21.979, "end": 22.445, "words": [{"t": "Et", "s": 21.979, "e": 22.103, "acc": false}, {"t": "quelqu'un,", "s": 22.103, "e": 22.445, "acc": false}], "hide": 22.895}, {"mode": "low", "start": 23.025, "end": 23.65, "words": [{"t": "quelque", "s": 23.025, "e": 23.4, "acc": false}, {"t": "part,", "s": 23.4, "e": 23.65, "acc": false}], "hide": 24.1}, {"mode": "low", "start": 24.412, "end": 26.087, "words": [{"t": "a", "s": 24.412, "e": 24.538, "acc": false}, {"t": "besoin", "s": 24.538, "e": 24.873, "acc": false}, {"t": "d'apprendre", "s": 24.873, "e": 25.417, "acc": false}, {"t": "exactement", "s": 25.417, "e": 25.92, "acc": false}, {"t": "ça.", "s": 25.92, "e": 26.087, "acc": false}], "hide": 26.537}, {"mode": "big", "start": 26.743, "end": 27.147, "words": [{"t": "Et", "s": 26.743, "e": 26.858, "acc": false}, {"t": "pourtant...", "s": 26.858, "e": 27.147, "acc": false}], "hide": 27.597}, {"mode": "big", "start": 27.833, "end": 28.743, "words": [{"t": "ce", "s": 27.833, "e": 27.973, "acc": false}, {"t": "n'est", "s": 27.973, "e": 28.218, "acc": false}, {"t": "même", "s": 28.218, "e": 28.428, "acc": false}, {"t": "pas", "s": 28.428, "e": 28.603, "acc": false}, {"t": "la", "s": 28.603, "e": 28.743, "acc": false}], "hide": 28.743}, {"mode": "big", "start": 28.743, "end": 29.619, "words": [{"t": "partie", "s": 28.743, "e": 29.023, "acc": true}, {"t": "la", "s": 29.023, "e": 29.164, "acc": false}, {"t": "plus", "s": 29.164, "e": 29.374, "acc": false}, {"t": "folle.", "s": 29.374, "e": 29.619, "acc": true}], "hide": 30.069}, {"mode": "low", "start": 30.578, "end": 31.896, "words": [{"t": "Avec", "s": 30.578, "e": 30.811, "acc": false}, {"t": "un", "s": 30.811, "e": 30.966, "acc": false}, {"t": "produit", "s": 30.966, "e": 31.314, "acc": false}, {"t": "digital,", "s": 31.314, "e": 31.663, "acc": false}, {"t": "vous", "s": 31.663, "e": 31.896, "acc": false}], "hide": 31.896}, {"mode": "low", "start": 31.896, "end": 32.98, "words": [{"t": "pouvez", "s": 31.896, "e": 32.206, "acc": false}, {"t": "le", "s": 32.206, "e": 32.361, "acc": false}, {"t": "lui", "s": 32.361, "e": 32.554, "acc": false}, {"t": "enseigner", "s": 32.554, "e": 32.98, "acc": false}], "hide": 33.43}, {"mode": "low", "start": 33.665, "end": 34.975, "words": [{"t": "à", "s": 33.665, "e": 33.78, "acc": false}, {"t": "des", "s": 33.78, "e": 33.973, "acc": false}, {"t": "milliers", "s": 33.973, "e": 34.358, "acc": false}, {"t": "de", "s": 34.358, "e": 34.512, "acc": false}, {"t": "kilomètres,", "s": 34.512, "e": 34.975, "acc": false}], "hide": 35.425}, {"mode": "low", "start": 35.592, "end": 36.6, "words": [{"t": "sans", "s": 35.592, "e": 35.793, "acc": false}, {"t": "jamais", "s": 35.793, "e": 36.062, "acc": false}, {"t": "le", "s": 36.062, "e": 36.197, "acc": false}, {"t": "rencontrer.", "s": 36.197, "e": 36.6, "acc": false}], "hide": 37.05}, {"mode": "low", "start": 37.748, "end": 38.72, "words": [{"t": "Mon", "s": 37.748, "e": 38.004, "acc": false}, {"t": "oncle", "s": 38.004, "e": 38.362, "acc": false}, {"t": "David,", "s": 38.362, "e": 38.72, "acc": false}], "hide": 39.129}, {"mode": "low", "start": 39.129, "end": 39.809, "words": [{"t": "menuisier,", "s": 39.129, "e": 39.809, "acc": false}], "hide": 40.143}, {"mode": "low", "start": 40.143, "end": 41.571, "words": [{"t": "a", "s": 40.143, "e": 40.269, "acc": false}, {"t": "transformé", "s": 40.269, "e": 40.773, "acc": false}, {"t": "son", "s": 40.773, "e": 40.983, "acc": false}, {"t": "savoir-faire", "s": 40.983, "e": 41.571, "acc": false}], "hide": 41.935}, {"mode": "low", "start": 41.935, "end": 43.019, "words": [{"t": "en", "s": 41.935, "e": 42.132, "acc": false}, {"t": "produit", "s": 42.132, "e": 42.575, "acc": false}, {"t": "digital,", "s": 42.575, "e": 43.019, "acc": false}], "hide": 43.326}, {"mode": "low", "start": 43.326, "end": 44.198, "words": [{"t": "sans", "s": 43.326, "e": 43.601, "acc": false}, {"t": "budget", "s": 43.601, "e": 43.968, "acc": false}, {"t": "pub.", "s": 43.968, "e": 44.198, "acc": false}], "hide": 44.648}, {"mode": "big", "start": 45.298, "end": 46.403, "words": [{"t": "Mais", "s": 45.298, "e": 45.544, "acc": false}, {"t": "ce", "s": 45.544, "e": 45.708, "acc": false}, {"t": "n'est", "s": 45.708, "e": 45.994, "acc": false}, {"t": "toujours", "s": 45.994, "e": 46.403, "acc": false}], "hide": 46.403}, {"mode": "big", "start": 46.403, "end": 47.467, "words": [{"t": "pas", "s": 46.403, "e": 46.608, "acc": false}, {"t": "le", "s": 46.608, "e": 46.771, "acc": false}, {"t": "plus", "s": 46.771, "e": 47.017, "acc": false}, {"t": "important.", "s": 47.017, "e": 47.467, "acc": true}], "hide": 47.917}, {"mode": "low", "start": 48.181, "end": 49.237, "words": [{"t": "J'ai", "s": 48.181, "e": 48.445, "acc": false}, {"t": "écrit", "s": 48.445, "e": 48.753, "acc": false}, {"t": "le", "s": 48.753, "e": 48.929, "acc": false}, {"t": "guide", "s": 48.929, "e": 49.237, "acc": false}], "hide": 49.237}, {"mode": "low", "start": 49.237, "end": 50.161, "words": [{"t": "pour", "s": 49.237, "e": 49.501, "acc": false}, {"t": "faire", "s": 49.501, "e": 49.809, "acc": false}, {"t": "pareil.", "s": 49.809, "e": 50.161, "acc": false}], "hide": 50.611}, {"mode": "low", "start": 51.123, "end": 52.667, "words": [{"t": "Dedans,", "s": 51.123, "e": 51.417, "acc": false}, {"t": "je", "s": 51.417, "e": 51.564, "acc": false}, {"t": "vous", "s": 51.564, "e": 51.785, "acc": false}, {"t": "explique", "s": 51.785, "e": 52.153, "acc": false}, {"t": "pourquoi", "s": 52.153, "e": 52.52, "acc": false}, {"t": "le", "s": 52.52, "e": 52.667, "acc": false}], "hide": 52.667}, {"mode": "low", "start": 52.667, "end": 54.506, "words": [{"t": "diplôme", "s": 52.667, "e": 52.998, "acc": false}, {"t": "n'est", "s": 52.998, "e": 53.256, "acc": false}, {"t": "pas", "s": 53.256, "e": 53.439, "acc": false}, {"t": "nécessaire", "s": 53.439, "e": 53.881, "acc": false}, {"t": "pour", "s": 53.881, "e": 54.101, "acc": false}, {"t": "commencer.", "s": 54.101, "e": 54.506, "acc": false}], "hide": 54.956}, {"mode": "low", "start": 55.37, "end": 57.083, "words": [{"t": "Comment", "s": 55.37, "e": 55.692, "acc": false}, {"t": "vous", "s": 55.692, "e": 55.906, "acc": false}, {"t": "faire", "s": 55.906, "e": 56.156, "acc": false}, {"t": "connaître", "s": 56.156, "e": 56.548, "acc": false}, {"t": "sur", "s": 56.548, "e": 56.727, "acc": false}, {"t": "internet.", "s": 56.727, "e": 57.083, "acc": false}], "hide": 57.533}, {"mode": "low", "start": 57.769, "end": 59.493, "words": [{"t": "Quelle", "s": 57.769, "e": 58.097, "acc": false}, {"t": "forme", "s": 58.097, "e": 58.385, "acc": false}, {"t": "donner", "s": 58.385, "e": 58.713, "acc": false}, {"t": "à", "s": 58.713, "e": 58.836, "acc": false}, {"t": "votre", "s": 58.836, "e": 59.123, "acc": false}, {"t": "produit.", "s": 59.123, "e": 59.493, "acc": false}], "hide": 59.943}, {"mode": "low", "start": 60.276, "end": 61.335, "words": [{"t": "Comment", "s": 60.276, "e": 60.673, "acc": false}, {"t": "le", "s": 60.673, "e": 60.85, "acc": false}, {"t": "fabriquer", "s": 60.85, "e": 61.335, "acc": false}], "hide": 61.624}, {"mode": "low", "start": 61.624, "end": 62.638, "words": [{"t": "et", "s": 61.624, "e": 61.78, "acc": false}, {"t": "le", "s": 61.78, "e": 61.936, "acc": false}, {"t": "vendre", "s": 61.936, "e": 62.248, "acc": false}, {"t": "avec", "s": 62.248, "e": 62.482, "acc": false}, {"t": "ce", "s": 62.482, "e": 62.638, "acc": false}], "hide": 62.638}, {"mode": "low", "start": 62.638, "end": 63.536, "words": [{"t": "que", "s": 62.638, "e": 62.834, "acc": false}, {"t": "vous", "s": 62.834, "e": 63.068, "acc": false}, {"t": "avez", "s": 63.068, "e": 63.302, "acc": false}, {"t": "déjà.", "s": 63.302, "e": 63.536, "acc": false}], "hide": 63.986}, {"mode": "low", "start": 64.336, "end": 66.017, "words": [{"t": "Et", "s": 64.336, "e": 64.509, "acc": false}, {"t": "comment", "s": 64.509, "e": 64.896, "acc": false}, {"t": "savoir", "s": 64.896, "e": 65.241, "acc": false}, {"t": "en", "s": 65.241, "e": 65.414, "acc": false}, {"t": "une", "s": 65.414, "e": 65.629, "acc": false}, {"t": "semaine", "s": 65.629, "e": 66.017, "acc": false}], "hide": 66.017}, {"mode": "low", "start": 66.017, "end": 67.224, "words": [{"t": "si", "s": 66.017, "e": 66.19, "acc": false}, {"t": "des", "s": 66.19, "e": 66.405, "acc": false}, {"t": "gens", "s": 66.405, "e": 66.664, "acc": false}, {"t": "en", "s": 66.664, "e": 66.836, "acc": false}, {"t": "veulent,", "s": 66.836, "e": 67.224, "acc": false}], "hide": 67.616}, {"mode": "low", "start": 67.616, "end": 68.832, "words": [{"t": "sans", "s": 67.616, "e": 67.868, "acc": false}, {"t": "dépenser", "s": 67.868, "e": 68.287, "acc": false}, {"t": "un", "s": 68.287, "e": 68.454, "acc": false}, {"t": "centime.", "s": 68.454, "e": 68.832, "acc": true}], "hide": 69.282}, {"mode": "low", "start": 69.704, "end": 71.23, "words": [{"t": "En", "s": 69.704, "e": 69.864, "acc": false}, {"t": "suivant", "s": 69.864, "e": 70.226, "acc": false}, {"t": "le", "s": 70.226, "e": 70.386, "acc": false}, {"t": "guide,", "s": 70.386, "e": 70.668, "acc": false}, {"t": "vous", "s": 70.668, "e": 70.909, "acc": false}, {"t": "saurez", "s": 70.909, "e": 71.23, "acc": false}], "hide": 71.23}, {"mode": "low", "start": 71.23, "end": 72.435, "words": [{"t": "ce", "s": 71.23, "e": 71.391, "acc": false}, {"t": "que", "s": 71.391, "e": 71.592, "acc": false}, {"t": "vous", "s": 71.592, "e": 71.833, "acc": false}, {"t": "vendez", "s": 71.833, "e": 72.154, "acc": false}, {"t": "et", "s": 72.154, "e": 72.315, "acc": false}, {"t": "à", "s": 72.315, "e": 72.435, "acc": false}], "hide": 72.435}, {"mode": "low", "start": 72.435, "end": 74.042, "words": [{"t": "qui,", "s": 72.435, "e": 72.636, "acc": false}, {"t": "vous", "s": 72.636, "e": 72.877, "acc": false}, {"t": "aurez", "s": 72.877, "e": 73.158, "acc": false}, {"t": "un", "s": 73.158, "e": 73.319, "acc": false}, {"t": "premier", "s": 73.319, "e": 73.68, "acc": false}, {"t": "produit,", "s": 73.68, "e": 74.042, "acc": false}], "hide": 74.042}, {"mode": "low", "start": 74.042, "end": 75.367, "words": [{"t": "et", "s": 74.042, "e": 74.203, "acc": false}, {"t": "vous", "s": 74.203, "e": 74.444, "acc": false}, {"t": "saurez", "s": 74.444, "e": 74.765, "acc": false}, {"t": "si", "s": 74.765, "e": 74.926, "acc": false}, {"t": "des", "s": 74.926, "e": 75.126, "acc": false}, {"t": "gens", "s": 75.126, "e": 75.367, "acc": false}], "hide": 75.367}, {"mode": "low", "start": 75.367, "end": 76.452, "words": [{"t": "sont", "s": 75.367, "e": 75.608, "acc": false}, {"t": "prêts", "s": 75.608, "e": 75.89, "acc": false}, {"t": "à", "s": 75.89, "e": 76.01, "acc": false}, {"t": "le", "s": 76.01, "e": 76.171, "acc": false}, {"t": "payer.", "s": 76.171, "e": 76.452, "acc": false}], "hide": 76.902}, {"mode": "big", "start": 80.664, "end": 81.597, "words": [{"t": "Et", "s": 80.664, "e": 80.802, "acc": false}, {"t": "la", "s": 80.802, "e": 80.94, "acc": false}, {"t": "meilleure", "s": 80.94, "e": 81.32, "acc": false}, {"t": "partie ?", "s": 81.32, "e": 81.597, "acc": false}], "hide": 82.047}, {"mode": "low", "start": 82.262, "end": 83.82, "words": [{"t": "Il", "s": 82.262, "e": 82.403, "acc": false}, {"t": "suffit", "s": 82.403, "e": 82.687, "acc": false}, {"t": "d'un", "s": 82.687, "e": 82.899, "acc": false}, {"t": "message", "s": 82.899, "e": 83.218, "acc": false}, {"t": "pour", "s": 83.218, "e": 83.431, "acc": false}, {"t": "commencer.", "s": 83.431, "e": 83.82, "acc": false}], "hide": 84.27}, {"mode": "low", "start": 84.471, "end": 85.138, "words": [{"t": "Cliquez", "s": 84.471, "e": 84.9, "acc": false}, {"t": "sur", "s": 84.9, "e": 85.138, "acc": false}], "hide": 85.588}, {"mode": "low", "start": 85.914, "end": 86.875, "words": [{"t": "« Envoyer", "s": 85.914, "e": 86.307, "acc": false}, {"t": "un", "s": 86.307, "e": 86.482, "acc": false}, {"t": "message »,", "s": 86.482, "e": 86.875, "acc": false}], "hide": 87.321}, {"mode": "low", "start": 87.321, "end": 88.505, "words": [{"t": "écrivez-moi", "s": 87.321, "e": 87.871, "acc": false}, {"t": "sur", "s": 87.871, "e": 88.082, "acc": false}, {"t": "WhatsApp,", "s": 88.082, "e": 88.505, "acc": true}], "hide": 88.788}, {"mode": "low", "start": 88.788, "end": 89.708, "words": [{"t": "et", "s": 88.788, "e": 88.929, "acc": false}, {"t": "je", "s": 88.929, "e": 89.071, "acc": false}, {"t": "vous", "s": 89.071, "e": 89.283, "acc": false}, {"t": "accompagne.", "s": 89.283, "e": 89.708, "acc": false}], "hide": 90.7}];
+      const tl = gsap.timeline({ paused: true });
+      const IN = (sel, from, to, at) => tl.fromTo(sel, from, to, at);
+      const OUT = (sel, to, at) => tl.to(sel, to, at);
+      const hideAll = ["#h1","#h2","#h3","#badge","#cover","#timer","#w1","#w2","#w3","#k1","#k2","#k3","#k4",
+        "#net","#labA","#labB","#d1","#d2","#dv","#kmBadge","#davidTag","#budgetBadge","#cover2","#inside",
+        "#st1","#st2","#st3","#st4","#st5","#fmt","#chk","#sg1","#sg2","#sg3","#bubble","#cv","#ctaPanel",
+        "#s1","#s2","#s3","#s4","#flash","#bk1","#bk2","#bk3"];
+      tl.set(hideAll, { autoAlpha: 0 }, 0);
 
-        const tl_f01_hook = gsap.timeline();
-        tl_f01_hook.fromTo("#f01-bg", { scale: 1 }, { scale: 1.12, duration: 3, ease: "none" }, 0);
-        tl_f01_hook.fromTo("#f01-line", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 0.1);
-        tl_f01_hook.fromTo(
-          "#f01-cat",
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-          0.3,
-        );
+      // barre de progression
+      tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: 91.0, ease: "none" }, 0);
+      const flash = (at) => { tl.set("#flash", { autoAlpha: 0.85 }, at); tl.to("#flash", { autoAlpha: 0, duration: 0.22 }, at + 0.04); };
+      const sparks = (at) => ["#s1","#s2","#s3","#s4"].forEach((s, i) => {
+        IN(s, { autoAlpha: 1, scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.5)" }, at + i * 0.1);
+      });
+      const sparksOut = (at) => OUT(["#s1","#s2","#s3","#s4"], { scale: 0, duration: 0.2 }, at);
 
-        const tl_f02_profiles = gsap.timeline();
-        tl_f02_profiles.fromTo(".cat", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0);
-        tl_f02_profiles.fromTo("#card1", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 0.15);
-        tl_f02_profiles.fromTo("#card2", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 0.32);
-        tl_f02_profiles.fromTo("#card3", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 0.49);
+      // ---------- HOOK ----------
+      [["#h1", -9, 0.1], ["#h2", 3, 0.3], ["#h3", 10, 0.5]].forEach(([s, r, at]) =>
+        IN(s, { autoAlpha: 1, y: 380, scale: 0.55, rotation: r * -2, rotationX: -55, transformPerspective: 1400 },
+              { y: 0, scale: 1, rotation: r, rotationX: 0, duration: 0.5, ease: "back.out(1.5)" }, at));
+      sparks(0.6);
+      IN("#badge", { autoAlpha: 1, scale: 0, rotation: 12 }, { scale: 1, rotation: -4, duration: 0.4, ease: "back.out(2.2)" }, T.argent - 0.05);
+      OUT("#badge", { scale: 0, duration: 0.2, ease: "back.in(2)" }, T.hookFlip - 0.25);
+      [1, 2, 3].forEach((n, i) => {
+        const at = T.hookFlip + i * 0.12;
+        IN("#f" + n, { rotationY: 0 }, { rotationY: 180, duration: 0.5, ease: "power2.inOut" }, at);
+        tl.set("#bk" + n, { autoAlpha: 1 }, at + 0.25);
+        tl.set("#fr" + n, { autoAlpha: 0 }, at + 0.25);
+      });
+      OUT("#h1", { x: -900, rotation: -35, duration: 0.4, ease: "power3.in" }, T.promise - 0.1);
+      OUT("#h3", { x: 900, rotation: 35, duration: 0.4, ease: "power3.in" }, T.promise - 0.1);
+      OUT("#h2", { y: -1300, rotation: 15, duration: 0.4, ease: "power3.in" }, T.promise - 0.05);
+      sparksOut(T.promise - 0.1);
 
-        const tl_f03_competence = gsap.timeline();
-        tl_f03_competence.fromTo("#f03-glow", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "power2.out" }, 0);
-        tl_f03_competence.fromTo(
-          "#f03-text",
-          { scale: 0.7, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.6)" },
-          0.05,
-        );
+      // ---------- PROMESSE ----------
+      IN("#cover", { autoAlpha: 1, y: 900, rotationY: 75, rotationX: 20, scale: 0.7, transformPerspective: 1400 },
+                   { y: 0, rotationY: -12, rotationX: 0, scale: 1, duration: 0.55, ease: "power3.out" }, T.promise + 0.1);
+      tl.to("#cover", { rotationY: 8, rotation: -2, duration: T.promiseEnd - T.promise - 0.6, ease: "sine.inOut" }, T.promise + 0.65);
+      IN("#timer", { autoAlpha: 1, scale: 0, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.4)" }, T.promise + 0.5);
+      const cd = T.promiseEnd - T.promise - 0.9;
+      tl.fromTo("#ring", { attr: { "stroke-dashoffset": 213.6 } }, { attr: { "stroke-dashoffset": 0 }, duration: cd, ease: "none" }, T.promise + 0.7);
+      tl.fromTo("#hand", { rotation: 0, svgOrigin: "50 50" }, { rotation: 360, svgOrigin: "50 50", duration: cd, ease: "none" }, T.promise + 0.7);
+      OUT(["#cover", "#timer"], { scale: 0.2, autoAlpha: 0, rotation: 20, duration: 0.3, ease: "back.in(1.6)" }, T.promiseEnd - 0.1);
 
-        const tl_f04_domaines = gsap.timeline();
-        tl_f04_domaines.fromTo(".cat", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4 }, 0);
-        tl_f04_domaines.fromTo("#t1", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 0.2);
-        tl_f04_domaines.fromTo("#t2", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 0.45);
-        tl_f04_domaines.fromTo("#t3", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 0.7);
-        tl_f04_domaines.fromTo("#t4", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 0.95);
+      // ---------- PARTIE 1 : qui ----------
+      [["#w1", T.salarie, -4], ["#w2", T.etudiant, 2], ["#w3", T.sansEmploi, 5]].forEach(([s, at, r]) =>
+        IN(s, { autoAlpha: 1, y: -700, rotation: r * 4 }, { y: 0, rotation: r, duration: 0.45, ease: "back.out(1.4)" }, at - 0.15));
+      OUT(["#w1", "#w2", "#w3"], { y: 1800, rotation: 20, autoAlpha: 0, duration: 0.4, ease: "power3.in", stagger: 0.06 }, T.p1b - 0.2);
 
-        const tl_f05_probleme = gsap.timeline();
-        tl_f05_probleme.fromTo("#f05-vig", { opacity: 0 }, { opacity: 1, duration: 1 }, 0);
-        tl_f05_probleme.fromTo("#f05-mais", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" }, 0.2);
-        tl_f05_probleme.fromTo("#f05-body", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 1.2);
+      // ---------- PARTIE 1 : compétences (cartes vidéo empilées) ----------
+      [["#k1", T.p1b, -3], ["#k2", T.coudre - 0.35, 2.5], ["#k3", T.langue - 0.35, -2], ["#k4", T.compta - 0.35, 3]].forEach(([s, at, r], i) =>
+        IN(s, { autoAlpha: 1, x: i % 2 ? 1100 : -1100, rotation: r * 5 }, { x: 0, rotation: r, duration: 0.42, ease: "power3.out" }, at));
+      IN("#k1-tag", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, T.cuisiner - 0.1);
+      IN("#k2-tag", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, T.coudre);
+      IN("#k3-tag", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, T.langue);
+      IN("#k4-tag", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, T.compta);
+      OUT(["#k4", "#k3", "#k2", "#k1"], { y: -1500, rotation: -12, duration: 0.45, ease: "power3.in", stagger: 0.05 }, T.p1c - 0.15);
 
-        const tl_f06_partage = gsap.timeline();
-        tl_f06_partage.fromTo(
-          "#f06-shackle",
-          { transformOrigin: "65px 38px", rotation: 0 },
-          { rotation: -35, duration: 0.4, ease: "power2.out" },
-          0.1,
-        );
-        tl_f06_partage.fromTo("#w1", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.25 }, 0.6);
-        tl_f06_partage.fromTo("#w2", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.25 }, 0.85);
-        tl_f06_partage.fromTo("#w3", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.25 }, 1.2);
-        tl_f06_partage.fromTo("#w4", { opacity: 0, y: 15, color: "#ffffff" }, { opacity: 1, y: 0, color: "#F7C72A", duration: 0.3 }, 1.45);
+      // ---------- PARTIE 1 : quelqu'un, quelque part ----------
+      IN("#net", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.p1c);
+      IN("#dotA", { scale: 0, svgOrigin: "230 640" }, { scale: 1, svgOrigin: "230 640", duration: 0.3, ease: "back.out(3)" }, T.p1c);
+      IN("#labA", { autoAlpha: 1, scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, T.p1c + 0.1);
+      tl.fromTo("#arc", { attr: { "stroke-dashoffset": 1000 } }, { attr: { "stroke-dashoffset": 0 }, duration: T.besoin - T.quelquePart + 0.2, ease: "power1.inOut" }, T.quelquePart);
+      IN("#dotB", { scale: 0, svgOrigin: "850 250" }, { scale: 1, svgOrigin: "850 250", duration: 0.35, ease: "back.out(3)" }, T.besoin + 0.1);
+      IN("#labB", { autoAlpha: 1, scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, T.besoin + 0.2);
+      tl.to("#dotB", { scale: 1.35, svgOrigin: "850 250", duration: 0.25, yoyo: true, repeat: 3 }, T.besoin + 0.6);
+      OUT(["#net", "#labA", "#labB"], { autoAlpha: 0, scale: 0.8, duration: 0.25 }, T.b1);
 
-        const tl_f07_distance = gsap.timeline();
-        tl_f07_distance.fromTo("#f07-img", { scale: 1 }, { scale: 1.15, duration: 5, ease: "none" }, 0);
-        tl_f07_distance.fromTo("#f07-cap", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.3);
+      // ---------- BOUCLE 1 ----------
+      flash(T.b1 + 0.2);
 
-        const tl_f08_vrai_probleme = gsap.timeline();
-        tl_f08_vrai_probleme.fromTo("#f08-text", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 0);
+      // ---------- PARTIE 2 : distance ----------
+      IN("#d1", { autoAlpha: 1, y: 900, rotationY: 60, rotation: 8, transformPerspective: 1400 },
+                { y: 0, rotationY: 0, rotation: -2, duration: 0.55, ease: "power3.out" }, T.p2);
+      tl.to("#d1", { scale: 1.04, duration: T.distB - T.p2 - 0.6, ease: "sine.inOut" }, T.p2 + 0.55);
+      IN("#kmBadge", { autoAlpha: 1, scale: 0, rotation: -14 }, { scale: 1, rotation: -4, duration: 0.4, ease: "back.out(2.2)" }, T.km);
+      IN("#d2", { autoAlpha: 1, x: 1200, rotation: 12 }, { x: 0, rotation: 2, duration: 0.45, ease: "power3.out" }, T.distB - 0.2);
+      OUT("#d1", { x: -1200, rotation: -14, duration: 0.45, ease: "power3.in" }, T.distB - 0.2);
 
-        const tl_f09_pivot = gsap.timeline();
-        tl_f09_pivot.set("#f09-flash", { opacity: 0 }, 0);
-        tl_f09_pivot.to("#f09-flash", { opacity: 1, duration: 0.06 }, 0.3);
-        tl_f09_pivot.to("#f09-flash", { opacity: 0, duration: 0.15 }, 0.36);
-        tl_f09_pivot.fromTo(
-          "#f09-text",
-          { opacity: 0, scale: 0.5 },
-          { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.8)" },
-          0.4,
-        );
+      // ---------- PARTIE 2 : oncle David ----------
+      OUT(["#d2", "#kmBadge"], { x: -1200, rotation: -14, duration: 0.4, ease: "power3.in" }, T.david - 0.05);
+      IN("#dv", { autoAlpha: 1, x: 1200, rotation: 10 }, { x: 0, rotation: -1.5, duration: 0.45, ease: "power3.out" }, T.david);
+      tl.to("#dv", { scale: 1.05, duration: T.b2 - T.david - 0.6, ease: "sine.inOut" }, T.david + 0.45);
+      IN("#davidTag", { autoAlpha: 1, x: -700 }, { x: 0, duration: 0.4, ease: "back.out(1.6)" }, T.david + 0.25);
+      IN("#budgetBadge", { autoAlpha: 1, scale: 2.6, rotation: 18 }, { scale: 1, rotation: 5, duration: 0.3, ease: "power4.in" }, T.budget - 0.1);
+      OUT(["#dv", "#davidTag", "#budgetBadge"], { y: 1800, rotation: 15, autoAlpha: 0, duration: 0.4, ease: "power3.in", stagger: 0.04 }, T.b2 - 0.1);
 
-        const tl_f10_exemple = gsap.timeline();
-        tl_f10_exemple.fromTo("#f10-a", { scale: 1 }, { scale: 1.1, duration: 3, ease: "none" }, 0);
-        tl_f10_exemple.to("#f10-b", { opacity: 1, duration: 0.8, ease: "power1.inOut" }, 2.4);
-        tl_f10_exemple.fromTo("#f10-b", { scale: 1.1 }, { scale: 1.2, duration: 2.8, ease: "none" }, 2.4);
-        tl_f10_exemple.fromTo("#f10-tag", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4 }, 0.4);
-        tl_f10_exemple.fromTo("#f10-cap", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, 0.7);
+      // ---------- BOUCLE 2 ----------
+      flash(T.b2 + 0.2);
 
-        const tl_f11_guide = gsap.timeline();
-        tl_f11_guide.fromTo(
-          "#f11-wrap",
-          { y: -700, opacity: 0, rotation: -3 },
-          { y: 0, opacity: 1, rotation: 0, duration: 0.6, ease: "bounce.out" },
-          0,
-        );
+      // ---------- PARTIE 3 : le guide ----------
+      IN("#cover2", { autoAlpha: 1, y: 900, rotationY: -70, scale: 0.7, transformPerspective: 1400 },
+                    { y: 0, rotationY: 10, scale: 1, duration: 0.6, ease: "power3.out" }, T.guide);
+      tl.to("#cover2", { rotationY: -6, duration: T.step1 - T.guide - 0.95, ease: "sine.inOut" }, T.guide + 0.6);
+      sparks(T.guide + 0.4);
+      sparksOut(T.step1 - 0.2);
+      tl.to("#cover2", { x: -150, y: -170, scale: 0.4167, rotationY: 0, rotation: -4, transformOrigin: "0 0", duration: 0.5, ease: "power3.inOut" }, T.step1 - 0.3);
+      IN("#inside", { autoAlpha: 1, x: 300 }, { x: 0, duration: 0.4, ease: "power3.out" }, T.step1 - 0.1);
+      [["#st1", T.step1], ["#st2", T.step2], ["#st3", T.step3], ["#st4", T.step4], ["#st5", T.step5]].forEach(([s, at]) =>
+        IN(s, { autoAlpha: 1, x: 1150, rotation: 6 }, { x: 0, rotation: 0, duration: 0.42, ease: "back.out(1.3)" }, at - 0.05));
+      IN("#fmt span", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.25, stagger: 0.12, ease: "back.out(2)" }, T.step3 + 0.4);
+      tl.set("#fmt", { autoAlpha: 1 }, T.step3 + 0.35);
+      OUT("#fmt", { autoAlpha: 0, duration: 0.2 }, T.step4 - 0.2);
+      OUT(["#st5", "#st4", "#st3", "#st2", "#st1"], { x: -1150, duration: 0.35, ease: "power3.in", stagger: 0.04 }, T.check - 0.2);
+      OUT(["#cover2", "#inside"], { autoAlpha: 0, duration: 0.25 }, T.check - 0.2);
 
-        const tl_f12_transformation = gsap.timeline();
-        tl_f12_transformation.fromTo(".cover-wrap", { rotationY: 6 }, { rotationY: -6, duration: 5, ease: "sine.inOut" }, 0);
-        tl_f12_transformation.fromTo("#f12-band", { y: "140%" }, { y: "0%", duration: 0.5, ease: "power3.out" }, 0.3);
+      // ---------- PARTIE 3 : ce que vous aurez ----------
+      IN("#chk", { autoAlpha: 1, y: 900, rotation: 6 }, { y: 0, rotation: -1.5, duration: 0.5, ease: "back.out(1.2)" }, T.check);
+      [["#tk1", T.tick1], ["#tk2", T.tick2], ["#tk3", T.tick3]].forEach(([s, at]) =>
+        tl.fromTo(s, { attr: { "stroke-dashoffset": 120 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.25, ease: "power2.out" }, at));
+      OUT("#chk", { y: -1400, rotation: -8, duration: 0.4, ease: "power3.in" }, T.sig - 0.15);
 
-        const tl_f13_signature = gsap.timeline();
-        tl_f13_signature.fromTo("#f13-l1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0);
-        tl_f13_signature.fromTo("#f13-l2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.5);
+      // ---------- SIGNATURE ----------
+      IN("#sg1", { autoAlpha: 1, scale: 2.4 }, { scale: 1, duration: 0.28, ease: "power4.in" }, T.sig + 0.1);
+      IN("#sg2", { autoAlpha: 1, y: 60 }, { y: 0, duration: 0.3, ease: "back.out(2)" }, T.sig2 - 0.05);
+      IN("#sg3", { autoAlpha: 1, scale: 2.4, rotation: -6 }, { scale: 1, rotation: -3, duration: 0.28, ease: "power4.in" }, T.sig3 - 0.05);
+      OUT(["#sg1", "#sg2", "#sg3"], { autoAlpha: 0, scale: 0.7, duration: 0.25 }, T.b3);
 
-        const tl_f14_cta = gsap.timeline();
-        tl_f14_cta.fromTo("#f14-bar", { y: 560 }, { y: 0, duration: 0.5, ease: "power3.out" }, 0);
-        tl_f14_cta.to("#f14-btn", { scale: 1.06, duration: 0.55, ease: "sine.inOut", repeat: 4, yoyo: true }, 0.6);
+      // ---------- BOUCLE 3 ----------
+      flash(T.b3 + 0.2);
+      IN("#bubble", { autoAlpha: 1, scale: 0, transformOrigin: "10% 100%" }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, T.bubble - 0.2);
+      ["#dt1", "#dt2", "#dt3"].forEach((s, i) => tl.to(s, { y: -22, duration: 0.22, yoyo: true, repeat: 5, ease: "sine.inOut" }, T.bubble + i * 0.12));
+      OUT("#bubble", { scale: 0, autoAlpha: 0, duration: 0.25 }, T.cta - 0.1);
 
-        rootTl.add(tl_f01_hook, 0);
-        rootTl.add(tl_f02_profiles, 3);
-        rootTl.add(tl_f03_competence, 6);
-        rootTl.add(tl_f04_domaines, 9);
-        rootTl.add(tl_f05_probleme, 14);
-        rootTl.add(tl_f06_partage, 20);
-        rootTl.add(tl_f07_distance, 23);
-        rootTl.add(tl_f08_vrai_probleme, 28);
-        rootTl.add(tl_f09_pivot, 31);
-        rootTl.add(tl_f10_exemple, 35);
-        rootTl.add(tl_f11_guide, 41);
-        rootTl.add(tl_f12_transformation, 44);
-        rootTl.add(tl_f13_signature, 49);
-        rootTl.add(tl_f14_cta, 52);
+      // ---------- CTA ----------
+      IN("#cv", { autoAlpha: 1, scale: 0.4, rotation: -10 }, { scale: 1, rotation: -1, duration: 0.45, ease: "back.out(1.6)" }, T.cta);
+      OUT("#cv", { scale: 0.3, autoAlpha: 0, rotation: 10, duration: 0.3, ease: "back.in(1.5)" }, T.ctaCard - 0.1);
+      IN("#ctaPanel", { autoAlpha: 1, y: 900, rotation: 5 }, { y: 0, rotation: -1, duration: 0.5, ease: "back.out(1.3)" }, T.ctaCard);
+      tl.to("#ctaBtn", { scale: 1.07, duration: 0.45, yoyo: true, repeat: 5, ease: "sine.inOut" }, T.ctaCard + 0.5);
+      sparks(T.ctaCard + 0.3);
 
-      window.__timelines["root"] = rootTl;
+      // ---------- SOUS-TITRES KARAOKÉ ----------
+      CAPS.forEach((c, ci) => {
+        const box = document.createElement("div");
+        box.className = "grp";
+        box.id = "cap" + ci;
+        c.words.forEach((w, wi) => {
+          const el = document.createElement("span");
+          el.className = "w" + (w.acc ? " acc" : "");
+          el.innerHTML = '<span class="hl"></span><span class="t"></span>';
+          el.querySelector(".t").textContent = w.t;
+          box.appendChild(el);
+          w.el = el;
+        });
+        document.getElementById(c.mode === "big" ? "capsBig" : "caps").appendChild(box);
+        tl.set(box, { autoAlpha: 0 }, 0);
+        tl.fromTo(box, { autoAlpha: 0, y: c.mode === "big" ? 40 : 20, scale: c.mode === "big" ? 0.92 : 1 },
+                       { autoAlpha: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out" }, Math.max(0, c.start - 0.08));
+        c.words.forEach((w, i) => {
+          const hl = w.el.querySelector(".hl");
+          tl.to(w.el, { opacity: 1, duration: 0.06 }, w.s);
+          tl.set(hl, { transformOrigin: "left center" }, w.s);
+          tl.to(hl, { scaleX: 1, duration: 0.08, ease: "power1.out" }, w.s);
+          if (i < c.words.length - 1) {
+            tl.set(hl, { transformOrigin: "right center" }, w.e - 0.06);
+            tl.to(hl, { scaleX: 0, duration: 0.08, ease: "power1.in" }, w.e - 0.06);
+          }
+        });
+        tl.to(box, { autoAlpha: 0, duration: 0.1 }, c.hide - 0.1);
+      });
+
+      window.__timelines["main"] = tl;
     </script>
   </body>
 </html>
