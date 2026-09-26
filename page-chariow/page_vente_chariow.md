@@ -128,3 +128,21 @@ Pas de blabla, juste ce qu'il faut faire, concrètement. 💪
 - Le bloc "Qui est derrière ce guide ?" attend une ou deux phrases vraies sur toi.
 - Si Chariow impose le texte du bouton d'achat, garde le leur et place "Je veux le guide à 4,9 $" juste au-dessus, en gras.
 - Dès que tu as de vrais avis d'acheteurs (captures WhatsApp avec leur accord), ajoute-les avant le bloc "C'est pour toi si...".
+
+## Champs personnalisés Chariow (optionnel)
+
+Si tu veux recueillir des infos supplémentaires sur tes acheteurs, ajoute ces champs dans la forme de commande Chariow :
+
+**Champ 1 : Compétence principale**
+- Label : "Quelle compétence veux-tu transformer en produit ?"
+- Type : Texte court (text)
+- Texte d'aide : "Ex : couture, montage vidéo, conseils en marketing, etc."
+- Requis : Non
+
+**Champ 2 : Numéro WhatsApp (optionnel)**
+- Label : "Ton numéro WhatsApp pour les mises à jour"
+- Type : Texte court (text)
+- Texte d'aide : "Format international avec le code pays. Ex : +243 811 234 567"
+- Requis : Non
+
+Ces champs te permettront de segmenter tes acheteurs et de leur envoyer des mises à jour ou des bonus pertinents après la purchase.
