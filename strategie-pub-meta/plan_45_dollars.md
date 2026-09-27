@@ -70,7 +70,7 @@ Les pubs parlent à un public large, donc elles restent au "vous", comme ta vid�
 | Pub | Format | Fichier | Angle | Message pré-rempli |
 |---|---|---|---|---|
 | A | Vidéo 30 s (9:16) | `pub-video-digitalmikaelson/renders/pub-video-digitalmikaelson_30s.mp4` | "Vous avez déjà un savoir-faire qui vaut de l'argent" + Oncle David | "Bonjour, je veux le guide 🎬" |
-| D | Image fixe (4:5) | `strategie-pub-meta/visuels/pub_image_fixe_4x5.png` | Le guide concret : PDF + plan de 7 jours | "Bonjour, je veux le guide 📘" |
+| D | Image fixe (4:5) | `strategie-pub-meta/visuels/pub_image_fixe_v2_4x5.png` | Le guide concret : contenu, bonus, accès immédiat | "Bonjour, je veux le guide 📘" |
 | E | Carrousel 5 cartes (1:1) | `strategie-pub-meta/visuels/carrousel_1.png` à `carrousel_5.png` | Ce qu'il y a dedans, étape par étape | "Bonjour, je veux le guide 🗂️" |
 
 Garde la vidéo de 85 s pour l'envoyer dans WhatsApp à ceux qui ont déjà écrit.
