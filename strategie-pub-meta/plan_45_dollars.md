@@ -48,7 +48,7 @@ Andromeda, c'est le système qui choisit, parmi des millions de pubs, lesquelles
 
 1. **Ta pub est ton ciblage.** Pas d'empilement d'intérêts ("entrepreneuriat" + "business en ligne" + ...). Audience large, Advantage+ audience activé. C'est ta vidéo qui dit à Meta "je parle aux jeunes sans emploi qui ont un savoir-faire".
 2. **Des concepts vraiment différents, pas des variantes.** Meta regroupe les pubs qui se ressemblent et les traite comme une seule. Changer la couleur du texte ou la première phrase ne crée pas une nouvelle pub. Il faut changer l'angle, le format ou la personne qui parle.
-3. **Tout au même endroit.** 1 campagne, 1 ensemble de pubs, 4 pubs dedans. Avec un petit budget, découper en plusieurs ensembles de pubs éparpille les données et rien n'apprend.
+3. **Tout au même endroit.** 1 campagne, 1 ensemble de pubs, 3 pubs dedans. Avec un petit budget, découper en plusieurs ensembles de pubs éparpille les données et rien n'apprend.
 4. **Ne touche à rien pendant 48 à 72 h.** Chaque modification importante relance l'apprentissage. Et quand tu augmentes le budget, jamais plus de +20 à 30 % d'un coup.
 
 ## 5. Réglages de la campagne
@@ -56,30 +56,40 @@ Andromeda, c'est le système qui choisit, parmi des millions de pubs, lesquelles
 | Réglage | Choix |
 |---|---|
 | Objectif | Interactions → Messages → WhatsApp |
-| Structure | 1 campagne, 1 ensemble de pubs, 4 pubs |
+| Structure | 1 campagne, 1 ensemble de pubs, 3 pubs |
 | Budget | 5 $/jour au niveau de l'ensemble de pubs |
 | Pays | RDC (ajoute d'autres pays francophones seulement si le coût par conversation dépasse 0,40 $ après 3 jours) |
 | Âge | 18 à 40 ans, Advantage+ audience activé |
 | Placements | Advantage+ (automatique) |
 | Message pré-rempli | **Un texte différent par pub** (voir section 6). C'est comme ça que tu sauras quelle pub a amené chaque acheteur. |
 
-## 6. Les 4 pubs à lancer (4 concepts différents)
+## 6. Les 3 pubs à lancer (3 concepts différents, aucun tournage)
 
-Les pubs parlent à un public large, donc elles restent au "vous", comme ta vidéo actuelle. Aucun prix dans les pubs : le prix arrive dans le message WhatsApp avec le lien.
+Les pubs parlent à un public large, donc elles restent au "vous", comme ta vidéo actuelle. Aucun prix dans les pubs : le prix arrive dans le message WhatsApp avec le lien. Le titre de l'ebook, "Gagne ta vie sans diplôme", reste au "tu" parce que c'est le nom du produit.
 
-| Pub | Format | Angle | Message pré-rempli |
-|---|---|---|---|
-| A | Ta vidéo motion, **recoupée à 25-30 s** (hook + Oncle David + CTA) | "Vous avez déjà un savoir-faire qui vaut de l'argent" | "Bonjour, je veux le guide 🎬" |
-| B | Face caméra au téléphone, 15-20 s, toi qui parles | Personnel : le diplôme n'est pas la condition | "Bonjour, je veux le guide 👋" |
-| C | Vidéo ou carrousel "Oncle David" (extraits de menuiserie) | Histoire vraie | "Bonjour, je veux le guide 🪵" |
-| D | Image fixe : la vignette sans prix (couverture + page checklist) | Le guide concret : 5 chapitres + plan de 7 jours | "Bonjour, je veux le guide 📘" |
+| Pub | Format | Fichier | Angle | Message pré-rempli |
+|---|---|---|---|---|
+| A | Vidéo 30 s (9:16) | `pub-video-digitalmikaelson/renders/pub-video-digitalmikaelson_30s.mp4` | "Vous avez déjà un savoir-faire qui vaut de l'argent" + Oncle David | "Bonjour, je veux le guide 🎬" |
+| D | Image fixe (4:5) | `strategie-pub-meta/visuels/pub_image_fixe_4x5.png` | Le guide concret : PDF + plan de 7 jours | "Bonjour, je veux le guide 📘" |
+| E | Carrousel 5 cartes (1:1) | `strategie-pub-meta/visuels/carrousel_1.png` à `carrousel_5.png` | Ce qu'il y a dedans, étape par étape | "Bonjour, je veux le guide 🗂️" |
 
-Pourquoi recouper la vidéo de 85 s : en pub froide, la plupart des gens décrochent bien avant la fin. Garde la version longue pour l'envoyer dans WhatsApp à ceux qui ont déjà écrit.
+Garde la vidéo de 85 s pour l'envoyer dans WhatsApp à ceux qui ont déjà écrit.
 
-Accroches de départ (à ajuster avec ta voix) :
-- **B :** "Pas de diplôme ? Ça ne vous empêche pas de gagner de l'argent avec ce que vous savez déjà faire."
-- **C :** "Mon oncle David est menuisier. Il n'avait aucun budget pub, et il a quand même transformé son savoir-faire en produit digital."
-- **D (texte principal) :** "Votre savoir-faire peut devenir un produit que vous vendez. Le guide vous montre comment, avec un plan de 7 jours pour tester votre idée. Pas de blabla, juste ce qu'il faut faire, concrètement."
+### Textes de la pub D (image fixe)
+
+- **Texte principal :** "Votre savoir-faire peut devenir un produit que vous vendez. Le guide vous montre comment, avec un plan de 7 jours pour tester votre idée. Pas de blabla, juste ce qu'il faut faire, concrètement."
+- **Titre :** "Écrivez-moi sur WhatsApp, je vous accompagne"
+
+### Textes de la pub E (carrousel)
+
+- **Texte principal :** "Cuisine, couture, langues, coiffure... Ce que vous savez faire peut devenir un produit que vous vendez. Le guide vous montre comment choisir la forme de votre produit et tester votre idée en 7 jours, sans budget pub. Écrivez-moi sur WhatsApp, je vous accompagne."
+- **Titre sous chaque carte :**
+  1. "Votre savoir-faire peut rapporter"
+  2. "Choisissez la forme de votre produit"
+  3. "Testez votre idée en 7 jours"
+  4. "La checklist pour ne rien oublier"
+  5. "Écrivez-moi sur WhatsApp"
+- Dans Meta, désactive "Afficher d'abord les cartes les plus performantes" : l'ordre des cartes raconte une histoire.
 
 ## 7. Répartition du budget jour par jour
 
@@ -87,7 +97,7 @@ Accroches de départ (à ajuster avec ta voix) :
 
 | Jours | Phase | Budget/jour | Total | Ce que tu fais |
 |---|---|---|---|---|
-| J1 → J3 | **Test** | 5 $ | 15 $ | Les 4 pubs tournent. Tu ne touches à rien. Tu notes chaque soir les chiffres dans le tableau de suivi. |
+| J1 → J3 | **Test** | 5 $ | 15 $ | Les 3 pubs tournent. Tu ne touches à rien. Tu notes chaque soir les chiffres dans le tableau de suivi. |
 | J4 | **Tri** | 5 $ | 5 $ | Tu coupes les pubs qui ont dépensé 3 $ ou plus sans vente et avec un coût par conversation au-dessus de 0,40 $. |
 | J5 → J7 | **Fin du lancement** | 5 $ | 15 $ | Le budget va aux 1 ou 2 pubs gagnantes. Tu ajoutes 1 nouveau concept inspiré de la gagnante (nouvel angle ou nouveau format, pas une copie). Relance WhatsApp "le prix de lancement se termine ce soir" le J7. |
 | J8 → J10 | **Test du prix normal** | 3,3 $ | 10 $ | Le guide passe à 6,9 $. Tu vérifies si les gens achètent toujours. Chaque vente rapporte ~6,2 $ net. |
