@@ -77,19 +77,57 @@ Garde la vidéo de 85 s pour l'envoyer dans WhatsApp à ceux qui ont déjà écr
 
 ### Textes de la pub D (image fixe)
 
-- **Texte principal :** "Votre savoir-faire peut devenir un produit que vous vendez. Le guide vous montre comment, avec un plan de 7 jours pour tester votre idée. Pas de blabla, juste ce qu'il faut faire, concrètement."
-- **Titre :** "Écrivez-moi sur WhatsApp, je vous accompagne"
+**Texte principal :**
+
+> La vie coûte de plus en plus cher, et les salaires ne suivent pas. Après les études, le travail espéré ne vient pas toujours.
+>
+> Attendre que la situation du pays s'améliore, ou qu'un recrutement s'ouvre enfin, beaucoup l'ont fait. Pendant ce temps, les mois passent. 😔
+>
+> Il existe une autre porte de sortie, et elle part de ce que vous savez déjà faire : cuisine, couture, langues, coiffure, comptabilité... Ce savoir-faire peut devenir un produit digital que vous vendez.
+>
+> Pas besoin de capital ni de publicité payante : votre téléphone suffit pour commencer. Mon oncle David, menuisier, a transformé son savoir-faire en produit digital sans budget pub.
+>
+> Le guide « Gagne ta vie sans diplôme » vous montre comment faire, avec un plan de 7 jours pour tester votre idée. Pas de blabla, juste ce qu'il faut faire, concrètement.
+>
+> ⏳ Cette publicité ne restera pas en ligne longtemps. Si vous la fermez, vous ne la reverrez peut-être pas. Le bon moment, c'est pendant qu'elle est devant vous.
+>
+> 👉 Cliquez sur « Envoyer un message », écrivez-moi sur WhatsApp, je vous accompagne.
+
+**Titre :** Votre téléphone suffit pour commencer
 
 ### Textes de la pub E (carrousel)
 
-- **Texte principal :** "Cuisine, couture, langues, coiffure... Ce que vous savez faire peut devenir un produit que vous vendez. Le guide vous montre comment choisir la forme de votre produit et tester votre idée en 7 jours, sans budget pub. Écrivez-moi sur WhatsApp, je vous accompagne."
-- **Titre sous chaque carte :**
-  1. "Votre savoir-faire peut rapporter"
-  2. "Choisissez la forme de votre produit"
-  3. "Testez votre idée en 7 jours"
-  4. "La checklist pour ne rien oublier"
-  5. "Écrivez-moi sur WhatsApp"
-- Dans Meta, désactive "Afficher d'abord les cartes les plus performantes" : l'ordre des cartes raconte une histoire.
+**Texte principal :**
+
+> Attendre un emploi qui ne vient pas. Attendre que la situation du pays s'améliore. Beaucoup de jeunes attendent depuis trop longtemps.
+>
+> Pendant ce temps, ce que vous savez faire reste dans votre tête au lieu de vous rapporter de l'argent.
+>
+> 👉 Faites défiler : voici comment le transformer en produit digital, avec votre téléphone et sans budget pub.
+>
+> 1️⃣ Choisissez la forme de votre produit
+> 2️⃣ Testez votre idée en 7 jours, une action simple par jour
+> 3️⃣ Suivez la checklist pour ne rien oublier
+>
+> Tout est dans le guide « Gagne ta vie sans diplôme ».
+>
+> ⏳ Cette publicité ne tournera pas longtemps. Si elle est devant vous aujourd'hui, c'est le moment d'en profiter.
+>
+> Cliquez sur « Envoyer un message », je vous accompagne sur WhatsApp. 📲
+
+**Titre sous chaque carte :**
+1. "Votre savoir-faire peut rapporter"
+2. "Choisissez la forme de votre produit"
+3. "Testez votre idée en 7 jours"
+4. "La checklist pour ne rien oublier"
+5. "Écrivez-moi sur WhatsApp"
+
+Dans Meta, désactive "Afficher d'abord les cartes les plus performantes" : l'ordre des cartes raconte une histoire.
+
+### Règles Meta suivies dans ces textes
+
+- **Pas de "vous" collé à une situation personnelle** ("vous êtes au chômage", "vous n'avez pas d'argent") : la règle Meta sur les caractéristiques personnelles, qui couvre la situation financière, fait refuser ce genre de phrase. La situation est décrite de façon générale.
+- **Pas de critique directe du gouvernement** : une pub qui parle de politique peut être classée "enjeux sociaux, élections ou politique", ce qui demande une vérification d'identité et une mention "Payé par". On parle de "la situation du pays" à la place.
 
 ## 7. Répartition du budget jour par jour
 
