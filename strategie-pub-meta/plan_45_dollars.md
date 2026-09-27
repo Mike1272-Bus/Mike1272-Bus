@@ -71,7 +71,7 @@ Les pubs parlent à un public large, donc elles restent au "vous", comme ta vid�
 |---|---|---|---|---|
 | A | Vidéo 30 s (9:16) | `pub-video-digitalmikaelson/renders/pub-video-digitalmikaelson_30s.mp4` | "Vous avez déjà un savoir-faire qui vaut de l'argent" + Oncle David | "Bonjour, je veux le guide 🎬" |
 | D | Image fixe (4:5) | `strategie-pub-meta/visuels/pub_image_fixe_v2_4x5.png` | Le guide concret : contenu, bonus, accès immédiat | "Bonjour, je veux le guide 📘" |
-| E | Carrousel 5 cartes (1:1) | `strategie-pub-meta/visuels/carrousel_1.png` à `carrousel_5.png` | Ce qu'il y a dedans, étape par étape | "Bonjour, je veux le guide 🗂️" |
+| E | Carrousel 5 cartes (1:1) | `strategie-pub-meta/visuels/carrousel_v2_1.png` à `carrousel_v2_5.png` | De l'attente à la porte de sortie, étape par étape | "Bonjour, je veux le guide 🗂️" |
 
 Garde la vidéo de 85 s pour l'envoyer dans WhatsApp à ceux qui ont déjà écrit.
 
@@ -116,10 +116,10 @@ Garde la vidéo de 85 s pour l'envoyer dans WhatsApp à ceux qui ont déjà écr
 > Cliquez sur « Envoyer un message », je vous accompagne sur WhatsApp. 📲
 
 **Titre sous chaque carte :**
-1. "Votre savoir-faire peut rapporter"
-2. "Choisissez la forme de votre produit"
-3. "Testez votre idée en 7 jours"
-4. "La checklist pour ne rien oublier"
+1. "Il existe une autre porte de sortie"
+2. "Votre savoir-faire peut devenir un produit"
+3. "Choisissez la forme de votre produit"
+4. "Testez votre idée en 7 jours"
 5. "Écrivez-moi sur WhatsApp"
 
 Dans Meta, désactive "Afficher d'abord les cartes les plus performantes" : l'ordre des cartes raconte une histoire.
