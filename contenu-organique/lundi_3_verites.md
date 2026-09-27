@@ -6,7 +6,7 @@ L'idée : la capture Chariow sert d'exemple d'un **chiffre d'affaires brut** qui
 
 ## Script
 
-Environ 150 mots, soit 55 secondes.
+Environ 160 mots, soit 60 secondes.
 
 | Temps | Voix | À l'écran |
 |---|---|---|
@@ -15,7 +15,7 @@ Environ 150 mots, soit 55 secondes.
 | 9-23 s | Un : ce chiffre, c'est le chiffre d'affaires, pas le bénéfice. Il faut encore retirer la pub, les commissions, les remboursements, les frais et les impôts. Sur un gros lancement, il reste souvent 10 à 30 %. | Une barre "100 %" qui fond à chaque mot : pub, commissions, remboursements, frais, impôts. Il reste "10 à 30 %". Mention "exemple". |
 | 23-31 s | Deux : on vous montre le chiffre brut parce que c'est lui qui fait rêver. Le bénéfice, on ne le montre presque jamais. | "CHIFFRE BRUT = ce qui fait rêver" / "BÉNÉFICE = ce qu'on cache". |
 | 31-43 s | Trois : ce qui compte, c'est ce qui vous reste sur chaque vente. Un produit créé avec votre téléphone, et que vous faites connaître sans pub, garde vos frais au plus bas. | "Ce qui vous reste par vente" + un téléphone. |
-| 43-50 s | Dans mon guide, je vous montre comment démarrer comme ça, étape par étape. Le lien est dans ma bio, je vous accompagne. | Couverture du guide + "LIEN DANS MA BIO". |
+| 43-55 s | Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans dépenser un franc en publicité. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne. | Couverture du guide + "PLAN DE 7 JOURS · 0 $ DE PUB", puis "COMMENTEZ « EBOOK »". |
 
 ## Sur la capture
 
@@ -27,9 +27,19 @@ Environ 150 mots, soit 55 secondes.
 
 > Le chiffre qu'on vous montre n'est presque jamais ce qu'on a gagné 👇
 > Chiffre d'affaires ou bénéfice : vous faisiez la différence avant cette vidéo ? Dites-le en commentaire.
-> Le guide complet est dans le lien de ma bio.
+> Écrivez « EBOOK » en commentaire pour recevoir le guide et son plan de 7 jours.
 >
 > #produitdigital #rdc #kinshasa #businessenligne #entrepreneuriat
+
+## L'appel à l'action « EBOOK » en commentaire
+
+Il marche sur TikTok (pas encore de lien en bio) comme sur Instagram, donc un seul enregistrement suffit. Et chaque commentaire aide l'algorithme.
+
+Réponds à chaque "EBOOK" en commentaire, en variant la phrase (voir `whatsapp/automatisation_whatsapp.md`, section 2), par exemple :
+- "Avec plaisir 🙌 Écris-moi « EBOOK » en message privé, je t'envoie tout."
+- "Je viens de t'écrire en privé 📩" (si tu as pu lui envoyer le message)
+
+Puis en privé, envoie le lien WhatsApp avec le message déjà écrit.
 
 ## Pour aller plus loin (autres vidéos possibles, tirées de ta note)
 
