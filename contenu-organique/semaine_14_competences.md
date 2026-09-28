@@ -23,6 +23,8 @@ Le guide est payant : quand tu réponds en privé, présente-le avec son prix d�
 
 **L'idée de former les autres**, glissée sans être dite : chaque script de 13 h contient une phrase du type "d'autres [personnes du métier] voudront savoir comment tu as fait". Le spectateur comprend tout seul qu'après son premier produit, il pourra apprendre à d'autres à créer le leur.
 
+**Chaque outil cité dans un script dit à quoi il sert** : jamais « il te faut Canva » tout seul, mais « il te faut Canva pour mettre ton livre en page ». Sans l'usage, le spectateur ne comprend pas pourquoi il en a besoin, et il ne retient rien.
+
 **Les outils cités** sont des outils réels et courants. Vérifie quand même avant chaque vidéo qu'ils sont disponibles et gratuits (ou non) là où tu es.
 
 ## Le calendrier sur 14 jours
@@ -64,7 +66,7 @@ Les scripts de 13 h sont ci-dessous (sections 1 à 14, dans l'ordre des compéte
 > Tu sais cuisiner ? Voici comment le transformer en revenu.
 > Imagine Nadine, 24 ans. Elle se trouve trop mince, elle veut prendre du poids sainement, avec les aliments du marché, mais elle ne sait pas quoi manger.
 > Pour elle, tu peux créer un livre de recettes avec un plan de repas sur 4 semaines. Ou un défi de 30 jours dans un groupe WhatsApp.
-> Il te faut Canva, ton téléphone pour les photos, et tes recettes.
+> Il te faut Canva pour mettre ton livre en page, ton téléphone pour photographier tes plats, et Google Docs pour écrire tes recettes et ta liste de courses.
 > Et quand ton livre se vendra, d'autres cuisinières voudront savoir comment tu l'as fait.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -82,7 +84,7 @@ Les scripts de 13 h sont ci-dessous (sections 1 à 14, dans l'ordre des compéte
 > Tu sais faire du montage vidéo ? Voici comment le transformer en revenu.
 > Imagine Daniel, responsable média de son église. Chaque dimanche, il filme le culte au téléphone, et il passe ses nuits à monter.
 > Pour lui, tu peux créer un pack de modèles prêts à l'emploi : intro, titres, sous-titres. Ou une mini-formation pour que toute son équipe sache monter.
-> Il te faut CapCut, Canva, et ton téléphone.
+> Il te faut CapCut pour monter tes modèles, Canva pour les miniatures, et Google Drive pour envoyer les fichiers à tes clients.
 > Et chaque église a un Daniel. Quand ton pack marchera, d'autres monteurs voudront savoir comment tu l'as créé.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -100,7 +102,7 @@ Les scripts de 13 h sont ci-dessous (sections 1 à 14, dans l'ordre des compéte
 > Tu sais faire de beaux visuels ? Voici comment le transformer en revenu.
 > Imagine Esther, secrétaire de son église. Chaque semaine, elle doit annoncer un culte ou une conférence, et elle n'est pas graphiste.
 > Pour elle, tu peux créer un pack de modèles Canva : elle change le texte, la photo, et c'est prêt à publier. Tu peux aussi lui apprendre à faire ses affiches sur son téléphone.
-> Il te faut juste Canva.
+> Il te faut Canva pour créer tes modèles et les partager par un simple lien. Et Photopea, gratuit, pour retoucher une image.
 > Et quand tes modèles tourneront, d'autres graphistes voudront savoir comment tu les vends.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -118,7 +120,7 @@ Les scripts de 13 h sont ci-dessous (sections 1 à 14, dans l'ordre des compéte
 > Tu sais bien utiliser l'intelligence artificielle ? Voici comment le transformer en revenu.
 > Imagine Patrick, prof de français. Il a beaucoup de classes, et il passe ses week-ends à préparer ses leçons et ses interrogations.
 > Pour lui, tu peux créer un pack de prompts prêts à copier : préparer une leçon, créer une interrogation, corriger plus vite. Ou une mini-formation pour débuter avec l'IA.
-> Il te faut ChatGPT, Claude ou Gemini, et Canva pour la mise en page.
+> Il te faut ChatGPT, Claude ou Gemini pour créer et tester tes prompts, et Canva pour mettre ton pack en page en PDF.
 > Et quand les profs verront le temps gagné, d'autres voudront savoir comment tu as monté ton pack.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -136,7 +138,7 @@ Les scripts de 13 h sont ci-dessous (sections 1 à 14, dans l'ordre des compéte
 > Tu t'y connais en mécanique ? Voici comment le transformer en revenu.
 > Imagine Monsieur Kabasele. Il gère un petit hôtel, et pendant les coupures, tout dépend de son groupe électrogène. Quand il tombe en panne, il ne comprend rien à ce qu'on lui facture.
 > Pour lui, tu peux créer une checklist d'entretien avec un carnet de suivi. Ou des vidéos courtes sur les vérifications à faire avant d'appeler le mécanicien.
-> Il te faut Canva ou Google Docs, et ton téléphone.
+> Il te faut Canva ou Google Docs pour écrire ta checklist et ton carnet d'entretien, et ton téléphone pour filmer les vérifications.
 > Et quand ta checklist circulera, d'autres mécaniciens voudront savoir comment tu l'as créée.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -154,7 +156,7 @@ Les scripts de 13 h sont ci-dessous (sections 1 à 14, dans l'ordre des compéte
 > Tu sais programmer ? Voici comment le transformer en revenu.
 > Imagine Josué, étudiant en informatique. Il connaît la théorie, mais il n'a aucun projet à montrer pour décrocher un stage.
 > Pour lui, tu peux créer des projets guidés, avec le code et les explications étape par étape. Ou des modèles de sites qu'il pourra adapter pour ses premiers clients.
-> Il te faut VS Code, GitHub, et Replit si tu codes depuis ton téléphone.
+> Il te faut VS Code pour écrire ton code, GitHub pour le partager, et Replit si tu codes depuis ton téléphone.
 > Et quand tes projets aideront les premiers étudiants, d'autres développeurs voudront savoir comment tu les as transformés en produit.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -173,7 +175,7 @@ Les scripts de 13 h sont ci-dessous (sections 1 à 14, dans l'ordre des compéte
 > Tu parles bien en public ? Voici comment le transformer en revenu.
 > Imagine Merveille, finaliste. Dans quelques semaines, elle défend son mémoire devant un jury, et le trac la paralyse.
 > Pour elle, tu peux créer un guide pour préparer sa défense, avec un modèle de présentation. Ou des exercices audio contre le trac, envoyés sur WhatsApp.
-> Il te faut Canva, Google Docs, et ta voix.
+> Il te faut Canva pour ton modèle de présentation, Google Docs pour écrire ton guide, et ta voix pour enregistrer les exercices audio.
 > Chaque année, il y a de nouveaux finalistes. Et d'autres orateurs voudront savoir comment tu as créé ton guide.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -193,7 +195,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol p
 > Tu parles mandarin, anglais ou espagnol ? Voici comment le transformer en revenu.
 > Imagine Papa Jean, commerçant. Il achète sa marchandise en Chine, mais pour chaque discussion, il dépend d'un intermédiaire.
 > Pour lui, tu peux créer un lexique audio du mandarin du commerce : les prix, les quantités, la négociation. Et des modèles de messages pour parler aux fournisseurs sur WeChat.
-> Il te faut ta voix, Google Docs, et Canva.
+> Il te faut ta voix pour enregistrer tes leçons audio, et Google Docs et Canva pour créer ton lexique en PDF.
 > Et d'autres professeurs de langues voudront savoir comment tu as transformé tes cours en produit.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -211,7 +213,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol p
 > Tu maîtrises Excel ? Voici comment le transformer en revenu.
 > Imagine Maman Chantal, qui tient un dépôt de boissons. Elle note tout dans un cahier, et elle ne sait jamais exactement ce qu'il lui reste.
 > Pour elle, tu peux créer un tableau de stock prêt à l'emploi : elle remplit les cases, et il calcule tout seul. Avec une version sur Google Sheets pour son téléphone.
-> Il te faut Excel ou Google Sheets, et l'enregistrement d'écran de ton téléphone.
+> Il te faut Excel ou Google Sheets pour faire ton tableau, et l'enregistrement d'écran de ton téléphone pour montrer comment s'en servir.
 > Et quand ton tableau aura aidé quelques commerçantes, d'autres voudront savoir comment tu l'as créé.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -229,7 +231,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol p
 > Tu sais vendre en ligne ? Voici comment le transformer en revenu.
 > Imagine Gloria, qui vend des perruques sur WhatsApp. Elle reçoit plein de « c'est combien ? », mais peu de gens achètent vraiment.
 > Pour elle, tu peux créer un pack de messages types pour répondre, relancer et conclure. Et un modèle de catalogue pour présenter ses produits proprement.
-> Il te faut WhatsApp Business et Canva.
+> Il te faut WhatsApp Business pour ton catalogue et tes réponses rapides, et Canva pour les visuels du catalogue.
 > Et quand tes messages auront fait vendre, d'autres vendeuses voudront savoir comment tu as créé ton pack.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -248,7 +250,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol p
 > Tu t'y connais en agriculture ? Voici comment le transformer en revenu.
 > Imagine Christian, diplômé sans emploi. Sa famille a un terrain, il veut faire du maraîchage, mais il ne sait pas par où commencer, ni combien ça coûte.
 > Pour lui, tu peux créer un guide de démarrage : quoi planter, quel budget, quelles erreurs éviter. Et un tableau pour suivre ses dépenses et ses récoltes.
-> Il te faut Google Docs, Google Sheets, et ton téléphone pour filmer le terrain.
+> Il te faut Google Docs pour écrire ton guide, Google Sheets pour ton tableau, et ton téléphone pour filmer le terrain.
 > Et d'autres agriculteurs voudront savoir comment tu as mis ton savoir dans un guide.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -267,7 +269,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol p
 > Tu sais faire de la publicité sur Facebook ou TikTok ? Voici comment le transformer en revenu.
 > Imagine Junior. Il a une boutique de vêtements, il a boosté plusieurs publications, il a payé, et presque personne n'est venu.
 > Pour lui, tu peux créer une checklist à suivre avant de lancer une pub, et des modèles de textes publicitaires. Ou une mini-formation sur le gestionnaire de publicités.
-> Il te faut Canva, CapCut, et tes captures d'écran.
+> Il te faut Canva pour tes visuels, CapCut pour tes vidéos de démonstration, et des captures d'écran pour montrer les réglages.
 > Et d'autres spécialistes de la pub voudront savoir comment tu as transformé ton savoir en produit.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -285,7 +287,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol p
 > Tu t'y connais en marketing digital ? Voici comment le transformer en revenu.
 > Imagine Kevin, diplômé en communication, sans emploi. Il sait utiliser les réseaux, mais il ne sait pas trouver ses premiers clients, ni combien facturer.
 > Pour lui, tu peux créer un kit premier client : un modèle d'offre, une grille de prix, un modèle de contrat. Et un calendrier de publications prêt à remplir.
-> Il te faut Canva et Google Sheets.
+> Il te faut Canva pour créer ton kit, et Google Sheets pour ton calendrier de publications.
 > Et ceux que tu auras aidés à démarrer voudront, un jour, savoir comment tu as créé ton kit.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -310,7 +312,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol p
 > Tu comprends l'investissement, les actions ou la crypto ? Voici comment le transformer en revenu, sans jamais promettre de gains.
 > Imagine Déborah, salariée. Elle voit passer des gens qui promettent de doubler son argent. Elle veut investir, mais d'abord comprendre, pour ne pas se faire avoir.
 > Pour elle, tu peux créer un guide des bases : une action, un ETF, une crypto, et comment repérer une arnaque. Avec une étude de cas, comme l'action Dangote, cotée à la bourse de Lagos.
-> Il te faut TradingView pour les graphiques, Google Docs et Canva.
+> Il te faut TradingView pour lire les graphiques et t'entraîner sans argent réel, et Google Docs et Canva pour écrire et mettre en page ton guide.
 > Et d'autres voudront savoir comment tu as construit un guide aussi clair.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
