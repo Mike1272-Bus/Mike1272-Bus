@@ -1,5 +1,7 @@
 # 2 contenus complémentaires par jour
 
+> **Mise à jour** : remplacé par `semaine_14_competences.md` (une compétence par jour, 13 h + 19 h, sur 14 jours).
+
 Chaque jour, **une compétence et sa niche**, vues sous deux angles :
 
 | Heure | Contenu | Rôle | Durée | Registre | Fin |

@@ -1,33 +1,52 @@
-# Semaine des 14 compétences
+# Les 14 compétences : une compétence par jour, deux vidéos
 
-2 vidéos par jour, une compétence par vidéo. Pour chaque compétence : une niche, un avatar client, les formats de produit, les outils, et un script prêt à enregistrer (environ 40 secondes, registre "tu").
+Chaque jour, **une seule compétence**, vue sous deux angles :
+
+| Heure | Vidéo | Registre | Fin |
+|---|---|---|---|
+| **13 h** | Comment transformer la compétence en produit digital (niche, avatar, formats, outils) | tu | "Commente ta compétence…" |
+| **19 h** | Ce qu'on ne vous dit pas sur les produits digitaux, avec la compétence du jour comme exemple | vous | "Écrivez « EBOOK » en commentaire…" |
+
+La vidéo de 19 h reprend l'avatar et le produit de 13 h : quelqu'un qui voit l'une a une raison d'aller voir l'autre sur ton profil.
 
 Les avatars sont des **profils types** pour aider à imaginer le client. Ce ne sont pas de vraies personnes : ne les présente jamais comme des témoignages.
 
 ## Les règles communes
 
-**L'appel à l'action**, à la fin de chaque vidéo :
+**L'appel à l'action de 13 h** :
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
 Le guide est payant : quand tu réponds en privé, présente-le avec son prix dès le premier message. Si quelqu'un pense recevoir un guide gratuit et découvre un prix, il se sent piégé. Avec le prix affiché tout de suite, il décide en connaissance de cause.
 
-**L'idée de former les autres**, glissée sans être dite : chaque script contient une phrase du type "d'autres [personnes du métier] voudront savoir comment tu as fait". Le spectateur comprend tout seul qu'après son premier produit, il pourra apprendre à d'autres à créer le leur. C'est ce qu'il découvrira vraiment dans ton guide et dans ton accompagnement.
+**La signature de 19 h** :
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+**L'idée de former les autres**, glissée sans être dite : chaque script de 13 h contient une phrase du type "d'autres [personnes du métier] voudront savoir comment tu as fait". Le spectateur comprend tout seul qu'après son premier produit, il pourra apprendre à d'autres à créer le leur.
 
 **Les outils cités** sont des outils réels et courants. Vérifie quand même avant chaque vidéo qu'ils sont disponibles et gratuits (ou non) là où tu es.
 
-## Le calendrier
+## Le calendrier sur 14 jours
 
-Le midi, les compétences simples à comprendre en 40 secondes. Le soir, celles qui demandent plus d'attention.
-
-| Jour | 13 h | 19 h |
+| Jour | Compétence → niche (avatar) | 19 h : la vérité |
 |---|---|---|
-| 1 | Cuisine | Montage vidéo |
-| 2 | Flyers et visuels | Intelligence artificielle |
-| 3 | Mécanique | Programmation |
-| 4 | Art oratoire | Langues (mandarin) |
-| 5 | Excel | Vente en ligne |
-| 6 | Agriculture | Publicité sur les réseaux |
-| 7 | Marketing digital | Investissement et cryptomonnaie |
+| 1 | Cuisine → prise de poids saine pour les femmes (Nadine) | Un produit pour tout le monde ne se vend à personne |
+| 2 | Montage vidéo → les églises (Daniel) | L'argent est dans le deuxième achat |
+| 3 | Programmation → étudiants sans projet (Josué) | Votre premier produit doit être petit |
+| 4 | Art oratoire → finalistes et défense de mémoire (Merveille) | Le prix ne dépend pas du temps passé |
+| 5 | Langues → mandarin pour les commerçants (Papa Jean) | Votre premier produit n'a pas besoin d'être parfait |
+| 6 | Excel → stock des petites boutiques (Maman Chantal) | On paie plus facilement pour ne plus perdre d'argent |
+| 7 | IA → enseignants (Patrick) | Les gens achètent un résultat, pas un produit |
+| 8 | Flyers et visuels → églises et conférences (Esther) | Vendre son temps a une limite, un produit n'en a pas |
+| 9 | Mécanique → groupes électrogènes (M. Kabasele) | Le gratuit fait vendre le payant |
+| 10 | Vente en ligne → vendeuses WhatsApp (Gloria) | Vos clients vendent mieux que vous |
+| 11 | Agriculture → jeunes en maraîchage (Christian) | Vos erreurs valent de l'argent |
+| 12 | Publicité → commerçants qui ont "boosté" sans résultat (Junior) | La pub ne sert à rien si l'offre n'est pas claire |
+| 13 | Marketing digital → futurs community managers (Kevin) | Vos premiers clients sont déjà dans votre téléphone |
+| 14 | Investissement et crypto → comprendre avant de se faire avoir (Déborah) | Méfiez-vous de ceux qui vendent des gains |
+
+L'investissement passe en dernier : c'est le sujet le plus sensible, mieux vaut que ton public te connaisse déjà.
+
+Les scripts de 13 h sont ci-dessous (sections 1 à 14, dans l'ordre des compétences, pas des jours). Les scripts de 19 h sont à la fin du fichier.
 
 ---
 
@@ -235,7 +254,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol p
 
 ## 12. Publicité sur les réseaux → les commerçants qui ont perdu de l'argent en "boostant"
 
-**Avatar** : Patrick, 32 ans, a une boutique de vêtements. Il a "boosté" plusieurs publications Facebook, a dépensé de l'argent, et n'a eu presque aucun client.
+**Avatar** : Junior, 32 ans, a une boutique de vêtements. Il a "boosté" plusieurs publications Facebook, a dépensé de l'argent, et n'a eu presque aucun client.
 
 **Formats**
 - **Une checklist "avant de lancer une pub"** : l'objectif, l'audience, le visuel, le budget. Elle évite les erreurs qui coûtent cher.
@@ -246,7 +265,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol p
 
 **Script**
 > Tu sais faire de la publicité sur Facebook ou TikTok ? Voici comment le transformer en revenu.
-> Imagine Patrick. Il a une boutique de vêtements, il a boosté plusieurs publications, il a payé, et presque personne n'est venu.
+> Imagine Junior. Il a une boutique de vêtements, il a boosté plusieurs publications, il a payé, et presque personne n'est venu.
 > Pour lui, tu peux créer une checklist à suivre avant de lancer une pub, et des modèles de textes publicitaires. Ou une mini-formation sur le gestionnaire de publicités.
 > Il te faut Canva, CapCut, et tes captures d'écran.
 > Et d'autres spécialistes de la pub voudront savoir comment tu as transformé ton savoir en produit.
@@ -294,3 +313,125 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol p
 > Il te faut TradingView pour les graphiques, Google Docs et Canva.
 > Et d'autres voudront savoir comment tu as construit un guide aussi clair.
 > Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
+
+---
+
+# Les vérités de 19 h
+
+Registre "vous". Environ 40 à 45 secondes chacune. Le bandeau en haut de la vidéo : "CE QU'ON NE VOUS DIT PAS".
+
+## Jour 1 · Cuisine : un produit pour tout le monde ne se vend à personne
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : un produit pour tout le monde ne se vend à personne.
+> « Mes recettes de cuisine » : personne ne se sent concerné. « Des recettes pour les femmes qui veulent prendre du poids sainement » : Nadine s'arrête tout de suite, parce qu'on parle d'elle.
+> Plus votre cible est précise, plus elle se reconnaît dans votre message, et moins vous êtes noyé dans la masse.
+> Avant de créer votre produit, posez-vous une seule question : à qui exactement je le vends ?
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 2 · Montage vidéo : l'argent est dans le deuxième achat
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : l'argent est dans le deuxième achat.
+> Trouver un nouveau client coûte cher, en temps ou en publicité. Un client qui a déjà acheté chez vous, lui, vous fait déjà confiance.
+> Prenez Daniel, responsable média de son église. Il achète d'abord votre pack de modèles de montage, à petit prix.
+> S'il est satisfait, il revient pour former toute son équipe. Et il parle de vous aux autres églises.
+> Ne pensez pas seulement à la première vente. Pensez à ce que votre client achètera ensuite.
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 3 · Programmation : votre premier produit doit être petit
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : votre premier produit doit être petit.
+> Beaucoup passent des mois sur une formation complète, et ne la vendent jamais, parce qu'ils n'ont pas vérifié avant que quelqu'un en voulait.
+> Si vous programmez, ne commencez pas par un cours de cinquante vidéos. Commencez par un seul projet guidé, que Josué peut terminer en un week-end.
+> Si ça se vend, la demande existe. Là, vous construisez la suite.
+> Tester avant d'investir : c'est tout le principe du plan de 7 jours de mon guide.
+> Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 4 · Art oratoire : le prix ne dépend pas du temps passé
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : le prix ne dépend pas du temps que vous avez passé à créer votre produit.
+> Votre guide pour préparer une défense de mémoire vous prendra peut-être quelques soirées. Mais pour Merveille, il arrive au moment où elle joue ses années d'études devant un jury.
+> Ce que votre produit change pour votre client, c'est ça qui compte pour lui.
+> Pour votre premier produit, commencez par un petit prix pour tester, puis ajustez.
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 5 · Langues : votre premier produit n'a pas besoin d'être parfait
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : votre premier produit n'a pas besoin d'être parfait.
+> Il a besoin d'exister, puis de s'améliorer avec l'avis de vos premiers clients.
+> Votre lexique de mandarin pour les commerçants peut commencer avec les phrases les plus utiles. C'est Papa Jean, après son voyage, qui vous dira ce qui lui a manqué face aux fournisseurs.
+> Le produit parfait, ce sont vos clients qui vous aident à le construire.
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 6 · Excel : on paie plus facilement pour ne plus perdre d'argent
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : les gens paient plus facilement pour ne plus perdre d'argent.
+> Maman Chantal ne cherche pas « un tableau Excel ». Elle veut savoir où passe son argent, et arrêter les pertes qu'elle ne voit pas.
+> Alors ne présentez pas votre produit comme un fichier. Présentez-le comme ce qu'il lui évite : les oublis, les erreurs de stock, les disputes avec ses vendeurs.
+> Un fichier, ça ne fait pas rêver. Ne plus perdre d'argent, si.
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 7 · IA : les gens achètent un résultat, pas un produit
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : les gens n'achètent pas un produit, ils achètent un résultat.
+> Patrick ne veut pas « apprendre l'intelligence artificielle ». Il veut récupérer ses week-ends.
+> Alors ne vendez pas « un cours sur ChatGPT ». Vendez « Préparez vos leçons plus vite grâce à l'IA ».
+> Le contenu est presque le même. Mais le deuxième titre parle de ce que votre client veut vraiment.
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 8 · Flyers et visuels : vendre son temps a une limite, un produit n'en a pas
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : vendre votre temps a une limite, un produit n'en a pas.
+> Si vous faites chaque affiche à la main, vous ne pourrez jamais en faire plus que vos heures ne le permettent.
+> Un pack de modèles, vous le créez une fois. Esther l'achète, une autre secrétaire d'église aussi, et vous n'avez rien à refaire.
+> Gardez vos services pour les clients qui veulent du sur-mesure. Le reste du temps, laissez vos modèles se vendre.
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 9 · Mécanique : le gratuit fait vendre le payant
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : ce que vous donnez gratuitement fait vendre le reste.
+> Beaucoup ont peur d'en dire trop. Pourtant, c'est en aidant gratuitement qu'on montre qu'on sait de quoi on parle.
+> Publiez gratuitement les vérifications à faire avant d'appeler un mécanicien pour son groupe électrogène. Monsieur Kabasele vous découvre, et il vous fait confiance.
+> Le jour où il veut le carnet d'entretien complet, c'est chez vous qu'il l'achète.
+> Le gratuit répond à « pourquoi ». Le payant répond à « comment, pour moi ».
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 10 · Vente en ligne : vos clients vendent mieux que vous
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : vos clients vendent mieux que vous.
+> Vous pouvez répéter que votre pack de messages marche. Mais quand une vendeuse raconte elle-même que ses clientes répondent enfin, tout le monde la croit.
+> Après chaque vente, demandez un avis, une capture, une phrase. Avec l'accord de la personne, publiez-la.
+> Un avis vrai vaut plus que toutes vos promesses.
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 11 · Agriculture : vos erreurs valent de l'argent
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : vos erreurs valent de l'argent.
+> Un débutant ne cherche pas un cours parfait. Il veut éviter les erreurs qui lui coûteraient une récolte.
+> Si vous avez déjà perdu une saison à cause d'un mauvais choix de culture, c'est exactement ce que Christian a besoin de savoir avant de commencer.
+> Notez vos erreurs, et ce qu'elles vous ont appris. C'est souvent la partie la plus utile de votre guide.
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 12 · Publicité : la pub ne sert à rien si l'offre n'est pas claire
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : payer de la pub ne sert à rien si votre offre n'est pas claire.
+> Junior a boosté ses publications, et presque personne n'est venu. Le problème n'était peut-être pas la pub, mais ce qu'il proposait, et à qui.
+> Avant de mettre un dollar en publicité, testez votre offre gratuitement : avec votre entourage, en statut WhatsApp. Si personne ne réagit gratuitement, la pub n'y changera rien.
+> C'est exactement ce que fait le plan de 7 jours de mon guide.
+> Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 13 · Marketing digital : vos premiers clients sont déjà dans votre téléphone
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : vos premiers clients sont déjà dans votre téléphone.
+> Kevin cherche des entreprises sur internet. Pendant ce temps, dans ses contacts WhatsApp, il y a un oncle qui tient un restaurant, une amie qui vend des vêtements, un voisin qui a une pharmacie.
+> Commencez par ceux qui vous connaissent déjà : ils vous font confiance, ils vous répondent, et ils parlent de vous.
+> Les inconnus viendront ensuite.
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+
+## Jour 14 · Investissement : méfiez-vous de ceux qui vendent des gains
+
+> Ce qu'on ne vous dit pas sur les produits digitaux : méfiez-vous de ceux qui vendent des gains plutôt que du savoir.
+> Quand quelqu'un promet de doubler votre argent, demandez-vous qui gagne vraiment. Souvent, c'est celui qui vend la formation.
+> Un bon produit sur l'investissement ne promet rien. Il explique ce qu'est une action, un ETF, une crypto, et quels sont les risques.
+> C'est pour ça que Déborah, qui veut comprendre avant d'investir, vous fera confiance.
+> Ce n'est pas un conseil financier.
+> Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
