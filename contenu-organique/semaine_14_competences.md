@@ -37,7 +37,7 @@ Le guide est payant : quand tu réponds en privé, présente-le avec son prix d�
 | 2 | Montage vidéo → les églises (Daniel) | L'argent est dans le deuxième achat |
 | 3 | Programmation → étudiants sans projet (Josué) | Votre premier produit doit être petit |
 | 4 | Art oratoire → finalistes et défense de mémoire (Merveille) | Le prix ne dépend pas du temps passé |
-| 5 | Langues → anglais pour les entretiens d'embauche (Grâce) | Votre premier produit n'a pas besoin d'être parfait (script à réécrire pour Grâce) |
+| 5 | Langues → anglais pour les entretiens d'embauche (Grâce) | Suite de 13 h : 3 formats sans montrer son visage |
 | 6 | Excel → stock des petites boutiques (Maman Chantal) | On paie plus facilement pour ne plus perdre d'argent |
 | 7 | IA → enseignants (Patrick) | Les gens achètent un résultat, pas un produit |
 | 8 | Flyers et visuels → églises et conférences (Esther) | Vendre son temps a une limite, un produit n'en a pas |
@@ -285,7 +285,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, le mandarin 
 >
 > **Partie 3** : Google Docs pour écrire les questions et les réponses. Les notes vocales WhatsApp pour enregistrer la bonne prononciation. Et Canva pour mettre ton guide en page.
 >
-> *Boucle* : Et ce n'est pas tout : quand ton guide se vendra, d'autres profs d'anglais voudront savoir comment tu l'as fait.
+> *Boucle* : Et ce n'est pas tout : quand ton guide se vendra, d'autres profs d'anglais voudront savoir comment tu l'as fait. Et tu n'as même pas besoin de montrer ton visage : je te montre comment ce soir.
 >
 > **CTA** : Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -564,25 +564,27 @@ Registre "vous". Environ 50 à 60 secondes chacune. Le bandeau en haut de la vid
 >
 > **CTA** : Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
 
-## Jour 5 · Langues : votre premier produit n'a pas besoin d'être parfait
+## Jour 5 · Langues : la suite de Grâce, 3 formats sans montrer son visage
 
-> **Hook** : Ce qu'on ne vous dit pas sur les produits digitaux : votre premier produit n'a pas besoin d'être parfait.
+Nouveau format du 19 h, testé à partir du jour 5 : la suite directe de la vidéo de 13 h, au même registre (« tu »), avec de vraies images et une action concrète. La vidéo cuisine de 13 h a beaucoup mieux marché que celle de 19 h, qui ressemblait à une leçon de marketing.
+
+> **Hook** : Tu veux aider Grâce, mais tu n'as pas de caméra, et tu ne veux pas montrer ton visage ?
 >
-> **Promesse** : Et je vais vous dire qui va vous aider à le rendre meilleur.
+> **Promesse** : Pas de souci. Je te montre trois façons de faire, avec seulement ton téléphone.
 >
-> **Partie 1** : Beaucoup attendent que tout soit parfait avant de vendre. Résultat : ils ne vendent jamais. Votre produit doit d'abord exister.
+> **Partie 1** : D'abord, regarde ces comptes. Ces jeunes publient des leçons d'anglais. Et on ne voit jamais leur visage.
 >
-> *Boucle* : Prenons un exemple.
+> *Boucle* : Et toi, tu peux faire pareil.
 >
-> **Partie 2** : Vous parlez mandarin. Votre lexique pour les commerçants peut commencer avec les phrases les plus utiles. Juste ça.
+> **Partie 2** : Premier format : une feuille et un feutre. Ton téléphone filme ta main qui écrit « Tell me about yourself », puis la traduction. Deuxième format : le texte animé. Dans CapCut, la phrase apparaît mot par mot, et tu la prononces en voix off. Troisième format : ton écran. Tu tapes la question dans Google Docs, et tu enregistres ton écran pendant que tu lis la réponse.
 >
-> *Boucle* : Ensuite, c'est quelqu'un d'autre qui va vous dire quoi ajouter.
+> *Boucle* : Et c'est comme ça que Grâce va te trouver.
 >
-> **Partie 3** : C'est Papa Jean, après son voyage. Il vous dira ce qui lui a manqué devant les fournisseurs. Vous l'ajoutez. Le produit parfait, ce sont vos clients qui vous aident à le construire.
+> **Partie 3** : Elle voit ta leçon, elle se dit : « c'est exactement ce qu'il me faut pour mon entretien ». Et elle t'écrit.
 >
-> *Boucle* : Mais pour avoir ces premiers clients, il faut d'abord lancer.
->
-> **CTA** : Dans mon guide, il y a un plan de 7 jours pour tester votre idée sans budget pub. Écrivez « EBOOK » en commentaire, je vous réponds et je vous accompagne.
+> **CTA** : Commente le numéro du format que tu vas essayer : je te réponds en privé avec le guide pour transformer ta compétence en revenu.
+
+**Images** : les captures de comptes qui enseignent l'anglais sans visage (avec l'accord des créateurs, sinon noms et visages floutés), une démonstration de chaque format (main qui écrit, texte animé, écran Google Docs), la photo de Grâce, la même qu'à 13 h.
 
 ## Jour 6 · Excel : on paie plus facilement pour arrêter de perdre de l'argent
 
