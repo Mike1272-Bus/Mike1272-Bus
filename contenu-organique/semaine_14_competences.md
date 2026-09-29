@@ -37,7 +37,7 @@ Le guide est payant : quand tu réponds en privé, présente-le avec son prix d�
 | 2 | Montage vidéo → les églises (Daniel) | L'argent est dans le deuxième achat |
 | 3 | Programmation → étudiants sans projet (Josué) | Votre premier produit doit être petit |
 | 4 | Art oratoire → finalistes et défense de mémoire (Merveille) | Le prix ne dépend pas du temps passé |
-| 5 | Langues → mandarin pour les commerçants (Papa Jean) | Votre premier produit n'a pas besoin d'être parfait |
+| 5 | Langues → anglais pour les entretiens d'embauche (Grâce) | Votre premier produit n'a pas besoin d'être parfait (script à réécrire pour Grâce) |
 | 6 | Excel → stock des petites boutiques (Maman Chantal) | On paie plus facilement pour ne plus perdre d'argent |
 | 7 | IA → enseignants (Patrick) | Les gens achètent un résultat, pas un produit |
 | 8 | Flyers et visuels → églises et conférences (Esther) | Vendre son temps a une limite, un produit n'en a pas |
@@ -258,34 +258,34 @@ Les scripts de 13 h sont ci-dessous (sections 1 à 14, dans l'ordre des compéte
 >
 > **CTA** : Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
-## 8. Langues → le mandarin pour les commerçants qui achètent en Chine
+## 8. Langues → l'anglais pour réussir un entretien d'embauche
 
-**Avatar** : Papa Jean, 38 ans, commerçant. Il achète sa marchandise en Chine et dépend d'un intermédiaire pour tout. Il voudrait négocier lui-même, au moins les prix et les quantités.
+**Avatar** : Grâce, 24 ans, diplômée. Elle a décroché un entretien dans une ONG, mais il se passe en anglais. Elle comprend quand on lui parle, mais dès qu'elle doit répondre, elle bloque.
 
 **Formats**
-- **Un lexique audio "le mandarin du commerce"** : prix, quantités, délais, négociation. Court et ciblé, il sert dès le prochain achat.
-- **Des modèles de messages** pour discuter avec les fournisseurs sur WeChat, l'application la plus utilisée par les fournisseurs chinois.
+- **Un guide "l'entretien d'embauche en anglais"** : les questions qu'on pose souvent, des réponses prêtes à adapter, avec la traduction en français.
+- **Un défi de 21 jours dans un groupe WhatsApp** : une phrase par jour, la personne envoie une note vocale, tu corriges sa prononciation.
 
-Autres niches possibles : l'anglais pour les candidats aux bourses, l'espagnol pour ceux qui visent des études en Espagne ou en Amérique latine.
+Autres niches possibles : l'anglais pour les candidats aux bourses, le mandarin pour les commerçants qui achètent en Chine.
 
-**Outils** : les notes vocales ou un enregistreur (leçons audio), Google Docs et Canva (lexique en PDF).
+**Outils** : Google Docs (écrire les questions et les réponses), les notes vocales WhatsApp (enregistrer la bonne prononciation), Canva (mettre le guide en page).
 
-**Script**
-> **Hook** : Tu parles mandarin, anglais ou espagnol ? Tu peux en faire un produit qui se vend.
+**Script** (environ 170 mots, un peu plus d'une minute, comme la vidéo cuisine)
+> **Hook** : Tu parles bien anglais ? Tu peux en faire un produit qui se vend.
 >
 > **Promesse** : Je te montre comment, avec un exemple précis.
 >
-> **Partie 1** : Imagine Papa Jean, 38 ans, commerçant. Il achète sa marchandise en Chine. Mais pour chaque discussion, il dépend d'un intermédiaire. Il voudrait négocier lui-même, au moins les prix et les quantités.
+> **Partie 1** : Imagine Grâce, 24 ans, diplômée. Elle a décroché un entretien dans une ONG, mais il se passe en anglais. Elle comprend quand on lui parle. Mais dès qu'elle doit répondre, elle bloque.
 >
-> *Boucle* : Et toi, tu peux lui donner les mots qu'il lui faut.
+> *Boucle* : Et toi, tu as la réponse à son problème.
 >
-> **Partie 2** : Tu peux lui vendre un lexique audio du mandarin du commerce : les prix, les quantités, la négociation. Et des modèles de messages pour parler aux fournisseurs sur WeChat.
+> **Partie 2** : Tu peux lui vendre un guide avec les questions d'entretien et des réponses prêtes, traduites en français. Ou un défi de 21 jours sur WhatsApp : une phrase par jour, elle t'envoie une note vocale, et tu la corriges.
 >
-> *Boucle* : Et pour créer ça, il te faut seulement deux choses.
+> *Boucle* : Et pour créer ça, il te faut seulement trois choses.
 >
-> **Partie 3** : Ta voix pour enregistrer tes leçons audio. Et Google Docs et Canva pour créer ton lexique en PDF.
+> **Partie 3** : Google Docs pour écrire les questions et les réponses. Les notes vocales WhatsApp pour enregistrer la bonne prononciation. Et Canva pour mettre ton guide en page.
 >
-> *Boucle* : Et ce n'est pas tout : d'autres professeurs de langues voudront savoir comment tu as transformé tes cours en produit.
+> *Boucle* : Et ce n'est pas tout : quand ton guide se vendra, d'autres profs d'anglais voudront savoir comment tu l'as fait.
 >
 > **CTA** : Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
