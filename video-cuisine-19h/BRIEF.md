@@ -25,10 +25,14 @@ jour 1, 19 h. Calage phrase par phrase sur les pauses (build.py).
 
 ## Médias
 
-Réutilisés de video-cuisine-13h : nadine_floutee, plat_gombo, plat_riz, plat_moamba,
-marche, ebook_cover. Le fil d'actualité, les publications, la foule, le graphique
-et la question sont dessinés en HTML. Le graphique « Qui a envie d'acheter ? » est
-une illustration, sans chiffres.
+- pack1 à pack4 : visuels de packs de produits digitaux fournis par l'utilisateur (hook),
+  numéro de téléphone et logos de vendeurs floutés.
+- feed1 à feed4 : photos de plats fournies par l'utilisateur, dans le fil d'actualité.
+- scroll.mp4 : extrait fourni par l'utilisateur (mains qui font défiler un téléphone),
+  recadré sans le filigrane CapCut, dernière image tenue au moment du « STOP ».
+- Réutilisés de video-cuisine-13h : nadine_floutee, plat_gombo, plat_riz, marche, ebook_cover.
+- Illustrations dessinées en HTML/SVG : foule, panier, cœurs, cible, fléchette,
+  téléphone Mobile Money, bulle de pensée, crayon. Pas de chiffres inventés.
 
 ## Direction visuelle
 

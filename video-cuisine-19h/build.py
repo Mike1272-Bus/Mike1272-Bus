@@ -128,7 +128,7 @@ SFX = [
     (0.05, "whoosh-short", 0.40), (0.2, "impact-bass-2", 0.40), (T["tlm"], "pop", 0.35), (T["tlm"] + 0.3, "sparkle", 0.30),
     (T["personne"], "error", 0.35), (T["ach"], "impact-bass-1", 0.40),
     (T["montrer"] - 0.3, "whoosh", 0.40), (T["exemple"], "pop", 0.35), (T["question"], "pop", 0.35),
-    (T["dites"] - 0.3, "whoosh-short", 0.40), (T["mes"], "click", 0.35), (T["concerne"], "error", 0.30), (T["mange"], "pop", 0.32), (T["moi"], "glitch-1", 0.30),
+    (T["dites"] - 0.3, "whoosh-short", 0.40), (T["mes"], "click", 0.35), (T["concerne"], "error", 0.30), (T["mange"], "pop", 0.32),
     (T["maintenant"] - 0.2, "whoosh", 0.40), (T["phrase"], "click", 0.35),
     (T["plutot"] - 0.2, "whoosh-short", 0.40), (T["postB"], "pop", 0.35), (T["sainement"], "sparkle", 0.35),
     (T["nadine"], "whoosh-short", 0.35), (T["arrete"], "impact-bass-2", 0.45), (T["delle"], "ping", 0.35),
@@ -165,10 +165,20 @@ STAR = '<svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 
 
 def build_html():
     html = open(os.path.join(ROOT, "template.html.tpl"), encoding="utf-8").read()
-    person = ('<div class="pp"><svg viewBox="0 0 100 114" fill="currentColor"><circle cx="50" cy="28" r="22"/>'
-              '<path d="M12 112 C12 74 28 58 50 58 C72 58 88 74 88 112 Z"/></svg></div>')
+    body = ('<svg viewBox="0 0 100 114" fill="currentColor"><circle cx="50" cy="28" r="22"/>'
+            '<path d="M12 112 C12 74 28 58 50 58 C72 58 88 74 88 112 Z"/></svg>')
+    cart = ('<svg viewBox="0 0 100 100"><path d="M6 18 H22 L34 66 H80 L90 32 H27" fill="none" stroke="{c}" stroke-width="8" '
+            'stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="82" r="8" fill="{c}"/><circle cx="74" cy="82" r="8" fill="{c}"/></svg>')
+    heart = '<svg viewBox="0 0 100 90"><path d="M50 86 C20 62 4 46 4 26 C4 12 16 2 30 2 C40 2 46 8 50 16 C54 8 60 2 70 2 C84 2 96 12 96 26 C96 46 80 62 50 86 Z" fill="{c}" stroke="#111" stroke-width="{w}"/></svg>'
+    target = ('<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#111" stroke-width="6"/><circle cx="50" cy="50" r="30" fill="#ff5c00" stroke="#111" stroke-width="6"/>'
+              '<circle cx="50" cy="50" r="14" fill="#fff" stroke="#111" stroke-width="6"/><circle cx="50" cy="50" r="5" fill="#111"/></svg>')
+    start = round(T["nadine"] - 0.35, 3)
     rep = {"__STAR__": STAR, "__T__": json.dumps(T), "__CAPS__": json.dumps(CAPS, ensure_ascii=False), "__DUR__": str(DUR),
-           "__CROWD__": person * 24}
+           "__CROWD__": ('<div class="pp">' + body + '</div>') * 24, "__PERSON__": '<div class="pm">' + body + '</div>',
+           "__CART__": cart.replace("{c}", "#111"), "__CART_WHITE__": cart.replace("{c}", "#fff"),
+           "__HEART_GREY__": heart.replace("{c}", "#cfc8bd").replace("{w}", "5"), "__HEART_WHITE__": heart.replace("{c}", "#fff").replace("{w}", "6"),
+           "__HEART_RED__": heart.replace("{c}", "#e0161a").replace("{w}", "6"), "__TARGET__": target,
+           "__SCROLL_START__": str(start), "__SCROLL_DUR__": str(round(T["changement"] - start, 3))}
     for k, v in rep.items():
         html = html.replace(k, v)
     open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(html)
