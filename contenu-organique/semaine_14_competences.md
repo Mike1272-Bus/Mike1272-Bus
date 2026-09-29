@@ -263,14 +263,14 @@ Les scripts de 13 h sont ci-dessous (sections 1 à 14, dans l'ordre des compéte
 **Avatar** : Grâce, 24 ans, diplômée. Elle a décroché un entretien dans une ONG, mais il se passe en anglais. Elle comprend quand on lui parle, mais dès qu'elle doit répondre, elle bloque.
 
 **Formats**
-- **Un guide "l'entretien d'embauche en anglais"** : les questions qu'on pose souvent, des réponses prêtes à adapter, avec la traduction en français.
+- **Un pack audio "entraîne-toi à l'entretien en anglais"** : pour chaque question qu'on pose souvent, un audio où tu poses la question, un silence pour qu'elle réponde à voix haute, puis ta réponse modèle.
 - **Un défi de 21 jours dans un groupe WhatsApp** : une phrase par jour, la personne envoie une note vocale, tu corriges sa prononciation.
 
 Autres niches possibles : l'anglais pour les candidats aux bourses, le mandarin pour les commerçants qui achètent en Chine.
 
-**Outils** : Google Docs (écrire les questions et les réponses), les notes vocales WhatsApp (enregistrer la bonne prononciation), Canva (mettre le guide en page).
+**Outils** : Google Docs (écrire les questions et les réponses), les notes vocales WhatsApp (enregistrer les audios), Canva (créer la couverture du pack).
 
-**Script** (environ 170 mots, un peu plus d'une minute, comme la vidéo cuisine)
+**Script** (environ 190 mots, un peu plus d'une minute)
 > **Hook** : Tu parles bien anglais ? Tu peux en faire un produit qui se vend.
 >
 > **Promesse** : Je te montre comment, avec un exemple précis.
@@ -279,13 +279,13 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, le mandarin 
 >
 > *Boucle* : Et toi, tu as la réponse à son problème.
 >
-> **Partie 2** : Tu peux lui vendre un guide avec les questions d'entretien et des réponses prêtes, traduites en français. Ou un défi de 21 jours sur WhatsApp : une phrase par jour, elle t'envoie une note vocale, et tu la corriges.
+> **Partie 2** : Tu peux lui vendre un pack audio pour s'entraîner. Tu lui poses les questions d'entretien, elle répond à voix haute, puis elle écoute ta réponse modèle. Ou un défi de 21 jours sur WhatsApp : une phrase par jour, elle t'envoie une note vocale, et tu la corriges.
 >
 > *Boucle* : Et pour créer ça, il te faut seulement trois choses.
 >
-> **Partie 3** : Google Docs pour écrire les questions et les réponses. Les notes vocales WhatsApp pour enregistrer la bonne prononciation. Et Canva pour mettre ton guide en page.
+> **Partie 3** : Google Docs pour écrire les questions et les réponses. Les notes vocales WhatsApp pour enregistrer tes audios. Et Canva pour créer la couverture de ton pack.
 >
-> *Boucle* : Et ce n'est pas tout : quand ton guide se vendra, d'autres profs d'anglais voudront savoir comment tu l'as fait. Et tu n'as même pas besoin de montrer ton visage : je te montre comment ce soir.
+> *Boucle* : Et ce n'est pas tout : quand ton pack se vendra, d'autres profs d'anglais voudront savoir comment tu l'as fait. Et tu n'as même pas besoin de montrer ton visage : je te montre comment ce soir.
 >
 > **CTA** : Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
