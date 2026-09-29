@@ -271,23 +271,23 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, le mandarin 
 **Outils** : Google Docs (écrire les questions et les réponses), les notes vocales WhatsApp (enregistrer les audios), Canva (créer la couverture du pack).
 
 **Script** (environ 190 mots, un peu plus d'une minute)
-> **Hook** : Tu parles bien anglais ? Tu peux en faire un produit qui se vend.
+> **Hook** : « Tell me about yourself. » Grâce a répété sa réponse toute la nuit. Et devant le recruteur, plus un mot ne sort.
 >
-> **Promesse** : Je te montre comment, avec un exemple précis.
+> **Promesse** : Si tu parles anglais, ce blocage peut devenir ton revenu. Je te montre comment.
 >
-> **Partie 1** : Imagine Grâce, 24 ans, diplômée. Elle a décroché un entretien dans une ONG, mais il se passe en anglais. Elle comprend quand on lui parle. Mais dès qu'elle doit répondre, elle bloque.
+> **Partie 1** : Grâce a 24 ans, un diplôme, et un entretien dans une ONG. Elle comprend l'anglais. Mais sous pression, elle bloque. Elle n'a pas besoin de grammaire. Elle a besoin de s'entraîner à parler.
 >
-> *Boucle* : Et toi, tu as la réponse à son problème.
+> *Boucle* : Et ça, tu peux le lui offrir sans jamais la rencontrer.
 >
-> **Partie 2** : Tu peux lui vendre un pack audio pour s'entraîner. Tu lui poses les questions d'entretien, elle répond à voix haute, puis elle écoute ta réponse modèle. Ou un défi de 21 jours sur WhatsApp : une phrase par jour, elle t'envoie une note vocale, et tu la corriges.
+> **Partie 2** : Crée-lui une simulation d'entretien en audio. Tu poses la question. Un silence, pour qu'elle réponde à voix haute. Puis ta réponse modèle. Elle peut la réécouter dans le bus, autant de fois qu'il faut.
 >
-> *Boucle* : Et pour créer ça, il te faut seulement trois choses.
+> *Boucle* : Et pas besoin de studio.
 >
-> **Partie 3** : Google Docs pour écrire les questions et les réponses. Les notes vocales WhatsApp pour enregistrer tes audios. Et Canva pour créer la couverture de ton pack.
+> **Partie 3** : Ton téléphone pour enregistrer les questions. Google Docs pour préparer tes réponses avant d'enregistrer. Et Canva pour la couverture qu'elle verra avant d'acheter.
 >
-> *Boucle* : Et ce n'est pas tout : quand ton pack se vendra, d'autres profs d'anglais voudront savoir comment tu l'as fait. Et tu n'as même pas besoin de montrer ton visage : je te montre comment ce soir.
+> *Boucle* : Quand Grâce aura son poste, ses amies voudront la même chose. Et d'autres qui parlent anglais te demanderont comment tu as fait. Ce soir, je te montre comment publier sans montrer ton visage.
 >
-> **CTA** : Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
+> **CTA** : Commente ta compétence : je te réponds en privé pour t'aider à la transformer en revenu.
 
 ## 9. Excel → la gestion de stock des petites boutiques
 
@@ -568,21 +568,21 @@ Registre "vous". Environ 50 à 60 secondes chacune. Le bandeau en haut de la vid
 
 Nouveau format du 19 h, testé à partir du jour 5 : la suite directe de la vidéo de 13 h, au même registre (« tu »), avec de vraies images et une action concrète. La vidéo cuisine de 13 h a beaucoup mieux marché que celle de 19 h, qui ressemblait à une leçon de marketing.
 
-> **Hook** : Tu veux aider Grâce, mais tu n'as pas de caméra, et tu ne veux pas montrer ton visage ?
+> **Hook** : Ce matin, Grâce bloquait devant « Tell me about yourself ». Ce soir, c'est ton blocage à toi qu'on règle.
 >
-> **Promesse** : Pas de souci. Je te montre trois façons de faire, avec seulement ton téléphone.
+> **Promesse** : Tu veux publier des leçons d'anglais, sans caméra et sans montrer ton visage ? Voici trois façons, avec juste ton téléphone.
 >
-> **Partie 1** : D'abord, regarde ces comptes. Ces jeunes publient des leçons d'anglais. Et on ne voit jamais leur visage.
+> **Partie 1** : Regarde ces comptes. Ces jeunes publient des leçons d'anglais. Leur visage, tu ne le vois jamais.
 >
-> *Boucle* : Et toi, tu peux faire pareil.
+> *Boucle* : S'ils le font, tu peux le faire. Regarde.
 >
-> **Partie 2** : Premier format : une feuille et un feutre. Ton téléphone filme ta main qui écrit « Tell me about yourself », puis la traduction. Deuxième format : le texte animé. Dans CapCut, la phrase apparaît mot par mot, et tu la prononces en voix off. Troisième format : ton écran. Tu tapes la question dans Google Docs, et tu enregistres ton écran pendant que tu lis la réponse.
+> **Partie 2** : Un : une feuille, un feutre. Ton téléphone filme ta main qui écrit la phrase, puis sa traduction. Deux : le texte animé. Dans CapCut, les mots apparaissent un par un, et ta voix les prononce. Trois : ton écran. Tu tapes la question dans Google Docs, et tu enregistres l'écran pendant que tu lis la réponse.
 >
-> *Boucle* : Et c'est comme ça que Grâce va te trouver.
+> *Boucle* : Et chacune de ces vidéos peut t'amener une cliente.
 >
-> **Partie 3** : Elle voit ta leçon, elle se dit : « c'est exactement ce qu'il me faut pour mon entretien ». Et elle t'écrit.
+> **Partie 3** : La veille de son entretien, Grâce tombe sur ta leçon. Elle l'écoute trois fois. Puis elle t'écrit : « Tu as d'autres questions comme ça ? » Ce message, c'est le début de ta première vente.
 >
-> **CTA** : Commente le numéro du format que tu vas essayer : je te réponds en privé avec le guide pour transformer ta compétence en revenu.
+> **CTA** : Commente le numéro du format que tu vas essayer. Je te réponds en privé pour t'aider à te lancer.
 
 **Images** : les captures de comptes qui enseignent l'anglais sans visage (avec l'accord des créateurs, sinon noms et visages floutés), une démonstration de chaque format (main qui écrit, texte animé, écran Google Docs), la photo de Grâce, la même qu'à 13 h.
 
