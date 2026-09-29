@@ -100,13 +100,13 @@
       #postB .tt { font-size: 50px; line-height: 1.22; margin-top: 18px; }
       #postB .mk { border-radius: 12px; padding: 0 8px; }
       #postB .im { height: 340px; margin-top: 22px; }
-      #scrollW { left: 60px; top: 200px; width: 960px; height: 800px; transform: rotate(-2deg); z-index: 2; }
-      #nadC { left: 70px; top: 870px; width: 250px; height: 250px; border-radius: 50%; border: 10px solid #fff; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.3); z-index: 5; }
-      #nadC img { width: 100%; height: 100%; object-fit: cover; object-position: 41% 44%; transform: scale(1.9); transform-origin: 41% 44%; }
-      #nadTag { left: 110px; top: 1135px; font-size: 44px; z-index: 6; }
-      #stop { left: 380px; top: 640px; width: 230px; height: 230px; z-index: 7; }
+      #scrollW { left: 530px; top: 200px; width: 500px; height: 800px; transform: rotate(3deg); z-index: 2; }
+      #scrollW video { object-position: 62% 50%; }
+      #nadC { left: 50px; top: 200px; width: 450px; height: 800px; transform: rotate(-3deg); z-index: 3; }
+      #nadTag { left: 90px; top: 930px; font-size: 48px; z-index: 6; }
+      #stop { left: 690px; top: 380px; width: 230px; height: 230px; z-index: 7; }
       #stop svg { width: 100%; height: 100%; }
-      #heart { left: 250px; top: 810px; width: 170px; height: 170px; z-index: 7; background: #ff5c00; }
+      #heart { left: 330px; top: 250px; width: 170px; height: 170px; z-index: 7; background: #ff5c00; }
       #heart svg { width: 58%; height: 58%; }
 
       /* F. différence */
@@ -225,12 +225,12 @@
       </div>
       <div class="ab" id="postB">
         <div class="post" style="margin:0;padding:0">
-          <div class="hd"><div class="av">V</div><div class="who">Votre page</div></div>
-          <div class="tt">Des recettes pour <span class="mk" id="mkF" data-layout-allow-overlap>les femmes</span> qui veulent <span class="mk" id="mkS">prendre du poids sainement</span></div>
+          <div class="hd"><div class="av" data-layout-allow-overlap>V</div><div class="who" data-layout-allow-overlap>Votre page</div></div>
+          <div class="tt" data-layout-allow-overlap>Des recettes pour <span class="mk" id="mkF" data-layout-allow-overlap>les femmes</span> qui veulent <span class="mk" id="mkS">prendre du poids sainement</span></div>
           <div class="im"><img src="assets/img/plat_gombo.jpg" style="object-position:center 40%" /></div>
         </div>
       </div>
-      <div class="ab" id="nadC"><img src="assets/img/nadine_floutee.jpg" /></div>
+      <div class="ab photo" id="nadC"><img src="assets/img/nadine_floutee.jpg" /></div>
       <div class="ab pill k" id="nadTag">Nadine</div>
       <div class="ab" id="stop"><svg viewBox="0 0 100 100"><polygon points="30,3 70,3 97,30 97,70 70,97 30,97 3,70 3,30" fill="#e0161a" stroke="#111" stroke-width="5"/><text x="50" y="63" text-anchor="middle" font-family="Baloo 2" font-weight="800" font-size="30" fill="#fff">STOP</text></svg></div>
       <div class="ab ico" id="heart">__HEART_WHITE__</div>
@@ -360,12 +360,12 @@
       tl.to("#mkS", { backgroundColor: "#ffd60a", duration: 0.2 }, T.sainement - 0.5);
       sparks(T.sainement);
       sparksOut(T.nadine - 0.4);
-      tl.to("#postB", { scale: 0.5, x: -10, y: 300, rotation: 4, duration: 0.45, ease: "power3.inOut" }, T.nadine - 0.4);
-      IN("#scrollW", { y: -900 }, { y: 0, duration: 0.45, ease: "power3.out" }, T.nadine - 0.35);
-      IN("#nadC", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, T.nadine);
+      tl.to("#postB", { scale: 0.45, x: -200, y: 300, rotation: -3, duration: 0.45, ease: "power3.inOut" }, T.nadine - 0.4);
+      IN("#nadC", { x: -700, rotation: -14 }, { x: 0, rotation: -3, duration: 0.45, ease: "back.out(1.3)" }, T.nadine - 0.35);
+      IN("#scrollW", { x: 700, rotation: 14 }, { x: 0, rotation: 3, duration: 0.45, ease: "back.out(1.3)" }, T.nadine - 0.2);
       pop("#nadTag", T.nadine + 0.2, -3);
       IN("#stop", { scale: 3, rotation: -40 }, { scale: 1, rotation: -8, duration: 0.3, ease: "power4.in" }, T.arrete - 0.05);
-      tl.to("#postB", { scale: 0.62, duration: 0.3, ease: "back.out(3)" }, T.arrete);
+      tl.to("#postB", { scale: 0.56, y: 260, duration: 0.3, ease: "back.out(3)" }, T.arrete);
       IN("#heart", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(3)" }, T.delle - 0.1);
       tl.to("#heart", { scale: 1.15, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, T.delle + 0.35);
       leave(["#scrollW", "#postB", "#nadC", "#nadTag", "#stop", "#heart"], T.changement - 0.35);
