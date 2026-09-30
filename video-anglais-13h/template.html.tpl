@@ -58,7 +58,7 @@
       .sc video, .vc video { width: 100%; height: 100%; object-fit: cover; display: block; }
       #pv { left: 380px; top: 230px; }
       #pm { left: 380px; top: 250px; }
-      #desk .vc { width: 100%; height: 300px; border-radius: 22px; overflow: hidden; border: 4px solid #111; }
+      #desk .vc { width: 100%; height: 560px; border-radius: 22px; overflow: hidden; border: 4px solid #111; }
       #free .vc { height: 230px; border-radius: 18px; overflow: hidden; border: 4px solid #111; margin-bottom: 14px; }
       .sk { width: 460px; height: 420px; overflow: hidden; }
       .sk .vc { position: absolute; inset: 0; }
@@ -86,14 +86,14 @@
       /* D. Grâce */
       #gr { left: 70px; top: 250px; width: 440px; height: 600px; overflow: hidden; }
       #gr svg { width: 100%; height: 100%; }
-      #grTag { left: 110px; top: 880px; font-size: 56px; }
-      #desk { left: 540px; top: 280px; width: 500px; height: 520px; padding: 26px; }
-      #desk .ong { position: absolute; right: 26px; top: 26px; background: #1c5bd6; color: #fff; font-size: 34px; padding: 8px 20px 0; border-radius: 16px; border: 4px solid #111; }
+      #grTag { left: 110px; top: 190px; font-size: 56px; z-index: 6; }
+      #desk { left: 70px; top: 230px; width: 940px; height: 740px; padding: 26px; }
+      #desk .ong { position: absolute; right: 46px; top: 46px; background: #1c5bd6; color: #fff; font-size: 34px; padding: 8px 20px 0; border-radius: 16px; border: 4px solid #111; }
       #desk svg { width: 170px; height: 190px; }
-      #desk .rq { font-family: 'Work Sans'; font-weight: 700; font-size: 36px; line-height: 1.2; margin-top: 16px; background: #eef2fb; border-radius: 22px; padding: 18px 22px; }
-      #gb { left: 300px; top: 180px; width: 260px; height: 150px; font-size: 90px; line-height: 1; display: flex; align-items: center; justify-content: center; letter-spacing: 0.1em; z-index: 6; }
-      #drop { left: 150px; top: 300px; width: 60px; height: 80px; z-index: 6; }
-      #blk { left: 580px; top: 830px; font-size: 64px; transform: rotate(-4deg); }
+      #desk .rq { font-family: 'Work Sans'; font-weight: 700; font-size: 46px; line-height: 1.2; margin-top: 16px; background: #eef2fb; border-radius: 22px; padding: 18px 22px; }
+      #gb { left: 640px; top: 560px; width: 260px; height: 150px; font-size: 90px; line-height: 1; display: flex; align-items: center; justify-content: center; letter-spacing: 0.1em; z-index: 6; }
+      #drop { left: 600px; top: 520px; width: 60px; height: 80px; z-index: 6; }
+      #blk { left: 600px; top: 920px; font-size: 64px; transform: rotate(-4deg); z-index: 6; }
 
       /* E. ampoule */
       #bulb { left: 340px; top: 420px; width: 400px; height: 400px; background: #ffd60a; }
@@ -215,7 +215,6 @@
       <div class="ab ico" id="need">!</div>
 
       <!-- D. Grâce -->
-      <div class="ab card" id="gr">__GRACE__</div>
       <div class="ab pill k" id="grTag">Grâce, 24 ans</div>
       <div class="ab card" id="desk"><div class="vc"><video id="vInt" class="clip" src="assets/video/entretien.mp4" data-start="__S_INT__" data-duration="__D_INT__" data-track-index="4" muted playsinline></video></div>
         <div class="ong">ONG</div><div class="rq">« Tell me about yourself. »</div></div>
@@ -286,7 +285,7 @@
       const IN = (sel, from, to, at) => tl.fromTo(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1, immediateRender: false }, at);
       const OUT = (sel, to, at) => tl.to(sel, to, at);
       const HIDE = ["#p1","#flipper","#p3","#pv","#pm","#nf1","#k1","#k2","#k3","#k4","#bub","#toi","#h1","#h2","#h3","#m1p","#m2p","#m3p","#m4p","#m5p","#need",
-        "#gr","#grTag","#desk","#gb","#drop","#blk","#bulb","#ap","#s1","#s2","#s3","#free","#cartA","#co1","#co2","#f1","#f2","#f3","#tel",
+        "#grTag","#desk","#gb","#drop","#blk","#bulb","#ap","#s1","#s2","#s3","#free","#cartA","#co1","#co2","#f1","#f2","#f3","#tel",
         "#night","#n1","#n2","#n3","#cbLab","#cbox","#dm","#rev","#c3","#c4","#sub","#cursor","#s1x","#s2x","#s3x","#s4x","#flash"];
       gsap.set(HIDE, { autoAlpha: 0 });
       gsap.set(["#m1","#m2","#m3"], { autoAlpha: 0 });
@@ -336,14 +335,13 @@
       leave(["#flipper", "#h1", "#h2", "#h3", "#m1p", "#m2p", "#m3p", "#m4p", "#m5p", "#need"], T.grace - 0.4);
 
       // ---------- D. Grâce ----------
-      IN("#gr", { x: -700, rotation: -10 }, { x: 0, rotation: -2, duration: 0.5, ease: "back.out(1.3)" }, T.grace - 0.25);
-      pop("#grTag", T.grace + 0.1, -3);
-      IN("#desk", { x: 700, rotation: 10 }, { x: 0, rotation: 2, duration: 0.5, ease: "back.out(1.3)" }, T.entretien - 0.2);
+      IN("#desk", { y: 900, rotation: 6 }, { y: 0, rotation: -1, duration: 0.5, ease: "back.out(1.3)" }, T.grace - 0.3);
+      pop("#grTag", T.grace + 0.05, -3);
       pop("#gb", T.bloque - 0.9, 4);
       IN("#drop", { y: -40 }, { y: 0, duration: 0.3 }, T.bloque - 0.5);
-      tl.to("#gr", { x: -10, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, T.bloque - 0.1);
+      tl.to("#desk", { x: -10, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, T.bloque - 0.1);
       pop("#blk", T.bloque - 0.15, -4);
-      leave(["#gr", "#grTag", "#desk", "#gb", "#drop", "#blk"], T.besoinla - 0.35);
+      leave(["#grTag", "#desk", "#gb", "#drop", "#blk"], T.besoinla - 0.35);
 
       // ---------- E. ampoule ----------
       IN("#bulb", { scale: 0, rotation: -60 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, T.besoinla - 0.1);

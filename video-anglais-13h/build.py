@@ -211,7 +211,7 @@ def build_html():
     typed = "".join(f"<span>{c}</span>" for c in "ANGLAIS")
     S = {
         "H1": (0.05, T["alors"] + 0.5), "H2": (T["jeunes"] - 0.35, T["grace"] + 0.1),
-        "INT": (T["entretien"] - 0.25, T["besoinla"] + 0.1), "FREE": (T["gratuites"] - 0.35, T["partie"] + 0.1),
+        "INT": (T["grace"] - 0.35, T["besoinla"] + 0.1), "FREE": (T["gratuites"] - 0.35, T["partie"] + 0.1),
         "VIS": (T["comptes"] - 0.35, T["soir"] + 0.1), "SK": (T["competence"] - 1.05, T["commente"]),
     }
     times = {}
