@@ -1,8 +1,28 @@
-"""Met en page plan_30_jours.md en PDF aux couleurs DigitalMikaelson."""
-import os, re, subprocess, markdown
+"""Met en page un plan (.md) en PDF aux couleurs DigitalMikaelson.
+
+Usage : python3 build_pdf.py [plan_30_jours|plan_100m_leads]"""
+import os, re, subprocess, sys, markdown
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, "..", "plan_30_jours.md")
+NAME = sys.argv[1] if len(sys.argv) > 1 else "plan_30_jours"
+SRC = os.path.join(HERE, "..", f"{NAME}.md")
+DOCS = {
+    "plan_30_jours": {
+        "kicker": "TIKTOK + INSTAGRAM", "title": "Stratégie<br>organique<br><span>30 jours</span>",
+        "sub": "Attirer des abonnés, faire réagir l'algorithme et vendre le guide « Gagne ta vie sans diplôme ».",
+        "goals": ["3 000 abonnés", "5 messages « EBOOK » par jour", "Des commentaires sur chaque post"],
+        "foot": "DigitalMikaelson · Plan de publication", "footer": "DigitalMikaelson · Stratégie organique 30 jours",
+        "breaks": ("2", "4", "7", "8"), "cal": "7",
+    },
+    "plan_100m_leads": {
+        "kicker": "INSPIRÉ DE « $100M LEADS »", "title": "Trouver<br>tes premiers<br><span>clients</span>",
+        "sub": "Les 4 façons d'attirer des contacts, les 5 premiers clients gratuits et la règle des 100, adaptés à DigitalMikaelson.",
+        "goals": ["5 accompagnés en 14 jours", "100 actions par jour", "100 jours sans abandonner"],
+        "foot": "DigitalMikaelson · Plan d'acquisition", "footer": "DigitalMikaelson · Plan « $100M Leads » adapté",
+        "breaks": ("2", "3", "5"), "cal": None,
+    },
+}
+D = DOCS[NAME]
 ASSETS = os.path.abspath(os.path.join(HERE, "..", "..", "page-chariow", "visuels", "src"))
 
 md = open(SRC, encoding="utf-8").read()
@@ -73,17 +93,18 @@ tr {{ page-break-inside: avoid; }}
 <section class="cover">
   <div class="ring"></div>
   <div class="logo"><img src="file://{ASSETS}/logo_dm.png"></div>
-  <div class="kicker">TIKTOK + INSTAGRAM</div>
-  <h1>Stratégie<br>organique<br><span>30 jours</span></h1>
-  <div class="sub">Attirer des abonnés, faire réagir l'algorithme et vendre le guide « Gagne ta vie sans diplôme ».</div>
-  <div class="goals"><div class="goal">3 000 abonnés</div><div class="goal">5 messages « EBOOK » par jour</div><div class="goal">Des commentaires sur chaque post</div></div>
-  <div class="foot">DigitalMikaelson · Plan de publication</div>
+  <div class="kicker">{D["kicker"]}</div>
+  <h1>{D["title"]}</h1>
+  <div class="sub">{D["sub"]}</div>
+  <div class="goals">{"".join(f'<div class="goal">{g}</div>' for g in D["goals"])}</div>
+  <div class="foot">{D["foot"]}</div>
 </section>
 <main>{body}</main>
 </body></html>"""
-# le calendrier est le tableau qui suit le titre de la section 7
-html = re.sub(r"(<h2><span class='n'>7</span>[\s\S]*?)<table>", r"\1<table class='cal'>", html, count=1)
-for n in ("2", "4", "7", "8"):
+# le calendrier est le tableau qui suit le titre de sa section
+if D["cal"]:
+    html = re.sub(rf"(<h2><span class='n'>{D['cal']}</span>[\s\S]*?)<table>", r"\1<table class='cal'>", html, count=1)
+for n in D["breaks"]:
     html = html.replace(f"<h2><span class='n'>{n}</span>", f"<h2 class='break'><span class='n'>{n}</span>")
-open(os.path.join(HERE, "plan_30_jours.html"), "w", encoding="utf-8").write(html)
-subprocess.run(["node", os.path.join(HERE, "print.mjs")], check=True)
+open(os.path.join(HERE, f"{NAME}.html"), "w", encoding="utf-8").write(html)
+subprocess.run(["node", os.path.join(HERE, "print.mjs"), NAME, D["footer"]], check=True)
