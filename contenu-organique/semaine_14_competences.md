@@ -270,7 +270,7 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, le mandarin 
 
 **Outils** : Google Docs (écrire les questions et les réponses), les notes vocales WhatsApp (enregistrer les audios), Canva (créer la couverture du pack).
 
-**Script** (environ 200 mots, un peu plus d'une minute)
+**Script** (voix enregistrée : 79 s, accélérée à 66 s au montage)
 > **Hook** : Tu es sûrement déjà tombé sur ces vidéos : des jeunes qui apprennent l'anglais aux autres, sur TikTok ou sur Facebook. Et tu t'es peut-être dit : « Moi aussi, je parle anglais. »
 >
 > **Promesse** : Alors regarde ce qu'on ne voit pas derrière ces vidéos. Et comment toi, tu peux faire pareil.
@@ -279,13 +279,13 @@ Autres niches possibles : l'anglais pour les candidats aux bourses, le mandarin 
 >
 > *Boucle* : Et ce besoin-là, tu peux y répondre.
 >
-> **Partie 2** : Crée-lui une simulation d'entretien en audio. Tu poses la question, elle répond à voix haute, puis elle écoute ta réponse modèle. Tes vidéos gratuites lui donnent confiance. Ton audio, elle l'achète.
+> **Partie 2** : Crée-lui une simulation d'entretien en audio. Tu poses la question, elle répond à voix haute, puis elle écoute ta réponse modèle. Tes vidéos gratuites lui donnent confiance. Ton audio, elle l'achète. Et la meilleure partie, tu peux faire ça en plusieurs formats : mini cours vidéo, guide d'anglais, check-list.
 >
 > *Boucle* : Et regarde bien ces comptes : certains ne montrent même pas leur visage.
 >
 > **Partie 3** : Une main qui écrit sur une feuille. Un texte animé. Un écran qui défile. Il te faut juste ton téléphone. Ce soir, je te montre ces trois formats, un par un.
 >
-> **CTA** : Et si toi aussi, tu as une compétence que tu voudrais apprendre aux autres, commente-la. Je te réponds en privé et je te montre comment la transformer en revenu.
+> **CTA** : Et si toi aussi, tu as une compétence que tu voudrais apprendre aux autres, commente-la. Je te réponds en privé et je te montre comment la transformer en revenu. Abonne-toi pour ne pas manquer ça.
 
 **Images** : les captures de comptes qui enseignent l'anglais (avec l'accord des créateurs, sinon noms et visages floutés), la photo de Grâce, un bureau d'entretien, un téléphone qui joue un audio, un aperçu des trois formats.
 
