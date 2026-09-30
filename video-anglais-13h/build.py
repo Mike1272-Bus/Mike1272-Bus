@@ -209,7 +209,16 @@ def build_html():
     lst = ('<svg viewBox="0 0 100 100"><g stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none">'
            '<path d="M12 24 L20 32 L32 18 M12 54 L20 62 L32 48 M12 84 L20 92 L32 78"/><path d="M46 26 H88 M46 56 H88 M46 86 H80"/></g></svg>')
     typed = "".join(f"<span>{c}</span>" for c in "ANGLAIS")
-    rep = {"__STAR__": STAR, "__T__": json.dumps(T), "__CAPS__": json.dumps(CAPS, ensure_ascii=False), "__DUR__": str(DUR),
+    S = {
+        "H1": (0.05, T["alors"] + 0.5), "H2": (T["jeunes"] - 0.35, T["grace"] + 0.1),
+        "INT": (T["entretien"] - 0.25, T["besoinla"] + 0.1), "FREE": (T["gratuites"] - 0.35, T["partie"] + 0.1),
+        "VIS": (T["comptes"] - 0.35, T["soir"] + 0.1), "SK": (T["competence"] - 1.05, T["commente"]),
+    }
+    times = {}
+    for k, (a, e) in S.items():
+        times[f"__S_{k}__"] = str(round(a, 3))
+        times[f"__D_{k}__"] = str(round(e - a, 3))
+    rep = {**times, "__STAR__": STAR, "__T__": json.dumps(T), "__CAPS__": json.dumps(CAPS, ensure_ascii=False), "__DUR__": str(DUR),
            "__MAN__": man, "__GRACE__": grace, "__RECRUITER__": recruiter, "__NOFACE__": noface, "__HEART__": heart, "__PLAY__": play,
            "__CART__": cart, "__BOOK__": book, "__LIST__": lst, "__TYPED__": typed, "__BARS__": "<i></i>" * 18}
     for k, v in rep.items():

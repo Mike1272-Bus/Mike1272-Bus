@@ -25,6 +25,12 @@ assets/audio/voix_originale.mp3 (ElevenLabs, 79 s), accélérée x1,2 sans chang
 
 ## Médias
 
-Brouillon entièrement illustré en attendant les extraits et images de l'utilisateur :
-téléphones de créateurs dessinés (main qui écrit, texte animé, écran), Grâce illustrée,
-lecteur audio, formats, logo rond DigitalMikaelson (branding/logo-3d) pour l'abonnement.
+Extraits fournis par l'utilisateur (les créateurs ont donné leur accord) :
+- hook1 / hook2 : deux créateurs qui enseignent l'anglais (téléphones du hook, et le 2e sur « likes »).
+- entretien : scène d'entretien (carte de Grâce).
+- gratuit : créatrice qui se filme (« tes vidéos gratuites »).
+- visage : main au feutre rouge sur des captures imprimées (« sans visage », « une main qui écrit »).
+Extraits du dépôt pour le CTA : cuisine (video-cuisine-13h), comptabilité (billets et calculatrice),
+menuiserie, et le 1er créateur pour l'anglais.
+Dessinés : Grâce, téléphones « texte animé » et « écran », lecteur audio, formats, icônes. Logo rond
+DigitalMikaelson (branding/logo-3d) pour l'abonnement.
