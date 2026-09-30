@@ -6,7 +6,7 @@ message: "Trois façons de publier des leçons d'anglais sans montrer son visage
 destination: tiktok + instagram-reels + facebook-reels
 aspect: 1080x1920
 language: fr
-length: 62s
+length: 68s
 audience: "Jeunes francophones (RDC) qui parlent anglais"
 narration: yes
 ---
@@ -20,8 +20,8 @@ Grâce tombe sur la leçon et écrit, première vente. CTA : commenter le numér
 
 ## Voix off
 
-assets/audio/voix_originale.mp3 (ElevenLabs, 73,5 s), accélérée x1,2 (atempo) dans
-assets/audio/voix.mp3 (61,3 s). Calage automatique texte / pauses dans build.py.
+assets/audio/voix_originale.mp3 (ElevenLabs, 73,5 s), accélérée x1,1 (atempo) dans
+assets/audio/voix.mp3 (66,8 s). Calage automatique texte / pauses dans build.py.
 
 ## Médias
 
