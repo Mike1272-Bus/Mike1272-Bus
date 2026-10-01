@@ -8,9 +8,10 @@ OUT = os.path.join(ROOT, "assets", "audio", "mix.wav")
 DUR = 20.0
 SFX = [(0.2, "whoosh-cinematic", 0.35), (1.0, "impact-bass-1", 0.28), (1.25, "sparkle", 0.22), (2.0, "whoosh-short", 0.22),
        (3.1, "whoosh", 0.40), (3.45, "whoosh-short", 0.32), (3.7, "impact-bass-2", 0.18), (7.2, "whoosh-cinematic", 0.30),
-       (8.1, "whoosh-short", 0.30), (8.4, "pop", 0.18), (9.75, "whoosh-short", 0.25), (10.55, "click-soft", 0.35),
-       (11.0, "pop", 0.2), (11.12, "pop", 0.2), (11.24, "pop", 0.2), (11.75, "whoosh", 0.35), (12.35, "impact-bass-1", 0.30),
-       (13.5, "whoosh-short", 0.2), (13.85, "whoosh", 0.35), (14.4, "sparkle", 0.2), (15.7, "whoosh-cinematic", 0.30),
+       (8.1, "whoosh-short", 0.30), (8.4, "pop", 0.18), (9.75, "whoosh-short", 0.25), (10.15, "pop", 0.18), (10.4, "pop", 0.18),
+       (10.75, "click-soft", 0.35), (11.6, "whoosh", 0.35), (12.35, "impact-bass-1", 0.30), (12.8, "whoosh-short", 0.22),
+       (13.2, "pop", 0.2), (13.37, "pop", 0.2), (13.54, "pop", 0.2), (13.71, "pop", 0.2), (13.88, "pop", 0.2),
+       (14.3, "whoosh-short", 0.25), (14.5, "click-soft", 0.25), (15.7, "whoosh-cinematic", 0.30),
        (16.2, "whoosh-short", 0.3), (17.45, "chime", 0.30), (17.5, "click-soft", 0.25)]
 
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
