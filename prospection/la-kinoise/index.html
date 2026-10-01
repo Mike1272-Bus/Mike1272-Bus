@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 400; src: url('assets/fonts/bricolage-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 700; src: url('assets/fonts/bricolage-700.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #1b110c; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #f5e9d8; font-family: 'Bricolage', sans-serif;
+        background: radial-gradient(circle at 50% 30%, #3a2416 0%, #22150e 45%, #140b07 100%); }
+      .ab { position: absolute; }
+      #glow { left: -300px; top: -200px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(217,164,65,0.28) 0%, rgba(217,164,65,0) 65%); }
+      #beans { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0.07; }
+      .dot { width: 10px; height: 10px; border-radius: 50%; background: #d9a441; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: 0.32em; color: #d9a441; text-transform: uppercase; }
+      .title { font-weight: 800; font-size: 120px; line-height: 0.95; letter-spacing: 0.02em; text-transform: uppercase; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .frame { border-radius: 30px; overflow: hidden; border: 3px solid rgba(217,164,65,0.85); box-shadow: 0 40px 90px rgba(0,0,0,0.55); background: #000; }
+      .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+      /* S1 */
+      #ring { left: 290px; top: 470px; width: 500px; height: 500px; }
+      #logo1 { left: 315px; top: 495px; width: 450px; height: 450px; border-radius: 50%; }
+      #t1 { top: 1050px; }
+      #t1 span { display: inline-block; }
+      #s1 { top: 1200px; font-family: 'Work Sans'; font-weight: 400; font-size: 44px; letter-spacing: 0.04em; color: #e9d6bc; }
+      .steam { width: 120px; height: 260px; }
+      #st1 { left: 400px; top: 230px; } #st2 { left: 480px; top: 200px; } #st3 { left: 560px; top: 230px; }
+
+      /* S2 */
+      #wipe { left: -1900px; top: -400px; width: 1400px; height: 2800px; background: #d9a441; transform: rotate(14deg); z-index: 20; }
+      #e2 { top: 190px; }
+      #t2 { top: 240px; }
+      #f2 { left: 90px; top: 420px; width: 900px; height: 1123px; }
+      #s2 { top: 1590px; font-family: 'Work Sans'; font-weight: 400; font-style: italic; font-size: 54px; color: #f5e9d8; }
+      #line2 { left: 390px; top: 1680px; width: 300px; height: 4px; background: #d9a441; transform-origin: center; }
+
+      /* S3 */
+      #e3 { top: 170px; }
+      #t3 { top: 220px; font-size: 92px; }
+      #f3 { left: 90px; top: 420px; width: 900px; height: 1123px; }
+      .chip { left: 40px; font-family: 'Bricolage'; font-weight: 800; font-size: 46px; padding: 14px 34px 10px 30px; border-radius: 50px; color: #fff; display: flex; align-items: center; gap: 16px; box-shadow: 0 16px 30px rgba(0,0,0,0.45); z-index: 6; }
+      .chip i { width: 22px; height: 22px; border-radius: 50%; background: #fff; }
+      #c1 { top: 890px; background: #b5641a; }
+      #c2 { top: 1030px; background: #b9472a; }
+      #c3 { top: 1170px; background: #2f7d5c; }
+      #s3 { top: 1610px; font-family: 'Work Sans'; font-weight: 400; font-size: 44px; color: #e9d6bc; }
+
+      /* S4 */
+      #f4a { left: 70px; top: 300px; width: 760px; height: 448px; }
+      #f4b { left: 250px; top: 820px; width: 760px; height: 426px; }
+      #b1 { left: 600px; top: 640px; }
+      #b2 { left: 90px; top: 1180px; }
+      .badge { font-family: 'Bricolage'; font-weight: 800; font-size: 54px; line-height: 1; padding: 22px 40px 16px; border-radius: 22px; background: #f5e9d8; color: #1b110c; box-shadow: 0 20px 40px rgba(0,0,0,0.5); z-index: 6; }
+      .badge b { color: #b9472a; }
+      #t4 { top: 1420px; font-size: 84px; }
+
+      /* S5 */
+      #ring5 { left: 340px; top: 420px; width: 400px; height: 400px; }
+      #logo5 { left: 360px; top: 440px; width: 360px; height: 360px; border-radius: 50%; }
+      #t5 { top: 900px; }
+      #s5 { top: 1050px; font-family: 'Work Sans'; font-weight: 400; font-size: 44px; color: #e9d6bc; }
+      #cta5 { left: 170px; top: 1190px; width: 740px; font-family: 'Work Sans'; font-weight: 700; font-size: 38px; text-align: center; padding: 26px 0 22px; border-radius: 60px; border: 3px solid #d9a441; color: #f5e9d8; }
+      #h5 { top: 1330px; font-family: 'Work Sans'; font-weight: 700; font-size: 38px; color: #d9a441; letter-spacing: 0.04em; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #140b07; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div class="ab" id="glow"></div>
+      <svg class="ab" id="beans" viewBox="0 0 1080 1920"><defs><g id="bn"><ellipse cx="0" cy="0" rx="26" ry="38" fill="#d9a441"/><path d="M0 -34 C-12 -10 12 10 0 34" stroke="#22150e" stroke-width="6" fill="none"/></g></defs>
+        <use href="#bn" x="120" y="180" transform="rotate(20 120 180)"/><use href="#bn" x="930" y="260" transform="rotate(-30 930 260)"/><use href="#bn" x="80" y="900" transform="rotate(50 80 900)"/>
+        <use href="#bn" x="1000" y="1100" transform="rotate(-10 1000 1100)"/><use href="#bn" x="150" y="1650" transform="rotate(35 150 1650)"/><use href="#bn" x="900" y="1780" transform="rotate(-45 900 1780)"/>
+        <use href="#bn" x="560" y="1860" transform="rotate(10 560 1860)"/><use href="#bn" x="520" y="90" transform="rotate(-20 520 90)"/></svg>
+      <div class="ab dot" id="d1" style="left:200px;top:400px"></div><div class="ab dot" id="d2" style="left:860px;top:520px"></div>
+      <div class="ab dot" id="d3" style="left:150px;top:1300px"></div><div class="ab dot" id="d4" style="left:930px;top:1450px"></div>
+
+      <!-- S1 : logo -->
+      <svg class="ab steam" id="st1" viewBox="0 0 120 260"><path d="M60 250 C20 200 100 160 60 110 C20 60 100 40 60 5" fill="none" stroke="#f5e9d8" stroke-width="8" stroke-linecap="round" opacity="0.5"/></svg>
+      <svg class="ab steam" id="st2" viewBox="0 0 120 260"><path d="M60 250 C100 200 20 160 60 110 C100 60 20 40 60 5" fill="none" stroke="#f5e9d8" stroke-width="8" stroke-linecap="round" opacity="0.5"/></svg>
+      <svg class="ab steam" id="st3" viewBox="0 0 120 260"><path d="M60 250 C20 200 100 160 60 110 C20 60 100 40 60 5" fill="none" stroke="#f5e9d8" stroke-width="8" stroke-linecap="round" opacity="0.5"/></svg>
+      <svg class="ab" id="ring" viewBox="0 0 500 500"><circle id="ringC" cx="250" cy="250" r="244" fill="none" stroke="#d9a441" stroke-width="6"/></svg>
+      <img class="ab" id="logo1" src="assets/img/logo.png" />
+      <div class="ab center title" id="t1"><span>L</span><span>a</span><span>&nbsp;</span><span>K</span><span>i</span><span>n</span><span>o</span><span>i</span><span>s</span><span>e</span></div>
+      <div class="ab center" id="s1">Café 100 % naturel, 100 % congolais</div>
+
+      <!-- S2 : Arabica -->
+      <div class="ab center eyebrow" id="e2">Saveur du Kivu</div>
+      <div class="ab center title" id="t2">Arabica</div>
+      <div class="ab frame" id="f2"><img id="i2" src="assets/img/arabica.jpg" /></div>
+      <div class="ab center" id="s2">Doux, fin, et cultivé chez nous.</div>
+      <div class="ab" id="line2"></div>
+
+      <!-- S3 : la gamme -->
+      <div class="ab center eyebrow" id="e3">La gamme</div>
+      <div class="ab center title" id="t3">Un café pour chacun</div>
+      <div class="ab frame" id="f3"><img id="i3" src="assets/img/rayon.jpg" /></div>
+      <div class="ab chip" id="c1"><i></i>Liberica</div>
+      <div class="ab chip" id="c2"><i></i>Arabica</div>
+      <div class="ab chip" id="c3"><i></i>Robusta</div>
+      <div class="ab center" id="s3">Dans les rayons de vos supermarchés</div>
+
+      <!-- S4 : 100 % -->
+      <div class="ab frame" id="f4a"><img id="i4a" src="assets/img/mains.jpg" /></div>
+      <div class="ab frame" id="f4b"><img id="i4b" src="assets/img/stand.jpg" /></div>
+      <div class="ab badge" id="b1"><b>100 %</b> naturel</div>
+      <div class="ab badge" id="b2"><b>100 %</b> congolais</div>
+      <div class="ab center title" id="t4">Goûtez la différence</div>
+
+      <!-- S5 : fin -->
+      <svg class="ab" id="ring5" viewBox="0 0 400 400"><circle id="ring5C" cx="200" cy="200" r="195" fill="none" stroke="#d9a441" stroke-width="5"/></svg>
+      <img class="ab" id="logo5" src="assets/img/logo.png" />
+      <div class="ab center title" id="t5">La Kinoise</div>
+      <div class="ab center" id="s5">Le café made in Congo</div>
+      <div class="ab" id="cta5">En vente dans vos supermarchés</div>
+      <div class="ab center" id="h5">@la.kinoise.cafe</div>
+
+      <div class="ab" id="wipe"></div>
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="20" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const IN = (sel, from, to, at) => tl.fromTo(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1, immediateRender: false }, at);
+      const OUT = (sel, at, d = 0.4) => tl.to(sel, { autoAlpha: 0, duration: d, ease: "power2.in" }, at);
+      const HIDE = ["#st1","#st2","#st3","#ring","#logo1","#t1","#s1","#e2","#t2","#f2","#s2","#line2","#e3","#t3","#f3","#c1","#c2","#c3","#s3",
+        "#f4a","#f4b","#b1","#b2","#t4","#ring5","#logo5","#t5","#s5","#cta5","#h5"];
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#fade", { autoAlpha: 1 });
+      const L1 = document.getElementById("ringC").getTotalLength();
+      const L5 = document.getElementById("ring5C").getTotalLength();
+      gsap.set("#ringC", { strokeDasharray: L1, strokeDashoffset: L1 });
+      gsap.set("#ring5C", { strokeDasharray: L5, strokeDashoffset: L5 });
+
+      // ambiance continue
+      tl.fromTo("#glow", { x: 0, y: 0 }, { x: 420, y: 900, duration: 20, ease: "sine.inOut" }, 0);
+      tl.fromTo("#beans", { y: 0 }, { y: -160, duration: 20, ease: "none" }, 0);
+      ["#d1", "#d2", "#d3", "#d4"].forEach((d, i) => tl.fromTo(d, { y: 0, opacity: 0.2 }, { y: -260, opacity: 0.8, duration: 6, yoyo: true, repeat: 2, ease: "sine.inOut" }, i * 0.7));
+
+      // ---------- S1 : logo (0 - 3.4) ----------
+      tl.to("#fade", { autoAlpha: 0, duration: 0.6, ease: "power2.out" }, 0);
+      tl.set("#ring", { autoAlpha: 1 }, 0.2);
+      tl.to("#ringC", { strokeDashoffset: 0, duration: 1.2, ease: "power2.inOut" }, 0.2);
+      IN("#logo1", { scale: 0.6, rotation: -25 }, { scale: 1, rotation: 0, duration: 1.0, ease: "back.out(1.6)" }, 0.35);
+      ["#st1", "#st2", "#st3"].forEach((s, i) => tl.fromTo(s, { y: 60, autoAlpha: 0 }, { y: -80, autoAlpha: 0.9, duration: 1.6, ease: "sine.out", immediateRender: false }, 0.6 + i * 0.25));
+      ["#st1", "#st2", "#st3"].forEach((s, i) => tl.to(s, { autoAlpha: 0, y: -160, duration: 0.6 }, 2.25 + i * 0.25));
+      tl.set("#t1", { autoAlpha: 1 }, 1.0);
+      tl.fromTo("#t1 span", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.05, ease: "back.out(2)", immediateRender: false }, 1.0);
+      IN("#s1", { y: 30 }, { y: 0, duration: 0.5, ease: "power2.out" }, 1.8);
+      OUT(["#ring", "#logo1", "#t1", "#s1"], 3.0);
+
+      // ---------- transition dorée ----------
+      tl.fromTo("#wipe", { x: 0 }, { x: 3700, duration: 0.8, ease: "power3.inOut", immediateRender: false }, 3.0);
+
+      // ---------- S2 : Arabica (3.4 - 7.6) ----------
+      IN("#f2", { y: 120, scale: 0.92 }, { y: 0, scale: 1, duration: 0.8, ease: "power3.out" }, 3.35);
+      tl.fromTo("#i2", { scale: 1.18 }, { scale: 1.0, duration: 4.4, ease: "none", immediateRender: false }, 3.35);
+      IN("#e2", { y: 20 }, { y: 0, duration: 0.5 }, 3.6);
+      IN("#t2", { y: 60, letterSpacing: "0.3em" }, { y: 0, letterSpacing: "0.02em", duration: 0.8, ease: "power3.out" }, 3.7);
+      IN("#s2", { y: 30 }, { y: 0, duration: 0.6, ease: "power2.out" }, 4.6);
+      IN("#line2", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 4.9);
+      tl.to(["#e2", "#t2", "#f2", "#s2", "#line2"], { autoAlpha: 0, x: -200, duration: 0.45, ease: "power2.in" }, 7.3);
+
+      // ---------- S3 : la gamme (7.6 - 11.9) ----------
+      IN("#f3", { x: 300 }, { x: 0, duration: 0.7, ease: "power3.out" }, 7.6);
+      tl.fromTo("#i3", { scale: 1.12, yPercent: 4 }, { scale: 1.0, yPercent: 0, duration: 4.5, ease: "none", immediateRender: false }, 7.6);
+      IN("#e3", { y: 20 }, { y: 0, duration: 0.5 }, 7.8);
+      IN("#t3", { y: 50 }, { y: 0, duration: 0.6, ease: "power3.out" }, 7.9);
+      [["#c1", 8.7], ["#c2", 9.1], ["#c3", 9.5]].forEach(([c, at]) => IN(c, { x: -300 }, { x: 0, duration: 0.5, ease: "back.out(1.8)" }, at));
+      IN("#s3", { y: 30 }, { y: 0, duration: 0.5 }, 10.1);
+      tl.to(["#e3", "#t3", "#f3", "#c1", "#c2", "#c3", "#s3"], { autoAlpha: 0, x: -200, duration: 0.45, ease: "power2.in" }, 11.5);
+
+      // ---------- S4 : 100 % (11.9 - 15.9) ----------
+      IN("#f4a", { x: -500, rotation: -6 }, { x: 0, rotation: -2, duration: 0.7, ease: "power3.out" }, 11.9);
+      tl.fromTo("#i4a", { scale: 1.12 }, { scale: 1, duration: 4, ease: "none", immediateRender: false }, 11.9);
+      IN("#f4b", { x: 500, rotation: 6 }, { x: 0, rotation: 2, duration: 0.7, ease: "power3.out" }, 12.3);
+      tl.fromTo("#i4b", { scale: 1.12 }, { scale: 1, duration: 3.6, ease: "none", immediateRender: false }, 12.3);
+      IN("#b1", { scale: 0.4, rotation: 10 }, { scale: 1, rotation: 3, duration: 0.45, ease: "back.out(2.2)" }, 13.0);
+      IN("#b2", { scale: 0.4, rotation: -10 }, { scale: 1, rotation: -3, duration: 0.45, ease: "back.out(2.2)" }, 13.5);
+      IN("#t4", { y: 50 }, { y: 0, duration: 0.6, ease: "power3.out" }, 14.0);
+      OUT(["#f4a", "#f4b", "#b1", "#b2", "#t4"], 15.5);
+
+      // ---------- S5 : fin (15.9 - 20) ----------
+      tl.set("#ring5", { autoAlpha: 1 }, 15.9);
+      tl.to("#ring5C", { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut" }, 15.9);
+      IN("#logo5", { scale: 0.5, rotation: 30 }, { scale: 1, rotation: 0, duration: 0.8, ease: "back.out(1.6)" }, 16.0);
+      IN("#t5", { y: 60 }, { y: 0, duration: 0.6, ease: "power3.out" }, 16.5);
+      IN("#s5", { y: 30 }, { y: 0, duration: 0.5 }, 16.9);
+      IN("#cta5", { scale: 0.8 }, { scale: 1, duration: 0.5, ease: "back.out(2)" }, 17.4);
+      tl.to("#cta5", { backgroundColor: "rgba(217,164,65,0.18)", duration: 0.4, yoyo: true, repeat: 3 }, 18.0);
+      IN("#h5", { y: 20 }, { y: 0, duration: 0.5 }, 17.8);
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 19.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
