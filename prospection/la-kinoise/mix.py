@@ -6,9 +6,12 @@ SFX_DIR = os.path.join(ROOT, "..", "..", "video-excel-13h", "assets", "sfx")
 MUSIC = os.path.join(ROOT, "..", "..", "video-excel-13h", "assets", "audio", "musique.wav")
 OUT = os.path.join(ROOT, "assets", "audio", "mix.wav")
 DUR = 20.0
-SFX = [(0.2, "whoosh-cinematic", 0.35), (1.0, "sparkle", 0.25), (3.0, "whoosh", 0.40), (3.7, "impact-bass-1", 0.25),
-       (7.4, "whoosh-short", 0.35), (8.7, "pop", 0.25), (9.1, "pop", 0.25), (9.5, "pop", 0.25),
-       (11.6, "whoosh", 0.35), (13.0, "click-soft", 0.30), (13.5, "click-soft", 0.30), (15.7, "whoosh-cinematic", 0.30), (16.5, "chime", 0.30)]
+SFX = [(0.2, "whoosh-cinematic", 0.35), (1.0, "impact-bass-1", 0.28), (1.25, "sparkle", 0.22), (2.0, "whoosh-short", 0.22),
+       (3.1, "whoosh", 0.40), (3.45, "whoosh-short", 0.32), (3.7, "impact-bass-2", 0.18), (7.2, "whoosh-cinematic", 0.30),
+       (8.1, "whoosh-short", 0.30), (8.4, "pop", 0.18), (9.75, "whoosh-short", 0.25), (10.55, "click-soft", 0.35),
+       (11.0, "pop", 0.2), (11.12, "pop", 0.2), (11.24, "pop", 0.2), (11.75, "whoosh", 0.35), (12.35, "impact-bass-1", 0.30),
+       (13.5, "whoosh-short", 0.2), (13.85, "whoosh", 0.35), (14.4, "sparkle", 0.2), (15.7, "whoosh-cinematic", 0.30),
+       (16.2, "whoosh-short", 0.3), (17.45, "chime", 0.30), (17.5, "click-soft", 0.25)]
 
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 inputs = ["-i", MUSIC]
