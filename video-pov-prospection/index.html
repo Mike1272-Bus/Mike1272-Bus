@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo 2'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Noto Color Emoji'; src: url('assets/fonts/NotoColorEmoji.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #fbf6ee; }
+      #root {
+        position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #111;
+        background:
+          repeating-linear-gradient(0deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 54px),
+          repeating-linear-gradient(90deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 54px),
+          radial-gradient(circle at 50% 36%, #fde3c8 0%, #fbf6ee 62%);
+      }
+      .ab { position: absolute; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .em { font-family: 'Noto Color Emoji', sans-serif; font-weight: 400; }
+      #progress { left: 0; top: 0; width: 1080px; height: 12px; background: #ff5c00; transform-origin: left center; z-index: 50; }
+      .brand { top: 150px; left: 70px; z-index: 40; background: #111; color: #fff; font-size: 28px; letter-spacing: 0.04em; padding: 12px 30px 6px; border-radius: 40px; }
+      .card { background: #fff; border: 5px solid #111; border-radius: 36px; box-shadow: 14px 14px 0 #111; }
+      .pill { text-align: center; background: #ff5c00; color: #fff; border-radius: 70px; border: 5px solid #111; box-shadow: 10px 10px 0 #111; white-space: nowrap; padding: 18px 40px 6px; }
+      .pill.y { background: #ffd60a; color: #111; }
+      .pill.g { background: #1d7a46; color: #fff; }
+      .pill.k { background: #111; color: #fff; box-shadow: 10px 10px 0 #ff5c00; }
+      .words span { display: inline-block; }
+
+      /* téléphones (vidéos floutées) */
+      .ph { width: 270px; height: 480px; border: 6px solid #111; border-radius: 34px; overflow: hidden; background: #111; box-shadow: 10px 10px 0 #111; z-index: 10; }
+      .ph video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      .ph .lock { position: absolute; left: 0; top: 0; width: 100%; height: 118px; background: #ffd60a; border-bottom: 5px solid #111; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 34px; padding-top: 6px; }
+      #ph0 { left: 105px; top: 500px; } #ph1 { left: 405px; top: 500px; } #ph2 { left: 705px; top: 500px; }
+      #ph3 { left: 105px; top: 1010px; } #ph4 { left: 405px; top: 1010px; } #ph5 { left: 705px; top: 1010px; }
+
+      /* S0 */
+      #pov { left: 80px; top: 300px; font-size: 96px; }
+      #hook { top: 500px; font-size: 92px; line-height: 1.02; }
+
+      /* étapes */
+      .num { left: 70px; top: 250px; width: 130px; height: 130px; border-radius: 50%; background: #ff5c00; color: #fff; border: 6px solid #111; box-shadow: 8px 8px 0 #111; font-size: 96px; display: flex; align-items: center; justify-content: center; padding-top: 14px; }
+      .stitle { left: 230px; top: 262px; width: 790px; font-size: 62px; line-height: 1.02; }
+
+      /* S1 : recherche */
+      #search { left: 90px; top: 460px; width: 900px; height: 1000px; padding: 34px 40px; }
+      #sHead { display: flex; align-items: center; gap: 20px; font-size: 44px; }
+      #sHead img { width: 74px; height: 74px; border-radius: 18px; border: 4px solid #111; }
+      #prompt { margin-top: 26px; background: #f4f1ec; border: 4px solid #111; border-radius: 26px; padding: 20px 26px 14px; font-family: 'Work Sans'; font-weight: 700; font-size: 36px; line-height: 1.3; min-height: 150px; }
+      #prompt i { display: inline-block; width: 4px; height: 40px; background: #111; vertical-align: -6px; margin-left: 2px; }
+      .row { position: absolute; left: 40px; width: 810px; height: 100px; border-bottom: 3px dashed #c9c2b6; display: flex; align-items: center; gap: 22px; }
+      .row .av { width: 64px; height: 64px; border-radius: 50%; border: 4px solid #111; }
+      .row .nm { width: 280px; height: 34px; border-radius: 17px; background: #d9d3c8; }
+      .row .sec { font-family: 'Work Sans'; font-weight: 700; font-size: 34px; width: 170px; }
+      .row .city { margin-left: auto; font-family: 'Work Sans'; font-weight: 700; font-size: 26px; background: #111; color: #fff; padding: 8px 18px 6px; border-radius: 30px; }
+      #found { left: 470px; top: 1400px; font-size: 52px; transform: rotate(-5deg); z-index: 12; }
+
+      /* S2 */
+      #count { left: 0; width: 1080px; top: 400px; display: flex; justify-content: center; }
+      #count .pill { font-size: 46px; padding: 12px 36px 2px; }
+
+      /* S3 : DM */
+      #dm { left: 110px; top: 430px; width: 860px; height: 1000px; overflow: hidden; }
+      #dmHead { position: absolute; left: 0; top: 0; width: 100%; height: 130px; border-bottom: 4px solid #111; display: flex; align-items: center; gap: 22px; padding: 0 34px; }
+      #dmHead .av { width: 80px; height: 80px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ffd27a, #ff5c00 55%, #b36cd0); border: 4px solid #111; filter: blur(3px); }
+      #dmHead .nm { width: 260px; height: 36px; border-radius: 18px; background: #d9d3c8; }
+      #dmHead .ig { margin-left: auto; width: 70px; height: 70px; border-radius: 20px; background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); border: 4px solid #111; display: flex; align-items: center; justify-content: center; }
+      #dmHead .ig b { width: 36px; height: 36px; border: 5px solid #fff; border-radius: 12px; }
+      #msg { position: absolute; right: 36px; top: 170px; width: 600px; background: #3d7bf2; color: #fff; border-radius: 34px 34px 8px 34px; padding: 22px 28px 16px; font-family: 'Work Sans'; font-weight: 700; font-size: 34px; line-height: 1.32; }
+      #sent { position: absolute; right: 40px; top: 845px; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; color: #1d7a46; }
+      #sent6 { left: 140px; top: 1290px; font-size: 52px; transform: rotate(-5deg); z-index: 12; }
+
+      /* S4 */
+      #t4 { top: 240px; font-size: 76px; line-height: 1.02; }
+
+      /* S5 : appel à l'action */
+      #bref { left: 80px; top: 260px; font-size: 60px; transform: rotate(-4deg); }
+      #c1 { top: 420px; font-size: 66px; line-height: 1.06; }
+      #cbox { left: 110px; top: 800px; width: 860px; height: 150px; display: flex; align-items: center; gap: 24px; padding: 0 30px; }
+      #cbox .av { width: 82px; height: 82px; border-radius: 50%; border: 4px solid #111; background: url('assets/img/logo_dm_icone.png') center / 80% no-repeat #fff; }
+      #ctext { position: relative; font-family: 'Work Sans'; font-weight: 700; font-size: 54px; color: #111; display: flex; align-items: center; height: 70px; }
+      #ph_c { position: absolute; left: 0; top: 10px; white-space: nowrap; font-family: 'Work Sans'; font-weight: 400; font-size: 40px; color: #8b857b; }
+      #caret { display: inline-block; width: 5px; height: 56px; background: #ff5c00; margin-left: 4px; }
+      #send { margin-left: auto; width: 84px; height: 84px; border-radius: 50%; background: #ff5c00; border: 4px solid #111; display: flex; align-items: center; justify-content: center; }
+      #cta { left: 0; width: 1080px; top: 1020px; display: flex; justify-content: center; }
+      #cta .pill { font-size: 84px; padding: 22px 54px 8px; }
+      #c2 { top: 1200px; font-size: 58px; }
+      #logo { left: 350px; top: 1310px; width: 380px; height: 170px; background: url('assets/img/logo_dm.png') center / 92% no-repeat #fff; border: 5px solid #111; border-radius: 28px; box-shadow: 10px 10px 0 #111; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1080" data-height="1920">
+      <div class="ab" id="progress"></div>
+      <div class="ab brand">DigitalMikaelson</div>
+
+      <!-- S0 : accroche -->
+      <div class="ab pill y" id="pov">POV :</div>
+      <div class="ab center words" id="hook"></div>
+
+      <!-- S1 : trouver des entreprises -->
+      <div class="ab num" id="n1">1</div>
+      <div class="ab stitle words" id="st1"></div>
+      <div class="ab card" id="search">
+        <div id="sHead"><img src="assets/img/ic_claude.png" alt="" />Recherche avec l'IA</div>
+        <div id="prompt"><span id="ptxt"></span><i id="pcur"></i></div>
+      </div>
+      <div class="ab pill g" id="found">6 marques trouvées <span class="em">✅</span></div>
+
+      <!-- S2 : créer les vidéos -->
+      <div class="ab num" id="n2">2</div>
+      <div class="ab stitle words" id="st2"></div>
+      <div class="ab" id="count"><div class="pill k">6 vidéos · 1 nuit</div></div>
+
+      <!-- S3 : DM Instagram -->
+      <div class="ab num" id="n3">3</div>
+      <div class="ab stitle words" id="st3"></div>
+      <div class="ab card" id="dm">
+        <div id="dmHead"><div class="av"></div><div class="nm"></div><div class="ig"><b></b></div></div>
+        <div id="msg">Bonjour <span class="em">👋</span> J'aime beaucoup ce que vous faites. Je vous ai préparé une vidéo animée, c'est cadeau <span class="em">🎁</span></div>
+        <div id="sent">Envoyé ✓</div>
+      </div>
+      <div class="ab pill" id="sent6">Envoyé à 6 marques <span class="em">📩</span></div>
+
+      <!-- S4 -->
+      <div class="ab center words" id="t4"></div>
+
+      <!-- les 6 vidéos (floutées tant que les marques n'ont pas dit oui) -->
+      <div class="ab ph" id="ph0"><video class="clip" id="v0" src="assets/video/b0.mp4" data-start="0" data-duration="30" muted playsinline></video><div class="lock" data-layout-allow-overlap><span class="em">🔒</span>en attente</div></div>
+      <div class="ab ph" id="ph1"><video class="clip" id="v1" src="assets/video/b1.mp4" data-start="0" data-duration="30" muted playsinline></video><div class="lock" data-layout-allow-overlap><span class="em">🔒</span>en attente</div></div>
+      <div class="ab ph" id="ph2"><video class="clip" id="v2" src="assets/video/b2.mp4" data-start="0" data-duration="30" muted playsinline></video><div class="lock" data-layout-allow-overlap><span class="em">🔒</span>en attente</div></div>
+      <div class="ab ph" id="ph3"><video class="clip" id="v3" src="assets/video/b3.mp4" data-start="0" data-duration="30" muted playsinline></video><div class="lock" data-layout-allow-overlap><span class="em">🔒</span>en attente</div></div>
+      <div class="ab ph" id="ph4"><video class="clip" id="v4" src="assets/video/b4.mp4" data-start="0" data-duration="30" muted playsinline></video><div class="lock" data-layout-allow-overlap><span class="em">🔒</span>en attente</div></div>
+      <div class="ab ph" id="ph5"><video class="clip" id="v5" src="assets/video/b5.mp4" data-start="0" data-duration="30" muted playsinline></video><div class="lock" data-layout-allow-overlap><span class="em">🔒</span>en attente</div></div>
+
+      <!-- S5 : appel à l'action -->
+      <div class="ab pill y" id="bref">Bref…</div>
+      <div class="ab center words" id="c1"></div>
+      <div class="ab card" id="cbox"><div class="av"></div><div id="ctext"><span id="ph_c">Ajouter un commentaire…</span><span id="typed"></span><span id="caret"></span></div>
+        <div id="send"><svg width="44" height="44" viewBox="0 0 24 24"><path d="M3 11 L21 3 L13 21 L11 13 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg></div></div>
+      <div class="ab" id="cta"><div class="pill">Commente « IA »</div></div>
+      <div class="ab center words" id="c2"></div>
+      <div class="ab" id="logo"></div>
+
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="30" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at);
+      const OUT = (sel, at, to = {}) => FT(sel, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.35, ease: "power2.in", ...to }, at);
+
+      // mots découpés ; "|" force un retour à la ligne ; les émojis ont leur propre police
+      function words(host, text, prefix) {
+        const out = [];
+        text.split("|").forEach((line, li) => {
+          if (li) host.appendChild(document.createElement("br"));
+          line.trim().split(" ").forEach((w, i) => {
+            if (i) host.appendChild(document.createTextNode(" "));
+            const s = document.createElement("span"); s.id = prefix + out.length; s.setAttribute("data-layout-allow-overlap", "");
+            if (/\p{Extended_Pictographic}/u.test(w)) s.className = "em";
+            s.textContent = w; host.appendChild(s); out.push(s);
+          });
+        });
+        return out;
+      }
+      const HOOK = words($("hook"), "J'ai utilisé une|compétence IA pour… 😂", "hk");
+      const ST1 = words($("st1"), "Trouver des entreprises", "sa");
+      const ST2 = words($("st2"), "Créer des vidéos d'animation pour elles", "sb");
+      const ST3 = words($("st3"), "Je leur ai envoyé en DM Instagram", "sc");
+      const T4 = words($("t4"), "Je vous fais une vidéo|s'ils sont d'accord 😂", "t4");
+      const C1 = words($("c1"), "Si tu es jeune et que tu veux|apprendre à gagner de l'argent|avec l'IA…", "c1");
+      const C2 = words($("c2"), "je t'envoie un guide gratuit 🎁", "c2");
+
+      // lignes de résultats (noms cachés)
+      const ROWS = [["#7a4a2a", "Café", "Kinshasa"], ["#3f8a24", "Épices", "Kinshasa"], ["#f2a516", "Miel", "Kinshasa"], ["#d4a02c", "Vin", "Kinshasa"], ["#33231a", "Café", "Lubumbashi"], ["#e63a2e", "Sodas", "Kinshasa"]].map(([c, sec, city], i) => {
+        const r = document.createElement("div"); r.className = "row"; r.id = "row" + i; r.style.top = 300 + i * 105 + "px";
+        r.innerHTML = `<div class="av" style="background:${c}"></div><div class="nm"></div><div class="sec">${sec}</div><div class="city">${city}</div>`;
+        $("search").appendChild(r); return r;
+      });
+      const PROMPT = "Trouve-moi des marques congolaises qui vendent des produits très visuels";
+
+      // positions des téléphones : grille (CSS) → décalages pour l'éventail et la bulle du DM
+      const PH = [0, 1, 2, 3, 4, 5].map((i) => "#ph" + i);
+      const BASE = [[240, 740], [540, 740], [840, 740], [240, 1250], [540, 1250], [840, 1250]];
+      const FAN = [0, 1, 2, 3, 4, 5].map((i) => [145 + i * 158, 1300 + Math.abs(i - 2.5) * 34, (i - 2.5) * 6]);
+      const toFan = (i) => ({ x: FAN[i][0] - BASE[i][0], y: FAN[i][1] - BASE[i][1], rotation: FAN[i][2], scale: 0.82 });
+      const ZERO = { x: 0, y: 0, rotation: 0, scale: 1 };
+      const DMV = { x: 829 - BASE[0][0], y: 1020 - BASE[0][1], rotation: 0, scale: 0.75 };
+
+      gsap.set(["#pov", "#n1", "#search", "#found", "#n2", "#count", "#n3", "#dm", "#sent6", "#bref", "#cbox", "#cta", "#logo", ...PH, ...ROWS,
+        ...HOOK, ...ST1, ...ST2, ...ST3, ...T4, ...C1, ...C2, "#sent", "#msg", "#typed", "#pcur"], { autoAlpha: 0 });
+      gsap.set("#n2, #n3", { autoAlpha: 0 });
+
+      tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: 30, ease: "none" }, 0);
+
+      // ---------- S0 : accroche (0 - 3.6) ----------
+      IN("#pov", { scale: 0, rotation: -20 }, { scale: 1, rotation: -4, duration: 0.45, ease: "back.out(2.4)" }, 0.1);
+      HOOK.forEach((s, i) => IN(s, { y: 80, scale: 0.6 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 0.45 + i * 0.12));
+      PH.forEach((p, i) => IN(p, { ...toFan(i), y: toFan(i).y + 900, rotation: toFan(i).rotation * 3 }, { ...toFan(i), duration: 0.7, ease: "back.out(1.4)" }, 1.0 + i * 0.08));
+      PH.forEach((p, i) => FT(p, { y: toFan(i).y }, { y: toFan(i).y - 22, duration: 0.9, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.8 + i * 0.05));
+      OUT(["#pov", ...HOOK], 3.3, { y: -120 });
+      PH.forEach((p, i) => FT(p, { ...toFan(i), autoAlpha: 1 }, { ...toFan(i), y: toFan(i).y + 1000, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.3 + i * 0.03));
+
+      // ---------- S1 : trouver des entreprises (3.7 - 8.5) ----------
+      IN("#n1", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 3.7);
+      ST1.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 3.8 + i * 0.08));
+      IN("#search", { y: 900, rotation: 4 }, { y: 0, rotation: 0, duration: 0.6, ease: "expo.out" }, 3.95);
+      tl.set(["#pcur"], { autoAlpha: 1 }, 4.4);
+      const TY = { n: 0 };
+      tl.fromTo(TY, { n: 0 }, { n: PROMPT.length, duration: 1.5, ease: "none", immediateRender: false,
+        onUpdate: () => { $("ptxt").textContent = PROMPT.slice(0, Math.round(TY.n)); } }, 4.45);
+      tl.set("#pcur", { autoAlpha: 0 }, 6.0);
+      ROWS.forEach((r, i) => IN(r, { x: -120 }, { x: 0, duration: 0.35, ease: "power3.out" }, 6.05 + i * 0.13));
+      IN("#found", { scale: 2.4, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "power4.in" }, 7.0);
+      OUT(["#n1", ...ST1, "#found"], 8.2);
+      FT("#search", { x: 0, autoAlpha: 1 }, { x: -1200, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 8.2);
+
+      // ---------- S2 : créer les vidéos (8.6 - 15.2) ----------
+      IN("#n2", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 8.6);
+      ST2.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 8.7 + i * 0.07));
+      const SCAT = [[-700, -300, -40], [0, -1300, 30], [700, -300, 40], [-700, 600, 30], [0, 1300, -30], [700, 600, -40]];
+      PH.forEach((p, i) => IN(p, { x: SCAT[i][0], y: SCAT[i][1], rotation: SCAT[i][2], scale: 0.4 }, { ...ZERO, duration: 0.8, ease: "expo.out" }, 9.1 + [2, 0, 4, 1, 5, 3][i] * 0.1));
+      IN("#count", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 10.2);
+      PH.forEach((p, i) => FT(p, { rotation: 0 }, { rotation: i % 2 ? 2 : -2, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, 11.0));
+      OUT(["#n2", ...ST2, "#count"], 14.9);
+
+      // ---------- S3 : DM Instagram (15.2 - 20.8) ----------
+      PH.slice(1).forEach((p, i) => FT(p, { ...ZERO, autoAlpha: 1 }, { x: (i % 2 ? 1 : -1) * 1100, y: 0, rotation: (i % 2 ? 30 : -30), scale: 0.6, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 15.0 + i * 0.04));
+      IN("#n3", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 15.3);
+      ST3.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 15.4 + i * 0.07));
+      IN("#dm", { scale: 0.6, y: 300 }, { scale: 1, y: 0, duration: 0.6, ease: "back.out(1.4)" }, 15.4);
+      IN("#msg", { scale: 0.3, x: 200 }, { scale: 1, x: 0, duration: 0.45, ease: "back.out(2)" }, 16.1);
+      FT("#ph0", { ...ZERO }, { ...DMV, duration: 0.7, ease: "power3.inOut" }, 16.6);
+      IN("#sent", { y: 20 }, { y: 0, duration: 0.3 }, 17.5);
+      IN("#sent6", { scale: 2.4, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "power4.in" }, 18.3);
+      OUT(["#n3", ...ST3, "#sent6"], 20.5);
+      FT("#dm", { y: 0, autoAlpha: 1 }, { y: 1300, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 20.5);
+
+      // ---------- S4 : s'ils sont d'accord (20.9 - 24.0) ----------
+      FT("#ph0", { ...DMV }, { ...ZERO, duration: 0.6, ease: "power3.inOut" }, 20.6);
+      PH.slice(1).forEach((p, i) => IN(p, { x: (i % 2 ? 1 : -1) * 1100, y: 0, rotation: (i % 2 ? 30 : -30), scale: 0.6 }, { ...ZERO, duration: 0.6, ease: "expo.out" }, 20.75 + i * 0.06));
+      T4.forEach((s, i) => IN(s, { y: 70, scale: 0.6 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 21.0 + i * 0.1));
+      PH.forEach((p, i) => FT(p, { x: 0 }, { x: i % 2 ? 8 : -8, duration: 0.08, yoyo: true, repeat: 5, ease: "none" }, 22.6 + i * 0.05));
+      OUT(T4, 23.7, { y: -100 });
+      PH.forEach((p, i) => FT(p, { y: 0, autoAlpha: 1 }, { y: -1700, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 23.7 + i * 0.04));
+
+      // ---------- S5 : appel à l'action (24.2 - 30) ----------
+      IN("#bref", { scale: 0, rotation: -20 }, { scale: 1, rotation: -4, duration: 0.4, ease: "back.out(2.4)" }, 24.2);
+      C1.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 24.45 + i * 0.07));
+      IN("#cbox", { y: 400 }, { y: 0, duration: 0.5, ease: "expo.out" }, 25.6);
+      tl.set("#ph_c", { autoAlpha: 0 }, 26.3);
+      tl.set("#typed", { autoAlpha: 1 }, 26.3);
+      const TI = { n: 0 };
+      tl.fromTo(TI, { n: 0 }, { n: 2, duration: 0.4, ease: "none", immediateRender: false,
+        onUpdate: () => { $("typed").textContent = "IA".slice(0, Math.round(TI.n)); } }, 26.3);
+      FT("#send", { scale: 1 }, { scale: 1.25, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" }, 26.9);
+      IN("#cta", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 27.0);
+      FT("#cta", { scale: 1 }, { scale: 1.06, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 27.6);
+      C2.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.35, ease: "power3.out" }, 27.4 + i * 0.08));
+      IN("#logo", { y: 40 }, { y: 0, duration: 0.5, ease: "power3.out" }, 28.0);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
