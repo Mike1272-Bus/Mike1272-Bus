@@ -44,3 +44,22 @@ Objet : Une vidéo pour vos packs cadeaux de fin d'année
 ## Si la réponse est positive
 
 Demander : s'ils relancent les packs cadeaux cette année, les compositions et les prix, leurs photos en bonne qualité, et où leurs miels sont vendus aujourd'hui. Ne jamais publier la vidéo sans leur accord.
+
+## Leur réponse (2 octobre 2026)
+
+> Bonjour Monsieur Mike, j'espère que vous allez bien ? J'ai bien reçu votre vidéo et merci beaucoup pour le cadeau 🙌🏿 Vous faites un excellent travail et gardons plutôt contact car, j'ai consultant dans le domaine une potentielle collaboration ✍🏿
+
+## Notre réponse
+
+> Bonjour, merci beaucoup pour votre retour, ça me fait vraiment plaisir 🙏🏿
+>
+> Avec plaisir, gardons contact. J'aimerais en savoir plus sur la collaboration que vous avez en tête : de quoi auriez-vous besoin en priorité ?
+>
+> La période des cadeaux de fin d'année approche, je peux par exemple vous préparer une vidéo pour vos packs cadeaux, ou une vidéo pour chacun de vos miels. On peut en parler quand vous voulez, par message ou par un court appel.
+>
+> Une petite question : est-ce que je peux partager la vidéo sur mes pages en vous identifiant ? Ça fera aussi découvrir vos miels à plus de monde.
+>
+> Belle journée,
+> Mike
+
+Prochaine étape : s'ils décrivent un besoin, proposer une offre simple (une vidéo packs cadeaux, ou un pack de vidéos par parfum) avec un prix et un délai. Ne pas donner de prix avant de connaître le besoin.
