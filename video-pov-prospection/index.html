@@ -56,15 +56,9 @@
       #count .pill { font-size: 46px; padding: 12px 36px 2px; }
 
       /* S3 : DM */
-      #dm { left: 110px; top: 430px; width: 860px; height: 1000px; overflow: hidden; }
-      #dmHead { position: absolute; left: 0; top: 0; width: 100%; height: 130px; border-bottom: 4px solid #111; display: flex; align-items: center; gap: 22px; padding: 0 34px; }
-      #dmHead .av { width: 80px; height: 80px; border-radius: 50%; background: url('assets/img/kinoise.png') center / cover no-repeat; border: 4px solid #111; }
-      #dmHead .nm { font-family: 'Work Sans'; font-weight: 700; font-size: 36px; color: #111; }
-      #dmHead .ig { margin-left: auto; width: 70px; height: 70px; border-radius: 20px; background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); border: 4px solid #111; display: flex; align-items: center; justify-content: center; }
-      #dmHead .ig b { width: 36px; height: 36px; border: 5px solid #fff; border-radius: 12px; }
-      #msg { position: absolute; right: 36px; top: 170px; width: 600px; background: #3d7bf2; color: #fff; border-radius: 34px 34px 8px 34px; padding: 22px 28px 16px; font-family: 'Work Sans'; font-weight: 700; font-size: 34px; line-height: 1.32; }
-      #sent { position: absolute; right: 40px; top: 845px; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; color: #1d7a46; }
-      #sent6 { left: 140px; top: 1290px; font-size: 52px; transform: rotate(-5deg); z-index: 12; }
+      #dmv { left: 290px; top: 425px; width: 500px; height: 960px; border: 7px solid #111; border-radius: 40px; overflow: hidden; background: #111; box-shadow: 14px 14px 0 #111; }
+      #dmv video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      #sent6 { left: 150px; top: 1330px; font-size: 52px; transform: rotate(-5deg); z-index: 12; }
 
       /* S4 */
       #t4 { top: 240px; font-size: 76px; line-height: 1.02; }
@@ -108,11 +102,7 @@
       <!-- S3 : DM Instagram -->
       <div class="ab num" id="n3">3</div>
       <div class="ab stitle words" id="st3"></div>
-      <div class="ab card" id="dm">
-        <div id="dmHead"><div class="av"></div><div class="nm">la.kinoise.cafe</div><div class="ig"><b></b></div></div>
-        <div id="msg">Bonjour <span class="em">👋</span> J'aime beaucoup ce que vous faites. Je vous ai préparé une vidéo animée, c'est cadeau <span class="em">🎁</span></div>
-        <div id="sent">Envoyé ✓</div>
-      </div>
+      <div class="ab" id="dmv"><video class="clip" id="vdm" src="assets/video/dm.mp4" data-start="15.5" data-duration="5" muted playsinline></video></div>
       <div class="ab pill" id="sent6">Envoyé à 6 marques <span class="em">📩</span></div>
 
       <!-- S4 -->
@@ -174,10 +164,9 @@
       const FAN = [0, 1, 2, 3, 4, 5].map((i) => [145 + i * 158, 1300 + Math.abs(i - 2.5) * 34, (i - 2.5) * 6]);
       const toFan = (i) => ({ x: FAN[i][0] - BASE[i][0], y: FAN[i][1] - BASE[i][1], rotation: FAN[i][2], scale: 0.82 });
       const ZERO = { x: 0, y: 0, rotation: 0, scale: 1 };
-      const DMV = { x: 829 - BASE[0][0], y: 1020 - BASE[0][1], rotation: 0, scale: 0.75 };
 
-      gsap.set(["#pov", "#n1", "#scr", "#found", "#keep", "#n2", "#count", "#n3", "#dm", "#sent6", "#bref", "#cbox", "#cta", "#logo", ...PH,
-        ...HOOK, ...ST1, ...ST2, ...ST3, ...T4, ...C1, ...C2, "#sent", "#msg", "#typed"], { autoAlpha: 0 });
+      gsap.set(["#pov", "#n1", "#scr", "#found", "#keep", "#n2", "#count", "#n3", "#dmv", "#sent6", "#bref", "#cbox", "#cta", "#logo", ...PH,
+        ...HOOK, ...ST1, ...ST2, ...ST3, ...T4, ...C1, ...C2, "#typed"], { autoAlpha: 0 });
       gsap.set("#n2, #n3", { autoAlpha: 0 });
 
       tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: 30, ease: "none" }, 0);
@@ -210,20 +199,16 @@
       OUT(["#n2", ...ST2, "#count"], 14.9);
 
       // ---------- S3 : DM Instagram (15.2 - 20.8) ----------
-      PH.slice(1).forEach((p, i) => FT(p, { ...ZERO, autoAlpha: 1 }, { x: (i % 2 ? 1 : -1) * 1100, y: 0, rotation: (i % 2 ? 30 : -30), scale: 0.6, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 15.0 + i * 0.04));
+      PH.forEach((p, i) => FT(p, { ...ZERO, autoAlpha: 1 }, { x: (i % 2 ? 1 : -1) * 1100, y: 0, rotation: (i % 2 ? 30 : -30), scale: 0.6, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 15.0 + i * 0.04));
       IN("#n3", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 15.3);
       ST3.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 15.4 + i * 0.07));
-      IN("#dm", { scale: 0.6, y: 300 }, { scale: 1, y: 0, duration: 0.6, ease: "back.out(1.4)" }, 15.4);
-      IN("#msg", { scale: 0.3, x: 200 }, { scale: 1, x: 0, duration: 0.45, ease: "back.out(2)" }, 16.1);
-      FT("#ph0", { ...ZERO }, { ...DMV, duration: 0.7, ease: "power3.inOut" }, 16.6);
-      IN("#sent", { y: 20 }, { y: 0, duration: 0.3 }, 17.5);
-      IN("#sent6", { scale: 2.4, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "power4.in" }, 18.3);
+      IN("#dmv", { scale: 0.6, y: 400, rotation: 6 }, { scale: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.4)" }, 15.35);
+      IN("#sent6", { scale: 2.4, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "power4.in" }, 18.0);
       OUT(["#n3", ...ST3, "#sent6"], 20.5);
-      FT("#dm", { y: 0, autoAlpha: 1 }, { y: 1300, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 20.5);
+      FT("#dmv", { y: 0, autoAlpha: 1 }, { y: 1300, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 20.5);
 
       // ---------- S4 : s'ils sont d'accord (20.9 - 24.0) ----------
-      FT("#ph0", { ...DMV }, { ...ZERO, duration: 0.6, ease: "power3.inOut" }, 20.6);
-      PH.slice(1).forEach((p, i) => IN(p, { x: (i % 2 ? 1 : -1) * 1100, y: 0, rotation: (i % 2 ? 30 : -30), scale: 0.6 }, { ...ZERO, duration: 0.6, ease: "expo.out" }, 20.75 + i * 0.06));
+      PH.forEach((p, i) => IN(p, { x: (i % 2 ? 1 : -1) * 1100, y: 0, rotation: (i % 2 ? 30 : -30), scale: 0.6 }, { ...ZERO, duration: 0.6, ease: "expo.out" }, 20.75 + i * 0.06));
       T4.forEach((s, i) => IN(s, { y: 70, scale: 0.6 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 21.0 + i * 0.1));
       PH.forEach((p, i) => FT(p, { x: 0 }, { x: i % 2 ? 8 : -8, duration: 0.08, yoyo: true, repeat: 5, ease: "none" }, 22.6 + i * 0.05));
       OUT(T4, 23.7, { y: -100 });
