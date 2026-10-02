@@ -1,12 +1,12 @@
 # Vidéo TikTok : POV prospection avec l'IA (30 s, sans voix)
 
-Texte de Mike. Les 6 vidéos des marques sont floutées et marquées « en attente » : aucune marque n'a encore donné son accord.
+Texte de Mike. Les 6 vidéos des marques sont montrées en clair (choix de Mike). Étape 1 = vrai écran filmé sur Claude (nom de l'outil flouté) puis la liste des 50 entreprises.
 Police émoji : copier /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf dans assets/fonts/ avant de rendre (fichier non versionné).
 
 | Temps | Scène |
 |---|---|
 | 0 - 3,6 s | « POV : J'ai utilisé une compétence IA pour… 😂 », les 6 vidéos floutées en éventail |
-| 3,6 - 8,5 s | 1. Trouver des entreprises : recherche tapée, 6 résultats aux noms cachés, « 6 marques trouvées » |
+| 3,6 - 8,5 s | 1. Trouver des entreprises : écran filmé (demande, résultats, export), puis la liste des 50, « 50 entreprises trouvées ✅ », « J'en choisis 6 👇 » |
 | 8,5 - 15 s | 2. Créer des vidéos d'animation pour elles : les 6 vidéos se rangent en grille, « 6 vidéos · 1 nuit » |
 | 15 - 20,8 s | 3. Je leur ai envoyé en DM Instagram : conversation, la vidéo se glisse dans la bulle, « Envoyé à 6 marques » |
 | 20,8 - 24 s | « Je vous fais une vidéo s'ils sont d'accord 😂 » |
