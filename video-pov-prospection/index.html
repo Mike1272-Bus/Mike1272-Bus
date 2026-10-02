@@ -42,7 +42,7 @@
       #hook { top: 500px; font-size: 92px; line-height: 1.02; }
 
       /* étapes */
-      .num { left: 70px; top: 250px; width: 130px; height: 130px; border-radius: 50%; background: #ff5c00; color: #fff; border: 6px solid #111; box-shadow: 8px 8px 0 #111; font-size: 96px; display: flex; align-items: center; justify-content: center; padding-top: 14px; }
+      .num { left: 70px; top: 250px; width: 130px; height: 130px; border-radius: 50%; background: #ff5c00; color: #111; border: 6px solid #111; box-shadow: 8px 8px 0 #111; font-size: 96px; display: flex; align-items: center; justify-content: center; padding-top: 14px; }
       .stitle { left: 230px; top: 262px; width: 790px; font-size: 62px; line-height: 1.02; }
 
       /* S1 : écran filmé */
@@ -60,8 +60,16 @@
       #dmv video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
       #sent6 { left: 330px; top: 1330px; font-size: 52px; transform: rotate(-5deg); z-index: 12; }
 
-      /* S4 */
-      #t4 { top: 240px; font-size: 76px; line-height: 1.02; }
+      #hook2 { top: 720px; font-size: 76px; color: #ff5c00; }
+
+      /* cartons « SCÈNE » plein écran */
+      .scard { left: 0; top: 0; width: 1080px; height: 1920px; z-index: 45; border-left: 10px solid #111; border-right: 10px solid #111; }
+      #card1 { background: #ff5c00; } #card2 { background: #ffd60a; } #card3 { background: #1d7a46; }
+      .scard .tag { position: absolute; left: 0; width: 1080px; top: 470px; display: flex; justify-content: center; }
+      .scard .tag div { font-size: 64px; letter-spacing: 0.08em; padding: 18px 50px 6px; }
+      .scard .big { position: absolute; left: 0; width: 1080px; top: 760px; text-align: center; font-size: 118px; line-height: 1.0; color: #fff;
+        -webkit-text-stroke: 5px #111; paint-order: stroke fill; text-shadow: 10px 10px 0 #111; }
+      #card2 .big { top: 690px; }
 
       /* S5 : appel à l'action */
       #bref { left: 80px; top: 260px; font-size: 60px; transform: rotate(-4deg); }
@@ -74,23 +82,25 @@
       #send { margin-left: auto; width: 84px; height: 84px; border-radius: 50%; background: #ff5c00; border: 4px solid #111; display: flex; align-items: center; justify-content: center; }
       #cta { left: 0; width: 1080px; top: 1020px; display: flex; justify-content: center; }
       #cta .pill { font-size: 84px; padding: 22px 54px 8px; }
-      #c2 { top: 1200px; font-size: 58px; }
-      #logo { left: 350px; top: 1310px; width: 380px; height: 170px; background: url('assets/img/logo_dm.png') center / 92% no-repeat #fff; border: 5px solid #111; border-radius: 28px; box-shadow: 10px 10px 0 #111; }
+      #c2 { top: 1380px; font-size: 62px; }
+      #cover { left: 170px; top: 560px; width: 740px; height: 740px; background: url('assets/img/ebook_cover.png') center / cover no-repeat; border: 6px solid #111; border-radius: 24px; box-shadow: 16px 16px 0 #111; }
+      #logo { left: 390px; top: 1560px; width: 300px; height: 134px; background: url('assets/img/logo_dm.png') center / 92% no-repeat #fff; border: 5px solid #111; border-radius: 28px; box-shadow: 10px 10px 0 #111; }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="34" data-width="1080" data-height="1920">
       <div class="ab" id="progress"></div>
       <div class="ab brand">DigitalMikaelson</div>
 
       <!-- S0 : accroche -->
       <div class="ab pill y" id="pov">POV :</div>
       <div class="ab center words" id="hook"></div>
+      <div class="ab center words" id="hook2"></div>
 
       <!-- S1 : trouver des entreprises -->
       <div class="ab num" id="n1">1</div>
       <div class="ab stitle words" id="st1"></div>
-      <div class="ab" id="scr"><video class="clip" id="vrec" src="assets/video/rec.mp4" data-start="3.9" data-duration="4.4" muted playsinline></video></div>
+      <div class="ab" id="scr"><video class="clip" id="vrec" src="assets/video/rec.mp4" data-start="5.2" data-duration="4.4" muted playsinline></video></div>
       <div class="ab pill g" id="found">50 entreprises trouvées <span class="em">✅</span></div>
       <div class="ab pill y" id="keep">J'en choisis 6 <span class="em">👇</span></div>
 
@@ -102,19 +112,17 @@
       <!-- S3 : DM Instagram -->
       <div class="ab num" id="n3">3</div>
       <div class="ab stitle words" id="st3"></div>
-      <div class="ab" id="dmv"><video class="clip" id="vdm" src="assets/video/dm.mp4" data-start="15.5" data-duration="5" muted playsinline></video></div>
+      <div class="ab" id="dmv"><video class="clip" id="vdm" src="assets/video/dm.mp4" data-start="18.1" data-duration="5" muted playsinline></video></div>
       <div class="ab pill" id="sent6">DM envoyé <span class="em">✅</span></div>
 
-      <!-- S4 -->
-      <div class="ab center words" id="t4"></div>
 
       <!-- les 6 vidéos (floutées tant que les marques n'ont pas dit oui) -->
-      <div class="ab ph" id="ph0"><video class="clip" id="v0" src="assets/video/b0.mp4" data-start="0" data-duration="30" muted playsinline></video></div>
-      <div class="ab ph" id="ph1"><video class="clip" id="v1" src="assets/video/b1.mp4" data-start="0" data-duration="30" muted playsinline></video></div>
-      <div class="ab ph" id="ph2"><video class="clip" id="v2" src="assets/video/b2.mp4" data-start="0" data-duration="30" muted playsinline></video></div>
-      <div class="ab ph" id="ph3"><video class="clip" id="v3" src="assets/video/b3.mp4" data-start="0" data-duration="30" muted playsinline></video></div>
-      <div class="ab ph" id="ph4"><video class="clip" id="v4" src="assets/video/b4.mp4" data-start="0" data-duration="30" muted playsinline></video></div>
-      <div class="ab ph" id="ph5"><video class="clip" id="v5" src="assets/video/b5.mp4" data-start="0" data-duration="30" muted playsinline></video></div>
+      <div class="ab ph" id="ph0"><video class="clip" id="v0" src="assets/video/b0.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+      <div class="ab ph" id="ph1"><video class="clip" id="v1" src="assets/video/b1.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+      <div class="ab ph" id="ph2"><video class="clip" id="v2" src="assets/video/b2.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+      <div class="ab ph" id="ph3"><video class="clip" id="v3" src="assets/video/b3.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+      <div class="ab ph" id="ph4"><video class="clip" id="v4" src="assets/video/b4.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+      <div class="ab ph" id="ph5"><video class="clip" id="v5" src="assets/video/b5.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
 
       <!-- S5 : appel à l'action -->
       <div class="ab pill y" id="bref">Bref…</div>
@@ -122,10 +130,16 @@
       <div class="ab card" id="cbox"><div class="av"></div><div id="ctext"><span id="ph_c">Ajouter un commentaire…</span><span id="typed"></span><span id="caret"></span></div>
         <div id="send"><svg width="44" height="44" viewBox="0 0 24 24"><path d="M3 11 L21 3 L13 21 L11 13 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg></div></div>
       <div class="ab" id="cta"><div class="pill">Commente « IA »</div></div>
+      <div class="ab" id="cover"></div>
       <div class="ab center words" id="c2"></div>
       <div class="ab" id="logo"></div>
 
-      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="30" data-track-index="1" data-volume="1"></audio>
+      <!-- cartons « SCÈNE » -->
+      <div class="ab scard" id="card1"><div class="tag"><div class="pill k">SCÈNE 1</div></div><div class="big">Trouver des<br>entreprises</div></div>
+      <div class="ab scard" id="card2"><div class="tag"><div class="pill k">SCÈNE 2</div></div><div class="big">Créer des vidéos<br>d'animation pour<br>ces entreprises</div></div>
+      <div class="ab scard" id="card3"><div class="tag"><div class="pill k">SCÈNE 3</div></div><div class="big">Je leur ai envoyé<br>en DM Instagram</div></div>
+
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="34" data-track-index="1" data-volume="1"></audio>
     </div>
 
     <script>
@@ -150,84 +164,93 @@
         });
         return out;
       }
-      const HOOK = words($("hook"), "J'ai utilisé une|compétence IA pour… 😂", "hk");
+      const HOOK = words($("hook"), "J'ai utilisé une|compétence IA pour…", "hk");
+      const HOOK2 = words($("hook2"), "attends, tu vas voir ! 👀", "hl");
       const ST1 = words($("st1"), "Trouver des entreprises", "sa");
       const ST2 = words($("st2"), "Créer des vidéos d'animation pour elles", "sb");
       const ST3 = words($("st3"), "Je leur ai envoyé en DM Instagram", "sc");
-      const T4 = words($("t4"), "Je vous fais une vidéo|s'ils sont d'accord 😂", "t4");
       const C1 = words($("c1"), "Si tu es jeune et que tu veux|apprendre à gagner de l'argent|avec l'IA…", "c1");
       const C2 = words($("c2"), "je t'envoie un guide gratuit 🎁", "c2");
 
-      // positions des téléphones : grille (CSS) → décalages pour l'éventail et la bulle du DM
+      // positions des téléphones : grille (CSS) → décalages pour l'éventail
       const PH = [0, 1, 2, 3, 4, 5].map((i) => "#ph" + i);
       const BASE = [[240, 740], [540, 740], [840, 740], [240, 1250], [540, 1250], [840, 1250]];
       const FAN = [0, 1, 2, 3, 4, 5].map((i) => [145 + i * 158, 1300 + Math.abs(i - 2.5) * 34, (i - 2.5) * 6]);
       const toFan = (i) => ({ x: FAN[i][0] - BASE[i][0], y: FAN[i][1] - BASE[i][1], rotation: FAN[i][2], scale: 0.82 });
       const ZERO = { x: 0, y: 0, rotation: 0, scale: 1 };
+      const CARDS = [["#card1", 3.8], ["#card2", 9.6], ["#card3", 16.6]];
 
-      gsap.set(["#pov", "#n1", "#scr", "#found", "#keep", "#n2", "#count", "#n3", "#dmv", "#sent6", "#bref", "#cbox", "#cta", "#logo", ...PH,
-        ...HOOK, ...ST1, ...ST2, ...ST3, ...T4, ...C1, ...C2, "#typed"], { autoAlpha: 0 });
-      gsap.set("#n2, #n3", { autoAlpha: 0 });
+      gsap.set(["#pov", "#n1", "#scr", "#found", "#keep", "#n2", "#count", "#n3", "#dmv", "#sent6", "#bref", "#cbox", "#cta", "#cover", "#logo", ...PH,
+        ...HOOK, ...HOOK2, ...ST1, ...ST2, ...ST3, ...C1, ...C2, "#typed", ...CARDS.map((c) => c[0])], { autoAlpha: 0 });
 
-      tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: 30, ease: "none" }, 0);
+      tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: 34, ease: "none" }, 0);
 
-      // ---------- S0 : accroche (0 - 3.6) ----------
+      // ---------- cartons « SCÈNE » : montée sonore puis impact ----------
+      CARDS.forEach(([id, t]) => {
+        IN(id, { x: 1100 }, { x: 0, duration: 0.3, ease: "power3.out" }, t - 0.1);
+        FT(id + " .tag", { scale: 0, rotation: -12 }, { scale: 1, rotation: -3, duration: 0.35, ease: "back.out(2.6)" }, t + 0.05);
+        FT(id + " .big", { scale: 2.4 }, { scale: 1, duration: 0.25, ease: "power4.in" }, t - 0.1);
+        FT(id + " .big", { x: 0 }, { x: 12, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, t + 0.15);
+        FT(id, { x: 0, autoAlpha: 1 }, { x: -1100, autoAlpha: 0, duration: 0.3, ease: "power3.in" }, t + 1.05);
+      });
+
+      // ---------- S0 : accroche, avec la voix (0 - 3.7) ----------
       IN("#pov", { scale: 0, rotation: -20 }, { scale: 1, rotation: -4, duration: 0.45, ease: "back.out(2.4)" }, 0.1);
-      HOOK.forEach((s, i) => IN(s, { y: 80, scale: 0.6 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 0.45 + i * 0.12));
+      HOOK.forEach((s, i) => IN(s, { y: 80, scale: 0.6 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 0.3 + i * 0.22));
+      HOOK2.forEach((s, i) => IN(s, { y: 60, scale: 0.6 }, { y: 0, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, 2.25 + i * 0.16));
       PH.forEach((p, i) => IN(p, { ...toFan(i), y: toFan(i).y + 900, rotation: toFan(i).rotation * 3 }, { ...toFan(i), duration: 0.7, ease: "back.out(1.4)" }, 1.0 + i * 0.08));
       PH.forEach((p, i) => FT(p, { y: toFan(i).y }, { y: toFan(i).y - 22, duration: 0.9, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.8 + i * 0.05));
-      OUT(["#pov", ...HOOK], 3.3, { y: -120 });
-      PH.forEach((p, i) => FT(p, { ...toFan(i), autoAlpha: 1 }, { ...toFan(i), y: toFan(i).y + 1000, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.3 + i * 0.03));
+      OUT(["#pov", ...HOOK, ...HOOK2], 3.5, { y: -120 });
+      PH.forEach((p, i) => FT(p, { ...toFan(i), autoAlpha: 1 }, { ...toFan(i), y: toFan(i).y + 1000, autoAlpha: 0, duration: 0.4, ease: "power3.in" }, 3.4 + i * 0.03));
 
-      // ---------- S1 : trouver des entreprises (3.7 - 8.5) ----------
-      IN("#n1", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 3.7);
-      ST1.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 3.8 + i * 0.08));
-      IN("#scr", { y: 900, rotation: 6 }, { y: 0, rotation: 0, duration: 0.5, ease: "expo.out" }, 3.75);
-      FT("#scr", { scale: 1 }, { scale: 1.04, duration: 4.0, ease: "none" }, 4.2);
-      IN("#found", { scale: 2.4, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "power4.in" }, 6.4);
-      IN("#keep", { scale: 0, rotation: 20 }, { scale: 1, rotation: 4, duration: 0.4, ease: "back.out(2.4)" }, 7.2);
-      OUT(["#n1", ...ST1, "#found", "#keep"], 8.2);
-      FT("#scr", { x: 0, autoAlpha: 1 }, { x: -1200, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 8.2);
+      // ---------- S1 : trouver des entreprises (5 - 9.5) ----------
+      IN("#n1", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 5.0);
+      ST1.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 5.1 + i * 0.08));
+      IN("#scr", { y: 900, rotation: 6 }, { y: 0, rotation: 0, duration: 0.5, ease: "expo.out" }, 5.05);
+      FT("#scr", { scale: 1 }, { scale: 1.04, duration: 4.0, ease: "none" }, 5.5);
+      IN("#found", { scale: 2.4, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "power4.in" }, 7.4);
+      IN("#keep", { scale: 0, rotation: 20 }, { scale: 1, rotation: 4, duration: 0.4, ease: "back.out(2.4)" }, 8.3);
+      OUT(["#n1", ...ST1, "#found", "#keep"], 9.2);
+      FT("#scr", { x: 0, autoAlpha: 1 }, { x: -1200, autoAlpha: 0, duration: 0.4, ease: "power3.in" }, 9.2);
 
-      // ---------- S2 : créer les vidéos (8.6 - 15.2) ----------
-      IN("#n2", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 8.6);
-      ST2.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 8.7 + i * 0.07));
+      // ---------- S2 : créer les vidéos (10.8 - 16.4) ----------
+      IN("#n2", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 10.8);
+      ST2.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 10.9 + i * 0.07));
       const SCAT = [[-700, -300, -40], [0, -1300, 30], [700, -300, 40], [-700, 600, 30], [0, 1300, -30], [700, 600, -40]];
-      PH.forEach((p, i) => IN(p, { x: SCAT[i][0], y: SCAT[i][1], rotation: SCAT[i][2], scale: 0.4 }, { ...ZERO, duration: 0.8, ease: "expo.out" }, 9.1 + [2, 0, 4, 1, 5, 3][i] * 0.1));
-      IN("#count", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 10.2);
-      PH.forEach((p, i) => FT(p, { rotation: 0 }, { rotation: i % 2 ? 2 : -2, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, 11.0));
-      OUT(["#n2", ...ST2, "#count"], 14.9);
+      PH.forEach((p, i) => IN(p, { x: SCAT[i][0], y: SCAT[i][1], rotation: SCAT[i][2], scale: 0.4 }, { ...ZERO, duration: 0.8, ease: "expo.out" }, 11.3 + [2, 0, 4, 1, 5, 3][i] * 0.1));
+      IN("#count", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 12.4);
+      PH.forEach((p, i) => FT(p, { rotation: 0 }, { rotation: i % 2 ? 2 : -2, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, 13.2));
+      OUT(["#n2", ...ST2, "#count"], 16.2);
+      PH.forEach((p, i) => FT(p, { ...ZERO, autoAlpha: 1 }, { x: (i % 2 ? 1 : -1) * 1100, rotation: (i % 2 ? 30 : -30), scale: 0.6, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 16.2 + i * 0.03));
 
-      // ---------- S3 : DM Instagram (15.2 - 20.8) ----------
-      PH.forEach((p, i) => FT(p, { ...ZERO, autoAlpha: 1 }, { x: (i % 2 ? 1 : -1) * 1100, y: 0, rotation: (i % 2 ? 30 : -30), scale: 0.6, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 15.0 + i * 0.04));
-      IN("#n3", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 15.3);
-      ST3.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 15.4 + i * 0.07));
-      IN("#dmv", { scale: 0.6, y: 400, rotation: 6 }, { scale: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.4)" }, 15.35);
-      IN("#sent6", { scale: 2.4, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "power4.in" }, 18.0);
-      OUT(["#n3", ...ST3, "#sent6"], 20.5);
-      FT("#dmv", { y: 0, autoAlpha: 1 }, { y: 1300, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 20.5);
+      // ---------- S3 : DM Instagram (17.8 - 22.9) ----------
+      IN("#n3", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 17.85);
+      ST3.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 17.95 + i * 0.07));
+      IN("#dmv", { scale: 0.6, y: 400, rotation: 6 }, { scale: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.4)" }, 17.9);
+      IN("#sent6", { scale: 2.4, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "power4.in" }, 20.3);
+      OUT(["#n3", ...ST3, "#sent6"], 22.6);
+      FT("#dmv", { y: 0, autoAlpha: 1 }, { y: 1300, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 22.6);
 
-      // ---------- S4 : s'ils sont d'accord (20.9 - 24.0) ----------
-      PH.forEach((p, i) => IN(p, { x: (i % 2 ? 1 : -1) * 1100, y: 0, rotation: (i % 2 ? 30 : -30), scale: 0.6 }, { ...ZERO, duration: 0.6, ease: "expo.out" }, 20.75 + i * 0.06));
-      T4.forEach((s, i) => IN(s, { y: 70, scale: 0.6 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 21.0 + i * 0.1));
-      PH.forEach((p, i) => FT(p, { x: 0 }, { x: i % 2 ? 8 : -8, duration: 0.08, yoyo: true, repeat: 5, ease: "none" }, 22.6 + i * 0.05));
-      OUT(T4, 23.7, { y: -100 });
-      PH.forEach((p, i) => FT(p, { y: 0, autoAlpha: 1 }, { y: -1700, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 23.7 + i * 0.04));
-
-      // ---------- S5 : appel à l'action (24.2 - 30) ----------
-      IN("#bref", { scale: 0, rotation: -20 }, { scale: 1, rotation: -4, duration: 0.4, ease: "back.out(2.4)" }, 24.2);
-      C1.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 24.45 + i * 0.07));
-      IN("#cbox", { y: 400 }, { y: 0, duration: 0.5, ease: "expo.out" }, 25.6);
-      tl.set("#ph_c", { autoAlpha: 0 }, 26.3);
-      tl.set("#typed", { autoAlpha: 1 }, 26.3);
+      // ---------- CTA, avec la voix (23.2 - 34) ----------
+      IN("#bref", { scale: 0, rotation: -20 }, { scale: 1, rotation: -4, duration: 0.4, ease: "back.out(2.4)" }, 23.2);
+      C1.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 24.25 + i * 0.2));
+      IN("#cbox", { y: 400 }, { y: 0, duration: 0.5, ease: "expo.out" }, 27.9);
+      tl.set("#ph_c", { autoAlpha: 0 }, 28.7);
+      tl.set("#typed", { autoAlpha: 1 }, 28.7);
       const TI = { n: 0 };
-      tl.fromTo(TI, { n: 0 }, { n: 2, duration: 0.4, ease: "none", immediateRender: false,
-        onUpdate: () => { $("typed").textContent = "IA".slice(0, Math.round(TI.n)); } }, 26.3);
-      FT("#send", { scale: 1 }, { scale: 1.25, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" }, 26.9);
-      IN("#cta", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 27.0);
-      FT("#cta", { scale: 1 }, { scale: 1.06, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 27.6);
-      C2.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.35, ease: "power3.out" }, 27.4 + i * 0.08));
-      IN("#logo", { y: 40 }, { y: 0, duration: 0.5, ease: "power3.out" }, 28.0);
+      tl.fromTo(TI, { n: 0 }, { n: 2, duration: 0.35, ease: "none", immediateRender: false,
+        onUpdate: () => { $("typed").textContent = "IA".slice(0, Math.round(TI.n)); } }, 28.7);
+      FT("#send", { scale: 1 }, { scale: 1.25, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" }, 29.05);
+      IN("#cta", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 29.15);
+      // la couverture de l'ebook prend la place
+      OUT(["#bref", ...C1], 30.15, { y: -120 });
+      OUT("#cbox", 30.15, { y: 300 });
+      FT("#cta", { y: 0 }, { y: -690, duration: 0.5, ease: "power3.inOut" }, 30.15);
+      IN("#cover", { scale: 0.2, rotation: -25, y: 300 }, { scale: 1, rotation: -2, y: 0, duration: 0.6, ease: "back.out(1.6)" }, 30.3);
+      C2.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.35, ease: "power3.out" }, 30.45 + i * 0.2));
+      IN("#logo", { y: 40 }, { y: 0, duration: 0.5, ease: "power3.out" }, 31.6);
+      FT("#cover", { y: 0, rotation: -2 }, { y: -16, rotation: 1, duration: 1.0, yoyo: true, repeat: 1, ease: "sine.inOut" }, 31.0);
+      FT("#cta", { scale: 1 }, { scale: 1.06, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 31.4);
 
       window.__timelines["main"] = tl;
     </script>

@@ -1,13 +1,18 @@
-# Vidéo TikTok : POV prospection avec l'IA (30 s, sans voix)
+# Vidéo TikTok : POV prospection avec l'IA (34 s)
 
-Texte de Mike. Les 6 vidéos des marques sont montrées en clair (choix de Mike). Étape 1 = vrai écran filmé sur Claude (nom de l'outil flouté) puis la liste des 50 entreprises.
+Voix : ElevenLabs « Hugo » enregistrée par Mike (assets/audio/hugo/voix_hugo.mp3), seulement au début et à la fin. Entre les deux : musique + bruitages. Avant chaque scène : montée sonore, impact et carton plein écran.
 Police émoji : copier /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf dans assets/fonts/ avant de rendre (fichier non versionné).
 
-| Temps | Scène |
-|---|---|
-| 0 - 3,6 s | « POV : J'ai utilisé une compétence IA pour… 😂 », les 6 vidéos floutées en éventail |
-| 3,6 - 8,5 s | 1. Trouver des entreprises : écran filmé (demande, résultats, export), puis la liste des 50, « 50 entreprises trouvées ✅ », « J'en choisis 6 👇 » |
-| 8,5 - 15 s | 2. Créer des vidéos d'animation pour elles : les 6 vidéos se rangent en grille, « 6 vidéos · 1 nuit » |
-| 15 - 20,8 s | 3. Je leur ai envoyé en DM Instagram : vrai écran du DM à la.kinoise.cafe puis la vidéo envoyée (profil de Mike flouté), « DM envoyé ✅ » |
-| 20,8 - 24 s | « Je vous fais une vidéo s'ils sont d'accord 😂 » |
-| 24 - 30 s | « Bref… Si tu es jeune et que tu veux apprendre à gagner de l'argent avec l'IA… Commente « IA », je t'envoie un guide gratuit 🎁 » |
+| Temps | Scène | Voix |
+|---|---|---|
+| 0 - 3,7 s | « POV : J'ai utilisé une compétence IA pour… attends, tu vas voir ! 👀 », les 6 vidéos en éventail | « J'ai utilisé une compétence IA pour… attends, tu vas voir ! » |
+| 3,7 - 4,9 s | Carton orange « SCÈNE 1 · Trouver des entreprises » | |
+| 5 - 9,5 s | Écran filmé, « 50 entreprises trouvées ✅ », « J'en choisis 6 👇 » | |
+| 9,5 - 10,7 s | Carton jaune « SCÈNE 2 · Créer des vidéos d'animation pour ces entreprises » | |
+| 10,8 - 16,5 s | Les 6 vidéos en grille, « 6 vidéos · 1 nuit » | |
+| 16,5 - 17,7 s | Carton vert « SCÈNE 3 · Je leur ai envoyé en DM Instagram » | |
+| 17,8 - 23 s | Vrai DM à la.kinoise.cafe, « DM envoyé ✅ » | |
+| 23,2 - 30,2 s | « Bref… Si tu es jeune… », commentaire « IA » tapé, « Commente « IA » » | « Bref ! Si tu es jeune … commente IA. » |
+| 30,3 - 34 s | Couverture de l'ebook, « je t'envoie un guide gratuit 🎁 », logo | « Je t'envoie un guide gratuit ! » |
+
+Son : `python3 mix.py` (découpe la voix, baisse la musique sous la voix, place les bruitages), puis `npx hyperframes@0.8.77 render -o renders/pov_prospection.mp4`.
