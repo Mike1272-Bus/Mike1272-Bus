@@ -19,13 +19,13 @@ Vérifie toujours que le numéro a un compte WhatsApp (photo, nom) avant d'écri
 | Café La Kinoise | Kinshasa | À trouver (Instagram @la.kinoise.cafe) | DM Instagram envoyé |
 | Kahawa Congo Coffee | Lubumbashi | À trouver (site kahawa-congo.com) | Vidéo prête |
 | Festa RDC | Kinshasa | Peu probable (grande marque) | Vidéo prête, passer par Instagram ou LinkedIn |
+| Les Délices d'Émilie | Lubumbashi | ✅ +243 825 553 856 (bio Instagram @les_delices.demilie) | Vidéo prête, à envoyer |
 
 ## Priorité 1 : petites marques à Kinshasa (les plus faciles)
 
 | # | Entreprise | Taille | Ce qu'ils vendent | Où chercher le numéro | Idée de vidéo |
 |---|---|---|---|---|---|
 | 1 | Chawarpips officiel | 1-10 | Le « chawarpips », chawarma revisité à la congolaise (œuf, beurre, lait) | chawarpips.com, Instagram, Facebook | Le chawarpips qui se monte couche par couche |
-| 2 | Les Délices d'Émilie | 1-10 | Gâteaux personnalisés et pâtisseries | YouTube @lesdelicesdemilie, Instagram | Un gâteau qui se construit étage par étage |
 | 3 | FRICO Sté | 1-10 | Frites : « la toute première usine de frites made in DRC » | frico.mystrikingly.com | La pomme de terre qui se découpe en frites |
 | 4 | La Boulangerie iSiCOMM | 1-10 | Boulangerie : baguettes, pain de mie, croissants | Facebook, Google Maps | Le pain qui sort du four, la vitrine qui se remplit |
 | 5 | Le Tablier RDC | 1-10 | Cuisine (page Facebook) | facebook.com/letablierrdc | Les plats du jour qui défilent |

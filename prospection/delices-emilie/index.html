@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Script'; font-weight: 400; src: url('assets/fonts/NothingYouCouldDo-Regular.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #1c0a1a; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff3f8; font-family: 'Baloo', sans-serif;
+        background: radial-gradient(circle at 50% 40%, #54234d 0%, #2e1129 50%, #170816 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1.1; white-space: nowrap; }
+      .title span, .words span, .hand span { display: inline-block; }
+      .words { font-family: 'Work Sans'; font-weight: 400; font-size: 42px; color: #f7dcec; }
+      .hand { font-family: 'Script'; font-size: 62px; color: #f2c96a; white-space: nowrap; -webkit-text-stroke: 1.6px #f2c96a; }
+      #glow { left: -250px; top: -150px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(211,137,200,0.30) 0%, rgba(211,137,200,0) 65%); }
+      #glow2 { left: 300px; top: 1100px; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(242,201,106,0.16) 0%, rgba(242,201,106,0) 65%); }
+      .layer { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-size: 100% 100%; background-repeat: no-repeat; }
+      .wedge { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url('assets/img/logo.png') center / 100% 100% no-repeat; }
+
+      /* S1 */
+      #logoA { left: 250px; top: 500px; width: 580px; height: 580px; }
+      #ringA { left: 220px; top: 470px; width: 640px; height: 640px; }
+      #a1 { top: 1150px; font-size: 92px; color: #fff3f8; }
+      #a2 { top: 1270px; }
+
+      /* S2 : la cuisine */
+      #k1 { top: 190px; font-size: 120px; color: #fff3f8; }
+      #k2 { top: 320px; font-size: 120px; color: #d389c8; }
+      #ks { left: 60px; top: 690px; width: 712px; height: 530px; transform-origin: 0 0; }
+      #slotK { left: 0; top: 1470px; width: 1080px; height: 120px; overflow: hidden; }
+      .sw { left: 0; top: 0; width: 1080px; text-align: center; font-family: 'Script'; font-size: 84px; line-height: 120px; color: #f2c96a; white-space: nowrap; -webkit-text-stroke: 2px #f2c96a; }
+
+      /* S3 : le chocolat */
+      #h1 { top: 200px; font-size: 112px; color: #fff3f8; }
+      #h2 { top: 330px; font-size: 112px; color: #fff3f8; }
+      #h3 { top: 470px; font-size: 86px; color: #d389c8; }
+      #cs { left: 152px; top: 760px; width: 946px; height: 985px; transform-origin: 0 0; }
+
+      /* S4 : le butterfly cake */
+      #b1, #b2, #k1, #k2, #h1, #h2, #h3 { z-index: 5; }
+      #b1 { top: 160px; font-size: 120px; color: #fff3f8; }
+      #b2 { top: 290px; font-size: 104px; color: #d389c8; }
+      #bs { left: 102px; top: 520px; width: 1019px; height: 1214px; transform-origin: 0 0; }
+      #b3 { top: 1625px; }
+      .spark { position: absolute; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%; background: radial-gradient(circle, #fff6d8 0%, #f2c96a 45%, rgba(242,201,106,0) 72%); }
+
+      /* S5 : l'affiche */
+      #logoB { left: 400px; top: 80px; width: 280px; height: 280px; }
+      #p1 { top: 392px; font-size: 80px; color: #fff3f8; }
+      #pill { left: 90px; top: 1225px; width: 900px; height: 96px; border-radius: 48px; background: #d389c8; color: #2a1027; text-align: center;
+        font-family: 'Work Sans'; font-weight: 700; font-size: 40px; line-height: 96px; box-shadow: 0 16px 34px rgba(0,0,0,0.45); }
+      #p2 { top: 1350px; }
+      #p3 { top: 1410px; font-size: 60px; color: #f2c96a; }
+      #cta { left: 120px; top: 1530px; width: 840px; height: 116px; border-radius: 58px; background: #f2c96a; color: #2a1027; text-align: center;
+        font-family: 'Work Sans'; font-weight: 700; font-size: 46px; line-height: 116px; box-shadow: 0 18px 40px rgba(0,0,0,0.5); }
+      #p4 { top: 1690px; font-size: 40px; color: #f7dcec; }
+      #fade { background: #170816; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+      <div class="ab" id="glow"></div>
+      <div class="ab" id="glow2"></div>
+      <svg class="ab full" id="dots" viewBox="0 0 1080 1920"></svg>
+
+      <!-- S1 : le logo se rassemble -->
+      <svg class="ab" id="ringA" viewBox="0 0 640 640"><circle id="ringAc" cx="320" cy="320" r="310" fill="none" stroke="#f2c96a" stroke-width="5" stroke-dasharray="4 18" transform="rotate(-90 320 320)"/></svg>
+      <div class="ab" id="logoA"></div>
+      <div class="ab center title" id="a1" data-layout-allow-overlap></div>
+      <div class="ab center words" id="a2"></div>
+
+      <!-- S2 : la cuisine, couche par couche -->
+      <div class="ab center title" id="k1" data-layout-allow-overlap></div>
+      <div class="ab center title" id="k2" data-layout-allow-overlap></div>
+      <div class="ab" id="ks">
+        <div class="layer" id="kPlat" style="background-image:url('assets/img/k_plateau.png')"></div>
+        <div class="layer" id="kG1" style="background-image:url('assets/img/k_genoise1.png')"></div>
+        <div class="layer" id="kC1" style="background-image:url('assets/img/k_creme1.png')"></div>
+        <div class="layer" id="kG2" style="background-image:url('assets/img/k_genoise2.png')"></div>
+        <div class="layer" id="kC2" style="background-image:url('assets/img/k_creme2.png')"></div>
+      </div>
+      <div class="ab" id="slotK"></div>
+
+      <!-- S3 : du chocolat, du chocolat et encore du chocolat -->
+      <div class="ab center title" id="h1" data-layout-allow-overlap></div>
+      <div class="ab center title" id="h2" data-layout-allow-overlap></div>
+      <div class="ab center title" id="h3" data-layout-allow-overlap></div>
+      <div class="ab" id="cs">
+        <div class="layer" id="cBody" style="background-image:url('assets/img/c_corps.png')"></div>
+        <div class="layer" id="cT0" style="background-image:url('assets/img/c_tab0.png')"></div>
+        <div class="layer" id="cT1" style="background-image:url('assets/img/c_tab1.png')"></div>
+        <div class="layer" id="cT2" style="background-image:url('assets/img/c_tab2.png')"></div>
+      </div>
+
+      <!-- S4 : le butterfly cake, étage par étage -->
+      <div class="ab center title" id="b1" data-layout-allow-overlap></div>
+      <div class="ab center title" id="b2" data-layout-allow-overlap></div>
+      <div class="ab" id="bs">
+        <div class="layer" id="bSocle" style="background-image:url('assets/img/b_socle.png')"></div>
+        <div class="layer" id="bBleu" style="background-image:url('assets/img/b_bleu.png')"></div>
+        <div class="layer" id="bRose" style="background-image:url('assets/img/b_rose.png')"></div>
+        <div class="layer" id="bLilas" style="background-image:url('assets/img/b_lilas.png')"></div>
+        <div class="layer" id="bDessus" style="background-image:url('assets/img/b_dessus.png')"></div>
+        <div class="layer" id="bDeco" style="background-image:url('assets/img/b_deco.png')"></div>
+        <div class="layer" id="bPapA" style="background-image:url('assets/img/b_papA.png')"></div>
+        <div class="layer" id="bPapB" style="background-image:url('assets/img/b_papB.png')"></div>
+        <div class="ab" id="sparks" style="left:0;top:0;width:100%;height:100%"></div>
+      </div>
+      <div class="ab center hand" id="b3"></div>
+
+      <!-- S5 : l'affiche se construit -->
+      <div class="ab" id="logoB"></div>
+      <div class="ab center title" id="p1" data-layout-allow-overlap></div>
+      <div class="ab" id="pill">Commandez au plus tard 48 h avant</div>
+      <div class="ab center words" id="p2"></div>
+      <div class="ab center title" id="p3" data-layout-allow-overlap></div>
+      <div class="ab" id="cta">WhatsApp : +243 825 553 856</div>
+      <div class="ab center words" id="p4"></div>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="24" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      let seed = 29;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at);
+      const OUT = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 1 }, { ...to, autoAlpha: 0 }, at);
+
+      function split(host, text, prefix, byWord) {
+        const parts = byWord ? text.split(" ") : [...text];
+        return parts.map((t, i) => {
+          if (byWord && i) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", "");
+          s.textContent = t === " " ? "\u00a0" : t; host.appendChild(s); return s;
+        });
+      }
+      // le logo en 8 parts de gâteau
+      function wedges(host, prefix) {
+        const out = [];
+        for (let i = 0; i < 8; i++) {
+          const a0 = (i * 45 - 90) * Math.PI / 180, a1 = ((i + 1) * 45 - 90) * Math.PI / 180;
+          const p = (a) => `${(50 + 75 * Math.cos(a)).toFixed(2)}% ${(50 + 75 * Math.sin(a)).toFixed(2)}%`;
+          const d = document.createElement("div"); d.className = "wedge"; d.id = prefix + i;
+          d.style.clipPath = `polygon(50% 50%, ${p(a0)}, ${p((a0 + a1) / 2)}, ${p(a1)})`;
+          host.appendChild(d);
+          const m = (a0 + a1) / 2; out.push({ el: d, dx: Math.cos(m), dy: Math.sin(m), i });
+        }
+        return out;
+      }
+
+      // fond : perles dorées
+      (() => {
+        let s = "";
+        for (let i = 0; i < 26; i++) {
+          const x = Math.round(rnd() * 1080), y = Math.round(rnd() * 1920), r = (2 + rnd() * 5).toFixed(1);
+          s += `<circle id="dot${i}" cx="${x}" cy="${y}" r="${r}" fill="#f2c96a" opacity="${(0.25 + rnd() * 0.4).toFixed(2)}"/>`;
+        }
+        $("dots").innerHTML = s;
+      })();
+
+      const WA = wedges($("logoA"), "wa");
+      const WB = wedges($("logoB"), "wb");
+      const A1 = split($("a1"), "Les délices d'Émilie", "a1_", false);
+      const A2 = split($("a2"), "Pâtisserie · Lubumbashi", "a2_", true);
+      const K1 = split($("k1"), "Tout commence", "k1_", true);
+      const K2 = split($("k2"), "en cuisine", "k2_", true);
+      const SLOTS = ["La génoise", "La crème", "La génoise", "La crème", "Couche après couche"].map((t, i) => {
+        const d = document.createElement("div"); d.className = "ab sw"; d.id = "sl" + i; d.setAttribute("data-layout-allow-overlap", ""); d.textContent = t; $("slotK").appendChild(d); return d;
+      });
+      const H1 = split($("h1"), "Du chocolat,", "h1_", true);
+      const H2 = split($("h2"), "du chocolat", "h2_", true);
+      const H3 = split($("h3"), "et encore du chocolat", "h3_", true);
+      const B1 = split($("b1"), "Gâteaux", "b1_", false);
+      const B2 = split($("b2"), "personnalisés", "b2_", false);
+      const B3 = split($("b3"), "Papillons, perles dorées, rosaces…", "b3_", true);
+      const P1 = split($("p1"), "Gâteaux personnalisés", "p1_", true);
+      const P2 = split($("p2"), "Du lundi au vendredi, de 10h à 17h", "p2_", true);
+      const P3 = split($("p3"), "Lubumbashi", "p3_", false);
+      const P4 = split($("p4"), "@les_delices.demilie", "p4_", false);
+
+      // étincelles autour des papillons (coordonnées dans l'image du gâteau)
+      const SPARK = [[680, 100], [225, 100]].flatMap(([cx, cy], k) => [0, 1, 2, 3, 4, 5].map((j) => {
+        const d = document.createElement("div"); d.className = "spark"; d.id = `sp${k}_${j}`;
+        const a = j * 60 * Math.PI / 180; d.style.left = cx + "px"; d.style.top = cy + "px"; $("sparks").appendChild(d);
+        return { el: d, x: Math.cos(a) * 150, y: Math.sin(a) * 110, k };
+      }));
+
+      const L_R = $("ringAc").getTotalLength();
+      gsap.set("#ks", { scale: 1.348 });
+      gsap.set("#cs", { scale: 0.82 });
+      gsap.set("#bs", { scale: 0.86 });
+      gsap.set("#bPapA", { transformOrigin: "680px 100px" });
+      gsap.set("#bPapB", { transformOrigin: "225px 100px" });
+      gsap.set([...WA.map((w) => w.el), ...WB.map((w) => w.el), "#ringA", ...A1, ...A2, ...K1, ...K2, ...SLOTS, "#kPlat", "#kG1", "#kC1", "#kG2", "#kC2",
+        ...H1, ...H2, ...H3, "#cBody", "#cT0", "#cT1", "#cT2", ...B1, ...B2, ...B3, "#bSocle", "#bBleu", "#bRose", "#bLilas", "#bDessus", "#bDeco", "#bPapA", "#bPapB",
+        ...SPARK.map((s) => s.el), ...P1, "#pill", ...P2, ...P3, "#cta", ...P4], { autoAlpha: 0 });
+      gsap.set("#fade", { autoAlpha: 1 });
+
+      // ---------- ambiance continue ----------
+      tl.fromTo("#glow", { x: 0, y: 0 }, { x: 380, y: 820, duration: 24, ease: "sine.inOut" }, 0);
+      tl.fromTo("#glow2", { x: 0, y: 0 }, { x: -420, y: -700, duration: 24, ease: "sine.inOut" }, 0);
+      tl.fromTo("#dots", { y: 0 }, { y: -180, duration: 24, ease: "none" }, 0);
+      for (let i = 0; i < 26; i += 3) tl.fromTo("#dot" + i, { scale: 1, transformOrigin: "50% 50%" }, { scale: 2.2, duration: 0.6, yoyo: true, repeat: 9, ease: "sine.inOut" }, (i * 0.37) % 3);
+
+      // ---------- S1 : le logo se rassemble, part par part (0 - 3) ----------
+      tl.to("#fade", { autoAlpha: 0, duration: 0.5, ease: "power2.out" }, 0);
+      WA.forEach((w) => IN(w.el, { x: w.dx * 900, y: w.dy * 900, rotation: (w.i % 2 ? 1 : -1) * 70 }, { x: 0, y: 0, rotation: 0, duration: 0.8, ease: "expo.out" }, 0.15 + w.i * 0.07));
+      IN("#ringA", { rotation: -120, scale: 0.8 }, { rotation: 0, scale: 1, duration: 1.2, ease: "power3.out" }, 0.9);
+      FT("#logoA", { scale: 1 }, { scale: 1.06, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out" }, 1.0);
+      A1.forEach((s, i) => IN(s, { y: 120, rotation: (rnd() - 0.5) * 30 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 1.2 + i * 0.035));
+      A2.forEach((s, i) => IN(s, { y: 30 }, { y: 0, duration: 0.4, ease: "power2.out" }, 1.75 + i * 0.08));
+      // sortie : les parts repartent
+      WA.forEach((w) => OUT(w.el, { x: 0, y: 0, rotation: 0 }, { x: w.dx * 1100, y: w.dy * 1100, rotation: (w.i % 2 ? -1 : 1) * 60, duration: 0.5, ease: "power3.in" }, 2.6 + w.i * 0.02));
+      OUT("#ringA", { scale: 1 }, { scale: 1.6, duration: 0.45, ease: "power2.in" }, 2.6);
+      OUT([...A1, ...A2], { y: 0 }, { y: 80, duration: 0.35, ease: "power2.in" }, 2.6);
+
+      // ---------- S2 : la cuisine, couche par couche (3 - 8) ----------
+      [...K1, ...K2].forEach((s, i) => IN(s, { y: -140, scale: 0.6 }, { y: 0, scale: 1, duration: 0.55, ease: "back.out(1.8)" }, 3.05 + i * 0.08));
+      IN("#kPlat", { x: 1000, rotation: 8 }, { x: 0, rotation: 0, duration: 0.85, ease: "expo.out" }, 3.2);
+      const KL = ["#kG1", "#kC1", "#kG2", "#kC2"];
+      KL.forEach((id, i) => {
+        const at = 4.0 + i * 0.7;
+        IN(id, { y: -760, rotation: (i % 2 ? 6 : -6) }, { y: 0, rotation: 0, duration: 0.55, ease: "bounce.out" }, at);
+        FT("#ks", { scaleY: 1.348 }, { scaleY: 1.32, duration: 0.09, yoyo: true, repeat: 1, ease: "power2.out" }, at + 0.32);
+        IN(SLOTS[i], { y: 120 }, { y: 0, duration: 0.3, ease: "power3.out" }, at + 0.12);
+        OUT(SLOTS[i], { y: 0 }, { y: -120, duration: 0.3, ease: "power3.in" }, at + 0.58);
+      });
+      IN(SLOTS[4], { y: 120 }, { y: 0, duration: 0.35, ease: "power3.out" }, 6.9);
+      FT("#ks", { rotation: 0 }, { rotation: -1.5, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 6.85);
+      // sortie : tout glisse à gauche
+      FT("#ks", { x: 0 }, { x: -1300, duration: 0.55, ease: "power3.in" }, 7.45);
+      tl.set(["#kPlat", ...KL], { autoAlpha: 0 }, 8.0);
+      OUT([...K1, ...K2], { x: 0 }, { x: -1100, duration: 0.5, ease: "power3.in" }, 7.45);
+      OUT(SLOTS[4], { x: 0 }, { x: -1100, duration: 0.5, ease: "power3.in" }, 7.5);
+
+      // ---------- S3 : le chocolat (8 - 12.2) ----------
+      IN("#cBody", { y: 1300 }, { y: 0, duration: 0.75, ease: "expo.out" }, 8.0);
+      const CT = ["#cT0", "#cT1", "#cT2"], HL = [H1, H2, H3];
+      CT.forEach((id, i) => {
+        const at = 8.75 + i * 0.6;
+        IN(id, { y: -1100, rotation: (i - 1) * 14 }, { y: 0, rotation: 0, duration: 0.5, ease: "bounce.out" }, at);
+        FT("#cs", { scaleY: 0.82 }, { scaleY: 0.8, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, at + 0.28);
+        HL[i].forEach((s, j) => IN(s, { y: 90, scale: 0.5 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, at + 0.05 + j * 0.07));
+      });
+      FT("#cs", { y: 0 }, { y: -18, duration: 0.8, yoyo: true, repeat: 1, ease: "sine.inOut" }, 10.4);
+      // sortie : le gâteau descend, le texte monte
+      FT("#cs", { y: 0 }, { y: 1300, duration: 0.55, ease: "power3.in" }, 11.65);
+      tl.set(["#cBody", ...CT], { autoAlpha: 0 }, 12.2);
+      [...H1, ...H2, ...H3].forEach((s, i) => OUT(s, { y: 0 }, { y: -500, duration: 0.45, ease: "power3.in" }, 11.6 + i * 0.02));
+
+      // ---------- S4 : le butterfly cake, étage par étage (12.2 - 18) ----------
+      B1.forEach((s, i) => IN(s, { y: -160, rotation: (rnd() - 0.5) * 40 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 12.25 + i * 0.04));
+      B2.forEach((s, i) => IN(s, { y: 160, rotation: (rnd() - 0.5) * 40 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 12.45 + i * 0.03));
+      IN("#bSocle", { y: 1200 }, { y: 0, duration: 0.6, ease: "expo.out" }, 12.3);
+      const BL = ["#bBleu", "#bRose", "#bLilas", "#bDessus", "#bDeco"];
+      BL.forEach((id, i) => {
+        const at = 12.85 + i * 0.4;
+        IN(id, { y: -1500, x: (i % 2 ? 1 : -1) * 60 }, { y: 0, x: 0, duration: 0.5, ease: "bounce.out" }, at);
+        FT("#bs", { scaleY: 0.86 }, { scaleY: 0.845, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, at + 0.25);
+      });
+      // les papillons arrivent en battant des ailes
+      [["#bPapA", 1, 14.9], ["#bPapB", -1, 15.15]].forEach(([id, side, at]) => {
+        IN(id, {}, { duration: 0.2 }, at);
+        FT(id, { x: side * 1150 }, { x: 0, duration: 1.0, ease: "power2.out" }, at);
+        FT(id, { y: -500 }, { y: 0, duration: 1.0, ease: "back.out(1.3)" }, at);
+        FT(id, { rotation: side * 25 }, { rotation: 0, duration: 1.0, ease: "sine.out" }, at);
+        FT(id, { scaleX: 1 }, { scaleX: 0.25, duration: 0.09, yoyo: true, repeat: 11, ease: "sine.inOut" }, at);
+        FT(id, { scaleX: 1 }, { scaleX: 0.7, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, at + 1.1);
+      });
+      SPARK.forEach((s) => {
+        const at = (s.k ? 16.2 : 15.95);
+        IN(s.el, { x: 0, y: 0, scale: 0.3 }, { x: s.x, y: s.y, scale: 1.6, duration: 0.4, ease: "power2.out" }, at);
+        FT(s.el, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.35 }, at + 0.4);
+      });
+      B3.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.4, ease: "power3.out" }, 16.0 + i * 0.12));
+      // sortie du titre, le gâteau monte prendre sa place sur l'affiche
+      [...B1, ...B2].forEach((s, i) => OUT(s, { y: 0 }, { y: -400, duration: 0.4, ease: "power3.in" }, 17.4 + i * 0.015));
+      OUT(B3, { y: 0 }, { y: 60, duration: 0.35, ease: "power2.in" }, 17.4);
+      FT("#bs", { x: 0, y: 0, scale: 0.86 }, { x: 153, y: -20, scale: 0.56, duration: 0.9, ease: "power3.inOut" }, 17.6);
+
+      // ---------- S5 : l'affiche se construit (18 - 24) ----------
+      WB.forEach((w) => IN(w.el, { x: w.dx * 700, y: w.dy * 700, rotation: (w.i % 2 ? 1 : -1) * 70 }, { x: 0, y: 0, rotation: 0, duration: 0.7, ease: "expo.out" }, 18.1 + w.i * 0.05));
+      P1.forEach((s, i) => IN(s, { y: -60, scale: 0.6 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, 18.6 + i * 0.12));
+      IN("#pill", { x: -1100, rotation: -4 }, { x: 0, rotation: 0, duration: 0.6, ease: "expo.out" }, 19.0);
+      P2.forEach((s, i) => IN(s, { y: 30 }, { y: 0, duration: 0.35, ease: "power2.out" }, 19.4 + i * 0.05));
+      P3.forEach((s, i) => IN(s, { y: -120, rotation: (rnd() - 0.5) * 30 }, { y: 0, rotation: 0, duration: 0.5, ease: "bounce.out" }, 19.8 + i * 0.04));
+      IN("#cta", { x: 1100, rotation: 4 }, { x: 0, rotation: 0, duration: 0.6, ease: "expo.out" }, 20.4);
+      FT("#cta", { scale: 1 }, { scale: 1.05, duration: 0.35, yoyo: true, repeat: 5, ease: "sine.inOut" }, 21.1);
+      P4.forEach((s, i) => IN(s, { y: 20 }, { y: 0, duration: 0.3, ease: "power2.out" }, 20.9 + i * 0.025));
+      FT("#bs", { rotation: 0 }, { rotation: 1.2, duration: 1.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 20.6);
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 23.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
