@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Guide gratuit : 50 entreprises, 6 vidéos, avec l'IA</title>
+<style>
+  @font-face { font-family: 'Baloo'; font-weight: 800; src: url('Baloo2-ExtraBold.ttf'); }
+  @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('worksans-400.ttf'); }
+  @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('worksans-700.ttf'); }
+  @page { size: 148mm 210mm; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Work Sans', sans-serif; color: #1a1d3a; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 148mm; height: 210mm; position: relative; overflow: hidden; page-break-after: always; background: #fbf8f1; padding: 13mm 12mm 14mm; }
+  .page:last-child { page-break-after: auto; }
+  .dark { background: linear-gradient(160deg, #1b1f5e 0%, #24318a 55%, #2f4fb3 100%); color: #fff; }
+  h1, h2, h3 { font-family: 'Baloo', sans-serif; font-weight: 800; line-height: 1.02; }
+  h2 { font-size: 25pt; margin-bottom: 3.5mm; }
+  h3 { font-size: 13pt; margin: 3mm 0 1.5mm; }
+  p { font-size: 9.6pt; line-height: 1.5; margin-bottom: 2.6mm; }
+  b { font-weight: 700; }
+  .y { color: #f5c518; }
+  .step { display: inline-block; font-family: 'Baloo'; font-size: 10pt; letter-spacing: 0.12em; background: #f5c518; color: #1b1f5e; padding: 1.4mm 3.5mm 0.6mm; border-radius: 10mm; margin-bottom: 3mm; }
+  .shot { border: 1.2mm solid #1b1f5e; border-radius: 4mm; overflow: hidden; box-shadow: 2mm 2mm 0 #f5c518; background: #000; }
+  .shot img { display: block; width: 100%; }
+  .cap { font-size: 7.6pt; color: #5a5f7d; margin-top: 2.2mm; line-height: 1.35; }
+  .box { background: #fff; border: 0.6mm solid #1b1f5e; border-radius: 3mm; padding: 3.5mm 4mm; margin-top: 2.5mm; }
+  .box p:last-child { margin-bottom: 0; }
+  .quote { background: #1b1f5e; color: #fff; border-radius: 3mm; padding: 3.5mm 4mm; font-size: 9pt; line-height: 1.5; margin-bottom: 3mm; }
+  .quote .lbl { font-family: 'Baloo'; font-size: 8pt; letter-spacing: 0.1em; color: #f5c518; display: block; margin-bottom: 1mm; }
+  ul.check { list-style: none; }
+  ul.check li { font-size: 9.4pt; line-height: 1.42; padding-left: 6.5mm; position: relative; margin-bottom: 2mm; }
+  ul.check li::before { content: ""; position: absolute; left: 0; top: 1.2mm; width: 3.4mm; height: 3.4mm; border-radius: 50%; background: #f5c518; border: 0.5mm solid #1b1f5e; }
+  ul.no li::before { background: #e8553d; }
+  ol.n { list-style: none; counter-reset: n; }
+  ol.n li { counter-increment: n; font-size: 9.4pt; line-height: 1.42; padding-left: 8mm; position: relative; margin-bottom: 2.2mm; }
+  ol.n li::before { content: counter(n); position: absolute; left: 0; top: -0.3mm; width: 5.5mm; height: 5.5mm; border-radius: 50%; background: #1b1f5e; color: #f5c518;
+    font-family: 'Baloo'; font-size: 9pt; text-align: center; line-height: 6.2mm; }
+  .two { display: flex; gap: 5mm; }
+  .two > div { flex: 1; }
+  .foot { position: absolute; left: 12mm; right: 12mm; bottom: 6mm; display: flex; justify-content: space-between; font-size: 7pt; color: #8a8da5; }
+  .dark .foot { color: #aab3e6; }
+
+  /* couverture */
+  .cover-eyebrow { font-family: 'Baloo'; font-size: 9.5pt; letter-spacing: 0.16em; text-align: center; color: #fff; }
+  .cover-pill { display: block; width: max-content; margin: 2.5mm auto 0; background: #6fd6e8; color: #1b1f5e; font-family: 'Baloo'; font-size: 8.5pt; letter-spacing: 0.08em; padding: 1.3mm 4mm 0.5mm; border-radius: 10mm; }
+  .cover h1 { font-size: 29pt; text-align: center; margin-top: 7mm; }
+  .cover .sub { text-align: center; font-size: 10.5pt; margin-top: 4mm; color: #dfe4ff; }
+  .fan { position: absolute; left: 0; right: 0; bottom: 22mm; height: 82mm; }
+  .fan img { position: absolute; width: 30mm; border: 0.9mm solid #fff; border-radius: 3mm; box-shadow: 0 2mm 5mm rgba(0,0,0,0.45); }
+  .badge { position: absolute; left: 0; right: 0; bottom: 9mm; text-align: center; }
+  .badge span { display: inline-block; background: #f5c518; color: #1b1f5e; font-family: 'Baloo'; font-size: 11pt; padding: 2mm 6mm 1mm; border-radius: 10mm; }
+
+  .grid6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; margin: 2mm 0 3mm; }
+  .grid6 img { width: 100%; height: 36mm; object-fit: cover; object-position: center 30%; display: block; border: 0.8mm solid #1b1f5e; border-radius: 2.5mm; }
+  .ebook { width: 46mm; border-radius: 2mm; box-shadow: 0 2mm 6mm rgba(0,0,0,0.5); }
+  .wa { display: block; margin-top: 5mm; background: #f5c518; color: #1b1f5e; border-radius: 4mm; padding: 4mm; text-align: center; }
+  .wa b { font-family: 'Baloo'; font-size: 17pt; display: block; margin-top: 1mm; }
+</style>
+</head>
+<body>
+
+<!-- 1. couverture -->
+<section class="page dark cover">
+  <div class="cover-eyebrow">GUIDE GRATUIT</div>
+  <span class="cover-pill">DIGITALMIKAELSON</span>
+  <h1>Comment j'ai trouvé <span class="y">50 entreprises</span> et créé <span class="y">6 vidéos</span> avec l'IA</h1>
+  <p class="sub">La méthode en 3 étapes, avec mes vraies captures d'écran.</p>
+  <div class="fan">
+    <img src="img/v0.jpg" style="left:6mm; top:16mm; transform:rotate(-16deg)">
+    <img src="img/v1.jpg" style="left:27mm; top:6mm; transform:rotate(-9deg)">
+    <img src="img/v2.jpg" style="left:49mm; top:1mm; transform:rotate(-3deg)">
+    <img src="img/v3.jpg" style="left:70mm; top:2mm; transform:rotate(3deg)">
+    <img src="img/v4.jpg" style="left:91mm; top:7mm; transform:rotate(9deg)">
+    <img src="img/v5.jpg" style="left:111mm; top:17mm; transform:rotate(16deg)">
+  </div>
+  <div class="badge"><span>Trouver · Créer · Envoyer</span></div>
+</section>
+
+<!-- 2. avant de commencer -->
+<section class="page">
+  <h2>Avant de <span style="color:#2f4fb3">commencer</span></h2>
+  <p>Salut, moi c'est Mike 👋</p>
+  <p>Dans la vidéo que tu as vue, j'ai utilisé l'IA pour une chose simple : aider des petites marques congolaises à mieux se montrer sur les réseaux. Et au passage, me faire connaître d'elles.</p>
+  <p>Beaucoup de ces marques ont déjà de belles photos sur Instagram. Ce qui leur manque souvent, c'est le mouvement. Une vidéo courte, qui fait arrêter le doigt pendant qu'on fait défiler. C'est là que tu peux te rendre utile.</p>
+  <p>Ce guide te montre exactement ce que j'ai fait, dans l'ordre, avec mes vraies captures d'écran. Pas de blabla, juste ce qu'il faut faire, concrètement.</p>
+  <div class="box">
+    <h3 style="margin-top:0">Les 3 étapes</h3>
+    <ol class="n">
+      <li><b>Trouver des entreprises</b> avec l'IA, et garder les bonnes.</li>
+      <li><b>Créer une vidéo animée</b> pour chacune, avec ses propres photos.</li>
+      <li><b>La lui envoyer en DM</b>, comme un cadeau.</li>
+    </ol>
+  </div>
+  <div class="box" style="background:#fff7d6">
+    <p><b>Ce qu'il te faut :</b> un téléphone ou un ordinateur, une connexion internet, un assistant IA, et de la patience pour bien faire chaque vidéo.</p>
+  </div>
+  <div class="foot"><span>Guide gratuit · DigitalMikaelson</span><span>2</span></div>
+</section>
+
+<!-- 3. étape 1 : la demande -->
+<section class="page">
+  <span class="step">ÉTAPE 1</span>
+  <h2>Trouver des entreprises</h2>
+  <p>J'ai demandé à un assistant IA, relié à une base de données d'entreprises, de me trouver des marques de l'alimentation en RDC.</p>
+  <div class="quote"><span class="lbl">MA DEMANDE, MOT POUR MOT</span>« Retrouve-moi 50 entreprises dans tous les domaines qui se rapprochent de l'alimentation : restaurants, fast-food… ici en RDC. »</div>
+  <div class="two">
+    <div><div class="shot"><img src="img/demande.jpg"></div><p class="cap">Ma demande. L'IA lance la recherche toute seule.</p></div>
+    <div><div class="shot"><img src="img/export.jpg"></div><p class="cap">Les résultats : nom, ville, secteur, taille. Puis l'export des 50.</p></div>
+  </div>
+  <div class="foot"><span>Guide gratuit · DigitalMikaelson</span><span>3</span></div>
+</section>
+
+<!-- 4. étape 1 : choisir -->
+<section class="page">
+  <span class="step">ÉTAPE 1, SUITE</span>
+  <h2>Garder les bonnes</h2>
+  <div class="two">
+    <div style="flex:0.85"><div class="shot"><img src="img/liste.jpg"></div><p class="cap">La liste des 50 entreprises, dans un tableau.</p></div>
+    <div style="flex:1.15">
+      <p>50 noms, c'est trop pour commencer. J'en ai gardé 6. Voici comment je choisis :</p>
+      <ul class="check">
+        <li><b>Des petites marques</b> qui vendent directement aux clients, souvent gérées par le fondateur. Ce sont elles qui répondent.</li>
+        <li><b>Un compte Instagram actif</b>, avec de belles photos. Il te faut de la matière pour la vidéo.</li>
+        <li><b>Laisse les grandes entreprises</b> pour plus tard : elles ont déjà une agence.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box">
+    <h3 style="margin-top:0">Où trouver leur contact ?</h3>
+    <p>Dans la bio Instagram ou Facebook (bouton WhatsApp ou « Contacter »), en bas de leur site, ou sur leur fiche Google Maps. Vérifie toujours que le numéro a bien un compte WhatsApp avant d'écrire.</p>
+  </div>
+  <div class="foot"><span>Guide gratuit · DigitalMikaelson</span><span>4</span></div>
+</section>
+
+<!-- 5. étape 2 -->
+<section class="page">
+  <span class="step">ÉTAPE 2</span>
+  <h2>Créer une vidéo pour chacune</h2>
+  <div class="grid6">
+    <img src="img/v0.jpg"><img src="img/v1.jpg"><img src="img/v2.jpg"><img src="img/v3.jpg"><img src="img/v4.jpg"><img src="img/v5.jpg">
+  </div>
+  <p class="cap" style="margin-top:-1mm; margin-bottom:3mm">Les 6 vidéos, faites uniquement avec les photos de chaque marque.</p>
+  <div class="quote"><span class="lbl">MA RÈGLE D'OR</span>J'utilise seulement leurs propres photos et leurs propres mots : logo, produits, phrases de leur bio et de leurs publications. Rien d'inventé.</div>
+  <ol class="n">
+    <li>Fais des captures d'écran de leurs plus belles publications.</li>
+    <li>Demande à l'IA de détourer les produits et de proposer le déroulé : logo, produit, message, contact.</li>
+    <li>Anime le tout : les morceaux arrivent et se rassemblent. Vise 20 secondes, en format vertical.</li>
+  </ol>
+  <div class="foot"><span>Guide gratuit · DigitalMikaelson</span><span>5</span></div>
+</section>
+
+<!-- 6. étape 3 -->
+<section class="page">
+  <span class="step">ÉTAPE 3</span>
+  <h2>Leur envoyer en DM</h2>
+  <div class="two">
+    <div><div class="shot"><img src="img/dm.jpg"></div><p class="cap">Mon vrai message à La Kinoise…</p></div>
+    <div><div class="shot"><img src="img/dm_video.jpg"></div><p class="cap">…puis la vidéo, juste après.</p></div>
+  </div>
+  <h3>Comment j'écris le message</h3>
+  <ol class="n">
+    <li>Un compliment précis sur leur page, un vrai détail que tu as vu.</li>
+    <li>Qui tu es, en une phrase.</li>
+    <li>Ce que tu as fait pour eux, et à quoi ça peut leur servir.</li>
+    <li>La fin qui met à l'aise : « Si elle vous plaît, je peux en faire d'autres. Et sinon, gardez-la, c'est cadeau. »</li>
+  </ol>
+  <div class="foot"><span>Guide gratuit · DigitalMikaelson</span><span>6</span></div>
+</section>
+
+<!-- 7. erreurs -->
+<section class="page">
+  <h2>Les erreurs <span style="color:#e8553d">à éviter</span></h2>
+  <ul class="check no">
+    <li><b>Publier la vidéo sans leur accord.</b> C'est leur marque. Tu attends leur feu vert, toujours.</li>
+    <li><b>Inventer des choses sur eux.</b> Pas de faux chiffres, pas de fausses promesses dans la vidéo.</li>
+    <li><b>Envoyer le même message à tout le monde.</b> Le compliment doit montrer que tu as vraiment regardé leur page.</li>
+    <li><b>Relancer tous les jours.</b> Une seule relance, quelques jours plus tard, suffit.</li>
+    <li><b>Écrire à n'importe quelle heure.</b> Choisis leurs heures d'ouverture, en semaine, plutôt le matin.</li>
+  </ul>
+  <div class="box" style="margin-top:5mm">
+    <h3 style="margin-top:0">Et chez moi, ça a donné quoi ?</h3>
+    <p>Une des entreprises m'a déjà répondu qu'elle voulait garder contact. Pour un premier message, sans rien payer en publicité, c'est un très bon début. Et chaque vidéo que je fais enrichit mon portfolio.</p>
+  </div>
+  <div class="foot"><span>Guide gratuit · DigitalMikaelson</span><span>7</span></div>
+</section>
+
+<!-- 8. et maintenant -->
+<section class="page dark">
+  <h2>Et <span class="y">maintenant</span> ?</h2>
+  <p>Ici, ma compétence, c'était la vidéo. Toi, tu sais peut-être cuisiner, coudre, coiffer, parler une autre langue, tenir une comptabilité ou travailler le bois.</p>
+  <p>Je sais ce que c'est de savoir faire quelque chose sans que ça rapporte. Ce que tu sais faire ne devrait pas rester pour toi seul.</p>
+  <div class="two" style="align-items:center; margin-top:4mm">
+    <div style="flex:0 0 46mm"><img class="ebook" src="img/ebook.png"></div>
+    <div><p>Dans mon guide <b class="y">« Gagne ta vie sans diplôme »</b>, je te montre comment transformer ce que tu sais faire en produit digital, et trouver tes premiers clients, étape par étape.</p></div>
+  </div>
+  <div class="wa">Écris-moi sur WhatsApp, je t'accompagne<b>+243 831 710 181</b></div>
+  <div class="foot"><span>Guide gratuit · DigitalMikaelson</span><span>8</span></div>
+</section>
+
+</body>
+</html>
