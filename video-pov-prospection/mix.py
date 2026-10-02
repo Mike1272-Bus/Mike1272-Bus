@@ -5,6 +5,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SFX_DIR = os.path.join(ROOT, "..", "video-excel-13h", "assets", "sfx")
 MUSIC = os.path.join(ROOT, "assets", "audio", "musique.wav")
 OUT = os.path.join(ROOT, "assets", "audio", "mix.wav")
+VOIX = [(0.15, "l0", 1.0), (3.75, "l1", 1.0), (8.75, "l2", 1.0), (15.4, "l3", 1.0), (20.95, "l4", 1.0), (24.3, "l5", 1.08)]
 DUR = 30.0
 SFX = [(0.1, "pop", 0.3), (0.45, "whoosh-short", 0.25), (1.0, "whoosh", 0.3), (3.3, "whoosh-cinematic", 0.3),
        (3.7, "pop", 0.3), (3.95, "whoosh-short", 0.3), (4.45, "typing", 0.25), (6.05, "pop", 0.15), (6.3, "pop", 0.15), (6.55, "pop", 0.15),
@@ -15,13 +16,18 @@ SFX = [(0.1, "pop", 0.3), (0.45, "whoosh-short", 0.25), (1.0, "whoosh", 0.3), (3
        (27.0, "impact-bass-1", 0.3), (27.05, "sparkle", 0.25), (28.0, "chime", 0.25)]
 
 inputs = ["-i", MUSIC]
-fl = [f"[0:a]aresample=44100,aformat=channel_layouts=stereo,atrim=duration={DUR},volume=0.9,afade=t=in:d=0.4,afade=t=out:st={DUR - 1.5}:d=1.5[mus]"]
+fl = [f"[0:a]aresample=44100,aformat=channel_layouts=stereo,atrim=duration={DUR},volume=0.32,afade=t=in:d=0.4,afade=t=out:st={DUR - 1.5}:d=1.5[mus]"]
 labels = ["[mus]"]
 for i, (t, name, vol) in enumerate(SFX):
     inputs += ["-i", os.path.join(SFX_DIR, f"{name}.mp3")]
     d = int(t * 1000)
-    fl.append(f"[{i + 1}:a]aresample=44100,aformat=channel_layouts=stereo,volume={vol},adelay={d}|{d}[s{i}]")
+    fl.append(f"[{i + 1}:a]aresample=44100,aformat=channel_layouts=stereo,volume={vol * 0.6:.3f},adelay={d}|{d}[s{i}]")
     labels.append(f"[s{i}]")
+for j, (t, name, tempo) in enumerate(VOIX):
+    inputs += ["-i", os.path.join(ROOT, "assets", "audio", "voix", f"{name}.wav")]
+    d = int(t * 1000)
+    fl.append(f"[{len(inputs) // 2 - 1}:a]aresample=44100,aformat=channel_layouts=stereo,atempo={tempo},volume=1.6,adelay={d}|{d}[v{j}]")
+    labels.append(f"[v{j}]")
 fl.append("".join(labels) + f"amix=inputs={len(labels)}:normalize=0:duration=first,apad,atrim=duration={DUR},loudnorm=I=-14:TP=-1.5:LRA=11[out]")
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error"] + inputs + ["-filter_complex", ";".join(fl), "-map", "[out]", "-ar", "44100", OUT], check=True)
 print("ok", OUT)
