@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 400; src: url('assets/fonts/bricolage-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 700; src: url('assets/fonts/bricolage-700.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0b200d; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #f6f2ea; font-family: 'Bricolage', sans-serif;
+        background: radial-gradient(circle at 50% 32%, #23601f 0%, #123a13 48%, #081a09 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+      .title span, .words span, .eyebrow span, .lab span { display: inline-block; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: 0.32em; color: #8cc63f; text-transform: uppercase; }
+      .words { font-family: 'Work Sans'; font-weight: 400; font-size: 46px; color: #e8efe0; }
+      #glow { left: -300px; top: -200px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(140,198,63,0.24) 0%, rgba(140,198,63,0) 65%); }
+      #leaves { opacity: 0.08; }
+      .wedge { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url('assets/img/logo.png') center / 100% 100% no-repeat; }
+      .piece { position: absolute; background-repeat: no-repeat; }
+      .tc { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; }
+
+      /* S1 */
+      #logoA, #logoAfull { left: 270px; top: 470px; width: 540px; height: 540px; }
+      #burst { left: 540px; top: 740px; width: 0; height: 0; }
+      .seed { position: absolute; left: -14px; top: -22px; width: 28px; height: 44px; }
+      #wA { top: 1095px; font-size: 136px; }
+      #tagA1 { top: 1268px; font-family: 'Work Sans'; font-size: 46px; color: #e8efe0; }
+      #tagA2 { top: 1332px; font-family: 'Work Sans'; font-weight: 700; font-size: 46px; color: #8cc63f; }
+
+      /* S2 */
+      #e2 { top: 150px; }
+      .t2 { top: 205px; font-size: 168px; }
+      #t2a { clip-path: inset(0 0 50% 0); }
+      #t2b { clip-path: inset(50% 0 0 0); color: #8cc63f; }
+      #p2, #g2 { left: 120px; top: 430px; width: 840px; height: 1116px; }
+      #fr2 { left: 0; top: 0; width: 840px; height: 1116px; overflow: visible; }
+      #s2 { top: 1600px; font-size: 52px; font-style: italic; color: #f6f2ea; }
+      #line2 { left: 390px; top: 1690px; width: 300px; height: 4px; background: #8cc63f; }
+
+      /* S3 */
+      #e3 { top: 140px; }
+      #t3a { top: 196px; font-size: 96px; }
+      #t3b { top: 296px; font-size: 96px; color: #8cc63f; }
+      .grp { left: 75px; width: 930px; height: 255px; overflow: hidden; }
+      #g3_0 { top: 430px; } #g3_1 { top: 705px; } #g3_2 { top: 980px; } #g3_3 { top: 1255px; }
+      .col { position: absolute; left: 0; top: 0; width: 930px; height: 255px; }
+      .lab { position: absolute; left: 0; top: 0; width: 930px; height: 255px; line-height: 255px; text-align: center;
+        font-weight: 800; font-size: 74px; text-transform: uppercase; color: #fff; white-space: nowrap; }
+      .ph3 { position: absolute; left: 0; top: 0; width: 930px; height: 255px; background-size: 930px auto; background-repeat: no-repeat; }
+      .chip { position: absolute; left: 22px; top: 178px; padding: 12px 26px 9px; border-radius: 40px; font-weight: 800; font-size: 34px; color: #fff; white-space: nowrap; box-shadow: 0 10px 24px rgba(0,0,0,0.5); }
+      #s3 { top: 1610px; }
+
+      /* S4 */
+      #s4 { overflow: hidden; }
+      #e4 { top: 150px; }
+      .n4 { top: 190px; font-size: 340px; color: #e63a2e; }
+      #n4a { clip-path: inset(0 0 50% 0); }
+      #n4b { clip-path: inset(50% 0 0 0); }
+      #slot4 { left: 0; top: 540px; width: 1080px; height: 130px; overflow: hidden; }
+      .sw { left: 0; top: 0; width: 1080px; text-align: center; font-weight: 800; font-size: 100px; line-height: 130px; text-transform: uppercase; color: #f6f2ea; }
+      .pin { position: absolute; width: 0; height: 0; }
+      .pin svg { position: absolute; left: -34px; top: -92px; width: 68px; height: 92px; }
+      .pin b { position: absolute; left: -130px; width: 260px; text-align: center; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; color: #12301a;
+        background: #f6f2ea; border-radius: 30px; padding: 8px 0 6px; box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+      #g4 { left: 70px; top: 1580px; width: 940px; height: 248px; }
+
+      /* S5 */
+      #logoB, #logoBfull { left: 340px; top: 420px; width: 400px; height: 400px; }
+      #wB { top: 880px; height: 140px; overflow: hidden; font-size: 124px; line-height: 140px; }
+      #s5 { top: 1040px; }
+      #ctaFill { left: 170px; top: 1170px; width: 740px; height: 104px; border-radius: 52px; background: #8cc63f; opacity: 0; }
+      #ctaT { left: 170px; top: 1170px; width: 740px; height: 104px; line-height: 104px; text-align: center; font-family: 'Work Sans'; font-weight: 700; font-size: 40px; color: #f6f2ea; }
+      #h5 { top: 1320px; font-family: 'Work Sans'; font-weight: 700; font-size: 38px; color: #8cc63f; letter-spacing: 0.04em; }
+      #fade { background: #081a09; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div class="ab" id="glow"></div>
+      <svg class="ab full" id="leaves" viewBox="0 0 1080 1920"><defs><g id="lf"><path d="M0 -40 C26 -20 26 20 0 40 C-26 20 -26 -20 0 -40 Z" fill="#8cc63f"/><path d="M0 -36 L0 36" stroke="#0e2a10" stroke-width="4"/></g></defs>
+        <use href="#lf" x="120" y="180" transform="rotate(20 120 180)"/><use href="#lf" x="930" y="260" transform="rotate(-30 930 260)"/><use href="#lf" x="80" y="900" transform="rotate(50 80 900)"/>
+        <use href="#lf" x="1000" y="1100" transform="rotate(-10 1000 1100)"/><use href="#lf" x="150" y="1650" transform="rotate(35 150 1650)"/><use href="#lf" x="900" y="1780" transform="rotate(-45 900 1780)"/>
+        <use href="#lf" x="560" y="1860" transform="rotate(10 560 1860)"/><use href="#lf" x="520" y="90" transform="rotate(-20 520 90)"/></svg>
+      <svg class="ab full" id="bigRing" viewBox="0 0 1080 1920"><circle cx="540" cy="900" r="500" fill="none" stroke="#8cc63f" stroke-width="2" stroke-dasharray="3 22" opacity="0.4"/></svg>
+
+      <!-- S1 : le logo se construit en parts -->
+      <svg class="ab full" id="ringsA" viewBox="0 0 1080 1920"><circle id="ringA" cx="540" cy="740" r="292" fill="none" stroke="#8cc63f" stroke-width="6" transform="rotate(-90 540 740)"/></svg>
+      <div class="ab" id="burst"></div>
+      <div class="ab" id="logoA"></div>
+      <div class="ab" id="logoAfull"><div class="wedge"></div></div>
+      <div class="ab center title" id="wA" data-layout-allow-overlap></div>
+      <div class="ab center" id="tagA1">Assaisonnements frais</div>
+      <div class="ab center" id="tagA2">pour la cuisine congolaise</div>
+
+      <!-- S2 : les pots en bandes, puis en tuiles -->
+      <div class="ab center eyebrow" id="e2"></div>
+      <div class="ab center title t2" id="t2a">4 saveurs</div>
+      <div class="ab center title t2" id="t2b">4 saveurs</div>
+      <div class="ab" id="p2"><svg class="ab" id="fr2" viewBox="0 0 840 1116"><rect id="fr2R" x="3" y="3" width="834" height="1110" fill="none" stroke="#8cc63f" stroke-width="6"/></svg></div>
+      <div class="ab" id="g2"></div>
+      <div class="ab center words" id="s2"></div>
+      <div class="ab" id="line2"></div>
+
+      <!-- S3 : quatre bandes, quatre assaisonnements, quatre plats -->
+      <div class="ab center eyebrow" id="e3">Pour chaque plat</div>
+      <div class="ab center title" id="t3a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t3b" data-layout-allow-overlap></div>
+      <div class="ab grp" id="g3_0"><div class="col" id="k3_0" style="background:#e8731c"></div><div class="lab" id="l3_0"></div><div class="ph3" id="ph3_0" style="background-image:url('assets/img/poisson.jpg');background-position:0 -343px"></div><div class="chip" id="c3_0" style="background:#e8731c">Poisson &amp; Crevette</div></div>
+      <div class="ab grp" id="g3_1"><div class="col" id="k3_1" style="background:#3f8a24"></div><div class="lab" id="l3_1"></div><div class="ph3" id="ph3_1" style="background-image:url('assets/img/legumes.jpg');background-position:0 -196px"></div><div class="chip" id="c3_1" style="background:#3f8a24">Légume</div></div>
+      <div class="ab grp" id="g3_2"><div class="col" id="k3_2" style="background:#a8740f"></div><div class="lab" id="l3_2"></div><div class="ph3" id="ph3_2" style="background-image:url('assets/img/plats.jpg');background-position:0 -294px"></div><div class="chip" id="c3_2" style="background:#a8740f">Simple</div></div>
+      <div class="ab grp" id="g3_3"><div class="col" id="k3_3" style="background:#d62828"></div><div class="lab" id="l3_3"></div><div class="ph3" id="ph3_3" style="background-image:url('assets/img/poulet.jpg');background-position:0 -193px"></div><div class="chip" id="c3_3" style="background:#d62828">Fumé</div></div>
+      <div class="ab center words" id="s3"></div>
+
+      <!-- S4 : 13 supermarchés, la route et les épingles -->
+      <div class="ab full" id="s4">
+        <svg class="ab full" id="shock" viewBox="0 0 1080 1920"><circle id="shockC" cx="540" cy="360" r="60" fill="none" stroke="#e63a2e" stroke-width="5"/></svg>
+        <div class="ab center eyebrow" id="e4">Disponible dans</div>
+        <div class="ab center title n4" id="n4a">13</div>
+        <div class="ab center title n4" id="n4b">13</div>
+        <div class="ab" id="slot4"><div class="ab sw" id="w4a">supermarchés</div><div class="ab sw" id="w4b">à Kinshasa</div></div>
+        <svg class="ab full" id="road" viewBox="0 0 1080 1920">
+          <path id="roadP" d="M 30 1460 C 260 1460 200 1010 470 1010 S 760 1360 1050 1180" fill="none" stroke="#1d211c" stroke-width="66" stroke-linecap="round"/>
+          <path id="roadL" d="M 30 1460 C 260 1460 200 1010 470 1010 S 760 1360 1050 1180" fill="none" stroke="#8cc63f" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="ab full" id="pins"></div>
+        <div class="ab" id="g4"></div>
+      </div>
+      <svg class="ab full" id="iris" viewBox="0 0 1080 1920"><circle id="irisC" cx="540" cy="620" r="1300" fill="none" stroke="#8cc63f" stroke-width="10"/></svg>
+
+      <!-- S5 : le logo se reforme -->
+      <svg class="ab full" id="ringsB" viewBox="0 0 1080 1920"><circle id="ringB" cx="540" cy="620" r="218" fill="none" stroke="#8cc63f" stroke-width="5" transform="rotate(-90 540 620)"/>
+        <rect id="ctaR" x="170" y="1170" width="740" height="104" rx="52" fill="none" stroke="#8cc63f" stroke-width="4"/></svg>
+      <div class="ab" id="logoB"></div>
+      <div class="ab" id="logoBfull"><div class="wedge"></div></div>
+      <div class="ab center title" id="wB" data-layout-allow-overlap></div>
+      <div class="ab center words" id="s5"></div>
+      <div class="ab" id="ctaFill"></div>
+      <div class="ab" id="ctaT">Commandez au 081-6757-584</div>
+      <div class="ab center" id="h5"></div>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="20" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      let seed = 23;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at);
+      const NS = "http://www.w3.org/2000/svg";
+
+      // ---------- fabrique des morceaux ----------
+      function wedges(host, n, prefix) {
+        const out = [];
+        for (let i = 0; i < n; i++) {
+          const a0 = -90 + (i * 360) / n, pts = ["50% 50%"];
+          for (let k = 0; k <= 3; k++) {
+            const a = ((a0 + (k * 360) / n / 3) * Math.PI) / 180;
+            pts.push(`${(50 + 75 * Math.cos(a)).toFixed(2)}% ${(50 + 75 * Math.sin(a)).toFixed(2)}%`);
+          }
+          const d = document.createElement("div");
+          d.className = "wedge"; d.id = prefix + i; d.style.clipPath = `polygon(${pts.join(",")})`;
+          host.appendChild(d); out.push({ el: d, mid: ((a0 + 180 / n) * Math.PI) / 180 });
+        }
+        return out;
+      }
+      function letters(host, text, prefix) {
+        return [...text].map((ch, i) => {
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = ch === " " ? " " : ch;
+          host.appendChild(s); return s;
+        });
+      }
+      function words(host, text, prefix) {
+        const out = [];
+        text.split(" ").forEach((w, i) => {
+          if (i) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = w; host.appendChild(s); out.push(s);
+        });
+        return out;
+      }
+      function grid(host, img, W, H, cols, rows, prefix, overlay) {
+        const out = [];
+        for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+          const x = Math.round((c * W) / cols), y = Math.round((r * H) / rows);
+          const w = Math.round(((c + 1) * W) / cols) - x, h = Math.round(((r + 1) * H) / rows) - y;
+          const d = document.createElement("div");
+          d.className = "piece"; d.id = `${prefix}${r}_${c}`;
+          Object.assign(d.style, { left: x + "px", top: y + "px", width: w + 1 + "px", height: h + 1 + "px",
+            backgroundImage: `url('${img}')`, backgroundSize: `${W}px ${H}px`, backgroundPosition: `${-x}px ${-y}px` });
+          if (overlay) { const o = document.createElement("div"); o.className = "tc"; o.id = d.id + "c"; d.appendChild(o); }
+          host.appendChild(d); out.push({ el: d, c, r, cx: x + w / 2, cy: y + h / 2 });
+        }
+        return out;
+      }
+
+      const WA = wedges($("logoA"), 10, "wa");
+      const WB = wedges($("logoB"), 10, "wb");
+      const SEEDS = [];
+      const SEED_COL = ["#8cc63f", "#e63a2e", "#e8731c", "#f6f2ea"];
+      for (let i = 0; i < 14; i++) {
+        const s = document.createElementNS(NS, "svg");
+        s.setAttribute("viewBox", "-14 -22 28 44"); s.setAttribute("class", "seed"); s.id = "seed" + i;
+        s.innerHTML = `<path d="M0 -20 C14 -10 14 10 0 20 C-14 10 -14 -10 0 -20 Z" fill="${SEED_COL[i % 4]}"/>`;
+        $("burst").appendChild(s); SEEDS.push(s);
+      }
+      const LA = letters($("wA"), "Épicé Bon", "la");
+      const LE2 = letters($("e2"), "La gamme", "le");
+      const S2 = words($("s2"), "Le plus difficile, c'est de choisir.", "sw");
+      const STR = grid($("p2"), "assets/img/pots.jpg", 840, 1116, 7, 1, "st", false);
+      $("p2").appendChild($("fr2"));
+      const TIL = grid($("g2"), "assets/img/pots.jpg", 840, 1116, 5, 6, "ti", true);
+      const T3 = [...words($("t3a"), "Quel Épicé Bon", "ta"), ...words($("t3b"), "pour ton plat ?", "tb")];
+      const LAB = ["Poisson & Crevette", "Légume", "Simple", "Fumé"].map((t, k) => letters($("l3_" + k), t, `lb${k}_`));
+      const S3 = words($("s3"), "Il y en a un pour chaque plat", "sx");
+      const LB = letters($("wB"), "Épicé Bon", "lk");
+      const S5 = words($("s5"), "Quel Épicé Bon pour ton plat ?", "sz");
+      const H5 = letters($("h5"), "@epice_bon", "hh");
+
+      // la route et les 5 enseignes (points calculés une fois, au chargement)
+      const roadP = $("roadP"), L_R = roadP.getTotalLength();
+      const STORES = [["Kin Marché (2)", "#e8731c", 0.1, -1], ["Monishop", "#8e2a8a", 0.33, 1], ["City Market (3)", "#e63a2e", 0.52, -1], ["Carrefour (2)", "#2a5bd7", 0.74, 1], ["GG Mart (5)", "#3f8a24", 0.94, -1]];
+      const PINS = STORES.map(([name, col, f, side], i) => {
+        const p = roadP.getPointAtLength(L_R * f), d = document.createElement("div");
+        d.className = "pin"; d.id = "pin" + i; d.style.left = p.x + "px"; d.style.top = p.y + "px";
+        const lx = Math.min(Math.max(p.x, 140), 940) - p.x;
+        d.innerHTML = `<svg viewBox="0 0 68 92"><path d="M34 90 C34 90 4 52 4 33 A30 30 0 0 1 64 33 C64 52 34 90 34 90 Z" fill="${col}" stroke="#fff" stroke-width="4"/><circle cx="34" cy="33" r="12" fill="#fff"/></svg>` +
+          `<b id="pl${i}" style="left:${lx - 130}px;top:${side < 0 ? -160 : 22}px">${name}</b>`;
+        $("pins").appendChild(d); return d;
+      });
+      const JARS = grid($("g4"), "assets/img/gamme.jpg", 940, 248, 4, 1, "jr", false);
+
+      const L_A = $("ringA").getTotalLength(), L_B = $("ringB").getTotalLength(), L_C = $("ctaR").getTotalLength(), L_F = $("fr2R").getTotalLength(), L_L = $("roadL").getTotalLength();
+      gsap.set("#ringA", { strokeDasharray: L_A, strokeDashoffset: L_A });
+      gsap.set("#ringB", { strokeDasharray: L_B, strokeDashoffset: L_B });
+      gsap.set("#ctaR", { strokeDasharray: L_C, strokeDashoffset: L_C });
+      gsap.set("#fr2R", { strokeDasharray: L_F, strokeDashoffset: L_F });
+      gsap.set("#roadP", { strokeDasharray: L_R, strokeDashoffset: L_R });
+      gsap.set("#roadL", { strokeDasharray: L_L, strokeDashoffset: L_L });
+      gsap.set(["#logoAfull", "#tagA1", "#tagA2", "#t2a", "#t2b", "#g2", "#line2", "#e3", "#k3_0", "#k3_1", "#k3_2", "#k3_3", "#c3_0", "#c3_1", "#c3_2", "#c3_3",
+        "#e4", "#n4a", "#n4b", "#w4a", "#w4b", "#shock", "#iris", "#logoBfull", "#ctaT", "#bigRing"], { autoAlpha: 0 });
+      gsap.set([...WA.map((w) => w.el), ...WB.map((w) => w.el), ...SEEDS, ...LA, ...LE2, ...S2, ...STR.map((s) => s.el), ...T3, ...LAB.flat(), ...S3,
+        ...PINS, ...JARS.map((j) => j.el), ...LB, ...S5, ...H5], { autoAlpha: 0 });
+      gsap.set(".ph3", { clipPath: "inset(0% 100% 0% 0%)" });
+      gsap.set(".col", { scaleX: 60 / 930, scaleY: 60 / 255, borderRadius: "50%" });
+      gsap.set("#s4", { clipPath: "circle(150% at 50% 620px)" });
+      gsap.set("#fade", { autoAlpha: 1 });
+
+      // ---------- ambiance continue ----------
+      tl.fromTo("#glow", { x: 0, y: 0 }, { x: 420, y: 900, duration: 20, ease: "sine.inOut" }, 0);
+      tl.fromTo("#leaves", { y: 0 }, { y: -160, duration: 20, ease: "none" }, 0);
+      IN("#bigRing", {}, { duration: 1.5 }, 0.3);
+      tl.fromTo("#bigRing", { rotation: 0, transformOrigin: "540px 900px" }, { rotation: 120, duration: 20, ease: "none" }, 0);
+
+      // ---------- S1 : le logo arrive en 10 parts (0 - 3.4) ----------
+      tl.to("#fade", { autoAlpha: 0, duration: 0.5, ease: "power2.out" }, 0);
+      WA.forEach((w, i) => IN(w.el,
+        { x: Math.cos(w.mid) * 760, y: Math.sin(w.mid) * 760, rotation: i % 2 ? 140 : -140, scale: 0.3 },
+        { x: 0, y: 0, rotation: 0, scale: 1, duration: 1.0, ease: "expo.out" }, 0.2 + i * 0.045));
+      tl.set("#logoAfull", { autoAlpha: 1 }, 1.65);
+      tl.set(WA.map((w) => w.el), { autoAlpha: 0 }, 1.65);
+      tl.fromTo("#ringA", { strokeDashoffset: L_A }, { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut", immediateRender: false }, 0.8);
+      SEEDS.forEach((b, i) => {
+        const a = (i / SEEDS.length) * Math.PI * 2 + 0.2, r = 340 + rnd() * 120;
+        FT(b, { x: 0, y: 0, scale: 0.4, rotation: 0, autoAlpha: 1 },
+          { x: Math.cos(a) * r, y: Math.sin(a) * r, scale: 1.1, rotation: (rnd() - 0.5) * 300, autoAlpha: 0, duration: 1.0, ease: "power3.out" }, 1.0);
+      });
+      LA.forEach((s, i) => IN(s,
+        { x: (rnd() - 0.5) * 900, y: (rnd() - 0.5) * 700, rotation: (rnd() - 0.5) * 360, scale: 0 },
+        { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.8, ease: "back.out(1.5)" }, 1.25 + i * 0.05));
+      IN("#tagA1", { x: -1100 }, { x: 0, duration: 0.6, ease: "expo.out" }, 2.0);
+      IN("#tagA2", { x: 1100 }, { x: 0, duration: 0.6, ease: "expo.out" }, 2.12);
+
+      // le logo se décompose
+      tl.set("#logoAfull", { autoAlpha: 0 }, 3.1);
+      WA.forEach((w, i) => FT(w.el,
+        { x: 0, y: 0, rotation: 0, scale: 1, autoAlpha: 1 },
+        { x: Math.cos(w.mid) * 1050, y: Math.sin(w.mid) * 1050, rotation: i % 2 ? -100 : 100, scale: 1.4, autoAlpha: 0, duration: 0.6, ease: "power3.in" }, 3.1 + i * 0.015));
+      tl.fromTo("#ringA", { strokeDashoffset: 0 }, { strokeDashoffset: -L_A, duration: 0.5, ease: "power2.in", immediateRender: false }, 3.05);
+      LA.forEach((s, i) => FT(s, { y: 0, rotation: 0, autoAlpha: 1 },
+        { y: 700 + rnd() * 300, rotation: (rnd() - 0.5) * 240, autoAlpha: 0, duration: 0.6, ease: "power2.in" }, 3.1 + i * 0.02));
+      FT("#tagA1", { x: 0, autoAlpha: 1 }, { x: 1100, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+      FT("#tagA2", { x: 0, autoAlpha: 1 }, { x: -1100, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+
+      // ---------- S2 : les 4 pots, la photo arrive en 7 bandes (3.45 - 7.2) ----------
+      STR.forEach((s, i) => IN(s.el, { y: i % 2 ? 1500 : -1500 }, { y: 0, duration: 0.9, ease: "expo.out" }, 3.45 + i * 0.055));
+      tl.fromTo("#p2", { scale: 1.1 }, { scale: 1, duration: 3.7, ease: "power1.out", immediateRender: false }, 3.45);
+      tl.fromTo("#fr2R", { strokeDashoffset: L_F }, { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut", immediateRender: false }, 4.3);
+      IN("#t2a", { x: -1200 }, { x: 0, duration: 0.8, ease: "expo.out" }, 3.65);
+      IN("#t2b", { x: 1200 }, { x: 0, duration: 0.8, ease: "expo.out" }, 3.65);
+      LE2.forEach((s, i) => IN(s, { y: 30 }, { y: 0, duration: 0.4, ease: "power2.out" }, 4.2 + i * 0.04));
+      S2.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.5, ease: "power3.out" }, 4.8 + i * 0.12));
+      IN("#line2", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 5.6);
+
+      // la photo se découpe en 30 tuiles qui deviennent 4 pastilles de couleur
+      const DOTS = [[420, 127], [420, 402], [420, 677], [420, 952]], COLS = ["#e8731c", "#3f8a24", "#a8740f", "#d62828"];
+      TIL.forEach((t) => { $(t.el.id + "c").style.background = COLS[(t.r * 5 + t.c) % 4]; });
+      tl.to("#fr2R", { strokeDashoffset: -L_F, duration: 0.3, ease: "power2.in" }, 6.9);
+      tl.set("#g2", { autoAlpha: 1 }, 7.15);
+      tl.set(STR.map((s) => s.el), { autoAlpha: 0 }, 7.15);
+      TIL.forEach((t) => {
+        const [tx, ty] = DOTS[(t.r * 5 + t.c) % 4], d = Math.hypot(t.cx - 420, t.cy - 558) / 700, at = 7.2 + d * 0.25;
+        FT(t.el, { x: 0, y: 0, scale: 1, rotation: 0, borderRadius: "0%" },
+          { x: tx - t.cx, y: ty - t.cy, scale: 0.34, rotation: (rnd() - 0.5) * 180, borderRadius: "50%", duration: 0.7, ease: "power3.inOut" }, at);
+        FT("#" + t.el.id + "c", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none" }, at + 0.25);
+      });
+      tl.set("#g2", { autoAlpha: 0 }, 8.15);
+      FT("#t2a", { x: 0, autoAlpha: 1 }, { x: 1200, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.05);
+      FT("#t2b", { x: 0, autoAlpha: 1 }, { x: -1200, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.05);
+      FT([...LE2, ...S2, "#line2"], { y: 0, autoAlpha: 1 }, { y: -40, autoAlpha: 0, duration: 0.35, ease: "power2.in" }, 7.0);
+
+      // ---------- S3 : les pastilles deviennent 4 bandes (8.1 - 12.1) ----------
+      [0, 1, 2, 3].forEach((k) => {
+        tl.set("#k3_" + k, { autoAlpha: 1 }, 8.1);
+        FT("#k3_" + k, { scaleX: 60 / 930, scaleY: 60 / 255, borderRadius: "50%" },
+          { scaleX: 1, scaleY: 1, borderRadius: "0%", duration: 0.85, ease: "expo.inOut" }, 8.1 + k * 0.07);
+        LAB[k].forEach((s, i) => IN(s, { y: 120 }, { y: 0, duration: 0.45, ease: "power3.out" }, 8.75 + k * 0.1 + i * 0.025));
+        FT("#ph3_" + k, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power3.inOut" }, 9.75 + k * 0.12);
+        IN("#c3_" + k, { scale: 0, x: -60 }, { scale: 1, x: 0, duration: 0.45, ease: "back.out(2)" }, 10.15 + k * 0.12);
+      });
+      IN("#e3", { y: 20 }, { y: 0, duration: 0.4 }, 8.2);
+      T3.forEach((s, i) => IN(s, { y: -260, rotation: -14 }, { y: 0, rotation: 0, duration: 0.6, ease: "back.out(1.6)" }, 8.3 + i * 0.09));
+      // les bandes se resserrent : la mosaïque se recompose
+      [30, 10, -10, -30].forEach((dy, k) => FT("#g3_" + k, { y: 0 }, { y: dy, duration: 0.6, ease: "power4.inOut" }, 10.75));
+      S3.forEach((s, i) => IN(s, { y: 50 }, { y: 0, duration: 0.45, ease: "power3.out" }, 11.0 + i * 0.07));
+      // sortie : les bandes partent à gauche et à droite
+      [0, 1, 2, 3].forEach((k) => FT("#g3_" + k, { x: 0 }, { x: k % 2 ? 1200 : -1200, duration: 0.5, ease: "power3.in" }, 11.6 + k * 0.05));
+      tl.set(["#g3_0", "#g3_1", "#g3_2", "#g3_3"], { autoAlpha: 0 }, 12.3);
+      FT([...T3, "#e3"], { y: 0, autoAlpha: 1 }, { y: -300, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 11.6);
+      FT(S3, { y: 0, autoAlpha: 1 }, { y: 200, autoAlpha: 0, duration: 0.4, ease: "power3.in" }, 11.6);
+
+      // ---------- S4 : « 13 » se soude, la route se dessine (12.2 - 16.1) ----------
+      IN("#e4", { y: 20 }, { y: 0, duration: 0.4 }, 12.15);
+      IN("#n4a", { y: -900 }, { y: 0, duration: 0.6, ease: "expo.out" }, 12.2);
+      IN("#n4b", { y: 900 }, { y: 0, duration: 0.6, ease: "expo.out" }, 12.2);
+      tl.set("#shock", { autoAlpha: 1 }, 12.35);
+      FT("#shockC", { attr: { r: 60 }, opacity: 1 }, { attr: { r: 640 }, opacity: 0, duration: 0.8, ease: "power2.out" }, 12.35);
+      tl.set("#shock", { autoAlpha: 0 }, 13.2);
+      IN("#w4a", { y: 130 }, { y: 0, duration: 0.5, ease: "power3.out" }, 12.6);
+      tl.fromTo("#roadP", { strokeDashoffset: L_R }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 12.8);
+      tl.fromTo("#roadL", { strokeDashoffset: L_L }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 12.95);
+      PINS.forEach((p, i) => IN(p, { scale: 0, y: -60 }, { scale: 1, y: 0, duration: 0.45, ease: "back.out(2.2)" }, 13.2 + i * 0.17));
+      FT("#w4a", { y: 0 }, { y: -130, duration: 0.5, ease: "power3.inOut" }, 14.3);
+      IN("#w4b", { y: 130 }, { y: 0, duration: 0.5, ease: "power3.inOut" }, 14.3);
+      JARS.forEach((j, i) => IN(j.el, { y: 320, rotation: i % 2 ? 8 : -8 }, { y: 0, rotation: 0, duration: 0.6, ease: "back.out(1.4)" }, 14.5 + i * 0.1));
+      // sortie en iris vers le logo
+      FT("#s4", { clipPath: "circle(150% at 50% 620px)" }, { clipPath: "circle(0% at 50% 620px)", duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 1 }, 15.7);
+      FT("#irisC", { attr: { r: 1300 } }, { attr: { r: 0 }, duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 0 }, 16.25);
+
+      // ---------- S5 : le logo se reforme en éventail (16.2 - 20) ----------
+      WB.forEach((w, i) => IN(w.el, { rotation: -220 - i * 12, scale: 0.15 }, { rotation: 0, scale: 1, duration: 0.9, ease: "expo.out" }, 16.2 + i * 0.035));
+      tl.set("#logoBfull", { autoAlpha: 1 }, 17.45);
+      tl.set(WB.map((w) => w.el), { autoAlpha: 0 }, 17.45);
+      tl.fromTo("#ringB", { strokeDashoffset: L_B }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 16.5);
+      LB.forEach((s, i) => IN(s, { y: 150 }, { y: 0, duration: 0.55, ease: "power3.out" }, 16.75 + i * 0.045));
+      S5.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.45, ease: "power3.out" }, 17.2 + i * 0.07));
+      tl.fromTo("#ctaR", { strokeDashoffset: L_C }, { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut", immediateRender: false }, 17.5);
+      IN("#ctaT", { y: 20 }, { y: 0, duration: 0.45, ease: "power2.out" }, 17.9);
+      FT("#ctaFill", { opacity: 0 }, { opacity: 0.2, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 18.4);
+      H5.forEach((s, i) => IN(s, { y: 20 }, { y: 0, duration: 0.3, ease: "power2.out" }, 18.1 + i * 0.035));
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 19.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

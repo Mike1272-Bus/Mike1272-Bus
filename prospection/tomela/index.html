@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 400; src: url('assets/fonts/bricolage-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 700; src: url('assets/fonts/bricolage-700.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0d0a07; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #f7ecd6; font-family: 'Bricolage', sans-serif;
+        background: radial-gradient(circle at 50% 32%, #3d2810 0%, #1c130a 48%, #0b0805 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+      .title span, .words span, .eyebrow span { display: inline-block; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: 0.32em; color: #d4a02c; text-transform: uppercase; }
+      .words { font-family: 'Work Sans'; font-weight: 400; font-size: 46px; color: #efe1c4; }
+      #glow { left: -300px; top: -200px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(212,160,44,0.24) 0%, rgba(212,160,44,0) 65%); }
+      #motif { opacity: 0.1; }
+      .piece { position: absolute; background-repeat: no-repeat; }
+      .lg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url('assets/img/logo.png') center / 100% 100% no-repeat; }
+
+      /* S1 */
+      #logoA, #logoAfull { left: 270px; top: 470px; width: 540px; height: 540px; }
+      #wA { top: 1095px; font-size: 150px; letter-spacing: 0.06em; color: #d4a02c; }
+      #tagA1 { top: 1268px; font-family: 'Work Sans'; font-size: 46px; color: #efe1c4; }
+      #tagA2 { top: 1332px; font-family: 'Work Sans'; font-weight: 700; font-size: 46px; color: #d4a02c; }
+
+      /* S2 */
+      #e2 { top: 150px; font-size: 26px; letter-spacing: 0.2em; }
+      .t2 { top: 200px; font-size: 200px; }
+      #t2a { clip-path: inset(0 0 50% 0); color: #f7ecd6; }
+      #t2b { clip-path: inset(50% 0 0 0); color: #d4a02c; }
+      #p2 { left: 190px; top: 440px; width: 700px; height: 849px; }
+      #slot2 { left: 0; top: 1320px; width: 1080px; height: 100px; overflow: hidden; }
+      .sw { left: 0; top: 0; width: 1080px; text-align: center; font-weight: 800; font-size: 66px; line-height: 100px; color: #f7ecd6; white-space: nowrap; }
+      #s2a { top: 1460px; font-size: 40px; font-style: italic; }
+      #s2b { top: 1514px; font-size: 40px; font-style: italic; }
+
+      /* S3 */
+      #e3 { top: 140px; }
+      #t3a { top: 190px; font-size: 140px; letter-spacing: 0.04em; }
+      #t3b { top: 335px; font-size: 92px; color: #d4a02c; }
+      #fl3 { left: 90px; top: 470px; width: 900px; height: 897px; }
+      .tile { position: absolute; }
+      .face { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-repeat: no-repeat; }
+      #stamp { left: 620px; top: 1280px; width: 380px; padding: 18px 0 14px; text-align: center; border: 5px solid #d4a02c; border-radius: 14px; background: #1c130a;
+        font-weight: 800; font-size: 40px; letter-spacing: 0.08em; color: #d4a02c; box-shadow: 0 16px 34px rgba(0,0,0,0.6); }
+      #s3 { top: 1430px; font-size: 54px; font-weight: 700; font-family: 'Bricolage'; color: #f7ecd6; }
+
+      /* S4 */
+      #s4 { overflow: hidden; }
+      #e4 { top: 300px; }
+      .t4 { top: 350px; font-size: 150px; }
+      #t4a { clip-path: inset(0 0 50% 0); color: #f7ecd6; }
+      #t4b { clip-path: inset(50% 0 0 0); color: #d4a02c; }
+      .card { left: 110px; width: 860px; height: 150px; border-radius: 24px; background: #f7ecd6; color: #1c130a; box-shadow: 0 18px 40px rgba(0,0,0,0.55); }
+      .card i { position: absolute; left: 34px; top: 37px; width: 76px; height: 76px; border-radius: 50%; background: #d4a02c; }
+      .card i::after { content: ""; position: absolute; left: 27px; top: 27px; width: 22px; height: 22px; border-radius: 50%; background: #1c130a; }
+      .card b { position: absolute; left: 140px; top: 22px; font-weight: 800; font-size: 54px; line-height: 1.1; }
+      .card em { position: absolute; left: 141px; top: 90px; font-family: 'Work Sans'; font-style: normal; font-size: 32px; color: #6b4a1c; }
+      #c4_0 { top: 590px; } #c4_1 { top: 770px; } #c4_2 { top: 950px; }
+      #g4 { left: 70px; top: 1160px; width: 940px; height: 331px; }
+
+      /* S5 */
+      #logoB, #logoBfull { left: 340px; top: 420px; width: 400px; height: 400px; }
+      #wB { top: 880px; height: 140px; overflow: hidden; font-size: 124px; line-height: 140px; letter-spacing: 0.06em; color: #d4a02c; }
+      #s5 { top: 1040px; font-size: 42px; }
+      #ctaFill { left: 170px; top: 1170px; width: 740px; height: 104px; border-radius: 52px; background: #d4a02c; opacity: 0; }
+      #ctaT { left: 170px; top: 1170px; width: 740px; height: 104px; line-height: 104px; text-align: center; font-family: 'Work Sans'; font-weight: 700; font-size: 42px; color: #f7ecd6; }
+      #h5 { top: 1320px; font-family: 'Work Sans'; font-weight: 700; font-size: 36px; color: #d4a02c; letter-spacing: 0.02em; }
+      #fade { background: #0b0805; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div class="ab" id="glow"></div>
+      <svg class="ab full" id="motif" viewBox="0 0 1080 1920"></svg>
+      <svg class="ab full" id="bigRing" viewBox="0 0 1080 1920"><circle cx="540" cy="900" r="500" fill="none" stroke="#d4a02c" stroke-width="2" stroke-dasharray="3 22" opacity="0.4"/></svg>
+
+      <!-- S1 : le logo arrive en 12 lamelles -->
+      <svg class="ab full" id="ringsA" viewBox="0 0 1080 1920"><circle id="ringA" cx="540" cy="740" r="292" fill="none" stroke="#d4a02c" stroke-width="6" transform="rotate(-90 540 740)"/></svg>
+      <div class="ab" id="logoA"></div>
+      <div class="ab" id="logoAfull"><div class="lg"></div></div>
+      <div class="ab center title" id="wA" data-layout-allow-overlap></div>
+      <div class="ab center" id="tagA1">Vin congolais de fruits,</div>
+      <div class="ab center" id="tagA2">fleurs &amp; feuilles</div>
+
+      <!-- S2 : les 3 vins, un par un -->
+      <div class="ab center eyebrow" id="e2"></div>
+      <div class="ab center title t2" id="t2a">Nos vins</div>
+      <div class="ab center title t2" id="t2b">Nos vins</div>
+      <div class="ab" id="p2"></div>
+      <div class="ab" id="slot2"></div>
+      <div class="ab center words" id="s2a"></div>
+      <div class="ab center words" id="s2b"></div>
+
+      <!-- S3 : l'édition limitée, la mosaïque qui se retourne -->
+      <div class="ab center eyebrow" id="e3">Édition limitée</div>
+      <div class="ab center title" id="t3a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t3b" data-layout-allow-overlap></div>
+      <div class="ab" id="fl3"></div>
+      <div class="ab" id="stamp">ÉDITION LIMITÉE</div>
+      <div class="ab center" id="s3"></div>
+
+      <!-- S4 : les points de vente -->
+      <div class="ab full" id="s4">
+        <div class="ab center eyebrow" id="e4">Nos points de vente</div>
+        <div class="ab center title t4" id="t4a">Kinshasa</div>
+        <div class="ab center title t4" id="t4b">Kinshasa</div>
+        <div class="ab card" id="c4_0"><i></i><b>Carrefour</b><em>Hyper Psaro · Gombe et Ngaliema</em></div>
+        <div class="ab card" id="c4_1"><i></i><b>Bellissima Espace</b><em>Avenue de la Mongala · Gombe</em></div>
+        <div class="ab card" id="c4_2"><i></i><b>Moni-shop</b><em>Avenue Kasa Vubu · Kintambo</em></div>
+        <div class="ab" id="g4"></div>
+      </div>
+      <svg class="ab full" id="iris" viewBox="0 0 1080 1920"><circle id="irisC" cx="540" cy="620" r="1300" fill="none" stroke="#d4a02c" stroke-width="10"/></svg>
+
+      <!-- S5 : le logo se reforme -->
+      <svg class="ab full" id="ringsB" viewBox="0 0 1080 1920"><circle id="ringB" cx="540" cy="620" r="218" fill="none" stroke="#d4a02c" stroke-width="5" transform="rotate(-90 540 620)"/>
+        <rect id="ctaR" x="170" y="1170" width="740" height="104" rx="52" fill="none" stroke="#d4a02c" stroke-width="4"/></svg>
+      <div class="ab" id="logoB"></div>
+      <div class="ab" id="logoBfull"><div class="lg"></div></div>
+      <div class="ab center title" id="wB" data-layout-allow-overlap></div>
+      <div class="ab center words" id="s5"></div>
+      <div class="ab" id="ctaFill"></div>
+      <div class="ab" id="ctaT">www.tomelawines.com</div>
+      <div class="ab center" id="h5"></div>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="20" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      let seed = 47;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at);
+
+      // ---------- fabrique des morceaux ----------
+      function letters(host, text, prefix) {
+        return [...text].map((ch, i) => {
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = ch === " " ? " " : ch;
+          host.appendChild(s); return s;
+        });
+      }
+      function words(host, text, prefix) {
+        const out = [];
+        text.split(" ").forEach((w, i) => {
+          if (i) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = w; host.appendChild(s); out.push(s);
+        });
+        return out;
+      }
+      function grid(host, img, W, H, cols, rows, prefix) {
+        const out = [];
+        for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+          const x = Math.round((c * W) / cols), y = Math.round((r * H) / rows);
+          const w = Math.round(((c + 1) * W) / cols) - x, h = Math.round(((r + 1) * H) / rows) - y;
+          const d = document.createElement("div");
+          d.className = "piece"; d.id = `${prefix}${r}_${c}`;
+          Object.assign(d.style, { left: x + "px", top: y + "px", width: w + 1 + "px", height: h + 1 + "px",
+            backgroundImage: `url('${img}')`, backgroundSize: `${W}px ${H}px`, backgroundPosition: `${-x}px ${-y}px` });
+          host.appendChild(d); out.push({ el: d, c, r });
+        }
+        return out;
+      }
+      // tuiles à deux faces : face A = image A, face B = image B (pour l'effet tableau d'affichage)
+      function flipGrid(host, imgA, imgB, W, H, cols, rows, prefix) {
+        const out = [];
+        for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+          const x = Math.round((c * W) / cols), y = Math.round((r * H) / rows);
+          const w = Math.round(((c + 1) * W) / cols) - x, h = Math.round(((r + 1) * H) / rows) - y;
+          const t = document.createElement("div");
+          t.className = "tile"; t.id = `${prefix}${r}_${c}`;
+          Object.assign(t.style, { left: x + "px", top: y + "px", width: w + 1 + "px", height: h + 1 + "px" });
+          const faces = [imgA, imgB].map((img, k) => {
+            const f = document.createElement("div"); f.className = "face"; f.id = t.id + (k ? "b" : "a");
+            Object.assign(f.style, { backgroundImage: `url('${img}')`, backgroundSize: `${W}px ${H}px`, backgroundPosition: `${-x}px ${-y}px` });
+            t.appendChild(f); return f;
+          });
+          host.appendChild(t); out.push({ el: t, a: faces[0], b: faces[1], c, r });
+        }
+        return out;
+      }
+
+      // fond : losanges du logo en filigrane
+      (() => {
+        let s = "";
+        [[90, 160], [990, 300], [70, 980], [1010, 1140], [130, 1700], [960, 1800], [540, 70], [560, 1880]].forEach(([x, y]) => {
+          s += `<rect x="${x - 34}" y="${y - 34}" width="68" height="68" fill="none" stroke="#d4a02c" stroke-width="6" transform="rotate(45 ${x} ${y})"/>`;
+        });
+        $("motif").innerHTML = s;
+      })();
+
+      const SA = grid($("logoA"), "assets/img/logo.png", 540, 540, 1, 12, "sa");
+      const SB = grid($("logoB"), "assets/img/logo.png", 400, 400, 1, 10, "sb");
+      const LA = letters($("wA"), "Tomela", "la");
+      const LE2 = letters($("e2"), "Revisitons nos plaisirs ancestraux", "le");
+      const VINS = grid($("p2"), "assets/img/vins.jpg", 700, 849, 3, 1, "vn");
+      const NAMES = ["Vin de paka paka", "Vin de feuilles d'avocatier", "Vin de palme"];
+      const SW = NAMES.map((t, i) => { const d = document.createElement("div"); d.className = "ab sw"; d.id = "nm" + i; d.setAttribute("data-layout-allow-overlap", ""); d.textContent = t; $("slot2").appendChild(d); return d; });
+      const S2 = [...words($("s2a"), "Né des fruits, des feuilles", "sa_"), ...words($("s2b"), "et des traditions du Congo.", "sb_")];
+      const T3 = [...letters($("t3a"), "Tomela", "ta"), ...words($("t3b"), "× Fally Ipupa", "tb")];
+      const FL = flipGrid($("fl3"), "assets/img/coffrets.jpg", "assets/img/coffret.jpg", 900, 897, 4, 4, "fl");
+      const S3 = words($("s3"), "XX : Délirium", "sx");
+      const CARDS = ["#c4_0", "#c4_1", "#c4_2"];
+      const BOT = grid($("g4"), "assets/img/bouteilles.jpg", 940, 331, 4, 1, "bt");
+      const LB = letters($("wB"), "Tomela", "lk");
+      const S5 = words($("s5"), "Revisitons nos plaisirs ancestraux", "sz");
+      const H5 = letters($("h5"), "+243 812 074 566 · @tomela_wines", "hh");
+
+      const L_A = $("ringA").getTotalLength(), L_B = $("ringB").getTotalLength(), L_C = $("ctaR").getTotalLength();
+      gsap.set("#ringA", { strokeDasharray: L_A, strokeDashoffset: L_A });
+      gsap.set("#ringB", { strokeDasharray: L_B, strokeDashoffset: L_B });
+      gsap.set("#ctaR", { strokeDasharray: L_C, strokeDashoffset: L_C });
+      gsap.set(["#logoAfull", "#tagA1", "#tagA2", "#t2a", "#t2b", "#e3", "#stamp", "#e4", "#t4a", "#t4b", ...CARDS, "#iris", "#logoBfull", "#ctaT", "#bigRing"], { autoAlpha: 0 });
+      gsap.set([...SA.map((s) => s.el), ...SB.map((s) => s.el), ...LA, ...LE2, ...VINS.map((v) => v.el), ...SW, ...S2, ...T3, ...FL.map((f) => f.el), ...FL.map((f) => f.b),
+        ...S3, ...BOT.map((b) => b.el), ...LB, ...S5, ...H5], { autoAlpha: 0 });
+      gsap.set("#s4", { clipPath: "circle(150% at 50% 620px)" });
+      gsap.set("#stamp", { rotation: -8 });
+      gsap.set("#fade", { autoAlpha: 1 });
+
+      // ---------- ambiance continue ----------
+      tl.fromTo("#glow", { x: 0, y: 0 }, { x: 420, y: 900, duration: 20, ease: "sine.inOut" }, 0);
+      tl.fromTo("#motif", { y: 0 }, { y: -160, duration: 20, ease: "none" }, 0);
+      IN("#bigRing", {}, { duration: 1.5 }, 0.3);
+      tl.fromTo("#bigRing", { rotation: 0, transformOrigin: "540px 900px" }, { rotation: 120, duration: 20, ease: "none" }, 0);
+
+      // ---------- S1 : le logo arrive en 12 lamelles (0 - 3.4) ----------
+      tl.to("#fade", { autoAlpha: 0, duration: 0.5, ease: "power2.out" }, 0);
+      SA.forEach((s, i) => IN(s.el, { x: i % 2 ? 900 : -900, skewX: i % 2 ? -25 : 25 }, { x: 0, skewX: 0, duration: 0.85, ease: "expo.out" }, 0.2 + i * 0.05));
+      tl.set("#logoAfull", { autoAlpha: 1 }, 1.65);
+      tl.set(SA.map((s) => s.el), { autoAlpha: 0 }, 1.65);
+      tl.fromTo("#ringA", { strokeDashoffset: L_A }, { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut", immediateRender: false }, 0.8);
+      LA.forEach((s, i) => IN(s, { y: -220, rotation: (rnd() - 0.5) * 40 }, { y: 0, rotation: 0, duration: 0.6, ease: "bounce.out" }, 1.3 + i * 0.07));
+      IN("#tagA1", { x: -1100 }, { x: 0, duration: 0.6, ease: "expo.out" }, 2.0);
+      IN("#tagA2", { x: 1100 }, { x: 0, duration: 0.6, ease: "expo.out" }, 2.12);
+
+      // les lamelles repartent
+      tl.set("#logoAfull", { autoAlpha: 0 }, 3.1);
+      SA.forEach((s, i) => FT(s.el, { x: 0, skewX: 0, autoAlpha: 1 }, { x: i % 2 ? -1000 : 1000, skewX: i % 2 ? 25 : -25, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 3.1 + i * 0.02));
+      tl.fromTo("#ringA", { strokeDashoffset: 0 }, { strokeDashoffset: -L_A, duration: 0.5, ease: "power2.in", immediateRender: false }, 3.05);
+      LA.forEach((s, i) => FT(s, { y: 0, autoAlpha: 1 }, { y: 600, rotation: (rnd() - 0.5) * 120, autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 3.1 + i * 0.03));
+      FT("#tagA1", { x: 0, autoAlpha: 1 }, { x: 1100, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+      FT("#tagA2", { x: 0, autoAlpha: 1 }, { x: -1100, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+
+      // ---------- S2 : les 3 vins, chacun dans sa colonne (3.45 - 7.8) ----------
+      VINS.forEach((v, i) => IN(v.el, { y: i % 2 ? 1400 : -1400 }, { y: 0, duration: 0.85, ease: "expo.out" }, 3.45 + i * 0.1));
+      IN("#t2a", { x: -1200 }, { x: 0, duration: 0.8, ease: "expo.out" }, 3.6);
+      IN("#t2b", { x: 1200 }, { x: 0, duration: 0.8, ease: "expo.out" }, 3.6);
+      LE2.forEach((s, i) => IN(s, { y: 30 }, { y: 0, duration: 0.35, ease: "power2.out" }, 4.0 + i * 0.015));
+      // chaque vin passe au premier plan, les deux autres s'éteignent
+      SW.forEach((el, k) => {
+        const at = 4.55 + k * 0.85;
+        IN(el, { y: 100 }, { y: 0, duration: 0.35, ease: "power3.inOut" }, at);
+        if (k < SW.length - 1) FT(el, { y: 0, autoAlpha: 1 }, { y: -100, autoAlpha: 0, duration: 0.35, ease: "power3.inOut" }, at + 0.85);
+        VINS.forEach((v, i) => FT(v.el, { opacity: k === 0 ? 1 : i === k - 1 ? 1 : 0.3, scale: k === 0 ? 1 : i === k - 1 ? 1.05 : 1 },
+          { opacity: i === k ? 1 : 0.3, scale: i === k ? 1.05 : 1, duration: 0.35, ease: "power2.inOut" }, at));
+      });
+      VINS.forEach((v, i) => FT(v.el, { opacity: i === 2 ? 1 : 0.3, scale: i === 2 ? 1.05 : 1 }, { opacity: 1, scale: 1, duration: 0.3 }, 6.95));
+      S2.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.4, ease: "power3.out" }, 5.0 + i * 0.07));
+      // sortie : les colonnes repartent en sens opposés
+      VINS.forEach((v, i) => FT(v.el, { y: 0 }, { y: i % 2 ? -1500 : 1500, duration: 0.5, ease: "power3.in" }, 7.3 + i * 0.05));
+      tl.set(VINS.map((v) => v.el), { autoAlpha: 0 }, 7.95);
+      FT("#t2a", { x: 0, autoAlpha: 1 }, { x: 1200, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.3);
+      FT("#t2b", { x: 0, autoAlpha: 1 }, { x: -1200, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.3);
+      FT([...LE2, SW[2], ...S2], { y: 0, autoAlpha: 1 }, { y: 50, autoAlpha: 0, duration: 0.35, ease: "power2.in" }, 7.3);
+
+      // ---------- S3 : l'édition limitée, la mosaïque se retourne (7.9 - 12.1) ----------
+      IN("#e3", { y: 20 }, { y: 0, duration: 0.4 }, 7.95);
+      T3.forEach((s, i) => IN(s, { y: 160, scale: 0.5 }, { y: 0, scale: 1, duration: 0.55, ease: "back.out(1.8)" }, 8.05 + i * 0.06));
+      FL.forEach((f) => IN(f.el, { scale: 0, rotation: (f.r + f.c) % 2 ? 90 : -90 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.5)" }, 8.1 + (f.r + f.c) * 0.06));
+      FT("#fl3", { scale: 1 }, { scale: 1.03, duration: 1.4, ease: "sine.inOut" }, 8.6);
+      IN("#stamp", { scale: 2.6, rotation: -30 }, { scale: 1, rotation: -8, duration: 0.4, ease: "power4.in" }, 9.2);
+      S3.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.4, ease: "power3.out" }, 9.5 + i * 0.1));
+      // retournement tuile par tuile : les coffrets laissent place au coffret ouvert et à la bouteille
+      FL.forEach((f) => {
+        const at = 10.0 + (f.r + f.c) * 0.07;
+        FT(f.el, { scaleX: 1 }, { scaleX: 0, duration: 0.18, ease: "power2.in" }, at);
+        tl.set(f.a, { autoAlpha: 0 }, at + 0.18);
+        tl.set(f.b, { autoAlpha: 1 }, at + 0.18);
+        FT(f.el, { scaleX: 0 }, { scaleX: 1, duration: 0.18, ease: "power2.out" }, at + 0.18);
+      });
+      FT("#fl3", { scale: 1.03 }, { scale: 1, duration: 0.5, ease: "power2.out" }, 10.0);
+      // sortie : les tuiles tombent
+      FL.forEach((f) => FT(f.el, { y: 0, autoAlpha: 1 }, { y: 1400, rotation: (rnd() - 0.5) * 60, autoAlpha: 0, duration: 0.55, ease: "power3.in" }, 11.55 + (3 - f.r) * 0.04 + f.c * 0.02));
+      FT(["#e3", ...T3], { y: 0, autoAlpha: 1 }, { y: -300, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 11.55);
+      FT(["#stamp", ...S3], { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.3 }, 11.55);
+
+      // ---------- S4 : les points de vente (12.2 - 16.1) ----------
+      IN("#e4", { y: 20 }, { y: 0, duration: 0.4 }, 12.15);
+      IN("#t4a", { y: -800 }, { y: 0, duration: 0.6, ease: "expo.out" }, 12.2);
+      IN("#t4b", { y: 800 }, { y: 0, duration: 0.6, ease: "expo.out" }, 12.2);
+      CARDS.forEach((c, i) => IN(c, { x: i % 2 ? 1100 : -1100, rotation: i % 2 ? 4 : -4 }, { x: 0, rotation: 0, duration: 0.65, ease: "expo.out" }, 12.75 + i * 0.22));
+      CARDS.forEach((c, i) => FT(c + " i", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.5)" }, 13.1 + i * 0.22));
+      BOT.forEach((b, i) => IN(b.el, { y: 500 }, { y: 0, duration: 0.6, ease: "back.out(1.4)" }, 13.9 + i * 0.1));
+      FT("#g4", { scale: 1 }, { scale: 1.04, duration: 1.6, ease: "sine.inOut" }, 14.1);
+      // sortie en iris vers le logo
+      FT("#s4", { clipPath: "circle(150% at 50% 620px)" }, { clipPath: "circle(0% at 50% 620px)", duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 1 }, 15.7);
+      FT("#irisC", { attr: { r: 1300 } }, { attr: { r: 0 }, duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 0 }, 16.25);
+
+      // ---------- S5 : les lamelles reforment le logo (16.2 - 20) ----------
+      SB.forEach((s, i) => IN(s.el, { x: i % 2 ? 700 : -700, skewX: i % 2 ? -25 : 25 }, { x: 0, skewX: 0, duration: 0.75, ease: "expo.out" }, 16.2 + i * 0.05));
+      tl.set("#logoBfull", { autoAlpha: 1 }, 17.5);
+      tl.set(SB.map((s) => s.el), { autoAlpha: 0 }, 17.5);
+      tl.fromTo("#ringB", { strokeDashoffset: L_B }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 16.5);
+      LB.forEach((s, i) => IN(s, { y: 150 }, { y: 0, duration: 0.55, ease: "power3.out" }, 16.75 + i * 0.06));
+      S5.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.45, ease: "power3.out" }, 17.2 + i * 0.08));
+      tl.fromTo("#ctaR", { strokeDashoffset: L_C }, { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut", immediateRender: false }, 17.5);
+      IN("#ctaT", { y: 20 }, { y: 0, duration: 0.45, ease: "power2.out" }, 17.9);
+      FT("#ctaFill", { opacity: 0 }, { opacity: 0.2, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 18.4);
+      H5.forEach((s, i) => IN(s, { y: 20 }, { y: 0, duration: 0.3, ease: "power2.out" }, 18.1 + i * 0.022));
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 19.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

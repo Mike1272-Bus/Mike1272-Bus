@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/worksans-700.ttf') format('truetype'); }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #050505;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Work Sans", sans-serif;
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+      }
+
+      /* persistent watermark */
+      .mark {
+        position: absolute;
+        top: 70px;
+        left: 70px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0.55;
+      }
+      .mark .dash {
+        width: 26px;
+        height: 1px;
+        background: #ffffff;
+      }
+      .mark .txt {
+        font-size: 20px;
+        letter-spacing: 0.14em;
+        color: #ffffff;
+        font-weight: 700;
+      }
+
+      /* beat wrapper */
+      .beat {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .stage {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .dot {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 0 24px 6px rgba(255,255,255,0.55);
+        top: 50%;
+        left: 50%;
+        margin: -9px 0 0 -9px;
+      }
+      .trail {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 2px;
+        height: 460px;
+        margin-left: -1px;
+        transform-origin: top center;
+        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.9));
+        transform: translateY(-460px) scaleY(0);
+      }
+      .icon {
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        opacity: 0;
+      }
+      .icon svg {
+        width: 100%;
+        height: 100%;
+        stroke: #ffffff;
+        stroke-width: 3.5;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .caption {
+        margin-top: 56px;
+        font-size: 40px;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: center;
+        max-width: 860px;
+        line-height: 1.3;
+      }
+      .caption .w {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="9"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="mark clip" data-start="0" data-duration="9" data-track-index="0">
+        <div class="dash"></div>
+        <div class="txt">DIGITALMIKAELSON</div>
+      </div>
+
+      <!-- Beat 1: salarie -->
+      <div class="beat clip" id="beat1" data-start="0" data-duration="2.3" data-track-index="1">
+        <div class="stage">
+          <div class="trail" id="b1-trail"></div>
+          <div class="dot" id="b1-dot"></div>
+          <div class="icon" id="b1-icon">
+            <svg viewBox="0 0 100 100">
+              <rect x="15" y="38" width="70" height="46" rx="6" />
+              <path d="M38 38 V28 a6 6 0 0 1 6 -6 h12 a6 6 0 0 1 6 6 v10" />
+              <line x1="15" y1="58" x2="85" y2="58" />
+              <rect x="44" y="54" width="12" height="10" rx="2" />
+            </svg>
+          </div>
+        </div>
+        <div class="caption" id="b1-cap">
+          <span class="w">Que</span> <span class="w">vous</span> <span class="w">soyez</span> <span class="w">salarié,</span>
+        </div>
+      </div>
+
+      <!-- Beat 2: etudiant -->
+      <div class="beat clip" id="beat2" data-start="2.3" data-duration="2.1" data-track-index="1">
+        <div class="stage">
+          <div class="trail" id="b2-trail"></div>
+          <div class="dot" id="b2-dot"></div>
+          <div class="icon" id="b2-icon">
+            <svg viewBox="0 0 100 100">
+              <path d="M6 40 L50 20 L94 40 L50 60 Z" />
+              <path d="M28 48 V70 c0 6 10 12 22 12 s22 -6 22 -12 V48" />
+              <path d="M94 40 V62" />
+            </svg>
+          </div>
+        </div>
+        <div class="caption" id="b2-cap">
+          <span class="w">étudiant,</span>
+        </div>
+      </div>
+
+      <!-- Beat 3: sans emploi -->
+      <div class="beat clip" id="beat3" data-start="4.4" data-duration="2.0" data-track-index="1">
+        <div class="stage">
+          <div class="trail" id="b3-trail"></div>
+          <div class="dot" id="b3-dot"></div>
+          <div class="icon" id="b3-icon">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="38" />
+              <line x1="35" y1="50" x2="65" y2="50" />
+            </svg>
+          </div>
+        </div>
+        <div class="caption" id="b3-cap">
+          <span class="w">ou</span> <span class="w">sans</span> <span class="w">emploi,</span>
+        </div>
+      </div>
+
+      <!-- Beat 4: savoir-faire -->
+      <div class="beat clip" id="beat4" data-start="6.4" data-duration="2.6" data-track-index="1">
+        <div class="stage">
+          <div class="trail" id="b4-trail"></div>
+          <div class="dot" id="b4-dot"></div>
+          <div class="icon" id="b4-icon">
+            <svg viewBox="0 0 100 100">
+              <path d="M50 12 a24 24 0 0 1 14 43 c-4 3 -6 7 -6 12 h-16 c0 -5 -2 -9 -6 -12 a24 24 0 0 1 14 -43 Z" />
+              <line x1="42" y1="78" x2="58" y2="78" />
+              <line x1="44" y1="86" x2="56" y2="86" />
+            </svg>
+          </div>
+        </div>
+        <div class="caption" id="b4-cap">
+          <span class="w">vous</span> <span class="w">avez</span> <span class="w">un</span> <span class="w">savoir-faire.</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      function beat(prefix, start, dur, wordSelector) {
+        const t0 = start;
+        // trail draws in then fades
+        tl.fromTo(`#${prefix}-trail`, { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.28, ease: "power1.in" }, t0);
+        tl.to(`#${prefix}-trail`, { opacity: 0, duration: 0.18 }, t0 + 0.3);
+        // dot falls to center then fades as icon appears
+        tl.fromTo(`#${prefix}-dot`, { y: -230, opacity: 0, scale: 0.6 }, { y: 0, opacity: 1, scale: 1, duration: 0.32, ease: "power2.in" }, t0);
+        tl.to(`#${prefix}-dot`, { scale: 1.6, opacity: 0, duration: 0.22, ease: "power1.out" }, t0 + 0.34);
+        // icon pops in
+        tl.fromTo(`#${prefix}-icon`, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(2.2)" }, t0 + 0.38);
+        // caption words stagger in
+        tl.fromTo(`${wordSelector} .w`, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", stagger: 0.12 }, t0 + 0.55);
+        // hold, then fade whole beat out near the end
+        tl.to(`#${prefix}-icon, ${wordSelector}`, { opacity: 0, duration: 0.22, ease: "power1.in" }, t0 + dur - 0.22);
+      }
+
+      beat("b1", 0.0, 2.3, "#b1-cap");
+      beat("b2", 2.3, 2.1, "#b2-cap");
+      beat("b3", 4.4, 2.0, "#b3-cap");
+      beat("b4", 6.4, 2.6, "#b4-cap");
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
