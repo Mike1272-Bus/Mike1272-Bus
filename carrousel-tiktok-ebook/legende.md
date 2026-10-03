@@ -12,15 +12,28 @@
 | 6 | « Gagne ta vie sans diplôme », le guide que j'ai écrit pour t'aider |
 | 7 | « Si tu veux l'avoir, commente EBOOK » |
 
-## Légende
+## Titre (champ « titre » du post photo TikTok)
 
-> Ce que tu sais faire peut devenir un revenu 👇 3 leçons pour commencer.
+> Tu sais faire quelque chose ? Voici comment en faire un revenu 💰
+
+Autres choix possibles :
+- 3 leçons pour transformer ce que tu sais faire en argent
+- Pas de diplôme ? Ta compétence peut quand même te payer
+
+## Description
+
+> Tu sais cuisiner, parler anglais, monter des vidéos ou utiliser Excel ? 👀
+> Ce que tu sais faire peut devenir un revenu. Glisse pour voir les 3 leçons 👉
 >
-> Tu sais faire quoi, toi ? Dis-le en commentaire.
+> 1️⃣ Choisis un seul besoin, et fais-en ton produit
+> 2️⃣ Choisis ton format : pas besoin de montrer ton visage
+> 3️⃣ Utilise l'IA pour créer tes produits et trouver des clients
 >
-> Et si tu veux mon guide « Gagne ta vie sans diplôme », commente « EBOOK » : je t'envoie le lien et le prix en privé, et je t'accompagne.
+> Et toi, tu sais faire quoi ? Dis-le en commentaire 👇
 >
-> #produitsdigitaux #gagnerdelargent #rdc #kinshasa #competence #ebook #ia
+> Mon guide « Gagne ta vie sans diplôme » te montre la méthode, étape par étape. Commente « EBOOK » : je t'envoie le lien et le prix en privé, et je t'accompagne.
+>
+> #produitsdigitaux #gagnerdelargent #rdc #kinshasa #competence #ebook #ia #jeunesafricains
 
 ## Réponse en privé à ceux qui écrivent « EBOOK »
 
