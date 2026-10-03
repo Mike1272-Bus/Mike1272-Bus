@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: 'Baloo 2'; font-weight: 800; src: url('Baloo2-ExtraBold.ttf'); }
+  @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('worksans-400.ttf'); }
+  @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('worksans-700.ttf'); }
+  @font-face { font-family: 'Noto Color Emoji'; src: url('NotoColorEmoji.ttf'); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #333; }
+  .slide { position: relative; width: 1080px; height: 1920px; overflow: hidden; margin-bottom: 20px;
+    font-family: 'Baloo 2', 'Noto Color Emoji', sans-serif; font-weight: 800; color: #111;
+    background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 54px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 54px),
+      radial-gradient(circle at 50% 40%, #fde3c8 0%, #fbf6ee 62%); }
+  .ab { position: absolute; }
+  .brand { left: 90px; top: 130px; background: #111; color: #fff; font-size: 28px; letter-spacing: 0.04em; padding: 12px 30px 6px; border-radius: 40px; }
+  .count { right: 90px; top: 130px; background: #ffd60a; border: 4px solid #111; font-size: 28px; padding: 8px 26px 2px; border-radius: 40px; }
+  .title { left: 90px; width: 900px; top: 250px; font-size: 92px; line-height: 1.16; }
+  .hl { background: linear-gradient(transparent 14%, #ffd60a 14%, #ffd60a 90%, transparent 90%); color: #c94200; border-radius: 16px; padding: 0 12px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .or { color: #ff5c00; }
+  .card { left: 110px; width: 860px; border: 6px solid #111; border-radius: 34px; overflow: hidden; box-shadow: 14px 14px 0 #111; background: #fff; }
+  .card img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .txt { left: 90px; width: 900px; font-family: 'Work Sans', 'Noto Color Emoji'; font-weight: 400; font-size: 44px; line-height: 1.32; color: #222; }
+  .txt b { font-weight: 700; color: #111; }
+  .swipe { right: 90px; bottom: 380px; font-size: 40px; background: #111; color: #fff; padding: 14px 34px 6px; border-radius: 40px; box-shadow: 8px 8px 0 #ff5c00; }
+  .pill { background: #ff5c00; color: #fff; border: 5px solid #111; border-radius: 70px; box-shadow: 10px 10px 0 #111; white-space: nowrap; text-align: center; }
+  .spark { position: absolute; }
+  .step { left: 110px; width: 860px; height: 170px; background: #fff; border: 6px solid #111; border-radius: 30px; box-shadow: 12px 12px 0 #111; display: flex; align-items: center; gap: 34px; padding: 0 40px; font-size: 52px; line-height: 1.05; }
+  .step i { font-style: normal; flex: 0 0 96px; height: 96px; border-radius: 50%; background: #ff5c00; border: 5px solid #111; display: flex; align-items: center; justify-content: center; font-size: 60px; padding-top: 8px; }
+  .chip { background: #fff; border: 5px solid #111; border-radius: 40px; box-shadow: 7px 7px 0 #111; font-size: 40px; padding: 12px 30px 4px; white-space: nowrap; }
+  .page { position: absolute; border: 9px solid #fff; outline: 5px solid #111; border-radius: 22px; overflow: hidden; box-shadow: 14px 14px 0 #111; background: #fff; }
+  .page img { display: block; width: 100%; height: 100%; object-fit: cover; }
+</style></head><body>
+
+<!-- 1. accroche -->
+<section class="slide" id="s1">
+  <div class="ab brand">DigitalMikaelson</div>
+  <div class="ab count">CETTE SEMAINE</div>
+  <div class="ab title" style="top:260px; font-size:100px">Ce que tu sais faire peut devenir <span class="hl">un revenu</span></div>
+  <div class="ab card" style="left:90px; top:720px; width:430px; height:380px; transform:rotate(-5deg)"><img src="img/cuisine.jpg"></div>
+  <div class="ab card" style="left:560px; top:700px; width:430px; height:380px; transform:rotate(4deg)"><img src="img/anglais.jpg" style="object-position:center"></div>
+  <div class="ab card" style="left:90px; top:1150px; width:430px; height:330px; transform:rotate(3deg)"><img src="img/excel.jpg"></div>
+  <div class="ab card" style="left:560px; top:1140px; width:430px; height:330px; transform:rotate(-4deg)"><img src="img/ia.jpg" style="object-position:center 20%"></div>
+  <div class="ab txt" style="top:1560px; text-align:center; font-weight:700; font-size:48px">5 leçons à retenir de la semaine</div>
+  <div class="ab swipe" style="bottom:200px">Glisse 👉</div>
+</section>
+
+<!-- 2. leçon 1 -->
+<section class="slide" id="s2">
+  <div class="ab brand">DigitalMikaelson</div>
+  <div class="ab count">LEÇON 1/5</div>
+  <div class="ab title">Le chiffre qu'on te montre <span class="hl">n'est pas</span> ce qu'on a gagné</div>
+  <div class="ab card" style="top:640px; height:560px"><img src="img/lundi.jpg" style="object-position:center"></div>
+  <div class="ab txt" style="top:1270px">Une capture de ventes, c'est le chiffre qui fait rêver. Regarde plutôt <b>ce qui te reste sur chaque vente</b>.</div>
+</section>
+
+<!-- 3. leçon 2 -->
+<section class="slide" id="s3">
+  <div class="ab brand">DigitalMikaelson</div>
+  <div class="ab count">LEÇON 2/5</div>
+  <div class="ab title">Un produit pour tout le monde <span class="hl">ne se vend à personne</span></div>
+  <div class="ab card" style="top:640px; height:640px"><img src="img/cuisine.jpg"></div>
+  <div class="ab txt" style="top:1340px">Imagine Nadine, 24 ans, qui veut prendre du poids sainement. Un livre de recettes <b>fait pour elle</b> lui parle plus qu'un livre «&nbsp;pour tout le monde&nbsp;».</div>
+</section>
+
+<!-- 4. leçon 3 -->
+<section class="slide" id="s4">
+  <div class="ab brand">DigitalMikaelson</div>
+  <div class="ab count">LEÇON 3/5</div>
+  <div class="ab title">Pas besoin de <span class="hl">montrer ton visage</span></div>
+  <div class="ab card" style="top:560px; height:680px"><img src="img/anglais.jpg" style="object-position:center"></div>
+  <div class="ab txt" style="top:1300px">Une main et une feuille, un texte animé, ou ton écran : <b>3 façons</b> de publier des leçons d'anglais avec juste ton téléphone.</div>
+</section>
+
+<!-- 5. leçon 4 -->
+<section class="slide" id="s5">
+  <div class="ab brand">DigitalMikaelson</div>
+  <div class="ab count">LEÇON 4/5</div>
+  <div class="ab title">Des bases en Excel <span class="or">+</span> l'IA <span class="or">=</span> <span class="hl">un service à vendre</span></div>
+  <div class="ab card" style="top:640px; height:640px"><img src="img/excel.jpg"></div>
+  <div class="ab txt" style="top:1340px">Un étudiant peut vendre aux entreprises <b>des tableaux de bord</b> comme celui-ci, qui suivent leurs ventes dépôt par dépôt.</div>
+</section>
+
+<!-- 6. leçon 5 -->
+<section class="slide" id="s6">
+  <div class="ab brand">DigitalMikaelson</div>
+  <div class="ab count">LEÇON 5/5</div>
+  <div class="ab title">J'ai trouvé <span class="hl">50 entreprises</span> et créé 6 vidéos avec l'IA</div>
+  <div class="ab card" style="top:640px; height:640px; background:#fbf6ee"><img src="img/ia.jpg" style="object-position:center 10%"></div>
+  <div class="ab txt" style="top:1340px">Puis je les leur ai envoyées en DM. Ma compétence, <b>montrée directement aux bons clients</b>.</div>
+</section>
+
+<!-- 7. le point commun -->
+<section class="slide" id="s7">
+  <div class="ab brand">DigitalMikaelson</div>
+  <div class="ab title" style="top:300px; text-align:center; font-size:104px; white-space:nowrap">Le point <span class="hl">commun</span>&nbsp;?</div>
+  <div class="ab step" style="top:620px"><i>1</i><span>Une compétence que tu as déjà</span></div>
+  <div class="ab step" style="top:850px"><i>2</i><span>Une personne précise à aider</span></div>
+  <div class="ab step" style="top:1080px"><i>3</i><span>Un petit produit pour elle</span></div>
+  <div class="ab txt" style="top:1340px; text-align:center">Ce qui manque souvent, ce n'est pas le diplôme.<br><b>C'est la méthode.</b></div>
+  <div class="ab swipe" style="bottom:200px">Glisse 👉</div>
+</section>
+
+<!-- 8. l'offre -->
+<section class="slide" id="s8">
+  <div class="ab brand">DigitalMikaelson</div>
+  <div class="ab count">MON GUIDE</div>
+  <div class="ab title" style="text-align:center; font-size:104px">Gagne ta vie<br><span class="hl">sans diplôme</span></div>
+  <div class="page" style="left:600px; top:640px; width:380px; height:380px; transform:rotate(9deg)"><img src="img/p15_test7j.jpg"></div>
+  <div class="page" style="left:110px; top:660px; width:380px; height:380px; transform:rotate(-9deg)"><img src="img/p10_types.jpg"></div>
+  <div class="page" style="left:255px; top:580px; width:570px; height:570px; transform:rotate(-2deg)"><img src="img/ebook.png"></div>
+  <div class="ab" style="left:0; width:1080px; top:1230px; display:flex; justify-content:center; gap:22px">
+    <div class="chip">5 chapitres</div><div class="chip" style="background:#ff5c00; color:#fff">Plan de 7 jours</div><div class="chip">Checklist</div></div>
+  <div class="ab txt" style="top:1370px; text-align:center">Transforme ce que tu sais faire en produit digital. Puis <b>teste ton idée en 7 jours</b>, sans payer de pub.</div>
+</section>
+
+<!-- 9. appel à l'action -->
+<section class="slide" id="s9">
+  <div class="ab brand">DigitalMikaelson</div>
+  <div class="ab title" style="top:340px; text-align:center; font-size:110px">Écris <span class="hl">« EBOOK »</span><br>en commentaire</div>
+  <div class="ab" style="left:110px; top:720px; width:860px; height:160px; background:#fff; border:6px solid #111; border-radius:36px; box-shadow:14px 14px 0 #111; display:flex; align-items:center; gap:28px; padding:0 34px">
+    <div style="width:92px; height:92px; border-radius:50%; border:5px solid #111; background:#ffd60a"></div>
+    <div style="font-family:'Work Sans'; font-weight:700; font-size:58px">EBOOK<span style="display:inline-block; width:5px; height:56px; background:#ff5c00; margin-left:6px; vertical-align:-8px"></span></div>
+    <div style="margin-left:auto; width:96px; height:96px; border-radius:50%; background:#ff5c00; border:5px solid #111; display:flex; align-items:center; justify-content:center">
+      <svg width="50" height="50" viewBox="0 0 24 24"><path d="M3 11 L21 3 L13 21 L11 13 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+  </div>
+  <div class="ab txt" style="top:990px; text-align:center">Je t'envoie <b>le lien et le prix</b><br>en message privé.</div>
+  <div class="ab pill" style="left:240px; width:600px; top:1180px; font-size:50px; padding:22px 0 12px">Je t'accompagne 🤝</div>
+  <div class="ab" style="left:390px; top:1380px; width:300px; height:134px; background:url('logo_dm.png') center / 92% no-repeat #fff; border:5px solid #111; border-radius:28px; box-shadow:10px 10px 0 #111"></div>
+</section>
+
+</body></html>
