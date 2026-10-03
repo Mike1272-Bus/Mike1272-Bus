@@ -42,4 +42,4 @@ Le prix est annoncé dès le premier message : la personne décide en connaissan
 
 ## Quand publier
 
-Ce soir entre 20 h et 21 h (heure de Kinshasa), ou demain samedi vers 19 h. Reste actif la première heure pour répondre aux commentaires.
+Ce soir (samedi) entre 19 h et 21 h, heure de Kinshasa. Sinon dimanche après 17 h. Reste actif la première heure pour répondre aux commentaires.
