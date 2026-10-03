@@ -1,0 +1,13 @@
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+import path from 'path';
+import fs from 'fs';
+const dir = path.dirname(new URL(import.meta.url).pathname);
+const out = path.join(dir, '../stories');
+fs.mkdirSync(out, { recursive: true });
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
+await p.goto('file://' + path.join(dir, 'stories_v2.html'));
+await p.evaluate(() => document.fonts.ready);
+await p.waitForTimeout(400);
+for (let i = 1; i <= 6; i++) await p.locator('#s' + i).screenshot({ path: path.join(out, `story_${i}.png`) });
+await b.close();
