@@ -16,18 +16,28 @@
   .ab { position: absolute; }
   .brand { left: 90px; top: 130px; background: #111; color: #fff; font-size: 28px; letter-spacing: 0.04em; padding: 12px 30px 6px; border-radius: 40px; }
   .count { right: 90px; top: 130px; background: #ffd60a; border: 4px solid #111; font-size: 28px; padding: 8px 26px 2px; border-radius: 40px; }
-  .title { left: 90px; width: 900px; top: 250px; font-size: 92px; line-height: 1.16; }
-  .hl { background: linear-gradient(transparent 14%, #ffd60a 14%, #ffd60a 90%, transparent 90%); color: #c94200; border-radius: 16px; padding: 0 12px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-  .or { color: #ff5c00; }
-  .card { left: 110px; width: 860px; border: 6px solid #111; border-radius: 34px; overflow: hidden; box-shadow: 14px 14px 0 #111; background: #fff; }
-  .card img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .title { left: 90px; width: 900px; top: 240px; font-size: 88px; line-height: 1.16; }
+  .hl { background: linear-gradient(transparent 14%, #ffd60a 14%, #ffd60a 90%, transparent 90%); color: #c94200; border-radius: 16px; padding: 0 12px;
+    -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .ph { position: absolute; border: 6px solid #111; border-radius: 30px; overflow: hidden; box-shadow: 12px 12px 0 #111; background: #fff; }
+  .ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .lab { position: absolute; left: 50%; transform: translateX(-50%); bottom: 18px; background: #111; color: #fff; font-size: 34px; padding: 10px 26px 2px;
+    border-radius: 40px; white-space: nowrap; }
+  .lab.o { background: #ff5c00; }
   .txt { left: 90px; width: 900px; font-family: 'Work Sans', 'Noto Color Emoji'; font-weight: 400; font-size: 44px; line-height: 1.32; color: #222; }
   .txt b { font-weight: 700; color: #111; }
-  .swipe { right: 90px; bottom: 380px; font-size: 40px; background: #111; color: #fff; padding: 14px 34px 6px; border-radius: 40px; box-shadow: 8px 8px 0 #ff5c00; }
-  .pill { background: #ff5c00; color: #fff; border: 5px solid #111; border-radius: 70px; box-shadow: 10px 10px 0 #111; white-space: nowrap; text-align: center; }
-  .spark { position: absolute; }
-  .step { left: 110px; width: 860px; height: 170px; background: #fff; border: 6px solid #111; border-radius: 30px; box-shadow: 12px 12px 0 #111; display: flex; align-items: center; gap: 34px; padding: 0 40px; font-size: 52px; line-height: 1.05; }
-  .step i { font-style: normal; flex: 0 0 96px; height: 96px; border-radius: 50%; background: #ff5c00; border: 5px solid #111; display: flex; align-items: center; justify-content: center; font-size: 60px; padding-top: 8px; }
+  .swipe { right: 90px; font-size: 40px; background: #111; color: #fff; padding: 14px 34px 6px; border-radius: 40px; box-shadow: 8px 8px 0 #ff5c00; }
+  .ex { position: absolute; width: 430px; }
+  .ex .ph { position: relative; width: 430px; height: 520px; }
+  .ex h3 { font-size: 42px; line-height: 1.05; margin-top: 34px; }
+  .ex p { font-family: 'Work Sans'; font-weight: 700; font-size: 32px; color: #c94200; margin-top: 8px; }
+  .num { display: inline-flex; width: 62px; height: 62px; border-radius: 50%; background: #ff5c00; color: #fff; border: 4px solid #111; align-items: center; justify-content: center;
+    font-size: 40px; padding-top: 6px; margin-right: 14px; vertical-align: middle; }
+  .row { position: absolute; left: 90px; width: 900px; }
+  .row h3 { font-size: 46px; line-height: 1; display: flex; align-items: center; }
+  .row .imgs { display: flex; gap: 24px; margin-top: 22px; }
+  .row .ph { position: relative; flex: 1; height: 230px; border-radius: 24px; box-shadow: 9px 9px 0 #111; }
+  .row .lab { font-size: 26px; bottom: 12px; padding: 7px 18px 0; }
   .chip { background: #fff; border: 5px solid #111; border-radius: 40px; box-shadow: 7px 7px 0 #111; font-size: 40px; padding: 12px 30px 4px; white-space: nowrap; }
   .page { position: absolute; border: 9px solid #fff; outline: 5px solid #111; border-radius: 22px; overflow: hidden; box-shadow: 14px 14px 0 #111; background: #fff; }
   .page img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -36,74 +46,68 @@
 <!-- 1. accroche -->
 <section class="slide" id="s1">
   <div class="ab brand">DigitalMikaelson</div>
-  <div class="ab count">CETTE SEMAINE</div>
-  <div class="ab title" style="top:260px; font-size:100px">Ce que tu sais faire peut devenir <span class="hl">un revenu</span></div>
-  <div class="ab card" style="left:90px; top:720px; width:430px; height:380px; transform:rotate(-5deg)"><img src="img/cuisine.jpg"></div>
-  <div class="ab card" style="left:560px; top:700px; width:430px; height:380px; transform:rotate(4deg)"><img src="img/anglais.jpg" style="object-position:center"></div>
-  <div class="ab card" style="left:90px; top:1150px; width:430px; height:330px; transform:rotate(3deg)"><img src="img/excel.jpg"></div>
-  <div class="ab card" style="left:560px; top:1140px; width:430px; height:330px; transform:rotate(-4deg)"><img src="img/ia.jpg" style="object-position:center 20%"></div>
-  <div class="ab txt" style="top:1560px; text-align:center; font-weight:700; font-size:48px">5 leçons à retenir de la semaine</div>
-  <div class="ab swipe" style="bottom:200px">Glisse 👉</div>
+  <div class="ab title" style="top:250px; font-size:100px">Ce que tu sais faire peut devenir <span class="hl">un revenu</span></div>
+  <div class="ph" style="left:90px; top:720px; width:430px; height:360px; transform:rotate(-4deg)"><img src="img/cuisiniere.jpg"><div class="lab">Cuisine</div></div>
+  <div class="ph" style="left:560px; top:700px; width:430px; height:360px; transform:rotate(4deg)"><img src="img/montage.jpg" style="object-position:center 45%"><div class="lab">Montage vidéo</div></div>
+  <div class="ph" style="left:90px; top:1130px; width:430px; height:360px; transform:rotate(3deg)"><img src="img/selfie.jpg" style="object-position:center 30%"><div class="lab">Anglais</div></div>
+  <div class="ph" style="left:560px; top:1120px; width:430px; height:360px; transform:rotate(-3deg)"><img src="img/jonathan2.jpg"><div class="lab">Excel</div></div>
+  <div class="ab txt" style="top:1560px; width:600px; font-weight:700; font-size:48px">3 leçons pour commencer</div>
+  <div class="ab swipe" style="top:1560px">Glisse 👉</div>
 </section>
 
 <!-- 2. leçon 1 -->
 <section class="slide" id="s2">
   <div class="ab brand">DigitalMikaelson</div>
-  <div class="ab count">LEÇON 1/5</div>
-  <div class="ab title">Le chiffre qu'on te montre <span class="hl">n'est pas</span> ce qu'on a gagné</div>
-  <div class="ab card" style="top:640px; height:560px"><img src="img/lundi.jpg" style="object-position:center"></div>
-  <div class="ab txt" style="top:1270px">Une capture de ventes, c'est le chiffre qui fait rêver. Regarde plutôt <b>ce qui te reste sur chaque vente</b>.</div>
+  <div class="ab count">LEÇON 1/3</div>
+  <div class="ab title">Choisis <span class="hl">un seul besoin</span>, et fais-en ton produit</div>
+  <div class="ab txt" style="top:630px">Si tu sais cuisiner, par exemple :</div>
+  <div class="ex" style="left:90px; top:730px">
+    <div class="ph" style="transform:rotate(-2deg)"><img src="img/nadine.jpg" style="object-position:center 35%"><div class="lab o">Exemple 1</div></div>
+    <h3>Des recettes pour prendre du poids</h3><p>pour Nadine, 24 ans</p>
+  </div>
+  <div class="ex" style="left:560px; top:730px">
+    <div class="ph" style="transform:rotate(2deg)"><img src="img/marche.jpg"><div class="lab o">Exemple 2</div></div>
+    <h3>Des recettes pour perdre du poids</h3><p>avec les légumes du marché</p>
+  </div>
+  <div class="ab txt" style="top:1560px">Un besoin, un produit. Pas des recettes <b>«&nbsp;pour tout le monde&nbsp;»</b>.</div>
 </section>
 
 <!-- 3. leçon 2 -->
 <section class="slide" id="s3">
   <div class="ab brand">DigitalMikaelson</div>
-  <div class="ab count">LEÇON 2/5</div>
-  <div class="ab title">Un produit pour tout le monde <span class="hl">ne se vend à personne</span></div>
-  <div class="ab card" style="top:640px; height:640px"><img src="img/cuisine.jpg"></div>
-  <div class="ab txt" style="top:1340px">Imagine Nadine, 24 ans, qui veut prendre du poids sainement. Un livre de recettes <b>fait pour elle</b> lui parle plus qu'un livre «&nbsp;pour tout le monde&nbsp;».</div>
+  <div class="ab count">LEÇON 2/3</div>
+  <div class="ab title">Choisis ton format : <span class="hl">pas besoin</span> de montrer ton visage</div>
+  <div class="ph" style="left:90px; top:640px; width:280px; height:500px; transform:rotate(-3deg)"><img src="img/selfie.jpg" style="object-position:center 25%"><div class="lab">Face caméra</div></div>
+  <div class="ph" style="left:400px; top:620px; width:280px; height:500px"><img src="img/main.jpg" style="object-position:22% center"><div class="lab o">Main + feuille</div></div>
+  <div class="ph" style="left:710px; top:640px; width:280px; height:500px; transform:rotate(3deg)"><img src="img/texte.jpg" style="object-position:center 40%"><div class="lab o">Texte animé</div></div>
+  <div class="ab txt" style="top:1230px">Tu peux te filmer, ou montrer seulement <b>ta main qui écrit</b>, ou <b>un texte animé</b>. Ton téléphone suffit.</div>
 </section>
 
 <!-- 4. leçon 3 -->
 <section class="slide" id="s4">
   <div class="ab brand">DigitalMikaelson</div>
-  <div class="ab count">LEÇON 3/5</div>
-  <div class="ab title">Pas besoin de <span class="hl">montrer ton visage</span></div>
-  <div class="ab card" style="top:560px; height:680px"><img src="img/anglais.jpg" style="object-position:center"></div>
-  <div class="ab txt" style="top:1300px">Une main et une feuille, un texte animé, ou ton écran : <b>3 façons</b> de publier des leçons d'anglais avec juste ton téléphone.</div>
+  <div class="ab count">LEÇON 3/3</div>
+  <div class="ab title">Utilise <span class="hl">l'IA</span> pour créer tes produits et trouver des clients</div>
+  <div class="ph" style="left:90px; top:640px; width:900px; height:400px"><img src="img/jonathan.jpg"><div class="lab o" style="left:30px; transform:none; top:18px; bottom:auto">Exemple : Jonathan</div></div>
+  <div class="ph" style="left:300px; top:980px; width:560px; height:315px; transform:rotate(3deg)"><img src="img/dashboard.jpg"><div class="lab">Tableau de bord</div></div>
+  <div class="ab txt" style="top:1380px">Jonathan est étudiant. Avec des bases en Excel, <b>l'IA l'aide à créer des tableaux de bord</b> et à trouver les entreprises à qui les proposer.</div>
 </section>
 
-<!-- 5. leçon 4 -->
+<!-- 5. le point commun -->
 <section class="slide" id="s5">
   <div class="ab brand">DigitalMikaelson</div>
-  <div class="ab count">LEÇON 4/5</div>
-  <div class="ab title">Des bases en Excel <span class="or">+</span> l'IA <span class="or">=</span> <span class="hl">un service à vendre</span></div>
-  <div class="ab card" style="top:640px; height:640px"><img src="img/excel.jpg"></div>
-  <div class="ab txt" style="top:1340px">Un étudiant peut vendre aux entreprises <b>des tableaux de bord</b> comme celui-ci, qui suivent leurs ventes dépôt par dépôt.</div>
+  <div class="ab title" style="top:230px; font-size:96px; white-space:nowrap">Le point <span class="hl">commun</span>&nbsp;?</div>
+  <div class="row" style="top:420px"><h3><span class="num">1</span>Une compétence que tu as déjà</h3>
+    <div class="imgs"><div class="ph"><img src="img/cuisiniere.jpg"><div class="lab">Cuisine</div></div><div class="ph"><img src="img/selfie.jpg" style="object-position:center 25%"><div class="lab">Anglais</div></div><div class="ph"><img src="img/jonathan2.jpg"><div class="lab">Excel</div></div></div></div>
+  <div class="row" style="top:790px"><h3><span class="num">2</span>Une personne précise à aider</h3>
+    <div class="imgs"><div class="ph"><img src="img/nadine.jpg" style="object-position:center 35%"><div class="lab">Nadine</div></div><div class="ph"><img src="img/entretien.jpg" style="object-position:70% center"><div class="lab">Un candidat</div></div><div class="ph"><img src="img/depot.jpg"><div class="lab">Une entreprise</div></div></div></div>
+  <div class="row" style="top:1160px"><h3><span class="num">3</span>Un petit produit pour elle</h3>
+    <div class="imgs"><div class="ph"><img src="img/livre.jpg" style="object-position:center 20%"><div class="lab">Recettes</div></div><div class="ph"><img src="img/main.jpg"><div class="lab">Leçons</div></div><div class="ph"><img src="img/dashboard.jpg"><div class="lab">Tableau</div></div></div></div>
+  <div class="ab txt" style="top:1540px; text-align:center">Ce qui manque souvent, ce n'est pas le diplôme. <b>C'est la méthode.</b></div>
 </section>
 
-<!-- 6. leçon 5 -->
+<!-- 6. le guide -->
 <section class="slide" id="s6">
-  <div class="ab brand">DigitalMikaelson</div>
-  <div class="ab count">LEÇON 5/5</div>
-  <div class="ab title">J'ai trouvé <span class="hl">50 entreprises</span> et créé 6 vidéos avec l'IA</div>
-  <div class="ab card" style="top:640px; height:640px; background:#fbf6ee"><img src="img/ia.jpg" style="object-position:center 10%"></div>
-  <div class="ab txt" style="top:1340px">Puis je les leur ai envoyées en DM. Ma compétence, <b>montrée directement aux bons clients</b>.</div>
-</section>
-
-<!-- 7. le point commun -->
-<section class="slide" id="s7">
-  <div class="ab brand">DigitalMikaelson</div>
-  <div class="ab title" style="top:300px; text-align:center; font-size:104px; white-space:nowrap">Le point <span class="hl">commun</span>&nbsp;?</div>
-  <div class="ab step" style="top:620px"><i>1</i><span>Une compétence que tu as déjà</span></div>
-  <div class="ab step" style="top:850px"><i>2</i><span>Une personne précise à aider</span></div>
-  <div class="ab step" style="top:1080px"><i>3</i><span>Un petit produit pour elle</span></div>
-  <div class="ab txt" style="top:1340px; text-align:center">Ce qui manque souvent, ce n'est pas le diplôme.<br><b>C'est la méthode.</b></div>
-  <div class="ab swipe" style="bottom:200px">Glisse 👉</div>
-</section>
-
-<!-- 8. l'offre -->
-<section class="slide" id="s8">
   <div class="ab brand">DigitalMikaelson</div>
   <div class="ab count">MON GUIDE</div>
   <div class="ab title" style="text-align:center; font-size:104px">Gagne ta vie<br><span class="hl">sans diplôme</span></div>
@@ -112,22 +116,21 @@
   <div class="page" style="left:255px; top:580px; width:570px; height:570px; transform:rotate(-2deg)"><img src="img/ebook.png"></div>
   <div class="ab" style="left:0; width:1080px; top:1230px; display:flex; justify-content:center; gap:22px">
     <div class="chip">5 chapitres</div><div class="chip" style="background:#ff5c00; color:#fff">Plan de 7 jours</div><div class="chip">Checklist</div></div>
-  <div class="ab txt" style="top:1370px; text-align:center">Transforme ce que tu sais faire en produit digital. Puis <b>teste ton idée en 7 jours</b>, sans payer de pub.</div>
+  <div class="ab txt" style="top:1370px; text-align:center">Un guide que j'ai écrit pour t'aider à <b>transformer ce que tu sais faire en produit digital</b>, et à trouver tes premiers clients.</div>
 </section>
 
-<!-- 9. appel à l'action -->
-<section class="slide" id="s9">
+<!-- 7. appel à l'action -->
+<section class="slide" id="s7">
   <div class="ab brand">DigitalMikaelson</div>
-  <div class="ab title" style="top:340px; text-align:center; font-size:110px">Écris <span class="hl">« EBOOK »</span><br>en commentaire</div>
-  <div class="ab" style="left:110px; top:720px; width:860px; height:160px; background:#fff; border:6px solid #111; border-radius:36px; box-shadow:14px 14px 0 #111; display:flex; align-items:center; gap:28px; padding:0 34px">
+  <div class="ab title" style="top:330px; text-align:center; font-size:100px">Si tu veux l'avoir, commente <span class="hl">«&nbsp;EBOOK&nbsp;»</span></div>
+  <div class="ab" style="left:110px; top:760px; width:860px; height:160px; background:#fff; border:6px solid #111; border-radius:36px; box-shadow:14px 14px 0 #111; display:flex; align-items:center; gap:28px; padding:0 34px">
     <div style="width:92px; height:92px; border-radius:50%; border:5px solid #111; background:#ffd60a"></div>
     <div style="font-family:'Work Sans'; font-weight:700; font-size:58px">EBOOK<span style="display:inline-block; width:5px; height:56px; background:#ff5c00; margin-left:6px; vertical-align:-8px"></span></div>
     <div style="margin-left:auto; width:96px; height:96px; border-radius:50%; background:#ff5c00; border:5px solid #111; display:flex; align-items:center; justify-content:center">
       <svg width="50" height="50" viewBox="0 0 24 24"><path d="M3 11 L21 3 L13 21 L11 13 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
   </div>
-  <div class="ab txt" style="top:990px; text-align:center">Je t'envoie <b>le lien et le prix</b><br>en message privé.</div>
-  <div class="ab pill" style="left:240px; width:600px; top:1180px; font-size:50px; padding:22px 0 12px">Je t'accompagne 🤝</div>
-  <div class="ab" style="left:390px; top:1380px; width:300px; height:134px; background:url('logo_dm.png') center / 92% no-repeat #fff; border:5px solid #111; border-radius:28px; box-shadow:10px 10px 0 #111"></div>
+  <div class="ab txt" style="top:1030px; text-align:center">Je t'envoie <b>le lien et le prix</b> en message privé, et je t'accompagne.</div>
+  <div class="ab" style="left:390px; top:1250px; width:300px; height:134px; background:url('logo_dm.png') center / 92% no-repeat #fff; border:5px solid #111; border-radius:28px; box-shadow:10px 10px 0 #111"></div>
 </section>
 
 </body></html>

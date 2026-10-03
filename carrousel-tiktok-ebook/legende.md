@@ -1,26 +1,24 @@
-# Carrousel TikTok : les 5 leçons de la semaine → « Gagne ta vie sans diplôme »
+# Carrousel TikTok : 3 leçons → « Gagne ta vie sans diplôme »
 
-9 slides (1080 × 1920) dans `slides/`, à publier dans l'ordre, en mode photo. Ajoute un son tendance doux.
+7 slides (1080 × 1920) dans `slides/`, à publier dans l'ordre, en mode photo. Ajoute un son tendance doux. Toutes les images sont de vraies photos ou des images tirées des vidéos de la semaine.
 
 | Slide | Contenu |
 |---|---|
-| 1 | Accroche : « Ce que tu sais faire peut devenir un revenu », 4 images de la semaine |
-| 2 | Leçon 1 (lundi) : le chiffre qu'on te montre n'est pas ce qu'on a gagné |
-| 3 | Leçon 2 (cuisine) : un produit pour tout le monde ne se vend à personne |
-| 4 | Leçon 3 (anglais) : pas besoin de montrer ton visage |
-| 5 | Leçon 4 (Excel) : des bases en Excel + l'IA = un service à vendre |
-| 6 | Leçon 5 (IA) : 50 entreprises trouvées, 6 vidéos créées |
-| 7 | Le point commun : compétence + personne précise + petit produit |
-| 8 | Le guide « Gagne ta vie sans diplôme » : 5 chapitres, plan de 7 jours, checklist |
-| 9 | « Écris EBOOK en commentaire » |
+| 1 | Accroche : « Ce que tu sais faire peut devenir un revenu » (cuisine, montage vidéo, anglais, Excel) |
+| 2 | Leçon 1 : choisis un seul besoin. Exemples : recettes pour prendre du poids (Nadine, 24 ans), recettes pour perdre du poids |
+| 3 | Leçon 2 : choisis ton format, pas besoin de montrer ton visage (face caméra, main + feuille, texte animé) |
+| 4 | Leçon 3 : utilise l'IA pour créer tes produits et trouver des clients (exemple : Jonathan) |
+| 5 | Le point commun, 3 images par point : compétence, personne précise, petit produit |
+| 6 | « Gagne ta vie sans diplôme », le guide que j'ai écrit pour t'aider |
+| 7 | « Si tu veux l'avoir, commente EBOOK » |
 
 ## Légende
 
-> Cette semaine, je t'ai montré comment la cuisine, l'anglais, Excel et l'IA peuvent devenir un revenu 👇
+> Ce que tu sais faire peut devenir un revenu 👇 3 leçons pour commencer.
 >
-> Laquelle de ces 5 leçons tu n'avais jamais entendue ? Dis-le en commentaire.
+> Tu sais faire quoi, toi ? Dis-le en commentaire.
 >
-> Et si tu veux la méthode complète pour transformer ce que tu sais faire en produit digital, écris « EBOOK » : je t'envoie le lien et le prix en privé, et je t'accompagne.
+> Et si tu veux mon guide « Gagne ta vie sans diplôme », commente « EBOOK » : je t'envoie le lien et le prix en privé, et je t'accompagne.
 >
 > #produitsdigitaux #gagnerdelargent #rdc #kinshasa #competence #ebook #ia
 
