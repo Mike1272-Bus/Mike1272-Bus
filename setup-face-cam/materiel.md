@@ -83,6 +83,23 @@ Le schéma `schema_tournage_nuit.png` montre l'installation. Si tu tournes aprè
 
 Budget serré : micro + anneau lumineux sur pied avec support de téléphone, **environ 35 à 65 $**.
 
+## Sans déco : le format écran partagé
+
+Aperçu : `apercu_ecran_partage.png`. **En haut**, ce que tu montres (l'écran de ton téléphone ou de ton ordinateur, une animation). **En bas**, ton visage, cadré serré : tête et épaules. Au milieu, le gros texte de l'étape. Tu gardes la confiance que donne ton visage, et on ne voit presque rien de ta chambre.
+
+**Ce que tu filmes**
+1. Ton écran : l'enregistrement d'écran intégré au téléphone, ou OBS (gratuit) sur ordinateur.
+2. Ton visage : téléphone sur trépied, cadré serré, avec ta voix au micro-cravate.
+3. Tu m'envoies les deux fichiers : je fais le montage (écran en haut, visage en bas, textes, animations, sous-titres, effets sonores).
+
+**Pour que le fond disparaisse**
+- La nuit, c'est un avantage : la lampe éclaire ton visage, et le reste de la chambre reste dans l'ombre.
+- Mets-toi devant un mur vide, une porte fermée ou un drap sombre tendu (bleu nuit, gris foncé, noir).
+- Sur TikTok, l'effet « Fond vert » remplace ton fond par une image ou une capture d'écran. Il marche mieux avec un fond uni et une bonne lumière.
+
+**Le matériel qui reste** : le micro, la lampe, le trépied. La lampe chaude, l'étagère et les affiches ne sont plus nécessaires. Ajoute un drap sombre si ton mur est chargé (environ 5 $).
+Budget : **environ 70 à 140 $** avec le panneau LED, ou **35 à 65 $** avec un anneau lumineux sur pied.
+
 ## Le fond : ce que les gens voient derrière toi
 
 - **Un mur uni, de couleur douce** : beige, gris clair ou bleu nuit. Évite le blanc pur, qui fait une image froide.
