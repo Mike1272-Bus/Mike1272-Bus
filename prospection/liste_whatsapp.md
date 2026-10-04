@@ -20,6 +20,7 @@ Vérifie toujours que le numéro a un compte WhatsApp (photo, nom) avant d'écri
 | Kahawa Congo Coffee | Lubumbashi | À trouver (site kahawa-congo.com) | Vidéo prête |
 | Festa RDC | Kinshasa | Peu probable (grande marque) | Vidéo prête, passer par Instagram ou LinkedIn |
 | ManiTech Congo | Kinshasa | ✅ +243 822 139 394 (sur leurs publications) | Vidéo prête, à envoyer (ils ont déjà un site) |
+| Burger Guys | Kinshasa | ⏳ numéro à trouver (DM sur leur compte en attendant) | Vidéo prête, à envoyer (`burger-guys/`) |
 | Les Délices d'Émilie | Lubumbashi | ✅ +243 825 553 856 (bio Instagram @les_delices.demilie) | Vidéo prête, à envoyer |
 
 ## Priorité 1 : petites marques à Kinshasa (les plus faciles)
