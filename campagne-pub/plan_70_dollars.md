@@ -21,7 +21,22 @@ Ce plan reprend `strategie-pub-meta/plan_45_dollars.md` (réglages, textes des p
 4. **Créer le compte publicitaire** dans le Gestionnaire de publicités :
    - Ajoute un moyen de paiement. Vérifie dans le Gestionnaire lesquels sont acceptés pour ton compte.
    - Fais-le 1 ou 2 jours avant le lancement : un nouveau compte peut passer par une vérification.
-5. **Vérifier le prix actuel de l'ebook sur Chariow.** Les seuils du plan 45 $ sont calculés sur 4,9 $ (lancement) et 6,9 $ (normal). Si le prix a changé, il faut refaire le calcul.
+5. **Mettre une vraie date de fin sur le prix de lancement.** Le prix est toujours de 4,9 $, mais la page Chariow dit « Dans 7 jours, il remonte » depuis plus de 7 jours. Remplace cette phrase par une date précise : « Prix de lancement : 4,9 $ jusqu'au [date du jour 7 des pubs] ». Le jour 8, passe vraiment le prix à 6,9 $.
+
+## Les chiffres à 4,9 $
+- Net par vente : environ 4,4 $ (après les frais Chariow et Mobile Money, estimés à 10 % : vérifie dans ton tableau de bord).
+- **Coût par vente maximum : 4,4 $.** Au-dessus, tu perds de l'argent sur l'ebook.
+- Si 8 personnes sur 100 qui t'écrivent achètent, **une conversation peut coûter jusqu'à 0,35 $**.
+
+Estimation sur 70 $, tout calculé à 4,9 $. Ce sont des hypothèses de départ, à remplacer par tes vrais chiffres dès le jour 3.
+
+| Scénario | Coût par conversation | Conversations | Achètent | Ventes | Net encaissé | Résultat |
+|---|---|---|---|---|---|---|
+| Pessimiste | 0,40 $ | environ 175 | 4 % | environ 7 | environ 31 $ | **environ -39 $** |
+| Réaliste | 0,20 $ | environ 350 | 8 % | environ 28 | environ 123 $ | **environ +53 $** |
+| Optimiste | 0,15 $ | environ 467 | 12 % | environ 56 | environ 246 $ | **environ +176 $** |
+
+Même dans le pire cas, tu repars avec environ 175 contacts WhatsApp intéressés par le sujet. Le chiffre qui change tout, c'est le nombre de personnes qui achètent après t'avoir écrit, et ça dépend de ta vitesse de réponse et de tes relances.
 
 ## Les pubs
 | Pub | Format | Quand |
