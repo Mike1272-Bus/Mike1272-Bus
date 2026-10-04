@@ -76,3 +76,19 @@ Exemples à montrer dans les fiches : uniquement les vidéos et catalogues dont 
 2. Demandez au client s'il accepte que vous montriez le travail. Notez sa réponse.
 3. Au bout de 2 à 4 semaines, demandez-lui ce que ça a changé : plus de messages, de commandes, de partages ? Avec son accord, c'est votre meilleure étude de cas.
 4. Faites une capture de la vente (montant visible, nom du client masqué) et rangez-la dans votre dossier « Preuves ».
+
+---
+
+## Prix conseillés (estimations à tester, pas des prix du marché vérifiés)
+
+| Service | Prix de lancement (3 premiers clients) | Prix normal ensuite | Délai | Retouches |
+|---|---|---|---|---|
+| Vidéo animée 20-30 s | 35 $ | 50 à 60 $ | 3 jours | 2 |
+| Catalogue digital + QR + WhatsApp Business | 50 $ | 70 à 90 $ | 5 jours | 2 |
+| Mini-site d'une page | 120 $ (moitié à la commande) | 180 à 250 $ | 7 jours | 2 |
+
+- Prix de lancement en échange d'un avis sur Chariow et de l'accord pour montrer le travail.
+- Le nom de domaine du mini-site est payé à part par le client (prix variable selon l'extension, à vérifier au moment de l'achat).
+- Pack « Vidéo + catalogue » : 75 $ au lieu de 85 $ pendant le lancement.
+- Plus tard, une formule mensuelle : 4 vidéos par mois pour garder le client toute l'année (prix à fixer quand tu connais ton temps de travail par vidéo).
+- Vérifie les frais Chariow : le prix affiché doit te laisser ce que tu veux gagner une fois les frais retirés.
