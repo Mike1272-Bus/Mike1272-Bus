@@ -63,3 +63,17 @@ Demander : s'ils relancent les packs cadeaux cette année, les compositions et l
 > Mike
 
 Prochaine étape : s'ils décrivent un besoin, proposer une offre simple (une vidéo packs cadeaux, ou un pack de vidéos par parfum) avec un prix et un délai. Ne pas donner de prix avant de connaître le besoin.
+
+## Proposition suivante : le mini-site vitrine (dossier `site/`)
+
+Ils ont répondu qu'ils veulent garder contact pour une collaboration. Envoyer les captures `site/apercu/mobile_1.png` à `mobile_4.png` (et `ordinateur_accueil.png`) avec ce message :
+
+> Bonjour 😊 Pour continuer notre échange, je vous ai préparé une idée : un petit site pour La Ruche du Terroir, toujours avec vos photos.
+>
+> Une seule page, rapide sur téléphone : vos miels et leurs parfums, vos packs cadeaux pour les entreprises, votre adresse avec l'itinéraire, et des boutons qui ouvrent directement WhatsApp avec la commande déjà écrite.
+>
+> Avec un lien à vous, vos clients trouvent tout au même endroit, même s'ils ne sont pas sur Instagram. Et pour les entreprises qui cherchent des cadeaux de fin d'année, c'est plus facile à partager.
+>
+> Je vous envoie les captures juste après. Dites-moi ce que vous en pensez, et si vous voulez qu'on le mette en ligne pour vous.
+
+Ne rien publier sans leur accord. S'ils disent oui : leur demander leurs photos en haute qualité, la liste à jour des parfums, s'ils veulent afficher des prix, leurs points de vente actuels, et le nom de domaine souhaité.
