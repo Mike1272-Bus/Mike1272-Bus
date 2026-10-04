@@ -27,6 +27,25 @@ Avec ça, tu peux déjà publier tous les jours.
 - **Un micro-cravate sans fil** (Boya, Hollyland Lark, Rode Wireless GO…) : tu bouges librement, et tu peux filmer dehors.
 - **Une application de prompteur** sur une tablette ou un deuxième téléphone : tu lis ton texte en regardant presque la caméra.
 
+## Le budget
+
+Ce sont des fourchettes indicatives, en dollars, pour du matériel d'entrée de gamme. En RDC, les prix changent selon la ville et le vendeur, et sont souvent un peu plus hauts qu'en ligne. Compare 2 ou 3 boutiques avant d'acheter, et teste le micro sur place si tu peux.
+
+| Étape | Matériel | Prix indicatif |
+|---|---|---|
+| 1 | Micro-cravate filaire (type Boya BY-M1) + adaptateur | 15 à 25 $ |
+| 1 | Trépied 1,60 m avec support de téléphone | 15 à 30 $ |
+| 1 | Télécommande Bluetooth (souvent incluse avec le trépied) | 0 à 5 $ |
+| | **Total étape 1** | **environ 30 à 60 $** |
+| 2 | Lampe LED rechargeable (panneau ou anneau lumineux) | 30 à 60 $ |
+| 2 | Batterie externe | 15 à 30 $ |
+| 2 | Lampe chaude pour le fond (chevet ou guirlande) | 5 à 15 $ |
+| | **Total étape 2** | **environ 50 à 100 $ en plus** |
+| 3 | Micro-cravate sans fil (Boya, Hollyland Lark…) | 50 à 100 $ |
+| Décor | Plante, affiche aux couleurs de ta marque | 10 à 20 $ |
+
+**Pour démarrer cette semaine : 30 à 60 $.** Tout le reste s'achète plus tard, avec l'argent des premières ventes.
+
 ## Le fond : ce que les gens voient derrière toi
 
 - **Un mur uni, de couleur douce** : beige, gris clair ou bleu nuit. Évite le blanc pur, qui fait une image froide.
