@@ -46,6 +46,43 @@ Ce sont des fourchettes indicatives, en dollars, pour du matériel d'entrée de 
 
 **Pour démarrer cette semaine : 30 à 60 $.** Tout le reste s'achète plus tard, avec l'argent des premières ventes.
 
+## Tourner la nuit (sans soleil)
+
+Le schéma `schema_tournage_nuit.png` montre l'installation. Si tu tournes après 21 h, la fenêtre ne sert plus à rien : **la lampe LED passe de l'étape 2 à l'étape 1**. Ordre d'achat : 1. le micro, 2. la lampe, 3. le trépied.
+
+**Les 3 lumières**
+1. **La lampe principale** : un panneau LED bicolore (tu règles du blanc froid au blanc chaud) avec un diffuseur ou une petite boîte à lumière, sur un pied. Place-la à 45° devant toi, un peu plus haute que ta tête, à 80 cm - 1 m de ton visage. Prends-la **rechargeable** pour les délestages. Règle-la sur un blanc neutre, ni bleu ni orange.
+2. **Le rebond** : un carton blanc ou un drap blanc tendu de l'autre côté. Il renvoie la lumière et adoucit les ombres. Presque gratuit.
+3. **La lampe chaude dans le fond** : une lampe de chevet avec une ampoule jaune, ou une guirlande. Elle sépare ton corps du mur et rend l'image chaleureuse.
+
+**Éteins le plafonnier** : il donne une lumière froide, souvent verdâtre, et creuse des ombres sous les yeux.
+
+**Anneau lumineux ou panneau LED ?** L'anneau (ring light) est moins cher et souvent livré avec un pied et un support de téléphone : il peut remplacer le trépied. Il éclaire de face, l'image est un peu plus plate et on voit un rond dans tes yeux. Le panneau à 45° avec diffuseur donne un rendu plus pro. Les deux marchent pour débuter.
+
+**Dans une petite chambre**
+- Écarte-toi du mur, même de 50 cm : la lampe principale éclaire ton visage, pas le mur, et le fond reste un peu plus sombre que toi.
+- Des murs clairs renvoient la lumière : c'est un avantage.
+
+**Les réglages du téléphone**
+- Appui long sur ton visage à l'écran : la mise au point et la luminosité se bloquent et ne bougent plus pendant la prise.
+- 1080p, 30 images/s. Si tu vois des bandes qui défilent ou un léger clignotement, passe en 25 images/s (le courant en RDC est en 50 Hz).
+- Image trop sombre : rapproche la lampe plutôt que de pousser la luminosité du téléphone, qui ajoute du grain.
+- La nuit, la caméra a tendance à assombrir le visage : mieux vaut un peu trop de lumière douce que pas assez.
+- Le front brille sous la lampe : passe un mouchoir avant chaque prise.
+
+**Budget pour tourner la nuit**
+
+| Matériel | Prix indicatif |
+|---|---|
+| Micro-cravate filaire | 15 à 25 $ |
+| Lampe LED bicolore rechargeable + diffuseur | 30 à 60 $ |
+| Pied de lumière (s'il n'est pas fourni) | 10 à 20 $ |
+| Trépied pour le téléphone | 15 à 30 $ |
+| Carton ou drap blanc, lampe chaude | 5 à 20 $ |
+| **Total** | **environ 75 à 155 $** |
+
+Budget serré : micro + anneau lumineux sur pied avec support de téléphone, **environ 35 à 65 $**.
+
 ## Le fond : ce que les gens voient derrière toi
 
 - **Un mur uni, de couleur douce** : beige, gris clair ou bleu nuit. Évite le blanc pur, qui fait une image froide.
