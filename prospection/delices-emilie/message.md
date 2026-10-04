@@ -24,3 +24,17 @@ Moment : du lundi au vendredi entre 10h et 11h, heure de Lubumbashi (c'est leur 
 ## Si la réponse est positive
 
 Demander : ses photos en haute qualité (les captures d'écran limitent la netteté), les gâteaux qu'elle veut mettre en avant, et si elle refait un atelier cette année (dates, lieu). Ne jamais publier la vidéo sans son accord.
+
+## Deuxième offre : le catalogue digital + QR code + WhatsApp Business (dossier `catalogue/`)
+
+À envoyer après la vidéo, si Émilie répond, ou en relance si elle ne répond pas. Joindre les 3 captures `catalogue/apercu_ecran_1.png`, `_2`, `_3` et `catalogue/carte_qr_a6.png`.
+
+> Bonjour Émilie 😊 Je vous ai aussi préparé un petit catalogue digital, toujours avec vos photos : vos gâteaux, vos ateliers, et un bouton « Demander un devis » qui ouvre WhatsApp avec la demande déjà écrite (date, nombre de parts, thème).
+>
+> Avec, un QR code à poser sur le comptoir ou à coller sur vos boîtes : vos clients scannent et vous écrivent directement.
+>
+> Et si vous voulez, je configure aussi votre WhatsApp Business : message d'accueil, réponses rapides pour les devis et le délai de 48 h, étiquettes pour suivre chaque commande. Vous répondez en quelques secondes, même quand vous êtes en cuisine.
+>
+> Je vous envoie les captures juste après. Dites-moi ce que vous en pensez !
+
+Ne pas mettre le catalogue en ligne sans son accord. Si elle dit oui, lui demander : ses prix ou fourchettes (si elle veut les afficher), d'autres gâteaux à ajouter (layer cups, gâteaux de mariage…), le mode de paiement, le retrait ou la livraison, et ses photos en haute qualité.
