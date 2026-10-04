@@ -1,40 +1,63 @@
-# Campagne pub : 70 $, une semaine
+# Campagne pub Meta : 70 $
 
-## L'objectif
-Le but n'est pas de vendre l'ebook tout de suite. On veut des **commentaires « IA » et des messages WhatsApp** pour le guide gratuit. Ensuite, en DM, on pose les questions et on propose l'ebook.
+Ce plan reprend `strategie-pub-meta/plan_45_dollars.md` (réglages, textes des pubs, repères, côté WhatsApp) et l'adapte à 70 $. Tout ce qui n'est pas écrit ici reste valable là-bas.
 
-Pourquoi : les gens qui voient la pub ne te connaissent pas encore et tu n'as pas encore d'avis. Dire oui à un guide gratuit est facile. Chaque conversation peut devenir une vente, un avis, et un chiffre réel à montrer en organique.
+## Pas de présence sur Facebook : ce n'est pas un problème pour la pub
+- Meta montre ta pub à des gens qui ne te suivent pas. Ton nombre d'abonnés ne change pas la diffusion.
+- Mais **il faut une Page Facebook** pour lancer une pub, et les gens qui hésitent cliquent sur ton nom pour voir qui tu es. Une page vide fait douter, une page propre rassure.
+- TikTok reste ton organique. Ce que la pub va te rapporter (messages, ventes, avis) deviendra du contenu pour TikTok.
 
-## Les vidéos
-- **Vidéo A** : le motion design de 30 s (déjà prête).
-- **Vidéo B** : « Mon histoire » en 25-30 s (script plus bas). Photos de ta vie, enregistrements de ton écran, ta voix.
-- **La vidéo de 1 min 20** : reste en organique. Une personne qui ne te connaît pas décide en 2 ou 3 secondes. Une vidéo courte est regardée jusqu'au bout par plus de monde, TikTok la montre plus, et chaque vue coûte moins cher.
-- **Le carrousel** : reste en organique, épinglé sur ton profil. Les gens qui cliquent sur ton profil après la pub le verront.
+## À faire avant de lancer (une soirée)
+1. **Créer la Page Facebook** « DigitalMikaelson » :
+   - Photo de profil : ta photo, sur fond bleu nuit.
+   - Couverture : la bannière de l'ebook ou du guide.
+   - Bio courte : ce que tu fais et pour qui.
+   - Bouton « Envoyer un message WhatsApp ».
+2. **Publier 6 à 9 posts** en reprenant ce qui existe déjà :
+   - Le carrousel, la vidéo de 30 s, la vidéo POV prospection, la couverture du guide gratuit, une ou deux vidéos de la semaine.
+   - Utilise les fichiers d'origine (dossiers `renders/`), sans le logo TikTok.
+   - Épingle le post le plus clair sur l'ebook.
+3. **Relier ton numéro WhatsApp Business à la Page.** C'est obligatoire pour une pub « Envoyer un message WhatsApp ».
+4. **Créer le compte publicitaire** dans le Gestionnaire de publicités :
+   - Ajoute un moyen de paiement. Vérifie dans le Gestionnaire lesquels sont acceptés pour ton compte.
+   - Fais-le 1 ou 2 jours avant le lancement : un nouveau compte peut passer par une vérification.
+5. **Vérifier le prix actuel de l'ebook sur Chariow.** Les seuils du plan 45 $ sont calculés sur 4,9 $ (lancement) et 6,9 $ (normal). Si le prix a changé, il faut refaire le calcul.
 
-## Le budget
-| Jours | Ce qu'on fait | Budget |
+## Les pubs
+| Pub | Format | Quand |
 |---|---|---|
-| 1 à 3 | Vidéo A et vidéo B en même temps, environ 5 $ par jour chacune | environ 30 $ |
-| 4 à 7 | Tout sur la vidéo qui a ramené le plus de commentaires « IA » et de messages, environ 10 $ par jour | environ 40 $ |
+| A | Vidéo 30 s (`pub-video-digitalmikaelson/renders/pub-video-digitalmikaelson_30s.mp4`) | Dès le jour 1 |
+| D | Image fixe 4:5 (`strategie-pub-meta/visuels/pub_image_fixe_v2_4x5.png`) | Dès le jour 1 |
+| E | Carrousel 5 cartes (`strategie-pub-meta/visuels/carrousel_v2_1.png` à `_5.png`) | Dès le jour 1 |
+| F | Vidéo « Mon histoire », 25-30 s (script ci-dessous) | Jour 5 : c'est le « nouveau concept » prévu par le plan |
 
-Chaque soir, note pour chaque vidéo : le nombre de commentaires « IA », le nombre de messages WhatsApp, et l'argent dépensé. **Le bon chiffre, c'est le coût par message**, pas les vues ni les likes.
+La vidéo de 1 min 20 ne sert pas de pub : envoie-la sur WhatsApp à ceux qui ont déjà écrit.
 
-## À préparer avant de lancer
-- Le lien du guide gratuit prêt à envoyer
-- Les réponses DM (questions de qualification, puis lien de l'ebook)
-- Le carrousel épinglé sur le profil
-- Le soir, réponds vite aux commentaires et aux messages
+## Le budget : 7 $ par jour pendant 10 jours
+| Jours | Ce qu'on fait | Total |
+|---|---|---|
+| 1 à 3 | A, D et E tournent dans 1 seul ensemble de pubs. On ne touche à rien. | 21 $ |
+| 4 | On coupe les pubs qui ont dépensé 3 $ ou plus avec un coût par conversation au-dessus de 0,40 $. | 7 $ |
+| 5 à 10 | Le budget va aux gagnantes, et on ajoute la pub F. | 42 $ |
+| | | **70 $** |
 
-## Script vidéo B : « Mon histoire » (25-30 s)
-Environ 75 mots, soit 27 à 30 secondes de voix.
+Note les chiffres chaque soir dans `strategie-pub-meta/suivi_quotidien.csv`.
+
+## Côté WhatsApp : l'ebook d'abord, le guide gratuit ensuite
+- Premier message : ta réponse chaleureuse, la vidéo, puis le lien Chariow avec le prix.
+- La personne n'achète pas après la relance ? Offre-lui le guide gratuit sur l'IA et demande-lui son avis quelques jours après. Tu gardes le contact, et tu récoltes tes premiers avis.
+- Le soir, quand tu es libre, réponds vite : c'est là que la vente se joue.
+
+## Script pub F : « Mon histoire » (25-30 s)
+Environ 70 mots. Version Meta : au « vous », comme les autres pubs, avec le bouton WhatsApp.
 
 | Temps | Ta voix | À l'écran |
 |---|---|---|
 | 0-4 s | J'ai une licence, je suis en master. Et ce qui me rapporte de l'argent, ce n'est pas mon diplôme. | Ta photo à la fac ou avec ton diplôme. Gros texte : « Ce n'est pas mon diplôme » |
 | 4-12 s | C'est une compétence. Avec l'IA, je crée des vidéos pour des entreprises, et des guides que je vends en ligne. | Enregistrement d'écran : la vidéo ManiTech, le catalogue, ta page Chariow |
-| 12-20 s | Toi aussi, tu sais déjà faire quelque chose, cuisiner ou coudre par exemple. Ça peut devenir un revenu. | Images des compétences (comme dans le carrousel) |
-| 20-28 s | Si tu veux savoir par où commencer, commente IA. Je t'envoie mon guide gratuit, et je t'accompagne. | Couverture du guide gratuit + « Commente IA » |
+| 12-20 s | Vous aussi, vous savez déjà faire quelque chose, cuisiner ou coudre par exemple. Ça peut devenir un revenu. | Images des compétences (comme dans le carrousel) |
+| 20-28 s | Cliquez sur « Envoyer un message », écrivez-moi sur WhatsApp, et je vous accompagne. | Couverture de l'ebook + bouton WhatsApp |
 
-**À vérifier avant d'enregistrer** : dis « ce qui me rapporte de l'argent » seulement si c'est déjà vrai. Si tu commences à peine, dis « ce qui commence à me rapporter de l'argent ». Montre uniquement de vrais chiffres et de vraies captures.
+**À vérifier avant d'enregistrer** : dis « ce qui me rapporte de l'argent » seulement si c'est déjà vrai. Sinon, dis « ce qui commence à me rapporter de l'argent ». Pas de promesse de gains dans la pub : Meta refuse les pubs qui promettent de l'argent facile.
 
-**Ce qu'il faut m'envoyer** : 3 à 5 photos de toi (fac, diplôme, toi au travail le soir), une capture de ta page Chariow, et ta voix qui lit le script (vocal WhatsApp avec le micro, dans le calme).
+**Ce qu'il faut m'envoyer** : 3 à 5 photos de toi (fac, diplôme, toi au travail le soir), une capture de ta page Chariow, et ta voix qui lit le script.
