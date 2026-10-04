@@ -19,6 +19,7 @@ Vérifie toujours que le numéro a un compte WhatsApp (photo, nom) avant d'écri
 | Café La Kinoise | Kinshasa | À trouver (Instagram @la.kinoise.cafe) | DM Instagram envoyé |
 | Kahawa Congo Coffee | Lubumbashi | À trouver (site kahawa-congo.com) | Vidéo prête |
 | Festa RDC | Kinshasa | Peu probable (grande marque) | Vidéo prête, passer par Instagram ou LinkedIn |
+| ManiTech Congo | Kinshasa | ✅ +243 822 139 394 (sur leurs publications) | Vidéo prête, à envoyer (ils ont déjà un site) |
 | Les Délices d'Émilie | Lubumbashi | ✅ +243 825 553 856 (bio Instagram @les_delices.demilie) | Vidéo prête, à envoyer |
 
 ## Priorité 1 : petites marques à Kinshasa (les plus faciles)
@@ -47,7 +48,6 @@ Vérifie toujours que le numéro a un compte WhatsApp (photo, nom) avant d'écri
 | 16 | NutriKongo | Lubumbashi | 1-10 | Initiative alimentaire « Purely Kongo » | Instagram, Facebook |
 | 17 | Agrokivu | Goma | 1-10 | Plateforme pour agriculteurs | agrokivu.com |
 | 18 | YANZAMBI (M.Y Success) | à vérifier | 11-50 | Infusions locales : bulukutu et citronnelle | Facebook |
-| 19 | MANITECH CONGO | à vérifier | 11-50 | Transformation alimentaire, cuisine congolaise | manitechcongo.com |
 | 20 | GRECOM RDC | à vérifier | 11-50 | Apiculture (miel), permaculture | grecom-rdc.com |
 | 21 | Virunga Origins | Nord-Kivu | 11-50 | Chocolat et café du parc des Virunga | origins.virunga.org |
 | 22 | Pearl Industries | Lubumbashi | 11-50 | Produits de grande consommation | pearl-industries.com |

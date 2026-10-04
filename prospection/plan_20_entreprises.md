@@ -32,7 +32,7 @@ Si, en ouvrant leur page, on voit qu'ils ont déjà un bon site : on bascule sur
 | B3 | YANZAMBI (M.Y Success) | à vérifier | Infusions bulukutu et citronnelle : marque à faire connaître | Pas de site connu |
 | B4 | NutriKongo (« Purely Kongo ») | Lubumbashi | Marque alimentaire : présenter les produits et l'histoire | Pas de site connu |
 | B5 | Butamu ASPK | Bukavu | Farines nutritives : rassurer les parents et les distributeurs | butamucare.com, à vérifier |
-| B6 | MANITECH CONGO | à vérifier | Transformation alimentaire : crédibilité auprès des partenaires | manitechcongo.com, à vérifier |
+| B6 | MANITECH CONGO | Kinshasa | A déjà un site : vidéo motion design faite à la place (dossier `manitech/`) | manitechcongo.com, déjà en ligne |
 | B7 | GRECOM RDC | à vérifier | Miel et permaculture : vitrine des produits et des projets | grecom-rdc.com, à vérifier |
 | B8 | Agrokivu | Goma | Plateforme pour agriculteurs : expliquer simplement le service | agrokivu.com, à vérifier |
 | B9 | Pearl Industries | Lubumbashi | Produits de grande consommation : vitrine pour distributeurs | pearl-industries.com, à vérifier |
