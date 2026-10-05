@@ -45,7 +45,7 @@ Les modules 6 (première commande) et 7 (réception) du plan de départ sont ré
 > Voici toute la chaîne, en une minute.
 >
 > Un : tu trouves un fournisseur.
-> Deux : tu vérifies qu'il est sérieux, avant de payer quoi que ce soit.
+> Deux : tu vérifies qu'il est sérieux, avant de payer.
 > Trois : tu commandes, avec la quantité, le prix et le transport écrits noir sur blanc.
 > Quatre : tu paies, et tu gardes la preuve.
 > Cinq : la marchandise voyage jusqu'en RDC, et tu la récupères chez ton transitaire.
