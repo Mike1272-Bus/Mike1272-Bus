@@ -15,33 +15,40 @@ Chaque après-midi, on prend un métier manuel et on montre ce que la personne p
 
 Ordre conseillé : menuiserie (mardi), couture, coiffure, pâtisserie, perles, cordonnerie. Le dernier épisode peut demander aux abonnés quel métier traiter ensuite.
 
-## Script de mardi après-midi : épisode 2, la menuiserie
+## Script de mardi après-midi : épisode 2, la menuiserie (version histoire)
 
-Série « Transformer une compétence en revenu ». L'intro est celle de Mike, la suite reprend la structure de l'épisode 1 : un exemple (Patrick, présenté comme tel), deux voies, la preuve, la question en commentaire. Environ 180 mots, 60 à 65 secondes.
+Série « Transformer une compétence en revenu ». Intro de Mike, puis une histoire : Patrick est présenté comme imaginé (« Imagine Patrick »), et la fin révèle le vrai cas, oncle David. Mots simples : « avance » plutôt qu'« acompte », et Chariow présenté comme « une plateforme de paiement en ligne ». Environ 270 mots, autour de 1 min 30.
 
 | Moment | À l'écran |
 |---|---|
-| Intro (« Il y a une chose… ») | Gros texte « Ce qu'on ne te dit pas », un plan de chaise qui se dessine, puis le badge « ÉPISODE 2 · TA COMPÉTENCE → TON REVENU » |
-| « La voici » | Une scie qui travaille (payé), puis la scie s'arrête et un plan PDF continue de « se vendre » (∞) |
-| « Prenons un exemple » | Un établi et des planches, l'étiquette « Patrick, menuisier » |
-| Première voie | Étiquette « VOIE 1 ». Un, deux, trois : appareil photo, icônes IA et catalogue WhatsApp qui se remplit, carte « Acompte payé · via Chariow » |
-| Deuxième voie | Étiquette « VOIE 2 ». Une page PDF de plan de tabouret (cotes, liste du bois), le logo Chariow, « ∞ » |
-| Oncle David | Un établi avec copeaux, le texte « Oncle David, menuisier » (pas de personnage) |
+| Intro | « Ce qu'on ne te dit pas », un plan de chaise qui se dessine, badge « ÉPISODE 2 · TA COMPÉTENCE → TON REVENU » |
+| « Imagine Patrick » | Un atelier : établi, planches, copeaux. L'étiquette « Patrick, menuisier à Kinshasa » |
+| « Pas de commande ? Pas d'argent. » | Un carnet de commandes vide, un porte-monnaie qui se vide |
+| « Un soir, il se pose une question » | L'atelier passe en lumière du soir, une bulle « ? » |
+| Photos et catalogue | Un appareil photo qui flashe, les icônes IA, un catalogue WhatsApp Business qui se remplit, des statuts |
+| Le message du client | Une bulle WhatsApp « Bonjour, cette table, vous pouvez la faire en plus grand ? », puis une carte « Avance payée · paiement en ligne », avec le logo Chariow |
+| L'idée plus forte | Un plan de tabouret qui se dessine (mesures, liste du bois, étapes), qui devient un PDF |
+| « encore et encore » | Le PDF qui se copie, des étiquettes « Vendu » qui s'empilent, « ∞ » |
+| Oncle David | L'étiquette « Patrick : une histoire » se retourne et devient « Oncle David : vrai menuisier » (pas de personnage) |
 | Question finale | Étiquettes de métiers, « Dis-le en commentaire » |
 
 ## Texte à lire d'une traite
 
 > Il y a une chose qu'on ne te dit pas sur les métiers comme la menuiserie. Laisse-moi te montrer comment un menuisier peut transformer ce qu'il sait faire en revenu en ligne. C'est le deuxième épisode de ma série « Transformer une compétence en revenu ».
 >
-> La voici : un menuisier n'est payé que quand il fabrique. Mais ce qu'il sait, il peut le vendre même quand ses mains se reposent.
+> Imagine Patrick. Il est menuisier à Kinshasa. Ses meubles sont solides. Mais Patrick a un problème : il n'est payé que quand il fabrique. Pas de commande cette semaine ? Pas d'argent.
 >
-> Prenons un exemple : Patrick, menuisier à Kinshasa.
+> Un soir, il se pose une question : et si les gens pouvaient voir mon travail sans passer devant mon atelier ?
 >
-> Première voie : vendre plus de meubles. Un : il photographie ses meubles finis. Deux : avec l'IA, il en fait un catalogue WhatsApp Business, avec les prix. Trois : les clients commandent, et paient l'acompte sur Chariow.
+> Alors il prend en photo ses plus beaux meubles. Avec l'IA, il écrit un texte et un prix pour chacun, et il en fait un catalogue WhatsApp Business, qu'il partage dans ses statuts.
 >
-> Deuxième voie : un produit digital. Il vend les plans de ses meubles en PDF : les mesures, la liste du bois, les étapes. Dessinés une fois, vendus autant de fois qu'il veut.
+> Quelques jours plus tard, un message arrive : « Bonjour, cette table, vous pouvez la faire en plus grand ? » Le client paie une avance sur une plateforme de paiement en ligne, comme Chariow.
 >
-> Mon oncle David est menuisier. Il est devenu créateur de produits digitaux, sans payer de publicité.
+> Puis il a une idée encore plus forte. Beaucoup de gens veulent fabriquer eux-mêmes un tabouret ou une étagère. Alors il dessine ses plans : les mesures, la liste du bois, les étapes. Il en fait un PDF, qu'il met en vente sur Chariow.
+>
+> Ce plan, il l'a dessiné une seule fois. Mais il peut le vendre encore et encore, même quand ses mains se reposent.
+>
+> Patrick, c'est une histoire. Mais mon oncle David, lui, est vraiment menuisier, et il est devenu créateur de produits digitaux, sans payer de publicité.
 >
 > Et toi, c'est quoi ta compétence ? Dis-le-moi en commentaire, je t'en fais la prochaine vidéo.
 
