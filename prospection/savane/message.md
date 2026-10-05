@@ -15,6 +15,21 @@ Ton : vouvoiement, sobre, pas d'émojis en trop. Moment : en fin de matinée, av
 >
 > Si elle vous plaît, je peux en préparer une pour chaque nouveauté de la carte. Seriez-vous ouverts à en parler ?
 
+## Version e-mail courte
+
+Objet : Une vidéo pour Savane, à partir de vos images
+
+> Bonjour,
+>
+> Votre univers est superbe. Je m'appelle Mike, je crée des vidéos animées pour les restaurants.
+>
+> Je vous ai préparé une vidéo de 22 secondes à partir de vos images et de vos phrases, avec vos informations de réservation à la fin. Elle est en pièce jointe, c'est un cadeau.
+>
+> Si elle vous plaît, je peux en préparer une pour chaque nouveauté de la carte. Seriez-vous ouverts à en parler ?
+>
+> Belle journée,
+> Mike
+
 ## Message (texte, puis la vidéo `renders/savane.mp4`)
 
 > Bonjour l'équipe Savane,

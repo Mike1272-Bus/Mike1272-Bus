@@ -16,6 +16,21 @@ Moment : du mardi au jeudi, entre 10 h et 12 h (heure de Kinshasa).
 >
 > Si elle vous plaît, je peux vous en faire une par produit. On en parle ?
 
+## Version e-mail courte
+
+Objet : Une vidéo animée pour vos produits ManiTech
+
+> Bonjour,
+>
+> Bravo pour votre présence chez CityMarket. Je m'appelle Mike, je crée des vidéos animées pour les marques.
+>
+> Je vous ai préparé une vidéo de 25 secondes avec vos propres visuels, prête pour vos statuts, stories et publicités. Elle est en pièce jointe, c'est cadeau.
+>
+> Si elle vous plaît, je peux vous en faire une par produit. Seriez-vous disponibles pour en parler ?
+>
+> Bonne journée,
+> Mike
+
 ## Message WhatsApp (texte, puis la vidéo `renders/manitech.mp4`)
 
 > Bonjour l'équipe ManiTech 👋

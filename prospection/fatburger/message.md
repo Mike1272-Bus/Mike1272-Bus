@@ -18,6 +18,21 @@ Moment : en milieu d'après-midi (entre 14 h et 16 h, heure de Kinshasa), en deh
 >
 > Si elle vous plaît, je peux vous en faire d'autres, par exemple une pour les milkshakes. On en parle ?
 
+## Version e-mail courte
+
+Objet : Une vidéo animée pour Fatburger Kinshasa
+
+> Bonjour,
+>
+> Vos burgers à trois steaks donnent vraiment envie. Je m'appelle Mike, je crée des vidéos animées pour les restaurants.
+>
+> Je vous ai préparé une vidéo de 22 secondes avec vos photos : le burger qui se monte étage par étage, les milkshakes, le menu et « Commandez maintenant ». Elle est en pièce jointe, c'est cadeau.
+>
+> Si elle vous plaît, je peux vous en faire d'autres, par exemple une pour les milkshakes. Seriez-vous disponibles pour en parler ?
+>
+> Bonne journée,
+> Mike
+
 ## Message (texte, puis la vidéo `renders/fatburger.mp4`)
 
 > Bonjour l'équipe Fatburger Kinshasa 👋
