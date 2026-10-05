@@ -15,30 +15,37 @@ Chaque après-midi, on prend un métier manuel et on montre ce que la personne p
 
 Ordre conseillé : menuiserie (mardi), couture, coiffure, pâtisserie, perles, cordonnerie. Le dernier épisode peut demander aux abonnés quel métier traiter ensuite.
 
-## Script de mardi après-midi : la menuiserie (~55 s)
+## Script de mardi après-midi : la menuiserie (même structure que l'épisode 1)
 
-> Tu es menuisier, ou tu connais un menuisier ? Écoute ça.
+Un cas, des étapes, deux voies : un service ou un produit digital, avec l'IA et Chariow. Patrick est un exemple, présenté comme tel (« Prenons un exemple »). Environ 60 à 65 secondes.
+
+| Temps | Ta voix | À l'écran |
+|---|---|---|
+| 0-5 s | Tu es menuisier ? Voici comment ton savoir-faire peut te rapporter de l'argent en ligne. Étape par étape. | Gros texte « Menuiserie → revenu », un plan de chaise qui se dessine |
+| 5-9 s | Prenons un exemple : Patrick, menuisier à Kinshasa. Il fabrique des tables, des chaises, des armoires. | Un établi, des planches, l'étiquette « Patrick, menuisier » |
+| 9-30 s | Première voie : vendre plus de meubles grâce à internet. Étape un : il prend en photo ses meubles finis, à la lumière du jour. Étape deux : avec l'IA, il écrit une description et un prix pour chaque meuble, et il en fait un catalogue WhatsApp Business. Étape trois : il le partage en statut et dans les groupes de son quartier. Les clients commandent sur mesure, et paient l'acompte en ligne, sur Chariow. | Étiquette « Voie 1 ». Un appareil photo, les icônes IA, un catalogue WhatsApp qui se remplit, une carte « Acompte payé · via Chariow » |
+| 30-48 s | Deuxième voie : un produit digital. Il vend les plans de ses meubles en PDF : les mesures, la liste du bois, les étapes. L'IA l'aide à les mettre en page. Il les met sur Chariow : dessinés une fois, vendus autant de fois qu'il veut. | Étiquette « Voie 2 ». Une page PDF de plan de tabouret, les icônes IA, le logo Chariow, « ∞ » |
+| 48-54 s | Mon oncle David est menuisier. Il est devenu créateur de produits digitaux, sans payer de publicité. | Un établi avec copeaux, le texte « Oncle David, menuisier » (pas de personnage) |
+| 54-62 s | Et toi, c'est quoi ta compétence ? Dis-le-moi en commentaire, je t'en fais la prochaine vidéo. | Étiquettes de métiers, « Dis-le en commentaire » |
+
+## Texte à lire d'une traite
+
+> Tu es menuisier ? Voici comment ton savoir-faire peut te rapporter de l'argent en ligne. Étape par étape.
+>
+> Prenons un exemple : Patrick, menuisier à Kinshasa. Il fabrique des tables, des chaises, des armoires.
+>
+> Première voie : vendre plus de meubles grâce à internet.
+> Étape un : il prend en photo ses meubles finis, à la lumière du jour.
+> Étape deux : avec l'IA, il écrit une description et un prix pour chaque meuble, et il en fait un catalogue WhatsApp Business.
+> Étape trois : il le partage en statut et dans les groupes de son quartier. Les clients commandent sur mesure, et paient l'acompte en ligne, sur Chariow.
+>
+> Deuxième voie : un produit digital. Il vend les plans de ses meubles en PDF : les mesures, la liste du bois, les étapes. L'IA l'aide à les mettre en page. Il les met sur Chariow : dessinés une fois, vendus autant de fois qu'il veut.
 >
 > Mon oncle David est menuisier. Il est devenu créateur de produits digitaux, sans payer de publicité.
 >
-> Voici trois produits qu'un menuisier peut vendre en ligne.
->
-> Un : des plans de meubles en PDF. Les mesures, la liste du bois, les étapes. Tu dessines le plan une fois, et tu le vends autant de fois que tu veux.
->
-> Deux : un tableau de devis. Le client dit ce qu'il veut, le tableau calcule les planches, les vis, et le prix à demander.
->
-> Trois : une mini-formation vidéo. Tu filmes seulement tes mains pendant que tu fabriques un tabouret. Pas besoin de montrer ton visage.
->
-> L'IA t'aide à écrire et à mettre en page. Et tu vends tout ça sur Chariow.
->
-> Tu connais un menuisier ? Envoie-lui cette vidéo. Et dis-moi en commentaire quel métier je traite la prochaine fois.
+> Et toi, c'est quoi ta compétence ? Dis-le-moi en commentaire, je t'en fais la prochaine vidéo.
 
-### Visuels prévus
+## Légende TikTok
 
-- Hook : un plan de chaise qui se dessine trait par trait, avec les cotes.
-- Oncle David : un établi, des planches et des copeaux, et le texte « Oncle David, menuisier ». Pas de personnage.
-- Produit 1 : la page PDF d'un plan de tabouret qui se remplit (cotes, liste du bois).
-- Produit 2 : un tableau dont les cases se calculent (planches, vis, prix).
-- Produit 3 : un téléphone qui filme un établi, avec un bouton REC.
-- IA et Chariow : les vraies icônes ChatGPT, Claude, Gemini et Chariow.
-- Fin : des étiquettes de métiers (Menuiserie, Couture, Coiffure, Pâtisserie…) et « Dis-le en commentaire ».
+> Tu es menuisier ? Voici 2 façons de gagner de l'argent en ligne avec ton savoir-faire, avec l'IA 🪚 Dis-moi ta compétence en commentaire, je fais la prochaine vidéo dessus.
+> #menuiserie #menuisier #produitdigital #ia #chariow #kinshasa #rdc #artisan
