@@ -17,13 +17,13 @@ Ordre conseillé : menuiserie (mardi), couture, coiffure, pâtisserie, perles, c
 
 ## Script de mardi après-midi : la menuiserie (même structure que l'épisode 1)
 
-Un cas, des étapes, deux voies : un service ou un produit digital, avec l'IA et Chariow. Patrick est un exemple, présenté comme tel (« Prenons un exemple »). Environ 60 à 65 secondes.
+Un cas, des étapes, deux voies : un service ou un produit digital, avec l'IA et Chariow. Patrick est un exemple, présenté comme tel (« Prenons un exemple »). Environ 170 mots, 60 à 65 secondes.
 
 | Temps | Ta voix | À l'écran |
 |---|---|---|
 | 0-5 s | Tu es menuisier ? Voici comment ton savoir-faire peut te rapporter de l'argent en ligne. Étape par étape. | Gros texte « Menuiserie → revenu », un plan de chaise qui se dessine |
-| 5-9 s | Prenons un exemple : Patrick, menuisier à Kinshasa. Il fabrique des tables, des chaises, des armoires. | Un établi, des planches, l'étiquette « Patrick, menuisier » |
-| 9-30 s | Première voie : vendre plus de meubles grâce à internet. Étape un : il prend en photo ses meubles finis, à la lumière du jour. Étape deux : avec l'IA, il écrit une description et un prix pour chaque meuble, et il en fait un catalogue WhatsApp Business. Étape trois : il le partage en statut et dans les groupes de son quartier. Les clients commandent sur mesure, et paient l'acompte en ligne, sur Chariow. | Étiquette « Voie 1 ». Un appareil photo, les icônes IA, un catalogue WhatsApp qui se remplit, une carte « Acompte payé · via Chariow » |
+| 5-9 s | Prenons un exemple : Patrick, menuisier à Kinshasa. Il fabrique des tables et des chaises. | Un établi, des planches, l'étiquette « Patrick, menuisier » |
+| 9-30 s | Première voie : vendre plus de meubles grâce à internet. Étape un : il prend en photo ses meubles finis. Étape deux : avec l'IA, il écrit une description et un prix pour chaque meuble, et il en fait un catalogue WhatsApp Business. Étape trois : il le partage en statut. Les clients commandent sur mesure, et paient l'acompte en ligne, sur Chariow. | Étiquette « Voie 1 ». Un appareil photo, les icônes IA, un catalogue WhatsApp qui se remplit, une carte « Acompte payé · via Chariow » |
 | 30-48 s | Deuxième voie : un produit digital. Il vend les plans de ses meubles en PDF : les mesures, la liste du bois, les étapes. L'IA l'aide à les mettre en page. Il les met sur Chariow : dessinés une fois, vendus autant de fois qu'il veut. | Étiquette « Voie 2 ». Une page PDF de plan de tabouret, les icônes IA, le logo Chariow, « ∞ » |
 | 48-54 s | Mon oncle David est menuisier. Il est devenu créateur de produits digitaux, sans payer de publicité. | Un établi avec copeaux, le texte « Oncle David, menuisier » (pas de personnage) |
 | 54-62 s | Et toi, c'est quoi ta compétence ? Dis-le-moi en commentaire, je t'en fais la prochaine vidéo. | Étiquettes de métiers, « Dis-le en commentaire » |
@@ -32,12 +32,12 @@ Un cas, des étapes, deux voies : un service ou un produit digital, avec l'IA et
 
 > Tu es menuisier ? Voici comment ton savoir-faire peut te rapporter de l'argent en ligne. Étape par étape.
 >
-> Prenons un exemple : Patrick, menuisier à Kinshasa. Il fabrique des tables, des chaises, des armoires.
+> Prenons un exemple : Patrick, menuisier à Kinshasa. Il fabrique des tables et des chaises.
 >
 > Première voie : vendre plus de meubles grâce à internet.
-> Étape un : il prend en photo ses meubles finis, à la lumière du jour.
+> Étape un : il prend en photo ses meubles finis.
 > Étape deux : avec l'IA, il écrit une description et un prix pour chaque meuble, et il en fait un catalogue WhatsApp Business.
-> Étape trois : il le partage en statut et dans les groupes de son quartier. Les clients commandent sur mesure, et paient l'acompte en ligne, sur Chariow.
+> Étape trois : il le partage en statut. Les clients commandent sur mesure, et paient l'acompte en ligne, sur Chariow.
 >
 > Deuxième voie : un produit digital. Il vend les plans de ses meubles en PDF : les mesures, la liste du bois, les étapes. L'IA l'aide à les mettre en page. Il les met sur Chariow : dessinés une fois, vendus autant de fois qu'il veut.
 >
