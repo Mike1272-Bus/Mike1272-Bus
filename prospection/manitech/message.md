@@ -6,6 +6,16 @@ Canal : WhatsApp au +243 822 139 394 (le numéro de leurs publications récentes
 Canal 2 : e-mail à info@manitechcongo.com, avec la vidéo en pièce jointe.
 Moment : du mardi au jeudi, entre 10 h et 12 h (heure de Kinshasa).
 
+## Version courte (à envoyer en priorité)
+
+> Bonjour l'équipe ManiTech 👋
+>
+> Bravo pour votre présence chez CityMarket. Je m'appelle Mike, je crée des vidéos animées pour les marques.
+>
+> Je vous ai préparé une vidéo de 25 secondes avec vos propres visuels, prête pour vos statuts, stories et publicités. Je vous l'envoie juste après ce message, c'est cadeau.
+>
+> Si elle vous plaît, je peux vous en faire une par produit. On en parle ?
+
 ## Message WhatsApp (texte, puis la vidéo `renders/manitech.mp4`)
 
 > Bonjour l'équipe ManiTech 👋

@@ -5,6 +5,16 @@ Restaurant haut de gamme au Hilton Kinshasa (2ème étage), groupe Miraya's Food
 Canal : DM Instagram @savane_kinshasa (avec la vidéo), puis le numéro des réservations +243 988 533 333 s'il est sur WhatsApp.
 Ton : vouvoiement, sobre, pas d'émojis en trop. Moment : en fin de matinée, avant le service du midi.
 
+## Version courte (à envoyer en priorité)
+
+> Bonjour l'équipe Savane,
+>
+> Votre univers est superbe. Je m'appelle Mike, je crée des vidéos animées pour les restaurants.
+>
+> Je vous ai préparé une vidéo de 22 secondes à partir de vos images et de vos phrases, avec vos informations de réservation à la fin. Je vous l'envoie juste après, c'est un cadeau.
+>
+> Si elle vous plaît, je peux en préparer une pour chaque nouveauté de la carte. Seriez-vous ouverts à en parler ?
+
 ## Message (texte, puis la vidéo `renders/savane.mp4`)
 
 > Bonjour l'équipe Savane,

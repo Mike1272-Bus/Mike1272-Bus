@@ -5,6 +5,16 @@ Fast-food à Kinshasa, slogan « The Real Ones ». Photos de burgers, menu compl
 Canal : DM sur leur compte (là où Mike a fait la capture), puis WhatsApp dès qu'on a le numéro.
 Moment : en milieu d'après-midi (entre 14 h et 16 h, heure de Kinshasa), en dehors des heures de repas.
 
+## Version courte (à envoyer en priorité)
+
+> Bonjour l'équipe Burger Guys 👋
+>
+> Vos burgers donnent vraiment envie. Je m'appelle Mike, je crée des vidéos animées pour les restaurants.
+>
+> Je vous ai préparé une vidéo de 22 secondes avec vos photos : les ingrédients qui forment votre burger, votre menu et votre salle. Je vous l'envoie juste après, c'est cadeau.
+>
+> Elle est prête pour vos stories et statuts, idéale juste avant l'heure du repas. Si elle vous plaît, je peux vous en faire une par burger. On en parle ?
+
 ## Message (texte, puis la vidéo `renders/burger-guys.mp4`)
 
 > Bonjour l'équipe Burger Guys 👋
