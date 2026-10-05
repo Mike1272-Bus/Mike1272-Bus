@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Cormorant'; font-weight: 500; font-style: normal; src: url('assets/fonts/cormorant-500.ttf') format('truetype'); }
+      @font-face { font-family: 'Cormorant'; font-weight: 500; font-style: italic; src: url('assets/fonts/cormorant-500-italic.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0b0a09; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #f3ead8; font-family: 'Cormorant', serif; background: #0b0a09; }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .serif { font-family: 'Cormorant', serif; font-weight: 500; line-height: 1.08; text-shadow: 0 4px 24px rgba(0,0,0,0.7); }
+      .serif span, .sans span { display: inline-block; }
+      .serif em { font-style: italic; color: #e3c27a; }
+      .sans { font-family: 'Work Sans', sans-serif; font-weight: 700; letter-spacing: 8px; text-transform: uppercase; }
+      .gold { color: #e3c27a; }
+      #glow { background: radial-gradient(ellipse 70% 45% at 50% 48%, rgba(201,163,90,0.16), rgba(201,163,90,0) 70%); }
+
+      /* frise grecque dorée, comme les lettres du logo */
+      .key { left: 90px; width: 900px; height: 40px; overflow: visible; }
+
+      /* S1 */
+      #logo1 { left: 160px; top: 860px; width: 760px; height: 111px; z-index: 5; }
+      #k1a { top: 760px; } #k1b { top: 1040px; }
+      #city1 { top: 1110px; font-size: 30px; color: #e3c27a; letter-spacing: 16px; }
+
+      /* vidéos */
+      .vw { left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .vw video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+      .shade { background: linear-gradient(180deg, rgba(11,10,9,0.55) 0%, rgba(11,10,9,0) 28%, rgba(11,10,9,0) 58%, rgba(11,10,9,0.85) 100%); z-index: 3; }
+      #frame { left: 36px; top: 36px; width: 1008px; height: 1848px; border: 2px solid rgba(227,194,122,0.7); z-index: 4; }
+      #t2a { top: 1420px; font-size: 64px; z-index: 6; }
+      #t2b { top: 1500px; font-size: 92px; z-index: 6; }
+      #t3a { top: 1400px; font-size: 92px; z-index: 6; }
+      #t3b { top: 1505px; font-size: 92px; z-index: 6; }
+
+      /* S4 : les photos */
+      .card { position: absolute; left: 90px; top: 520px; width: 900px; height: 880px; overflow: hidden; border: 3px solid #c9a35a; box-shadow: 0 30px 70px rgba(0,0,0,0.7); z-index: 6;
+        background-size: cover; background-position: center; }
+      #t4a { top: 250px; font-size: 76px; z-index: 7; }
+      #t4b { top: 335px; font-size: 76px; z-index: 7; }
+      #t4c { top: 250px; font-size: 76px; z-index: 7; }
+      #t4d { top: 335px; font-size: 76px; z-index: 7; }
+      #t4e { top: 290px; font-size: 84px; z-index: 7; }
+      #lab4 { top: 1460px; font-size: 26px; color: #e3c27a; z-index: 7; }
+
+      /* S5 */
+      #t5 { top: 1460px; font-size: 104px; z-index: 6; }
+
+      /* S6 : fin */
+      #bg6 { background-size: cover; background-position: center; filter: blur(14px) brightness(0.32); transform: scale(1.1); }
+      #logo6 { left: 180px; top: 700px; width: 720px; height: 106px; z-index: 8; }
+      #k6a { top: 600px; } #k6b { top: 880px; }
+      #t6a { top: 980px; font-size: 32px; z-index: 8; }
+      #t6b { top: 1120px; font-size: 66px; z-index: 8; }
+      #t6c { top: 1200px; font-size: 64px; letter-spacing: 3px; z-index: 8; color: #e3c27a; }
+      #fade { background: #0b0a09; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+      <div class="ab full" id="glow"></div>
+
+      <!-- S1 : le logo apparaît entre deux frises dorées -->
+      <svg class="ab key" id="k1a" viewBox="0 0 900 40"><path class="kp" stroke="#c9a35a" stroke-width="3" fill="none" pathLength="1"/></svg>
+      <img class="ab" id="logo1" src="assets/img/logo.png" alt="Savane">
+      <svg class="ab key" id="k1b" viewBox="0 0 900 40"><path class="kp" stroke="#c9a35a" stroke-width="3" fill="none" pathLength="1"/></svg>
+      <div class="ab center sans" id="city1">Kinshasa</div>
+
+      <!-- S2 : la carte s'ouvre (leur vidéo) -->
+      <div class="ab vw" id="vA"><video id="clipA" class="clip" src="assets/video/clip.mp4" muted playsinline data-start="2.6" data-duration="1.4" data-media-start="0.9"></video></div>
+      <div class="ab vw" id="vB"><video id="clipB" class="clip" src="assets/video/clip.mp4" muted playsinline data-start="4.0" data-duration="1.25" data-media-start="3.25"></video></div>
+      <!-- S3 : la préparation des sushis -->
+      <div class="ab vw" id="vC"><video id="clipC" class="clip" src="assets/video/clip.mp4" muted playsinline data-start="5.25" data-duration="4.6" data-media-start="4.5"></video></div>
+      <!-- S5 : le plateau vu de dessus -->
+      <div class="ab vw" id="vE"><video id="clipE" class="clip" src="assets/video/clip.mp4" muted playsinline data-start="15.0" data-duration="1.75" data-media-start="12.75"></video></div>
+      <div class="ab full shade" id="shade"></div>
+      <div class="ab" id="frame"></div>
+      <div class="ab center serif" id="t2a" data-layout-allow-overlap></div>
+      <div class="ab center serif" id="t2b" data-layout-allow-overlap></div>
+      <div class="ab center serif" id="t3a" data-layout-allow-overlap></div>
+      <div class="ab center serif" id="t3b" data-layout-allow-overlap></div>
+
+      <!-- S4 : leurs photos -->
+      <div class="card" id="p0" style="background-image:url('assets/img/cocktail.jpg')"></div>
+      <div class="card" id="p1" style="background-image:url('assets/img/calamars.jpg')"></div>
+      <div class="card" id="p2" style="background-image:url('assets/img/bouchees.jpg')"></div>
+      <div class="card" id="p3" style="background-image:url('assets/img/plateau.jpg')"></div>
+      <div class="ab center serif" id="t4a" data-layout-allow-overlap></div>
+      <div class="ab center serif" id="t4b" data-layout-allow-overlap></div>
+      <div class="ab center serif" id="t4c" data-layout-allow-overlap></div>
+      <div class="ab center serif" id="t4d" data-layout-allow-overlap></div>
+      <div class="ab center serif" id="t4e" data-layout-allow-overlap></div>
+
+      <!-- S5 -->
+      <div class="ab center serif" id="t5" data-layout-allow-overlap></div>
+
+      <!-- S6 : fin -->
+      <div class="ab full" id="bg6" style="background-image:url('assets/img/plateau_fond.jpg')"></div>
+      <svg class="ab key" id="k6a" viewBox="0 0 900 40"><path class="kp" stroke="#c9a35a" stroke-width="3" fill="none" pathLength="1"/></svg>
+      <div class="ab" id="logo6" style="background:url('assets/img/logo.png') center / 100% 100% no-repeat"></div>
+      <svg class="ab key" id="k6b" viewBox="0 0 900 40"><path class="kp" stroke="#c9a35a" stroke-width="3" fill="none" pathLength="1"/></svg>
+      <div class="ab center sans" id="t6a">Hilton Kinshasa · 2ème étage</div>
+      <div class="ab center serif" id="t6b" data-layout-allow-overlap></div>
+      <div class="ab center sans" id="t6c">+243 988 533 333</div>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="22" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const OUT = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 1 }, { ...to, autoAlpha: 0 }, at);
+      function serif(host, parts, prefix) {
+        const out = []; let n = 0;
+        parts.forEach(([text, italic]) => text.split(" ").forEach((w) => {
+          if (n) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement(italic ? "em" : "span"); s.id = prefix + n++; s.setAttribute("data-layout-allow-overlap", "");
+          s.style.display = "inline-block"; s.textContent = w; host.appendChild(s); out.push(s);
+        }));
+        return out;
+      }
+
+      // frise grecque : une spirale carrée tous les 50 px, reliée par une ligne de base
+      let d = "M0 38 H900";
+      for (let x = 5; x !== 905; x += 50) d += ` M${x} 38 V4 H${x + 36} V30 H${x + 12} V14 H${x + 26} V22`;
+      document.querySelectorAll(".kp").forEach((p) => p.setAttribute("d", d));
+
+      const T2 = [...serif($("t2a"), [["Le début parfait de", false]], "ta"), ...serif($("t2b"), [["votre expérience", false], ["Savane", true]], "tb")];
+      const T3A = serif($("t3a"), [["Le plaisir commence", false]], "tc");
+      const T3B = serif($("t3b"), [["dans les", false], ["détails.", true]], "td");
+      const T4A = [...serif($("t4a"), [["Préparé avec", false], ["précision.", true]], "te"), ...serif($("t4b"), [["Servi avec", false], ["caractère.", true]], "tf")];
+      const T4B = [...serif($("t4c"), [["De nouvelles bouchées", false]], "tg"), ...serif($("t4d"), [["font leur entrée", false], ["à la carte.", true]], "th")];
+      const T4C = serif($("t4e"), [["Retrouvez", false], ["ceux qui comptent.", true]], "ti");
+      const T5 = serif($("t5"), [["Réservez chez", false], ["Savane.", true]], "tj");
+      const T6 = serif($("t6b"), [["Réservations", true]], "tk");
+
+      gsap.set(["#fade", "#bg6", "#shade", "#frame", "#p0", "#p1", "#p2", "#p3", "#vA", "#vB", "#vC", "#vE"], { autoAlpha: 0 });
+      const KEYS1 = ["#k1a .kp", "#k1b .kp"], KEYS6 = ["#k6a .kp", "#k6b .kp"];
+      gsap.set([...KEYS1, ...KEYS6], { strokeDasharray: 1, strokeDashoffset: 1 });
+
+      // lueur dorée qui respire
+      FT("#glow", { opacity: 0.6 }, { opacity: 1, duration: 2.2, yoyo: true, repeat: 4, ease: "sine.inOut" }, 0);
+
+      // ---------- S1 : logo (0 - 2.6) ----------
+      FT(KEYS1, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.4, ease: "power2.inOut" }, 0.1);
+      IN("#logo1", { clipPath: "inset(0% 100% 0% 0%)", scale: 1.06 }, { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 1.1, ease: "power3.out" }, 0.5);
+      IN("#city1", { letterSpacing: "40px" }, { letterSpacing: "16px", duration: 0.9, ease: "power3.out" }, 1.2);
+      OUT(["#logo1", "#city1", "#k1a", "#k1b"], { scale: 1 }, { scale: 1.15, duration: 0.45, ease: "power2.in" }, 2.2);
+
+      // ---------- S2 : la carte (2.6 - 5.25) ----------
+      IN("#vA", { scale: 1.12 }, { scale: 1, duration: 1.4, ease: "power2.out" }, 2.6);
+      IN(["#shade", "#frame"], {}, { duration: 0.4 }, 2.6);
+      FT("#frame", { scale: 1.04 }, { scale: 1, duration: 0.8, ease: "power3.out" }, 2.6);
+      tl.set("#vA", { autoAlpha: 0 }, 4.0);
+      IN("#vB", { scale: 1.08 }, { scale: 1, duration: 1.25, ease: "power1.out" }, 4.0);
+      tl.set("#vB", { autoAlpha: 0 }, 5.25);
+      T2.forEach((s, i) => IN(s, { y: 30, filter: "blur(8px)" }, { y: 0, filter: "blur(0px)", duration: 0.55, ease: "power2.out" }, 2.95 + i * 0.09));
+      OUT(T2, { y: 0 }, { y: -20, duration: 0.3, ease: "power2.in" }, 4.95);
+
+      // ---------- S3 : la préparation (5.25 - 9.85) ----------
+      IN("#vC", {}, { duration: 0.2 }, 5.25);
+      FT("#vC", { scale: 1 }, { scale: 1.08, duration: 4.6, ease: "none" }, 5.25);
+      T3A.forEach((s, i) => IN(s, { y: 30, filter: "blur(8px)" }, { y: 0, filter: "blur(0px)", duration: 0.55, ease: "power2.out" }, 5.7 + i * 0.12));
+      T3B.forEach((s, i) => IN(s, { y: 30, filter: "blur(8px)" }, { y: 0, filter: "blur(0px)", duration: 0.55, ease: "power2.out" }, 6.4 + i * 0.12));
+      OUT([...T3A, ...T3B], { y: 0 }, { y: -20, duration: 0.35, ease: "power2.in" }, 9.35);
+      OUT(["#vC", "#shade", "#frame"], {}, { duration: 0.4 }, 9.5);
+
+      // ---------- S4 : les photos (9.85 - 15.0) ----------
+      const P = ["#p0", "#p1", "#p2", "#p3"], PT = [9.85, 11.15, 12.45, 13.75];
+      P.forEach((id, i) => {
+        IN(id, { y: 260, rotation: i % 2 ? 3 : -3, backgroundSize: "112%" }, { y: 0, rotation: 0, backgroundSize: "104%", duration: 0.7, ease: "power3.out" }, PT[i]);
+        FT(id, { backgroundSize: "104%" }, { backgroundSize: "100%", duration: 1.6, ease: "none" }, PT[i] + 0.7);
+        if (i !== 3) OUT(id, { scale: 1 }, { scale: 0.92, duration: 0.5, ease: "power2.in" }, PT[i + 1] + 0.15);
+      });
+      OUT("#p3", { scale: 1 }, { scale: 0.92, duration: 0.4, ease: "power2.in" }, 14.85);
+      T4A.forEach((s, i) => IN(s, { y: 24, filter: "blur(6px)" }, { y: 0, filter: "blur(0px)", duration: 0.45, ease: "power2.out" }, 10.0 + i * 0.08));
+      OUT(T4A, { y: 0 }, { y: -16, duration: 0.25, ease: "power2.in" }, 11.0);
+      T4B.forEach((s, i) => IN(s, { y: 24, filter: "blur(6px)" }, { y: 0, filter: "blur(0px)", duration: 0.45, ease: "power2.out" }, 11.3 + i * 0.07));
+      OUT(T4B, { y: 0 }, { y: -16, duration: 0.25, ease: "power2.in" }, 13.6);
+      T4C.forEach((s, i) => IN(s, { y: 24, filter: "blur(6px)" }, { y: 0, filter: "blur(0px)", duration: 0.45, ease: "power2.out" }, 13.9 + i * 0.08));
+      OUT(T4C, { y: 0 }, { y: -16, duration: 0.25, ease: "power2.in" }, 14.8);
+
+      // ---------- S5 : le plateau (15.0 - 16.75) ----------
+      IN(["#vE", "#shade", "#frame"], {}, { duration: 0.3 }, 15.0);
+      FT("#vE", { scale: 1.12 }, { scale: 1, duration: 1.75, ease: "power2.out" }, 15.0);
+      T5.forEach((s, i) => IN(s, { y: 30, filter: "blur(8px)" }, { y: 0, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 15.25 + i * 0.1));
+      OUT([...T5, "#vE", "#shade", "#frame"], {}, { duration: 0.35 }, 16.45);
+
+      // ---------- S6 : fin (16.8 - 22) ----------
+      IN("#bg6", { scale: 1.2 }, { scale: 1.1, duration: 5.2, ease: "none" }, 16.75);
+      FT(KEYS6, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.3, ease: "power2.inOut" }, 16.9);
+      IN("#logo6", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.0, ease: "power3.out" }, 17.2);
+      IN("#t6a", { letterSpacing: "24px" }, { letterSpacing: "8px", duration: 0.8, ease: "power3.out" }, 17.9);
+      T6.forEach((s) => IN(s, { y: 20, filter: "blur(6px)" }, { y: 0, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 18.4));
+      IN("#t6c", { y: 20 }, { y: 0, duration: 0.5, ease: "power2.out" }, 18.6);
+      tl.to("#fade", { autoAlpha: 1, duration: 0.6 }, 21.4);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
