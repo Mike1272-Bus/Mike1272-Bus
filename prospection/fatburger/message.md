@@ -8,6 +8,16 @@ Canal : DM sur leur compte (là où Mike a fait la capture), puis WhatsApp dès 
 Moment : en milieu d'après-midi (entre 14 h et 16 h, heure de Kinshasa), en dehors des heures de repas.
 À vérifier avant d'écrire : que le compte publie encore (la story vue date de 2022).
 
+## Version courte (à envoyer en priorité)
+
+> Bonjour l'équipe Fatburger Kinshasa 👋
+>
+> Vos burgers à trois steaks donnent vraiment envie. Je m'appelle Mike, je crée des vidéos animées pour les restaurants.
+>
+> Je vous ai préparé une vidéo de 22 secondes avec vos photos : le burger qui se monte étage par étage, les milkshakes, le menu et « Commandez maintenant ». Je vous l'envoie juste après, c'est cadeau.
+>
+> Si elle vous plaît, je peux vous en faire d'autres, par exemple une pour les milkshakes. On en parle ?
+
 ## Message (texte, puis la vidéo `renders/fatburger.mp4`)
 
 > Bonjour l'équipe Fatburger Kinshasa 👋
