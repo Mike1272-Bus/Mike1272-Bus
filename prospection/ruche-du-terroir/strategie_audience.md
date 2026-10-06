@@ -158,3 +158,37 @@ La « deuxième semaine offerte » rassure et montre que tu crois à ta méthode
 ### Pour poster sur leur Instagram
 
 Ne demande jamais leur mot de passe. Soit ils postent eux-mêmes les vidéos que tu leur envoies (le plus simple), soit ils t'ajoutent comme collaborateur dans Meta Business Suite.
+
+## Leur réponse au plan chiffré (6 octobre 2026, soir)
+
+> Entendu, je réponds à vos demandes un peu plus tard dans la soirée une fois posé.
+> Pour les textes, il va falloir spécifier votre besoin. Et en plus, le concours vous pouvez me dire en quoi il consiste ?
+
+Ils sont d'accord sur le principe. Ils veulent savoir ce que sont « les textes » et comment marche le concours.
+
+### Notre réponse
+
+> Merci, prenez votre temps 😊
+>
+> *Les textes :* ce sont les légendes à mettre sous chaque vidéo quand vous la postez sur Instagram et Facebook, plus une petite phrase pour le statut WhatsApp. Je vous les envoie prêts, vous n'avez qu'à copier-coller. Par exemple, pour la cannelle :
+> « Notre miel macéré à la cannelle 🍯 Dans le thé, sur le pain ou à la cuillère. Pour commander : +243 859 072 956 »
+>
+> *Le concours :* un tirage au sort sur Instagram, du vendredi 16 au dimanche 18 octobre. Pour participer :
+> 1. S'abonner à @miel_de_la_ruche_du_terroir
+> 2. Aimer la vidéo du concours
+> 3. Identifier 2 amis en commentaire
+>
+> Le lundi 19 octobre, on tire un gagnant au sort et on l'annonce en story. Le lot, c'est vous qui le choisissez (un pot de miel par exemple), et vous décidez si le gagnant vient le chercher en point de vente ou s'il est livré.
+>
+> Je prépare la vidéo, le texte et le règlement. De votre côté, il suffit de poster et d'offrir le lot.
+>
+> Ça vous convient ? Quel lot aimeriez-vous offrir ?
+
+### Le règlement du concours (à préparer)
+
+- Dates : du vendredi 16 au dimanche 18 octobre 2026 à minuit. Tirage le lundi 19 octobre.
+- Conditions : être abonné, avoir aimé la vidéo, avoir identifié 2 amis. Une seule participation par personne.
+- Tirage au sort avec un outil gratuit de tirage de commentaires, filmé ou en capture pour la transparence.
+- Le gagnant est contacté en message privé et annoncé en story. Il a 48 h pour répondre, sinon on retire au sort.
+- Obligatoire sur Instagram : écrire que le concours n'est ni organisé ni sponsorisé par Instagram.
+- À confirmer par la Ruche : le lot, la zone (Kinshasa seulement ?) et le mode de remise (point de vente ou livraison).

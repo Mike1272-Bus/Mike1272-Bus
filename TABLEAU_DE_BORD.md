@@ -11,7 +11,7 @@ Un seul endroit pour savoir où en est chaque chose. À mettre à jour à chaque
 
 | Entreprise | État | Prochaine action | Dossier |
 |---|---|---|---|
-| La Ruche du Terroir | A mis notre vidéo en statut. Accepte la semaine test gratuite | Envoyer le message court du plan chiffré, récupérer photos + chiffres, démarrer lundi 12 oct. | `prospection/ruche-du-terroir/strategie_audience.md` |
+| La Ruche du Terroir | Plan chiffré envoyé. Ils demandent ce que sont « les textes » et comment marche le concours | Envoyer notre réponse (prête), puis récupérer photos, chiffres et lot du concours ce soir. Démarrage lundi 12 oct. | `prospection/ruche-du-terroir/strategie_audience.md` |
 | Burger Guys, Fatburger, Savane, ManiTech, Épicé Bon, Tomela, Kahawa, La Kinoise, Festa, Délices d'Émilie | Vidéo envoyée ou prête | Relance 1 maintenant, relance 2 cinq jours après, puis stop | `prospection/relances.md` |
 | Burger Guys, Fatburger | Numéros pas encore trouvés | Trouver le numéro avant toute relance | `prospection/liste_whatsapp.md` |
 
