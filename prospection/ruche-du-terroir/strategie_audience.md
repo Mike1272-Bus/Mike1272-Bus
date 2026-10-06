@@ -166,23 +166,15 @@ Ne demande jamais leur mot de passe. Soit ils postent eux-mêmes les vidéos que
 
 Ils sont d'accord sur le principe. Ils veulent savoir ce que sont « les textes » et comment marche le concours.
 
-### Notre réponse
+### Notre réponse (version simple)
 
 > Merci, prenez votre temps 😊
 >
-> *Les textes :* ce sont les légendes à mettre sous chaque vidéo quand vous la postez sur Instagram et Facebook, plus une petite phrase pour le statut WhatsApp. Je vous les envoie prêts, vous n'avez qu'à copier-coller. Par exemple, pour la cannelle :
-> « Notre miel macéré à la cannelle 🍯 Dans le thé, sur le pain ou à la cuillère. Pour commander : +243 859 072 956 »
+> *Les textes :* ce sont les phrases à mettre sous chaque vidéo quand vous la postez. Je vous les envoie prêtes, vous copiez-collez.
 >
-> *Le concours :* un tirage au sort sur Instagram, du vendredi 16 au dimanche 18 octobre. Pour participer :
-> 1. S'abonner à @miel_de_la_ruche_du_terroir
-> 2. Aimer la vidéo du concours
-> 3. Identifier 2 amis en commentaire
+> *Le concours :* du 16 au 18 octobre, les gens s'abonnent à votre Instagram et identifient 2 amis sous la vidéo. Le 19, on tire un gagnant au sort, et il reçoit un pot de miel offert par vous.
 >
-> Le lundi 19 octobre, on tire un gagnant au sort et on l'annonce en story. Le lot, c'est vous qui le choisissez (un pot de miel par exemple), et vous décidez si le gagnant vient le chercher en point de vente ou s'il est livré.
->
-> Je prépare la vidéo, le texte et le règlement. De votre côté, il suffit de poster et d'offrir le lot.
->
-> Ça vous convient ? Quel lot aimeriez-vous offrir ?
+> Ça vous va ?
 
 ### Le règlement du concours (à préparer)
 
