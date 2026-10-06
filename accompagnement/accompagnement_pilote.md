@@ -9,7 +9,7 @@ Le premier format testé est un **guide gratuit**, créé par la personne à par
 ## Le cadre (à dire clairement dès le début)
 
 - **C'est gratuit**, y compris la vidéo animée de promotion que Mike crée avec ses photos.
-- **La vidéo de promotion** sert aussi d'exemple de ton travail : demande son accord avant de la montrer sur tes pages.
+- **La vidéo de promotion** sert aussi d'exemple du travail de Mike : lui demander son accord avant de la montrer sur ses pages.
 - **En échange :** elle fait les étapes, partage ses chiffres honnêtement, et donne son avis à la fin, qu'il soit positif ou négatif.
 - **À la fin, et seulement si elle est d'accord :** Mike raconte son parcours, avec son prénom ou de façon anonyme, sans visage. On garde cet accord par écrit, dans un message WhatsApp.
 - **Aucune promesse de gains.** On promet un guide terminé et un vrai test, pas un revenu.
