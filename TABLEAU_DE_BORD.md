@@ -23,7 +23,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 |---|---|---|---|
 | Lisa (étudiante, cuisine) | Accompagnement gratuit 7 jours : guide de recettes + vidéo de promo, test sur ses contacts | Message à envoyer | `accompagnement/accompagnement_pilote.md` |
 | L'ami informatique | Montage pro de sa vidéo « localiser votre téléphone », puis produit digital ensemble | Montage livré (21 s). Attente de la suite de sa vidéo + son accord écrit | `accompagnement/ami-informatique/` |
-| Desire (élève, bases Excel) | Templates pour entreprises (d'abord Excel : gestion de stock), construits avec Claude | Plan validé, diagnostic à lancer | `produits/templates-entreprises/plan.md` |
+| Desire (élève, bases Excel) | Templates pour entreprises (d'abord Excel : gestion de stock), construits avec Claude | Template « Gestion de stock » prêt (Excel). Diagnostic à lancer, puis 1 installation test | `produits/templates-entreprises/` |
 
 ## 3. Contenu (DigitalMikaelson, « tu »)
 
@@ -39,7 +39,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 |---|---|---|
 | Ebook « Gagne ta vie sans diplôme » (4,9 $, Chariow) | En vente | `page-chariow/` |
 | Services sur Chariow (vidéo, catalogue, mini-site) | Prix conseillés à confirmer | `page-chariow/services_chariow.md` |
-| Templates pour entreprises | Plan de lancement prêt | `produits/templates-entreprises/plan.md` |
+| Templates pour entreprises | Template n°1 « Gestion de stock » prêt (`gestion_de_stock.xlsx` + fiche Desire). Prix à fixer | `produits/templates-entreprises/` |
 
 ## 5. En attente de Mike
 
