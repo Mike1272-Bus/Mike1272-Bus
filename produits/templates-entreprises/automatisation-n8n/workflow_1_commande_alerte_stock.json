@@ -1,5 +1,5 @@
 {
-  "name": "Commerce : commande → tableau + alerte stock bas",
+  "name": "Commerce : commande → tableau + alertes WhatsApp",
   "nodes": [
     {
       "parameters": {
@@ -91,7 +91,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Lit un nombre, même s'il arrive en texte (« 1 250 », « 12,5 »)\nfunction num(v) {\n  if (typeof v === 'number') return v;\n  if (v === undefined || v === null || v === '') return 0;\n  const s = String(v).replace(/\\s/g, '').replace(',', '.');\n  const n = parseFloat(s.replace(/[^0-9.\\-]/g, ''));\n  return isNaN(n) ? 0 : n;\n}\n\nconst f = $('Formulaire de commande').first().json;\nconst code = String(f['Code produit'] || '').trim().toUpperCase();\nconst qte = num(f['Quantité']);\nif (qte <= 0) throw new Error('La quantité doit être supérieure à 0.');\n\nconst produit = $input.all().map(i => i.json)\n  .find(p => String(p['Code'] || '').trim().toUpperCase() === code);\nif (!produit) throw new Error(`Code produit inconnu : ${code}. Vérifiez l'onglet Produits.`);\n\nconst prixVente = num(produit['Prix de vente (1 unité)']);\nconst prixAchat = num(produit[\"Prix d'achat (1 unité)\"]);\nconst stockAvant = num(produit['Stock actuel']);\nconst seuil = num(produit[\"Seuil d'alerte\"]);\nconst stockApres = stockAvant - qte;\n\nreturn [{ json: {\n  // Colonnes de l'onglet Commandes (mêmes titres, même ordre)\n  'Date': $now.toFormat('yyyy-MM-dd HH:mm'),\n  'Client': f['Nom du client'],\n  'Téléphone': String(f['Téléphone du client']),\n  'Code produit': code,\n  'Produit': produit['Produit'],\n  'Quantité': qte,\n  'Prix unitaire': prixVente,\n  'Montant': qte * prixVente,\n  \"Coût d'achat\": qte * prixAchat,\n  'Statut': 'Nouvelle',\n  'Adresse': f['Adresse de livraison'] || '',\n  'Note': f['Note'] || '',\n  // Infos pour les alertes (pas écrites dans le tableau)\n  _stockAvant: stockAvant,\n  _stockApres: stockApres,\n  _seuil: seuil,\n  _unite: produit['Unité'] || '',\n}}];\n"
+        "jsCode": "// Lit un nombre, même s'il arrive en texte (« 1 250 », « 12,5 »)\nfunction num(v) {\n  if (typeof v === 'number') return v;\n  if (v === undefined || v === null || v === '') return 0;\n  const s = String(v).replace(/\\s/g, '').replace(',', '.');\n  const n = parseFloat(s.replace(/[^0-9.\\-]/g, ''));\n  return isNaN(n) ? 0 : n;\n}\n\n// WhatsApp (modèles Meta) : pas de retour à la ligne ni de case vide dans les variables\nfunction wa(v) {\n  const s = String(v ?? '').replace(/[\\n\\r\\t]+/g, ' ').replace(/ {2,}/g, ' ').trim();\n  return s === '' ? '-' : s.slice(0, 900);\n}\n\nconst f = $('Formulaire de commande').first().json;\nconst code = String(f['Code produit'] || '').trim().toUpperCase();\nconst qte = num(f['Quantité']);\nif (qte <= 0) throw new Error('La quantité doit être supérieure à 0.');\n\nconst produit = $input.all().map(i => i.json)\n  .find(p => String(p['Code'] || '').trim().toUpperCase() === code);\nif (!produit) throw new Error(`Code produit inconnu : ${code}. Vérifiez l'onglet Produits.`);\n\nconst prixVente = num(produit['Prix de vente (1 unité)']);\nconst prixAchat = num(produit[\"Prix d'achat (1 unité)\"]);\nconst stockAvant = num(produit['Stock actuel']);\nconst seuil = num(produit[\"Seuil d'alerte\"]);\nconst stockApres = stockAvant - qte;\n\nreturn [{ json: {\n  // Colonnes de l'onglet Commandes (mêmes titres, même ordre)\n  'Date': $now.toFormat('yyyy-MM-dd HH:mm'),\n  'Client': f['Nom du client'],\n  'Téléphone': String(f['Téléphone du client']),\n  'Code produit': code,\n  'Produit': produit['Produit'],\n  'Quantité': qte,\n  'Prix unitaire': prixVente,\n  'Montant': qte * prixVente,\n  \"Coût d'achat\": qte * prixAchat,\n  'Statut': 'Nouvelle',\n  'Adresse': f['Adresse de livraison'] || '',\n  'Note': f['Note'] || '',\n  // Infos pour les alertes (pas écrites dans le tableau)\n  _stockAvant: stockAvant,\n  _stockApres: stockApres,\n  _seuil: seuil,\n  _unite: produit['Unité'] || '',\n  // Variables des messages WhatsApp\n  _wa: {\n    client: wa(f['Nom du client']),\n    tel: wa(f['Téléphone du client']),\n    produit: wa(produit['Produit']),\n    code: wa(code),\n    qte: wa(qte),\n    montant: wa(qte * prixVente),\n    adresse: wa(f['Adresse de livraison']),\n    stock: wa(`${stockApres} ${produit['Unité'] || ''}`),\n    seuil: wa(seuil),\n    etat: stockApres <= 0 ? 'Rupture de stock' : 'Stock bas',\n  },\n}}];\n"
       },
       "name": "Préparer la commande",
       "type": "n8n-nodes-base.code",
@@ -137,20 +137,59 @@
     },
     {
       "parameters": {
-        "chatId": "COLLE_ICI_TON_CHAT_ID_TELEGRAM",
-        "text": "=🛒 Nouvelle commande\nClient : {{ $('Préparer la commande').item.json['Client'] }} ({{ $('Préparer la commande').item.json['Téléphone'] }})\nProduit : {{ $('Préparer la commande').item.json['Produit'] }} x {{ $('Préparer la commande').item.json['Quantité'] }}\nMontant : {{ $('Préparer la commande').item.json['Montant'] }}\nAdresse : {{ $('Préparer la commande').item.json['Adresse'] || '-' }}\nStock restant : {{ $('Préparer la commande').item.json._stockApres }} {{ $('Préparer la commande').item.json._unite }}",
-        "additionalFields": {
-          "appendAttribution": false
+        "resource": "message",
+        "operation": "sendTemplate",
+        "phoneNumberId": "CHOISIS_TON_NUMERO_WHATSAPP_BUSINESS",
+        "recipientPhoneNumber": "243XXXXXXXXX",
+        "template": "nouvelle_commande|fr",
+        "components": {
+          "component": [
+            {
+              "type": "body",
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.client }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.tel }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.produit }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.qte }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.montant }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.adresse }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.stock }}"
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
-      "name": "Prévenir : nouvelle commande",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
+      "name": "WhatsApp : nouvelle commande",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
       "position": [
         880,
         0
       ],
-      "id": "e8cfa060-3916-4ad8-9c99-539ad4c7be05"
+      "id": "f77addb7-341a-403d-8d6f-7ae875f90116"
     },
     {
       "parameters": {
@@ -188,20 +227,51 @@
     },
     {
       "parameters": {
-        "chatId": "COLLE_ICI_TON_CHAT_ID_TELEGRAM",
-        "text": "={{ $('Préparer la commande').item.json._stockApres <= 0 ? '🔴 RUPTURE' : '🟠 Stock bas' }} : {{ $('Préparer la commande').item.json['Produit'] }} ({{ $('Préparer la commande').item.json['Code produit'] }})\nIl reste {{ $('Préparer la commande').item.json._stockApres }} {{ $('Préparer la commande').item.json._unite }} (seuil : {{ $('Préparer la commande').item.json._seuil }}).\nPensez à recommander.",
-        "additionalFields": {
-          "appendAttribution": false
+        "resource": "message",
+        "operation": "sendTemplate",
+        "phoneNumberId": "CHOISIS_TON_NUMERO_WHATSAPP_BUSINESS",
+        "recipientPhoneNumber": "243XXXXXXXXX",
+        "template": "alerte_stock|fr",
+        "components": {
+          "component": [
+            {
+              "type": "body",
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.etat }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.produit }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.code }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.stock }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.seuil }}"
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
-      "name": "Alerte stock bas",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
+      "name": "WhatsApp : alerte stock",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
       "position": [
         1320,
         -100
       ],
-      "id": "ee8583a8-1426-40c9-a5c2-bec2d5ee3803"
+      "id": "f1d603a7-a230-47dd-950c-f5b6ffb6459d"
     }
   ],
   "connections": {
@@ -242,14 +312,14 @@
       "main": [
         [
           {
-            "node": "Prévenir : nouvelle commande",
+            "node": "WhatsApp : nouvelle commande",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Prévenir : nouvelle commande": {
+    "WhatsApp : nouvelle commande": {
       "main": [
         [
           {
@@ -264,7 +334,7 @@
       "main": [
         [
           {
-            "node": "Alerte stock bas",
+            "node": "WhatsApp : alerte stock",
             "type": "main",
             "index": 0
           }
