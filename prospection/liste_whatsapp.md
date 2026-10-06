@@ -13,7 +13,7 @@ Vérifie toujours que le numéro a un compte WhatsApp (photo, nom) avant d'écri
 
 | Entreprise | Ville | WhatsApp | État |
 |---|---|---|---|
-| La Ruche du Terroir | Kinshasa | ✅ +243 859 072 956 (sur leurs affiches) | A répondu, veut garder contact |
+| La Ruche du Terroir | Kinshasa | ✅ +243 859 072 956 (sur leurs affiches) | A répondu, veut garder contact ; a mis la vidéo en statut WhatsApp. Proposer la semaine test (`ruche-du-terroir/strategie_audience.md`) |
 | Epicé Bon | Kinshasa | ✅ 081-6757-584 (sur leurs publications) | Vidéo prête, à envoyer |
 | Tomela | Kinshasa | ✅ +243 812 074 566 (sur leurs publications) | Vidéo prête, à envoyer |
 | Café La Kinoise | Kinshasa | À trouver (Instagram @la.kinoise.cafe) | DM Instagram envoyé |
