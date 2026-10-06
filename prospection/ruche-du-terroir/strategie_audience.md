@@ -139,33 +139,21 @@ Ce sont des objectifs proposés, pas des chiffres garantis : le résultat dépen
 
 La « deuxième semaine offerte » rassure et montre que tu crois à ta méthode. Elle te coûte 7 vidéos de plus au pire. Si tu ne veux pas prendre ce risque, enlève la phrase du message.
 
-### Le message à leur envoyer
+### Le message à leur envoyer (version courte)
 
-> Bonjour 😊 Merci à vous, ça me fait très plaisir !
+> Bonjour 😊 Merci à vous !
 >
-> Alors on commence la semaine test, gratuite, dès que j'ai vos photos (idéalement lundi 12 octobre). Voici le plan :
+> On lance la semaine test gratuite lundi 12 octobre.
 >
-> *Ce que je fais :*
-> • 7 vidéos animées, une par jour, avec vos photos : vos parfums, vos packs cadeaux, vos points de vente
-> • le texte à poster avec chaque vidéo
-> • le calendrier : quoi poster, à quelle heure, sur votre statut WhatsApp, Instagram et Facebook
-> • un petit concours en fin de semaine pour faire venir de nouveaux abonnés
+> *Je m'engage à :* 7 vidéos (une par jour), les textes à poster, et un petit concours en fin de semaine.
 >
-> *L'objectif de la semaine :*
-> • Instagram : passer de 517 à 550 abonnés
-> • plus de vues sur vos statuts WhatsApp qu'aujourd'hui
-> • au moins une demande de pack cadeau pour la fin d'année
+> *Objectif :* Instagram de 517 à 550 abonnés, plus de vues sur vos statuts, et au moins une demande de pack cadeau.
 >
-> *Ce dont j'ai besoin pour commencer :*
-> 1. Combien de vues font vos statuts en ce moment, à peu près
-> 2. Combien d'abonnés a votre page Facebook
-> 3. Combien de messages ou de commandes vous recevez par semaine
-> 4. Vos photos en bonne qualité (les pots, les packs cadeaux) et la composition de vos packs cette année
-> 5. Le lot que vous pouvez offrir pour le concours (un pot, par exemple)
+> *J'ai besoin de :* vos photos (pots et packs), un lot pour le concours, et vos chiffres actuels (vues des statuts, abonnés Facebook, commandes par semaine).
 >
-> À la fin de la semaine, on regarde les chiffres ensemble. Si l'objectif est atteint et que vous voulez continuer, je vous propose une formule au mois. S'il n'est pas atteint, je vous offre une deuxième semaine pour y arriver.
+> Objectif atteint ? On passe à une formule au mois. Pas atteint ? Je vous offre une 2e semaine.
 >
-> On commence lundi ?
+> Ça vous va ?
 
 ### Pour poster sur leur Instagram
 
