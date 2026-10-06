@@ -145,18 +145,18 @@ La « deuxième semaine offerte » rassure et montre que tu crois à ta méthode
 >
 > Alors on commence la semaine test, gratuite, dès que j'ai vos photos (idéalement lundi 12 octobre). Voici le plan :
 >
-> **Ce que je fais :**
+> *Ce que je fais :*
 > • 7 vidéos animées, une par jour, avec vos photos : vos parfums, vos packs cadeaux, vos points de vente
 > • le texte à poster avec chaque vidéo
 > • le calendrier : quoi poster, à quelle heure, sur votre statut WhatsApp, Instagram et Facebook
 > • un petit concours en fin de semaine pour faire venir de nouveaux abonnés
 >
-> **L'objectif de la semaine :**
+> *L'objectif de la semaine :*
 > • Instagram : passer de 517 à 550 abonnés
 > • plus de vues sur vos statuts WhatsApp qu'aujourd'hui
 > • au moins une demande de pack cadeau pour la fin d'année
 >
-> **Ce dont j'ai besoin pour commencer :**
+> *Ce dont j'ai besoin pour commencer :*
 > 1. Combien de vues font vos statuts en ce moment, à peu près
 > 2. Combien d'abonnés a votre page Facebook
 > 3. Combien de messages ou de commandes vous recevez par semaine
