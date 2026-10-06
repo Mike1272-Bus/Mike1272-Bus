@@ -43,7 +43,7 @@ Deux options : n8n Cloud (payant, rien à installer) ou n8n auto-hébergé sur u
 
 ## À savoir / limites
 
-- **Testé** : les formules du Google Sheet (avec de fausses commandes) et le code des nœuds (avec de fausses données). **Pas encore testé dans un vrai n8n** : à faire une fois sur ton compte avant la première installation chez un client, et corriger si un nœud demande un réglage.
+- **Testé** : les formules du Google Sheet (avec de fausses commandes), le code des 2 nœuds Code (avec de fausses données), et tous les noms de réglages des nœuds comparés au code source de n8n (version 2.15). **Pas encore testé dans un vrai n8n avec un vrai Google Sheet et Telegram** : à faire une fois sur ton compte avant la première installation chez un client, et corriger si un nœud demande un réglage.
 - Pas de WhatsApp automatique : il faut l'API officielle de Meta (compte vérifié, coût par conversation). On commence par Telegram. Si le client préfère, on peut remplacer les nœuds Telegram par Gmail.
 - Le formulaire demande le **code produit** (ex. P001) : donner au vendeur la liste des codes.
 - Deux commandes envoyées à la même seconde peuvent fausser l'alerte de stock (pas le stock lui-même, qui est recalculé par le Sheet).
