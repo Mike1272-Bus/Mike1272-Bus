@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0b1020; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff; font-family: 'Baloo', sans-serif; background: #0b1020; }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .y { color: #f5c518; }
+      .ws { font-family: 'Work Sans', sans-serif; font-weight: 700; }
+
+      /* la caméra : recadrée pour cacher les anciens sous-titres en haut */
+      #face { object-fit: cover; z-index: 0; }
+      #shade { z-index: 1; background: linear-gradient(180deg, rgba(11,16,32,0) 52%, rgba(11,16,32,0.62) 66%, rgba(11,16,32,0.72) 80%, rgba(11,16,32,0.85) 100%); }
+
+      /* sous-titres */
+      .cap { left: 60px; width: 960px; top: 1330px; text-align: center; font-size: 82px; line-height: 1.08; z-index: 30;
+        -webkit-text-stroke: 14px #0b1020; paint-order: stroke fill; text-shadow: 0 10px 28px rgba(0,0,0,0.6); }
+      .cap .w { display: inline-block; margin: 0 9px; }
+
+      /* terminal */
+      #term { left: 120px; top: 720px; width: 840px; height: 380px; border-radius: 26px; background: #0d1117; border: 3px solid #2b3445; z-index: 10;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.55); overflow: hidden; }
+      #term .bar { position: absolute; left: 0; top: 0; width: 100%; height: 58px; background: #161b22; }
+      #term .d { position: absolute; top: 19px; width: 20px; height: 20px; border-radius: 50%; }
+      #term .ln { position: absolute; left: 36px; height: 52px; overflow: hidden; white-space: nowrap; font-family: 'DejaVu Sans Mono', monospace; font-size: 34px; line-height: 52px; color: #7ee787; }
+      #term .ln.err { color: #ff7b72; }
+      #xmark { left: 340px; top: 700px; width: 400px; height: 420px; z-index: 12; }
+      #nope { left: 300px; top: 1110px; width: 480px; height: 100px; border-radius: 50px; background: #ff4d5e; color: #fff; font-size: 56px; line-height: 108px; text-align: center; z-index: 13; transform: rotate(-4deg); }
+
+      /* carte et position */
+      #map { left: 250px; top: 700px; width: 580px; height: 460px; border-radius: 34px; overflow: hidden; z-index: 10; background: #e8eef7; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+      #pin { left: 470px; top: 790px; width: 140px; height: 190px; z-index: 11; }
+      .ring { position: absolute; left: 490px; top: 940px; width: 100px; height: 40px; border-radius: 50%; border: 6px solid #ff4d5e; z-index: 10; }
+      #maplbl { left: 250px; top: 1080px; width: 580px; text-align: center; font-size: 40px; color: #0b1020; z-index: 12; }
+
+      /* carte « 1 astuce » */
+      #card1 { z-index: 20; background: radial-gradient(circle at 50% 42%, #1d2a5c 0%, #101735 55%, #0b1020 100%); }
+      #c1a { top: 540px; font-size: 230px; line-height: 1; z-index: 21; }
+      #c1b { top: 860px; font-size: 70px; z-index: 21; }
+      #c1pin { left: 430px; top: 1030px; width: 220px; height: 300px; z-index: 21; }
+
+      /* badge */
+      .pill { height: 104px; border-radius: 52px; text-align: center; font-size: 56px; line-height: 112px; z-index: 15; }
+      #badge { left: 300px; top: 1170px; width: 480px; background: #f5c518; color: #0b1020; }
+      #demo { left: 360px; top: 1170px; width: 360px; background: #22d3ee; color: #0b1020; }
+
+      /* e-mail → téléphone */
+      #flow { left: 70px; top: 700px; width: 940px; height: 420px; border-radius: 36px; background: #ffffff; z-index: 10; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+      #mail { left: 130px; top: 790px; width: 230px; height: 170px; z-index: 11; }
+      #mlbl { left: 90px; top: 990px; width: 310px; text-align: center; font-size: 44px; color: #0b1020; z-index: 11; }
+      #tel { left: 700px; top: 760px; width: 140px; height: 230px; z-index: 11; }
+      #tlbl { left: 610px; top: 1000px; width: 330px; text-align: center; font-size: 44px; color: #0b1020; z-index: 11; }
+      #arr { left: 380px; top: 830px; width: 300px; height: 120px; z-index: 11; }
+
+      /* démo écran */
+      #screen { z-index: 22; background: radial-gradient(circle at 50% 40%, #1d2a5c 0%, #101735 55%, #0b1020 100%); }
+      #step { left: 390px; top: 190px; width: 300px; background: #f5c518; color: #0b1020; z-index: 23; }
+      #steptxt { top: 330px; font-size: 64px; z-index: 23; }
+      #pm { left: 250px; top: 480px; width: 580px; height: 1260px; border-radius: 70px; background: #f4f6fa; border: 14px solid #05070f; z-index: 23; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.6); }
+      #pm .sb { position: absolute; left: 40px; top: 26px; font-family: 'Work Sans'; font-weight: 700; font-size: 28px; color: #0b1020; }
+      #srch { position: absolute; left: 30px; top: 100px; width: 492px; height: 86px; border-radius: 43px; background: #ffffff; border: 3px solid #d6dbe6; }
+      #srch svg { position: absolute; left: 26px; top: 22px; width: 38px; height: 38px; }
+      #typed { position: absolute; left: 84px; top: 0; height: 80px; font-family: 'Work Sans'; font-weight: 400; font-size: 36px; line-height: 80px; color: #0b1020; white-space: nowrap; }
+      #caret { position: absolute; top: 20px; width: 4px; height: 42px; background: #1a73e8; }
+      #sug { position: absolute; left: 30px; top: 220px; width: 492px; height: 96px; border-radius: 22px; background: #e3ecfd; }
+      #sug span { position: absolute; left: 84px; top: 0; font-family: 'Work Sans'; font-weight: 700; font-size: 36px; line-height: 96px; color: #0b1020; }
+      #sug svg { position: absolute; left: 26px; top: 29px; width: 38px; height: 38px; }
+      #tap { position: absolute; left: 300px; top: 10px; width: 76px; height: 76px; border-radius: 50%; background: rgba(26,115,232,0.35); }
+      #kb { position: absolute; left: 0; top: 820px; width: 552px; height: 412px; background: #d7dbe3; }
+      #kb i { position: absolute; width: 44px; height: 62px; border-radius: 10px; background: #ffffff; }
+
+      /* fin */
+      #endc { z-index: 24; background: radial-gradient(circle at 50% 42%, #1d2a5c 0%, #101735 55%, #0b1020 100%); }
+      #bell { left: 420px; top: 560px; width: 240px; height: 260px; z-index: 25; }
+      #e1 { top: 870px; font-size: 120px; line-height: 1; z-index: 25; }
+      #e2 { top: 1070px; font-size: 54px; color: #c9d4ff; z-index: 25; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="21" data-width="1080" data-height="1920">
+      <video class="ab full" id="face" src="assets/video/face.mp4" muted playsinline data-start="0" data-duration="18.95" data-media-start="0"></video>
+      <div class="ab full" id="shade"></div>
+
+      <!-- trop technique : terminal barré -->
+      <div class="ab" id="term">
+        <div class="bar"><div class="d" style="left:24px;background:#ff5f57"></div><div class="d" style="left:56px;background:#febc2e"></div><div class="d" style="left:88px;background:#28c840"></div></div>
+        <div class="ln" id="tl1" style="top:92px">$ sudo apt install gps-tracker</div>
+        <div class="ln" id="tl2" style="top:162px">$ python localiser.py --imei 35…</div>
+        <div class="ln err" id="tl3" style="top:232px">Erreur : accès refusé</div>
+      </div>
+      <svg class="ab" id="xmark" viewBox="0 0 400 420"><path id="x1" d="M60 60 L340 360" stroke="#ff4d5e" stroke-width="44" stroke-linecap="round" fill="none"/><path id="x2" d="M340 60 L60 360" stroke="#ff4d5e" stroke-width="44" stroke-linecap="round" fill="none"/></svg>
+      <div class="ab ws" id="nope">PAS BESOIN</div>
+
+      <!-- localiser : carte + repère -->
+      <div class="ab" id="map">
+        <svg width="580" height="460" viewBox="0 0 580 460">
+          <path d="M0 120 H580 M0 330 H580 M150 0 V460 M420 0 V460" stroke="#ffffff" stroke-width="30"/>
+          <path d="M0 230 C160 200 300 280 580 210 M260 0 C280 160 240 300 300 460" stroke="#ffffff" stroke-width="44" fill="none"/>
+          <path d="M0 230 C160 200 300 280 580 210" stroke="#f5c518" stroke-width="10" fill="none"/>
+          <rect x="20" y="20" width="110" height="80" rx="10" fill="#cfe3c8"/><rect x="440" y="350" width="120" height="90" rx="10" fill="#cfe3c8"/>
+          <rect x="450" y="20" width="110" height="80" rx="10" fill="#d6dcea"/><rect x="20" y="350" width="110" height="90" rx="10" fill="#d6dcea"/>
+        </svg>
+      </div>
+      <div class="ring" id="rg1"></div><div class="ring" id="rg2"></div>
+      <svg class="ab" id="pin" viewBox="0 0 140 190"><path d="M70 186 C70 186 6 110 6 66 A64 64 0 0 1 134 66 C134 110 70 186 70 186 Z" fill="#ff4d5e"/><rect x="48" y="30" width="44" height="72" rx="9" fill="#ffffff"/><rect x="56" y="40" width="28" height="48" rx="3" fill="#ff4d5e"/></svg>
+      <div class="ab ws" id="maplbl">Votre téléphone</div>
+
+      <!-- carte « 1 astuce » (couvre le zoom flou de la vidéo d'origine) -->
+      <div class="ab full" id="card1"></div>
+      <div class="ab center y" id="c1a">1 ASTUCE</div>
+      <div class="ab center" id="c1b">pour localiser votre téléphone</div>
+      <svg class="ab" id="c1pin" viewBox="0 0 140 190"><path d="M70 186 C70 186 6 110 6 66 A64 64 0 0 1 134 66 C134 110 70 186 70 186 Z" fill="#ff4d5e"/><rect x="48" y="30" width="44" height="72" rx="9" fill="#ffffff"/><rect x="56" y="40" width="28" height="48" rx="3" fill="#ff4d5e"/></svg>
+
+      <div class="ab pill" id="badge">1 ASTUCE</div>
+
+      <!-- e-mail → téléphone -->
+      <div class="ab" id="flow"></div>
+      <svg class="ab" id="mail" viewBox="0 0 230 170"><rect x="6" y="6" width="218" height="158" rx="20" fill="#1a73e8"/><path d="M14 22 L115 100 L216 22" stroke="#ffffff" stroke-width="14" fill="none" stroke-linejoin="round"/><circle cx="182" cy="128" r="30" fill="#f5c518"/><text x="182" y="141" text-anchor="middle" font-family="Work Sans" font-weight="700" font-size="38" fill="#0b1020">@</text></svg>
+      <div class="ab ws" id="mlbl">Votre e-mail</div>
+      <svg class="ab" id="arr" viewBox="0 0 300 120"><path id="arrp" d="M10 60 H270 M232 22 L274 60 L232 98" stroke="#0b1020" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="ab" id="tel" viewBox="0 0 140 230"><rect x="6" y="6" width="128" height="218" rx="22" fill="#0b1020"/><rect x="18" y="26" width="104" height="170" rx="8" fill="#e8eef7"/><path d="M70 160 C70 160 40 124 40 102 A30 30 0 0 1 100 102 C100 124 70 160 70 160 Z" fill="#ff4d5e"/><circle cx="70" cy="102" r="11" fill="#ffffff"/></svg>
+      <div class="ab ws" id="tlbl">Votre téléphone</div>
+
+      <div class="ab pill" id="demo">▶ DÉMO</div>
+
+      <!-- démo écran, refaite proprement (historique de recherche masqué) -->
+      <div class="ab full" id="screen"></div>
+      <div class="ab pill ws" id="step">ÉTAPE 1</div>
+      <div class="ab center" id="steptxt">Cherchez <span class="y">« find my phone »</span></div>
+      <div class="ab" id="pm">
+        <div class="sb">23:18</div>
+        <div id="srch"><svg viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" stroke="#5f6368" stroke-width="4" fill="none"/><path d="M25 25 L35 35" stroke="#5f6368" stroke-width="4" stroke-linecap="round"/></svg><div id="typed"></div><div id="caret" style="left:86px"></div></div>
+        <div id="sug"><svg viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" stroke="#1a73e8" stroke-width="4" fill="none"/><path d="M25 25 L35 35" stroke="#1a73e8" stroke-width="4" stroke-linecap="round"/></svg><span>find my phone</span><div id="tap"></div></div>
+        <div id="kb"></div>
+      </div>
+
+      <!-- fin -->
+      <div class="ab full" id="endc"></div>
+      <svg class="ab" id="bell" viewBox="0 0 240 260"><path d="M120 20 C70 20 50 60 50 110 V160 L22 200 H218 L190 160 V110 C190 60 170 20 120 20 Z" fill="#f5c518"/><circle cx="120" cy="226" r="26" fill="#f5c518"/></svg>
+      <div class="ab center" id="e1">Abonnez-vous</div>
+      <div class="ab center ws" id="e2">pour plus d'astuces informatiques</div>
+
+      <div id="caps"></div>
+      <audio id="son" src="assets/audio/mix.wav" data-start="0" data-duration="20.95" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const OUT = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 1 }, { ...to, autoAlpha: 0 }, at);
+      const pop = (sel, at) => IN(sel, { scale: 0.5 }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, at);
+      const fadeOut = (sel, at) => OUT(sel, { scale: 1 }, { scale: 0.9, duration: 0.2, ease: "power2.in" }, at);
+
+      // ---------- sous-titres (texte lu sur la vidéo d'origine), mot par mot ----------
+      const CAPS = [
+        [0.30, 2.25, "Vous n'êtes *pas *obligé d'avoir des compétences"],
+        [2.30, 4.25, "très techniques en matière *d'informatique"],
+        [4.30, 6.20, "pour pouvoir *localiser votre téléphone."],
+        [7.42, 8.40, "Aujourd'hui je vais vous montrer"],
+        [8.40, 10.25, "*1 *astuce qui va vous permettre de"],
+        [10.30, 11.95, "localiser votre *téléphone"],
+        [12.00, 14.60, "à partir de votre *adresse *e-mail."],
+        [14.75, 15.75, "Vous êtes *prêts ?"],
+        [15.95, 16.90, "Venez, je vous montre."],
+      ];
+      CAPS.forEach(([t0, t1, txt], k) => {
+        const line = document.createElement("div"); line.className = "ab cap"; line.id = "cap" + k;
+        const words = txt.split(" ");
+        const total = words.reduce((s, w) => s + w.length, 0);
+        let acc = 0;
+        words.forEach((w, j) => {
+          const s = document.createElement("span");
+          s.className = "w" + (w.startsWith("*") ? " y" : ""); s.id = "c" + k + "w" + j;
+          s.textContent = w.replace("*", "");
+          line.appendChild(s);
+          const at = t0 + (t1 - t0) * 0.8 * (acc / total);
+          acc += w.length;
+          IN(s, { y: 26, scale: 0.85 }, { y: 0, scale: 1, duration: 0.16, ease: "back.out(2.5)" }, at);
+        });
+        $("caps").appendChild(line);
+        OUT(line, { y: 0 }, { y: -10, duration: 0.12 }, t1 - 0.12);
+      });
+
+      // ---------- la caméra : recadrage (cache les anciens sous-titres) et zooms ----------
+      gsap.set("#face", { scale: 1.32, transformOrigin: "50% 100%" });
+      FT("#face", { scale: 1.32 }, { scale: 1.36, duration: 4.0, ease: "none" }, 0.0);
+      FT("#face", { scale: 1.36 }, { scale: 1.46, duration: 0.3, ease: "power3.out" }, 4.3);
+      FT("#face", { scale: 1.34 }, { scale: 1.38, duration: 1.0, ease: "none" }, 7.42);
+      FT("#face", { scale: 1.38 }, { scale: 1.45, duration: 0.3, ease: "power3.out" }, 8.42);
+      FT("#face", { scale: 1.45 }, { scale: 1.34, duration: 0.4, ease: "power2.inOut" }, 10.25);
+      FT("#face", { scale: 1.34 }, { scale: 1.5, duration: 0.25, ease: "power3.out" }, 14.75);
+      FT("#face", { scale: 1.5 }, { scale: 1.36, duration: 0.4, ease: "power2.inOut" }, 15.9);
+
+      // ---------- 2,3 s : « très techniques » → terminal barré ----------
+      IN("#term", { y: 80, scale: 0.9 }, { y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 2.3);
+      ["#tl1", "#tl2", "#tl3"].forEach((l, i) => IN(l, { width: 0 }, { width: 760, duration: 0.35, ease: "none" }, 2.55 + i * 0.3));
+      HIDE.push("#xmark");
+      FT("#xmark", { autoAlpha: 0, scale: 1.4 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: "power4.in" }, 3.4);
+      FT(["#x1", "#x2"], { strokeDasharray: 400, strokeDashoffset: 400 }, { strokeDashoffset: 0, duration: 0.18, ease: "power2.out", stagger: 0.08 }, 3.42);
+      pop("#nope", 3.6);
+      fadeOut(["#term", "#xmark", "#nope"], 4.12);
+
+      // ---------- 4,3 s : localiser → carte et repère ----------
+      pop("#map", 4.3);
+      IN("#pin", { y: -260 }, { y: 0, duration: 0.4, ease: "bounce.out" }, 4.45);
+      ["#rg1", "#rg2"].forEach((r, i) => { HIDE.push(r); FT(r, { autoAlpha: 0.9, scale: 0.4 }, { autoAlpha: 0, scale: 2.6, duration: 0.9, ease: "power1.out", repeat: 1 }, 4.85 + i * 0.45); });
+      IN("#maplbl", { y: 20 }, { y: 0, duration: 0.3, ease: "power2.out" }, 4.9);
+      fadeOut(["#map", "#pin", "#maplbl"], 6.0);
+
+      // ---------- 6,2 s : carte « 1 astuce » ----------
+      IN("#card1", {}, { duration: 0.15 }, 6.2);
+      IN("#c1a", { scale: 2.4 }, { scale: 1, duration: 0.3, ease: "power4.in" }, 6.22);
+      IN("#c1b", { y: 30 }, { y: 0, duration: 0.3, ease: "power2.out" }, 6.55);
+      IN("#c1pin", { y: -200 }, { y: 0, duration: 0.4, ease: "bounce.out" }, 6.6);
+      OUT(["#card1", "#c1a", "#c1b", "#c1pin"], { x: 0 }, { x: -1080, duration: 0.28, ease: "power3.in" }, 7.15);
+
+      // ---------- 8,4 s : badge ----------
+      pop("#badge", 8.45);
+      FT("#badge", { rotation: 0 }, { rotation: -3, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 8.9);
+      fadeOut("#badge", 10.1);
+
+      // ---------- 10,3 s : e-mail → téléphone ----------
+      pop("#flow", 10.3);
+      pop("#tel", 10.4);
+      IN("#tlbl", { y: 20 }, { y: 0, duration: 0.3 }, 10.6);
+      pop("#mail", 12.05);
+      IN("#mlbl", { y: 20 }, { y: 0, duration: 0.3 }, 12.25);
+      HIDE.push("#arr");
+      FT("#arr", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05 }, 12.55);
+      FT("#arrp", { strokeDasharray: 520, strokeDashoffset: 520 }, { strokeDashoffset: 0, duration: 0.45, ease: "power2.out" }, 12.55);
+      FT("#tel", { scale: 1 }, { scale: 1.12, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 13.05);
+      fadeOut(["#flow", "#tel", "#tlbl", "#mail", "#mlbl", "#arr"], 14.45);
+
+      // ---------- 16 s : démo ----------
+      pop("#demo", 16.0);
+      fadeOut("#demo", 16.75);
+
+      // ---------- 16,9 s : la démo écran ----------
+      IN("#screen", {}, { duration: 0.2 }, 16.9);
+      pop("#step", 17.0);
+      IN("#steptxt", { y: 30 }, { y: 0, duration: 0.3, ease: "power2.out" }, 17.1);
+      IN("#pm", { y: 900 }, { y: 0, duration: 0.45, ease: "expo.out" }, 16.95);
+      const word = "find my phone";
+      const typ = { n: 0 };
+      tl.fromTo(typ, { n: 0 }, { n: word.length, duration: 0.9, ease: "none", immediateRender: false,
+        onUpdate: () => { const k = Math.round(typ.n); $("typed").textContent = word.slice(0, k); $("caret").style.left = (86 + k * 19.5) + "px"; } }, 17.3);
+      IN("#sug", { y: -20 }, { y: 0, duration: 0.25, ease: "power2.out" }, 18.2);
+      IN("#tap", { scale: 0.2 }, { scale: 1.6, duration: 0.35, ease: "power2.out" }, 18.4);
+
+      // ---------- 19 s : fin ----------
+      IN("#endc", {}, { duration: 0.2 }, 18.95);
+      OUT(["#screen", "#step", "#steptxt", "#pm"], {}, { duration: 0.05 }, 19.2);
+      IN("#bell", { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 19.05);
+      FT("#bell", { rotation: 0 }, { rotation: 12, duration: 0.12, yoyo: true, repeat: 7, ease: "sine.inOut", transformOrigin: "50% 10%" }, 19.5);
+      IN("#e1", { y: 40 }, { y: 0, duration: 0.35, ease: "back.out(1.8)" }, 19.25);
+      IN("#e2", { y: 30 }, { y: 0, duration: 0.3, ease: "power2.out" }, 19.45);
+
+      // clavier
+      for (let r = 0; r !== 3; r++) for (let c = 0; c !== 10; c++) {
+        const k = document.createElement("i"); k.style.left = (12 + c * 53.5) + "px"; k.style.top = (30 + r * 88) + "px"; $("kb").appendChild(k);
+      }
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
