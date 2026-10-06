@@ -1,5 +1,5 @@
 {
-  "name": "Commerce : bilan du soir (ventes + stock)",
+  "name": "Commerce : bilan du soir sur WhatsApp",
   "nodes": [
     {
       "parameters": {
@@ -94,7 +94,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Lit un nombre, même s'il arrive en texte (« 1 250 », « 12,5 »)\nfunction num(v) {\n  if (typeof v === 'number') return v;\n  if (v === undefined || v === null || v === '') return 0;\n  const s = String(v).replace(/\\s/g, '').replace(',', '.');\n  const n = parseFloat(s.replace(/[^0-9.\\-]/g, ''));\n  return isNaN(n) ? 0 : n;\n}\n\n// DateTime (Luxon) est fourni directement par n8n\n// Les dates Google Sheets arrivent en « numéro de série » (jours depuis le 30/12/1899)\nconst base = DateTime.fromISO('1899-12-30', { zone: $now.zone });\nconst aujourdhui = Math.round($now.startOf('day').diff(base, 'days').days);\nfunction jour(v) {\n  if (typeof v === 'number') return Math.floor(v);\n  const d = DateTime.fromISO(String(v).replace(' ', 'T'), { zone: $now.zone });\n  return d.isValid ? Math.round(d.startOf('day').diff(base, 'days').days) : null;\n}\n\nconst commandes = $('Lire les commandes').all().map(i => i.json)\n  .filter(c => c['Code produit'] && jour(c['Date']) === aujourdhui && c['Statut'] !== 'Annulée');\nconst total = commandes.reduce((s, c) => s + num(c['Montant']), 0);\nconst marge = commandes.reduce((s, c) => s + num(c['Montant']) - num(c[\"Coût d'achat\"]), 0);\nconst nonLivrees = commandes.filter(c => c['Statut'] === 'Nouvelle').length;\n\nconst produits = $input.all().map(i => i.json).filter(p => p['Code']);\nconst rupture = produits.filter(p => p['État'] === 'Rupture').map(p => `- ${p['Produit']}`);\nconst aCommander = produits.filter(p => p['État'] === 'À commander')\n  .map(p => `- ${p['Produit']} (reste ${num(p['Stock actuel'])})`);\n\nlet texte = `📊 Bilan du ${$now.toFormat('dd/MM/yyyy')}\\n`\n  + `Commandes du jour : ${commandes.length}\\n`\n  + `Total des ventes : ${total}\\n`\n  + `Marge brute : ${marge}\\n`\n  + `Pas encore livrées : ${nonLivrees}\\n`;\nif (rupture.length) texte += `\\n🔴 En rupture :\\n${rupture.join('\\n')}\\n`;\nif (aCommander.length) texte += `\\n🟠 À commander :\\n${aCommander.join('\\n')}\\n`;\nif (!rupture.length && !aCommander.length) texte += `\\n✅ Aucun produit à commander.`;\nreturn [{ json: { texte } }];\n"
+        "jsCode": "// Lit un nombre, même s'il arrive en texte (« 1 250 », « 12,5 »)\nfunction num(v) {\n  if (typeof v === 'number') return v;\n  if (v === undefined || v === null || v === '') return 0;\n  const s = String(v).replace(/\\s/g, '').replace(',', '.');\n  const n = parseFloat(s.replace(/[^0-9.\\-]/g, ''));\n  return isNaN(n) ? 0 : n;\n}\n\n// DateTime (Luxon) est fourni directement par n8n\n// WhatsApp (modèles Meta) : pas de retour à la ligne ni de case vide dans les variables\nfunction wa(v) {\n  const s = String(v ?? '').replace(/[\\n\\r\\t]+/g, ' ').replace(/ {2,}/g, ' ').trim();\n  return s === '' ? '-' : s.slice(0, 900);\n}\n\n// Les dates Google Sheets arrivent en « numéro de série » (jours depuis le 30/12/1899)\nconst base = DateTime.fromISO('1899-12-30', { zone: $now.zone });\nconst aujourdhui = Math.round($now.startOf('day').diff(base, 'days').days);\nfunction jour(v) {\n  if (typeof v === 'number') return Math.floor(v);\n  const d = DateTime.fromISO(String(v).replace(' ', 'T'), { zone: $now.zone });\n  return d.isValid ? Math.round(d.startOf('day').diff(base, 'days').days) : null;\n}\n\nconst commandes = $('Lire les commandes').all().map(i => i.json)\n  .filter(c => c['Code produit'] && jour(c['Date']) === aujourdhui && c['Statut'] !== 'Annulée');\nconst total = commandes.reduce((s, c) => s + num(c['Montant']), 0);\nconst marge = commandes.reduce((s, c) => s + num(c['Montant']) - num(c[\"Coût d'achat\"]), 0);\nconst nonLivrees = commandes.filter(c => c['Statut'] === 'Nouvelle').length;\n\nconst produits = $input.all().map(i => i.json).filter(p => p['Code']);\nconst rupture = produits.filter(p => p['État'] === 'Rupture').map(p => `- ${p['Produit']}`);\nconst aCommander = produits.filter(p => p['État'] === 'À commander')\n  .map(p => `- ${p['Produit']} (reste ${num(p['Stock actuel'])})`);\n\nreturn [{ json: {\n  jour: wa($now.toFormat('dd/MM/yyyy')),\n  nb: wa(commandes.length),\n  ventes: wa(total),\n  marge: wa(marge),\n  nonLivrees: wa(nonLivrees),\n  rupture: wa(rupture.map(s => s.replace(/^- /, '')).join(', ') || 'aucun'),\n  aCommander: wa(aCommander.map(s => s.replace(/^- /, '')).join(', ') || 'aucun'),\n}}];\n"
       },
       "name": "Préparer le bilan",
       "type": "n8n-nodes-base.code",
@@ -107,20 +107,59 @@
     },
     {
       "parameters": {
-        "chatId": "COLLE_ICI_TON_CHAT_ID_TELEGRAM",
-        "text": "={{ $json.texte }}",
-        "additionalFields": {
-          "appendAttribution": false
+        "resource": "message",
+        "operation": "sendTemplate",
+        "phoneNumberId": "CHOISIS_TON_NUMERO_WHATSAPP_BUSINESS",
+        "recipientPhoneNumber": "243XXXXXXXXX",
+        "template": "bilan_du_soir|fr",
+        "components": {
+          "component": [
+            {
+              "type": "body",
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "type": "text",
+                    "text": "={{ $json.jour }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $json.nb }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $json.ventes }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $json.marge }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $json.nonLivrees }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $json.rupture }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $json.aCommander }}"
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
-      "name": "Envoyer le bilan",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
+      "name": "WhatsApp : bilan du soir",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
       "position": [
         880,
         0
       ],
-      "id": "0179f7c2-b5ee-43f3-a2a3-147b5053da27"
+      "id": "8461030d-249a-430e-8643-121b622b5508"
     }
   ],
   "connections": {
@@ -161,7 +200,7 @@
       "main": [
         [
           {
-            "node": "Envoyer le bilan",
+            "node": "WhatsApp : bilan du soir",
             "type": "main",
             "index": 0
           }
