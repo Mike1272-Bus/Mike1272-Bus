@@ -50,7 +50,7 @@ Deux options : n8n Cloud (payant, rien à installer) ou n8n auto-hébergé sur u
 
 ## À savoir / limites
 
-- **Testé** : les formules du Google Sheet (avec de fausses commandes), le code des 2 nœuds Code (avec de fausses données), et tous les noms de réglages des nœuds comparés au code source de n8n (version 2.15). **Pas encore testé dans un vrai n8n avec un vrai Google Sheet et Telegram** : à faire une fois sur ton compte avant la première installation chez un client, et corriger si un nœud demande un réglage.
+- **Testé** : les formules du Google Sheet (avec de fausses commandes), le code des 2 nœuds Code (avec de fausses données), et tous les noms de réglages des nœuds comparés au code source de n8n (version 2.15). **Pas encore testé dans un vrai n8n avec un vrai Google Sheet et WhatsApp** : à faire une fois sur ton compte avant la première installation chez un client, et corriger si un nœud demande un réglage.
 - WhatsApp passe par l'API officielle de Meta : modèles validés, coût par message, numéro dédié. Les services « WhatsApp non officiels » (qui connectent un numéro normal) sont moins chers mais le numéro peut être bloqué par WhatsApp : on ne les utilise pas chez les clients.
 - Pas de compte Meta prêt ? La `variante-telegram/` marche tout de suite et gratuitement.
 - Le formulaire demande le **code produit** (ex. P001) : donner au vendeur la liste des codes.
