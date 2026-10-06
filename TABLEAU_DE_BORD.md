@@ -39,7 +39,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 |---|---|---|
 | Ebook « Gagne ta vie sans diplôme » (4,9 $, Chariow) | En vente | `page-chariow/` |
 | Services sur Chariow (vidéo, catalogue, mini-site) | Prix conseillés à confirmer | `page-chariow/services_chariow.md` |
-| Templates pour entreprises | Template n°1 « Gestion de stock » prêt (`gestion_de_stock.xlsx` + fiche Desire). Prix à fixer | `produits/templates-entreprises/` |
+| Templates pour entreprises | Template n°1 « Gestion de stock » prêt (`gestion_de_stock.xlsx` + fiche Desire). Automatisation n8n prête (commande → Sheet → alerte Telegram + bilan du soir), à tester dans un vrai n8n. Prix à fixer | `produits/templates-entreprises/` |
 
 ## 5. En attente de Mike
 
