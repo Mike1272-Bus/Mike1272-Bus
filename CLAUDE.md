@@ -7,4 +7,4 @@ Mike (DigitalMikaelson / Allegra Digital Ground, Kinshasa, RDC) : produits digit
 - Écris en français simple. « tu » pour DigitalMikaelson (jeunes), « vous » pour les entreprises (Allegra Digital Ground). Jamais les deux dans le même texte. Skill `copywriting` pour tout texte de marque.
 - Ne jamais inventer : chiffres, prix, témoignages, résultats.
 - Vidéos : HyperFrames (skills dans `.claude/skills`). Uniquement les images des clients, **aucune illustration de personnes**. Jamais de publication sans l'accord écrit de l'entreprise ou de la personne.
-- Branche de travail : `claude/gallant-goldberg-l20gu3`. Commits en français, puis push.
+- Branche de travail : `claude/gallant-goldberg-l20gu3`. Plusieurs chats travaillent en parallèle sur cette branche : fais `git pull` avant de commencer et avant chaque push, ne touche qu'aux fichiers de ton pôle (et à ta section du tableau de bord), commits en français, puis push.

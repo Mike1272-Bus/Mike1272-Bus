@@ -1,14 +1,24 @@
 # Templates pour entreprises : plan de lancement
 
-Pour Mike et son élève. Le but premier : que l'élève obtienne un vrai résultat (une vente, une installation chez un client). Les templates sont construits avec Claude et ses connecteurs.
+Pour Mike et son élève **Desire** (bases en Excel, pas encore Notion). Le but premier : que Desire obtienne un vrai résultat (une vente, une installation chez un client). Les templates sont construits avec Claude et ses connecteurs.
 
-## La règle n°1 : commencer étroit
+## La règle n°1 : le bon produit pour le bon problème
 
-« Plusieurs types de templates pour plusieurs sortes d'entreprises », c'est la cible finale, pas le départ. On commence par **un secteur et un problème**, on vend, puis on élargit.
+On ne vend pas « des templates » en général. Pour chaque entreprise, on repère d'abord son vrai problème, puis on propose le produit qui le règle.
 
-**Secteur conseillé : la restauration et les marques alimentaires.** On en prospecte déjà 11 (Burger Guys, Fatburger, Savane, ManiTech, Épicé Bon, Tomela, Kahawa, La Kinoise, Festa, Délices d'Émilie, La Ruche du Terroir). Les templates deviennent une deuxième offre pour les mêmes contacts, en plus des vidéos.
+| Si l'entreprise… | On propose | Qui le fait |
+|---|---|---|
+| a de belles photos mais peu de visibilité (restaurants, marques alimentaires) | Vidéos animées pour statuts et pubs | Mike |
+| perd des commandes dans WhatsApp | Template « Commandes WhatsApp » (Google Sheets / Excel) | Desire, avec Claude |
+| a du mal à suivre son stock (boutiques, dépôts, pharmacies, quincailleries) | Template « Gestion de stock » (entrées, sorties, alertes de stock bas) | Desire, avec Claude |
+| ne sait pas si elle gagne de l'argent | Template « Caisse et marge » (ventes, dépenses, bénéfice du mois) | Desire, avec Claude |
+| a déjà du volume et répète les mêmes tâches | Automatisation n8n (installée pour elle) | Plus tard, quand Desire maîtrise les tableaux |
 
-**Problème conseillé :** les commandes qui arrivent sur WhatsApp. On oublie qui a payé, qui attend sa livraison, qui relancer. Les visuels du « Kit Entreprise Sérieuse » (guide + mini CRM) parlent déjà de ce problème : on peut partir de là.
+**Pour Desire, on commence par Excel / Google Sheets**, qu'il connaît déjà. Premier template conseillé : **la gestion de stock**, parce que c'est un problème que beaucoup de commerces reconnaissent tout de suite, et que le résultat se voit (alertes de stock bas, valeur du stock). Notion viendra après, quand il aura une première vente.
+
+**La question de diagnostic** à poser à chaque entreprise avant de proposer quoi que ce soit :
+
+> Bonjour [nom], une petite question : aujourd'hui, qu'est-ce qui vous prend le plus de temps ou vous fait perdre de l'argent : suivre les commandes, le stock, ou savoir ce que vous gagnez vraiment ?
 
 ## Les 3 types de templates, du plus simple au plus technique
 
@@ -43,8 +53,8 @@ Deux précautions :
 
 | Jour | Action |
 |---|---|
-| 1 | L'élève pose une question à 3 à 5 commerces : « Comment vous suivez vos commandes aujourd'hui ? Qu'est-ce qui vous fait perdre du temps ? » |
-| 2 | Avec Claude, il construit le template « Commandes WhatsApp » (Google Sheets) |
+| 1 | Desire pose la question de diagnostic à 3 à 5 commerces : « Comment vous suivez vos commandes aujourd'hui ? Qu'est-ce qui vous fait perdre du temps ? » |
+| 2 | Avec Claude, il construit le premier template (Gestion de stock, ou celui que le diagnostic fait ressortir) |
 | 3 | Installation gratuite chez 1 vrai commerce (par exemple La Ruche du Terroir, qui nous fait déjà confiance), contre un avis |
 | 4 | Vidéo de démonstration animée + fiche Chariow |
 | 5 et 6 | Message à 10 commerces de la liste, et publication sur la page Allegra Digital Ground |
@@ -60,7 +70,7 @@ Deux précautions :
 >
 > Ça vous intéresserait ?
 
-## À décider avec l'élève, par écrit, avant de commencer
+## À décider avec Desire, par écrit, avant de commencer
 
 - Qui fait quoi (construction des templates, prospection, installations)
 - Le partage des revenus
@@ -68,5 +78,4 @@ Deux précautions :
 
 ## Ce qu'il me faut
 
-- Le prénom de l'élève et ce qu'il sait déjà faire (Excel ? Notion ? automatisation ?)
-- Ta validation du secteur (restauration) ou un autre choix
+- Les 3 à 5 entreprises à qui Desire pose la question de diagnostic

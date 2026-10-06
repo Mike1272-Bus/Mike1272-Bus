@@ -2,6 +2,11 @@
 
 Un seul endroit pour savoir où en est chaque chose. À mettre à jour à chaque avancée.
 
+**Les chats :** un chat par pôle. Chacun met à jour seulement sa section.
+- Prospection et clients : section 1
+- Contenu et réseaux : section 3
+- Produits et accompagnements : sections 2 et 4
+
 ## 1. Prospection d'entreprises (Allegra Digital Ground, « vous »)
 
 | Entreprise | État | Prochaine action | Dossier |
@@ -18,7 +23,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 |---|---|---|---|
 | Lisa (étudiante, cuisine) | Accompagnement gratuit 7 jours : guide de recettes + vidéo de promo, test sur ses contacts | Message à envoyer | `accompagnement/accompagnement_pilote.md` |
 | L'ami informatique | Montage pro de sa vidéo « localiser votre téléphone », puis produit digital ensemble | Montage livré (21 s). Attente de la suite de sa vidéo + son accord écrit | `accompagnement/ami-informatique/` |
-| L'élève (templates) | Produit « templates pour entreprises », construit avec Claude | Plan prêt, à valider | `produits/templates-entreprises/plan.md` |
+| Desire (élève, bases Excel) | Templates pour entreprises (d'abord Excel : gestion de stock), construits avec Claude | Plan validé, diagnostic à lancer | `produits/templates-entreprises/plan.md` |
 
 ## 3. Contenu (DigitalMikaelson, « tu »)
 
@@ -42,4 +47,4 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 - Lien Chariow du guide et vrais liens vidéo / communauté (PDF interactif)
 - Prix de la formule mensuelle (Ruche du Terroir) et des services Chariow
 - La suite de la vidéo de l'ami informatique + son accord écrit
-- Le choix du secteur pour les templates et le prénom de l'élève
+- Les 3 à 5 entreprises pour le diagnostic de Desire
