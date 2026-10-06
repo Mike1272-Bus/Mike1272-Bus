@@ -89,3 +89,84 @@ Pourquoi cette fin : une question à laquelle on répond en un mot. C'est beauco
 - Leurs points de vente actuels
 - Leurs chiffres de départ (vues des statuts, abonnés)
 - Leur accord pour partager les vidéos sur tes pages, en les identifiant
+
+## Leur réponse (6 octobre 2026)
+
+> Oui je l'ai posté pour voir les réactions sur WhatsApp en l'occurrence, merci encore une fois de plus 🙌🏿
+> Là c'est vous qui décidez, parce que vous dites que c'est gratuit ✍🏿
+
+Ils acceptent la semaine test. On leur envoie maintenant un plan chiffré : ce que Mike s'engage à faire, l'objectif, et ce qui se passe à la fin.
+
+## Le point de départ (capture du 6 octobre 2026, `depart_instagram_2026-10-06.png`)
+
+- Instagram @miel_de_la_ruche_du_terroir : **517 abonnés**, 150 publications, 151 abonnements.
+- Leur bio : « Nous produisons du miel pur et sauvage de différents terroirs Congolais macéré au moringa, au clou de girofle, au gingembre, à la cannelle, etc. »
+- Leurs stories à la une : Expositions, Officiels, Repost, **Concours**. Ils ont déjà fait des concours, donc l'idée leur est familière.
+- Les points de vente qu'ils affichent : Espace Texaf Bilembo, la salle d'embarquement de l'aéroport de Ndjili, le MNRDC (Musée national). À faire confirmer avant d'en parler dans une vidéo.
+- Il manque encore : les vues de leurs statuts WhatsApp, leurs abonnés Facebook, et leurs messages ou commandes par semaine.
+
+## Le plan chiffré
+
+### Ce que Mike s'engage à faire (ce qu'il contrôle)
+
+- 7 vidéos animées en 7 jours, avec leurs photos
+- Le texte à poster avec chaque vidéo
+- Le calendrier : quoi poster, à quelle heure, où (statut WhatsApp, Reel Instagram, Facebook)
+- Un concours clé en main pour les jours 5 à 7 : la vidéo, le texte et le règlement simple
+
+### Ce que La Ruche du Terroir s'engage à faire
+
+- Poster chaque jour, à l'heure prévue
+- Offrir le lot du concours (par exemple un pot de miel)
+- Répondre aux messages
+- Donner ses chiffres au début et à la fin
+
+### Les objectifs
+
+Ce sont des objectifs proposés, pas des chiffres garantis : le résultat dépend aussi de la régularité des publications. Ajuste-les si tu les trouves trop hauts ou trop bas.
+
+| Quand | Instagram | Statuts WhatsApp | Commandes |
+|---|---|---|---|
+| Fin de la semaine test | 517 → 550 abonnés (avec le concours) | Plus de vues qu'au départ | Au moins une demande de pack cadeau |
+| Fin du mois 1 (si on continue) | 700 abonnés | Vues stables chaque jour | Des demandes de packs chaque semaine |
+| Fin du mois 3 | 1 000 abonnés | | |
+
+### Ce qui se passe à la fin de la semaine test
+
+- **Objectif atteint :** s'ils veulent continuer, Mike propose la formule au mois (prix à fixer par Mike), payée en ligne via Chariow.
+- **Objectif pas atteint :** Mike offre une deuxième semaine pour y arriver, à condition qu'ils aient posté chaque jour.
+- Dans les deux cas, ils gardent les 7 vidéos.
+
+La « deuxième semaine offerte » rassure et montre que tu crois à ta méthode. Elle te coûte 7 vidéos de plus au pire. Si tu ne veux pas prendre ce risque, enlève la phrase du message.
+
+### Le message à leur envoyer
+
+> Bonjour 😊 Merci à vous, ça me fait très plaisir !
+>
+> Alors on commence la semaine test, gratuite, dès que j'ai vos photos (idéalement lundi 12 octobre). Voici le plan :
+>
+> **Ce que je fais :**
+> • 7 vidéos animées, une par jour, avec vos photos : vos parfums, vos packs cadeaux, vos points de vente
+> • le texte à poster avec chaque vidéo
+> • le calendrier : quoi poster, à quelle heure, sur votre statut WhatsApp, Instagram et Facebook
+> • un petit concours en fin de semaine pour faire venir de nouveaux abonnés
+>
+> **L'objectif de la semaine :**
+> • Instagram : passer de 517 à 550 abonnés
+> • plus de vues sur vos statuts WhatsApp qu'aujourd'hui
+> • au moins une demande de pack cadeau pour la fin d'année
+>
+> **Ce dont j'ai besoin pour commencer :**
+> 1. Combien de vues font vos statuts en ce moment, à peu près
+> 2. Combien d'abonnés a votre page Facebook
+> 3. Combien de messages ou de commandes vous recevez par semaine
+> 4. Vos photos en bonne qualité (les pots, les packs cadeaux) et la composition de vos packs cette année
+> 5. Le lot que vous pouvez offrir pour le concours (un pot, par exemple)
+>
+> À la fin de la semaine, on regarde les chiffres ensemble. Si l'objectif est atteint et que vous voulez continuer, je vous propose une formule au mois. S'il n'est pas atteint, je vous offre une deuxième semaine pour y arriver.
+>
+> On commence lundi ?
+
+### Pour poster sur leur Instagram
+
+Ne demande jamais leur mot de passe. Soit ils postent eux-mêmes les vidéos que tu leur envoies (le plus simple), soit ils t'ajoutent comme collaborateur dans Meta Business Suite.
