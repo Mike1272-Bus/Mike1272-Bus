@@ -8,7 +8,8 @@ Le premier format testé est un **guide gratuit**, créé par la personne à par
 
 ## Le cadre (à dire clairement dès le début)
 
-- **C'est gratuit.**
+- **C'est gratuit**, y compris la vidéo animée de promotion que Mike crée avec ses photos.
+- **La vidéo de promotion** sert aussi d'exemple de ton travail : demande son accord avant de la montrer sur tes pages.
 - **En échange :** elle fait les étapes, partage ses chiffres honnêtement, et donne son avis à la fin, qu'il soit positif ou négatif.
 - **À la fin, et seulement si elle est d'accord :** Mike raconte son parcours, avec son prénom ou de façon anonyme, sans visage. On garde cet accord par écrit, dans un message WhatsApp.
 - **Aucune promesse de gains.** On promet un guide terminé et un vrai test, pas un revenu.
@@ -21,8 +22,8 @@ Une semaine plutôt que deux : on garde l'élan, la personne voit un résultat v
 |---|---|
 | 1 | Échange de 15 minutes sur WhatsApp : ses meilleures recettes, son temps libre, ses contacts. Le soir même, elle pose une question à 5 à 10 contacts, par exemple « En cuisine, qu'est-ce qui te manque le plus : des idées rapides, des recettes pas chères, des desserts ? » |
 | 2 | On choisit le sujet d'après les réponses. Elle écrit le guide avec l'IA (ChatGPT, Claude ou Gemini) : 3 à 5 recettes, avec les ingrédients et les étapes |
-| 3 | Elle prend en photo ses plats (sans visage). Mike fait la mise en page et la couverture sur Canva avec elle |
-| 4 | Version finale en PDF. Annonce dans son statut : « J'ai fait un petit guide de recettes, gratuit. Réponds GUIDE et je te l'envoie. » |
+| 3 | Elle prend en photo ses plats (sans visage). Mike fait la mise en page et la couverture sur Canva avec elle, et prépare une vidéo animée de promotion avec ses photos (comme les vidéos pour les entreprises) |
+| 4 | Version finale en PDF. Elle poste la vidéo de promotion dans son statut avec le texte : « J'ai fait un petit guide de recettes, gratuit. Réponds GUIDE et je te l'envoie. » |
 | 5 et 6 | Elle envoie le guide à chaque personne qui le demande et note les retours et les questions |
 | 7 | Elle teste la suite payante (des plats sur commande, ou une version plus complète du guide). Bilan avec les chiffres, et son avis |
 
@@ -47,7 +48,7 @@ Si elle a un empêchement (examens, cours), on décale d'un ou deux jours, sans 
 >
 > Cuisine, et envie de gagner un peu d'argent à côté des cours : c'est exactement le genre de profil que j'aimerais accompagner.
 >
-> Alors plutôt que de juste t'envoyer le guide, je te propose mieux : un accompagnement gratuit d'une semaine, sur WhatsApp. Ensemble, on crée ton premier petit guide de recettes, sans montrer ton visage, et on le teste avec tes contacts pour voir ce qui intéresse vraiment les gens. Tu avances à ton rythme, en dehors de tes cours.
+> Alors plutôt que de juste t'envoyer le guide, je te propose mieux : un accompagnement gratuit d'une semaine, sur WhatsApp. Ensemble, on crée ton premier petit guide de recettes, sans montrer ton visage. Je te fais aussi une vidéo animée pour le présenter, avec tes photos. Puis on le teste avec tes contacts pour voir ce qui intéresse vraiment les gens. Tu avances à ton rythme, en dehors de tes cours.
 >
 > En échange, je te demande juste de faire les étapes et de me donner ton avis honnête à la fin.
 >
