@@ -17,7 +17,7 @@ Ordre conseillé : menuiserie (mardi), couture, coiffure, pâtisserie, perles, c
 
 ## Script de mardi après-midi : épisode 2, la menuiserie (version histoire)
 
-Série « Transformer une compétence en revenu ». Intro de Mike, puis une histoire : Patrick est présenté comme imaginé (« Imagine Patrick »), et la fin révèle le vrai cas, oncle David. Mots simples : « avance » plutôt qu'« acompte », et Chariow présenté comme « une plateforme de paiement en ligne ». Environ 270 mots, autour de 1 min 30.
+Série « Transformer une compétence en revenu ». Intro de Mike, puis une histoire : Patrick est présenté comme imaginé (« Imagine Patrick »), et la fin révèle le vrai cas, oncle David. Mots simples : « avance » plutôt qu'« acompte », et Chariow présenté comme « une plateforme de paiement en ligne ». Environ 296 mots, autour de 1 min 30 à 1 min 35.
 
 | Moment | À l'écran |
 |---|---|
@@ -29,6 +29,7 @@ Série « Transformer une compétence en revenu ». Intro de Mike, puis une hist
 | Le message du client | Une bulle WhatsApp « Bonjour, cette table, vous pouvez la faire en plus grand ? », puis une carte « Avance payée · paiement en ligne », avec le logo Chariow |
 | L'idée plus forte | Un plan de tabouret qui se dessine (mesures, liste du bois, étapes), qui devient un PDF |
 | « encore et encore » | Le PDF qui se copie, des étiquettes « Vendu » qui s'empilent, « ∞ » |
+| « Ce n'est pas que la menuiserie » | Les étiquettes de métiers défilent avec leurs outils : clé de plombier et guide « 5 pannes », ampoule et tournevis, clé à molette, machine à coudre |
 | Oncle David | L'étiquette « Patrick : une histoire » se retourne et devient « Oncle David : vrai menuisier » (pas de personnage) |
 | Question finale | Étiquettes de métiers, « Dis-le en commentaire » |
 
@@ -44,9 +45,11 @@ Série « Transformer une compétence en revenu ». Intro de Mike, puis une hist
 >
 > Quelques jours plus tard, un message arrive : « Bonjour, cette table, vous pouvez la faire en plus grand ? » Le client paie une avance sur une plateforme de paiement en ligne, comme Chariow.
 >
-> Puis il a une idée encore plus forte. Beaucoup de gens veulent fabriquer eux-mêmes un tabouret ou une étagère. Alors il dessine ses plans : les mesures, la liste du bois, les étapes. Il en fait un PDF, qu'il met en vente sur Chariow.
+> Puis il a une idée encore plus forte. Il dessine ses plans : les mesures, la liste du bois, les étapes. Il en fait un PDF, qu'il met en vente sur Chariow.
 >
 > Ce plan, il l'a dessiné une seule fois. Mais il peut le vendre encore et encore, même quand ses mains se reposent.
+>
+> Et ce n'est pas que la menuiserie. Un plombier peut vendre un guide « 5 pannes que vous pouvez réparer vous-même ». Un électricien, un mécanicien, une couturière : chaque métier cache un savoir que d'autres veulent apprendre.
 >
 > Patrick, c'est une histoire. Mais mon oncle David, lui, est vraiment menuisier, et il est devenu créateur de produits digitaux, sans payer de publicité.
 >
@@ -55,4 +58,4 @@ Série « Transformer une compétence en revenu ». Intro de Mike, puis une hist
 ## Légende TikTok
 
 > Tu es menuisier ? Voici 2 façons de gagner de l'argent en ligne avec ton savoir-faire, avec l'IA 🪚 Dis-moi ta compétence en commentaire, je fais la prochaine vidéo dessus.
-> #menuiserie #menuisier #produitdigital #ia #chariow #kinshasa #rdc #artisan
+> #menuiserie #menuisier #plombier #artisan #produitdigital #ia #chariow #kinshasa #rdc
