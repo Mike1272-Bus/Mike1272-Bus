@@ -5,223 +5,219 @@
     <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/gsap.min.js"></script>
     <style>
-      @font-face { font-family: 'Bricolage'; font-weight: 700; src: url('assets/fonts/bricolage-700.ttf') format('truetype'); }
-      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
-      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
-      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
       :root {
-        --bg: #13120d; --fg: #f7f2e3; --muted: #b9b29c; --accent: #f4c518;
-        --panel: #23211a; --line: #3a372c; --orange: #f59e2b; --red: #ef5350; --wa: #25d366;
+        --ink: #0b1033; --ink2: #4a5275; --blue: #2342ff; --blue2: #1226d9; --orange: #ff9d1c;
+        --navy: #030722; --wa: #22c55e; --yellow: #f4c518;
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
-      #root { position: relative; width: 100%; height: 100%; overflow: hidden; color: var(--fg); font-family: 'Work Sans', sans-serif; background: var(--bg); }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; background: var(--navy); }
       .ab { position: absolute; }
-      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
-      .sc { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
-      .h { font-family: 'Bricolage'; font-weight: 800; line-height: 1.05; letter-spacing: -0.01em; }
-      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent); }
-      .blk { display: block; }
+      .sc, .bgL, .bgD { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .w { display: inline-block; }
 
-      /* fond */
-      #glow { left: -260px; top: -160px; width: 1200px; height: 1200px; border-radius: 50%; background: radial-gradient(circle, rgba(244,197,24,0.22) 0%, rgba(244,197,24,0) 62%); }
-      #glow2 { left: 300px; top: 1100px; width: 1000px; height: 1000px; border-radius: 50%; background: radial-gradient(circle, rgba(37,211,102,0.10) 0%, rgba(37,211,102,0) 60%); }
-      #dots { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0.18;
-        background-image: radial-gradient(circle, #8a8064 2px, transparent 2.5px); background-size: 54px 54px; }
-      #ghost { left: -40px; top: 1640px; width: 2400px; font-family: 'Bricolage'; font-weight: 800; font-size: 260px; color: rgba(244,197,24,0.07); white-space: nowrap; }
+      /* fond clair : taches bleu pâle et crème */
+      .bgL { background: #f5f7fc; }
+      .blobA { left: -300px; top: -260px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(116,146,255,0.42) 0%, rgba(116,146,255,0) 65%); }
+      .blobB { left: 260px; top: 1060px; width: 1200px; height: 1200px; border-radius: 50%; background: radial-gradient(circle, rgba(255,214,130,0.55) 0%, rgba(255,214,130,0) 62%); }
+      .blobC { left: 420px; top: 300px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 65%); }
+      /* fond bleu nuit : cercles concentriques */
+      .bgD { background: radial-gradient(circle at 50% 46%, #0c1d9a 0%, #061060 34%, #030722 72%); }
+      .rings { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .rings circle { fill: none; stroke: rgba(110,140,255,0.28); stroke-width: 2.5; }
 
-      /* barre d'étapes */
-      #steps { left: 90px; top: 100px; width: 900px; height: 14px; display: flex; gap: 18px; }
-      .seg { flex: 1; height: 14px; border-radius: 7px; background: #34312a; overflow: hidden; }
-      .segf { display: block; width: 100%; height: 100%; background: var(--accent); transform-origin: 0 50%; }
-
-      .head { left: 90px; top: 190px; width: 900px; }
-      .head .h { font-size: 88px; margin-top: 22px; }
+      .pill { position: absolute; left: 0; width: 1080px; text-align: center; }
+      .pill span { display: inline-block; padding: 14px 40px; border-radius: 60px; font-size: 32px; font-weight: 700; letter-spacing: 0.06em; }
+      .pillL span { background: rgba(35,66,255,0.10); color: var(--blue); border: 2px solid rgba(35,66,255,0.25); }
+      .pillD span { background: rgba(255,255,255,0.10); color: #dfe5ff; border: 2px solid rgba(255,255,255,0.22); }
+      .title { position: absolute; left: 70px; width: 940px; text-align: center; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
+      .tL { color: var(--ink); } .tD { color: #fff; }
+      .acc { color: var(--orange); white-space: nowrap; }
+      .accB { color: var(--blue); white-space: nowrap; }
+      .card { position: absolute; background: rgba(255,255,255,0.94); border-radius: 56px; box-shadow: 0 40px 90px rgba(35,66,255,0.16), 0 6px 18px rgba(11,16,51,0.06); }
+      .bluebtn { background: linear-gradient(180deg, #3a5bff 0%, #1428e0 100%); box-shadow: 0 18px 50px rgba(35,66,255,0.55), inset 0 2px 0 rgba(255,255,255,0.35); color: #fff; }
 
       /* S1 */
-      #s1t { left: 90px; top: 230px; width: 900px; font-size: 90px; }
-      #s1q { left: 90px; top: 590px; width: 900px; font-size: 50px; color: var(--muted); font-family: 'Work Sans'; font-weight: 700; line-height: 1.3; }
-      .bub { position: absolute; padding: 26px 34px; border-radius: 34px 34px 34px 8px; background: #2c2a22; color: #ece6d2; font-size: 38px; white-space: nowrap; box-shadow: 0 18px 40px rgba(0,0,0,0.45); }
-      .bub.me { border-radius: 34px 34px 8px 34px; background: #1f4d36; }
-      #s1end { left: 90px; top: 1560px; width: 900px; font-size: 84px; color: var(--accent); }
-
-      /* téléphone */
-      .phone { position: absolute; left: 210px; top: 540px; width: 660px; height: 1180px; border-radius: 76px; background: #0c0b08; border: 4px solid #4a4638; box-shadow: 0 40px 90px rgba(0,0,0,0.6), 0 0 0 10px #1d1b15; }
-      .screen { position: absolute; left: 20px; top: 20px; width: 612px; height: 1132px; border-radius: 58px; overflow: hidden; }
+      #s1t1, #s1t2 { top: 820px; font-size: 100px; }
+      #s1t3 { top: 1060px; font-size: 96px; }
+      .mt { position: absolute; width: 132px; height: 132px; border-radius: 36px; background: rgba(255,255,255,0.95); box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+      .mt svg { position: absolute; left: 30px; top: 30px; width: 72px; height: 72px; }
+      .badge { position: absolute; right: -12px; top: -12px; width: 50px; height: 50px; border-radius: 25px; background: #ff3b30; color: #fff; font-weight: 700; font-size: 28px; line-height: 50px; text-align: center; }
+      #orb { left: 390px; top: 690px; width: 300px; height: 300px; border-radius: 50%; border: 22px solid var(--orange); box-shadow: 0 0 80px 20px rgba(255,157,28,0.65), inset 0 0 50px 10px rgba(255,157,28,0.55); }
 
       /* S2 formulaire */
-      #form { background: #f6f3ea; color: #1d1b15; }
-      .ftitle { position: absolute; left: 48px; top: 90px; font-family: 'Bricolage'; font-weight: 800; font-size: 52px; color: #1d1b15; }
-      .fsub { position: absolute; left: 48px; top: 160px; font-size: 26px; color: #5e5847; }
-      .flab { position: absolute; left: 48px; font-size: 28px; font-weight: 700; color: #3d3a30; }
-      .fin { position: absolute; left: 48px; width: 516px; height: 96px; border-radius: 20px; background: #fff; border: 3px solid #d9d3c2; }
-      .ftxt { position: absolute; left: 28px; top: 22px; display: inline-block; font-size: 40px; font-weight: 700; color: #1d1b15; white-space: nowrap; }
-      #fbtn { position: absolute; left: 48px; top: 860px; width: 516px; height: 116px; border-radius: 26px; background: var(--accent); }
-      .btxt { position: absolute; left: 0; top: 0; width: 516px; height: 116px; line-height: 116px; text-align: center; font-family: 'Bricolage'; font-weight: 800; font-size: 44px; color: #1d1b15; }
-      #fbtnOk { background: #1e7a46; border-radius: 26px; color: #fff; font-size: 36px; white-space: nowrap; }
-      #cursor { position: absolute; left: 0; top: 0; width: 64px; height: 64px; }
-      #ripple { position: absolute; left: 256px; top: 868px; width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e7a46; }
+      #s2p { top: 230px; }
+      #s2t { top: 330px; font-size: 92px; }
+      #form { left: 130px; top: 700px; width: 820px; height: 980px; }
+      .ftitle { position: absolute; left: 70px; top: 70px; font-size: 54px; font-weight: 700; color: var(--ink); }
+      .flab { position: absolute; left: 70px; font-size: 32px; font-weight: 700; color: var(--ink2); }
+      .fin { position: absolute; left: 70px; width: 680px; height: 116px; border-radius: 30px; background: #eef1fa; border: 3px solid #dde3f5; }
+      .ftxt { position: absolute; left: 34px; top: 30px; display: inline-block; font-size: 44px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+      #fbtn { position: absolute; left: 70px; top: 800px; width: 680px; height: 130px; border-radius: 65px; }
+      .btxt { position: absolute; left: 0; top: 0; width: 680px; height: 130px; line-height: 130px; text-align: center; font-weight: 700; font-size: 48px; color: #fff; border-radius: 65px; }
+      #fbtnOk { background: linear-gradient(180deg, #18a04c 0%, #11793a 100%); }
+      #cursor { position: absolute; left: 0; top: 0; width: 76px; height: 76px; }
+      #ripple { position: absolute; left: 360px; top: 815px; width: 100px; height: 100px; border-radius: 50%; border: 6px solid var(--blue); }
 
       /* S3 tableau */
-      #sheet { left: 60px; top: 560px; width: 960px; border-radius: 28px; overflow: hidden; background: #fbfaf5; box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
-      .sbar { height: 70px; background: #1e7a46; color: #fff; font-weight: 700; font-size: 30px; line-height: 70px; padding-left: 36px; }
-      .row { display: flex; height: 96px; border-bottom: 2px solid #e3dece; font-size: 32px; color: #2b2820; }
-      .row div { line-height: 96px; padding-left: 22px; white-space: nowrap; overflow: hidden; border-right: 2px solid #e3dece; }
-      .row.hd { height: 76px; background: #efeadb; font-weight: 700; font-size: 28px; color: #4c4738; }
-      .row.hd div { line-height: 76px; }
-      .c1 { width: 160px; } .c2 { width: 170px; } .c3 { width: 300px; } .c4 { width: 110px; } .c5 { width: 220px; border-right: none !important; }
-      #newrow { background: #fff6cf; font-weight: 700; }
-      #stock { left: 60px; top: 1200px; width: 960px; height: 420px; border-radius: 34px; background: var(--panel); border: 3px solid var(--line); }
-      #stockL { left: 60px; top: 56px; font-size: 34px; color: var(--muted); font-weight: 700; letter-spacing: 0.04em; }
-      #stockN { left: 60px; top: 110px; width: 260px; font-family: 'Bricolage'; font-weight: 800; font-size: 210px; line-height: 1; color: var(--fg); font-variant-numeric: tabular-nums; }
-      #stockU { left: 300px; top: 220px; font-size: 40px; color: var(--muted); }
-      #pill { left: 560px; top: 160px; width: 340px; height: 104px; border-radius: 52px; background: var(--orange); color: #1d1b15; font-family: 'Bricolage'; font-weight: 800; font-size: 44px; line-height: 104px; text-align: center; }
+      #s3p { top: 230px; }
+      #s3t { top: 330px; font-size: 92px; }
+      #sheet { left: 60px; top: 660px; width: 960px; height: 520px; overflow: hidden; }
+      .shead { position: absolute; left: 44px; top: 36px; display: flex; align-items: center; gap: 22px; font-size: 38px; font-weight: 700; color: var(--ink); }
+      .sico { width: 70px; height: 70px; border-radius: 20px; background: linear-gradient(180deg, #2ad06a 0%, #16a34a 100%); }
+      .sico svg { width: 70px; height: 70px; }
+      .rows { position: absolute; left: 30px; top: 140px; width: 900px; }
+      .row { display: flex; height: 96px; border-radius: 22px; font-size: 34px; color: var(--ink); align-items: center; }
+      .row div { padding-left: 24px; white-space: nowrap; overflow: hidden; }
+      .row.hd { height: 66px; font-size: 26px; font-weight: 700; color: #7c84a6; letter-spacing: 0.06em; }
+      .c1 { width: 150px; } .c2 { width: 180px; } .c3 { width: 280px; } .c4 { width: 100px; } .c5 { width: 190px; }
+      #newrow { background: rgba(35,66,255,0.10); font-weight: 700; color: var(--blue); }
+      #stockTile { left: 90px; top: 1300px; width: 330px; height: 330px; border-radius: 80px; }
+      #stockN { left: 0; top: 0; width: 330px; height: 330px; line-height: 330px; text-align: center; font-size: 200px; font-weight: 900; color: #fff; font-variant-numeric: tabular-nums; }
+      #stockL1 { left: 470px; top: 1330px; font-size: 54px; font-weight: 700; color: var(--ink); }
+      #stockL2 { left: 470px; top: 1410px; font-size: 38px; color: var(--ink2); }
+      #pill3 { left: 470px; top: 1500px; height: 104px; padding: 0 48px; border-radius: 52px; background: var(--orange); color: #fff; font-weight: 700; font-size: 44px; line-height: 104px; box-shadow: 0 16px 44px rgba(255,157,28,0.55); }
 
-      /* S4 / S5 chat */
-      .chat { background: #0b141a; }
-      .chead { position: absolute; left: 0; top: 0; width: 612px; height: 190px; background: #1f2c34; }
-      .cav { position: absolute; left: 44px; top: 82px; width: 84px; height: 84px; border-radius: 50%; background: #13120d; overflow: hidden; }
-      .cav div { position: absolute; left: 10px; top: 18px; width: 64px; height: 50px; background: url('assets/img/logo_adg.png') center / contain no-repeat; }
-      .cname { position: absolute; left: 150px; top: 88px; font-size: 34px; font-weight: 700; color: #e9edef; }
-      .cstat { position: absolute; left: 150px; top: 132px; font-size: 24px; color: #8696a0; }
-      .msg { position: absolute; left: 30px; width: 520px; padding: 26px 30px 54px; border-radius: 8px 30px 30px 30px; background: #202c33; color: #e9edef; font-size: 31px; line-height: 1.38; }
-      .msg b { color: #fff; }
-      .mtime { position: absolute; right: 22px; bottom: 14px; font-size: 22px; color: #8696a0; }
-      #m1 { top: 250px; } #m2 { top: 690px; }
-      #m2 .tag { color: var(--orange); font-weight: 700; }
-      #m2 { box-shadow: 0 0 0 0 rgba(245,158,43,0); }
+      /* S4 notifications */
+      #s4p { top: 230px; }
+      #s4t { top: 330px; font-size: 92px; }
+      .notif { position: absolute; left: 70px; width: 940px; padding: 40px 46px 46px; border-radius: 52px; background: rgba(255,255,255,0.95); box-shadow: 0 30px 80px rgba(0,0,0,0.45); }
+      .nh { display: flex; align-items: center; gap: 22px; margin-bottom: 20px; }
+      .nico { width: 76px; height: 76px; border-radius: 22px; background: linear-gradient(180deg, #2ad06a 0%, #16a34a 100%); flex: none; }
+      .nico svg { width: 76px; height: 76px; }
+      .napp { font-size: 30px; font-weight: 700; color: var(--ink2); letter-spacing: 0.02em; }
+      .ntime { margin-left: auto; font-size: 28px; color: #5c6380; }
+      .nbody { font-size: 38px; line-height: 1.4; color: var(--ink); }
+      .nbody b { font-weight: 700; }
+      #nt1 { top: 760px; } #nt2 { top: 1180px; }
+      #nt2 .tag { color: #b85400; font-weight: 700; }
 
-      #clock { left: 390px; top: 520px; width: 300px; height: 300px; }
-      #clockT { left: 390px; top: 520px; width: 300px; height: 300px; line-height: 300px; text-align: center; font-family: 'Bricolage'; font-weight: 800; font-size: 84px; }
-      #bilan { left: 120px; top: 900px; width: 840px; padding: 44px 50px 70px; border-radius: 10px 40px 40px 40px; background: #202c33; color: #e9edef; font-size: 40px; line-height: 1.5; box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
-      #bilan .bt { font-family: 'Bricolage'; font-weight: 800; font-size: 46px; color: #fff; margin-bottom: 14px; }
-      .bl { display: flex; justify-content: space-between; border-bottom: 2px solid #2f3d45; padding: 8px 0; }
-      .bl span:last-child { font-weight: 700; color: #fff; }
-      .bl.warn span:last-child { color: var(--orange); }
-      #ex { left: 120px; top: 1660px; width: 840px; text-align: center; font-size: 28px; color: var(--muted); font-style: italic; }
+      /* S5 bilan */
+      #s5p { top: 230px; }
+      #s5t { top: 330px; font-size: 92px; }
+      #s5t .acc { display: block; }
+      #ring5 { left: 340px; top: 560px; width: 400px; height: 400px; }
+      #ring5T { left: 340px; top: 560px; width: 400px; height: 400px; line-height: 400px; text-align: center; color: #fff; font-weight: 700; font-size: 96px; }
+      #bilan { left: 90px; top: 1060px; width: 900px; padding: 50px 60px 44px; border-radius: 56px; background: rgba(255,255,255,0.95); box-shadow: 0 30px 80px rgba(0,0,0,0.45); }
+      #bilan .bt { font-size: 46px; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
+      .bl { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 2px solid #e6e9f5; font-size: 40px; color: var(--ink2); }
+      .bl:last-child { border-bottom: none; }
+      .bl span:last-child { font-weight: 700; color: var(--ink); }
+      .bl.warn span:last-child { color: #b85400; }
+      #ex5 { left: 0; top: 1690px; width: 1080px; text-align: center; font-size: 30px; color: #aab3e6; }
 
-      /* S6 vue d'ensemble */
-      #s6t { left: 90px; top: 250px; width: 900px; font-size: 92px; }
-      #chainSvg { left: 0; top: 0; width: 1080px; height: 1920px; }
-      .node { position: absolute; left: 110px; width: 860px; height: 180px; }
-      .nico { position: absolute; left: 0; top: 0; width: 180px; height: 180px; border-radius: 44px; background: var(--panel); border: 4px solid var(--accent); }
-      .nico svg { position: absolute; left: 40px; top: 40px; width: 100px; height: 100px; }
-      .nlab { position: absolute; left: 220px; top: 0; height: 180px; display: flex; flex-direction: column; justify-content: center; }
-      .nlab .n1 { font-size: 30px; font-weight: 700; color: var(--accent); letter-spacing: 0.2em; }
-      .nlab .n2 { font-family: 'Bricolage'; font-weight: 800; font-size: 54px; line-height: 1.1; }
-      #n1 { top: 560px; } #n2 { top: 840px; } #n3 { top: 1120px; } #n4 { top: 1400px; }
-      #pulse { left: 182px; top: 632px; width: 36px; height: 36px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 30px 10px rgba(244,197,24,0.5); }
+      /* S6 carrousel */
+      #s6t1 { top: 470px; font-size: 100px; }
+      #s6pill { left: 110px; top: 610px; width: 860px; height: 150px; border-radius: 75px; line-height: 150px; text-align: center; font-size: 84px; font-weight: 700; }
+      .tile { position: absolute; top: 1080px; width: 210px; height: 210px; }
+      .tw, .tb { position: absolute; left: 0; top: 0; width: 210px; height: 210px; border-radius: 56px; }
+      .tw { background: rgba(255,255,255,0.95); box-shadow: 0 24px 60px rgba(35,66,255,0.18); }
+      .tb { background: linear-gradient(180deg, #3a5bff 0%, #1428e0 100%); box-shadow: 0 24px 60px rgba(35,66,255,0.55); }
+      .tile svg { position: absolute; left: 55px; top: 55px; width: 100px; height: 100px; }
+      .tlab { position: absolute; top: 1330px; width: 260px; text-align: center; font-size: 34px; font-weight: 700; color: var(--ink); }
+      #t1 { left: 40px; } #t2 { left: 305px; } #t3 { left: 570px; } #t4 { left: 835px; }
+      #l1 { left: 15px; } #l2 { left: 280px; } #l3 { left: 545px; } #l4 { left: 810px; }
 
       /* S7 fin */
-      #logo { left: 260px; top: 470px; width: 560px; height: 443px; background: url('assets/img/logo_adg.png') center / contain no-repeat; }
-      #s7a { left: 60px; top: 1030px; width: 960px; text-align: center; font-size: 80px; }
-      #s7a span { display: block; }
-      #s7b { color: var(--accent); }
-      #s7c { left: 140px; top: 1400px; width: 800px; height: 120px; border-radius: 60px; background: var(--wa); color: #0b2415; text-align: center; line-height: 120px; font-weight: 700; font-size: 40px; }
+      #logoGlow { left: 190px; top: 380px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(244,197,24,0.35) 0%, rgba(244,197,24,0) 62%); }
+      #logo { left: 270px; top: 470px; width: 540px; height: 427px; background: url('assets/img/logo_adg.png') center / contain no-repeat; }
+      #s7a { top: 1040px; font-size: 88px; }
+      #s7c { left: 160px; top: 1400px; width: 760px; height: 140px; border-radius: 70px; line-height: 140px; text-align: center; font-size: 46px; font-weight: 700; }
     </style>
   </head>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="37" data-width="1080" data-height="1920">
-      <!-- fond permanent -->
-      <div id="bgwrap" class="clip ab full" data-start="0" data-duration="37" data-track-index="0">
-        <div id="dots" class="ab"></div>
-        <div id="glow" class="ab"></div>
-        <div id="glow2" class="ab"></div>
-      </div>
 
-      <!-- S1 : le problème -->
+      <!-- S1 : le problème (bleu nuit) -->
       <div id="s1" class="clip sc" data-start="0" data-duration="5" data-track-index="1">
+        <div class="bgD"><svg class="rings ab" id="rings1" viewBox="0 0 1080 1920"><circle cx="540" cy="900" r="260" /><circle cx="540" cy="900" r="420" /><circle cx="540" cy="900" r="600" /><circle cx="540" cy="900" r="800" /></svg></div>
         <div id="s1w" class="sc">
-          <div id="s1t" class="ab h">Vos commandes arrivent sur WhatsApp.</div>
-          <div id="s1q" class="ab">Qui a payé ? Qu'est-ce qu'il reste en stock ?</div>
-          <div class="bub b1" style="left: 90px; top: 760px;">Je veux 2 bidons d'huile</div>
-          <div class="bub me b1" style="left: 470px; top: 900px;">C'est noté 👍</div>
-          <div class="bub b1" style="left: 150px; top: 1040px;">J'ai payé hier soir</div>
-          <div class="bub b1" style="left: 380px; top: 1180px;">Il reste du riz ?</div>
-          <div class="bub b1" style="left: 110px; top: 1320px;">C'est livré quand ?</div>
-          <div class="bub me b1" style="left: 520px; top: 1440px;">Je vérifie…</div>
-          <div id="s1end" class="ab h">Et si tout se rangeait tout seul ?</div>
+          <div class="mt" id="mt1" style="left: 120px; top: 420px;"><svg viewBox="0 0 72 72"><path d="M36 8C20 8 8 19 8 33c0 6 2 11 6 15l-4 14 15-4c3 1 7 2 11 2 16 0 28-11 28-25S52 8 36 8z" fill="#22c55e" /></svg><div class="badge">3</div></div>
+          <div class="mt" id="mt2" style="left: 800px; top: 360px;"><svg viewBox="0 0 72 72"><path d="M36 8C20 8 8 19 8 33c0 6 2 11 6 15l-4 14 15-4c3 1 7 2 11 2 16 0 28-11 28-25S52 8 36 8z" fill="#22c55e" /></svg><div class="badge">5</div></div>
+          <div class="mt" id="mt3" style="left: 60px; top: 1300px;"><svg viewBox="0 0 72 72"><rect x="10" y="14" width="52" height="44" rx="8" fill="none" stroke="#2342ff" stroke-width="6" /><path d="M10 26h52" stroke="#2342ff" stroke-width="6" /></svg><div class="badge">1</div></div>
+          <div class="mt" id="mt4" style="left: 870px; top: 1240px;"><svg viewBox="0 0 72 72"><path d="M36 8C20 8 8 19 8 33c0 6 2 11 6 15l-4 14 15-4c3 1 7 2 11 2 16 0 28-11 28-25S52 8 36 8z" fill="#22c55e" /></svg><div class="badge">2</div></div>
+          <div class="mt" id="mt5" style="left: 470px; top: 1500px;"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="26" fill="none" stroke="#ff9d1c" stroke-width="6" /><path d="M36 22v15l10 7" stroke="#ff9d1c" stroke-width="6" stroke-linecap="round" fill="none" /></svg></div>
+          <div class="mt" id="mt6" style="left: 460px; top: 250px;"><svg viewBox="0 0 72 72"><path d="M36 8C20 8 8 19 8 33c0 6 2 11 6 15l-4 14 15-4c3 1 7 2 11 2 16 0 28-11 28-25S52 8 36 8z" fill="#22c55e" /></svg><div class="badge">7</div></div>
+          <div id="s1t1" class="title tD">Les commandes arrivent sur <span class="acc">WhatsApp</span></div>
+          <div id="s1t2" class="title tD">et on s'y perd <span class="acc">vite</span></div>
+          <div id="orb" class="ab"></div>
+          <div id="s1t3" class="title tD">Et si tout se rangeait <span class="acc">tout seul ?</span></div>
         </div>
       </div>
 
-      <!-- barre des 4 étapes -->
-      <div id="stepsClip" class="clip ab full" data-start="5" data-duration="22.5" data-track-index="2">
-        <div id="steps" class="ab">
-          <div class="seg"><span class="segf" id="f1"></span></div>
-          <div class="seg"><span class="segf" id="f2"></span></div>
-          <div class="seg"><span class="segf" id="f3"></span></div>
-          <div class="seg"><span class="segf" id="f4"></span></div>
-        </div>
-      </div>
-
-      <!-- S2 : formulaire -->
+      <!-- S2 : formulaire (clair) -->
       <div id="s2" class="clip sc" data-start="5" data-duration="5.5" data-track-index="1">
+        <div class="bgL"><div class="ab blobA"></div><div class="ab blobB"></div><div class="ab blobC"></div></div>
         <div id="s2w" class="sc">
-          <div class="ab head" id="s2h"><div class="eyebrow">Étape 1</div><div class="h">Le vendeur note la commande</div></div>
-          <div class="phone" id="ph2">
-            <div class="screen" id="form">
-              <div class="ftitle">Nouvelle commande</div>
-              <div class="fsub">Formulaire sur téléphone</div>
-              <div class="flab" style="top: 240px;">Nom du client</div>
-              <div class="fin" style="top: 286px;"><span class="ftxt" id="t1">Jean</span></div>
-              <div class="flab" style="top: 430px;">Code produit</div>
-              <div class="fin" style="top: 476px;"><span class="ftxt" id="t2">P002 · Huile 5 L</span></div>
-              <div class="flab" style="top: 620px;">Quantité</div>
-              <div class="fin" style="top: 666px;"><span class="ftxt" id="t3">2</span></div>
-              <div id="fbtn">
-                <div class="btxt" id="fbtnTxt">Envoyer</div>
-                <div class="btxt" id="fbtnOk">✓ Commande enregistrée</div>
-              </div>
-              <div id="ripple"></div>
-              <svg id="cursor" viewBox="0 0 64 64"><path d="M10 6 L10 50 L22 39 L31 58 L39 54 L30 36 L46 36 Z" fill="#1d1b15" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" /></svg>
+          <div id="s2p" class="pill pillL"><span>ÉTAPE 1</span></div>
+          <div id="s2t" class="title tL">Le vendeur note <span class="accB">la commande</span></div>
+          <div id="form" class="card">
+            <div class="ftitle">Nouvelle commande</div>
+            <div class="flab" style="top: 190px;">Nom du client</div>
+            <div class="fin" style="top: 240px;"><span class="ftxt" id="ty1">Jean</span></div>
+            <div class="flab" style="top: 400px;">Produit</div>
+            <div class="fin" style="top: 450px;"><span class="ftxt" id="ty2">P002 · Huile 5 L</span></div>
+            <div class="flab" style="top: 610px;">Quantité</div>
+            <div class="fin" style="top: 660px; width: 300px;"><span class="ftxt" id="ty3">2</span></div>
+            <div id="fbtn" class="bluebtn">
+              <div class="btxt" id="fbtnTxt">Envoyer</div>
+              <div class="btxt" id="fbtnOk">✓ Enregistrée</div>
             </div>
+            <div id="ripple"></div>
+            <svg id="cursor" viewBox="0 0 64 64"><path d="M10 6 L10 50 L22 39 L31 58 L39 54 L30 36 L46 36 Z" fill="#0b1033" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" /></svg>
           </div>
         </div>
       </div>
 
-      <!-- S3 : tableau + stock -->
+      <!-- S3 : tableau + stock (clair) -->
       <div id="s3" class="clip sc" data-start="10.5" data-duration="5.5" data-track-index="1">
+        <div class="bgL"><div class="ab blobA"></div><div class="ab blobB"></div><div class="ab blobC"></div></div>
         <div id="s3w" class="sc">
-          <div class="ab head" id="s3h"><div class="eyebrow">Étape 2</div><div class="h">Elle arrive dans votre tableau</div></div>
-          <div id="sheet" class="ab">
-            <div class="sbar">Google Sheets · Commandes</div>
-            <div class="row hd"><div class="c1">Heure</div><div class="c2">Client</div><div class="c3">Produit</div><div class="c4">Qté</div><div class="c5">Montant</div></div>
-            <div class="row"><div class="c1">09:12</div><div class="c2">Marie</div><div class="c3">Riz 25 kg</div><div class="c4">1</div><div class="c5">36 $</div></div>
-            <div class="row"><div class="c1">11:40</div><div class="c2">Patrick</div><div class="c3">Huile 5 L</div><div class="c4">1</div><div class="c5">15 $</div></div>
-            <div class="row" id="newrow"><div class="c1">14:32</div><div class="c2">Jean</div><div class="c3">Huile 5 L</div><div class="c4">2</div><div class="c5">30 $</div></div>
-          </div>
-          <div id="stock" class="ab">
-            <div id="stockL" class="ab">STOCK · HUILE 5 L</div>
-            <div id="stockN" class="ab">3</div>
-            <div id="stockU" class="ab">bidons</div>
-            <div id="pill" class="ab">À commander</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- S4 : WhatsApp -->
-      <div id="s4" class="clip sc" data-start="16" data-duration="6.5" data-track-index="1">
-        <div id="s4w" class="sc">
-          <div class="ab head" id="s4h"><div class="eyebrow">Étape 3</div><div class="h">Vous êtes prévenu sur WhatsApp</div></div>
-          <div class="phone" id="ph4">
-            <div class="screen chat">
-              <div class="chead"><div class="cav"><div></div></div><div class="cname">Allegra Alertes</div><div class="cstat">compte professionnel</div></div>
-              <div class="msg" id="m1"><b>Nouvelle commande reçue.</b> Client : Jean. Produit : Huile 5 L, quantité 2. Montant : 30 $. Stock restant : 1 bidon.<span class="mtime">14:32</span></div>
-              <div class="msg" id="m2"><span class="tag">Alerte stock :</span> stock bas pour Huile 5 L (code P002). Il reste 1 bidon. Pensez à recommander.<span class="mtime">14:32</span></div>
+          <div id="s3p" class="pill pillL"><span>ÉTAPE 2</span></div>
+          <div id="s3t" class="title tL">Elle arrive dans <span class="accB">votre tableau</span></div>
+          <div id="sheet" class="card">
+            <div class="shead"><div class="sico"><svg viewBox="0 0 70 70"><rect x="17" y="15" width="36" height="40" rx="5" fill="none" stroke="#fff" stroke-width="5" /><path d="M17 29h36M17 42h36M33 15v40" stroke="#fff" stroke-width="4" /></svg></div>Commandes du jour</div>
+            <div class="rows">
+              <div class="row hd"><div class="c1">HEURE</div><div class="c2">CLIENT</div><div class="c3">PRODUIT</div><div class="c4">QTÉ</div><div class="c5">MONTANT</div></div>
+              <div class="row"><div class="c1">09:12</div><div class="c2">Marie</div><div class="c3">Riz 25 kg</div><div class="c4">1</div><div class="c5">36 $</div></div>
+              <div class="row"><div class="c1">11:40</div><div class="c2">Patrick</div><div class="c3">Huile 5 L</div><div class="c4">1</div><div class="c5">15 $</div></div>
+              <div class="row" id="newrow"><div class="c1">14:32</div><div class="c2">Jean</div><div class="c3">Huile 5 L</div><div class="c4">2</div><div class="c5">30 $</div></div>
             </div>
           </div>
+          <div id="stockTile" class="ab bluebtn"><div id="stockN" class="ab">3</div></div>
+          <div id="stockL1" class="ab">Huile 5 L</div>
+          <div id="stockL2" class="ab">bidons en stock</div>
+          <div id="pill3" class="ab">À commander</div>
         </div>
       </div>
 
-      <!-- S5 : bilan du soir -->
+      <!-- S4 : notifications WhatsApp (bleu nuit) -->
+      <div id="s4" class="clip sc" data-start="16" data-duration="6.5" data-track-index="1">
+        <div class="bgD"><svg class="rings ab" id="rings4" viewBox="0 0 1080 1920"><circle cx="540" cy="1100" r="260" /><circle cx="540" cy="1100" r="420" /><circle cx="540" cy="1100" r="600" /><circle cx="540" cy="1100" r="800" /></svg></div>
+        <div id="s4w" class="sc">
+          <div id="s4p" class="pill pillD"><span>ÉTAPE 3</span></div>
+          <div id="s4t" class="title tD">Vous êtes prévenu sur <span class="acc">WhatsApp</span></div>
+          <div class="notif" id="nt1">
+            <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · ALLEGRA ALERTES</div><div class="ntime">14:32</div></div>
+            <div class="nbody"><b>Nouvelle commande :</b> Jean, Huile 5 L x 2. Montant : 30 $. Stock restant : 1 bidon.</div>
+          </div>
+          <div class="notif" id="nt2">
+            <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · ALLEGRA ALERTES</div><div class="ntime">14:32</div></div>
+            <div class="nbody"><span class="tag">Alerte stock :</span> Huile 5 L, il reste 1 bidon. Pensez à recommander.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S5 : bilan du soir (bleu nuit, anneau orange) -->
       <div id="s5" class="clip sc" data-start="22.5" data-duration="5" data-track-index="1">
+        <div class="bgD"><svg class="rings ab" id="rings5" viewBox="0 0 1080 1920"><circle cx="540" cy="760" r="300" /><circle cx="540" cy="760" r="460" /><circle cx="540" cy="760" r="640" /></svg></div>
         <div id="s5w" class="sc">
-          <div class="ab head" id="s5h"><div class="eyebrow">Étape 4</div><div class="h">Chaque soir, votre bilan</div></div>
-          <svg id="clock" class="ab" viewBox="0 0 300 300">
-            <circle cx="150" cy="150" r="136" fill="none" stroke="#34312a" stroke-width="14" />
-            <circle id="ring" cx="150" cy="150" r="136" fill="none" stroke="#f4c518" stroke-width="14" stroke-linecap="round" style="transform-origin: 150px 150px; transform: rotate(-90deg);" />
+          <div id="s5p" class="pill pillD"><span>ÉTAPE 4</span></div>
+          <div id="s5t" class="title tD">Chaque soir, <span class="acc">votre bilan</span></div>
+          <svg id="ring5" class="ab" viewBox="0 0 400 400">
+            <circle id="ring5c" cx="200" cy="200" r="170" fill="none" stroke="#ff9d1c" stroke-width="26" stroke-linecap="round" style="transform-origin: 200px 200px; transform: rotate(-90deg); filter: drop-shadow(0 0 22px rgba(255,157,28,0.9));" />
           </svg>
-          <div id="clockT" class="ab">19:00</div>
+          <div id="ring5T" class="ab">19:00</div>
           <div id="bilan" class="ab">
             <div class="bt">Bilan de votre boutique</div>
             <div class="bl"><span>Commandes du jour</span><span>12</span></div>
@@ -229,128 +225,162 @@
             <div class="bl"><span>Marge brute</span><span>80 $</span></div>
             <div class="bl warn"><span>À commander</span><span>Huile 5 L</span></div>
           </div>
-          <div id="ex" class="ab">Chiffres d'exemple</div>
+          <div id="ex5" class="ab">Chiffres d'exemple</div>
         </div>
       </div>
 
-      <!-- S6 : vue d'ensemble -->
+      <!-- S6 : tout est automatique (clair, carrousel) -->
       <div id="s6" class="clip sc" data-start="27.5" data-duration="4.5" data-track-index="1">
+        <div class="bgL"><div class="ab blobA"></div><div class="ab blobB"></div><div class="ab blobC"></div></div>
         <div id="s6w" class="sc">
-          <div id="s6t" class="ab h">Tout se fait automatiquement</div>
-          <svg id="chainSvg" class="ab" viewBox="0 0 1080 1920"><path id="chain" d="M200 740 L200 1400" fill="none" stroke="#f4c518" stroke-width="8" stroke-linecap="round" stroke-dasharray="4 22" /></svg>
-          <div class="node" id="n1"><div class="nico"><svg viewBox="0 0 100 100"><rect x="18" y="8" width="64" height="84" rx="10" fill="none" stroke="#f4c518" stroke-width="7" /><path d="M32 34 H68 M32 52 H68 M32 70 H54" stroke="#f7f2e3" stroke-width="7" stroke-linecap="round" /></svg></div><div class="nlab"><span class="n1">1</span><span class="n2">Le formulaire</span></div></div>
-          <div class="node" id="n2"><div class="nico"><svg viewBox="0 0 100 100"><rect x="10" y="14" width="80" height="72" rx="8" fill="none" stroke="#f4c518" stroke-width="7" /><path d="M10 38 H90 M10 62 H90 M40 14 V86" stroke="#f7f2e3" stroke-width="6" /></svg></div><div class="nlab"><span class="n1">2</span><span class="n2">Le tableau et le stock</span></div></div>
-          <div class="node" id="n3"><div class="nico"><svg viewBox="0 0 100 100"><path d="M50 12 C28 12 12 28 12 48 C12 56 14 63 18 69 L13 88 L33 83 C38 86 44 87 50 87 C72 87 88 70 88 49 C88 28 72 12 50 12 Z" fill="none" stroke="#f4c518" stroke-width="7" stroke-linejoin="round" /><path d="M34 50 H66" stroke="#f7f2e3" stroke-width="7" stroke-linecap="round" /></svg></div><div class="nlab"><span class="n1">3</span><span class="n2">Les alertes WhatsApp</span></div></div>
-          <div class="node" id="n4"><div class="nico"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#f4c518" stroke-width="7" /><path d="M50 28 V50 L64 60" stroke="#f7f2e3" stroke-width="7" stroke-linecap="round" fill="none" /></svg></div><div class="nlab"><span class="n1">4</span><span class="n2">Le bilan du soir</span></div></div>
-          <div id="pulse" class="ab"></div>
+          <div id="s6t1" class="title tL">Tout se fait</div>
+          <div id="s6pill" class="ab bluebtn">automatiquement</div>
+          <div class="tile" id="t1"><div class="tw"></div><div class="tb" id="tb1"></div><svg viewBox="0 0 100 100"><rect x="20" y="10" width="60" height="80" rx="12" fill="none" stroke="#9aa9ff" stroke-width="8" /><path d="M34 36h32M34 54h32M34 72h18" stroke="#9aa9ff" stroke-width="8" stroke-linecap="round" /></svg></div>
+          <div class="tile" id="t2"><div class="tw"></div><div class="tb" id="tb2"></div><svg viewBox="0 0 100 100"><rect x="12" y="16" width="76" height="68" rx="10" fill="none" stroke="#9aa9ff" stroke-width="8" /><path d="M12 40h76M12 62h76M40 16v68" stroke="#9aa9ff" stroke-width="7" /></svg></div>
+          <div class="tile" id="t3"><div class="tw"></div><div class="tb" id="tb3"></div><svg viewBox="0 0 100 100"><path d="M50 14C29 14 13 29 13 47c0 7 2 13 6 18l-5 18 19-5c5 2 11 4 17 4 21 0 37-15 37-35S71 14 50 14z" fill="none" stroke="#9aa9ff" stroke-width="8" stroke-linejoin="round" /></svg></div>
+          <div class="tile" id="t4"><div class="tw"></div><div class="tb" id="tb4"></div><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="none" stroke="#9aa9ff" stroke-width="8" /><path d="M50 30v21l14 9" stroke="#9aa9ff" stroke-width="8" stroke-linecap="round" fill="none" /></svg></div>
+          <div class="tlab" id="l1">Formulaire</div>
+          <div class="tlab" id="l2">Tableau</div>
+          <div class="tlab" id="l3">WhatsApp</div>
+          <div class="tlab" id="l4">Bilan</div>
         </div>
       </div>
 
-      <!-- S7 : fin -->
+      <!-- S7 : fin (bleu nuit) -->
       <div id="s7" class="clip sc" data-start="32" data-duration="5" data-track-index="1">
+        <div class="bgD"><svg class="rings ab" id="rings7" viewBox="0 0 1080 1920"><circle cx="540" cy="680" r="320" /><circle cx="540" cy="680" r="480" /><circle cx="540" cy="680" r="660" /></svg></div>
         <div id="s7w" class="sc">
+          <div id="logoGlow" class="ab"></div>
           <div id="logo" class="ab"></div>
-          <div id="s7a" class="ab h"><span id="s7a1">On l'installe pour vous,</span><span id="s7b">avec vos produits.</span></div>
-          <div id="s7c" class="ab">Répondez à ce message</div>
+          <div id="s7a" class="title tD">On l'installe pour vous, <span class="acc">avec vos produits.</span></div>
+          <div id="s7c" class="ab bluebtn">Répondez à ce message</div>
         </div>
       </div>
     </div>
 
     <script>
       const tl = gsap.timeline({ paused: true });
-      const IN = (sel, at, from, d, ease) => tl.fromTo(sel, Object.assign({ opacity: 0 }, from), { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: d || 0.6, ease: ease || 'power3.out' }, at);
-      const OUT = (sel, at) => tl.to(sel, { opacity: 0, duration: 0.35, ease: 'power2.in' }, at);
 
-      // ---- fond : respiration lente (répétitions finies)
-      tl.fromTo('#glow', { x: 0, y: 0, scale: 1 }, { x: 160, y: 120, scale: 1.12, duration: 6, ease: 'sine.inOut', yoyo: true, repeat: 5 }, 0);
-      tl.fromTo('#glow2', { x: 0, y: 0 }, { x: -200, y: -80, duration: 7, ease: 'sine.inOut', yoyo: true, repeat: 4 }, 0);
-      tl.fromTo('#dots', { y: 0 }, { y: -54, duration: 37, ease: 'none' }, 0);
+      // Découpe un titre en mots (au montage, déterministe)
+      function words(sel) {
+        const el = document.querySelector(sel);
+        const walk = (node) => {
+          Array.from(node.childNodes).forEach((c) => {
+            if (c.nodeType === 3) {
+              const frag = document.createDocumentFragment();
+              c.textContent.split(/(\s+)/).forEach((p) => {
+                if (!p) return;
+                if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+                const s = document.createElement('span'); s.className = 'w'; s.textContent = p; frag.appendChild(s);
+              });
+              node.replaceChild(frag, c);
+            } else if (c.nodeType === 1) walk(c);
+          });
+        };
+        walk(el);
+        return el.querySelectorAll('.w');
+      }
+      // Mots qui arrivent avec flou (comme la référence)
+      function blurIn(sel, at, stag) {
+        const ws = words(sel);
+        tl.fromTo(ws, { opacity: 0, y: 40, filter: 'blur(14px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6, stagger: stag || 0.07, ease: 'power3.out' }, at);
+        return ws;
+      }
+      const sceneIn = (w, at) => tl.fromTo(w, { opacity: 0, filter: 'blur(16px)', scale: 1.04 }, { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 0.5, ease: 'power2.out' }, at);
+      const sceneOut = (w, at) => tl.to(w, { opacity: 0, filter: 'blur(18px)', scale: 0.97, duration: 0.35, ease: 'power2.in' }, at);
+      const pop = (sel, at, from) => tl.fromTo(sel, Object.assign({ opacity: 0, scale: 0.85, y: 50 }, from || {}), { opacity: 1, scale: 1, y: 0, x: 0, duration: 0.7, ease: 'expo.out' }, at);
+
+      // ---- fonds vivants (répétitions finies)
+      gsap.utils.toArray('.blobA').forEach((b) => tl.fromTo(b, { x: 0, y: 0 }, { x: 140, y: 120, duration: 5, ease: 'sine.inOut', yoyo: true, repeat: 7 }, 0));
+      gsap.utils.toArray('.blobB').forEach((b) => tl.fromTo(b, { x: 0, y: 0 }, { x: -160, y: -90, duration: 6, ease: 'sine.inOut', yoyo: true, repeat: 5 }, 0));
+      ['#rings1', '#rings4', '#rings5', '#rings7'].forEach((r) => tl.fromTo(r, { scale: 0.92, transformOrigin: '50% 50%' }, { scale: 1.06, duration: 4, ease: 'sine.inOut', yoyo: true, repeat: 8 }, 0));
 
       // ---- S1 (0 - 5)
-      IN('#s1t', 0.15, { y: 60 }, 0.7);
-      IN('#s1q', 0.65, { y: 30 }, 0.6, 'power2.out');
-      gsap.utils.toArray('.b1').forEach((el, i) => {
-        const r = [-4, 3, -2, 5, -3, 2][i];
-        tl.fromTo(el, { opacity: 0, scale: 0.4, y: 40, rotation: 0 }, { opacity: 1, scale: 1, y: 0, rotation: r, duration: 0.45, ease: 'power3.out' }, 1.0 + i * 0.28);
-        tl.to(el, { x: (i % 2 ? 14 : -14), duration: 0.18, ease: 'sine.inOut', yoyo: true, repeat: 5 }, 2.9 + i * 0.03);
+      ['#mt1', '#mt2', '#mt3', '#mt4', '#mt5', '#mt6'].forEach((m, i) => {
+        tl.fromTo(m, { opacity: 0, scale: 0.3, rotation: -12 }, { opacity: 1, scale: 1, rotation: [-8, 6, 10, -6, 4, -4][i], duration: 0.6, ease: 'expo.out' }, 0.2 + i * 0.09);
+        tl.to(m, { y: [30, -26, 22, -30, 18, -20][i], duration: 2.2, ease: 'sine.inOut' }, 0.8);
+        tl.to(m, { x: 540 - 66 - [120, 800, 60, 870, 470, 460][i], y: 900 - 66 - [420, 360, 1300, 1240, 1500, 250][i], scale: 0.2, opacity: 0, duration: 0.55, ease: 'power3.in' }, 3.15 + i * 0.03);
       });
-      tl.to('.b1', { opacity: 0.25, filter: 'blur(4px)', duration: 0.4, ease: 'power2.out' }, 3.8);
-      IN('#s1end', 3.9, { y: 50, scale: 0.92 }, 0.55, 'expo.out');
-      OUT('#s1w', 4.65);
-
-      // ---- barre des étapes
-      IN('#steps', 5.05, { y: -20 }, 0.5);
-      [['#f1', 5.2, 10.3], ['#f2', 10.7, 15.8], ['#f3', 16.2, 22.3], ['#f4', 22.7, 27.3]].forEach(([s, a, b]) => {
-        tl.fromTo(s, { scaleX: 0 }, { scaleX: 1, duration: b - a, ease: 'none' }, a);
-      });
+      blurIn('#s1t1', 0.25, 0.08);
+      tl.to('#s1t1', { opacity: 0, filter: 'blur(16px)', y: -30, duration: 0.35, ease: 'power2.in' }, 1.75);
+      blurIn('#s1t2', 1.95, 0.08);
+      tl.to('#s1t2', { opacity: 0, filter: 'blur(16px)', y: -30, duration: 0.35, ease: 'power2.in' }, 3.1);
+      tl.fromTo('#orb', { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.7, ease: 'expo.out' }, 3.55);
+      blurIn('#s1t3', 3.7, 0.07);
+      sceneOut('#s1w', 4.65);
 
       // ---- S2 formulaire (5 - 10.5)
-      IN('#s2h', 5.05, { x: -60 }, 0.6);
-      IN('#ph2', 5.25, { y: 220 }, 0.8, 'expo.out');
-      [['#t1', 6.1, 4], ['#t2', 6.7, 16], ['#t3', 7.6, 1]].forEach(([s, a, n]) => {
+      sceneIn('#s2w', 5.0);
+      blurIn('#s2t', 5.15, 0.07);
+      pop('#form', 5.45, { y: 160 });
+      [['#ty1', 6.3, 4], ['#ty2', 6.9, 16], ['#ty3', 7.75, 1]].forEach(([s, a, n]) => {
         tl.fromTo(s, { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: Math.max(0.15, n * 0.045), ease: 'steps(' + n + ')' }, a);
       });
-      tl.fromTo('#cursor', { x: 470, y: 1040, opacity: 0 }, { x: 470, y: 1040, opacity: 1, duration: 0.2 }, 7.7);
-      tl.to('#cursor', { x: 300, y: 905, duration: 0.6, ease: 'back.out(1.3)' }, 7.9);
-      tl.to('#cursor', { scale: 0.85, duration: 0.08, ease: 'power2.in', yoyo: true, repeat: 1 }, 8.65);
-      tl.to('#fbtn', { scale: 0.96, duration: 0.08, ease: 'power2.in', yoyo: true, repeat: 1 }, 8.65);
-      tl.fromTo('#ripple', { scale: 0, opacity: 1 }, { scale: 5, opacity: 0, duration: 0.7, ease: 'power2.out', immediateRender: true }, 8.68);
-      tl.fromTo('#fbtnOk', { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power1.out' }, 8.8);
-      tl.fromTo('#fbtnTxt', { opacity: 1 }, { opacity: 0, duration: 0.2 }, 8.8);
-      tl.to('#cursor', { opacity: 0, duration: 0.3 }, 9.2);
-      OUT('#s2w', 10.15);
+      tl.fromTo('#cursor', { x: 640, y: 1000, opacity: 0 }, { x: 640, y: 1000, opacity: 1, duration: 0.2 }, 7.8);
+      tl.to('#cursor', { x: 400, y: 860, duration: 0.6, ease: 'back.out(1.3)' }, 8.0);
+      tl.to('#cursor', { scale: 0.85, duration: 0.08, ease: 'power2.in', yoyo: true, repeat: 1 }, 8.7);
+      tl.to('#fbtn', { scale: 0.96, duration: 0.08, ease: 'power2.in', yoyo: true, repeat: 1 }, 8.7);
+      tl.fromTo('#ripple', { scale: 0, opacity: 1 }, { scale: 6, opacity: 0, duration: 0.8, ease: 'power2.out' }, 8.72);
+      tl.fromTo('#fbtnOk', { opacity: 0 }, { opacity: 1, duration: 0.25 }, 8.85);
+      tl.fromTo('#fbtnTxt', { opacity: 1 }, { opacity: 0, duration: 0.2 }, 8.85);
+      tl.to('#cursor', { opacity: 0, duration: 0.3 }, 9.3);
+      sceneOut('#s2w', 10.15);
 
       // ---- S3 tableau (10.5 - 16)
-      IN('#s3h', 10.55, { x: -60 }, 0.6);
-      IN('#sheet', 10.7, { y: 120 }, 0.7, 'expo.out');
-      tl.fromTo('#newrow', { opacity: 0, x: 960 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 11.6);
-      tl.to('#newrow', { backgroundColor: '#f4c518', duration: 0.25, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 12.2);
-      IN('#stock', 12.5, { y: 80 }, 0.6);
+      sceneIn('#s3w', 10.5);
+      blurIn('#s3t', 10.65, 0.07);
+      pop('#sheet', 10.9, { y: 160 });
+      tl.fromTo('#newrow', { opacity: 0, x: 400, filter: 'blur(10px)' }, { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.6, ease: 'expo.out' }, 11.7);
+      tl.to('#newrow', { backgroundColor: 'rgba(35,66,255,0.28)', duration: 0.3, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 12.3);
+      pop('#stockTile', 12.6, { scale: 0.5, y: 0 });
+      tl.fromTo(['#stockL1', '#stockL2'], { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.5, stagger: 0.1, ease: 'power3.out' }, 12.8);
       const n = { v: 3 };
-      tl.fromTo(n, { v: 3 }, { v: 1, duration: 0.9, ease: 'power2.inOut', onUpdate: () => { document.getElementById('stockN').textContent = String(Math.round(n.v)); } }, 13.2);
-      tl.fromTo('#stockN', { color: '#f7f2e3' }, { color: '#f59e2b', duration: 0.4 }, 14.0);
-      tl.fromTo('#pill', { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' }, 14.2);
-      tl.to('#pill', { scale: 1.06, duration: 0.3, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 14.8);
-      OUT('#s3w', 15.65);
+      tl.fromTo(n, { v: 3 }, { v: 1, duration: 0.9, ease: 'power2.inOut', onUpdate: () => { document.getElementById('stockN').textContent = String(Math.round(n.v)); } }, 13.3);
+      tl.fromTo('#pill3', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'expo.out' }, 14.25);
+      tl.to('#pill3', { scale: 1.06, duration: 0.3, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 14.9);
+      sceneOut('#s3w', 15.65);
 
-      // ---- S4 WhatsApp (16 - 22.5)
-      IN('#s4h', 16.05, { x: -60 }, 0.6);
-      IN('#ph4', 16.25, { y: 220 }, 0.8, 'expo.out');
-      tl.fromTo('#m1', { opacity: 0, scale: 0.6, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 17.3);
-      tl.fromTo('#m2', { opacity: 0, scale: 0.6, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 19.4);
-      tl.to('#m2', { boxShadow: '0 0 0 6px rgba(245,158,43,0.9)', duration: 0.35, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 20.0);
-      OUT('#s4w', 22.15);
+      // ---- S4 notifications (16 - 22.5)
+      sceneIn('#s4w', 16.0);
+      blurIn('#s4t', 16.15, 0.07);
+      tl.fromTo('#nt1', { opacity: 0, y: -260, filter: 'blur(14px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out' }, 17.3);
+      tl.fromTo('#nt2', { opacity: 0, y: -260, filter: 'blur(14px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out' }, 19.4);
+      tl.to('#nt2', { boxShadow: '0 0 0 8px rgba(255,157,28,0.9), 0 30px 80px rgba(0,0,0,0.45)', duration: 0.35, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 20.2);
+      sceneOut('#s4w', 22.15);
 
       // ---- S5 bilan (22.5 - 27.5)
-      IN('#s5h', 22.55, { x: -60 }, 0.6);
-      const ring = document.getElementById('ring');
-      const L = 2 * Math.PI * 136;
-      ring.style.strokeDasharray = String(L);
-      tl.fromTo(ring, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: 1.1, ease: 'power2.inOut' }, 22.8);
-      IN('#clockT', 22.9, { scale: 0.7 }, 0.6);
-      IN('#bilan', 24.0, { y: 80, scale: 0.9 }, 0.6);
+      sceneIn('#s5w', 22.5);
+      blurIn('#s5t', 22.65, 0.07);
+      const rc = document.getElementById('ring5c');
+      const RL = 2 * Math.PI * 170;
+      rc.style.strokeDasharray = String(RL);
+      tl.fromTo(rc, { strokeDashoffset: RL }, { strokeDashoffset: 0, duration: 1.2, ease: 'power2.inOut' }, 22.9);
+      tl.fromTo('#ring5T', { opacity: 0, scale: 0.6, filter: 'blur(12px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.6, ease: 'expo.out' }, 23.2);
+      pop('#bilan', 24.0, { y: 140 });
       tl.fromTo('#bilan .bl', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.12, ease: 'power2.out' }, 24.4);
-      IN('#ex', 25.2, { y: 10 }, 0.4, 'power1.out');
-      OUT('#s5w', 27.15);
+      tl.fromTo('#ex5', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 25.2);
+      sceneOut('#s5w', 27.15);
 
-      // ---- S6 vue d'ensemble (27.5 - 32)
-      IN('#s6t', 27.55, { y: 50 }, 0.6);
-      ['#n1', '#n2', '#n3', '#n4'].forEach((s, i) => IN(s, 27.9 + i * 0.12, { x: -80 }, 0.55));
-      tl.fromTo('#chain', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 28.4);
-      tl.to('#chain', { strokeDashoffset: -104, duration: 3.4, ease: 'none' }, 28.4);
-      tl.fromTo('#pulse', { opacity: 0, y: 0 }, { opacity: 1, y: 0, duration: 0.2 }, 28.7);
-      tl.to('#pulse', { y: 840, duration: 2.4, ease: 'power1.inOut' }, 28.9);
-      ['#n1', '#n2', '#n3', '#n4'].forEach((s, i) => {
-        tl.fromTo(s + ' .nico', { backgroundColor: '#23211a' }, { backgroundColor: '#5a4a10', duration: 0.25, yoyo: true, repeat: 1 }, 28.85 + i * 0.8);
+      // ---- S6 carrousel (27.5 - 32)
+      sceneIn('#s6w', 27.5);
+      blurIn('#s6t1', 27.6, 0.08);
+      tl.fromTo('#s6pill', { opacity: 0, scale: 0.6, filter: 'blur(12px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out' }, 27.95);
+      ['#t1', '#t2', '#t3', '#t4'].forEach((t, i) => pop(t, 28.3 + i * 0.08, { y: 80 }));
+      tl.fromTo(['#l1', '#l2', '#l3', '#l4'], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.08 }, 28.5);
+      ['#tb1', '#tb2', '#tb3', '#tb4'].forEach((b, i) => {
+        tl.fromTo(b, { opacity: 0 }, { opacity: 1, duration: 0.25 }, 29.0 + i * 0.6);
+        tl.to(['#t1', '#t2', '#t3', '#t4'][i], { scale: 1.12, duration: 0.25, ease: 'power2.out', yoyo: true, repeat: 1 }, 29.0 + i * 0.6);
       });
-      OUT('#s6w', 31.65);
+      sceneOut('#s6w', 31.65);
 
       // ---- S7 fin (32 - 37)
-      tl.fromTo('#logo', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.8, ease: 'expo.out' }, 32.1);
-      IN('#s7a1', 32.8, { y: 40 }, 0.6);
-      IN('#s7b', 33.05, { y: 40 }, 0.6);
-      IN('#s7c', 33.6, { scale: 0.8 }, 0.5);
-      tl.to('#s7c', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 3 }, 34.3);
+      sceneIn('#s7w', 32.0);
+      tl.fromTo('#logoGlow', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.out' }, 32.1);
+      tl.fromTo('#logo', { opacity: 0, scale: 0.7, filter: 'blur(16px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.9, ease: 'expo.out' }, 32.15);
+      blurIn('#s7a', 32.8, 0.07);
+      tl.fromTo('#s7c', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'expo.out' }, 33.7);
+      tl.to('#s7c', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 3 }, 34.4);
+      tl.to('#logoGlow', { scale: 1.12, duration: 1.2, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 33.4);
 
       window.__timelines['main'] = tl;
     </script>
