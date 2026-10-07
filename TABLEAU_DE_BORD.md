@@ -32,6 +32,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 | Compétence → revenu, ép. 1 (montage vidéo) | Vidéo livrée | `contenu-organique/video-competence-montage/` |
 | Compétence → revenu, ép. 2 (menuiserie, version histoire) | Script prêt, attente de l'audio de Mike | `contenu-organique/apres-midi_metiers_artisanaux.md` |
 | Semaine « Turquie → RDC » (le soir) | Plan + script du mardi prêts | `contenu-organique/semaine_turquie_rdc.md` |
+| Pub « Mon histoire » (longue 1 min 20 + courte 30 s) | Script prêt, 4 passages à compléter par Mike (vécu, déclic, premier paiement), puis photos + voix | `campagne-pub/mon_histoire_script.md` |
 
 ## 4. Produits
 
@@ -44,6 +45,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 ## 5. En attente de Mike
 
 - Audio de l'épisode 2 (menuiserie)
+- Pub « Mon histoire » : ton déclic, ton vécu, ta première rentrée d'argent, tes photos et ta voix
 - Lien Chariow du guide et vrais liens vidéo / communauté (PDF interactif)
 - Prix de la formule mensuelle (Ruche du Terroir) et des services Chariow
 - La suite de la vidéo de l'ami informatique + son accord écrit
