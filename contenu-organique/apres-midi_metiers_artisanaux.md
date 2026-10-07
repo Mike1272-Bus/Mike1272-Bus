@@ -17,7 +17,7 @@ Ordre conseillé : menuiserie (mardi), couture, coiffure, pâtisserie, perles, c
 
 ## Script de mardi après-midi : épisode 2, la menuiserie (version histoire)
 
-Série « Transformer une compétence en revenu ». Intro de Mike, puis une histoire : Patrick est présenté comme imaginé (« Imagine Patrick »), et la fin révèle le vrai cas, oncle David. Mots simples : « avance » plutôt qu'« acompte », et Chariow présenté comme « une plateforme de paiement en ligne ». Environ 296 mots, autour de 1 min 30 à 1 min 35.
+Série « Transformer une compétence en revenu ». Intro de Mike, puis une histoire : Patrick est présenté comme imaginé (« Imagine Patrick »), et la fin révèle le vrai cas, oncle David. Mots simples : « avance » plutôt qu'« acompte », et Chariow présenté comme « une plateforme de paiement en ligne ». Environ 296 mots, autour de 1 min 40 (un peu moins après le traitement de la voix).
 
 | Moment | À l'écran |
 |---|---|
