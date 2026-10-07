@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 700; src: url('assets/fonts/bricolage-700.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      :root {
+        --bg: #13120d; --fg: #f7f2e3; --muted: #b9b29c; --accent: #f4c518;
+        --panel: #23211a; --line: #3a372c; --orange: #f59e2b; --red: #ef5350; --wa: #25d366;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; color: var(--fg); font-family: 'Work Sans', sans-serif; background: var(--bg); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .sc { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .h { font-family: 'Bricolage'; font-weight: 800; line-height: 1.05; letter-spacing: -0.01em; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent); }
+      .blk { display: block; }
+
+      /* fond */
+      #glow { left: -260px; top: -160px; width: 1200px; height: 1200px; border-radius: 50%; background: radial-gradient(circle, rgba(244,197,24,0.22) 0%, rgba(244,197,24,0) 62%); }
+      #glow2 { left: 300px; top: 1100px; width: 1000px; height: 1000px; border-radius: 50%; background: radial-gradient(circle, rgba(37,211,102,0.10) 0%, rgba(37,211,102,0) 60%); }
+      #dots { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0.18;
+        background-image: radial-gradient(circle, #8a8064 2px, transparent 2.5px); background-size: 54px 54px; }
+      #ghost { left: -40px; top: 1640px; width: 2400px; font-family: 'Bricolage'; font-weight: 800; font-size: 260px; color: rgba(244,197,24,0.07); white-space: nowrap; }
+
+      /* barre d'étapes */
+      #steps { left: 90px; top: 100px; width: 900px; height: 14px; display: flex; gap: 18px; }
+      .seg { flex: 1; height: 14px; border-radius: 7px; background: #34312a; overflow: hidden; }
+      .segf { display: block; width: 100%; height: 100%; background: var(--accent); transform-origin: 0 50%; }
+
+      .head { left: 90px; top: 190px; width: 900px; }
+      .head .h { font-size: 88px; margin-top: 22px; }
+
+      /* S1 */
+      #s1t { left: 90px; top: 230px; width: 900px; font-size: 90px; }
+      #s1q { left: 90px; top: 590px; width: 900px; font-size: 50px; color: var(--muted); font-family: 'Work Sans'; font-weight: 700; line-height: 1.3; }
+      .bub { position: absolute; padding: 26px 34px; border-radius: 34px 34px 34px 8px; background: #2c2a22; color: #ece6d2; font-size: 38px; white-space: nowrap; box-shadow: 0 18px 40px rgba(0,0,0,0.45); }
+      .bub.me { border-radius: 34px 34px 8px 34px; background: #1f4d36; }
+      #s1end { left: 90px; top: 1560px; width: 900px; font-size: 84px; color: var(--accent); }
+
+      /* téléphone */
+      .phone { position: absolute; left: 210px; top: 540px; width: 660px; height: 1180px; border-radius: 76px; background: #0c0b08; border: 4px solid #4a4638; box-shadow: 0 40px 90px rgba(0,0,0,0.6), 0 0 0 10px #1d1b15; }
+      .screen { position: absolute; left: 20px; top: 20px; width: 612px; height: 1132px; border-radius: 58px; overflow: hidden; }
+
+      /* S2 formulaire */
+      #form { background: #f6f3ea; color: #1d1b15; }
+      .ftitle { position: absolute; left: 48px; top: 90px; font-family: 'Bricolage'; font-weight: 800; font-size: 52px; color: #1d1b15; }
+      .fsub { position: absolute; left: 48px; top: 160px; font-size: 26px; color: #5e5847; }
+      .flab { position: absolute; left: 48px; font-size: 28px; font-weight: 700; color: #3d3a30; }
+      .fin { position: absolute; left: 48px; width: 516px; height: 96px; border-radius: 20px; background: #fff; border: 3px solid #d9d3c2; }
+      .ftxt { position: absolute; left: 28px; top: 22px; display: inline-block; font-size: 40px; font-weight: 700; color: #1d1b15; white-space: nowrap; }
+      #fbtn { position: absolute; left: 48px; top: 860px; width: 516px; height: 116px; border-radius: 26px; background: var(--accent); }
+      .btxt { position: absolute; left: 0; top: 0; width: 516px; height: 116px; line-height: 116px; text-align: center; font-family: 'Bricolage'; font-weight: 800; font-size: 44px; color: #1d1b15; }
+      #fbtnOk { background: #1e7a46; border-radius: 26px; color: #fff; font-size: 36px; white-space: nowrap; }
+      #cursor { position: absolute; left: 0; top: 0; width: 64px; height: 64px; }
+      #ripple { position: absolute; left: 256px; top: 868px; width: 100px; height: 100px; border-radius: 50%; border: 5px solid #1e7a46; }
+
+      /* S3 tableau */
+      #sheet { left: 60px; top: 560px; width: 960px; border-radius: 28px; overflow: hidden; background: #fbfaf5; box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
+      .sbar { height: 70px; background: #1e7a46; color: #fff; font-weight: 700; font-size: 30px; line-height: 70px; padding-left: 36px; }
+      .row { display: flex; height: 96px; border-bottom: 2px solid #e3dece; font-size: 32px; color: #2b2820; }
+      .row div { line-height: 96px; padding-left: 22px; white-space: nowrap; overflow: hidden; border-right: 2px solid #e3dece; }
+      .row.hd { height: 76px; background: #efeadb; font-weight: 700; font-size: 28px; color: #4c4738; }
+      .row.hd div { line-height: 76px; }
+      .c1 { width: 160px; } .c2 { width: 170px; } .c3 { width: 300px; } .c4 { width: 110px; } .c5 { width: 220px; border-right: none !important; }
+      #newrow { background: #fff6cf; font-weight: 700; }
+      #stock { left: 60px; top: 1200px; width: 960px; height: 420px; border-radius: 34px; background: var(--panel); border: 3px solid var(--line); }
+      #stockL { left: 60px; top: 56px; font-size: 34px; color: var(--muted); font-weight: 700; letter-spacing: 0.04em; }
+      #stockN { left: 60px; top: 110px; width: 260px; font-family: 'Bricolage'; font-weight: 800; font-size: 210px; line-height: 1; color: var(--fg); font-variant-numeric: tabular-nums; }
+      #stockU { left: 300px; top: 220px; font-size: 40px; color: var(--muted); }
+      #pill { left: 560px; top: 160px; width: 340px; height: 104px; border-radius: 52px; background: var(--orange); color: #1d1b15; font-family: 'Bricolage'; font-weight: 800; font-size: 44px; line-height: 104px; text-align: center; }
+
+      /* S4 / S5 chat */
+      .chat { background: #0b141a; }
+      .chead { position: absolute; left: 0; top: 0; width: 612px; height: 190px; background: #1f2c34; }
+      .cav { position: absolute; left: 44px; top: 82px; width: 84px; height: 84px; border-radius: 50%; background: #13120d; overflow: hidden; }
+      .cav div { position: absolute; left: 10px; top: 18px; width: 64px; height: 50px; background: url('assets/img/logo_adg.png') center / contain no-repeat; }
+      .cname { position: absolute; left: 150px; top: 88px; font-size: 34px; font-weight: 700; color: #e9edef; }
+      .cstat { position: absolute; left: 150px; top: 132px; font-size: 24px; color: #8696a0; }
+      .msg { position: absolute; left: 30px; width: 520px; padding: 26px 30px 54px; border-radius: 8px 30px 30px 30px; background: #202c33; color: #e9edef; font-size: 31px; line-height: 1.38; }
+      .msg b { color: #fff; }
+      .mtime { position: absolute; right: 22px; bottom: 14px; font-size: 22px; color: #8696a0; }
+      #m1 { top: 250px; } #m2 { top: 690px; }
+      #m2 .tag { color: var(--orange); font-weight: 700; }
+      #m2 { box-shadow: 0 0 0 0 rgba(245,158,43,0); }
+
+      #clock { left: 390px; top: 520px; width: 300px; height: 300px; }
+      #clockT { left: 390px; top: 520px; width: 300px; height: 300px; line-height: 300px; text-align: center; font-family: 'Bricolage'; font-weight: 800; font-size: 84px; }
+      #bilan { left: 120px; top: 900px; width: 840px; padding: 44px 50px 70px; border-radius: 10px 40px 40px 40px; background: #202c33; color: #e9edef; font-size: 40px; line-height: 1.5; box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
+      #bilan .bt { font-family: 'Bricolage'; font-weight: 800; font-size: 46px; color: #fff; margin-bottom: 14px; }
+      .bl { display: flex; justify-content: space-between; border-bottom: 2px solid #2f3d45; padding: 8px 0; }
+      .bl span:last-child { font-weight: 700; color: #fff; }
+      .bl.warn span:last-child { color: var(--orange); }
+      #ex { left: 120px; top: 1660px; width: 840px; text-align: center; font-size: 28px; color: var(--muted); font-style: italic; }
+
+      /* S6 vue d'ensemble */
+      #s6t { left: 90px; top: 250px; width: 900px; font-size: 92px; }
+      #chainSvg { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .node { position: absolute; left: 110px; width: 860px; height: 180px; }
+      .nico { position: absolute; left: 0; top: 0; width: 180px; height: 180px; border-radius: 44px; background: var(--panel); border: 4px solid var(--accent); }
+      .nico svg { position: absolute; left: 40px; top: 40px; width: 100px; height: 100px; }
+      .nlab { position: absolute; left: 220px; top: 0; height: 180px; display: flex; flex-direction: column; justify-content: center; }
+      .nlab .n1 { font-size: 30px; font-weight: 700; color: var(--accent); letter-spacing: 0.2em; }
+      .nlab .n2 { font-family: 'Bricolage'; font-weight: 800; font-size: 54px; line-height: 1.1; }
+      #n1 { top: 560px; } #n2 { top: 840px; } #n3 { top: 1120px; } #n4 { top: 1400px; }
+      #pulse { left: 182px; top: 632px; width: 36px; height: 36px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 30px 10px rgba(244,197,24,0.5); }
+
+      /* S7 fin */
+      #logo { left: 260px; top: 470px; width: 560px; height: 443px; background: url('assets/img/logo_adg.png') center / contain no-repeat; }
+      #s7a { left: 60px; top: 1030px; width: 960px; text-align: center; font-size: 80px; }
+      #s7a span { display: block; }
+      #s7b { color: var(--accent); }
+      #s7c { left: 140px; top: 1400px; width: 800px; height: 120px; border-radius: 60px; background: var(--wa); color: #0b2415; text-align: center; line-height: 120px; font-weight: 700; font-size: 40px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="37" data-width="1080" data-height="1920">
+      <!-- fond permanent -->
+      <div id="bgwrap" class="clip ab full" data-start="0" data-duration="37" data-track-index="0">
+        <div id="dots" class="ab"></div>
+        <div id="glow" class="ab"></div>
+        <div id="glow2" class="ab"></div>
+      </div>
+
+      <!-- S1 : le problème -->
+      <div id="s1" class="clip sc" data-start="0" data-duration="5" data-track-index="1">
+        <div id="s1w" class="sc">
+          <div id="s1t" class="ab h">Vos commandes arrivent sur WhatsApp.</div>
+          <div id="s1q" class="ab">Qui a payé ? Qu'est-ce qu'il reste en stock ?</div>
+          <div class="bub b1" style="left: 90px; top: 760px;">Je veux 2 bidons d'huile</div>
+          <div class="bub me b1" style="left: 470px; top: 900px;">C'est noté 👍</div>
+          <div class="bub b1" style="left: 150px; top: 1040px;">J'ai payé hier soir</div>
+          <div class="bub b1" style="left: 380px; top: 1180px;">Il reste du riz ?</div>
+          <div class="bub b1" style="left: 110px; top: 1320px;">C'est livré quand ?</div>
+          <div class="bub me b1" style="left: 520px; top: 1440px;">Je vérifie…</div>
+          <div id="s1end" class="ab h">Et si tout se rangeait tout seul ?</div>
+        </div>
+      </div>
+
+      <!-- barre des 4 étapes -->
+      <div id="stepsClip" class="clip ab full" data-start="5" data-duration="22.5" data-track-index="2">
+        <div id="steps" class="ab">
+          <div class="seg"><span class="segf" id="f1"></span></div>
+          <div class="seg"><span class="segf" id="f2"></span></div>
+          <div class="seg"><span class="segf" id="f3"></span></div>
+          <div class="seg"><span class="segf" id="f4"></span></div>
+        </div>
+      </div>
+
+      <!-- S2 : formulaire -->
+      <div id="s2" class="clip sc" data-start="5" data-duration="5.5" data-track-index="1">
+        <div id="s2w" class="sc">
+          <div class="ab head" id="s2h"><div class="eyebrow">Étape 1</div><div class="h">Le vendeur note la commande</div></div>
+          <div class="phone" id="ph2">
+            <div class="screen" id="form">
+              <div class="ftitle">Nouvelle commande</div>
+              <div class="fsub">Formulaire sur téléphone</div>
+              <div class="flab" style="top: 240px;">Nom du client</div>
+              <div class="fin" style="top: 286px;"><span class="ftxt" id="t1">Jean</span></div>
+              <div class="flab" style="top: 430px;">Code produit</div>
+              <div class="fin" style="top: 476px;"><span class="ftxt" id="t2">P002 · Huile 5 L</span></div>
+              <div class="flab" style="top: 620px;">Quantité</div>
+              <div class="fin" style="top: 666px;"><span class="ftxt" id="t3">2</span></div>
+              <div id="fbtn">
+                <div class="btxt" id="fbtnTxt">Envoyer</div>
+                <div class="btxt" id="fbtnOk">✓ Commande enregistrée</div>
+              </div>
+              <div id="ripple"></div>
+              <svg id="cursor" viewBox="0 0 64 64"><path d="M10 6 L10 50 L22 39 L31 58 L39 54 L30 36 L46 36 Z" fill="#1d1b15" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" /></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S3 : tableau + stock -->
+      <div id="s3" class="clip sc" data-start="10.5" data-duration="5.5" data-track-index="1">
+        <div id="s3w" class="sc">
+          <div class="ab head" id="s3h"><div class="eyebrow">Étape 2</div><div class="h">Elle arrive dans votre tableau</div></div>
+          <div id="sheet" class="ab">
+            <div class="sbar">Google Sheets · Commandes</div>
+            <div class="row hd"><div class="c1">Heure</div><div class="c2">Client</div><div class="c3">Produit</div><div class="c4">Qté</div><div class="c5">Montant</div></div>
+            <div class="row"><div class="c1">09:12</div><div class="c2">Marie</div><div class="c3">Riz 25 kg</div><div class="c4">1</div><div class="c5">36 $</div></div>
+            <div class="row"><div class="c1">11:40</div><div class="c2">Patrick</div><div class="c3">Huile 5 L</div><div class="c4">1</div><div class="c5">15 $</div></div>
+            <div class="row" id="newrow"><div class="c1">14:32</div><div class="c2">Jean</div><div class="c3">Huile 5 L</div><div class="c4">2</div><div class="c5">30 $</div></div>
+          </div>
+          <div id="stock" class="ab">
+            <div id="stockL" class="ab">STOCK · HUILE 5 L</div>
+            <div id="stockN" class="ab">3</div>
+            <div id="stockU" class="ab">bidons</div>
+            <div id="pill" class="ab">À commander</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S4 : WhatsApp -->
+      <div id="s4" class="clip sc" data-start="16" data-duration="6.5" data-track-index="1">
+        <div id="s4w" class="sc">
+          <div class="ab head" id="s4h"><div class="eyebrow">Étape 3</div><div class="h">Vous êtes prévenu sur WhatsApp</div></div>
+          <div class="phone" id="ph4">
+            <div class="screen chat">
+              <div class="chead"><div class="cav"><div></div></div><div class="cname">Allegra Alertes</div><div class="cstat">compte professionnel</div></div>
+              <div class="msg" id="m1"><b>Nouvelle commande reçue.</b> Client : Jean. Produit : Huile 5 L, quantité 2. Montant : 30 $. Stock restant : 1 bidon.<span class="mtime">14:32</span></div>
+              <div class="msg" id="m2"><span class="tag">Alerte stock :</span> stock bas pour Huile 5 L (code P002). Il reste 1 bidon. Pensez à recommander.<span class="mtime">14:32</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S5 : bilan du soir -->
+      <div id="s5" class="clip sc" data-start="22.5" data-duration="5" data-track-index="1">
+        <div id="s5w" class="sc">
+          <div class="ab head" id="s5h"><div class="eyebrow">Étape 4</div><div class="h">Chaque soir, votre bilan</div></div>
+          <svg id="clock" class="ab" viewBox="0 0 300 300">
+            <circle cx="150" cy="150" r="136" fill="none" stroke="#34312a" stroke-width="14" />
+            <circle id="ring" cx="150" cy="150" r="136" fill="none" stroke="#f4c518" stroke-width="14" stroke-linecap="round" style="transform-origin: 150px 150px; transform: rotate(-90deg);" />
+          </svg>
+          <div id="clockT" class="ab">19:00</div>
+          <div id="bilan" class="ab">
+            <div class="bt">Bilan de votre boutique</div>
+            <div class="bl"><span>Commandes du jour</span><span>12</span></div>
+            <div class="bl"><span>Ventes</span><span>450 $</span></div>
+            <div class="bl"><span>Marge brute</span><span>80 $</span></div>
+            <div class="bl warn"><span>À commander</span><span>Huile 5 L</span></div>
+          </div>
+          <div id="ex" class="ab">Chiffres d'exemple</div>
+        </div>
+      </div>
+
+      <!-- S6 : vue d'ensemble -->
+      <div id="s6" class="clip sc" data-start="27.5" data-duration="4.5" data-track-index="1">
+        <div id="s6w" class="sc">
+          <div id="s6t" class="ab h">Tout se fait automatiquement</div>
+          <svg id="chainSvg" class="ab" viewBox="0 0 1080 1920"><path id="chain" d="M200 740 L200 1400" fill="none" stroke="#f4c518" stroke-width="8" stroke-linecap="round" stroke-dasharray="4 22" /></svg>
+          <div class="node" id="n1"><div class="nico"><svg viewBox="0 0 100 100"><rect x="18" y="8" width="64" height="84" rx="10" fill="none" stroke="#f4c518" stroke-width="7" /><path d="M32 34 H68 M32 52 H68 M32 70 H54" stroke="#f7f2e3" stroke-width="7" stroke-linecap="round" /></svg></div><div class="nlab"><span class="n1">1</span><span class="n2">Le formulaire</span></div></div>
+          <div class="node" id="n2"><div class="nico"><svg viewBox="0 0 100 100"><rect x="10" y="14" width="80" height="72" rx="8" fill="none" stroke="#f4c518" stroke-width="7" /><path d="M10 38 H90 M10 62 H90 M40 14 V86" stroke="#f7f2e3" stroke-width="6" /></svg></div><div class="nlab"><span class="n1">2</span><span class="n2">Le tableau et le stock</span></div></div>
+          <div class="node" id="n3"><div class="nico"><svg viewBox="0 0 100 100"><path d="M50 12 C28 12 12 28 12 48 C12 56 14 63 18 69 L13 88 L33 83 C38 86 44 87 50 87 C72 87 88 70 88 49 C88 28 72 12 50 12 Z" fill="none" stroke="#f4c518" stroke-width="7" stroke-linejoin="round" /><path d="M34 50 H66" stroke="#f7f2e3" stroke-width="7" stroke-linecap="round" /></svg></div><div class="nlab"><span class="n1">3</span><span class="n2">Les alertes WhatsApp</span></div></div>
+          <div class="node" id="n4"><div class="nico"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#f4c518" stroke-width="7" /><path d="M50 28 V50 L64 60" stroke="#f7f2e3" stroke-width="7" stroke-linecap="round" fill="none" /></svg></div><div class="nlab"><span class="n1">4</span><span class="n2">Le bilan du soir</span></div></div>
+          <div id="pulse" class="ab"></div>
+        </div>
+      </div>
+
+      <!-- S7 : fin -->
+      <div id="s7" class="clip sc" data-start="32" data-duration="5" data-track-index="1">
+        <div id="s7w" class="sc">
+          <div id="logo" class="ab"></div>
+          <div id="s7a" class="ab h"><span id="s7a1">On l'installe pour vous,</span><span id="s7b">avec vos produits.</span></div>
+          <div id="s7c" class="ab">Répondez à ce message</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const IN = (sel, at, from, d, ease) => tl.fromTo(sel, Object.assign({ opacity: 0 }, from), { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: d || 0.6, ease: ease || 'power3.out' }, at);
+      const OUT = (sel, at) => tl.to(sel, { opacity: 0, duration: 0.35, ease: 'power2.in' }, at);
+
+      // ---- fond : respiration lente (répétitions finies)
+      tl.fromTo('#glow', { x: 0, y: 0, scale: 1 }, { x: 160, y: 120, scale: 1.12, duration: 6, ease: 'sine.inOut', yoyo: true, repeat: 5 }, 0);
+      tl.fromTo('#glow2', { x: 0, y: 0 }, { x: -200, y: -80, duration: 7, ease: 'sine.inOut', yoyo: true, repeat: 4 }, 0);
+      tl.fromTo('#dots', { y: 0 }, { y: -54, duration: 37, ease: 'none' }, 0);
+
+      // ---- S1 (0 - 5)
+      IN('#s1t', 0.15, { y: 60 }, 0.7);
+      IN('#s1q', 0.65, { y: 30 }, 0.6, 'power2.out');
+      gsap.utils.toArray('.b1').forEach((el, i) => {
+        const r = [-4, 3, -2, 5, -3, 2][i];
+        tl.fromTo(el, { opacity: 0, scale: 0.4, y: 40, rotation: 0 }, { opacity: 1, scale: 1, y: 0, rotation: r, duration: 0.45, ease: 'power3.out' }, 1.0 + i * 0.28);
+        tl.to(el, { x: (i % 2 ? 14 : -14), duration: 0.18, ease: 'sine.inOut', yoyo: true, repeat: 5 }, 2.9 + i * 0.03);
+      });
+      tl.to('.b1', { opacity: 0.25, filter: 'blur(4px)', duration: 0.4, ease: 'power2.out' }, 3.8);
+      IN('#s1end', 3.9, { y: 50, scale: 0.92 }, 0.55, 'expo.out');
+      OUT('#s1w', 4.65);
+
+      // ---- barre des étapes
+      IN('#steps', 5.05, { y: -20 }, 0.5);
+      [['#f1', 5.2, 10.3], ['#f2', 10.7, 15.8], ['#f3', 16.2, 22.3], ['#f4', 22.7, 27.3]].forEach(([s, a, b]) => {
+        tl.fromTo(s, { scaleX: 0 }, { scaleX: 1, duration: b - a, ease: 'none' }, a);
+      });
+
+      // ---- S2 formulaire (5 - 10.5)
+      IN('#s2h', 5.05, { x: -60 }, 0.6);
+      IN('#ph2', 5.25, { y: 220 }, 0.8, 'expo.out');
+      [['#t1', 6.1, 4], ['#t2', 6.7, 16], ['#t3', 7.6, 1]].forEach(([s, a, n]) => {
+        tl.fromTo(s, { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: Math.max(0.15, n * 0.045), ease: 'steps(' + n + ')' }, a);
+      });
+      tl.fromTo('#cursor', { x: 470, y: 1040, opacity: 0 }, { x: 470, y: 1040, opacity: 1, duration: 0.2 }, 7.7);
+      tl.to('#cursor', { x: 300, y: 905, duration: 0.6, ease: 'back.out(1.3)' }, 7.9);
+      tl.to('#cursor', { scale: 0.85, duration: 0.08, ease: 'power2.in', yoyo: true, repeat: 1 }, 8.65);
+      tl.to('#fbtn', { scale: 0.96, duration: 0.08, ease: 'power2.in', yoyo: true, repeat: 1 }, 8.65);
+      tl.fromTo('#ripple', { scale: 0, opacity: 1 }, { scale: 5, opacity: 0, duration: 0.7, ease: 'power2.out', immediateRender: true }, 8.68);
+      tl.fromTo('#fbtnOk', { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power1.out' }, 8.8);
+      tl.fromTo('#fbtnTxt', { opacity: 1 }, { opacity: 0, duration: 0.2 }, 8.8);
+      tl.to('#cursor', { opacity: 0, duration: 0.3 }, 9.2);
+      OUT('#s2w', 10.15);
+
+      // ---- S3 tableau (10.5 - 16)
+      IN('#s3h', 10.55, { x: -60 }, 0.6);
+      IN('#sheet', 10.7, { y: 120 }, 0.7, 'expo.out');
+      tl.fromTo('#newrow', { opacity: 0, x: 960 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 11.6);
+      tl.to('#newrow', { backgroundColor: '#f4c518', duration: 0.25, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 12.2);
+      IN('#stock', 12.5, { y: 80 }, 0.6);
+      const n = { v: 3 };
+      tl.fromTo(n, { v: 3 }, { v: 1, duration: 0.9, ease: 'power2.inOut', onUpdate: () => { document.getElementById('stockN').textContent = String(Math.round(n.v)); } }, 13.2);
+      tl.fromTo('#stockN', { color: '#f7f2e3' }, { color: '#f59e2b', duration: 0.4 }, 14.0);
+      tl.fromTo('#pill', { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' }, 14.2);
+      tl.to('#pill', { scale: 1.06, duration: 0.3, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 14.8);
+      OUT('#s3w', 15.65);
+
+      // ---- S4 WhatsApp (16 - 22.5)
+      IN('#s4h', 16.05, { x: -60 }, 0.6);
+      IN('#ph4', 16.25, { y: 220 }, 0.8, 'expo.out');
+      tl.fromTo('#m1', { opacity: 0, scale: 0.6, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 17.3);
+      tl.fromTo('#m2', { opacity: 0, scale: 0.6, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 19.4);
+      tl.to('#m2', { boxShadow: '0 0 0 6px rgba(245,158,43,0.9)', duration: 0.35, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 20.0);
+      OUT('#s4w', 22.15);
+
+      // ---- S5 bilan (22.5 - 27.5)
+      IN('#s5h', 22.55, { x: -60 }, 0.6);
+      const ring = document.getElementById('ring');
+      const L = 2 * Math.PI * 136;
+      ring.style.strokeDasharray = String(L);
+      tl.fromTo(ring, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: 1.1, ease: 'power2.inOut' }, 22.8);
+      IN('#clockT', 22.9, { scale: 0.7 }, 0.6);
+      IN('#bilan', 24.0, { y: 80, scale: 0.9 }, 0.6);
+      tl.fromTo('#bilan .bl', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.12, ease: 'power2.out' }, 24.4);
+      IN('#ex', 25.2, { y: 10 }, 0.4, 'power1.out');
+      OUT('#s5w', 27.15);
+
+      // ---- S6 vue d'ensemble (27.5 - 32)
+      IN('#s6t', 27.55, { y: 50 }, 0.6);
+      ['#n1', '#n2', '#n3', '#n4'].forEach((s, i) => IN(s, 27.9 + i * 0.12, { x: -80 }, 0.55));
+      tl.fromTo('#chain', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 28.4);
+      tl.to('#chain', { strokeDashoffset: -104, duration: 3.4, ease: 'none' }, 28.4);
+      tl.fromTo('#pulse', { opacity: 0, y: 0 }, { opacity: 1, y: 0, duration: 0.2 }, 28.7);
+      tl.to('#pulse', { y: 840, duration: 2.4, ease: 'power1.inOut' }, 28.9);
+      ['#n1', '#n2', '#n3', '#n4'].forEach((s, i) => {
+        tl.fromTo(s + ' .nico', { backgroundColor: '#23211a' }, { backgroundColor: '#5a4a10', duration: 0.25, yoyo: true, repeat: 1 }, 28.85 + i * 0.8);
+      });
+      OUT('#s6w', 31.65);
+
+      // ---- S7 fin (32 - 37)
+      tl.fromTo('#logo', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.8, ease: 'expo.out' }, 32.1);
+      IN('#s7a1', 32.8, { y: 40 }, 0.6);
+      IN('#s7b', 33.05, { y: 40 }, 0.6);
+      IN('#s7c', 33.6, { scale: 0.8 }, 0.5);
+      tl.to('#s7c', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 3 }, 34.3);
+
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>
