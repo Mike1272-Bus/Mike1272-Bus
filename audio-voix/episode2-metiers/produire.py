@@ -12,6 +12,7 @@ SFX = os.path.join(ROOT, "video-excel-13h", "assets", "sfx")
 MUSIC = os.path.join(ROOT, "pub-video-digitalmikaelson", "assets", "audio", "musique_fond.wav")
 SR, TEMPO, T0 = 44100, 1.10, 0.6
 # bruitages choisis selon le script, posés dans la pause qui suit la phrase (temps du brut)
+# temps du brut, recalés sur la transcription (transcription.json, temps de la vidéo finale)
 MOMENTS = [
     (14.58, "whoosh", 0.38, "fin de l'accroche, l'histoire de Patrick commence"),
     (24.32, "error", 0.22, "« Pas d'argent. »"),
@@ -21,9 +22,9 @@ MOMENTS = [
     (39.74, "sparkle", 0.32, "« C'est là qu'il a l'idée. »"),
     (55.84, "ping", 0.30, "la vente sur Chariow (paiement reçu)"),
     (58.90, "whoosh-short", 0.30, "les réseaux et la publicité"),
-    (71.80, "whoosh", 0.38, "« Et ce n'est pas que la menuiserie »"),
-    (80.78, "impact-bass-1", 0.30, "« Patrick, c'est une histoire » : la révélation"),
-    (90.78, "pop", 0.30, "la question finale : « Et toi, c'est quoi ta compétence ? »"),
+    (75.97, "whoosh", 0.38, "« Et ce n'est pas que la menuiserie »"),
+    (87.19, "impact-bass-1", 0.30, "« Patrick, c'est une histoire » : la révélation"),
+    (94.45, "pop", 0.30, "la question finale : « Et toi, c'est quoi ta compétence ? »"),
 ]
 
 
