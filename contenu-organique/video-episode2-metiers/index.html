@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0d0f2b; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff; font-family: 'Baloo', sans-serif;
+        background: radial-gradient(circle at 50% 40%, #262b7a 0%, #1b1f5e 45%, #0d0f2b 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .vid { object-fit: cover; z-index: 1; }
+      .shade { z-index: 2; background: linear-gradient(180deg, rgba(13,15,43,0.92) 0%, rgba(13,15,43,0.55) 30%, rgba(13,15,43,0.45) 55%, rgba(13,15,43,0.9) 100%); }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .t { font-weight: 800; line-height: 1.05; text-shadow: 0 8px 24px rgba(0,0,0,0.45); z-index: 10; }
+      .y { color: #f5c518; }
+      .c { color: #ff7a63; }
+      .ws { font-family: 'Work Sans', sans-serif; font-weight: 700; }
+      .pill { height: 96px; border-radius: 48px; text-align: center; line-height: 104px; font-size: 52px; z-index: 12; }
+      .card { border-radius: 36px; background: #fff; color: #1b1f5e; box-shadow: 0 30px 60px rgba(0,0,0,0.45); z-index: 12; }
+      #lbl { left: 0; width: 1080px; top: 200px; text-align: center; font-size: 30px; letter-spacing: 6px; color: #f5c518; z-index: 30; }
+
+      #grid { left: -200px; top: -200px; width: 1480px; height: 2320px; z-index: 3; opacity: 0.13;
+        background-image: linear-gradient(#9aa4ff 2px, transparent 2px), linear-gradient(90deg, #9aa4ff 2px, transparent 2px); background-size: 80px 80px; }
+      #night { z-index: 4; }
+      #carnet { left: 320px; top: 1420px; width: 440px; height: 300px; z-index: 12; }
+      .coin { position: absolute; top: 0; width: 70px; height: 70px; border-radius: 50%; background: #f5c518; border: 8px solid #d9a300; z-index: 11; }
+      #coins { left: 0; top: 1500px; width: 1080px; height: 300px; z-index: 11; }
+      .ht { position: absolute; top: 0; width: 60px; height: 60px; background: #ff4d6d; transform: rotate(45deg); border-radius: 8px 0 8px 8px; }
+      .ht::before, .ht::after { content: ""; position: absolute; width: 60px; height: 60px; border-radius: 50%; background: #ff4d6d; }
+      .ht::before { left: -30px; top: 0; } .ht::after { left: 0; top: -30px; }
+      #hearts { left: 0; top: 1500px; width: 1080px; height: 300px; z-index: 11; }
+      #rays { left: -60px; top: 230px; width: 1200px; height: 1200px; z-index: 5; }
+      #fa .b, #fb2 .b { top: 175px; }
+      /* accroche */
+      #h1 { top: 470px; font-size: 104px; }
+      #h2 { left: 90px; width: 900px; top: 1030px; font-size: 72px; }
+      #h3 { top: 1240px; font-size: 92px; }
+      #tools { left: 290px; top: 640px; width: 500px; height: 360px; z-index: 11; }
+      #ep { left: 140px; top: 1460px; width: 800px; height: 84px; border-radius: 42px; background: #f5c518; color: #1b1f5e; text-align: center; line-height: 92px; font-size: 38px; white-space: nowrap; z-index: 12; }
+
+      /* Patrick */
+      #pat1 { left: 310px; top: 380px; width: 460px; background: #f5c518; color: #1b1f5e; }
+      #patc { left: 140px; top: 1180px; width: 800px; height: 170px; }
+      #patc .a { position: absolute; left: 50px; top: 26px; font-size: 64px; line-height: 1.1; }
+      #patc .b { position: absolute; left: 50px; top: 104px; font-family: 'Work Sans'; font-weight: 700; font-size: 34px; color: #55526a; }
+      #paye { top: 620px; font-size: 76px; }
+      #pas1 { top: 860px; font-size: 92px; }
+      #pas2 { top: 990px; font-size: 120px; color: #ff6a6d; }
+      #wallet { left: 440px; top: 1460px; width: 200px; height: 160px; z-index: 12; }
+
+      /* le soir */
+      #soir1 { top: 380px; font-size: 86px; }
+      #bub { left: 90px; top: 1160px; width: 900px; height: 330px; border-radius: 44px 44px 44px 10px; background: #fff; color: #1b1f5e; z-index: 12; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+      #bub .q { position: absolute; left: 50px; top: 40px; width: 800px; font-size: 62px; line-height: 1.12; }
+      #qmark { left: 860px; top: 1080px; width: 150px; height: 150px; border-radius: 50%; background: #f5c518; color: #1b1f5e; text-align: center; line-height: 170px; font-size: 110px; z-index: 13; }
+
+      /* il filme */
+      #film1 { top: 330px; font-size: 76px; }
+      #phone { left: 300px; top: 500px; width: 480px; height: 860px; border-radius: 56px; border: 14px solid #06071a; overflow: hidden; background: #000; z-index: 11; box-shadow: 0 34px 70px rgba(0,0,0,0.55); }
+      #phone video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      #rec { left: 340px; top: 540px; width: 150px; height: 56px; border-radius: 28px; background: rgba(0,0,0,0.65); z-index: 13; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; line-height: 58px; padding-left: 56px; }
+      #rec i { position: absolute; left: 20px; top: 16px; width: 24px; height: 24px; border-radius: 50%; background: #ff3b3b; }
+      .com { height: 92px; border-radius: 46px 46px 46px 10px; background: #fff; color: #1b1f5e; font-family: 'Work Sans'; font-weight: 700; font-size: 36px; line-height: 92px; padding: 0 34px 0 96px; z-index: 14; white-space: nowrap; box-shadow: 0 16px 30px rgba(0,0,0,0.35); }
+      .com b { position: absolute; left: 20px; top: 16px; width: 60px; height: 60px; border-radius: 50%; background: #c9cdf2; }
+      #com1 { left: 60px; top: 1300px; } #com2 { left: 420px; top: 1430px; } #com3 { left: 120px; top: 1560px; }
+
+      /* l'idée, la formation */
+      #idea { top: 330px; font-size: 100px; }
+      #spark { left: 760px; top: 300px; width: 140px; height: 140px; z-index: 12; }
+      #form { left: 90px; top: 560px; width: 900px; height: 600px; }
+      #form .k { position: absolute; left: 50px; top: 40px; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: 4px; color: #ff7a63; }
+      #form .ti { position: absolute; left: 50px; top: 100px; width: 800px; font-size: 62px; line-height: 1.05; }
+      .thumb { position: absolute; top: 280px; width: 250px; height: 260px; border-radius: 22px; background: #1b1f5e; color: #fff; text-align: center; }
+      .thumb .pl { position: absolute; left: 90px; top: 50px; width: 0; height: 0; border-left: 70px solid #f5c518; border-top: 42px solid transparent; border-bottom: 42px solid transparent; }
+      .thumb .n { position: absolute; left: 0; width: 250px; top: 160px; font-family: 'Work Sans'; font-weight: 700; font-size: 32px; line-height: 1.2; }
+      #th1 { left: 50px; } #th2 { left: 325px; } #th3 { left: 600px; }
+      #pdf { left: 250px; top: 1200px; width: 580px; height: 420px; }
+      #pdf .tag { position: absolute; left: 30px; top: 26px; width: 110px; height: 52px; border-radius: 12px; background: #ff4d5e; color: #fff; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; text-align: center; line-height: 54px; }
+      #pdf .lst { position: absolute; left: 30px; top: 110px; width: 240px; font-family: 'Work Sans'; font-weight: 700; font-size: 28px; line-height: 1.5; color: #1b1f5e; }
+      #pdf svg { position: absolute; left: 290px; top: 60px; width: 260px; height: 330px; }
+      #gen { left: 140px; top: 1660px; width: 800px; background: #f5c518; color: #1b1f5e; font-size: 44px; }
+
+      /* la vente */
+      #vente1 { top: 330px; font-size: 76px; }
+      #chw { left: 420px; top: 470px; width: 240px; height: 240px; z-index: 12; }
+      #pay { left: 140px; top: 800px; width: 800px; height: 300px; }
+      #payok { left: 50px; top: 60px; width: 170px; height: 170px; border-radius: 50%; background: #25d366; color: #fff; text-align: center; font-size: 120px; line-height: 190px; }
+      #pay .a { position: absolute; left: 260px; top: 56px; font-size: 64px; }
+      #pay .b { position: absolute; left: 260px; top: 178px; font-family: 'Work Sans'; font-weight: 700; font-size: 34px; color: #55526a; }
+      #wa { left: 140px; top: 1220px; width: 800px; height: 230px; border-radius: 36px; background: #075e54; z-index: 12; box-shadow: 0 30px 60px rgba(0,0,0,0.45); }
+      #wa .ic { position: absolute; left: 40px; top: 45px; width: 140px; height: 140px; border-radius: 50%; background: #25d366; }
+      #wa .ic svg { position: absolute; left: 30px; top: 30px; width: 80px; height: 80px; }
+      #wa .a { position: absolute; left: 220px; top: 36px; font-size: 56px; color: #fff; }
+      #wa .b { position: absolute; left: 220px; top: 146px; font-family: 'Work Sans'; font-weight: 700; font-size: 32px; color: #c8f7d8; }
+
+      /* réseaux et pub */
+      #res1 { top: 330px; font-size: 80px; }
+      .net { top: 1180px; width: 380px; background: #fff; color: #1b1f5e; font-size: 50px; }
+      #tt { left: 100px; } #fb { left: 600px; }
+      #views { left: 290px; top: 1350px; width: 500px; height: 110px; border-radius: 55px; background: rgba(0,0,0,0.6); z-index: 12; font-family: 'Work Sans'; font-weight: 700; font-size: 40px; text-align: center; line-height: 112px; }
+      #bars { left: 390px; top: 1490px; width: 300px; height: 200px; z-index: 12; }
+      #pubv { left: 60px; top: 560px; width: 960px; height: 540px; border-radius: 30px; overflow: hidden; z-index: 11; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+      #pubv video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      #pub1 { top: 330px; font-size: 80px; }
+      #boost { left: 200px; top: 1240px; width: 680px; background: #1877f2; color: #fff; font-size: 52px; }
+      #cursor { left: 760px; top: 1300px; width: 90px; height: 110px; z-index: 14; }
+
+      /* encore et encore */
+      #enc1 { top: 400px; font-size: 90px; }
+      #inf { left: 280px; top: 720px; width: 520px; height: 260px; z-index: 10; }
+      #enc2 { top: 1140px; font-size: 90px; }
+      .tag { position: absolute; width: 200px; height: 66px; border-radius: 33px; background: #25d366; color: #0b3b1e; font-family: 'Work Sans'; font-weight: 700; font-size: 32px; text-align: center; line-height: 66px; z-index: 11; }
+
+      /* les autres métiers */
+      #met1 { top: 330px; font-size: 80px; }
+      .chip { left: 190px; top: 1380px; width: 700px; background: #f5c518; color: #1b1f5e; font-size: 52px; }
+      #chip1 { left: 140px; width: 800px; top: 1340px; height: 170px; line-height: 1.15; padding-top: 22px; background: #f5c518; color: #1b1f5e; }
+
+      /* oncle David */
+      #flip { left: 190px; top: 760px; width: 700px; height: 300px; z-index: 12; perspective: 1400px; }
+      .face { position: absolute; left: 0; top: 0; width: 700px; height: 300px; border-radius: 36px; text-align: center; backface-visibility: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.45); }
+      #fa { background: #fff; color: #1b1f5e; }
+      #fb2 { background: #f5c518; color: #1b1f5e; transform: rotateY(180deg); }
+      .face .a { position: absolute; left: 0; width: 700px; top: 60px; font-size: 70px; }
+      .face .b { position: absolute; left: 0; width: 700px; top: 160px; font-family: 'Work Sans'; font-weight: 700; font-size: 40px; }
+      #card3d { position: absolute; left: 0; top: 0; width: 700px; height: 300px; transform-style: preserve-3d; }
+      #guide { left: 260px; top: 520px; width: 560px; height: 627px; border-radius: 18px; z-index: 13; box-shadow: 0 40px 80px rgba(0,0,0,0.6); background-size: cover; }
+      #gl { left: 0; width: 1080px; top: 330px; font-size: 76px; }
+      #nopub { left: 190px; top: 1260px; width: 700px; background: #fff; color: #1b1f5e; font-size: 46px; }
+
+      /* la question finale */
+      #q1 { top: 440px; font-size: 92px; white-space: nowrap; }
+      #q2 { top: 620px; font-size: 128px; }
+      .cp { position: absolute; height: 84px; border-radius: 42px; background: #fff; color: #1b1f5e; font-family: 'Work Sans'; font-weight: 700; font-size: 36px; line-height: 84px; padding: 0 34px; white-space: nowrap; z-index: 12; }
+      #cta { left: 190px; top: 1420px; width: 700px; background: #f5c518; color: #1b1f5e; font-size: 56px; }
+      #arrow { left: 490px; top: 1560px; width: 100px; height: 120px; z-index: 12; }
+      #fade { background: #0d0f2b; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="90" data-width="1080" data-height="1920">
+      <!-- extraits vidéo de Mike, recadrés en vertical -->
+      <video class="ab full vid" id="vVieux" src="assets/video/vieux_menuisier.mp4" muted playsinline data-start="0" data-duration="5.8" data-media-start="0"></video>
+      <div class="ab full vid clip" id="imgAtelier" data-start="11.53" data-duration="3.6" style="background:url(assets/img/atelier.jpg) center/cover no-repeat"></div>
+      <video class="ab full vid" id="vFuite" src="assets/video/fuite.mp4" muted playsinline data-start="64.0" data-duration="2.6" data-media-start="0"></video>
+      <video class="ab full vid" id="vElec" src="assets/video/electricien.mp4" muted playsinline data-start="66.6" data-duration="1.8" data-media-start="0"></video>
+      <video class="ab full vid" id="vMeca" src="assets/video/mecanicien.mp4" muted playsinline data-start="68.4" data-duration="1.6" data-media-start="0"></video>
+      <video class="ab full vid" id="vCout" src="assets/video/couturier.mp4" muted playsinline data-start="70.0" data-duration="1.71" data-media-start="0"></video>
+      <div class="ab full shade" id="shade"></div>
+      <div class="ab" id="grid"></div>
+      <svg class="ab full" id="night" viewBox="0 0 1080 1920" preserveAspectRatio="none">
+        <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#070823"/><stop offset="0.6" stop-color="#1b1f5e"/><stop offset="1" stop-color="#3a2a6b"/></linearGradient>
+        <radialGradient id="glow"><stop offset="0" stop-color="#fff6c8" stop-opacity="0.55"/><stop offset="1" stop-color="#fff6c8" stop-opacity="0"/></radialGradient></defs>
+        <rect width="1080" height="1920" fill="url(#sky)"/>
+        <g id="stars" fill="#fff"><circle cx="120" cy="260" r="4"/><circle cx="260" cy="560" r="3"/><circle cx="420" cy="300" r="5"/><circle cx="640" cy="240" r="3"/><circle cx="980" cy="420" r="4"/><circle cx="90" cy="760" r="3"/><circle cx="560" cy="700" r="4"/><circle cx="1010" cy="880" r="3"/><circle cx="330" cy="900" r="3"/><circle cx="760" cy="980" r="4"/></g>
+        <g id="moon"><circle cx="820" cy="640" r="190" fill="url(#glow)"/><circle cx="820" cy="640" r="92" fill="#fff3c4"/><circle cx="855" cy="615" r="80" fill="#1b1f5e" opacity="0.18"/></g>
+        <g id="shop"><path d="M140 1560 L540 1430 L940 1560 V1920 H140 Z" fill="#0a0b24"/><rect x="250" y="1640" width="200" height="150" rx="10" fill="#f5c518"/><rect id="win2" x="630" y="1640" width="200" height="150" rx="10" fill="#f5c518"/><path d="M350 1640 V1790 M250 1715 H450 M730 1640 V1790 M630 1715 H830" stroke="#0a0b24" stroke-width="10"/><rect x="100" y="1550" width="880" height="20" rx="8" fill="#14163d"/></g>
+      </svg>
+      <svg class="ab" id="carnet" viewBox="0 0 440 300"><rect x="10" y="10" width="420" height="280" rx="22" fill="#fffaf0"/><rect x="10" y="10" width="420" height="70" rx="22" fill="#ff7a63"/><rect x="10" y="58" width="420" height="22" fill="#ff7a63"/><text x="220" y="58" text-anchor="middle" font-family="Work Sans" font-weight="700" font-size="34" fill="#fff">COMMANDES</text><g id="lines" stroke="#c9cdf2" stroke-width="5" stroke-linecap="round"><path d="M50 130 H390"/><path d="M50 180 H390"/><path d="M50 230 H390"/></g><text id="zero" x="350" y="250" text-anchor="middle" font-family="Baloo" font-weight="800" font-size="120" fill="#ff4d5e">0</text></svg>
+      <div class="ab ws" id="lbl">COMPÉTENCE → REVENU · ÉP. 2</div>
+
+      <!-- accroche -->
+      <div class="ab center t" id="h1">Ce qu'on ne te dit <span class="y">pas</span></div>
+      <svg class="ab" id="tools" viewBox="0 0 500 360">
+        <g id="saw"><rect x="40" y="150" width="330" height="70" rx="8" fill="#d9dde8"/><path d="M40 220 l15 22 l15 -22 l15 22 l15 -22 l15 22 l15 -22 l15 22 l15 -22 l15 22 l15 -22 l15 22 l15 -22 l15 22 l15 -22 l15 22 l15 -22 l15 22 l15 -22 l15 22 l15 -22 l15 22 l15 -22" fill="#d9dde8"/><rect x="360" y="130" width="110" height="110" rx="30" fill="#ff7a63"/><rect x="390" y="160" width="50" height="50" rx="14" fill="#1b1f5e"/></g>
+        <g id="wrench"><rect x="225" y="20" width="50" height="300" rx="25" fill="#f5c518" transform="rotate(35 250 180)"/><circle cx="160" cy="58" r="62" fill="#f5c518"/><rect x="138" y="-10" width="44" height="80" fill="#1b1f5e" transform="rotate(35 160 58)"/></g>
+      </svg>
+      <div class="ab center t" id="h2">Ce que tu sais faire avec tes mains</div>
+      <div class="ab center t y" id="h3">peut se vendre en ligne</div>
+      <div class="ab ws" id="ep">ÉPISODE 2 · TA COMPÉTENCE → TON REVENU</div>
+
+      <!-- Patrick -->
+      <div class="ab pill ws" id="pat1">Imagine Patrick</div>
+      <div class="ab card" id="patc"><div class="a">Patrick</div><div class="b">menuisier à Kinshasa</div></div>
+      <div class="ab center t" id="paye">Payé seulement<br><span class="y">quand il fabrique</span></div>
+      <div class="ab center t" id="pas1">Pas de commande ?</div>
+      <div class="ab center t" id="pas2">Pas d'argent.</div>
+      <svg class="ab" id="wallet" viewBox="0 0 200 160"><rect x="10" y="30" width="180" height="120" rx="18" fill="#8a5a3b"/><rect x="120" y="70" width="80" height="44" rx="12" fill="#6d4128"/><circle cx="145" cy="92" r="8" fill="#f5c518"/><path d="M30 30 L150 6 L160 30" fill="#a8714d"/></svg>
+
+      <!-- le soir -->
+      <div class="ab center t" id="soir1">Un soir…</div>
+      <div class="ab" id="bub"><div class="q">Et si les gens pouvaient voir mon travail <span style="color:#d63f2a">sans passer devant mon atelier ?</span></div></div>
+      <div class="ab" id="qmark">?</div>
+
+      <!-- il filme ses mains -->
+      <div class="ab center t" id="film1">Il filme <span class="y">ses mains</span></div>
+      <div class="ab" id="phone"><video id="vPhone" src="assets/video/mains_bois.mp4" muted playsinline data-start="28.98" data-duration="5.42" data-media-start="0"></video></div>
+      <div class="ab" id="rec"><i></i>REC</div>
+      <div class="ab com" id="com1"><b></b>Comment tu fais ça ?</div>
+      <div class="ab com" id="com2"><b></b>Tu peux m'apprendre ?</div>
+      <div class="ab com" id="com3"><b></b>Comment tu fais ça ? 🔥</div>
+
+      <!-- l'idée : la petite formation -->
+      <div class="ab center t y" id="idea">L'idée !</div>
+      <svg class="ab" id="spark" viewBox="0 0 140 140"><path d="M70 0 L84 56 L140 70 L84 84 L70 140 L56 84 L0 70 L56 56 Z" fill="#f5c518"/></svg>
+      <div class="ab card" id="form">
+        <div class="k">PETITE FORMATION</div>
+        <div class="ti">Fabriquer un tabouret, <span class="c">étape par étape</span></div>
+        <div class="thumb" id="th1"><div class="pl"></div><div class="n">Étape 1<br>Mesurer</div></div>
+        <div class="thumb" id="th2"><div class="pl"></div><div class="n">Étape 2<br>Couper</div></div>
+        <div class="thumb" id="th3"><div class="pl"></div><div class="n">Étape 3<br>Assembler</div></div>
+      </div>
+      <div class="ab card" id="pdf"><div class="tag">PDF</div><div class="lst">✓ Les mesures<br>✓ La liste du bois<br>✓ Les étapes</div>
+        <svg viewBox="0 0 260 330"><rect x="30" y="60" width="200" height="34" rx="6" fill="#c98b55"/><rect x="50" y="94" width="26" height="210" fill="#b57a46"/><rect x="184" y="94" width="26" height="210" fill="#b57a46"/><rect x="66" y="200" width="128" height="18" fill="#c98b55"/><path d="M20 40 H240" stroke="#ff7a63" stroke-width="4" stroke-dasharray="10 8"/><text x="130" y="30" text-anchor="middle" font-family="Work Sans" font-weight="700" font-size="24" fill="#ff7a63">45 cm</text></svg></div>
+      <div class="ab pill" id="gen">Former la nouvelle génération</div>
+
+      <!-- la vente -->
+      <div class="ab center t" id="vente1">Il la met <span class="y">en vente</span></div>
+      <div class="ab" id="chw" style="background:url(assets/icons/chariow.png) center/100% 100% no-repeat; border-radius: 52px"></div>
+      <div class="ab" id="coins"><i class="coin" style="left:120px"></i><i class="coin" style="left:300px"></i><i class="coin" style="left:520px"></i><i class="coin" style="left:740px"></i><i class="coin" style="left:900px"></i></div>
+      <div class="ab card" id="pay"><div class="ab" id="payok">✓</div><div class="a">Paiement reçu</div><div class="b">Formation : le tabouret</div></div>
+      <div class="ab" id="wa"><div class="ic"><svg viewBox="0 0 80 80"><path d="M40 6 A34 34 0 0 0 10 56 L4 76 L25 70 A34 34 0 1 0 40 6 Z" fill="#fff"/><path d="M28 26 c-3 6 4 18 14 24 c6 3 9 2 11 -1 l-6 -6 l-5 3 c-4 -2 -8 -6 -10 -10 l3 -5 l-6 -6 Z" fill="#25d366"/></svg></div><div class="a">Statut publié</div><div class="b">Lien de la formation</div></div>
+
+      <!-- réseaux et publicité -->
+      <div class="ab center t" id="res1">Plus de monde <span class="y">sur les réseaux</span></div>
+      <div class="ab pill net" id="tt">TikTok</div>
+      <div class="ab pill net" id="fb">Facebook</div>
+      <div class="ab" id="hearts"><i class="ht" style="left:90px"></i><i class="ht" style="left:250px"></i><i class="ht" style="left:820px"></i><i class="ht" style="left:950px"></i><i class="ht" style="left:680px"></i></div>
+      <div class="ab" id="views">👁 Les vues montent</div>
+      <svg class="ab" id="bars" viewBox="0 0 300 200"><rect id="b1" x="10" y="120" width="60" height="80" rx="10" fill="#f5c518"/><rect id="b2" x="90" y="80" width="60" height="120" rx="10" fill="#f5c518"/><rect id="b3" x="170" y="40" width="60" height="160" rx="10" fill="#f5c518"/><rect id="b4" x="250" y="0" width="45" height="200" rx="10" fill="#25d366"/></svg>
+      <div class="ab center t" id="pub1">Une petite <span class="y">publicité</span></div>
+      <div class="ab" id="pubv"><video id="vPub" src="assets/video/pub_telephone.mp4" muted playsinline data-start="56.7" data-duration="3.8" data-media-start="0"></video></div>
+      <div class="ab pill ws" id="boost">Booster la publication</div>
+      <svg class="ab" id="cursor" viewBox="0 0 90 110"><path d="M10 6 L80 60 L48 64 L64 100 L50 106 L34 70 L10 92 Z" fill="#fff" stroke="#1b1f5e" stroke-width="5"/></svg>
+
+      <!-- encore et encore -->
+      <div class="ab center t" id="enc1">Filmée <span class="y">1 fois</span></div>
+      <svg class="ab" id="inf" viewBox="0 0 520 260"><path d="M260 130 C200 40 60 40 60 130 C60 220 200 220 260 130 C320 40 460 40 460 130 C460 220 320 220 260 130 Z" fill="none" stroke="#f5c518" stroke-width="44" stroke-linejoin="round"/></svg>
+      <div class="ab center t" id="enc2">vendue <span class="y">encore et encore</span></div>
+      <div class="ab" id="tags"></div>
+
+      <!-- les autres métiers -->
+      <div class="ab center t" id="met1">Et ce n'est pas <span class="y">que la menuiserie</span></div>
+      <div class="ab pill" id="chip1">Plombier<br><span style="font-size:40px">formation « réparer une fuite »</span></div>
+      <div class="ab pill chip" id="chip2">Électricien</div>
+      <div class="ab pill chip" id="chip3">Mécanicien</div>
+      <div class="ab pill chip" id="chip4">Couturière</div>
+
+      <!-- oncle David -->
+      <div class="ab" id="flip" data-layout-allow-overlap><div id="card3d"><div class="face" id="fa" data-layout-allow-overlap><div class="a">Patrick</div><div class="b">une histoire</div></div><div class="face" id="fb2" data-layout-allow-overlap><div class="a">Oncle David</div><div class="b">vrai menuisier</div></div></div></div>
+      <svg class="ab" id="rays" viewBox="0 0 1200 1200"><g fill="#f5c518" opacity="0.16"><path d="M600 600 L560 0 H640 Z"/><path d="M600 600 L560 0 H640 Z" transform="rotate(30 600 600)"/><path d="M600 600 L560 0 H640 Z" transform="rotate(60 600 600)"/><path d="M600 600 L560 0 H640 Z" transform="rotate(90 600 600)"/><path d="M600 600 L560 0 H640 Z" transform="rotate(120 600 600)"/><path d="M600 600 L560 0 H640 Z" transform="rotate(150 600 600)"/><path d="M600 600 L560 0 H640 Z" transform="rotate(180 600 600)"/><path d="M600 600 L560 0 H640 Z" transform="rotate(210 600 600)"/><path d="M600 600 L560 0 H640 Z" transform="rotate(240 600 600)"/><path d="M600 600 L560 0 H640 Z" transform="rotate(270 600 600)"/><path d="M600 600 L560 0 H640 Z" transform="rotate(300 600 600)"/><path d="M600 600 L560 0 H640 Z" transform="rotate(330 600 600)"/></g></svg>
+      <div class="ab center t" id="gl">Le guide d'<span class="y">oncle David</span></div>
+      <div class="ab" id="guide" style="background-image:url(assets/img/guide_david.jpg)"></div>
+      <div class="ab pill ws" id="nopub">Sans payer de publicité</div>
+
+      <!-- la question finale -->
+      <div class="ab center t" id="q1">Et toi, c'est quoi</div>
+      <div class="ab center t y" id="q2">ta compétence ?</div>
+      <div class="ab" id="chips"></div>
+      <div class="ab pill" id="cta">Dis-le en commentaire</div>
+      <svg class="ab" id="arrow" viewBox="0 0 100 120"><path d="M50 5 V95 M15 62 L50 100 L85 62" stroke="#f5c518" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="voix" src="assets/audio/voix.mp3" data-start="0" data-duration="90" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const OUT = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 1 }, { ...to, autoAlpha: 0 }, at);
+      const pop = (sel, at) => IN(sel, { scale: 0.4, y: 40 }, { scale: 1, y: 0, duration: 0.4, ease: "back.out(2)" }, at);
+      const rise = (sel, at) => IN(sel, { y: 50 }, { y: 0, duration: 0.4, ease: "power3.out" }, at);
+      const away = (sel, at) => OUT(sel, { x: 0 }, { x: -600, duration: 0.3, ease: "power3.in" }, at);
+
+      // étiquettes « Vendu » et compétences
+      const TAGS = [];
+      for (let i = 0; i !== 8; i++) {
+        const d = document.createElement("div"); d.className = "tag"; d.id = "tg" + i; d.textContent = "Vendu ✓";
+        d.style.left = [60, 820, 90, 800, 50, 840, 130, 760][i] + "px"; d.style.top = [600, 640, 900, 940, 1300, 1340, 1560, 1600][i] + "px";
+        $("tags").appendChild(d); TAGS.push(d);
+      }
+      const CH = [];
+      ["Menuiserie", "Plomberie", "Couture", "Électricité", "Mécanique", "Cuisine"].forEach((t, i) => {
+        const d = document.createElement("div"); d.className = "cp"; d.id = "cp" + i; d.textContent = t;
+        d.style.left = [110, 560, 160, 560, 170, 560][i] + "px"; d.style.top = [880, 880, 1010, 1010, 1140, 1140][i] + "px";
+        $("chips").appendChild(d); CH.push(d);
+      });
+
+      gsap.set(["#fade"], { autoAlpha: 0 });
+      IN("#lbl", { y: -20 }, { y: 0, duration: 0.5 }, 0.3);
+FT("#vVieux", { scale: 1.0 }, { scale: 1.1, duration: 5.8, ease: "none" }, 0);
+      FT("#vVieux", { opacity: 1 }, { opacity: 0, duration: 0.5 }, 5.3);
+      FT("#grid", { x: 0, y: 0 }, { x: -160, y: -160, duration: 90, ease: "none" }, 0);
+      FT("#imgAtelier", { opacity: 0, scale: 1.18, x: 40 }, { opacity: 1, scale: 1.0, x: -40, duration: 3.6, ease: "none" }, 11.53);
+      FT("#imgAtelier", { opacity: 1 }, { opacity: 0, duration: 0.4 }, 14.7);
+      ["#vFuite", "#vElec", "#vMeca", "#vCout"].forEach((v, i) => FT(v, { scale: 1.15 }, { scale: 1.0, duration: 2, ease: "power2.out" }, [64.0, 66.6, 68.4, 70.0][i]));
+      FT("#vFuite", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 64.0);
+      FT("#vCout", { opacity: 1 }, { opacity: 0, duration: 0.3 }, 71.4);
+
+      // ---------- accroche (0 - 11,5) ----------
+      IN("#h1", { scale: 1.8 }, { scale: 1, duration: 0.4, ease: "power4.in" }, 0.6);
+      IN("#saw", { x: -400, rotation: -20 }, { x: 0, rotation: 0, duration: 0.5, ease: "back.out(1.6)" }, 2.2);
+      IN("#wrench", { x: 400, rotation: 20 }, { x: 0, rotation: 0, duration: 0.5, ease: "back.out(1.6)" }, 2.6);
+      rise("#h2", 4.6);
+      IN("#h3", { scale: 0.6 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, 6.2);
+      pop("#ep", 8.4);
+      away(["#h1", "#tools", "#h2", "#h3", "#ep"], 11.2);
+
+      // ---------- Patrick (11,5 - 20,4) ----------
+      pop("#pat1", 11.7);
+      IN("#patc", { x: 400 }, { x: 0, duration: 0.45, ease: "expo.out" }, 12.4);
+      OUT("#pat1", { y: 0 }, { y: -30, duration: 0.25 }, 15.0);
+      rise("#paye", 15.2);
+      OUT(["#paye", "#patc"], { y: 0 }, { y: -40, duration: 0.25 }, 17.9);
+      rise("#pas1", 18.1);
+      IN("#pas2", { scale: 1.6 }, { scale: 1, duration: 0.3, ease: "power4.in" }, 19.5);
+      IN("#carnet", { y: 200, rotation: -8 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.6)" }, 15.6);
+      FT("#lines path", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.3, stagger: 0.15 }, 16.0);
+      HIDE.push("#zero"); FT("#zero", { autoAlpha: 0, scale: 2.5, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "power4.in" }, 18.4);
+      OUT("#carnet", { y: 0 }, { y: 200, duration: 0.3, ease: "power3.in" }, 19.9);
+      IN("#wallet", { y: -80 }, { y: 0, duration: 0.4, ease: "bounce.out" }, 20.2);
+      FT("#wallet", { rotation: 0 }, { rotation: 8, duration: 0.12, yoyo: true, repeat: 5 }, 20.6);
+      away(["#pas1", "#pas2", "#wallet"], 20.9);
+
+      // ---------- le soir (20,5 - 29) ----------
+      IN("#night", {}, { duration: 0.6 }, 20.5);
+      FT("#moon", { y: 260 }, { y: 0, duration: 2.2, ease: "power2.out" }, 20.6);
+      FT("#stars circle", { opacity: 1 }, { opacity: 0.2, duration: 0.6, yoyo: true, repeat: 9, stagger: 0.17, ease: "sine.inOut" }, 21.0);
+      FT("#shop", { y: 420 }, { y: 0, duration: 0.8, ease: "expo.out" }, 20.8);
+      FT("#win2", { opacity: 0.3 }, { opacity: 1, duration: 0.25, yoyo: true, repeat: 3 }, 25.6);
+      OUT("#night", {}, { duration: 0.4 }, 28.6);
+      rise("#soir1", 21.2);
+      IN("#bub", { y: 120, scale: 0.85 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 22.4);
+      IN("#qmark", { scale: 0, rotation: -60 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.5)" }, 25.6);
+      FT("#qmark", { y: 0 }, { y: -18, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 26.2);
+      away(["#soir1", "#bub", "#qmark"], 28.7);
+
+      // ---------- il filme ses mains (29 - 34,4) ----------
+      rise("#film1", 29.1);
+      IN("#phone", { y: 900 }, { y: 0, duration: 0.5, ease: "expo.out" }, 29.0);
+      pop("#rec", 29.5);
+      FT("#rec i", { opacity: 1 }, { opacity: 0.2, duration: 0.4, yoyo: true, repeat: 5, ease: "none" }, 29.8);
+      ["#com1", "#com2", "#com3"].forEach((c, i) => IN(c, { x: i % 2 ? 300 : -300, scale: 0.7 }, { x: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 32.0 + i * 0.4));
+      away(["#film1", "#phone", "#rec", "#com1", "#com2", "#com3"], 34.1);
+
+      // ---------- l'idée : la petite formation (34,4 - 44,4) ----------
+      IN("#idea", { scale: 0.5 }, { scale: 1, duration: 0.4, ease: "back.out(2.4)" }, 34.4);
+      IN("#spark", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 34.5);
+      FT("#spark", { rotation: 0 }, { rotation: 180, duration: 9, ease: "none" }, 35.0);
+      IN("#form", { y: 300, scale: 0.85 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 35.8);
+      ["#th1", "#th2", "#th3"].forEach((t, i) => IN(t, { y: 60, scale: 0.7 }, { y: 0, scale: 1, duration: 0.35, ease: "back.out(2)" }, 37.0 + i * 0.45));
+      IN("#pdf", { y: 300, rotation: 6 }, { y: 0, rotation: -2, duration: 0.5, ease: "back.out(1.5)" }, 39.4);
+      pop("#gen", 42.0);
+      away(["#idea", "#spark", "#form", "#pdf", "#gen"], 44.1);
+
+      // ---------- la vente (44,4 - 51,8) ----------
+      rise("#vente1", 44.5);
+      IN("#chw", { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, 45.0);
+      IN("#pay", { x: 600 }, { x: 0, duration: 0.45, ease: "expo.out" }, 48.9);
+      IN("#payok", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.5)" }, 49.2);
+      HIDE.push("#coins"); FT("#coins", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1 }, 49.2);
+      FT(".coin", { y: -900, rotation: 0 }, { y: 120, rotation: 360, duration: 0.9, stagger: 0.12, ease: "bounce.out" }, 49.2);
+      IN("#wa", { y: 250 }, { y: 0, duration: 0.45, ease: "back.out(1.5)" }, 50.2);
+      away(["#vente1", "#chw", "#pay", "#wa", "#coins"], 51.5);
+
+      // ---------- réseaux (51,8 - 56,7) puis publicité (56,7 - 60,5) ----------
+      rise("#res1", 51.9);
+      pop("#tt", 52.4); pop("#fb", 52.7);
+      rise("#views", 53.4);
+      HIDE.push("#hearts"); FT("#hearts", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1 }, 52.9);
+      FT(".ht", { y: 300, opacity: 1 }, { y: -1100, opacity: 0, duration: 2.4, stagger: 0.35, ease: "power1.out" }, 52.9);
+      ["#b1", "#b2", "#b3", "#b4"].forEach((b, i) => FT(b, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.35, ease: "back.out(1.6)" }, 53.6 + i * 0.25));
+      HIDE.push("#bars"); FT("#bars", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1 }, 53.55);
+      away(["#res1", "#tt", "#fb", "#views", "#bars", "#hearts"], 56.4);
+      rise("#pub1", 56.75);
+      IN("#pubv", { scale: 0.85 }, { scale: 1, duration: 0.4, ease: "back.out(1.4)" }, 56.75);
+      pop("#boost", 57.6);
+      IN("#cursor", { x: 200, y: 200 }, { x: 0, y: 0, duration: 0.5, ease: "power3.out" }, 58.2);
+      FT("#boost", { scale: 1 }, { scale: 0.92, duration: 0.12, yoyo: true, repeat: 1 }, 58.75);
+      away(["#pub1", "#pubv", "#boost", "#cursor"], 60.2);
+
+      // ---------- encore et encore (60,5 - 63,5) ----------
+      rise("#enc1", 60.5);
+      IN("#inf", { scale: 0, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.6)" }, 60.9);
+      rise("#enc2", 61.6);
+      TAGS.forEach((t, i) => pop(t, 61.8 + i * 0.15));
+      away(["#enc1", "#inf", "#enc2", ...TAGS], 63.3);
+
+      // ---------- les autres métiers (63,5 - 71,7) ----------
+      rise("#met1", 63.6);
+      pop("#chip1", 64.4);
+      OUT("#chip1", { y: 0 }, { y: 30, duration: 0.2 }, 66.45);
+      pop("#chip2", 66.65); OUT("#chip2", { y: 0 }, { y: 30, duration: 0.2 }, 68.25);
+      pop("#chip3", 68.45); OUT("#chip3", { y: 0 }, { y: 30, duration: 0.2 }, 69.85);
+      pop("#chip4", 70.05);
+      away(["#met1", "#chip4"], 71.45);
+
+      // ---------- oncle David (71,7 - 80,8) ----------
+      IN("#flip", { scale: 0.6 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, 71.75);
+      HIDE.push("#fb2"); tl.set("#fb2", { autoAlpha: 1 }, 73.65); tl.set("#fa", { autoAlpha: 0 }, 73.65);
+      FT("#card3d", { rotationY: 0 }, { rotationY: 180, duration: 0.7, ease: "power2.inOut" }, 73.3);
+      OUT("#flip", { y: 0 }, { y: -500, duration: 0.4, ease: "power3.in" }, 75.0);
+      rise("#gl", 75.2);
+      IN("#rays", { scale: 0.4 }, { scale: 1, duration: 0.6, ease: "power2.out" }, 75.3);
+      FT("#rays", { rotation: 0 }, { rotation: 60, duration: 5, ease: "none" }, 75.3);
+      IN("#guide", { y: 600, rotation: 8 }, { y: 0, rotation: -2, duration: 0.6, ease: "back.out(1.4)" }, 75.3);
+      FT("#guide", { rotation: -2 }, { rotation: 1, duration: 1.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 76.0);
+      pop("#nopub", 77.6);
+      away(["#gl", "#guide", "#nopub", "#rays"], 80.5);
+
+      // ---------- la question finale (80,8 - 90) ----------
+      rise("#q1", 80.85);
+      IN("#q2", { scale: 1.6 }, { scale: 1, duration: 0.35, ease: "power4.in" }, 81.4);
+      CH.forEach((c, i) => pop(c, 82.4 + i * 0.18));
+      pop("#cta", 84.4);
+      IN("#arrow", { y: -30 }, { y: 0, duration: 0.3 }, 84.8);
+      FT("#arrow", { y: 0 }, { y: 22, duration: 0.4, yoyo: true, repeat: 7, ease: "sine.inOut" }, 85.2);
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 89.4);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
