@@ -1,0 +1,133 @@
+{
+ "debut_voix": 0.6,
+ "fin_voix": 111.15,
+ "parties": [
+  [
+   4.53,
+   "le commentaire \u00ab technicien r\u00e9seaux \u00bb"
+  ],
+  [
+   16.74,
+   "fin de l'intro, titre de la s\u00e9rie"
+  ],
+  [
+   29.25,
+   "\u00ab quelqu'un se plaint de sa connexion \u00bb"
+  ],
+  [
+   35.27,
+   "\u00ab Alors imagine \u00bb"
+  ],
+  [
+   39.0,
+   "\u00ab tu le filmes une seule fois \u00bb (REC)"
+  ],
+  [
+   44.69,
+   "la petite formation wifi"
+  ],
+  [
+   65.85,
+   "\u00ab former la nouvelle g\u00e9n\u00e9ration \u00bb"
+  ],
+  [
+   69.53,
+   "la vente sur Chariow (paiement re\u00e7u)"
+  ],
+  [
+   72.65,
+   "les r\u00e9seaux"
+  ],
+  [
+   83.54,
+   "\u00ab une petite publicit\u00e9 \u00bb (booster)"
+  ],
+  [
+   85.65,
+   "\u00ab Et il y a un bonus \u00bb"
+  ],
+  [
+   97.49,
+   "\u00ab film\u00e9e une seule fois\u2026 encore et encore \u00bb"
+  ],
+  [
+   102.45,
+   "\u00ab Alors, technicien r\u00e9seaux \u00bb"
+  ],
+  [
+   106.93,
+   "\u00ab Et toi qui regardes, c'est quoi ta comp\u00e9tence ? \u00bb"
+  ]
+ ],
+ "bruitages": [
+  [
+   0.0,
+   "whoosh-cinematic"
+  ],
+  [
+   0.35,
+   "impact-bass-1"
+  ],
+  [
+   4.53,
+   "notification"
+  ],
+  [
+   16.74,
+   "whoosh"
+  ],
+  [
+   29.25,
+   "error"
+  ],
+  [
+   35.27,
+   "whoosh-short"
+  ],
+  [
+   39.0,
+   "click"
+  ],
+  [
+   44.69,
+   "pop"
+  ],
+  [
+   65.85,
+   "sparkle"
+  ],
+  [
+   69.53,
+   "ping"
+  ],
+  [
+   72.65,
+   "whoosh-short"
+  ],
+  [
+   83.54,
+   "click-soft"
+  ],
+  [
+   85.65,
+   "sparkle"
+  ],
+  [
+   97.49,
+   "whoosh"
+  ],
+  [
+   102.45,
+   "whoosh-short"
+  ],
+  [
+   106.93,
+   "pop"
+  ],
+  [
+   111.05,
+   "chime"
+  ]
+ ],
+ "duree": 112.95
+}
