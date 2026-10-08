@@ -1,8 +1,8 @@
-name: Photos libres (Openverse CC0)
+name: Photos libres (CC0 / domaine public)
 on:
   push:
     branches: [claude/gallant-goldberg-l20gu3]
-    paths: [allegra-landing/images/queries.txt]
+    paths: [allegra-landing/images/queries.txt, .github/workflows/fetch-images.yml]
   workflow_dispatch:
 permissions:
   contents: write
@@ -13,29 +13,55 @@ jobs:
       - uses: actions/checkout@v4
       - name: Télécharger
         run: |
-          set -u
-          mkdir -p allegra-landing/images/raw
-          : > allegra-landing/images/credits.txt
-          while IFS='|' read -r slug q; do
-            [ -z "$slug" ] && continue
-            enc=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1]))" "$q")
-            curl -s "https://api.openverse.org/v1/images/?q=${enc}&license=cc0,pdm&page_size=6&mature=false&aspect_ratio=square,wide" -o /tmp/r.json || continue
-            n=0
-            for row in $(jq -r '.results[] | @base64' /tmp/r.json); do
-              url=$(echo "$row" | base64 -d | jq -r '.url')
-              n=$((n+1))
-              out="allegra-landing/images/raw/${slug}-${n}.jpg"
-              if curl -sL -m 40 "$url" -o /tmp/img && python3 -c "from PIL import Image;im=Image.open('/tmp/img').convert('RGB');im.thumbnail((1400,1400));im.save('$out',quality=84)"; then
-                echo "$(basename $out) | $(echo "$row" | base64 -d | jq -r '.license + \" | \" + (.creator//\"inconnu\") + \" | \" + .foreign_landing_url')" >> allegra-landing/images/credits.txt
-              fi
-            done
-          done < allegra-landing/images/queries.txt
+          pip install -q pillow requests
+          python3 - <<'PY'
+          import requests, io, os, json, urllib.parse
+          from PIL import Image
+          UA = {"User-Agent": "AllegraLandingBot/1.0 (https://github.com/Mike1272-Bus/Mike1272-Bus)"}
+          out = "allegra-landing/images/raw"; os.makedirs(out, exist_ok=True)
+          credits = []
+          def save(url, name, meta):
+              try:
+                  r = requests.get(url, headers=UA, timeout=40); r.raise_for_status()
+                  im = Image.open(io.BytesIO(r.content)).convert("RGB")
+                  if min(im.size) < 500: return False
+                  im.thumbnail((1400, 1400)); im.save(f"{out}/{name}.jpg", quality=84)
+                  credits.append(f"{name}.jpg | {meta}"); return True
+              except Exception as e:
+                  print("échec", name, e); return False
+          for line in open("allegra-landing/images/queries.txt"):
+              line = line.strip()
+              if not line: continue
+              slug, q = line.split("|", 1); n = 0
+              # 1) Openverse
+              try:
+                  r = requests.get("https://api.openverse.org/v1/images/", params={"q": q, "license": "cc0,pdm", "page_size": 8, "mature": "false"}, headers=UA, timeout=30)
+                  print(slug, "openverse", r.status_code, r.text[:120].replace("\n", " "))
+                  for it in r.json().get("results", []):
+                      if n >= 4: break
+                      if save(it["url"], f"{slug}-{n+1}", f"{it.get('license')} | {it.get('creator')} | {it.get('foreign_landing_url')}"): n += 1
+              except Exception as e: print("openverse", e)
+              # 2) Wikimedia Commons
+              if n < 4:
+                  try:
+                      r = requests.get("https://commons.wikimedia.org/w/api.php", params={"action": "query", "format": "json", "generator": "search", "gsrsearch": f"filetype:bitmap {q}", "gsrnamespace": 6, "gsrlimit": 30, "prop": "imageinfo", "iiprop": "url|extmetadata", "iiurlwidth": 1400}, headers=UA, timeout=30)
+                      print(slug, "commons", r.status_code)
+                      for p in (r.json().get("query", {}).get("pages", {}) or {}).values():
+                          if n >= 4: break
+                          ii = p.get("imageinfo", [{}])[0]; md = ii.get("extmetadata", {})
+                          lic = md.get("LicenseShortName", {}).get("value", "")
+                          if not any(k in lic.lower() for k in ["cc0", "public domain", "pd"]): continue
+                          if save(ii.get("thumburl") or ii.get("url"), f"{slug}-{n+1}", f"{lic} | {md.get('Artist', {}).get('value', '')[:80]} | {ii.get('descriptionurl')}"): n += 1
+                  except Exception as e: print("commons", e)
+              print(slug, "->", n)
+          open("allegra-landing/images/credits.txt", "w").write("\n".join(credits) + "\n")
+          PY
           ls -la allegra-landing/images/raw
       - name: Commit
         run: |
           git config user.name "photos-bot"
           git config user.email "photos-bot@users.noreply.github.com"
           git add allegra-landing/images
-          git commit -m "Photos libres de droits (Openverse CC0) pour la landing Allegra" || exit 0
+          git commit -m "Photos libres de droits (CC0 / domaine public) pour la landing Allegra" || exit 0
           git pull --rebase origin ${GITHUB_REF_NAME}
           git push origin HEAD:${GITHUB_REF_NAME}
