@@ -191,15 +191,18 @@ Ils sont d'accord sur le principe. Ils veulent savoir ce que sont « les textes 
 
 On leur a aussi envoyé la page Allegra (https://allegra-digital-ground.vercel.app) quand ils ont demandé nos réseaux.
 
-### Message de lancement
+### Message de lancement (version simple et expliquée)
 
-> Super, merci à vous ! 🙌 On démarre lundi 12 octobre.
+> Merci à vous ! 🙌 On commence lundi 12 octobre.
 >
-> Pour être prêts, pouvez-vous m'envoyer d'ici samedi :
-> 1. Vos photos : les pots, les packs cadeaux, les étiquettes
-> 2. Le lot du concours
-> 3. Vos chiffres actuels, à peu près : vues de vos statuts, abonnés Facebook, commandes par semaine
+> Pour bien démarrer, j'ai besoin de 3 choses d'ici samedi :
 >
-> Dimanche, je vous envoie la vidéo du jour 1 avec son texte, pour votre accord avant de poster. La première semaine, on teste le matin (8h) et le soir (19h) pour garder l'heure qui marche le mieux.
+> 📸 *Vos photos* : vos pots, vos packs cadeaux et vos étiquettes. Je fais les vidéos avec vos vraies photos, pour que vos clients reconnaissent vos produits.
+>
+> 🎁 *Le cadeau du concours* : par exemple un pot de miel. C'est ce que gagnera la personne tirée au sort.
+>
+> 📊 *Vos chiffres d'aujourd'hui* : combien de personnes voient vos statuts, combien d'abonnés vous avez sur Facebook, et combien de commandes vous recevez par semaine. Pas besoin d'être exact. Ça nous permettra de comparer à la fin de la semaine et de voir si ça marche.
+>
+> Dimanche, je vous envoie la première vidéo. Vous la regardez, et on ne publie que si elle vous plaît.
 >
 > Ça vous va ?
