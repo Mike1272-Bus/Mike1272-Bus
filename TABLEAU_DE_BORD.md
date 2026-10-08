@@ -13,6 +13,7 @@ Un seul endroit pour savoir où en est chaque chose. À mettre à jour à chaque
 |---|---|---|---|
 | La Ruche du Terroir | Plan chiffré envoyé. Ils demandent ce que sont « les textes » et comment marche le concours | Envoyer notre réponse (prête), puis récupérer photos, chiffres et lot du concours ce soir. Démarrage lundi 12 oct. | `prospection/ruche-du-terroir/strategie_audience.md` |
 | Burger Guys, Fatburger, Savane, ManiTech, Épicé Bon, Tomela, Kahawa, La Kinoise, Festa, Délices d'Émilie | Vidéo envoyée ou prête | Relance 1 maintenant, relance 2 cinq jours après, puis stop | `prospection/relances.md` |
+| Landing page Allegra (vitrine + vidéo explicative 25 s) | En ligne : https://allegra-digital-ground.vercel.app | Envoyer le lien à La Ruche et dans les relances. Vérifier le lien Facebook, ajouter Instagram/TikTok d'Allegra | `allegra-landing/` |
 | Burger Guys, Fatburger | Numéros pas encore trouvés | Trouver le numéro avant toute relance | `prospection/liste_whatsapp.md` |
 | 40 nouvelles entreprises (pharmacies, pâtisseries, cosmétiques, mode, fast-food, coiffure, téléphones, construction) | Liste prête, numéros publics à vérifier | Premier message avec la question de diagnostic, puis démo gratuite | `prospection/liste_40_nouvelles.md` |
 
