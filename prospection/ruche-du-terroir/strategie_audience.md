@@ -184,3 +184,22 @@ Ils sont d'accord sur le principe. Ils veulent savoir ce que sont « les textes 
 - Le gagnant est contacté en message privé et annoncé en story. Il a 48 h pour répondre, sinon on retire au sort.
 - Obligatoire sur Instagram : écrire que le concours n'est ni organisé ni sponsorisé par Instagram.
 - À confirmer par la Ruche : le lot, la zone (Kinshasa seulement ?) et le mode de remise (point de vente ou livraison).
+
+## Feu vert (8 octobre 2026)
+
+> Bien merci ✍🏿 nous pouvons donc y aller
+
+On leur a aussi envoyé la page Allegra (https://allegra-digital-ground.vercel.app) quand ils ont demandé nos réseaux.
+
+### Message de lancement
+
+> Super, merci à vous ! 🙌 On démarre lundi 12 octobre.
+>
+> Pour être prêts, pouvez-vous m'envoyer d'ici samedi :
+> 1. Vos photos : les pots, les packs cadeaux, les étiquettes
+> 2. Le lot du concours
+> 3. Vos chiffres actuels, à peu près : vues de vos statuts, abonnés Facebook, commandes par semaine
+>
+> Dimanche, je vous envoie la vidéo du jour 1 avec son texte, pour votre accord avant de poster. La première semaine, on teste le matin (8h) et le soir (19h) pour garder l'heure qui marche le mieux.
+>
+> Ça vous va ?
