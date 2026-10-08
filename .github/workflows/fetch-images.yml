@@ -1,0 +1,41 @@
+name: Photos libres (Openverse CC0)
+on:
+  push:
+    branches: [claude/gallant-goldberg-l20gu3]
+    paths: [allegra-landing/images/queries.txt]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Télécharger
+        run: |
+          set -u
+          mkdir -p allegra-landing/images/raw
+          : > allegra-landing/images/credits.txt
+          while IFS='|' read -r slug q; do
+            [ -z "$slug" ] && continue
+            enc=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1]))" "$q")
+            curl -s "https://api.openverse.org/v1/images/?q=${enc}&license=cc0,pdm&page_size=6&mature=false&aspect_ratio=square,wide" -o /tmp/r.json || continue
+            n=0
+            for row in $(jq -r '.results[] | @base64' /tmp/r.json); do
+              url=$(echo "$row" | base64 -d | jq -r '.url')
+              n=$((n+1))
+              out="allegra-landing/images/raw/${slug}-${n}.jpg"
+              if curl -sL -m 40 "$url" -o /tmp/img && python3 -c "from PIL import Image;im=Image.open('/tmp/img').convert('RGB');im.thumbnail((1400,1400));im.save('$out',quality=84)"; then
+                echo "$(basename $out) | $(echo "$row" | base64 -d | jq -r '.license + \" | \" + (.creator//\"inconnu\") + \" | \" + .foreign_landing_url')" >> allegra-landing/images/credits.txt
+              fi
+            done
+          done < allegra-landing/images/queries.txt
+          ls -la allegra-landing/images/raw
+      - name: Commit
+        run: |
+          git config user.name "photos-bot"
+          git config user.email "photos-bot@users.noreply.github.com"
+          git add allegra-landing/images
+          git commit -m "Photos libres de droits (Openverse CC0) pour la landing Allegra" || exit 0
+          git pull --rebase origin ${GITHUB_REF_NAME}
+          git push origin HEAD:${GITHUB_REF_NAME}

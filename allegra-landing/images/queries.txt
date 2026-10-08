@@ -1,0 +1,10 @@
+miel|honey jar
+burger|burger
+cafe|coffee cup
+gateau|cake
+epices|spices
+jus|juice bottles
+pain|bread bakery
+boutique|grocery shelf
+telephone|smartphone table
+cadeau|gift box
