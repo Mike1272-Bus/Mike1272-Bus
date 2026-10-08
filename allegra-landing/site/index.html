@@ -6,7 +6,7 @@
   <title>Allegra Digital Ground · Vidéos animées pour votre marque</title>
   <meta name="description" content="Des vidéos animées faites avec vos propres photos, prêtes pour vos statuts WhatsApp, vos Reels et vos pages. Kinshasa." />
   <meta property="og:title" content="Allegra Digital Ground" />
-  <meta property="og:description" content="Des vidéos animées faites avec vos photos, pour vos statuts, vos Reels et vos pages." />
+  <meta property="og:description" content="Vos produits méritent d'être vus. Des vidéos animées faites avec vos photos, pour vos statuts, vos Reels et vos pages." />
   <meta property="og:image" content="/img/og.jpg" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0b1e4a" />
@@ -18,268 +18,365 @@
     @font-face { font-family: 'Work Sans'; font-weight: 400; font-display: swap; src: url('/fonts/worksans-400.ttf') format('truetype'); }
     @font-face { font-family: 'Work Sans'; font-weight: 700; font-display: swap; src: url('/fonts/worksans-700.ttf') format('truetype'); }
     :root {
-      --navy: #0b1e4a; --blue: #1f4aa0; --sky: #2a5bc4; --ink: #0b1e4a; --paper: #f6f3ea;
-      --yellow: #ffd60a; --white: #ffffff; --muted: #4a5878; --line: #0b1e4a;
+      --navy: #0b1e4a; --navy2: #071434; --blue: #1f4aa0; --sky: #3b6fe0; --yellow: #ffd60a;
+      --bg: #e6ebf7; --panel: #f4f6fc; --ink: #0b1e4a; --muted: #56627f; --glass: rgba(255,255,255,.55); --gline: rgba(255,255,255,.8);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Work Sans', system-ui, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.55; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3, .display { font-family: 'Bricolage', 'Work Sans', sans-serif; font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; }
+    body { font-family: 'Work Sans', system-ui, sans-serif; color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased;
+      background: radial-gradient(1200px 700px at 85% -10%, #c9d6fb 0%, transparent 60%), radial-gradient(900px 600px at -10% 40%, #d9e2fb 0%, transparent 60%), var(--bg); }
+    h1, h2, h3, .display { font-family: 'Bricolage', 'Work Sans', sans-serif; font-weight: 800; line-height: 1.02; letter-spacing: -0.025em; }
     a { color: inherit; }
-    .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    img { display: block; max-width: 100%; }
+    .shell { max-width: 1200px; margin: 14px auto 40px; background: var(--panel); border-radius: 36px; overflow: hidden;
+      box-shadow: 0 40px 100px rgba(11,30,74,.18), 0 0 0 1px rgba(255,255,255,.7) inset; }
+    .pad { padding: 0 20px; }
+    .glass { background: var(--glass); border: 1px solid var(--gline); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 18px 40px rgba(11,30,74,.10), inset 0 1px 0 rgba(255,255,255,.9); }
+    .dark { background: radial-gradient(600px 300px at 80% 0%, rgba(59,111,224,.45), transparent 70%), var(--navy2); color: #fff; }
     .y { color: var(--yellow); }
-    .hl { background: linear-gradient(transparent 58%, var(--yellow) 58%); padding: 0 4px; }
+    .grad { background: linear-gradient(90deg, var(--blue), var(--sky)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .chip { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; }
 
-    /* Boutons */
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Bricolage'; font-weight: 800; font-size: 18px;
-      text-decoration: none; padding: 16px 26px; border-radius: 999px; border: 3px solid var(--line); transition: transform .15s ease, box-shadow .15s ease; }
-    .btn-wa { background: var(--yellow); color: var(--navy); box-shadow: 5px 6px 0 var(--line); }
-    .btn-wa:hover { transform: translate(-2px, -2px); box-shadow: 7px 8px 0 var(--line); }
-    .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,.5); }
-    .btn svg { width: 22px; height: 22px; flex: none; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Bricolage'; font-weight: 800; font-size: 17px;
+      text-decoration: none; padding: 15px 24px; border-radius: 999px; transition: transform .15s ease, box-shadow .15s ease; white-space: nowrap; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-blue { background: linear-gradient(135deg, var(--blue), var(--sky)); color: #fff; box-shadow: 0 12px 26px rgba(31,74,160,.35); }
+    .btn-yellow { background: var(--yellow); color: var(--navy); box-shadow: 0 12px 26px rgba(255,214,10,.35); }
+    .btn-glass { color: var(--navy); }
+    .btn-dark { background: var(--navy); color: #fff; }
+    .btn svg { width: 20px; height: 20px; flex: none; }
 
-    /* Navigation */
-    nav { position: sticky; top: 0; z-index: 20; background: rgba(11,30,74,.92); backdrop-filter: blur(8px); color: var(--white); }
-    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    /* nav */
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .brand svg { width: 30px; height: 34px; }
-    .brand b { font-family: 'Bricolage'; font-weight: 800; font-size: 19px; letter-spacing: .01em; text-transform: uppercase; line-height: 1; }
-    .brand small { display: block; font-size: 10px; letter-spacing: .22em; color: #cfdcff; font-weight: 700; margin-top: 3px; }
-    nav .btn { padding: 10px 18px; font-size: 15px; box-shadow: 3px 4px 0 #000; border-color: #000; }
+    .brand .lg { width: 40px; height: 40px; border-radius: 12px; background: var(--navy); display: grid; place-items: center; }
+    .brand .lg svg { width: 22px; height: 25px; }
+    .brand b { font-family: 'Bricolage'; font-weight: 800; font-size: 17px; text-transform: uppercase; line-height: 1; display: block; }
+    .brand small { font-size: 10px; letter-spacing: .2em; color: var(--muted); font-weight: 700; }
+    .links { display: none; gap: 28px; font-size: 15px; }
+    .links a { text-decoration: none; color: var(--muted); }
+    .links a:hover { color: var(--navy); }
+    nav .btn { padding: 11px 18px; font-size: 14px; }
 
-    /* Hero */
-    .hero { position: relative; overflow: hidden; color: var(--white);
-      background: radial-gradient(circle at 20% 10%, var(--sky) 0%, #123077 45%, #071434 100%); padding: 56px 0 72px; }
-    .hero::before { content: ""; position: absolute; inset: 0; opacity: .14;
-      background-image: linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px);
-      background-size: 44px 44px; }
-    .hero .wrap { position: relative; display: grid; gap: 40px; align-items: center; }
-    .eyebrow { font-weight: 700; font-size: 13px; letter-spacing: .28em; text-transform: uppercase; color: #9fb8f0; }
-    .hero h1 { font-size: clamp(44px, 9vw, 84px); margin: 16px 0 20px; }
-    .hero p.lead { font-size: 19px; color: #dbe5ff; max-width: 540px; }
-    .hero .ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
-    .video-frame { position: relative; border-radius: 28px; border: 4px solid #000; box-shadow: 10px 12px 0 var(--yellow); overflow: hidden; background: #071434; aspect-ratio: 1 / 1; max-width: 520px; width: 100%; justify-self: center; }
-    .video-frame video { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .tag { position: absolute; left: 14px; top: 14px; background: var(--yellow); color: var(--navy); font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 2px solid #000; }
+    /* hero */
+    .hero { position: relative; padding: 26px 20px 40px; display: grid; gap: 34px; }
+    .hero h1 { font-size: clamp(42px, 8.4vw, 82px); margin: 16px 0 18px; }
+    .hero .lead { font-size: 18px; color: var(--muted); max-width: 520px; }
+    .hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .stage { position: relative; min-height: 380px; display: grid; place-items: center; }
+    .vframe { position: relative; z-index: 2; width: min(100%, 440px); aspect-ratio: 1/1; border-radius: 30px; overflow: hidden; padding: 10px; }
+    .vframe video { width: 100%; height: 100%; object-fit: cover; border-radius: 22px; display: block; background: var(--navy2); }
+    .vframe .chip { position: absolute; left: 22px; bottom: 22px; z-index: 3; background: var(--yellow); color: var(--navy); }
+    .sound { position: absolute; right: 22px; bottom: 22px; z-index: 3; width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer; display: grid; place-items: center; background: rgba(255,255,255,.85); }
+    /* objets 3D en verre */
+    .cube { position: absolute; z-index: 1; width: 96px; height: 96px; border-radius: 26px;
+      background: linear-gradient(145deg, rgba(255,255,255,.75), rgba(200,214,250,.35)); border: 1px solid rgba(255,255,255,.9);
+      box-shadow: 0 24px 40px rgba(11,30,74,.18), inset 0 2px 10px rgba(255,255,255,.9), inset 0 -10px 24px rgba(59,111,224,.18);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); animation: float 6s ease-in-out infinite; }
+    .cube i { position: absolute; border-radius: 9px; }
+    .cube.c1 { left: -4px; top: 10px; transform: rotate(-12deg); }
+    .cube.c1 i:nth-child(1) { left: 20px; top: 24px; width: 34px; height: 22px; background: var(--sky); }
+    .cube.c1 i:nth-child(2) { left: 44px; top: 50px; width: 30px; height: 22px; background: var(--yellow); }
+    .cube.c2 { right: 0; top: -6px; width: 84px; height: 84px; animation-delay: -2s; transform: rotate(10deg); }
+    .cube.c2 i { left: 22px; top: 22px; width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff3a6, var(--yellow)); }
+    .cube.c3 { right: 6px; bottom: 26px; width: 104px; height: 104px; background: linear-gradient(145deg, #1a2f63, #0b1e4a); animation-delay: -4s; }
+    .cube.c3 i:nth-child(1) { left: 24px; top: 30px; width: 56px; height: 14px; background: var(--yellow); }
+    .cube.c3 i:nth-child(2) { left: 24px; top: 54px; width: 38px; height: 14px; background: var(--sky); }
+    .orb { position: absolute; z-index: 3; border-radius: 50%; background: radial-gradient(circle at 30% 28%, #fff 0%, rgba(214,226,255,.75) 30%, rgba(59,111,224,.35) 70%, rgba(59,111,224,.15) 100%);
+      box-shadow: 0 16px 30px rgba(11,30,74,.2); animation: float 7s ease-in-out infinite; }
+    .orb.o1 { width: 54px; height: 54px; left: 10%; bottom: 6%; animation-delay: -1s; }
+    .orb.o2 { width: 30px; height: 30px; right: 18%; top: 4%; animation-delay: -3s; }
+    @keyframes float { 0%,100% { translate: 0 0; } 50% { translate: 0 -14px; } }
 
-    /* Sections */
-    section { padding: 80px 0; }
-    .kicker { font-weight: 700; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
-    h2 { font-size: clamp(34px, 6vw, 56px); margin-bottom: 18px; }
-    .sub { font-size: 18px; color: var(--muted); max-width: 640px; }
+    /* bandeau sombre */
+    .band { margin: 0 20px; border-radius: 28px; padding: 22px; display: grid; gap: 18px; align-items: center; }
+    .band .bt { display: flex; align-items: center; gap: 14px; }
+    .band .bt .ic { width: 52px; height: 52px; border-radius: 16px; background: rgba(255,255,255,.1); display: grid; place-items: center; border: 1px solid rgba(255,255,255,.2); }
+    .band h3 { font-size: 22px; }
+    .band p { color: #c6d3f5; font-size: 15px; }
+    .thumbs { display: flex; gap: 10px; }
+    .thumbs img { width: 64px; height: 64px; border-radius: 16px; object-fit: cover; border: 2px solid rgba(255,255,255,.7); }
 
-    .problem { background: var(--paper); }
-    .problem .grid { display: grid; gap: 22px; margin-top: 40px; }
-    .split { border: 3px solid var(--line); border-radius: 24px; padding: 28px; background: var(--white); box-shadow: 6px 7px 0 var(--line); }
-    .split h3 { font-size: 26px; margin-bottom: 10px; }
-    .split.bad { background: #e9e6dc; }
-    .split.good { background: var(--navy); color: var(--white); box-shadow: 6px 7px 0 var(--yellow); }
-    .split.good p { color: #dbe5ff; }
-    .split .pill { display: inline-block; font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; border: 2px solid currentColor; margin-bottom: 16px; }
+    /* canaux */
+    .channels { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 22px 20px 6px; }
+    .ch { border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .ch .lb { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .ch .vl { font-family: 'Bricolage'; font-weight: 800; font-size: 20px; }
+    .ch .chip { align-self: flex-start; background: linear-gradient(135deg, var(--blue), var(--sky)); color: #fff; padding: 5px 12px; font-size: 11px; }
 
-    .services { background: var(--white); border-top: 3px solid var(--line); border-bottom: 3px solid var(--line); }
-    .cards { display: grid; gap: 22px; margin-top: 40px; }
-    .card { border: 3px solid var(--line); border-radius: 24px; padding: 28px; background: var(--paper); box-shadow: 6px 7px 0 var(--line); }
-    .card .ic { width: 60px; height: 60px; border-radius: 18px; background: var(--blue); display: grid; place-items: center; margin-bottom: 18px; border: 3px solid var(--line); }
-    .card .ic svg { width: 30px; height: 30px; }
-    .card h3 { font-size: 24px; margin-bottom: 8px; }
-    .card p { color: var(--muted); }
-    .card.main { background: var(--yellow); }
-    .card.main p { color: var(--navy); }
+    /* sections */
+    section { padding: 70px 20px; }
+    .kicker { display: inline-block; font-weight: 700; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+    h2 { font-size: clamp(32px, 5.6vw, 54px); margin-bottom: 14px; }
+    .sub { font-size: 17px; color: var(--muted); max-width: 620px; }
 
-    .steps { display: grid; gap: 18px; margin-top: 40px; counter-reset: s; }
-    .step { display: flex; gap: 20px; align-items: flex-start; padding: 24px; border-radius: 22px; border: 3px solid var(--line); background: var(--white); }
-    .step .n { flex: none; width: 54px; height: 54px; border-radius: 50%; background: var(--navy); color: var(--yellow); display: grid; place-items: center; font-family: 'Bricolage'; font-weight: 800; font-size: 24px; }
-    .step h3 { font-size: 22px; margin-bottom: 4px; }
-    .step p { color: var(--muted); }
+    /* bento */
+    .bento { display: grid; gap: 16px; margin-top: 34px; }
+    .tile { border-radius: 28px; padding: 26px; position: relative; overflow: hidden; }
+    .tile h3 { font-size: 26px; margin-bottom: 8px; }
+    .tile p { color: var(--muted); }
+    .tile.dark p { color: #c6d3f5; }
+    .ba { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+    .ba figure { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 1/1; }
+    .ba img { width: 100%; height: 100%; object-fit: cover; }
+    .ba .before img { filter: grayscale(.85) brightness(.85); }
+    .ba .after { box-shadow: 0 0 0 4px var(--yellow); }
+    .ba .after img { animation: kb 8s ease-in-out infinite alternate; }
+    @keyframes kb { from { transform: scale(1); } to { transform: scale(1.15) translateX(-4%); } }
+    .ba figcaption { position: absolute; left: 10px; bottom: 10px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; background: rgba(11,30,74,.8); color: #fff; }
+    .ba .after figcaption { background: var(--yellow); color: var(--navy); }
+    .mosaic { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+    .mosaic img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 16px; }
+    .float-card { position: absolute; right: 18px; top: 18px; border-radius: 16px; padding: 10px 14px; font-weight: 700; font-size: 13px; color: var(--navy); }
+    .list { list-style: none; display: grid; gap: 12px; margin-top: 16px; }
+    .list li { display: flex; gap: 12px; align-items: flex-start; }
+    .list svg { flex: none; width: 22px; height: 22px; margin-top: 2px; }
 
-    .promise { background: var(--navy); color: var(--white); }
-    .promise .sub { color: #dbe5ff; }
-    .rules { display: grid; gap: 16px; margin-top: 34px; }
-    .rule { display: flex; gap: 14px; align-items: flex-start; font-size: 18px; padding: 18px 20px; border-radius: 18px; background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.18); }
-    .rule svg { flex: none; width: 26px; height: 26px; margin-top: 2px; }
+    /* étapes */
+    .steps { display: grid; gap: 14px; margin-top: 30px; }
+    .step { border-radius: 24px; padding: 22px; display: flex; gap: 18px; align-items: center; }
+    .step .n { flex: none; width: 54px; height: 54px; border-radius: 18px; background: var(--yellow); color: var(--navy); display: grid; place-items: center; font-family: 'Bricolage'; font-weight: 800; font-size: 24px; }
+    .step h3 { font-size: 20px; }
+    .step p { color: #c6d3f5; font-size: 15px; }
+    .step.glass-d { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); }
 
-    .faq details { border: 3px solid var(--line); border-radius: 18px; background: var(--white); padding: 18px 22px; margin-top: 14px; }
-    .faq summary { cursor: pointer; font-family: 'Bricolage'; font-weight: 800; font-size: 20px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    /* formules */
+    .plans { display: grid; gap: 16px; margin-top: 34px; }
+    .plan { border-radius: 28px; padding: 26px; display: flex; flex-direction: column; gap: 12px; }
+    .plan .tt { font-family: 'Bricolage'; font-weight: 800; font-size: 24px; }
+    .plan .pr { font-family: 'Bricolage'; font-weight: 800; font-size: 34px; }
+    .plan .pr small { font-family: 'Work Sans'; font-weight: 400; font-size: 14px; color: var(--muted); }
+    .plan ul { list-style: none; display: grid; gap: 8px; color: var(--muted); font-size: 15px; flex: 1; }
+    .plan li::before { content: "✓ "; color: var(--blue); font-weight: 700; }
+    .plan.hot { background: linear-gradient(160deg, var(--blue), var(--navy)); color: #fff; box-shadow: 0 24px 50px rgba(31,74,160,.35); }
+    .plan.hot ul, .plan.hot .pr small { color: #d5e0ff; }
+    .plan.hot li::before { color: var(--yellow); }
+    .plan .btn { margin-top: 8px; }
+
+    /* FAQ */
+    .faq details { border-radius: 20px; padding: 18px 22px; margin-top: 12px; }
+    .faq summary { cursor: pointer; font-family: 'Bricolage'; font-weight: 800; font-size: 19px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
     .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::after { content: "+"; font-size: 26px; line-height: 1; color: var(--blue); }
+    .faq summary::after { content: "+"; font-size: 24px; line-height: 1; color: var(--blue); }
     .faq details[open] summary::after { content: "–"; }
     .faq details p { margin-top: 10px; color: var(--muted); }
 
-    .final { background: var(--yellow); text-align: center; border-top: 3px solid var(--line); }
-    .final h2 { max-width: 760px; margin: 0 auto 16px; }
-    .final .sub { margin: 0 auto 30px; color: var(--navy); }
-    .final .btn-wa { background: var(--navy); color: var(--white); box-shadow: 6px 7px 0 #000; border-color: #000; font-size: 20px; padding: 18px 30px; }
-    .socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-    .socials a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 999px; border: 2px solid var(--navy); background: rgba(255,255,255,.4); }
-    .socials svg { width: 20px; height: 20px; }
+    .final { margin: 0 20px 20px; border-radius: 32px; padding: 50px 24px; text-align: center; position: relative; overflow: hidden; }
+    .final h2 { color: #fff; }
+    .final .sub { color: #c6d3f5; margin: 0 auto 26px; }
+    .socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .socials a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 14px; padding: 10px 16px; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); color: #fff; }
+    .socials svg { width: 18px; height: 18px; }
+    footer { padding: 20px 24px 26px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
 
-    footer { background: #071434; color: #9fb8f0; padding: 28px 0; font-size: 14px; }
-    footer .wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; }
-
-    .float-wa { position: fixed; right: 16px; bottom: 16px; z-index: 30; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; border: 3px solid #000; box-shadow: 3px 4px 0 #000; }
+    .float-wa { position: fixed; right: 16px; bottom: 16px; z-index: 30; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
     .float-wa svg { width: 30px; height: 30px; }
 
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.in { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .cube, .orb, .ba .after img { animation: none; } }
 
-    @media (min-width: 820px) {
-      .hero { padding: 80px 0 100px; }
-      .hero .wrap { grid-template-columns: 1.1fr 1fr; }
-      .problem .grid { grid-template-columns: 1fr 1fr; }
-      .cards { grid-template-columns: repeat(3, 1fr); }
+    @media (min-width: 860px) {
+      .shell { margin: 24px auto 50px; }
+      nav { padding: 24px 40px; }
+      .links { display: flex; }
+      .hero { grid-template-columns: 1.05fr 1fr; padding: 40px 40px 50px; align-items: center; }
+      .stage { min-height: 520px; }
+      .cube.c1 { left: 0; top: 40px; width: 120px; height: 120px; }
+      .band { margin: 0 40px; grid-template-columns: 1.2fr 1fr auto; padding: 26px 30px; }
+      .channels { grid-template-columns: repeat(4, 1fr); padding: 26px 40px 10px; }
+      section { padding: 100px 40px; }
+      .bento { grid-template-columns: 1fr 1.4fr; grid-auto-rows: auto; }
+      .bento .wide { grid-column: span 2; }
+      .mosaic { grid-template-columns: repeat(6, 1fr); }
       .steps { grid-template-columns: repeat(3, 1fr); }
-      .step { flex-direction: column; }
-      .rules { grid-template-columns: 1fr 1fr; }
-      section { padding: 110px 0; }
+      .step { flex-direction: column; align-items: flex-start; }
+      .plans { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+      .final { margin: 0 40px 30px; padding: 80px 40px; }
+      footer { padding: 20px 44px 30px; }
     }
   </style>
 </head>
 <body>
+<div class="shell">
   <nav>
-    <div class="wrap">
-      <a class="brand" href="#">
-        <svg viewBox="0 0 60 68" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M20 20v-6a10 10 0 0 1 20 0v6"/><path d="M6 20h48l-4 44H10z"/><circle cx="21" cy="35" r="4" fill="#fff" stroke="none"/><path d="M15 55l11-10 7 6 13-14"/><path d="M38 37h8v8"/></svg>
-        <span><b>Allegra Digital</b><small>GROUND · KINSHASA</small></span>
-      </a>
-      <a class="btn btn-wa wa-link" href="#">Écrivez-nous</a>
-    </div>
+    <a class="brand" href="#">
+      <span class="lg"><svg viewBox="0 0 60 68" fill="none" stroke="#ffd60a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M20 20v-6a10 10 0 0 1 20 0v6"/><path d="M6 20h48l-4 44H10z"/><path d="M15 55l11-10 7 6 13-14"/></svg></span>
+      <span><b>Allegra Digital</b><small>GROUND · KINSHASA</small></span>
+    </a>
+    <div class="links"><a href="#services">Services</a><a href="#methode">Méthode</a><a href="#formules">Formules</a><a href="#faq">Questions</a></div>
+    <a class="btn btn-dark wa-link" href="#">Écrivez-nous</a>
   </nav>
 
   <header class="hero">
-    <div class="wrap">
-      <div>
-        <div class="eyebrow">Vidéos animées · Kinshasa</div>
-        <h1>Vos produits méritent <span class="y">d'être vus.</span></h1>
-        <p class="lead">Nous créons des vidéos animées avec vos propres photos, prêtes à poster sur vos statuts WhatsApp, vos Reels Instagram et votre page Facebook.</p>
-        <div class="ctas">
-          <a class="btn btn-wa wa-link" href="#">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
-            Parlons de votre marque
-          </a>
-          <a class="btn btn-ghost" href="#comment">Comment ça marche</a>
-        </div>
+    <div>
+      <span class="chip glass" style="color:var(--blue)">● Vidéos animées · Kinshasa</span>
+      <h1>Vos produits méritent <span class="grad">d'être vus.</span></h1>
+      <p class="lead">Nous créons des vidéos animées avec vos propres photos, prêtes à poster sur vos statuts WhatsApp, vos Reels Instagram et votre page Facebook.</p>
+      <div class="ctas">
+        <a class="btn btn-blue wa-link" href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
+          Parlons de votre marque
+        </a>
+        <a class="btn btn-glass glass" href="#methode">Comment ça marche</a>
       </div>
-      <div class="video-frame">
-        <span class="tag">Présentation · 13 s</span>
-        <video src="/video/presentation.mp4" poster="/img/poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+    </div>
+    <div class="stage">
+      <div class="cube c1"><i></i><i></i></div>
+      <div class="cube c2"><i></i></div>
+      <div class="cube c3"><i></i><i></i></div>
+      <div class="orb o1"></div><div class="orb o2"></div>
+      <div class="vframe glass">
+        <span class="chip">La méthode en 25 s</span>
+        <video id="vid" src="/video/presentation.mp4" poster="/img/poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
       </div>
     </div>
   </header>
 
-  <section class="problem">
-    <div class="wrap">
-      <div class="kicker reveal">Le constat</div>
-      <h2 class="reveal">Une belle photo ne suffit plus.</h2>
-      <p class="sub reveal">Vos clients font défiler des dizaines de statuts et de publications chaque jour. Ce qui bouge attire le regard. Ce qui reste figé passe.</p>
-      <div class="grid">
-        <div class="split bad reveal">
-          <span class="pill">Aujourd'hui</span>
-          <h3>Une photo posée, puis plus rien.</h3>
-          <p>Vous publiez quand vous avez le temps. Les pages restent calmes, et les clients qui vérifient votre marque avant d'acheter ne voient pas grand-chose.</p>
+  <div class="band dark reveal">
+    <div class="bt">
+      <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.2" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M10 9l5 3-5 3z" fill="#ffd60a"/></svg></div>
+      <div><h3>Une vidéo qui arrête le pouce</h3><p>Vos photos deviennent des vidéos courtes qui bougent, à vos couleurs.</p></div>
+    </div>
+    <p>Chaque vidéo finit par votre numéro de commande. Vos clients savent tout de suite comment vous écrire.</p>
+    <div class="thumbs"><img src="/img/photos/miel.jpg" alt="Pot de miel" loading="lazy" /><img src="/img/photos/burger.jpg" alt="Burger" loading="lazy" /><img src="/img/photos/cafe.jpg" alt="Tasse de café" loading="lazy" /></div>
+  </div>
+
+  <div class="channels">
+    <div class="ch glass reveal"><span class="lb">Canal</span><span class="vl">Statuts WhatsApp</span><span class="chip">Inclus</span></div>
+    <div class="ch glass reveal"><span class="lb">Canal</span><span class="vl">Reels Instagram</span><span class="chip">Inclus</span></div>
+    <div class="ch glass reveal"><span class="lb">Canal</span><span class="vl">Page Facebook</span><span class="chip">Inclus</span></div>
+    <div class="ch glass reveal"><span class="lb">Canal</span><span class="vl">TikTok</span><span class="chip" style="background:var(--yellow);color:var(--navy)">En option</span></div>
+  </div>
+
+  <section id="services">
+    <span class="kicker reveal">Ce que nous faisons</span>
+    <h2 class="reveal">Une belle photo <span class="grad">ne suffit plus.</span></h2>
+    <p class="sub reveal">Vos clients font défiler des dizaines de statuts chaque jour. Ce qui bouge attire le regard. Ce qui reste figé passe.</p>
+    <div class="bento">
+      <div class="tile dark reveal">
+        <span class="chip" style="background:rgba(255,255,255,.1);color:#ffd60a;border:1px solid rgba(255,255,255,.2)">Le service</span>
+        <h3 style="margin-top:14px">Vidéos animées en motion design</h3>
+        <p>Faites uniquement avec vos photos et votre logo. Format vertical pour les statuts et les Reels.</p>
+        <ul class="list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Le texte à copier-coller sous chaque vidéo</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Le calendrier : quoi poster, quand et où</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Des idées de concours pour faire partager vos statuts</span></li>
+        </ul>
+      </div>
+      <div class="tile glass reveal">
+        <h3>Avant, après.</h3>
+        <p>La même photo. Posée telle quelle, ou transformée en vidéo qui donne envie.</p>
+        <div class="ba">
+          <figure class="before"><img src="/img/photos/miel.jpg" alt="Photo de produit simple" loading="lazy" /><figcaption>Photo seule</figcaption></figure>
+          <figure class="after"><img src="/img/photos/miel.jpg" alt="Le même produit mis en valeur" loading="lazy" /><figcaption>Avec Allegra</figcaption></figure>
         </div>
-        <div class="split good reveal">
-          <span class="pill">Avec Allegra</span>
-          <h3>Une vidéo qui donne envie, chaque jour.</h3>
-          <p>Vos produits s'animent, votre logo se reconnaît d'un coup d'œil, et chaque vidéo finit par votre numéro de commande.</p>
+      </div>
+      <div class="tile glass wide reveal">
+        <div class="float-card glass">Alimentation · Cafés · Restaurants · Boutiques</div>
+        <h3 style="max-width:70%">Pour les commerçants qui vendent sur WhatsApp</h3>
+        <p>Miel, épices, burgers, cafés, gâteaux, jus, boutiques… Si vous avez des photos de vos produits, on peut les animer.</p>
+        <div class="mosaic">
+          <img src="/img/photos/epices.jpg" alt="Épices" loading="lazy" />
+          <img src="/img/photos/gateau.jpg" alt="Gâteau" loading="lazy" />
+          <img src="/img/photos/jus.jpg" alt="Bouteilles de jus" loading="lazy" />
+          <img src="/img/photos/burger.jpg" alt="Burger" loading="lazy" />
+          <img src="/img/photos/boutique.jpg" alt="Rayon de boutique" loading="lazy" />
+          <img src="/img/photos/cafe.jpg" alt="Café" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
-  <section class="services">
-    <div class="wrap">
-      <div class="kicker reveal">Ce que nous faisons</div>
-      <h2 class="reveal">Tout est prêt, <span class="hl">vous n'avez qu'à poster.</span></h2>
-      <div class="cards">
-        <div class="card main reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M10 9l5 3-5 3z" fill="#fff"/></svg></div>
-          <h3>Vidéos animées</h3>
-          <p>Des vidéos courtes en motion design, faites uniquement avec vos photos et votre logo. Format vertical pour les statuts et les Reels.</p>
-        </div>
-        <div class="card reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
-          <h3>Calendrier et textes</h3>
-          <p>Quoi poster, à quelle heure et où. Avec le texte à copier-coller sous chaque vidéo.</p>
-        </div>
-        <div class="card reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
-          <h3>Boutique et publicité</h3>
-          <p>Quand vous êtes prêts à aller plus loin : une boutique en ligne et des publicités pour toucher de nouveaux clients.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="comment">
-    <div class="wrap">
-      <div class="kicker reveal">Comment ça marche</div>
-      <h2 class="reveal">Trois étapes, tout sur WhatsApp.</h2>
+  <section id="methode" style="padding-top:0">
+    <div class="tile dark reveal" style="border-radius:32px;padding:34px 24px">
+      <span class="kicker" style="color:#9fb8f0">Comment ça marche</span>
+      <h2 style="color:#fff">Trois étapes, <span class="y">tout sur WhatsApp.</span></h2>
       <div class="steps">
-        <div class="step reveal"><div class="n">1</div><div><h3>Vous envoyez vos photos</h3><p>Vos produits, vos packs, votre logo. Directement sur WhatsApp.</p></div></div>
-        <div class="step reveal"><div class="n">2</div><div><h3>Nous créons la vidéo</h3><p>On vous l'envoie avec son texte. Vous demandez des changements si besoin.</p></div></div>
-        <div class="step reveal"><div class="n">3</div><div><h3>Vous postez</h3><p>Puis on regarde ensemble vos vues et vos messages pour ajuster la suite.</p></div></div>
+        <div class="step glass-d"><div class="n">1</div><div><h3>Vous envoyez vos photos</h3><p>Vos produits, vos packs, votre logo. Même prises au téléphone.</p></div></div>
+        <div class="step glass-d"><div class="n">2</div><div><h3>Nous créons la vidéo</h3><p>Avec son texte. Vous demandez des changements si besoin.</p></div></div>
+        <div class="step glass-d"><div class="n">3</div><div><h3>Vous postez</h3><p>Puis on regarde ensemble vos vues et vos messages pour ajuster la suite.</p></div></div>
       </div>
     </div>
   </section>
 
-  <section class="promise">
-    <div class="wrap">
-      <div class="kicker reveal" style="color:#9fb8f0">Nos engagements</div>
-      <h2 class="reveal">Votre marque reste <span class="y">la vôtre.</span></h2>
-      <div class="rules">
-        <div class="rule reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Uniquement vos photos et vos informations. Rien d'inventé.</div>
-        <div class="rule reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Aucune vidéo publiée sans votre accord écrit.</div>
-        <div class="rule reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Jamais de mot de passe demandé. Vous gardez la main sur vos comptes.</div>
+  <section id="formules" style="padding-top:0">
+    <span class="kicker reveal">Formules</span>
+    <h2 class="reveal">Choisissez <span class="grad">votre rythme.</span></h2>
+    <p class="sub reveal">Le prix dépend du nombre de vidéos. Dites-nous ce dont vous avez besoin, on vous répond avec une proposition claire.</p>
+    <div class="plans">
+      <div class="plan glass reveal">
+        <span class="tt">Une vidéo</span>
+        <span class="pr">Sur devis <small>· pour un lancement</small></span>
+        <ul><li>Une vidéo animée avec vos photos</li><li>Le texte pour la poster</li><li>Format statut et Reel</li></ul>
+        <a class="btn btn-glass glass wa-link" href="#">Demander</a>
+      </div>
+      <div class="plan hot reveal">
+        <span class="chip" style="background:var(--yellow);color:var(--navy);align-self:flex-start">Le plus utile</span>
+        <span class="tt">Le mois complet</span>
+        <span class="pr">Sur devis <small>· chaque mois</small></span>
+        <ul><li>Une vidéo par jour, ou 3 par semaine</li><li>Le calendrier et tous les textes</li><li>Un point sur vos vues et vos messages</li></ul>
+        <a class="btn btn-yellow wa-link" href="#">Demander</a>
+      </div>
+      <div class="plan glass reveal">
+        <span class="tt">Boutique et pub</span>
+        <span class="pr">Sur devis <small>· sur mesure</small></span>
+        <ul><li>Une boutique en ligne à votre nom</li><li>Des publicités pour toucher de nouveaux clients</li><li>Les vidéos pour les alimenter</li></ul>
+        <a class="btn btn-glass glass wa-link" href="#">Demander</a>
       </div>
     </div>
   </section>
 
-  <section class="faq">
-    <div class="wrap">
-      <div class="kicker reveal">Vos questions</div>
-      <h2 class="reveal">Avant de nous écrire</h2>
-      <details class="reveal"><summary>Combien ça coûte ?</summary><p>Ça dépend du nombre de vidéos par mois. Écrivez-nous ce dont vous avez besoin, on vous répond avec une proposition claire.</p></details>
-      <details class="reveal"><summary>Faut-il vous donner nos accès Instagram ou Facebook ?</summary><p>Non. Nous vous envoyons les vidéos et les textes, vous postez vous-mêmes. Si vous préférez, vous pouvez nous ajouter comme collaborateur dans Meta Business Suite.</p></details>
-      <details class="reveal"><summary>On n'a pas de belles photos, c'est grave ?</summary><p>Non. Envoyez ce que vous avez, même prises au téléphone. On vous dit lesquelles marchent le mieux et comment en prendre de nouvelles.</p></details>
-      <details class="reveal"><summary>Vous travaillez avec qui ?</summary><p>Les commerçants et les marques de Kinshasa : alimentation, restaurants, boutiques, cafés, pâtisseries…</p></details>
-    </div>
-  </section>
-
-  <section class="final">
-    <div class="wrap">
-      <h2 class="reveal">Parlons de votre marque.</h2>
-      <p class="sub reveal">Un message suffit. Dites-nous ce que vous vendez, on vous propose une première idée de vidéo.</p>
-      <a class="btn btn-wa wa-link reveal" href="#">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
-        +243 831 710 181
-      </a>
-      <div class="socials">
-        <a class="wa-link" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>WhatsApp</a>
-        <a href="https://www.facebook.com/ADigitalGround" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.7-.6z"/></svg>Facebook</a>
+  <section style="padding-top:0">
+    <div class="bento" style="margin-top:0">
+      <div class="tile glass reveal">
+        <span class="kicker">Nos engagements</span>
+        <h3 style="font-size:32px">Votre marque reste <span class="grad">la vôtre.</span></h3>
+        <ul class="list" style="color:var(--muted)">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f4aa0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Uniquement vos photos et vos informations. Rien d'inventé.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f4aa0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Aucune vidéo publiée sans votre accord écrit.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f4aa0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Jamais de mot de passe demandé. Vous gardez la main sur vos comptes.</span></li>
+        </ul>
+      </div>
+      <div class="tile glass faq reveal" id="faq">
+        <span class="kicker">Vos questions</span>
+        <details><summary>Combien ça coûte ?</summary><p>Ça dépend du nombre de vidéos par mois. Écrivez-nous ce dont vous avez besoin, on vous répond avec une proposition claire.</p></details>
+        <details><summary>Faut-il vous donner nos accès ?</summary><p>Non. Nous vous envoyons les vidéos et les textes, vous postez vous-mêmes. Vous pouvez aussi nous ajouter comme collaborateur dans Meta Business Suite.</p></details>
+        <details><summary>On n'a pas de belles photos, c'est grave ?</summary><p>Non. Envoyez ce que vous avez, même prises au téléphone. On vous dit lesquelles marchent le mieux et comment en prendre de nouvelles.</p></details>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="wrap">
-      <span>© 2026 Allegra Digital Ground · Kinshasa, RDC</span>
-      <span>Boutiques en ligne · Publicité · IA</span>
+  <div class="final dark reveal">
+    <div class="cube c2" style="left:6%;top:16%;right:auto"><i></i></div>
+    <div class="orb o2" style="right:10%;top:20%"></div>
+    <h2>Parlons de <span class="y">votre marque.</span></h2>
+    <p class="sub">Un message suffit. Dites-nous ce que vous vendez, on vous propose une première idée de vidéo.</p>
+    <a class="btn btn-yellow wa-link" href="#" style="font-size:19px;padding:17px 28px">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
+      +243 831 710 181
+    </a>
+    <div class="socials">
+      <a class="wa-link" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>WhatsApp</a>
+      <a href="https://www.facebook.com/ADigitalGround" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.7-.6z"/></svg>Facebook</a>
     </div>
-  </footer>
+  </div>
 
-  <a class="float-wa wa-link" href="#" aria-label="Écrire sur WhatsApp">
-    <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
-  </a>
+  <footer><span>© 2026 Allegra Digital Ground · Kinshasa, RDC</span><span>Photos d'illustration libres de droits</span></footer>
+</div>
 
-  <script>
-    var WA = "https://wa.me/243831710181?text=" + encodeURIComponent("Bonjour Allegra, j'ai vu votre page. Je voudrais une vidéo animée pour ma marque.");
-    document.querySelectorAll(".wa-link").forEach(function (a) { a.href = WA; a.target = "_blank"; a.rel = "noopener"; });
-    if ("IntersectionObserver" in window) {
-      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: 0.12 });
-      document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
-    } else { document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); }); }
-  </script>
+<a class="float-wa wa-link" href="#" aria-label="Écrire sur WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
+</a>
+
+<script>
+  var WA = "https://wa.me/243831710181?text=" + encodeURIComponent("Bonjour Allegra, j'ai vu votre page. Je voudrais une vidéo animée pour ma marque.");
+  document.querySelectorAll(".wa-link").forEach(function (a) { a.href = WA; a.target = "_blank"; a.rel = "noopener"; });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  } else { document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); }); }
+</script>
 </body>
 </html>
