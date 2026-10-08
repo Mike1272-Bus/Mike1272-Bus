@@ -54,5 +54,22 @@ Mike a ajouté au début : « En fait, c'est suite à ma précédente vidéo, o�
 
 ## Légende TikTok
 
-> Réponse à ton commentaire 🔌 Technicien réseaux, ce que tu expliques à chaque client peut devenir une petite formation que tu vends en ligne. Et toi, c'est quoi ta compétence ? Dis-le en commentaire.
+> Réponse à ton commentaire 🔌 Technicien réseaux, ce que tu expliques à chaque client peut devenir une petite formation que tu vends en ligne. Tu veux créer la tienne ? Écris-moi en privé, je t'accompagne. Et toi, c'est quoi ta compétence ? Dis-le en commentaire.
 > #technicienreseau #wifi #informatique #reseau #produitdigital #formationenligne #chariow #kinshasa #rdc
+
+## Extraits utilisés dans la vidéo
+
+| Moment | Extrait |
+|---|---|
+| « Toi, tu sais faire… tirer les câbles » | Technicien sur l'échelle avec les câbles (Mike) |
+| « …dans une maison ou un bureau » | Réseau 3D : ordinateurs, téléphones, routeur (Mike) |
+| « quelqu'un se plaint de sa connexion » | Icône wifi qui perd le signal (Mike, fond vert retiré) |
+| « tu le filmes une seule fois » | Téléphone sur trépied (dépôt) |
+| « Installer et protéger le wifi » | Hexagones et cadenas (Mike) |
+| « pour ceux qui veulent apprendre ton métier » | Cours en ligne sur ordinateur (dépôt) |
+| « faire un câble réseau de A à Z » | Câble qui se branche à l'ordinateur (Mike) |
+| « former la nouvelle génération » | Cours en visio (dépôt) |
+| « Tu la mets en vente » | Paiement par carte (dépôt) |
+| « une astuce wifi à la fois » | Icône wifi bleue (Mike, fond vert retiré) |
+| « une petite publicité » | Pub sur téléphone (dépôt) |
+| « futurs clients… un vrai technicien » | Technicien qui installe au plafond (Mike) |

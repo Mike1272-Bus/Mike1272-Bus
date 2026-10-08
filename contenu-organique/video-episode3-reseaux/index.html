@@ -27,6 +27,18 @@
         background-image: linear-gradient(#9aa4ff 2px, transparent 2px), linear-gradient(90deg, #9aa4ff 2px, transparent 2px); background-size: 80px 80px; }
       #lbl { left: 0; width: 1080px; top: 200px; text-align: center; font-size: 30px; letter-spacing: 6px; color: #f5c518; z-index: 30; }
 
+      .vid { object-fit: cover; z-index: 1; }
+      #shade { z-index: 2; background: linear-gradient(180deg, rgba(13,15,43,0.9) 0%, rgba(13,15,43,0.5) 30%, rgba(13,15,43,0.45) 60%, rgba(13,15,43,0.9) 100%); }
+      #grid { z-index: 3 !important; }
+      .vc { border-radius: 30px; overflow: hidden; z-index: 12; box-shadow: 0 30px 60px rgba(0,0,0,0.5); background: #1b1f5e; }
+      .vc video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      #c3d { left: 60px; top: 1030px; width: 960px; height: 540px; }
+      #csig { left: 290px; top: 1000px; width: 500px; height: 500px; border-radius: 50%; }
+      #ccab { left: 90px; top: 990px; width: 900px; height: 506px; }
+      #cwifi { left: 300px; top: 880px; width: 480px; height: 480px; border-radius: 40px; }
+      .ap { top: 1400px; width: 280px; height: 80px; border-radius: 40px; font-size: 40px; line-height: 88px; }
+      #ap1 { left: 80px; } #ap2 { left: 400px; } #ap3 { left: 720px; }
+      .ico { background: rgba(13,15,43,0.75) !important; }
       /* A. le commentaire */
       #cmtk { top: 520px; font-size: 32px; letter-spacing: 5px; color: #c9cdf2; z-index: 11; }
       #cmt { left: 90px; top: 590px; width: 900px; height: 262px; border-radius: 36px; background: #fff; z-index: 13; box-shadow: 0 30px 60px rgba(0,0,0,0.5); overflow: hidden; }
@@ -46,7 +58,7 @@
       .ico .l { position: absolute; left: 0; width: 300px; top: 222px; text-align: center; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; line-height: 1.15; }
       #iRouter { left: 60px; } #iCable { left: 390px; } #iHouse { left: 720px; }
       .bub { height: 100px; border-radius: 50px 50px 50px 12px; background: #fff; color: #1b1f5e; font-family: 'Work Sans'; font-weight: 700; font-size: 38px; line-height: 100px; padding: 0 40px; z-index: 13; white-space: nowrap; box-shadow: 0 16px 30px rgba(0,0,0,0.35); }
-      #cp1 { left: 80px; top: 1100px; } #cp2 { left: 300px; top: 1250px; }
+      #cp1 { left: 80px; top: 690px; } #cp2 { left: 330px; top: 840px; }
       #spin { left: 470px; top: 1420px; width: 140px; height: 140px; z-index: 12; }
 
       /* C. payé seulement quand on t'appelle */
@@ -121,7 +133,8 @@
       #tip1 { left: 60px; } #tip2 { left: 390px; } #tip3 { left: 720px; }
       #pub1 { top: 340px; font-size: 78px; }
       #post { left: 240px; top: 520px; width: 600px; height: 640px; border-radius: 36px; background: #fff; z-index: 11; box-shadow: 0 30px 60px rgba(0,0,0,0.5); overflow: hidden; }
-      #post .sc { position: absolute; left: 30px; top: 30px; width: 540px; height: 420px; border-radius: 24px; background: linear-gradient(160deg, #2b3190, #11143f); }
+      #post .sc { position: absolute; left: 30px; top: 30px; width: 540px; height: 420px; border-radius: 24px; overflow: hidden; background: #11143f; }
+      #post .sc video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
       #post svg { position: absolute; left: 150px; top: 90px; width: 300px; height: 260px; }
       #post .l1 { position: absolute; left: 30px; top: 480px; width: 380px; height: 28px; border-radius: 14px; background: #d9dcf0; }
       #post .l2 { position: absolute; left: 30px; top: 530px; width: 260px; height: 28px; border-radius: 14px; background: #e6e8f6; }
@@ -169,6 +182,14 @@
   </head>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="112.95" data-width="1080" data-height="1920">
+      <video class="ab full vid" id="vTech1" src="assets/video/tech1.mp4" muted playsinline data-start="17.6" data-duration="5.55" data-media-start="0"></video>
+      <video class="ab full vid" id="vTrepied" src="assets/video/trepied.mp4" muted playsinline data-start="35.9" data-duration="3.4" data-media-start="0"></video>
+      <video class="ab full vid" id="vCyber" src="assets/video/cyber.mp4" muted playsinline data-start="39.4" data-duration="8.4" data-media-start="0"></video>
+      <video class="ab full vid" id="vCours" src="assets/video/cours_ligne.mp4" muted playsinline data-start="55.25" data-duration="3.65" data-media-start="0"></video>
+      <video class="ab full vid" id="vVisio" src="assets/video/cours_visio.mp4" muted playsinline data-start="63.9" data-duration="2.05" data-media-start="0"></video>
+      <video class="ab full vid" id="vPay" src="assets/video/paiement.mp4" muted playsinline data-start="66.5" data-duration="2.95" data-media-start="0"></video>
+      <video class="ab full vid" id="vTech2" src="assets/video/tech2.mp4" muted playsinline data-start="89.9" data-duration="7.7" data-media-start="0"></video>
+      <div class="ab full" id="shade"></div>
       <div class="ab" id="grid"></div>
       <div class="ab ws" id="lbl">COMPÉTENCE → REVENU · ÉP. 3</div>
 
@@ -185,9 +206,10 @@
       <div class="ab ico" id="iRouter"><svg viewBox="0 0 220 180"><g id="waves" fill="none" stroke="#f5c518" stroke-width="10" stroke-linecap="round"><path id="w1" d="M85 70 Q110 50 135 70"/><path id="w2" d="M65 50 Q110 15 155 50"/><path id="w3" d="M45 30 Q110 -20 175 30"/></g><rect x="40" y="110" width="140" height="50" rx="14" fill="#d9dde8"/><circle cx="70" cy="135" r="7" fill="#25d366"/><circle cx="95" cy="135" r="7" fill="#25d366"/><circle cx="120" cy="135" r="7" fill="#f5c518"/><rect x="60" y="80" width="10" height="34" fill="#d9dde8"/><rect x="150" y="80" width="10" height="34" fill="#d9dde8"/></svg><div class="l">Installer<br>le wifi</div></div>
       <div class="ab ico" id="iCable"><svg viewBox="0 0 220 180"><path id="wire" d="M10 150 C60 150 60 40 110 40 S160 120 175 90" fill="none" stroke="#4fc3f7" stroke-width="14" stroke-linecap="round"/><rect x="160" y="40" width="50" height="60" rx="8" fill="#d9dde8" transform="rotate(-25 185 70)"/><rect x="168" y="30" width="34" height="18" rx="4" fill="#f5c518" transform="rotate(-25 185 70)"/></svg><div class="l">Tirer<br>les câbles</div></div>
       <div class="ab ico" id="iHouse"><svg viewBox="0 0 220 180"><path d="M30 90 L110 25 L190 90 V170 H30 Z" fill="#d9dde8"/><rect x="92" y="115" width="36" height="55" rx="6" fill="#1b1f5e"/><g fill="none" stroke="#25d366" stroke-width="9" stroke-linecap="round"><path d="M95 78 Q110 66 125 78"/><path d="M83 64 Q110 42 137 64"/></g><circle cx="110" cy="90" r="7" fill="#25d366"/></svg><div class="l">Faire marcher<br>internet</div></div>
+      <div class="ab vc" id="c3d"><video id="v3d" src="assets/video/reseau3d.mp4" muted playsinline data-start="23.15" data-duration="3.2" data-media-start="0"></video></div>
+      <div class="ab vc" id="csig"><video id="vSig" src="assets/video/signal.mp4" muted playsinline data-start="26.35" data-duration="2.85" data-media-start="0"></video></div>
       <div class="ab bub" id="cp1">Ma connexion ne marche pas…</div>
       <div class="ab bub" id="cp2">Le wifi coupe encore !</div>
-      <svg class="ab" id="spin" viewBox="0 0 140 140"><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="14"/><path d="M70 16 A54 54 0 0 1 124 70" fill="none" stroke="#ff7a63" stroke-width="14" stroke-linecap="round"/></svg>
 
       <!-- C. payé seulement quand on t'appelle (29,5 - 35,4) -->
       <div class="ab center t" id="c1">Aujourd'hui, tu gagnes<br><span class="y">seulement quand on t'appelle</span></div>
@@ -198,7 +220,6 @@
 
       <!-- D. tu le filmes une fois (35,9 - 39,3) -->
       <div class="ab center t" id="d1">Ce que tu expliques<br><span class="y">à chaque client</span></div>
-      <div class="ab" id="phone"><svg viewBox="0 0 220 180"><g fill="none" stroke="#f5c518" stroke-width="10" stroke-linecap="round"><path d="M85 70 Q110 50 135 70"/><path d="M65 50 Q110 15 155 50"/></g><rect x="40" y="110" width="140" height="50" rx="14" fill="#d9dde8"/><circle cx="70" cy="135" r="7" fill="#25d366"/><circle cx="95" cy="135" r="7" fill="#25d366"/><rect x="60" y="80" width="10" height="34" fill="#d9dde8"/><rect x="150" y="80" width="10" height="34" fill="#d9dde8"/></svg></div>
       <div class="ab" id="rec"><i></i>REC</div>
       <div class="ab pill yel" id="once">filmé 1 seule fois</div>
 
@@ -216,6 +237,7 @@
       <div class="ab center t" id="f1">Pour ceux qui veulent<br><span class="y">apprendre ton métier</span></div>
       <div class="ab card" id="cab"><div class="k">FORMATION MÉTIER</div><div class="ti">Faire un câble réseau de A à Z</div>
         <svg viewBox="0 0 840 100"><rect x="0" y="25" width="90" height="50" rx="8" fill="#9aa4c8"/><rect x="10" y="35" width="40" height="30" rx="4" fill="#f5c518"/><path id="cline" d="M90 50 C260 -10 420 110 600 50 S750 40 750 50" fill="none" stroke="#2196f3" stroke-width="16" stroke-linecap="round"/><rect x="750" y="25" width="90" height="50" rx="8" fill="#9aa4c8"/><rect x="790" y="35" width="40" height="30" rx="4" fill="#f5c518"/></svg></div>
+      <div class="ab vc" id="ccab"><video id="vCab" src="assets/video/cable.mp4" muted playsinline data-start="59.0" data-duration="2.45" data-media-start="0.5"></video></div>
       <div class="ab row" id="out1"><svg viewBox="0 0 64 64"><rect x="6" y="22" width="52" height="34" rx="8" fill="#f5c518"/><rect x="22" y="10" width="20" height="14" rx="4" fill="none" stroke="#f5c518" stroke-width="5"/></svg>Les outils de base</div>
       <div class="ab row" id="out2"><svg viewBox="0 0 64 64"><path d="M32 6 L60 56 H4 Z" fill="#ff7a63"/><rect x="29" y="24" width="6" height="18" rx="3" fill="#1b1f5e"/><circle cx="32" cy="48" r="4" fill="#1b1f5e"/></svg>Les erreurs à éviter</div>
       <div class="ab pill yel" id="gen">Former la nouvelle génération</div>
@@ -232,11 +254,12 @@
       <div class="ab pill net wht" id="tt">TikTok</div>
       <div class="ab pill net wht" id="fb">Facebook</div>
       <div class="ab center t" id="ast">Une astuce wifi <span class="y">à la fois</span></div>
-      <div class="ab tip" id="tip1"><svg viewBox="0 0 180 150"><g fill="none" stroke="#2b3190" stroke-width="12" stroke-linecap="round"><path d="M60 80 Q90 58 120 80"/><path d="M35 55 Q90 10 145 55"/></g><circle cx="90" cy="110" r="14" fill="#f5c518"/></svg><div class="n">Astuce 1</div><div class="h">♥ ♥ ♥</div></div>
-      <div class="ab tip" id="tip2"><svg viewBox="0 0 180 150"><rect x="45" y="65" width="90" height="70" rx="12" fill="#2b3190"/><path d="M62 65 V45 a28 28 0 0 1 56 0 V65" fill="none" stroke="#2b3190" stroke-width="12"/><circle cx="90" cy="100" r="10" fill="#f5c518"/></svg><div class="n">Astuce 2</div><div class="h">♥ ♥ ♥</div></div>
-      <div class="ab tip" id="tip3"><svg viewBox="0 0 180 150"><rect x="25" y="70" width="130" height="50" rx="12" fill="#2b3190"/><circle cx="55" cy="95" r="7" fill="#25d366"/><circle cx="80" cy="95" r="7" fill="#25d366"/><path d="M60 50 Q90 25 120 50" fill="none" stroke="#f5c518" stroke-width="10" stroke-linecap="round"/></svg><div class="n">Astuce 3</div><div class="h">♥ ♥ ♥</div></div>
+      <div class="ab vc" id="cwifi"><video id="vWifi" src="assets/video/wifibleu.mp4" muted playsinline data-start="77.7" data-duration="2.2" data-media-start="0"></video></div>
+      <div class="ab pill yel ap" id="ap1">Astuce 1</div>
+      <div class="ab pill wht ap" id="ap2">Astuce 2</div>
+      <div class="ab pill wht ap" id="ap3">Astuce 3</div>
       <div class="ab center t" id="pub1">Une petite <span class="y">publicité</span></div>
-      <div class="ab" id="post"><div class="sc"></div><svg viewBox="0 0 220 180"><g fill="none" stroke="#f5c518" stroke-width="10" stroke-linecap="round"><path d="M85 70 Q110 50 135 70"/><path d="M65 50 Q110 15 155 50"/><path d="M45 30 Q110 -20 175 30"/></g><rect x="40" y="110" width="140" height="50" rx="14" fill="#d9dde8"/><circle cx="70" cy="135" r="7" fill="#25d366"/><circle cx="95" cy="135" r="7" fill="#25d366"/></svg><div class="l1"></div><div class="l2"></div></div>
+      <div class="ab" id="post"><div class="sc"><video id="vPub" src="assets/video/pub_tel.mp4" muted playsinline data-start="80.1" data-duration="3.85" data-media-start="0"></video></div><div class="l1"></div><div class="l2"></div></div>
       <div class="ab pill ws" id="boost">Booster la publication</div>
       <svg class="ab" id="cursor" viewBox="0 0 90 110"><path d="M10 6 L80 60 L48 64 L64 100 L50 106 L34 70 L10 92 Z" fill="#fff" stroke="#1b1f5e" stroke-width="5"/></svg>
 
@@ -306,6 +329,12 @@
       IN("#lbl", { y: -20 }, { y: 0, duration: 0.5 }, 0.3);
       FT("#grid", { x: 0, y: 0 }, { x: -160, y: -160, duration: 113, ease: "none" }, 0);
 
+      [["#vTech1", 17.6, 5.55], ["#vTrepied", 35.9, 3.4], ["#vCyber", 39.4, 8.4], ["#vCours", 55.25, 3.65], ["#vVisio", 63.9, 2.05], ["#vPay", 66.5, 2.95], ["#vTech2", 89.9, 7.7]].forEach(([v, a, d]) => {
+        FT(v, { scale: 1.0 }, { scale: 1.1, duration: d, ease: "none" }, a);
+        FT(v, { opacity: 0 }, { opacity: 1, duration: 0.3 }, a);
+        FT(v, { opacity: 1 }, { opacity: 0, duration: 0.3 }, a + d - 0.3);
+      });
+
       // ---------- A. « Quelqu'un m'a écrit en commentaire… » (0 - 17) ----------
       rise("#cmtk", 0.6);
       IN("#cmt", { y: 160, scale: 0.8 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 0.7);
@@ -325,11 +354,12 @@
       IN("#iCable", { y: 80, scale: 0.7 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 21.85);
       FT("#wire", { strokeDasharray: 400, strokeDashoffset: 400 }, { strokeDashoffset: 0, duration: 0.8, ease: "power2.out" }, 21.95);
       IN("#iHouse", { y: 80, scale: 0.7 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 23.2);
+      IN("#c3d", { y: 200, scale: 0.85 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(1.5)" }, 23.2);
+      OUT(["#c3d", "#iRouter", "#iCable", "#iHouse"], { y: 0 }, { y: -60, duration: 0.25 }, 26.2);
+      IN("#csig", { scale: 0.5 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, 26.4);
       IN("#cp1", { x: -300, scale: 0.7 }, { x: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 26.5);
       IN("#cp2", { x: 300, scale: 0.7 }, { x: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 27.4);
-      IN("#spin", { scale: 0 }, { scale: 1, duration: 0.3 }, 27.9);
-      FT("#spin", { rotation: 0 }, { rotation: 540, duration: 1.3, ease: "none" }, 27.9);
-      away(["#b1", "#iRouter", "#iCable", "#iHouse", "#cp1", "#cp2", "#spin"], 29.15);
+      away(["#b1", "#cp1", "#cp2", "#csig"], 29.0);
 
       // ---------- C. « tu gagnes de l'argent seulement quand quelqu'un t'appelle » (29,5 - 35,4) ----------
       rise("#c1", 29.55);
@@ -342,11 +372,10 @@
 
       // ---------- D. « Ce que tu expliques à chaque client, tu le filmes une seule fois » (35,9 - 39,3) ----------
       rise("#d1", 35.9);
-      IN("#phone", { y: 900 }, { y: 0, duration: 0.5, ease: "expo.out" }, 36.1);
       pop("#rec", 37.7);
       FT("#rec i", { opacity: 1 }, { opacity: 0.2, duration: 0.3, yoyo: true, repeat: 3, ease: "none" }, 37.9);
       pop("#once", 38.1);
-      away(["#d1", "#phone", "#rec", "#once"], 39.15);
+      away(["#d1", "#rec", "#once"], 39.15);
 
       // ---------- E. la petite formation wifi (39,4 - 55) ----------
       IN("#form", { y: -200, scale: 0.85 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 39.45);
@@ -360,6 +389,8 @@
       rise("#f1", 55.3);
       IN("#cab", { scale: 0.85, y: 100 }, { scale: 1, y: 0, duration: 0.45, ease: "back.out(1.5)" }, 58.9);
       FT("#cline", { strokeDasharray: 800, strokeDashoffset: 800 }, { strokeDashoffset: 0, duration: 1.2, ease: "power2.out" }, 59.3);
+      IN("#ccab", { y: 200, scale: 0.85 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(1.5)" }, 59.0);
+      OUT("#ccab", { scale: 1 }, { scale: 0.9, duration: 0.2 }, 61.25);
       IN("#out1", { x: -400 }, { x: 0, duration: 0.4, ease: "expo.out" }, 61.45);
       IN("#out2", { x: 400 }, { x: 0, duration: 0.4, ease: "expo.out" }, 62.6);
       pop("#gen", 64.1);
@@ -379,8 +410,9 @@
       rise("#res1", 73.25);
       pop("#tt", 74.6); pop("#fb", 75.6);
       rise("#ast", 77.8);
-      ["#tip1", "#tip2", "#tip3"].forEach((t, i) => IN(t, { y: 300, rotation: [-8, 0, 8][i] }, { y: 0, rotation: 0, duration: 0.4, ease: "back.out(1.6)" }, 78.1 + i * 0.3));
-      away(["#res1", "#tt", "#fb", "#ast", "#tip1", "#tip2", "#tip3"], 79.6);
+      IN("#cwifi", { scale: 0.5, rotation: -10 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 77.75);
+      ["#ap1", "#ap2", "#ap3"].forEach((t, i) => pop(t, 78.2 + i * 0.35));
+      away(["#res1", "#tt", "#fb", "#ast", "#cwifi", "#ap1", "#ap2", "#ap3"], 79.6);
       // publicité (79,9 - 84)
       rise("#pub1", 79.95);
       IN("#post", { scale: 0.85 }, { scale: 1, duration: 0.4, ease: "back.out(1.4)" }, 80.1);
