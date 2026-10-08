@@ -31,6 +31,10 @@ Série « Transformer une compétence en revenu ». Un abonné a répondu « tec
 >
 > Alors, technicien réseaux, tu commences par laquelle ? Dis-le-moi en commentaire. Et toi qui regardes, c'est quoi ta compétence ? Je t'en fais la prochaine vidéo.
 
+## Ce qui a été enregistré
+
+Mike a ajouté au début : « En fait, c'est suite à ma précédente vidéo, où j'ai demandé votre compétence, je vous en ferai une vidéo. Alors ce sera ça le troisième épisode de ma série. » Audio : `audio-voix/episode3-reseaux/` (1 min 53). Vidéo : `contenu-organique/video-episode3-reseaux/`, calée sur la transcription. La capture du commentaire (1yami_sukehiro) ouvre la vidéo et revient sur « Alors, technicien réseaux ».
+
 ## Ce qu'on voit à l'écran
 
 | Moment | À l'écran |
