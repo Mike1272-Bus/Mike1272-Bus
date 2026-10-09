@@ -41,7 +41,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 
 | Produit | État | Dossier |
 |---|---|---|
-| Ebook « Gagne ta vie sans diplôme » (4,9 $, Chariow) | En vente | `page-chariow/` |
+| Ebook « Gagne ta vie sans diplôme » (4,9 $, Chariow) | En vente. Vidéos du guide (une par chapitre, comme Hormozi) : 6 scripts prêts, attente des audios de Mike (`produits/ebook-videos/`) | `page-chariow/` |
 | Services sur Chariow (vidéo, catalogue, mini-site) | Prix conseillés à confirmer | `page-chariow/services_chariow.md` |
 | Templates pour entreprises (vendus en produits digitaux sur Chariow, voir `produits/templates-entreprises/offre_produits_digitaux.md`) | Template n°1 « Gestion de stock » prêt (`gestion_de_stock.xlsx` + fiche Desire). Automatisation n8n prête (commande → Sheet → alertes WhatsApp via l'API Meta + bilan du soir ; variante Telegram), à tester sur le n8n de Mike. Vidéo de présentation v2 (37 s, script voix prêt) + vidéo « workflow n8n de l'intérieur » (35 s), à valider. Attente de la voix de Mike. Prix à fixer | `produits/templates-entreprises/` |
 
