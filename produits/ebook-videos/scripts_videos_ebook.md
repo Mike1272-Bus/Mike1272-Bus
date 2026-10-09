@@ -154,3 +154,18 @@ Le guide a 4 chapitres (confirmé par Mike le 9 octobre). La page de vente Chari
 - Un audio par vidéo, dans un endroit calme, téléphone à 20 cm de la bouche.
 - Tu peux changer des mots pour parler naturellement (comme pour l'épisode 3) : je cale le montage sur ce que tu dis vraiment.
 - Si tu as des extraits (toi qui écris sur une feuille, ton téléphone, un marché, l'atelier d'oncle David…), envoie-les avec la phrase où tu les veux.
+
+## À filmer (plans courts, 5 à 10 s chacun, téléphone à l'horizontale)
+
+Le plus important : **ta voix** (un audio par vidéo). Les plans filmés sont un plus : le reste est en motion design.
+
+| Vidéo | Plans à filmer |
+|---|---|
+| 0 Bienvenue | Le guide ouvert sur ton téléphone (on fait défiler les pages) ; une feuille blanche et un stylo posés sur une table ; ta main qui prend le stylo |
+| 1 Le mythe | Un marché (étals, quelqu'un qui paie, sans gros plan sur les visages) ; un téléphone branché à un chargeur ; une marmite ou un plat en train de cuire ; l'atelier d'oncle David ou ses mains qui travaillent le bois (avec son accord) |
+| 2 Ta compétence | Ta main qui écrit sur une feuille (3 titres, puis des lignes) ; la main qui entoure une ligne au stylo ; des mains qui cousent, coiffent ou réparent quelque chose (ce que tu as autour de toi) |
+| 3 Les formats | Ton écran de téléphone ou d'ordinateur : un document texte qu'on tape, une liste à cocher, la caméra du téléphone qui filme des mains ; un téléphone posé contre un mur ou un livre comme trépied |
+| 4 Le test en 7 jours | Ton écran : un message WhatsApp qu'on écrit, un statut WhatsApp qu'on publie, des réponses qui arrivent (floute ou cache les noms et numéros) ; un calendrier ou une feuille avec 7 cases qu'on coche |
+| 5 Et après ? | Ton téléphone avec WhatsApp ouvert ; toi de dos ou tes mains au travail sur ton ordinateur |
+
+Conseils : lumière du jour (près d'une fenêtre), téléphone stable, pas de zoom, 2 ou 3 prises de chaque plan. Pas besoin de montrer ton visage. Pas de personnes reconnaissables sans leur accord.
