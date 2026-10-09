@@ -42,15 +42,13 @@ Tu le crées une fois, et tu peux le vendre plusieurs fois. 🔁
 
 ### 📘 Ce que tu trouves dans le guide
 
-1️⃣ **Le mythe du diplôme.** Pourquoi ce que tu sais faire a de la valeur, ce qu'est un produit digital, et l'histoire d'Oncle David.
+1️⃣ **Le mythe à casser.** Pourquoi tu n'as besoin ni d'un diplôme ni d'un talent rare, ce que les gens achètent vraiment dans un produit digital, et l'exemple d'Oncle David.
 
-2️⃣ **Les bases du marketing digital.** La différence entre te faire connaître gratuitement et payer de la publicité. Puis la méthode VENDRE, et par quelles lettres commencer quand on débute.
+2️⃣ **Trouve ta compétence vendable.** Les 3 familles de compétences (ce que tu fais de tes mains, ce qu'on t'a appris, le problème que tu sais résoudre), avec un exercice de 9 lignes pour choisir la tienne.
 
-3️⃣ **Les produits que tu peux créer.** Ebook, modèle (CV, rapport de stage), checklist, mini-formation, kit. Avec des exemples concrets, comme une formation "Cuisiner avec un petit budget" 🍲 filmée au téléphone.
+3️⃣ **Les formats sans compétence technique.** Mini-guide, modèle à remplir, checklist, capsule vidéo filmée au téléphone. Et comment choisir le plus rapide pour ton premier produit.
 
-4️⃣ **Créer et vendre ton produit.** Tu n'as pas besoin de compétences techniques. Tu n'es même pas obligé de passer par une plateforme pour commencer.
-
-5️⃣ **Le test en 7 jours.** Un plan jour par jour pour savoir si des gens sont prêts à payer pour ton idée.
+4️⃣ **Le test en 7 jours.** Un plan jour par jour pour savoir si des gens sont prêts à payer pour ton idée, sans budget pub.
 
 🎁 Et à la fin, une checklist récapitulative pour ne rien oublier.
 
@@ -70,7 +68,7 @@ Tu le crées une fois, et tu peux le vendre plusieurs fois. 🔁
 
 Oncle David est menuisier. Il n'avait pas de budget publicité. Il a quand même transformé son savoir-faire en produit digital.
 
-Dans le guide, je te raconte comment il s'y est pris, et ce que tu peux reprendre pour toi.
+Dans le chapitre 1, je te raconte ce qu'il a fait, et ce que tu peux reprendre pour toi.
 
 [IMAGE : photo d'Oncle David, si tu en as une]
 
@@ -98,7 +96,7 @@ J'ai écrit ce guide pour ceux qui ont une compétence et qui ne savent pas comm
 Oui. C'est même le point de départ du guide.
 
 **💻 Je ne suis pas à l'aise avec la technique.**
-Le chapitre 4 part de là. Tu n'as pas besoin de compétences techniques pour créer et vendre ton premier produit.
+Le chapitre 3 part de là. Tu n'as pas besoin de compétences techniques pour créer ton premier produit.
 
 **📢 Est-ce que je dois payer de la publicité ?**
 Non. Le test en 7 jours se fait avec ton entourage et tes statuts WhatsApp.

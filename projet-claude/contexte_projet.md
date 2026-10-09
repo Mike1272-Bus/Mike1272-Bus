@@ -17,7 +17,7 @@
 
 ## 2. Ce qu'on vend aujourd'hui
 
-- **Guide « Gagne ta vie sans diplôme »** (ebook PDF, vendu sur Chariow, prix de lancement 4,9 $ au lieu de 6,9 $). Contenu : le mythe du diplôme, les bases du marketing digital (méthode VENDRE), les produits qu'on peut créer, créer et vendre son produit, le **test en 7 jours** sans budget pub, une checklist.
+- **Guide « Gagne ta vie sans diplôme »** (ebook PDF, vendu sur Chariow, prix de lancement 4,9 $ au lieu de 6,9 $). Contenu (4 chapitres) : le mythe à casser, trouver sa compétence vendable, les formats sans compétence technique, le **test en 7 jours** sans budget pub ; une checklist à la fin. Une vidéo par chapitre en préparation (`produits/ebook-videos/`).
 - **Tunnel** : commentaire « EBOOK » ou clic → WhatsApp → lien Chariow.
 - **En préparation** : un **accompagnement** de 21 jours « Ta compétence, ton premier produit », avec 5 premières places gratuites en échange de témoignages (voir le plan $100M Leads). Gratuit ou payant pour la vidéo Excel : **pas encore décidé**.
 

@@ -41,7 +41,7 @@ Autres choix possibles :
 >
 > Voici mon guide « Gagne ta vie sans diplôme » : [LIEN CHARIOW]
 >
-> Il coûte [PRIX]. Dedans : 5 chapitres, un plan de 7 jours pour tester ton idée sans payer de pub, et une checklist.
+> Il coûte [PRIX]. Dedans : 4 chapitres, un plan de 7 jours pour tester ton idée sans payer de pub, et une checklist.
 >
 > Dis-moi : c'est quoi ta compétence ? Je te dis par quoi commencer. Si tu bloques, écris-moi ici, je t'accompagne.
 

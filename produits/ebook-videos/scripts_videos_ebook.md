@@ -19,7 +19,7 @@ Comme Alex Hormozi avec ses livres (« les vidéos de formation qui accompagnent
 | 4 | Le test en 7 jours | 286 | ~1 min 45 |
 | 5 | Et après ? | 128 | ~50 s |
 
-**À vérifier avant d'enregistrer :** la page de vente Chariow annonce 5 chapitres (dont « les bases du marketing digital, méthode VENDRE » et « créer et vendre ton produit »), alors que le texte du guide que j'ai a 4 chapitres (mythe, identification, formats, test en 7 jours). Les scripts suivent le texte du guide. Si la version finale du guide a les 5 chapitres, il faut 1 ou 2 vidéos de plus, ou corriger la page de vente.
+Le guide a 4 chapitres (confirmé par Mike le 9 octobre). La page de vente Chariow et les visuels ont été corrigés pour dire la même chose.
 
 ---
 
