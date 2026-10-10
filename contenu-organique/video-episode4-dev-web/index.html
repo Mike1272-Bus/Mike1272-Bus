@@ -10,14 +10,13 @@
       @font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
       @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #050505; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #ffffff; }
       #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; }
       .ab { position: absolute; }
       .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
       .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
-      .dark { background: radial-gradient(ellipse at 50% 45%, #1c1c1c 0%, #080808 55%, #000 100%); }
-      .dark .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 60px 60px; -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 62%); mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 62%); }
       .light { background: radial-gradient(ellipse at 50% 40%, #fbf8f3 0%, #efebe4 70%, #e4dfd7 100%); }
+      .light.white { background: radial-gradient(ellipse at 50% 45%, #ffffff 0%, #f7f7f7 65%, #ececec 100%); }
       .light .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px); background-size: 60px 60px; }
       .swoosh { position: absolute; left: -300px; top: -300px; width: 1680px; height: 2520px; }
       .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
@@ -26,25 +25,24 @@
       .light .sm { color: #141414; text-shadow: none; }
       .big { font-weight: 900; font-size: 128px; letter-spacing: -0.045em; line-height: 0.95; color: #ff3d1f; text-shadow: 0 0 22px rgba(255,61,31,0.75), 0 0 70px rgba(255,61,31,0.35); }
       .light .big { text-shadow: 0 6px 0 #8f1d0c, 0 18px 30px rgba(0,0,0,0.25); }
-      .ext { font-weight: 900; font-size: 200px; letter-spacing: -0.05em; color: #fff; text-shadow: 0 2px 0 #cfcfcf, 0 4px 0 #b5b5b5, 0 6px 0 #9d9d9d, 0 8px 0 #858585, 0 10px 0 #6e6e6e, 0 14px 0 #5a5a5a, 0 30px 40px rgba(0,0,0,0.8); }
+      .ext { font-weight: 900; font-size: 200px; letter-spacing: -0.05em; color: #141414; text-shadow: 0 3px 0 #d9d4cc, 0 6px 0 #c9c3ba, 0 9px 0 #b8b1a7, 0 26px 40px rgba(0,0,0,0.22); }
       .obj { position: absolute; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45)); }
-      .dark .obj { filter: drop-shadow(0 0 40px rgba(255,255,255,0.12)) drop-shadow(0 30px 50px rgba(0,0,0,0.9)); }
       .lab { position: absolute; font-weight: 800; font-size: 38px; text-align: center; letter-spacing: -0.02em; }
-      .dark .lab { color: #fff; } .light .lab { color: #141414; }
+      .light .lab { color: #141414; }
       .pill { position: absolute; height: 92px; border-radius: 46px; font-weight: 800; font-size: 42px; line-height: 92px; text-align: center; white-space: nowrap; }
       .pr { background: #ff3d1f; color: #fff; box-shadow: 0 0 30px rgba(255,61,31,0.5); }
-      .pw { background: #fff; color: #141414; box-shadow: 0 16px 30px rgba(0,0,0,0.3); }
-      .pg { background: #25d366; color: #fff; }
+      .pw { background: #141414; color: #fff; box-shadow: 0 16px 30px rgba(0,0,0,0.2); }
+      .pg { background: #1a9e4b; color: #fff; }
 
       /* commentaire */
-      #cmt { left: 140px; top: 520px; width: 800px; height: 210px; border-radius: 30px; background: #fff; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+      #cmt { left: 140px; top: 520px; width: 800px; height: 210px; border-radius: 30px; background: #fff; border: 3px solid #ebe6de; box-shadow: 0 24px 50px rgba(0,0,0,0.14); }
       #cmt .av { position: absolute; left: 34px; top: 40px; width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, #2b3190, #ff3d1f); }
       #cmt .u { position: absolute; left: 170px; top: 44px; font-weight: 600; font-size: 30px; color: #8a8a8a; }
       #cmt .t { position: absolute; left: 170px; top: 92px; font-weight: 800; font-size: 50px; color: #111; }
       #cmtk { top: 450px; font-weight: 800; font-size: 28px; letter-spacing: 6px; color: #9a9a9a; }
 
       /* ordinateur B2B */
-      #lap { left: 90px; top: 620px; width: 900px; height: 620px; border-radius: 26px; background: #fff; box-shadow: 0 40px 80px rgba(0,0,0,0.7); overflow: hidden; }
+      #lap { left: 90px; top: 620px; width: 900px; height: 620px; border-radius: 26px; background: #fff; border: 3px solid #e3ded6; box-shadow: 0 30px 60px rgba(0,0,0,0.18); overflow: hidden; }
       #lap .bar { height: 56px; background: #e9e9e9; display: flex; align-items: center; gap: 12px; padding-left: 22px; }
       #lap .bar i { width: 16px; height: 16px; border-radius: 50%; display: block; }
       #lap .hero { position: absolute; left: 0; top: 56px; width: 900px; height: 210px; background: linear-gradient(120deg, #1b3a8a, #3b6fd8); color: #fff; padding: 40px 50px; }
@@ -54,7 +52,7 @@
       #lap .ln { position: absolute; left: 50px; height: 18px; border-radius: 9px; background: #e3e6ef; }
       #lap .box { position: absolute; top: 470px; width: 245px; height: 70px; border-radius: 14px; background: #eef2fb; border: 3px solid #d6def2; }
       #lap .wa { position: absolute; right: 40px; bottom: 30px; height: 66px; padding: 0 30px; border-radius: 33px; background: #25d366; color: #fff; font-weight: 800; font-size: 28px; line-height: 66px; }
-      #stamp { left: 600px; top: 560px; width: 380px; height: 110px; border: 8px solid #ff3d1f; border-radius: 18px; color: #ff3d1f; font-weight: 900; font-size: 54px; text-align: center; line-height: 94px; transform: rotate(-10deg); background: rgba(0,0,0,0.6); }
+      #stamp { left: 600px; top: 560px; width: 380px; height: 110px; border: 8px solid #ff3d1f; border-radius: 18px; color: #ff3d1f; font-weight: 900; font-size: 54px; text-align: center; line-height: 94px; transform: rotate(-10deg); background: rgba(255,255,255,0.94); }
 
       /* téléphone vitrine */
       #ph { left: 230px; top: 560px; width: 620px; height: 1180px; border-radius: 70px; background: #0d0d0d; padding: 22px; box-shadow: 0 50px 90px rgba(0,0,0,0.45); }
@@ -87,7 +85,7 @@
       #f1 { left: 120px; top: 1080px; } #f2 { left: 360px; top: 1040px; } #f3 { left: 600px; top: 1080px; }
 
       /* devis */
-      #devis { left: 220px; top: 560px; width: 640px; height: 420px; border-radius: 26px; background: #fff; padding: 46px; box-shadow: 0 40px 70px rgba(0,0,0,0.7); }
+      #devis { left: 220px; top: 560px; width: 640px; height: 420px; border-radius: 26px; background: #fff; padding: 46px; border: 3px solid #e3ded6; box-shadow: 0 30px 60px rgba(0,0,0,0.16); }
       #devis b { font-size: 50px; font-weight: 900; color: #141414; display: block; margin-bottom: 30px; }
       #devis .ln { height: 22px; border-radius: 11px; background: #e6e6e6; margin-bottom: 26px; }
       #trop { left: 270px; top: 760px; width: 540px; height: 140px; border: 10px solid #ff3d1f; border-radius: 22px; color: #ff3d1f; font-weight: 900; font-size: 84px; text-align: center; line-height: 122px; transform: rotate(-9deg); background: rgba(255,255,255,0.92); }
@@ -100,13 +98,13 @@
       .tag { position: absolute; width: 220px; height: 70px; border-radius: 35px; background: #25d366; color: #fff; font-weight: 900; font-size: 34px; text-align: center; line-height: 70px; }
 
       /* outils */
-      .tool { position: absolute; left: 90px; width: 900px; height: 190px; border-radius: 30px; background: rgba(255,255,255,0.07); border: 3px solid rgba(255,255,255,0.14); }
+      .tool { position: absolute; left: 90px; width: 900px; height: 190px; border-radius: 30px; background: #fff; border: 3px solid #e6e1d9; box-shadow: 0 18px 36px rgba(0,0,0,0.1); }
       .tool img { position: absolute; left: 30px; top: 30px; width: 130px; height: 130px; }
-      .tool b { position: absolute; left: 190px; top: 34px; font-size: 56px; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
-      .tool span { position: absolute; left: 190px; top: 108px; font-size: 34px; font-weight: 600; color: #ff7a5c; }
+      .tool b { position: absolute; left: 190px; top: 34px; font-size: 56px; font-weight: 900; color: #141414; letter-spacing: -0.03em; }
+      .tool span { position: absolute; left: 190px; top: 108px; font-size: 34px; font-weight: 600; color: #e8401f; }
       #t1 { top: 520px; } #t2 { top: 740px; } #t3 { top: 960px; } #t4 { top: 1180px; }
       .code { position: absolute; left: 30px; top: 30px; width: 130px; height: 130px; border-radius: 26px; background: #1f6fd1; color: #fff; font-weight: 900; font-size: 60px; text-align: center; line-height: 128px; }
-      .gh { position: absolute; left: 30px; top: 30px; width: 130px; height: 130px; border-radius: 50%; background: #fff; color: #111; font-weight: 900; font-size: 46px; text-align: center; line-height: 130px; }
+      .gh { position: absolute; left: 30px; top: 30px; width: 130px; height: 130px; border-radius: 50%; background: #141414; color: #fff; font-weight: 900; font-size: 46px; text-align: center; line-height: 130px; }
 
       /* guide IA */
       #gcov { left: 300px; top: 900px; width: 480px; height: 600px; border-radius: 18px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.35); border: 6px solid #141414; }
@@ -116,17 +114,17 @@
       #caret { display: inline-block; width: 5px; height: 54px; background: #141414; vertical-align: middle; margin-left: 4px; }
 
       /* bulles devs */
-      .bub { position: absolute; height: 110px; border-radius: 55px 55px 55px 12px; background: #fff; color: #141414; font-weight: 800; font-size: 42px; line-height: 110px; padding: 0 44px; white-space: nowrap; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+      .bub { position: absolute; height: 110px; border-radius: 55px 55px 55px 12px; background: #fff; color: #141414; font-weight: 800; font-size: 42px; line-height: 110px; padding: 0 44px; white-space: nowrap; border: 3px solid #ebe6de; box-shadow: 0 18px 36px rgba(0,0,0,0.12); }
       #d1 { left: 80px; top: 820px; } #d2 { left: 300px; top: 1000px; } #d3 { left: 140px; top: 1180px; }
       #ebk { left: 340px; top: 960px; width: 400px; height: 400px; border-radius: 18px; overflow: hidden; }
-      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #000; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; }
     </style>
   </head>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="105.4" data-width="1080" data-height="1920">
 
       <!-- 1. Hook : réponse au commentaire (0 - 5,5) -->
-      <div class="scene dark" id="s1"><div class="cam" id="k1"><div class="grid"></div>
+      <div class="scene light white" id="s1"><div class="cam" id="k1"><div class="grid"></div>
         <div class="line" id="cmtk">RÉPONSE À TON COMMENTAIRE</div>
         <div class="ab" id="cmt"><div class="av"></div><div class="u">@abonné</div><div class="t">développeur web</div></div>
         <div class="line" style="top:860px"><span class="w sm" id="a1">Tu</span><span class="w sm" id="a2">es</span></div>
@@ -147,7 +145,7 @@
       </div></div>
 
       <!-- 3. Deux types de clients (10,8 - 14,1) -->
-      <div class="scene dark" id="s3"><div class="cam" id="k3"><div class="grid"></div>
+      <div class="scene light white" id="s3"><div class="cam" id="k3"><div class="grid"></div>
         <div class="line" style="top:700px"><span class="w sm" id="c1x">Apprends</span><span class="w sm" id="c2x">à</span><span class="w sm" id="c3x">différencier</span></div>
         <div class="line" style="top:830px"><span class="w ext" id="c4x">2 types</span></div>
         <div class="line" style="top:1110px"><span class="w big" id="c5x">de clients</span></div>
@@ -166,8 +164,8 @@
       </div></div>
 
       <!-- 5. B2C + besoins / budget (19,6 - 29,4) -->
-      <div class="scene dark" id="s5"><div class="cam" id="k5"><div class="grid"></div>
-        <div class="line" style="top:330px"><span class="w ext" id="g1" style="color:#ff3d1f; text-shadow:0 0 30px rgba(255,61,31,0.7), 0 8px 0 #7a160a">B2C</span></div>
+      <div class="scene light white" id="s5"><div class="cam" id="k5"><div class="grid"></div>
+        <div class="line" style="top:330px"><span class="w ext" id="g1" style="color:#ff3d1f; text-shadow:0 8px 0 #8f1d0c, 0 26px 40px rgba(0,0,0,0.25)">B2C</span></div>
         <div class="line" style="top:600px"><span class="w sm" id="g2">c'est-à-dire</span><span class="w sm" id="g3">les particuliers</span></div>
         <img class="obj" id="g4" src="assets/img/dress_3d.png" style="left:60px; top:880px; width:300px; height:300px" />
         <img class="obj" id="g5" src="assets/img/barber_pole_3d.png" style="left:390px; top:880px; width:300px; height:300px" />
@@ -188,7 +186,7 @@
       </div></div>
 
       <!-- 7. Entreprise : un service sur mesure (31,8 - 43,3) -->
-      <div class="scene dark" id="s7"><div class="cam" id="k7"><div class="grid"></div>
+      <div class="scene light white" id="s7"><div class="cam" id="k7"><div class="grid"></div>
         <div class="line" style="top:300px"><span class="w sm" id="i1">À</span><span class="w sm" id="i2">l'entreprise,</span><span class="w sm" id="i3">tu vends</span></div>
         <div class="line" style="top:415px" data-layout-allow-overlap><span class="w big" id="i4">un service</span></div>
         <div class="ab" id="lap">
@@ -203,7 +201,7 @@
         <div class="ab" id="stamp">SUR MESURE</div>
         <img class="obj" id="i5" src="assets/img/coin_3d.png" style="left:420px; top:1560px; width:240px; height:240px" />
         <div class="line" style="top:1340px"><span class="w sm" id="i6">elle</span><span class="w sm" id="i7">te</span><span class="w sm" id="i8">paie</span></div>
-        <div class="line" style="top:1430px"><span class="w sm" id="i9" style="color:#ff7a5c; font-size:52px">pour un travail fait pour elle</span></div>
+        <div class="line" style="top:1430px"><span class="w sm" id="i9" style="color:#e8401f; font-size:52px">pour un travail fait pour elle</span></div>
       </div></div>
 
       <!-- 8. Particulier : un produit, Maman Rose (43,3 - 49,8) -->
@@ -219,12 +217,12 @@
       </div></div>
 
       <!-- 9. Trop cher -> un modèle (49,8 - 55,6) -->
-      <div class="scene dark" id="s9"><div class="cam" id="k9"><div class="grid"></div>
+      <div class="scene light white" id="s9"><div class="cam" id="k9"><div class="grid"></div>
         <div class="ab" id="devis"><b>Site sur mesure</b><div class="ln" style="width:90%"></div><div class="ln" style="width:70%"></div><div class="ln" style="width:80%"></div><div class="ln" style="width:55%"></div></div>
         <div class="ab" id="trop">TROP CHER</div>
         <div class="line" style="top:1180px"><span class="w sm" id="m1">Alors,</span><span class="w sm" id="m2">tu</span><span class="w sm" id="m3">lui</span><span class="w sm" id="m4">proposes</span></div>
         <div class="line" style="top:1295px" data-layout-allow-overlap><span class="w big" id="m5">un modèle</span></div>
-        <div class="line" style="top:1450px"><span class="w sm" id="m6" style="color:#ff7a5c">de mini-vitrine</span></div>
+        <div class="line" style="top:1450px"><span class="w sm" id="m6" style="color:#e8401f">de mini-vitrine</span></div>
       </div></div>
 
       <!-- 10. LA VITRINE : prêt à remplir, nom, photos, prix, en ligne (55,6 - 64,2) -->
@@ -248,7 +246,7 @@
       </div></div>
 
       <!-- 11. Créé une fois, vendu à toutes (64,2 - 68,4) -->
-      <div class="scene dark" id="s11"><div class="cam" id="k11"><div class="grid"></div>
+      <div class="scene light white" id="s11"><div class="cam" id="k11"><div class="grid"></div>
         <div class="line" style="top:300px"><span class="w sm" id="n1">Tu</span><span class="w sm" id="n2">le</span><span class="w sm" id="n3">crées</span></div>
         <div class="line" style="top:415px" data-layout-allow-overlap><span class="w big" id="n4">une fois</span></div>
         <div class="mini" id="mp1" style="left:40px; top:700px"><div><img src="assets/produits/produit1.svg" style="left:12px; top:150px" /><img src="assets/produits/produit2.svg" style="left:108px; top:150px" /></div></div>
@@ -270,7 +268,7 @@
       </div></div>
 
       <!-- 13. Les outils (71,2 - 82,4) -->
-      <div class="scene dark" id="s13"><div class="cam" id="k13"><div class="grid"></div>
+      <div class="scene light white" id="s13"><div class="cam" id="k13"><div class="grid"></div>
         <div class="ab tool" id="t1"><div class="code">&lt;/&gt;</div><b>VS Code</b><span>pour écrire ta vitrine</span></div>
         <div class="ab tool" id="t2"><div class="gh">Git</div><b>GitHub</b><span>pour la mettre en ligne gratuitement</span></div>
         <div class="ab tool" id="t3"><img src="assets/img/artist_palette_3d.png" /><b>Canva</b><span>pour le petit guide qui l'explique</span></div>
@@ -287,13 +285,13 @@
       </div></div>
 
       <!-- 15. Boucle 3 : d'autres développeurs (91,1 - 97,3) -->
-      <div class="scene dark" id="s15"><div class="cam" id="k15"><div class="grid"></div>
+      <div class="scene light white" id="s15"><div class="cam" id="k15"><div class="grid"></div>
         <div class="line" style="top:420px"><span class="w sm" id="r1">Et</span><span class="w sm" id="r2">ce</span><span class="w sm" id="r3">n'est</span><span class="w sm" id="r4">pas</span></div>
         <div class="line" style="top:535px" data-layout-allow-overlap><span class="w big" id="r5">tout</span></div>
         <div class="bub" id="d1">Comment tu as fait ?</div>
         <div class="bub" id="d2">Tu peux m'apprendre ?</div>
         <div class="bub" id="d3">Comment tu as fait ? 🔥</div>
-        <div class="line" style="top:1420px"><span class="w sm" id="r6" style="color:#ff7a5c; font-size:48px">d'autres développeurs voudront savoir</span></div>
+        <div class="line" style="top:1420px"><span class="w sm" id="r6" style="color:#e8401f; font-size:48px">d'autres développeurs voudront savoir</span></div>
       </div></div>
 
       <!-- 16. CTA (97,3 - fin) -->
