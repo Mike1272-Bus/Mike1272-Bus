@@ -50,8 +50,11 @@ Réponse au commentaire d'un abonné développeur web. Pour la voix, lis seuleme
 
 ## Légende TikTok
 
-> Tu sais créer des sites web ? 💻 Une mini-vitrine d'une page peut devenir un modèle que tu vends à toutes les vendeuses qui veulent montrer leurs produits en ligne. Commente ta compétence, je te réponds en privé.
-> #developpeurweb #developpeur #siteweb #codage #produitdigital #chariow #kinshasa #rdc
+> Réponse à @user2137490379619 💻
+> Tu es développeur web ? Voici comment transformer ta compétence en revenu. Aux entreprises, tu vends une mini-vitrine faite sur mesure. Aux vendeuses, tu vends un modèle prêt à remplir : tu le crées une fois, et tu le vends à toutes.
+> Tu veux apprendre à créer ta mini-vitrine avec l'IA ? Commente « VITRINE », je t'envoie le guide.
+> Tu as une autre compétence ? Écris-la en commentaire, je te réponds en privé.
+> #developpeurweb #siteweb #b2b #b2c #produitdigital #chariow #ia #kinshasa #rdc
 
 ## La mini-vitrine à montrer dans la vidéo
 
@@ -61,6 +64,6 @@ Option sans accord à demander : une vitrine de démo pour « Maman Rose, pagnes
 
 ## Le guide « Créer une mini-vitrine avec l'IA »
 
-Promis dans la vidéo à ceux qui commentent « VITRINE ». **Il n'existe pas encore : il doit être prêt avant de publier.** Contenu prévu : la commande à donner à l'IA (Claude ou ChatGPT) pour générer la page, comment mettre ses textes et ses photos, le bouton WhatsApp avec la commande déjà écrite, la mise en ligne gratuite (GitHub Pages), puis comment en faire un modèle à vendre.
+Promis dans la vidéo à ceux qui commentent « VITRINE ». **Il est prêt** : `produits/guide-vitrine/guide_mini_vitrine_ia.pdf`. Contenu prévu : la commande à donner à l'IA (Claude ou ChatGPT) pour générer la page, comment mettre ses textes et ses photos, le bouton WhatsApp avec la commande déjà écrite, la mise en ligne gratuite (GitHub Pages), puis comment en faire un modèle à vendre.
 
 Réponse à envoyer en privé à ceux qui commentent « VITRINE » : le lien du guide (gratuit ou payant : à décider par Mike, et le dire dès le premier message).
