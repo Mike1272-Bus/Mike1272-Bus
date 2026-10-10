@@ -4,27 +4,28 @@ Série « Transformer une compétence en revenu ». Format **Hook, promesse, par
 
 Maman Rose est un **profil type** pour aider à imaginer la cliente, pas une vraie personne : ne jamais la présenter comme un témoignage.
 
-Si cette compétence vient d'un commentaire d'abonné : ajoute avant le hook « Quelqu'un m'a écrit en commentaire : développeur web » et publie avec « Répondre avec une vidéo », comme pour l'épisode 3.
+Cette vidéo répond au commentaire d'un abonné : publier avec « Répondre avec une vidéo » sur son commentaire, comme pour l'épisode 3. Il faut la capture du commentaire.
 
-## Script (tu, environ 215 mots, environ 1 min 15 à ton rythme)
+## Script (tu, environ 285 mots, environ 1 min 45 à ton rythme)
 
-Pour la voix, lis seulement le texte après les deux-points.
+Réponse au commentaire d'un abonné développeur web. Pour la voix, lis seulement le texte après les deux-points.
 
-> **Hook** : Tu sais créer des sites web ? Tu peux en faire un produit qui se vend, même quand tu n'as pas de client.
+> **Hook** : Tu es développeur web ? Merci pour ton commentaire. Cette vidéo, je l'ai faite pour toi.
 >
-> **Promesse** : Je te montre comment, avec un exemple précis.
+> **Promesse** : Je vais te montrer comment transformer ta compétence en revenu, avec un exemple précis.
 >
-> **Partie 1** : Imagine Maman Rose. Elle vend des pagnes au marché, à Kinshasa. Elle voudrait une petite vitrine en ligne pour montrer ses modèles à ses clientes. Mais un site fait sur mesure, c'est trop cher pour elle.
+> **Partie 1** : Premièrement, apprends à différencier tes deux types de clients. Il y a le B2B, c'est-à-dire les entreprises : une clinique, une école, un hôtel. Et il y a le B2C, c'est-à-dire les particuliers : une vendeuse, un coiffeur, une pâtissière qui vend sur WhatsApp. Ils n'ont pas les mêmes besoins, et pas le même budget.
 >
-> *Boucle 1* : Et c'est là que toi, tu entres.
+> *Boucle 1* : Et c'est là que ça devient intéressant.
 >
-> **Partie 2** : Tu crées une mini-vitrine : une seule page, avec ses produits, et un bouton qui ouvre WhatsApp avec la commande déjà écrite. Tu en fais un modèle prêt à remplir. Elle change le nom, les photos et les prix, et sa vitrine est en ligne. Avec une petite vidéo qui lui montre comment faire, étape par étape. Tu le crées une fois, et tu le vends à toutes les vendeuses comme elle.
+> **Partie 2** : À l'entreprise, tu vends un service : une mini-vitrine d'une page, faite sur mesure. Son histoire, ses services, et un bouton qui ouvre WhatsApp. Elle te paie pour un travail fait pour elle.
+> Au particulier, tu vends un produit. Imagine Maman Rose. Elle vend des pagnes au marché, à Kinshasa. Un site sur mesure, c'est trop cher pour elle. Alors tu lui proposes un modèle de mini-vitrine prêt à remplir : elle change le nom, les photos et les prix, et sa vitrine est en ligne. Avec une petite vidéo qui lui montre comment faire. Tu le crées une fois, et tu le vends à toutes les vendeuses comme elle.
 >
-> *Boucle 2* : Et pour créer ça, il te faut seulement quatre outils.
+> *Boucle 2* : Et pour créer tout ça, il te faut seulement quatre outils.
 >
-> **Partie 3** : VS Code, pour écrire ton modèle. GitHub, pour le mettre en ligne gratuitement. Canva, pour le petit guide qui explique comment le modifier. Et Chariow, pour le vendre et recevoir les paiements.
+> **Partie 3** : VS Code, pour écrire ta vitrine. GitHub, pour la mettre en ligne gratuitement. Canva, pour le petit guide qui explique comment la modifier. Et Chariow, pour vendre ton modèle et recevoir les paiements.
 >
-> *Boucle 3* : Et ce n'est pas tout : quand tes premiers modèles seront en ligne, d'autres développeurs voudront savoir comment tu en as fait un produit.
+> *Boucle 3* : Et ce n'est pas tout : quand tes premiers modèles seront en ligne, d'autres développeurs voudront savoir comment tu as fait.
 >
 > **CTA** : Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
@@ -32,13 +33,13 @@ Pour la voix, lis seulement le texte après les deux-points.
 
 | Moment | À l'écran |
 |---|---|
-| Hook | Un site qui se construit ligne par ligne, « un produit qui se vend » |
+| Hook | La capture du commentaire de l'abonné, « Merci pour ton commentaire » |
 | Promesse | « Un exemple précis » |
-| Partie 1 | Des pagnes, un étal de marché ; un devis « site sur mesure » barré, trop cher |
-| Boucle 1 | « C'est là que tu entres » |
-| Partie 2 | La mini-vitrine sur un téléphone (une page, produits, bouton WhatsApp) : le nom, les photos et les prix changent en un clic ; la petite vidéo « étape par étape » ; le même modèle vendu plusieurs fois (étiquettes « Vendu ») |
+| Partie 1 | L'écran se coupe en deux : à gauche « B2B · les entreprises » (clinique, école, hôtel), à droite « B2C · les particuliers » (vendeuse, coiffeur, pâtissière) ; « pas les mêmes besoins, pas le même budget » |
+| Boucle 1 | « C'est là que ça devient intéressant » |
+| Partie 2 | Côté entreprise : « Service sur mesure », une mini-vitrine sur ordinateur. Côté particulier : Maman Rose et ses pagnes, un devis sur mesure barré, puis le modèle de mini-vitrine sur téléphone où le nom, les photos et les prix changent ; étiquettes « Vendu » qui se multiplient |
 | Boucle 2 | « 4 outils » |
-| Partie 3 | VS Code (écrire), GitHub (mettre en ligne), Canva (le guide), Chariow (vendre), chacun avec son rôle écrit |
+| Partie 3 | VS Code (écrire), GitHub (mettre en ligne), Canva (le guide), Chariow (vendre), chacun avec son rôle |
 | Boucle 3 | Des messages de développeurs : « Comment tu as fait ? » |
 | CTA | « Commente ta compétence » |
 
