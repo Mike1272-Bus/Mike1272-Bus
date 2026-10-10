@@ -1,39 +1,28 @@
-miel-1.jpg | cc0 | Alabama Extension | https://www.flickr.com/photos/184594136@N08/51330849013
-miel-2.jpg | cc0 | Alabama Extension | https://www.flickr.com/photos/184594136@N08/51330848773
-miel-3.jpg | cc0 | Krzysztof%20Puszczy%u0144ski | https://stocksnap.io/photo/honey-jars-97LJAKWL36
-miel-4.jpg | cc0 | Dana Bartlett | https://commons.wikimedia.org/w/index.php?curid=82142479
-burger-1.jpg | cc0 | brenkee | https://www.flickr.com/photos/55128416@N05/25039204229
-burger-2.jpg | CC0 | <a href="//commons.wikimedia.org/wiki/User:Evan-Amos" title="User:Evan-Amos">Eva | https://commons.wikimedia.org/wiki/File:Big_Mac_hamburger.jpg
-burger-3.jpg | Public domain | Luke | https://commons.wikimedia.org/wiki/File:Burger_King_double_cheeseburger.jpg
-burger-4.jpg | CC0 | <a href="//commons.wikimedia.org/wiki/User:Plentn" title="User:Plentn">Plentn</a | https://commons.wikimedia.org/wiki/File:Burger_Leifers_2.JPG
-cafe-1.jpg | pdm | Tim Evanson | https://www.flickr.com/photos/23165290@N00/17137111279
-cafe-2.jpg | pdm | Fæ | https://www.flickr.com/photos/50398299@N08/16258842100
-cafe-3.jpg | cc0 | Image Catalog | https://www.flickr.com/photos/132795455@N08/17625638243
-cafe-4.jpg | cc0 | pixellaphoto | https://www.flickr.com/photos/137643065@N06/23697457474
-gateau-1.jpg | cc0 | Poppy Thomas Hill | https://www.flickr.com/photos/192850685@N07/51142324493
-gateau-2.jpg | cc0 | Wonderlane | https://www.flickr.com/photos/71401718@N00/9610590801
-gateau-3.jpg | CC0 | <a href="//commons.wikimedia.org/wiki/User:W.carter" title="User:W.carter">W.car | https://commons.wikimedia.org/wiki/File:Apple_cake_with_vanilla_ice_cream_2.jpg
-gateau-4.jpg | CC0 | <a href="//commons.wikimedia.org/wiki/User:Tim-desser" title="User:Tim-desser">T | https://commons.wikimedia.org/wiki/File:Birthday_Cake_Bloomsburg,_Pennsylvania.jpg
-epices-1.jpg | cc0 | Image Catalog | https://www.flickr.com/photos/132795455@N08/18392177145
-epices-2.jpg | cc0 | Patrycja Tomaszczyk | https://stocksnap.io/photo/herbs-spices-6ASMNGB3YI
-epices-3.jpg | CC0 | <a href="//commons.wikimedia.org/wiki/User:StarTrekker" title="User:StarTrekker" | https://commons.wikimedia.org/wiki/File:Spices_in_Medeltidsmuseet.jpg
-jus-1.jpg | cc0 | None | https://www.rawpixel.com/image/5920184/photo-image-background-public-domain-fruit
-jus-2.jpg | cc0 | None | https://www.rawpixel.com/image/5904475/photo-image-background-public-domain-fruit
-jus-3.jpg | CC0 | <a href="//commons.wikimedia.org/wiki/User:DimiTalen" title="User:DimiTalen">Dim | https://commons.wikimedia.org/wiki/File:Close-up_of_a_glass_bottle_of_Ribbon_orange_juice,_2016.jpg
-jus-4.jpg | CC0 | Piotr Chrobot <a rel="nofollow" class="external text" href="https://unsplash.com | https://commons.wikimedia.org/wiki/File:Orange_juice_(Unsplash).jpg
-pain-1.jpg | cc0 | Drew Coffman | https://stocksnap.io/photo/bread-bakery-EA1243E167
-pain-2.jpg | cc0 | None | https://www.rawpixel.com/image/5901216/photo-image-public-domain-food-free
-pain-3.jpg | cc0 | None | https://www.rawpixel.com/image/5928055/photo-image-public-domain-food-free
-pain-4.jpg | cc0 | libraryofcongress | https://www.rawpixel.com/image/12143913/image-person-art-vintage
-boutique-1.jpg | pdm | USDAgov | https://www.flickr.com/photos/41284017@N08/13065124275
-boutique-2.jpg | cc0 | Artem Beliaikin | https://www.flickr.com/photos/157635012@N07/47809596741
-boutique-3.jpg | pdm | USDAgov | https://www.flickr.com/photos/41284017@N08/13065238443
-boutique-4.jpg | CC0 | <a href="//commons.wikimedia.org/w/index.php?title=User:Veronicasgardentracker&a | https://commons.wikimedia.org/wiki/File:Beets_on_a_shelf.jpg
-telephone-1.jpg | cc0 | MartinThoma | https://commons.wikimedia.org/w/index.php?curid=46063622
-telephone-2.jpg | cc0 | MartinThoma | https://commons.wikimedia.org/w/index.php?curid=46063742
-telephone-3.jpg | cc0 | Artem Beliaikin | https://www.flickr.com/photos/157635012@N07/31299887987
-telephone-4.jpg | cc0 | freestocks.org | https://www.flickr.com/photos/135396164@N05/22216935828
-cadeau-1.jpg | cc0 | skeyndor.oficial | https://www.flickr.com/photos/57794015@N05/51534290136
-cadeau-2.jpg | Public domain | <a rel="nofollow" class="external text" href="https://www.flickr.com/people/7099 | https://commons.wikimedia.org/wiki/File:Princess_Mary%27s_Gift_Box_-_Christmas_1914_(10132776506).jpg
-cadeau-3.jpg | Public domain | Europeana staff photographer | https://commons.wikimedia.org/wiki/File:William_Barry%27s_Princess_Mary_brass_gift_box,_Christmas_1914.jpg
-cadeau-4.jpg | CC0 | <bdi><a href="https://en.wikipedia.org/wiki/en:Henri_Boutet" class="extiw" title | https://commons.wikimedia.org/wiki/File:Woman_Holding_a_Gift_Box_MET_DP876468.jpg
+ing-cannelle-1.jpg | cc0 | Fumikas Sagisavas | https://commons.wikimedia.org/w/index.php?curid=151584394
+ing-cannelle-2.jpg | cc0 | Daria Shevtsova | https://stocksnap.io/photo/cinnamon-sticks-ZAJBMRKJRJ
+ing-cannelle-3.jpg | cc0 | Foodie Girl | https://stocksnap.io/photo/cinnamon-sticks-JRENBKQ5RE
+ing-cannelle-4.jpg | cc0 | None | https://www.rawpixel.com/image/6041368/photo-image-xmas-public-domain-tree
+ing-gingembre-1.jpg | cc0 | Blervis | https://commons.wikimedia.org/w/index.php?curid=153265456
+ing-gingembre-2.jpg | cc0 | lacma | https://www.rawpixel.com/image/11922687/image-paper-art-vintage
+ing-gingembre-3.jpg | cc0 | Vishnu Chandra | https://wordpress.org/photos/photo/74569c5422/
+ing-gingembre-4.jpg | cc0 | Sheba Ayinzabyonna | https://wordpress.org/photos/photo/5606856e43/
+ing-girofle-1.jpg | cc0 | Foodie Girl | https://stocksnap.io/photo/garlic-spice-AGRMVP0ADI
+ing-girofle-2.jpg | cc0 | None | https://www.rawpixel.com/image/5925028/photo-image-public-domain-wooden-table
+ing-girofle-3.jpg | Public domain | McCormick and company | https://commons.wikimedia.org/wiki/File:Cloves-penang-zanzibar.png
+ing-girofle-4.jpg | Public domain | <a rel="nofollow" class="external text" href="http://tools.wikimedia.de/~daniel/ | https://commons.wikimedia.org/wiki/File:Cloves.JPG
+ing-poivre-1.jpg | cc0 | Obsidian Soul | https://commons.wikimedia.org/w/index.php?curid=81648393
+ing-poivre-2.jpg | cc0 | Kanchan Verma | https://wordpress.org/photos/photo/9465c2f6b2/
+ing-poivre-3.jpg | cc0 | Misterneedlemouse | https://commons.wikimedia.org/w/index.php?curid=151971300
+ing-poivre-4.jpg | cc0 | Mikael Häggström, M.D. Author info - Reusing images- Conflicts of interest: None Mikael Häggström, M.D.Consent note: Consent from the patient or patient's relatives is regarded as redundant, because of absence of identifiable features (List of HIPAA identifiers) in the media and case information (See also HIPAA case reports guidance). | https://commons.wikimedia.org/w/index.php?curid=121936886
+ing-hibiscus-1.jpg | cc0 | Boopathi Raja123 | https://commons.wikimedia.org/w/index.php?curid=141132586
+ing-hibiscus-2.jpg | CC0 | <a href="//commons.wikimedia.org/wiki/User:Maina_Tudu" title="User:Maina Tudu">M | https://commons.wikimedia.org/wiki/File:Red_Hibiscus_Flowers.jpg
+ing-hibiscus-3.jpg | CC0 | <a href="//commons.wikimedia.org/wiki/User:Maina_Tudu" title="User:Maina Tudu">M | https://commons.wikimedia.org/wiki/File:Red_Hibiscus_Garden_Flower.jpg
+ing-hibiscus-4.jpg | CC0 | <a href="//commons.wikimedia.org/wiki/User:Maina_Tudu" title="User:Maina Tudu">M | https://commons.wikimedia.org/wiki/File:Red_Hibiscus_Plants_and_flowers.jpg
+ing-moringa-1.jpg | cc0 | Obsidian Soul | https://commons.wikimedia.org/w/index.php?curid=89864440
+ing-moringa-2.jpg | cc0 | Haseena13 | https://commons.wikimedia.org/w/index.php?curid=165846997
+ing-moringa-3.jpg | cc0 | Obsidian Soul | https://commons.wikimedia.org/w/index.php?curid=58536866
+ing-moringa-4.jpg | cc0 | None | https://www.rawpixel.com/image/13960158/image-paper-horse-flower
+ing-rayon-1.jpg | cc0 | Eric Koch / Anefo | https://commons.wikimedia.org/w/index.php?curid=33340540
+ing-rayon-2.jpg | cc0 | Arjun G. Menon | https://commons.wikimedia.org/w/index.php?curid=35750553
+ing-rayon-3.jpg | CC0 | <bdi><a href="https://en.wikipedia.org/wiki/en:Candace_Wheeler" class="extiw" ti | https://commons.wikimedia.org/wiki/File:Bees_with_Honeycomb_MET_DP-401-001.jpg
+ing-rayon-4.jpg | Public domain | <a href="https://en.wikipedia.org/wiki/Pearson_Scott_Foresman" class="extiw" tit | https://commons.wikimedia.org/wiki/File:Honeycomb_(PSF).png
