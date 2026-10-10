@@ -6,7 +6,7 @@ Maman Rose est un **profil type** pour aider à imaginer la cliente, pas une vra
 
 Cette vidéo répond au commentaire d'un abonné : publier avec « Répondre avec une vidéo » sur son commentaire, comme pour l'épisode 3. Il faut la capture du commentaire.
 
-## Script (tu, environ 285 mots, environ 1 min 45 à ton rythme)
+## Script (tu, environ 315 mots, environ 1 min 55 à ton rythme)
 
 Réponse au commentaire d'un abonné développeur web. Pour la voix, lis seulement le texte après les deux-points.
 
@@ -25,6 +25,8 @@ Réponse au commentaire d'un abonné développeur web. Pour la voix, lis seuleme
 >
 > **Partie 3** : VS Code, pour écrire ta vitrine. GitHub, pour la mettre en ligne gratuitement. Canva, pour le petit guide qui explique comment la modifier. Et Chariow, pour vendre ton modèle et recevoir les paiements.
 >
+> **Le guide IA** : Et si tu veux apprendre à créer une mini-vitrine comme celle-là avec l'intelligence artificielle, commente « VITRINE » : je t'enverrai un guide qui t'explique comment faire.
+>
 > *Boucle 3* : Et ce n'est pas tout : quand tes premiers modèles seront en ligne, d'autres développeurs voudront savoir comment tu as fait.
 >
 > **CTA** : Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
@@ -40,6 +42,7 @@ Réponse au commentaire d'un abonné développeur web. Pour la voix, lis seuleme
 | Partie 2 | Côté entreprise : « Service sur mesure », une mini-vitrine sur ordinateur. Côté particulier : Maman Rose et ses pagnes, un devis sur mesure barré, puis le modèle de mini-vitrine sur téléphone où le nom, les photos et les prix changent ; étiquettes « Vendu » qui se multiplient |
 | Boucle 2 | « 4 outils » |
 | Partie 3 | VS Code (écrire), GitHub (mettre en ligne), Canva (le guide), Chariow (vendre), chacun avec son rôle |
+| Le guide IA | Une mini-vitrine qui se construit toute seule pendant qu'une commande IA s'écrit ; « Commente VITRINE » avec la couverture du guide |
 | Boucle 3 | Des messages de développeurs : « Comment tu as fait ? » |
 | CTA | « Commente ta compétence » |
 
@@ -55,3 +58,9 @@ Réponse au commentaire d'un abonné développeur web. Pour la voix, lis seuleme
 Deux mini-vitrines existent déjà : La Ruche du Terroir (`prospection/ruche-du-terroir/site/apercu/`) et Les Délices d'Émilie (`prospection/delices-emilie/catalogue/`). Ce sont des démos faites pour des entreprises : **pas de publication sans leur accord écrit**.
 
 Option sans accord à demander : une vitrine de démo pour « Maman Rose, pagnes » (nom inventé, comme le profil type), faite sur le même modèle, avec des photos de pagnes libres de droits ou filmées par Mike.
+
+## Le guide « Créer une mini-vitrine avec l'IA »
+
+Promis dans la vidéo à ceux qui commentent « VITRINE ». **Il n'existe pas encore : il doit être prêt avant de publier.** Contenu prévu : la commande à donner à l'IA (Claude ou ChatGPT) pour générer la page, comment mettre ses textes et ses photos, le bouton WhatsApp avec la commande déjà écrite, la mise en ligne gratuite (GitHub Pages), puis comment en faire un modèle à vendre.
+
+Réponse à envoyer en privé à ceux qui commentent « VITRINE » : le lien du guide (gratuit ou payant : à décider par Mike, et le dire dès le premier message).
