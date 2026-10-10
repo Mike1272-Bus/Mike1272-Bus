@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Inter'; font-weight: 400; src: url('assets/fonts/inter-latin-400-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #050505; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .dark { background: radial-gradient(ellipse at 50% 45%, #1c1c1c 0%, #080808 55%, #000 100%); }
+      .dark .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 60px 60px; -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 62%); mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 62%); }
+      .light { background: radial-gradient(ellipse at 50% 40%, #fbf8f3 0%, #efebe4 70%, #e4dfd7 100%); }
+      .light .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px); background-size: 60px 60px; }
+      .swoosh { position: absolute; left: -300px; top: -300px; width: 1680px; height: 2520px; }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .w { display: inline-block; margin: 0 0.12em; }
+      .sm { font-weight: 600; font-size: 60px; letter-spacing: -0.02em; color: #fff; text-shadow: 0 0 18px rgba(255,255,255,0.25); }
+      .light .sm { color: #141414; text-shadow: none; }
+      .big { font-weight: 900; font-size: 128px; letter-spacing: -0.045em; line-height: 0.95; color: #ff3d1f; text-shadow: 0 0 22px rgba(255,61,31,0.75), 0 0 70px rgba(255,61,31,0.35); }
+      .light .big { text-shadow: 0 6px 0 #8f1d0c, 0 18px 30px rgba(0,0,0,0.25); }
+      .ext { font-weight: 900; font-size: 200px; letter-spacing: -0.05em; color: #fff; text-shadow: 0 2px 0 #cfcfcf, 0 4px 0 #b5b5b5, 0 6px 0 #9d9d9d, 0 8px 0 #858585, 0 10px 0 #6e6e6e, 0 14px 0 #5a5a5a, 0 30px 40px rgba(0,0,0,0.8); }
+      .obj { position: absolute; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45)); }
+      .dark .obj { filter: drop-shadow(0 0 40px rgba(255,255,255,0.12)) drop-shadow(0 30px 50px rgba(0,0,0,0.9)); }
+      .lab { position: absolute; font-weight: 800; font-size: 38px; text-align: center; letter-spacing: -0.02em; }
+      .dark .lab { color: #fff; } .light .lab { color: #141414; }
+      .pill { position: absolute; height: 92px; border-radius: 46px; font-weight: 800; font-size: 42px; line-height: 92px; text-align: center; white-space: nowrap; }
+      .pr { background: #ff3d1f; color: #fff; box-shadow: 0 0 30px rgba(255,61,31,0.5); }
+      .pw { background: #fff; color: #141414; box-shadow: 0 16px 30px rgba(0,0,0,0.3); }
+      .pg { background: #25d366; color: #fff; }
+
+      /* commentaire */
+      #cmt { left: 140px; top: 520px; width: 800px; height: 210px; border-radius: 30px; background: #fff; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+      #cmt .av { position: absolute; left: 34px; top: 40px; width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, #2b3190, #ff3d1f); }
+      #cmt .u { position: absolute; left: 170px; top: 44px; font-weight: 600; font-size: 30px; color: #8a8a8a; }
+      #cmt .t { position: absolute; left: 170px; top: 92px; font-weight: 800; font-size: 50px; color: #111; }
+      #cmtk { top: 450px; font-weight: 800; font-size: 28px; letter-spacing: 6px; color: #9a9a9a; }
+
+      /* ordinateur B2B */
+      #lap { left: 90px; top: 620px; width: 900px; height: 620px; border-radius: 26px; background: #fff; box-shadow: 0 40px 80px rgba(0,0,0,0.7); overflow: hidden; }
+      #lap .bar { height: 56px; background: #e9e9e9; display: flex; align-items: center; gap: 12px; padding-left: 22px; }
+      #lap .bar i { width: 16px; height: 16px; border-radius: 50%; display: block; }
+      #lap .hero { position: absolute; left: 0; top: 56px; width: 900px; height: 210px; background: linear-gradient(120deg, #1b3a8a, #3b6fd8); color: #fff; padding: 40px 50px; }
+      #lap .hero b { display: block; font-size: 52px; font-weight: 900; }
+      #lap .hero span { font-size: 28px; opacity: 0.9; }
+      #lap .sec { position: absolute; left: 50px; font-weight: 800; font-size: 30px; color: #1b3a8a; }
+      #lap .ln { position: absolute; left: 50px; height: 18px; border-radius: 9px; background: #e3e6ef; }
+      #lap .box { position: absolute; top: 470px; width: 245px; height: 70px; border-radius: 14px; background: #eef2fb; border: 3px solid #d6def2; }
+      #lap .wa { position: absolute; right: 40px; bottom: 30px; height: 66px; padding: 0 30px; border-radius: 33px; background: #25d366; color: #fff; font-weight: 800; font-size: 28px; line-height: 66px; }
+      #stamp { left: 600px; top: 560px; width: 380px; height: 110px; border: 8px solid #ff3d1f; border-radius: 18px; color: #ff3d1f; font-weight: 900; font-size: 54px; text-align: center; line-height: 94px; transform: rotate(-10deg); background: rgba(0,0,0,0.6); }
+
+      /* téléphone vitrine */
+      #ph { left: 230px; top: 560px; width: 620px; height: 1180px; border-radius: 70px; background: #0d0d0d; padding: 22px; box-shadow: 0 50px 90px rgba(0,0,0,0.45); }
+      #scr { position: relative; width: 576px; height: 1136px; border-radius: 52px; overflow: hidden; background: #fff8ef; }
+      #vh { position: absolute; left: 0; top: 0; width: 576px; height: 360px; background: #1b3a8a; border-radius: 0 0 30px 30px; text-align: center; }
+      #vlogo { position: absolute; left: 248px; top: 60px; width: 80px; height: 80px; border-radius: 50%; background: #c9cfe3; border: 4px solid #fff; overflow: hidden; }
+      #vlogo img { width: 100%; height: 100%; object-fit: cover; }
+      .vname { position: absolute; left: 0; width: 576px; top: 162px; font-weight: 900; font-size: 40px; letter-spacing: -0.02em; white-space: nowrap; }
+      #vn0 { color: #8e9bc7; } #vn1 { color: #fff; }
+      #vbtn { position: absolute; left: 118px; top: 248px; width: 340px; height: 64px; border-radius: 32px; background: #25d366; color: #fff; font-weight: 800; font-size: 25px; line-height: 64px; }
+      .vc { position: absolute; width: 252px; height: 330px; border-radius: 22px; background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.1); overflow: hidden; }
+      .vc .im { position: absolute; left: 0; top: 0; width: 252px; height: 230px; background: #dcdcdc; }
+      .vc .im svg { position: absolute; left: 86px; top: 75px; width: 80px; height: 80px; }
+      .vc img { position: absolute; left: 0; top: 0; width: 252px; height: 230px; object-fit: cover; }
+      .vc .p0, .vc .p1 { position: absolute; left: 16px; top: 248px; font-weight: 900; font-size: 30px; }
+      .vc .p0 { color: #b0b0b0; } .vc .p1 { color: #ff3d1f; }
+      .vc .bt { position: absolute; left: 16px; right: 16px; bottom: 14px; height: 30px; border-radius: 15px; background: #e8541e; opacity: 0.85; }
+      #c1 { left: 24px; top: 390px; } #c2 { left: 300px; top: 390px; } #c3 { left: 24px; top: 744px; } #c4 { left: 300px; top: 744px; }
+      #url { left: 190px; top: 450px; width: 700px; height: 84px; border-radius: 42px; background: #fff; box-shadow: 0 16px 30px rgba(0,0,0,0.2); font-weight: 800; font-size: 34px; line-height: 84px; text-align: center; color: #141414; }
+      #url i { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: #25d366; margin-right: 14px; vertical-align: middle; box-shadow: 0 0 14px #25d366; }
+      #enligne { left: 300px; top: 1760px; width: 480px; }
+      #vid { left: 590px; top: 1230px; width: 420px; height: 270px; border-radius: 26px; background: #141414; box-shadow: 0 30px 50px rgba(0,0,0,0.4); }
+      #vid .pl { position: absolute; left: 180px; top: 80px; width: 0; height: 0; border-left: 70px solid #ff3d1f; border-top: 42px solid transparent; border-bottom: 42px solid transparent; }
+      #vid .tt { position: absolute; left: 0; width: 420px; top: 196px; text-align: center; color: #fff; font-weight: 800; font-size: 26px; }
+      #prt { left: 330px; top: 470px; width: 420px; }
+
+      /* éventail de photos */
+      .ph { position: absolute; width: 360px; height: 460px; border-radius: 22px; overflow: hidden; border: 10px solid #fff; box-shadow: 0 30px 60px rgba(0,0,0,0.35); background: #ddd; }
+      .ph img { width: 100%; height: 100%; object-fit: cover; }
+      #f1 { left: 120px; top: 1080px; } #f2 { left: 360px; top: 1040px; } #f3 { left: 600px; top: 1080px; }
+
+      /* devis */
+      #devis { left: 220px; top: 560px; width: 640px; height: 420px; border-radius: 26px; background: #fff; padding: 46px; box-shadow: 0 40px 70px rgba(0,0,0,0.7); }
+      #devis b { font-size: 50px; font-weight: 900; color: #141414; display: block; margin-bottom: 30px; }
+      #devis .ln { height: 22px; border-radius: 11px; background: #e6e6e6; margin-bottom: 26px; }
+      #trop { left: 270px; top: 760px; width: 540px; height: 140px; border: 10px solid #ff3d1f; border-radius: 22px; color: #ff3d1f; font-weight: 900; font-size: 84px; text-align: center; line-height: 122px; transform: rotate(-9deg); background: rgba(255,255,255,0.92); }
+
+      /* vendu */
+      .mini { position: absolute; width: 230px; height: 440px; border-radius: 34px; background: #0d0d0d; padding: 10px; }
+      .mini div { width: 210px; height: 420px; border-radius: 26px; background: #fff8ef; overflow: hidden; position: relative; }
+      .mini div::before { content: ""; position: absolute; left: 0; top: 0; width: 210px; height: 130px; background: #1b3a8a; }
+      .mini img { position: absolute; width: 90px; height: 90px; object-fit: cover; border-radius: 10px; }
+      .tag { position: absolute; width: 220px; height: 70px; border-radius: 35px; background: #25d366; color: #fff; font-weight: 900; font-size: 34px; text-align: center; line-height: 70px; }
+
+      /* outils */
+      .tool { position: absolute; left: 90px; width: 900px; height: 190px; border-radius: 30px; background: rgba(255,255,255,0.07); border: 3px solid rgba(255,255,255,0.14); }
+      .tool img { position: absolute; left: 30px; top: 30px; width: 130px; height: 130px; }
+      .tool b { position: absolute; left: 190px; top: 34px; font-size: 56px; font-weight: 900; color: #fff; letter-spacing: -0.03em; }
+      .tool span { position: absolute; left: 190px; top: 108px; font-size: 34px; font-weight: 600; color: #ff7a5c; }
+      #t1 { top: 520px; } #t2 { top: 740px; } #t3 { top: 960px; } #t4 { top: 1180px; }
+      .code { position: absolute; left: 30px; top: 30px; width: 130px; height: 130px; border-radius: 26px; background: #1f6fd1; color: #fff; font-weight: 900; font-size: 60px; text-align: center; line-height: 128px; }
+      .gh { position: absolute; left: 30px; top: 30px; width: 130px; height: 130px; border-radius: 50%; background: #fff; color: #111; font-weight: 900; font-size: 46px; text-align: center; line-height: 130px; }
+
+      /* guide IA */
+      #gcov { left: 300px; top: 900px; width: 480px; height: 600px; border-radius: 18px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.35); border: 6px solid #141414; }
+      #gcov img, #ebk img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+      #kv { left: 190px; top: 1560px; width: 700px; height: 130px; border-radius: 30px; background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.25); font-weight: 800; font-size: 46px; line-height: 130px; padding-left: 40px; color: #141414; }
+      #kv b { color: #ff3d1f; }
+      #caret { display: inline-block; width: 5px; height: 54px; background: #141414; vertical-align: middle; margin-left: 4px; }
+
+      /* bulles devs */
+      .bub { position: absolute; height: 110px; border-radius: 55px 55px 55px 12px; background: #fff; color: #141414; font-weight: 800; font-size: 42px; line-height: 110px; padding: 0 44px; white-space: nowrap; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+      #d1 { left: 80px; top: 820px; } #d2 { left: 300px; top: 1000px; } #d3 { left: 140px; top: 1180px; }
+      #ebk { left: 340px; top: 960px; width: 400px; height: 400px; border-radius: 18px; overflow: hidden; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #000; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="105.4" data-width="1080" data-height="1920">
+
+      <!-- 1. Hook : réponse au commentaire (0 - 5,5) -->
+      <div class="scene dark" id="s1"><div class="cam" id="k1"><div class="grid"></div>
+        <div class="line" id="cmtk">RÉPONSE À TON COMMENTAIRE</div>
+        <div class="ab" id="cmt"><div class="av"></div><div class="u">@abonné</div><div class="t">développeur web</div></div>
+        <div class="line" style="top:860px"><span class="w sm" id="a1">Tu</span><span class="w sm" id="a2">es</span></div>
+        <div class="line" style="top:975px" data-layout-allow-overlap><span class="w big" id="a3">développeur web ?</span></div>
+        <div class="line" style="top:1180px"><span class="w sm" id="a4">Merci</span><span class="w sm" id="a5">pour</span><span class="w sm" id="a6">ton</span><span class="w sm" id="a7">commentaire</span></div>
+        <div class="line" style="top:1330px"><span class="w sm" id="a8">cette</span><span class="w sm" id="a9">vidéo</span><span class="w sm" id="a10">est</span></div>
+        <div class="line" style="top:1445px" data-layout-allow-overlap><span class="w big" id="a11">pour toi</span></div>
+      </div></div>
+
+      <!-- 2. Promesse (5,5 - 10,8) -->
+      <div class="scene light" id="s2"><div class="cam" id="k2"><div class="grid"></div>
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M200 -100 C 700 700, 1000 1300, 1500 2600" fill="none" stroke="#d3cfc8" stroke-width="230" stroke-linecap="round"/></svg>
+        <img class="obj" id="bag" src="assets/img/money_bag_3d.png" style="left:390px; top:300px; width:300px; height:300px" />
+        <div class="line" style="top:700px"><span class="w sm" id="b1">Transforme</span><span class="w sm" id="b2">ta</span><span class="w sm" id="b3">compétence</span></div>
+        <div class="line" style="top:815px" data-layout-allow-overlap><span class="w big" id="b4">en revenu</span></div>
+        <div class="line" style="top:1080px"><span class="w sm" id="b5">avec</span><span class="w sm" id="b6">un</span><span class="w sm" id="b7">exemple</span></div>
+        <div class="line" style="top:1195px" data-layout-allow-overlap><span class="w big" id="b8">précis</span></div>
+      </div></div>
+
+      <!-- 3. Deux types de clients (10,8 - 14,1) -->
+      <div class="scene dark" id="s3"><div class="cam" id="k3"><div class="grid"></div>
+        <div class="line" style="top:700px"><span class="w sm" id="c1x">Apprends</span><span class="w sm" id="c2x">à</span><span class="w sm" id="c3x">différencier</span></div>
+        <div class="line" style="top:830px"><span class="w ext" id="c4x">2 types</span></div>
+        <div class="line" style="top:1110px"><span class="w big" id="c5x">de clients</span></div>
+      </div></div>
+
+      <!-- 4. B2B (14,1 - 19,6) -->
+      <div class="scene light" id="s4"><div class="cam" id="k4"><div class="grid"></div>
+        <div class="line" style="top:330px"><span class="w ext" id="e1" style="color:#ff3d1f; text-shadow:0 8px 0 #8f1d0c, 0 26px 40px rgba(0,0,0,0.25)">B2B</span></div>
+        <div class="line" style="top:600px"><span class="w sm" id="e2">c'est-à-dire</span><span class="w sm" id="e3">les entreprises</span></div>
+        <img class="obj" id="e4" src="assets/img/hospital_3d.png" style="left:60px; top:900px; width:300px; height:300px" />
+        <img class="obj" id="e5" src="assets/img/school_3d.png" style="left:390px; top:900px; width:300px; height:300px" />
+        <img class="obj" id="e6" src="assets/img/hotel_3d.png" style="left:720px; top:900px; width:300px; height:300px" />
+        <div class="lab" id="e7" style="left:60px; top:1230px; width:300px">une clinique</div>
+        <div class="lab" id="e8" style="left:390px; top:1230px; width:300px">une école</div>
+        <div class="lab" id="e9" style="left:720px; top:1230px; width:300px">un hôtel</div>
+      </div></div>
+
+      <!-- 5. B2C + besoins / budget (19,6 - 29,4) -->
+      <div class="scene dark" id="s5"><div class="cam" id="k5"><div class="grid"></div>
+        <div class="line" style="top:330px"><span class="w ext" id="g1" style="color:#ff3d1f; text-shadow:0 0 30px rgba(255,61,31,0.7), 0 8px 0 #7a160a">B2C</span></div>
+        <div class="line" style="top:600px"><span class="w sm" id="g2">c'est-à-dire</span><span class="w sm" id="g3">les particuliers</span></div>
+        <img class="obj" id="g4" src="assets/img/dress_3d.png" style="left:60px; top:880px; width:300px; height:300px" />
+        <img class="obj" id="g5" src="assets/img/barber_pole_3d.png" style="left:390px; top:880px; width:300px; height:300px" />
+        <img class="obj" id="g6" src="assets/img/birthday_cake_3d.png" style="left:720px; top:880px; width:300px; height:300px" />
+        <div class="lab" id="g7" style="left:60px; top:1210px; width:300px">une vendeuse</div>
+        <div class="lab" id="g8" style="left:390px; top:1210px; width:300px">un coiffeur</div>
+        <div class="lab" id="g9" style="left:720px; top:1210px; width:300px">une pâtissière</div>
+        <div class="pill pg" id="g10" style="left:240px; top:1340px; width:600px">qui vend sur WhatsApp</div>
+        <div class="pill pr" id="g11" style="left:140px; top:1520px; width:800px">≠ pas les mêmes besoins</div>
+        <div class="pill pw" id="g12" style="left:140px; top:1650px; width:800px">≠ pas le même budget</div>
+      </div></div>
+
+      <!-- 6. Boucle 1 (29,4 - 31,8) -->
+      <div class="scene light" id="s6"><div class="cam" id="k6"><div class="grid"></div>
+        <img class="obj" id="h0" src="assets/img/sparkles_3d.png" style="left:390px; top:520px; width:300px; height:300px" />
+        <div class="line" style="top:900px"><span class="w sm" id="h1">c'est</span><span class="w sm" id="h2">là</span><span class="w sm" id="h3">que</span><span class="w sm" id="h4">ça</span><span class="w sm" id="h5">devient</span></div>
+        <div class="line" style="top:1015px" data-layout-allow-overlap><span class="w big" id="h6">intéressant</span></div>
+      </div></div>
+
+      <!-- 7. Entreprise : un service sur mesure (31,8 - 43,3) -->
+      <div class="scene dark" id="s7"><div class="cam" id="k7"><div class="grid"></div>
+        <div class="line" style="top:300px"><span class="w sm" id="i1">À</span><span class="w sm" id="i2">l'entreprise,</span><span class="w sm" id="i3">tu vends</span></div>
+        <div class="line" style="top:415px" data-layout-allow-overlap><span class="w big" id="i4">un service</span></div>
+        <div class="ab" id="lap">
+          <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+          <div class="hero"><b>Ta clinique</b><span>Des soins proches de chez vous</span></div>
+          <div class="sec" id="lh" style="top:300px">Notre histoire</div>
+          <div class="ln" id="ll1" style="top:352px; width:780px"></div><div class="ln" id="ll2" style="top:384px; width:620px"></div>
+          <div class="sec" id="ls" style="top:420px">Nos services</div>
+          <div class="box" id="lb1" style="left:50px"></div><div class="box" id="lb2" style="left:325px"></div><div class="box" id="lb3" style="left:600px"></div>
+          <div class="wa" id="lwa">Écrire sur WhatsApp</div>
+        </div>
+        <div class="ab" id="stamp">SUR MESURE</div>
+        <img class="obj" id="i5" src="assets/img/coin_3d.png" style="left:420px; top:1560px; width:240px; height:240px" />
+        <div class="line" style="top:1340px"><span class="w sm" id="i6">elle</span><span class="w sm" id="i7">te</span><span class="w sm" id="i8">paie</span></div>
+        <div class="line" style="top:1430px"><span class="w sm" id="i9" style="color:#ff7a5c; font-size:52px">pour un travail fait pour elle</span></div>
+      </div></div>
+
+      <!-- 8. Particulier : un produit, Maman Rose (43,3 - 49,8) -->
+      <div class="scene light" id="s8"><div class="cam" id="k8"><div class="grid"></div>
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M1500 -100 C 900 800, 700 1300, 200 2600" fill="none" stroke="#d3cfc8" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="line" style="top:330px"><span class="w sm" id="j1">Au</span><span class="w sm" id="j2">particulier,</span><span class="w sm" id="j3">tu vends</span></div>
+        <div class="line" style="top:445px" data-layout-allow-overlap><span class="w big" id="j4">un produit</span></div>
+        <div class="line" style="top:700px"><span class="w sm" id="j5">Imagine</span><span class="w big" id="j6" style="font-size:96px">Maman Rose</span></div>
+        <div class="line" style="top:860px"><span class="w sm" id="j7">elle</span><span class="w sm" id="j8">vend</span><span class="w sm" id="j9">au marché</span></div>
+        <div class="ph" id="f1"><img src="assets/produits/produit1.svg" /></div>
+        <div class="ph" id="f3"><img src="assets/produits/produit3.svg" /></div>
+        <div class="ph" id="f2"><img src="assets/produits/produit2.svg" /></div>
+      </div></div>
+
+      <!-- 9. Trop cher -> un modèle (49,8 - 55,6) -->
+      <div class="scene dark" id="s9"><div class="cam" id="k9"><div class="grid"></div>
+        <div class="ab" id="devis"><b>Site sur mesure</b><div class="ln" style="width:90%"></div><div class="ln" style="width:70%"></div><div class="ln" style="width:80%"></div><div class="ln" style="width:55%"></div></div>
+        <div class="ab" id="trop">TROP CHER</div>
+        <div class="line" style="top:1180px"><span class="w sm" id="m1">Alors,</span><span class="w sm" id="m2">tu</span><span class="w sm" id="m3">lui</span><span class="w sm" id="m4">proposes</span></div>
+        <div class="line" style="top:1295px" data-layout-allow-overlap><span class="w big" id="m5">un modèle</span></div>
+        <div class="line" style="top:1450px"><span class="w sm" id="m6" style="color:#ff7a5c">de mini-vitrine</span></div>
+      </div></div>
+
+      <!-- 10. LA VITRINE : prêt à remplir, nom, photos, prix, en ligne (55,6 - 64,2) -->
+      <div class="scene light" id="s10"><div class="cam" id="k10"><div class="grid"></div>
+        <div class="pill pr" id="prt">prêt à remplir</div>
+        <div class="ab" id="url"><i></i>maman-rose.github.io</div>
+        <div class="ab" id="ph"><div id="scr">
+          <div id="vh">
+            <div id="vlogo"><img id="vlimg" src="assets/produits/produit5.svg" /></div>
+            <div class="vname" id="vn0">[ Nom de ta boutique ]</div>
+            <div class="vname" id="vn1">Les Pagnes de Maman Rose</div>
+            <div id="vbtn">Commander sur WhatsApp</div>
+          </div>
+          <div class="vc" id="c1"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/produits/produit1.svg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
+          <div class="vc" id="c2"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/produits/produit2.svg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
+          <div class="vc" id="c3"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/produits/produit3.svg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
+          <div class="vc" id="c4"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/produits/produit4.svg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
+        </div></div>
+        <div class="pill pg" id="enligne">✓ en ligne</div>
+        <div class="ab" id="vid"><div class="pl"></div><div class="tt">Comment la modifier</div></div>
+      </div></div>
+
+      <!-- 11. Créé une fois, vendu à toutes (64,2 - 68,4) -->
+      <div class="scene dark" id="s11"><div class="cam" id="k11"><div class="grid"></div>
+        <div class="line" style="top:300px"><span class="w sm" id="n1">Tu</span><span class="w sm" id="n2">le</span><span class="w sm" id="n3">crées</span></div>
+        <div class="line" style="top:415px" data-layout-allow-overlap><span class="w big" id="n4">une fois</span></div>
+        <div class="mini" id="mp1" style="left:40px; top:700px"><div><img src="assets/produits/produit1.svg" style="left:12px; top:150px" /><img src="assets/produits/produit2.svg" style="left:108px; top:150px" /></div></div>
+        <div class="mini" id="mp2" style="left:300px; top:660px"><div><img src="assets/produits/produit3.svg" style="left:12px; top:150px" /><img src="assets/produits/produit4.svg" style="left:108px; top:150px" /></div></div>
+        <div class="mini" id="mp3" style="left:560px; top:700px"><div><img src="assets/produits/produit2.svg" style="left:12px; top:150px" /><img src="assets/produits/produit5.svg" style="left:108px; top:150px" /></div></div>
+        <div class="mini" id="mp4" style="left:820px; top:660px"><div><img src="assets/produits/produit4.svg" style="left:12px; top:150px" /><img src="assets/produits/produit1.svg" style="left:108px; top:150px" /></div></div>
+        <div class="tag" id="v1" style="left:45px; top:1180px">Vendu ✓</div>
+        <div class="tag" id="v2" style="left:305px; top:1140px">Vendu ✓</div>
+        <div class="tag" id="v3" style="left:565px; top:1180px">Vendu ✓</div>
+        <div class="tag" id="v4" style="left:825px; top:1140px; width:220px">Vendu ✓</div>
+        <div class="line" style="top:1380px"><span class="w sm" id="n5">vendu</span><span class="w sm" id="n6">à</span></div>
+        <div class="line" style="top:1470px"><span class="w big" id="n7" style="font-size:104px">toutes les vendeuses</span></div>
+      </div></div>
+
+      <!-- 12. 4 outils (68,4 - 71,2) -->
+      <div class="scene light" id="s12"><div class="cam" id="k12"><div class="grid"></div>
+        <div class="line" style="top:760px"><span class="w sm" id="o1">il</span><span class="w sm" id="o2">te</span><span class="w sm" id="o3">faut</span><span class="w sm" id="o4">seulement</span></div>
+        <div class="line" style="top:880px"><span class="w ext" id="o5" style="color:#ff3d1f; text-shadow:0 8px 0 #8f1d0c, 0 26px 40px rgba(0,0,0,0.25)">4 outils</span></div>
+      </div></div>
+
+      <!-- 13. Les outils (71,2 - 82,4) -->
+      <div class="scene dark" id="s13"><div class="cam" id="k13"><div class="grid"></div>
+        <div class="ab tool" id="t1"><div class="code">&lt;/&gt;</div><b>VS Code</b><span>pour écrire ta vitrine</span></div>
+        <div class="ab tool" id="t2"><div class="gh">Git</div><b>GitHub</b><span>pour la mettre en ligne gratuitement</span></div>
+        <div class="ab tool" id="t3"><img src="assets/img/artist_palette_3d.png" /><b>Canva</b><span>pour le petit guide qui l'explique</span></div>
+        <div class="ab tool" id="t4"><img src="assets/img/chariow.png" style="border-radius:28px" /><b>Chariow</b><span>pour vendre et recevoir les paiements</span></div>
+      </div></div>
+
+      <!-- 14. Le guide IA : commente VITRINE (82,4 - 91,1) -->
+      <div class="scene light" id="s14"><div class="cam" id="k14"><div class="grid"></div>
+        <img class="obj" id="q0" src="assets/img/robot_3d.png" style="left:400px; top:220px; width:280px; height:280px" />
+        <div class="line" style="top:560px"><span class="w sm" id="q1">crée</span><span class="w sm" id="q2">ta</span><span class="w sm" id="q3">mini-vitrine</span></div>
+        <div class="line" style="top:675px" data-layout-allow-overlap><span class="w big" id="q4">avec l'IA</span></div>
+        <div class="ab" id="gcov"><img src="assets/img/guide_vitrine.png" /></div>
+        <div class="ab" id="kv">Commente « <b id="kvw">VITRINE</b> »<span id="caret"></span></div>
+      </div></div>
+
+      <!-- 15. Boucle 3 : d'autres développeurs (91,1 - 97,3) -->
+      <div class="scene dark" id="s15"><div class="cam" id="k15"><div class="grid"></div>
+        <div class="line" style="top:420px"><span class="w sm" id="r1">Et</span><span class="w sm" id="r2">ce</span><span class="w sm" id="r3">n'est</span><span class="w sm" id="r4">pas</span></div>
+        <div class="line" style="top:535px" data-layout-allow-overlap><span class="w big" id="r5">tout</span></div>
+        <div class="bub" id="d1">Comment tu as fait ?</div>
+        <div class="bub" id="d2">Tu peux m'apprendre ?</div>
+        <div class="bub" id="d3">Comment tu as fait ? 🔥</div>
+        <div class="line" style="top:1420px"><span class="w sm" id="r6" style="color:#ff7a5c; font-size:48px">d'autres développeurs voudront savoir</span></div>
+      </div></div>
+
+      <!-- 16. CTA (97,3 - fin) -->
+      <div class="scene light" id="s16"><div class="cam" id="k16"><div class="grid"></div>
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M200 -100 C 900 600, 500 1500, 1500 2600" fill="none" stroke="#d3cfc8" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="line" style="top:420px"><span class="w sm" id="u1">Commente</span></div>
+        <div class="line" style="top:535px" data-layout-allow-overlap><span class="w big" id="u2">ta compétence</span></div>
+        <div class="ab" id="ebk"><img src="assets/img/ebook.png" /></div>
+        <div class="line" style="top:1440px"><span class="w sm" id="u3">je</span><span class="w sm" id="u4">te</span><span class="w sm" id="u5">réponds</span><span class="w sm" id="u6">en privé</span></div>
+        <div class="line" style="top:1530px"><span class="w sm" id="u7" style="color:#ff3d1f; font-weight:900">avec le guide</span></div>
+      </div></div>
+
+      <div class="ab" id="fade"></div>
+      <audio id="voix" src="assets/audio/voix.mp3" data-start="0" data-duration="105.4" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const word = (sel, at, d = 0.28) => IN(sel, { y: -50, scale: 1.3, filter: "blur(12px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at);
+      const words = (list, at, gap = 0.16) => list.forEach((s, i) => word(s, at + i * gap));
+      const pop = (sel, at) => IN(sel, { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, at);
+      const rise = (sel, at) => IN(sel, { y: 80 }, { y: 0, duration: 0.4, ease: "power3.out" }, at);
+      const float = (sel, at, d) => FT(sel, { y: 0 }, { y: -18, duration: d / 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, at);
+
+      // Les temps viennent de la transcription de la voix (audio-voix/episode4-dev-web/transcription.json)
+      const SC = [["#s1","#k1",0,5.5],["#s2","#k2",5.5,5.3],["#s3","#k3",10.8,3.3],["#s4","#k4",14.1,5.5],["#s5","#k5",19.6,9.8],["#s6","#k6",29.4,2.4],
+        ["#s7","#k7",31.8,11.5],["#s8","#k8",43.3,6.5],["#s9","#k9",49.8,5.8],["#s10","#k10",55.6,8.6],["#s11","#k11",64.2,4.2],["#s12","#k12",68.4,2.8],
+        ["#s13","#k13",71.2,11.2],["#s14","#k14",82.4,8.7],["#s15","#k15",91.1,6.2],["#s16","#k16",97.3,8.1]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        tl.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.14 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+        FT(c, { rotation: 0, x: 0 }, { rotation: i % 2 ? 0.8 : -0.8, x: i % 2 ? -20 : 20, duration: d, ease: "sine.inOut" }, a);
+      });
+
+      // 1. hook
+      rise("#cmtk", 0.3); IN("#cmt", { y: 120, scale: 0.85 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 0.35);
+      words(["#a1", "#a2"], 0.7); word("#a3", 1.05, 0.35);
+      words(["#a4", "#a5", "#a6", "#a7"], 2.1, 0.15);
+      words(["#a8", "#a9", "#a10"], 3.5, 0.15); word("#a11", 4.3, 0.35);
+      // 2. promesse
+      IN("#bag", { scale: 0.2, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.7, ease: "expo.out" }, 5.6); float("#bag", 6.4, 4);
+      words(["#b1", "#b2", "#b3"], 6.3, 0.2); word("#b4", 7.8, 0.35);
+      words(["#b5", "#b6", "#b7"], 8.95, 0.18); word("#b8", 9.75, 0.35);
+      // 3. deux types
+      words(["#c1x", "#c2x", "#c3x"], 10.95, 0.2);
+      IN("#c4x", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.45, ease: "bounce.out" }, 12.2);
+      word("#c5x", 13.0, 0.3);
+      // 4. B2B
+      IN("#e1", { scale: 2.5, filter: "blur(20px)" }, { scale: 1, filter: "blur(0px)", duration: 0.4, ease: "power4.out" }, 14.3);
+      words(["#e2", "#e3"], 15.2, 0.35);
+      [["#e4", "#e7", 16.6], ["#e5", "#e8", 17.6], ["#e6", "#e9", 18.75]].forEach(([o, l, t]) => { pop(o, t); rise(l, t + 0.15); });
+      // 5. B2C
+      IN("#g1", { scale: 2.5, filter: "blur(20px)" }, { scale: 1, filter: "blur(0px)", duration: 0.4, ease: "power4.out" }, 19.85);
+      words(["#g2", "#g3"], 21.4, 0.6);
+      [["#g4", "#g7", 22.9], ["#g5", "#g8", 23.7], ["#g6", "#g9", 24.5]].forEach(([o, l, t]) => { pop(o, t); rise(l, t + 0.15); });
+      IN("#g10", { scale: 0.5 }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 25.9);
+      IN("#g11", { x: -900 }, { x: 0, duration: 0.4, ease: "expo.out" }, 26.95);
+      IN("#g12", { x: 900 }, { x: 0, duration: 0.4, ease: "expo.out" }, 28.15);
+      // 6. boucle 1
+      IN("#h0", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 29.5);
+      words(["#h1", "#h2", "#h3", "#h4", "#h5"], 29.6, 0.12); word("#h6", 30.4, 0.35);
+      // 7. service
+      words(["#i1", "#i2", "#i3"], 32.0, 0.2); word("#i4", 33.1, 0.35);
+      IN("#lap", { y: 400, scale: 0.85 }, { y: 0, scale: 1, duration: 0.55, ease: "back.out(1.4)" }, 34.3);
+      IN("#stamp", { scale: 2.2 }, { scale: 1, duration: 0.3, ease: "power4.in" }, 35.9);
+      IN(["#lh", "#ll1", "#ll2"], { x: -60 }, { x: 0, duration: 0.3, stagger: 0.1 }, 37.0);
+      IN(["#ls", "#lb1", "#lb2", "#lb3"], { y: 30 }, { y: 0, duration: 0.3, stagger: 0.1 }, 37.7);
+      IN("#lwa", { scale: 0.4 }, { scale: 1, duration: 0.35, ease: "back.out(2.5)" }, 38.7);
+      FT("#lwa", { scale: 1 }, { scale: 1.12, duration: 0.2, yoyo: true, repeat: 3 }, 39.4);
+      IN("#i5", { scale: 0, rotation: 200 }, { scale: 1, rotation: 0, duration: 0.6, ease: "expo.out" }, 40.7);
+      words(["#i6", "#i7", "#i8"], 40.75, 0.15); word("#i9", 41.6, 0.35);
+      // 8. particulier
+      words(["#j1", "#j2", "#j3"], 43.5, 0.2); word("#j4", 44.4, 0.35);
+      word("#j5", 45.6); word("#j6", 45.95, 0.35);
+      words(["#j7", "#j8", "#j9"], 47.1, 0.2);
+      IN("#f1", { y: 600, rotation: -20 }, { y: 0, rotation: -9, duration: 0.5, ease: "back.out(1.4)" }, 47.6);
+      IN("#f3", { y: 600, rotation: 20 }, { y: 0, rotation: 9, duration: 0.5, ease: "back.out(1.4)" }, 47.85);
+      IN("#f2", { y: 600 }, { y: 0, duration: 0.5, ease: "back.out(1.4)" }, 48.1);
+      // 9. trop cher -> un modèle
+      IN("#devis", { y: -500, rotation: -6 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.3)" }, 50.0);
+      IN("#trop", { scale: 2.6, rotation: -20 }, { scale: 1, rotation: -9, duration: 0.3, ease: "power4.in" }, 51.6);
+      words(["#m1", "#m2", "#m3", "#m4"], 52.6, 0.15); word("#m5", 53.5, 0.35); word("#m6", 54.4);
+      // 10. LA VITRINE
+      IN("#ph", { y: 900 }, { y: 0, duration: 0.6, ease: "expo.out" }, 55.6);
+      IN("#prt", { scale: 0.4 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, 55.75);
+      FT("#prt", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.25 }, 57.0);
+      FT("#vn0", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.15 }, 57.6);
+      HIDE.push("#vn1"); FT("#vn1", { autoAlpha: 1, clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "steps(14)" }, 57.6);
+      HIDE.push("#vlimg"); FT("#vlimg", { autoAlpha: 0, scale: 1.6 }, { autoAlpha: 1, scale: 1, duration: 0.3 }, 57.9);
+      ["#c1", "#c2", "#c3", "#c4"].forEach((c, i) => { HIDE.push(c + " .pimg"); FT(c + " .pimg", { autoAlpha: 0, scale: 1.5, y: -60 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.3, ease: "power3.out" }, 58.2 + i * 0.18); });
+      ["#c1", "#c2", "#c3", "#c4"].forEach((c, i) => { FT(c + " .p0", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.1 }, 59.15 + i * 0.12); HIDE.push(c + " .p1"); FT(c + " .p1", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.2 }, 59.2 + i * 0.12); });
+      IN("#url", { y: -80, scale: 0.8 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 60.0);
+      IN("#enligne", { scale: 0.3 }, { scale: 1, duration: 0.4, ease: "back.out(2.5)" }, 60.6);
+      IN("#vid", { x: 500, rotation: 8 }, { x: 0, rotation: 3, duration: 0.45, ease: "back.out(1.5)" }, 61.5);
+      FT("#ph", { x: 0 }, { x: -140, duration: 0.45, ease: "power2.inOut" }, 61.45);
+      // 11. vendu à toutes
+      words(["#n1", "#n2", "#n3"], 64.4, 0.15); word("#n4", 65.1, 0.35);
+      ["#mp1", "#mp2", "#mp3", "#mp4"].forEach((m, i) => IN(m, { y: 400, scale: 0.7 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 66.1 + i * 0.15));
+      ["#v1", "#v2", "#v3", "#v4"].forEach((v, i) => pop(v, 66.8 + i * 0.2));
+      words(["#n5", "#n6"], 66.5, 0.2); word("#n7", 67.2, 0.35);
+      // 12. 4 outils
+      words(["#o1", "#o2", "#o3", "#o4"], 68.6, 0.15);
+      IN("#o5", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.45, ease: "bounce.out" }, 69.9);
+      // 13. outils
+      [["#t1", 71.3], ["#t2", 73.3], ["#t3", 75.8], ["#t4", 78.85]].forEach(([t, a]) => IN(t, { x: -700 }, { x: 0, duration: 0.45, ease: "expo.out" }, a));
+      // 14. guide IA
+      IN("#q0", { scale: 0, y: 100 }, { scale: 1, y: 0, duration: 0.5, ease: "back.out(2)" }, 82.6); float("#q0", 83.2, 6);
+      words(["#q1", "#q2", "#q3"], 83.4, 0.25); word("#q4", 85.9, 0.35);
+      IN("#gcov", { y: 600, rotation: 10 }, { y: 0, rotation: -3, duration: 0.55, ease: "back.out(1.4)" }, 86.6);
+      IN("#kv", { y: 200 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, 87.8);
+      HIDE.push("#kvw"); FT("#kvw", { autoAlpha: 1, clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "steps(7)" }, 88.2);
+      FT("#caret", { opacity: 1 }, { opacity: 0, duration: 0.25, yoyo: true, repeat: 7, ease: "steps(1)" }, 87.9);
+      FT("#kv", { scale: 1 }, { scale: 1.06, duration: 0.2, yoyo: true, repeat: 1 }, 89.0);
+      // 15. boucle 3
+      words(["#r1", "#r2", "#r3", "#r4"], 91.2, 0.14); word("#r5", 91.9, 0.35);
+      IN("#d1", { x: -500, scale: 0.7 }, { x: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 94.4);
+      IN("#d2", { x: 500, scale: 0.7 }, { x: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 95.0);
+      IN("#d3", { x: -500, scale: 0.7 }, { x: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 95.6);
+      word("#r6", 93.3, 0.35);
+      // 16. CTA
+      word("#u1", 97.4); word("#u2", 97.9, 0.35);
+      IN("#ebk", { scale: 0.4, rotation: -15 }, { scale: 1, rotation: -3, duration: 0.5, ease: "back.out(1.6)" }, 99.0); float("#ebk", 99.6, 4);
+      words(["#u3", "#u4", "#u5", "#u6"], 98.6, 0.15); word("#u7", 100.1, 0.35);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 104.8);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
