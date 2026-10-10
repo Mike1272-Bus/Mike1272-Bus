@@ -1,0 +1,6 @@
+__pycache__/
+snapshots/
+renders/work-*/
+work/
+.hyperframes/
+.thumbnails/

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @font-face { font-family: 'Oswald'; font-weight: 700; src: url('Oswald-Bold.ttf'); }
+  @font-face { font-family: 'Inter'; font-weight: 500; src: url('Inter-Medium.ttf'); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1024px; height: 1024px; background: transparent; overflow: hidden; }
+  body.dark { background: #000; }
+  #badge { position: absolute; left: 32px; top: 32px; width: 960px; height: 960px; border-radius: 50%; overflow: hidden;
+    background:
+      repeating-linear-gradient(-13deg, rgba(255,255,255,0.018) 0 5px, transparent 5px 61px),
+      repeating-linear-gradient(-11deg, rgba(0,0,0,0.035) 0 9px, transparent 9px 97px),
+      repeating-linear-gradient(-15deg, rgba(255,255,255,0.012) 0 2px, transparent 2px 29px),
+      radial-gradient(circle at 38% 30%, #2f5bb0 0%, #234a98 45%, #16326f 100%);
+    box-shadow: inset 0 0 0 10px #5877b4, inset 0 0 60px rgba(0,0,0,0.35); }
+  body.flat #badge { display: none; }
+  #logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 26px; }
+  #pic { width: 150px; height: 170px; position: relative; flex: none; }
+  #pic svg { position: absolute; left: 0; top: 0; width: 150px; height: 170px; overflow: visible; }
+  .words { display: flex; flex-direction: column; }
+  .name { font-family: 'Oswald'; font-weight: 700; font-size: 104px; line-height: 0.92; letter-spacing: -0.5px; color: #fff; white-space: nowrap;
+    text-shadow: __SHADOW__; }
+  .tag { font-family: 'Inter'; font-weight: 500; font-size: 22px; letter-spacing: 0.16em; color: #dbe5ff; margin-top: 12px; white-space: nowrap;
+    text-shadow: 2px 2px 0 #1b3a80, 4px 4px 6px rgba(0,0,0,0.35); }
+  body.flat .tag { color: #1c3f8c; text-shadow: none; }
+</style>
+</head>
+<body class="__MODE__">
+  <div id="badge"></div>
+  <div id="logo">
+    <div id="pic">__PIC__</div>
+    <div class="words"><div class="name">__NAME__</div><div class="tag">__TAG__</div></div>
+  </div>
+</body>
+</html>

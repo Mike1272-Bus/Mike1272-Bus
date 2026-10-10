@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Crée une mini-vitrine avec l'IA</title>
+<style>
+  @font-face { font-family: 'Baloo'; src: url('Baloo2-ExtraBold.ttf'); }
+  @font-face { font-family: 'WS'; font-weight: 400; src: url('worksans-400.ttf'); }
+  @font-face { font-family: 'WS'; font-weight: 700; src: url('worksans-700.ttf'); }
+  @page { size: 1080px 1350px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'WS', sans-serif; color: #141414; }
+  .page { width: 1080px; height: 1350px; position: relative; overflow: hidden; page-break-after: always; padding: 90px 80px 80px;
+    background-color: #fbf6ec; background-image: linear-gradient(rgba(0,0,0,0.045) 2px, transparent 2px), linear-gradient(90deg, rgba(0,0,0,0.045) 2px, transparent 2px); background-size: 54px 54px; }
+  .page.dark { background: #111; color: #fff; background-image: none; }
+  h1 { font-family: 'Baloo'; font-size: 92px; line-height: 1.0; }
+  h2 { font-family: 'Baloo'; font-size: 62px; line-height: 1.05; margin-bottom: 24px; }
+  .step { display: inline-block; font-family: 'Baloo'; font-size: 30px; background: #25d366; color: #fff; padding: 6px 22px 0; border-radius: 30px; border: 4px solid #141414; margin-bottom: 18px; }
+  p, li { font-size: 30px; line-height: 1.42; }
+  ul, ol { padding-left: 40px; margin-top: 8px; } li { margin-bottom: 10px; }
+  .g { color: #13a150; } .o { color: #ff5c00; } .hl { background: #ffd60a; padding: 0 8px; }
+  .card { background: #fff; border: 5px solid #141414; border-radius: 26px; box-shadow: 10px 10px 0 #141414; padding: 26px 32px; margin-top: 24px; }
+  .shot { border: 5px solid #141414; border-radius: 18px; box-shadow: 10px 10px 0 #141414; display: block; background: #fff; }
+  .cap { font-size: 23px; color: #555; margin-top: 12px; font-weight: 700; }
+  .prompt { background: #e7f9ee; border: 4px solid #141414; border-radius: 26px 26px 26px 6px; padding: 22px 28px; font-size: 24px; line-height: 1.45; margin-top: 16px; box-shadow: 8px 8px 0 #141414; }
+  .prompt b.t { display: block; font-size: 21px; letter-spacing: 2px; color: #0c7a3d; margin-bottom: 8px; }
+  .fiche { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 26px; background: #fff; border: 5px solid #141414; box-shadow: 10px 10px 0 #141414; }
+  .fiche td { border-bottom: 2px dashed #bbb; padding: 14px 18px; vertical-align: top; }
+  .fiche td:first-child { font-weight: 700; width: 36%; }
+  .fiche td:last-child { color: #999; }
+  .foot { position: absolute; left: 80px; right: 80px; bottom: 36px; font-size: 22px; color: #777; display: flex; justify-content: space-between; }
+  .dark .foot { color: #999; }
+  .two { display: flex; gap: 30px; align-items: flex-start; } .two > div { flex: 1; }
+  .num { font-family: 'Baloo'; font-size: 38px; width: 70px; height: 70px; border-radius: 50%; background: #ffd60a; border: 4px solid #141414; display: inline-flex; align-items: center; justify-content: center; padding-top: 6px; margin-right: 22px; flex: none; color: #141414; }
+  .row { display: flex; align-items: center; margin-bottom: 20px; font-size: 32px; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- 1. Couverture -->
+<section class="page dark">
+  <img src="img/logo_dm.png" style="height:86px">
+  <div class="two" style="margin-top:50px">
+    <div>
+      <h1>Crée une <span class="g">mini-vitrine</span> avec l'IA</h1>
+      <p style="margin-top:30px; font-size:33px; color:#ddd">Une page avec tes produits et un bouton qui ouvre WhatsApp, la commande déjà écrite.</p>
+      <p style="margin-top:24px; font-size:33px; color:#ffd60a">Sans savoir coder. En ligne gratuitement.</p>
+    </div>
+    <div style="flex:0 0 400px"><img class="shot" src="img/demo_mobile_haut.png" style="width:400px; border-color:#fff; box-shadow:12px 12px 0 #25d366"></div>
+  </div>
+  <div class="foot"><span>DigitalMikaelson</span><span>Pas de blabla, juste ce qu'il faut faire, concrètement.</span></div>
+</section>
+
+<!-- 2. C'est quoi -->
+<section class="page">
+  <h2>C'est quoi, une mini-vitrine ?</h2>
+  <p>Une seule page, faite d'abord pour le téléphone. On y voit <b>tes produits</b>, et sous chacun un bouton <b>« Je veux celui-ci »</b>. La cliente touche le bouton : WhatsApp s'ouvre avec son message <span class="hl">déjà écrit</span>, elle n'a plus qu'à l'envoyer.</p>
+  <p style="margin-top:16px">Pour une vendeuse qui vend sur WhatsApp, c'est un lien à mettre dans son statut, sa bio TikTok ou sur une carte avec un QR code.</p>
+  <div class="card">
+    <p style="font-weight:700">Ce qu'il te faut</p>
+    <ul>
+      <li>Une IA : Claude ou ChatGPT (la version gratuite suffit pour commencer).</li>
+      <li>Un compte GitHub gratuit, pour mettre la page en ligne.</li>
+      <li>Les photos des produits, nettes, à la lumière du jour.</li>
+      <li>Le numéro WhatsApp qui recevra les commandes.</li>
+    </ul>
+  </div>
+  <div class="foot"><span>DigitalMikaelson</span><span>2</span></div>
+</section>
+
+<!-- 3. Étape 1 : la fiche -->
+<section class="page">
+  <span class="step">ÉTAPE 1</span>
+  <h2>Remplis la fiche</h2>
+  <p>Avant de parler à l'IA, rassemble ces infos. C'est 10 minutes, et c'est ce qui fait une belle page.</p>
+  <table class="fiche">
+    <tr><td>Nom de l'activité</td><td>Les Pagnes de Maman Rose</td></tr>
+    <tr><td>Ce qu'on vend, où</td><td>Pagnes wax, Kinshasa</td></tr>
+    <tr><td>Une phrase (slogan)</td><td>Des pagnes choisis un par un</td></tr>
+    <tr><td>3 à 8 produits</td><td>Nom, petite description, prix (ou « prix sur demande »), nom de la photo</td></tr>
+    <tr><td>Numéro WhatsApp</td><td>243 + le numéro sans le 0</td></tr>
+    <tr><td>Horaires, adresse</td><td>Lun à sam, 8 h à 18 h</td></tr>
+    <tr><td>2 couleurs</td><td>Bleu et orange</td></tr>
+  </table>
+  <p class="cap">Astuce : renomme tes photos simplement (soleil.jpg, fleuve.jpg…), sans espaces ni accents.</p>
+  <div class="foot"><span>DigitalMikaelson</span><span>3</span></div>
+</section>
+
+<!-- 4. Étape 2 : la commande -->
+<section class="page">
+  <span class="step">ÉTAPE 2</span>
+  <h2>Donne cette commande à l'IA</h2>
+  <p>Copie, remplace ce qui est entre crochets avec ta fiche, et envoie :</p>
+  <div class="prompt"><b class="t">LA COMMANDE À COPIER</b>Crée-moi une mini-vitrine d'une seule page, dans un seul fichier index.html (HTML et CSS, sans rien installer), pensée d'abord pour le téléphone.<br>
+  Activité : [nom], [ce que je vends], à [ville]. Slogan : [phrase].<br>
+  Produits : [nom – description – prix – photo.jpg], [nom – description – prix – photo.jpg]… Les photos sont à côté du fichier index.html.<br>
+  WhatsApp : [243XXXXXXXXX]. Couleurs : [couleur 1] et [couleur 2].<br>
+  Je veux : en haut, le nom, le slogan et un bouton « Commander sur WhatsApp » ; puis les produits en cartes (photo, nom, prix) avec un bouton « Je veux celui-ci » qui ouvre WhatsApp avec un message déjà écrit qui cite le produit ; puis « Comment commander » en 3 étapes, mes horaires et mon adresse ; et un bouton WhatsApp rond qui reste en bas de l'écran. Liens WhatsApp au format https://wa.me/NUMÉRO?text=MESSAGE.</div>
+  <p class="cap">L'IA te répond avec le code. Copie-le dans un fichier que tu appelles exactement index.html.</p>
+  <div class="foot"><span>DigitalMikaelson</span><span>4</span></div>
+</section>
+
+<!-- 5. Étape 3 : le résultat -->
+<section class="page">
+  <span class="step">ÉTAPE 3</span>
+  <h2>Ouvre-la et vérifie</h2>
+  <div class="two">
+    <div style="flex:0 0 400px"><img class="shot" src="img/demo_mobile_produits.png" style="width:400px"><p class="cap">Capture : la vitrine de démo faite avec cette commande.</p></div>
+    <div>
+      <p>Ouvre index.html dans ton navigateur et vérifie :</p>
+      <ul>
+        <li>chaque bouton ouvre WhatsApp avec <b>le bon produit</b> dans le message ;</li>
+        <li>le texte se lit bien sur téléphone ;</li>
+        <li>les photos s'affichent.</li>
+      </ul>
+      <div class="prompt" style="margin-top:24px"><b class="t">SI ÇA NE VA PAS</b>Les photos ne s'affichent pas. / Agrandis les boutons. / Mets les produits sur 2 colonnes sur téléphone. / Change la couleur du haut en vert.</div>
+    </div>
+  </div>
+  <div class="foot"><span>DigitalMikaelson</span><span>5</span></div>
+</section>
+
+<!-- 6. Étape 4 : le bouton WhatsApp -->
+<section class="page">
+  <span class="step">ÉTAPE 4</span>
+  <h2>Le secret : le bouton WhatsApp</h2>
+  <p>C'est ce bouton qui transforme une visite en commande. Voici à quoi il ressemble dans le code :</p>
+  <img class="shot" src="img/capture_bouton.png" style="width:100%; margin-top:20px">
+  <div class="card">
+    <ul>
+      <li><b>wa.me/</b> puis ton numéro : <b>243</b> + le numéro, sans le <b>+</b>, sans le <b>0</b> du début, sans espaces.</li>
+      <li><b>?text=</b> puis le message. Les espaces deviennent <b>%20</b> : l'IA le fait pour toi.</li>
+      <li>Un message différent par produit : tu sais tout de suite ce que la cliente veut.</li>
+    </ul>
+  </div>
+  <div class="foot"><span>DigitalMikaelson</span><span>6</span></div>
+</section>
+
+<!-- 7. Étape 5 : en ligne -->
+<section class="page">
+  <span class="step">ÉTAPE 5</span>
+  <h2>Mets-la en ligne gratuitement</h2>
+  <p>Avec <b>GitHub Pages</b>, depuis un ordinateur ou le navigateur du téléphone :</p>
+  <ol>
+    <li>Crée un compte sur <b>github.com</b>.</li>
+    <li>Bouton <b>New</b> : donne un nom (ex. pagnes-maman-rose), laisse <b>Public</b>, puis <b>Create repository</b>.</li>
+    <li>Clique <b>uploading an existing file</b> et ajoute index.html et tes photos, puis <b>Commit changes</b>.</li>
+    <li>Va dans <b>Settings</b> puis <b>Pages</b> : Source <b>Deploy from a branch</b>, branche <b>main</b>, dossier <b>/ (root)</b>, puis <b>Save</b>.</li>
+    <li>Attends une à deux minutes. Ton lien apparaît en haut de la page :<br><span class="hl">ton-nom.github.io/pagnes-maman-rose</span></li>
+  </ol>
+  <div class="card" style="background:#ffd60a"><p>Ce lien, tu le mets dans ton statut WhatsApp, ta bio TikTok, ou dans un QR code sur une petite carte.</p></div>
+  <div class="foot"><span>DigitalMikaelson</span><span>7</span></div>
+</section>
+
+<!-- 8. Étape 6 : en vivre -->
+<section class="page">
+  <span class="step">ÉTAPE 6</span>
+  <h2>Transforme-la en revenu</h2>
+  <img class="shot" src="img/demo_ordinateur.png" style="width:100%; height:330px; object-fit:cover; object-position:top">
+  <p class="cap">La même vitrine sur ordinateur : elle s'adapte toute seule.</p>
+  <div class="two" style="margin-top:20px">
+    <div class="card" style="margin-top:0">
+      <p><b>Aux entreprises (B2B)</b></p>
+      <p style="font-size:26px">Un <b>service</b> : tu fais leur vitrine sur mesure (clinique, école, hôtel, restaurant). Ils te paient pour le travail.</p>
+    </div>
+    <div class="card" style="margin-top:0">
+      <p><b>Aux particuliers (B2C)</b></p>
+      <p style="font-size:26px">Un <b>produit</b> : un modèle prêt à remplir + une petite vidéo qui montre comment le changer. Tu le vends sur Chariow, encore et encore.</p>
+    </div>
+  </div>
+  <div class="foot"><span>DigitalMikaelson</span><span>8</span></div>
+</section>
+
+<!-- 9. Récap -->
+<section class="page dark">
+  <h1 style="font-size:80px">En résumé</h1>
+  <div style="margin-top:46px">
+    <div class="row"><span class="num">1</span>Remplis la fiche</div>
+    <div class="row"><span class="num">2</span>Donne la commande à l'IA</div>
+    <div class="row"><span class="num">3</span>Ouvre la page et vérifie</div>
+    <div class="row"><span class="num">4</span>Teste chaque bouton WhatsApp</div>
+    <div class="row"><span class="num">5</span>Mets-la en ligne avec GitHub Pages</div>
+    <div class="row"><span class="num">6</span>Vends-la : service ou modèle</div>
+  </div>
+  <div class="card" style="background:#25d366; color:#fff; border-color:#fff; box-shadow:10px 10px 0 #fff; margin-top:50px">
+    <p style="font-size:34px"><b>Tu bloques ?</b> Écris-moi sur WhatsApp : +243 831 710 181, avec une capture de là où tu bloques. Je te réponds.</p>
+  </div>
+  <div class="foot"><span>DigitalMikaelson</span><span>Pas de blabla, juste ce qu'il faut faire, concrètement.</span></div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les Pagnes de Maman Rose</title>
+<style>
+  :root { --c1: #e8541e; --c2: #1b3a8a; --fond: #fff8ef; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--fond); color: #1d1d1d; }
+  header { background: var(--c2); color: #fff; padding: 40px 22px 34px; text-align: center; border-radius: 0 0 28px 28px; }
+  .logo { width: 74px; height: 74px; margin: 0 auto 14px; border-radius: 50%; background: url(img/pagne1.svg) center/cover; border: 4px solid #fff; }
+  h1 { font-size: 30px; line-height: 1.15; }
+  header p { opacity: .9; margin: 10px 0 22px; font-size: 17px; }
+  .btn { display: inline-block; background: #25d366; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 40px; font-size: 17px; }
+  .infos { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+  .infos span { background: rgba(255,255,255,.15); padding: 6px 12px; border-radius: 20px; font-size: 14px; }
+  main { padding: 26px 18px 110px; max-width: 900px; margin: 0 auto; }
+  h2 { font-size: 24px; margin: 6px 0 16px; color: var(--c2); }
+  .grille { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .carte { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+  .carte img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+  .carte div { padding: 12px; }
+  .carte h3 { font-size: 16px; margin-bottom: 4px; }
+  .carte p { font-size: 13px; color: #666; margin-bottom: 8px; }
+  .prix { font-weight: 700; color: var(--c1); font-size: 15px; margin-bottom: 10px; display: block; }
+  .carte a { display: block; text-align: center; background: var(--c1); color: #fff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 10px; border-radius: 12px; }
+  .bloc { background: #fff; border-radius: 18px; padding: 18px; margin-top: 26px; box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+  .bloc p { margin: 6px 0; }
+  .flottant { position: fixed; right: 16px; bottom: 16px; width: 62px; height: 62px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,.25); }
+  @media (min-width: 700px) { .grille { grid-template-columns: repeat(4, 1fr); } h1 { font-size: 40px; } }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <h1>Les Pagnes de Maman Rose</h1>
+    <p>Des pagnes wax choisis un par un, au marché de Kinshasa.</p>
+    <a class="btn" href="https://wa.me/243000000000?text=Bonjour%20Maman%20Rose%2C%20je%20veux%20voir%20vos%20pagnes.">Commander sur WhatsApp</a>
+    <div class="infos"><span>📍 Kinshasa</span><span>🕘 Lun à sam, 8 h à 18 h</span><span>🚚 Livraison possible</span></div>
+  </header>
+
+  <main>
+    <h2>Nos pagnes wax</h2>
+    <div class="grille">
+      <div class="carte"><img src="img/pagne1.svg" alt="Pagne Soleil"><div><h3>Soleil</h3><p>Wax, 6 yards</p><span class="prix">Prix sur demande</span><a href="https://wa.me/243000000000?text=Bonjour%20Maman%20Rose%2C%20je%20veux%20le%20pagne%20%C2%AB%20Soleil%20%C2%BB.">Je veux celui-ci</a></div></div>
+      <div class="carte"><img src="img/pagne2.svg" alt="Pagne Fleuve"><div><h3>Fleuve</h3><p>Wax, 6 yards</p><span class="prix">Prix sur demande</span><a href="https://wa.me/243000000000?text=Bonjour%20Maman%20Rose%2C%20je%20veux%20le%20pagne%20%C2%AB%20Fleuve%20%C2%BB.">Je veux celui-ci</a></div></div>
+      <div class="carte"><img src="img/pagne3.svg" alt="Pagne Royal"><div><h3>Royal</h3><p>Wax, 6 yards</p><span class="prix">Prix sur demande</span><a href="https://wa.me/243000000000?text=Bonjour%20Maman%20Rose%2C%20je%20veux%20le%20pagne%20%C2%AB%20Royal%20%C2%BB.">Je veux celui-ci</a></div></div>
+      <div class="carte"><img src="img/pagne4.svg" alt="Pagne Damier"><div><h3>Damier</h3><p>Wax, 6 yards</p><span class="prix">Prix sur demande</span><a href="https://wa.me/243000000000?text=Bonjour%20Maman%20Rose%2C%20je%20veux%20le%20pagne%20%C2%AB%20Damier%20%C2%BB.">Je veux celui-ci</a></div></div>
+    </div>
+
+    <div class="bloc">
+      <h2>Comment commander&nbsp;?</h2>
+      <p>1. Touchez « Je veux celui-ci » sous le pagne qui vous plaît.</p>
+      <p>2. WhatsApp s'ouvre avec votre message déjà écrit : envoyez-le.</p>
+      <p>3. Maman Rose vous répond avec le prix et la livraison.</p>
+    </div>
+  </main>
+
+  <a class="flottant" href="https://wa.me/243000000000?text=Bonjour%20Maman%20Rose" aria-label="WhatsApp"><svg width="32" height="32" viewBox="0 0 32 32"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-4-.5-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.1 1.1-1.1 2.7 1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.6 4.9 2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.3-.2-.6-.3z"/></svg></a>
+</body>
+</html>

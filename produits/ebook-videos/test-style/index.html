@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Inter'; font-weight: 400; src: url('assets/fonts/inter-latin-400-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #050505; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+
+      /* deux fonds : noir lumineux, papier crème */
+      .dark { background: radial-gradient(ellipse at 50% 45%, #1a1a1a 0%, #070707 55%, #000 100%); }
+      .dark .grid { position: absolute; inset: 0; opacity: 0.5;
+        background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+        background-size: 60px 60px; -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 60%); mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 60%); }
+      .light { background: radial-gradient(ellipse at 50% 40%, #fbf8f3 0%, #efebe4 70%, #e4dfd7 100%); }
+      .light .grid { position: absolute; inset: 0;
+        background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px); background-size: 60px 60px; }
+      .swoosh { position: absolute; left: -200px; top: -200px; width: 2400px; height: 1500px; }
+
+      /* typographie : petits mots + mot clé rouge lumineux */
+      .line { position: absolute; left: 0; width: 1920px; text-align: center; white-space: nowrap; }
+      .w { display: inline-block; margin: 0 0.12em; }
+      .sm { font-weight: 600; font-size: 64px; letter-spacing: -0.02em; color: #fff; text-shadow: 0 0 18px rgba(255,255,255,0.25); }
+      .light .sm { color: #141414; text-shadow: none; }
+      .big { font-weight: 900; font-size: 150px; letter-spacing: -0.045em; line-height: 0.95; color: #ff3d1f;
+        text-shadow: 0 0 22px rgba(255,61,31,0.75), 0 0 70px rgba(255,61,31,0.35); }
+      .light .big { text-shadow: 0 6px 0 #8f1d0c, 0 18px 30px rgba(0,0,0,0.25); }
+      .ext { font-weight: 900; font-size: 170px; letter-spacing: -0.05em; color: #fff;
+        text-shadow: 0 2px 0 #cfcfcf, 0 4px 0 #b5b5b5, 0 6px 0 #9d9d9d, 0 8px 0 #858585, 0 10px 0 #6e6e6e, 0 14px 0 #5a5a5a, 0 30px 40px rgba(0,0,0,0.8); }
+      .obj { position: absolute; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45)); }
+      .dark .obj { filter: drop-shadow(0 0 40px rgba(255,255,255,0.12)) drop-shadow(0 30px 50px rgba(0,0,0,0.9)); }
+
+      /* fiche épinglée */
+      #note { left: 660px; top: 250px; width: 600px; height: 580px; background: #8d8d8d; border-radius: 6px; box-shadow: 0 50px 80px rgba(0,0,0,0.35), 0 10px 20px rgba(0,0,0,0.2); }
+      #note .ti { position: absolute; left: 0; width: 600px; top: 90px; text-align: center; font-weight: 900; font-size: 84px; letter-spacing: -0.04em; color: #fff; }
+      #note .rule { position: absolute; left: 90px; top: 200px; width: 420px; height: 6px; background: #fff; border-radius: 3px; transform-origin: 0 50%; }
+      .it { position: absolute; left: 60px; width: 520px; white-space: nowrap; font-weight: 800; font-size: 38px; letter-spacing: -0.02em; color: #fff; padding-left: 70px; line-height: 52px; }
+      .it svg { position: absolute; left: 0; top: 4px; width: 44px; height: 44px; }
+      #it1 { top: 270px; } #it2 { top: 360px; } #it3 { top: 450px; }
+      #pin { left: 900px; top: 150px; width: 130px; height: 130px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="15" data-width="1920" data-height="1080">
+
+      <!-- 1. Tu as déjà la compétence (papier, ampoule) -->
+      <div class="scene light" id="s1"><div class="cam" id="c1"><div class="grid"></div>
+        <svg class="swoosh" viewBox="0 0 2400 1500"><path d="M300 -100 C 700 500, 900 900, 2300 1300" fill="none" stroke="#d3cfc8" stroke-width="230" stroke-linecap="round"/></svg>
+        <img class="obj" id="bulb" src="assets/img/light_bulb_3d.png" style="left:110px; top:330px; width:420px; height:420px" />
+        <div class="line" style="top:390px; left:180px; transform: rotate(-5deg)"><span class="w sm" id="a1">Tu</span><span class="w sm" id="a2">as</span><span class="w sm" id="a3">déjà</span></div>
+        <div class="line" style="top:492px; left:180px; transform: rotate(-5deg)" data-layout-allow-overlap><span class="w big" id="a4">la compétence</span></div>
+      </div></div>
+
+      <!-- 2. Mais ton revenu ? toujours bloqué (noir) -->
+      <div class="scene dark" id="s2"><div class="cam" id="c2"><div class="grid"></div>
+        <div class="line" style="top:300px"><span class="w sm" id="b1">Mais</span><span class="w sm" id="b2">ton</span></div>
+        <div class="line" style="top:392px" data-layout-allow-overlap><span class="w big" id="b3">revenu ?</span></div>
+        <div class="line" style="top:640px"><span class="w sm" id="b4">toujours</span></div>
+        <div class="line" style="top:722px" data-layout-allow-overlap><span class="w ext" id="b5">bloqué</span></div>
+      </div></div>
+
+      <!-- 3. Parce qu'une compétence sans produit (noir) -->
+      <div class="scene dark" id="s3"><div class="cam" id="c3"><div class="grid"></div>
+        <div class="line" style="top:380px"><span class="w sm" id="d1">Parce</span><span class="w sm" id="d2">qu'une</span><span class="w sm" id="d3">compétence</span></div>
+        <div class="line" style="top:490px" data-layout-allow-overlap><span class="w big" id="d4">sans</span><span class="w big" id="d5">produit</span></div>
+      </div></div>
+
+      <!-- 4. reste un talent caché (papier incliné, cadenas) -->
+      <div class="scene light" id="s4"><div class="cam" id="c4"><div class="grid"></div>
+        <svg class="swoosh" viewBox="0 0 2400 1500"><path d="M2100 -100 C 1500 600, 1300 800, 100 1400" fill="none" stroke="#d3cfc8" stroke-width="230" stroke-linecap="round"/></svg>
+        <img class="obj" id="lock" src="assets/img/locked_3d.png" style="left:1300px; top:420px; width:420px; height:420px" />
+        <div class="line" style="top:330px; left:-250px; transform: rotate(-10deg)"><span class="w sm" id="e1">reste</span><span class="w sm" id="e2">un</span></div>
+        <div class="line" style="top:422px; left:-250px; transform: rotate(-10deg)" data-layout-allow-overlap><span class="w big" id="e3">talent caché</span></div>
+      </div></div>
+
+      <!-- 5. Ton produit digital, c'est ton vrai revenu (noir, sac d'argent) -->
+      <div class="scene dark" id="s5"><div class="cam" id="c5"><div class="grid"></div>
+        <img class="obj" id="bag" src="assets/img/money_bag_3d.png" style="left:760px; top:300px; width:400px; height:400px" />
+        <div class="line" style="top:150px; transform: rotate(-6deg)"><span class="w sm" id="f1">Ton</span><span class="w sm" id="f2">produit</span><span class="w big" id="f3" style="font-size:120px">digital</span></div>
+        <div class="line" style="top:760px; left:200px"><span class="w sm" id="f4">c'est</span><span class="w sm" id="f5">ton</span><span class="w sm" id="f6">vrai</span></div>
+        <div class="line" style="top:852px; left:200px" data-layout-allow-overlap><span class="w big" id="f7">revenu</span></div>
+      </div></div>
+
+      <!-- 6. Fiche épinglée (papier) -->
+      <div class="scene light" id="s6"><div class="cam" id="c6"><div class="grid"></div>
+        <svg class="swoosh" viewBox="0 0 2400 1500"><path d="M700 -200 C 1500 400, 300 900, 1500 1700" fill="none" stroke="#d3cfc8" stroke-width="260" stroke-linecap="round"/></svg>
+        <div class="ab" id="note"><div class="ti">Ton produit</div><div class="rule" id="rule"></div>
+          <div class="it" id="it1"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="none" stroke="#fff" stroke-width="4"/><path d="M12 22 L19 29 L33 15" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>Créé une fois</div>
+          <div class="it" id="it2"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="none" stroke="#fff" stroke-width="4"/><path d="M12 22 L19 29 L33 15" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>Vendu encore et encore</div>
+          <div class="it" id="it3"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="none" stroke="#fff" stroke-width="4"/><path d="M12 22 L19 29 L33 15" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>Sans diplôme</div>
+        </div>
+        <img class="obj" id="pin" src="assets/img/pushpin_3d.png" />
+      </div></div>
+
+      <audio id="son" src="assets/audio/son.mp3" data-start="0" data-duration="15" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      // un mot arrive : du flou au net, il tombe et se pose
+      const word = (sel, at, d = 0.28) => { HIDE.push(sel); return FT(sel, { autoAlpha: 0, y: -50, scale: 1.3, filter: "blur(12px)" }, { autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at); };
+      const words = (list, at, gap = 0.18) => list.forEach((s, i) => word(s, at + i * gap));
+
+      // coupes franches + petite poussée de zoom, caméra qui avance doucement dans chaque scène
+      const SC = [["#s1", "#c1", 0, 3.2], ["#s2", "#c2", 3.2, 2.4], ["#s3", "#c3", 5.6, 2.4], ["#s4", "#c4", 8.0, 1.6], ["#s5", "#c5", 9.6, 2.4], ["#s6", "#c6", 12.0, 3.0]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        tl.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.14 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+        FT(c, { rotation: 0 }, { rotation: i % 2 ? 1.2 : -1.2, duration: d, ease: "sine.inOut" }, a);
+        FT(c, { x: 0 }, { x: i % 2 ? -30 : 30, duration: d, ease: "none" }, a);
+      });
+
+      // 1
+      HIDE.push("#bulb");
+      FT("#bulb", { autoAlpha: 0, scale: 0.3, rotation: -60, y: 200 }, { autoAlpha: 1, scale: 1, rotation: -12, y: 0, duration: 0.7, ease: "back.out(1.6)" }, 0.15);
+      FT("#bulb", { y: 0 }, { y: -20, duration: 1.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.9);
+      words(["#a1", "#a2", "#a3"], 0.6);
+      word("#a4", 1.35, 0.35);
+      // 2
+      words(["#b1", "#b2"], 3.35);
+      word("#b3", 3.75, 0.35);
+      word("#b4", 4.5);
+      HIDE.push("#b5"); FT("#b5", { autoAlpha: 0, y: -260, scale: 1.4 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.45, ease: "bounce.out" }, 4.8);
+      // 3
+      words(["#d1", "#d2", "#d3"], 5.75, 0.2);
+      words(["#d4", "#d5"], 6.6, 0.25);
+      // 4
+      HIDE.push("#lock"); FT("#lock", { autoAlpha: 0, scale: 0.2, rotation: 90 }, { autoAlpha: 1, scale: 1, rotation: 8, duration: 0.5, ease: "back.out(2)" }, 8.1);
+      words(["#e1", "#e2"], 8.15, 0.15);
+      word("#e3", 8.5, 0.32);
+      // 5
+      HIDE.push("#bag"); FT("#bag", { autoAlpha: 0, scale: 0.2, rotation: -200 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.8, ease: "expo.out" }, 9.65);
+      FT("#bag", { y: 0 }, { y: -18, duration: 0.9, yoyo: true, repeat: 1, ease: "sine.inOut" }, 10.5);
+      words(["#f1", "#f2"], 9.95, 0.18);
+      word("#f3", 10.35, 0.32);
+      words(["#f4", "#f5", "#f6"], 10.95, 0.16);
+      word("#f7", 11.45, 0.35);
+      // 6
+      HIDE.push("#note"); FT("#note", { autoAlpha: 0, y: -700, rotation: -8 }, { autoAlpha: 1, y: 0, rotation: -2, duration: 0.6, ease: "back.out(1.3)" }, 12.05);
+      HIDE.push("#pin"); FT("#pin", { autoAlpha: 0, y: -160, scale: 1.6 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.3, ease: "power4.in" }, 12.5);
+      FT("#rule", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" }, 12.55);
+      ["#it1", "#it2", "#it3"].forEach((it, i) => { HIDE.push(it); FT(it, { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, duration: 0.3, ease: "power3.out" }, 12.7 + i * 0.6); });
+      FT("#c6", { scale: 1 }, { scale: 1.08, duration: 2.4, ease: "none" }, 12.45);
+      FT("#root", { opacity: 1 }, { opacity: 0, duration: 0.4 }, 14.6);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

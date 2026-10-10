@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo 2'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #fbf6ee; }
+      #root {
+        position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #111;
+        background:
+          repeating-linear-gradient(0deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 54px),
+          repeating-linear-gradient(90deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 54px),
+          radial-gradient(circle at 50% 36%, #fde3c8 0%, #fbf6ee 62%);
+      }
+      #progress { position: absolute; left: 0; top: 0; width: 1080px; height: 12px; background: #ff5c00; transform-origin: left center; z-index: 50; }
+      .brand { position: absolute; top: 64px; left: 70px; z-index: 40; background: #111; color: #fff; font-size: 28px; letter-spacing: 0.04em; padding: 12px 30px 6px; border-radius: 40px; }
+      .stage { position: absolute; inset: 0; perspective: 1600px; }
+
+      #merci { position: absolute; left: 0; width: 1080px; top: 560px; text-align: center; font-size: 210px; line-height: 1; color: #ff5c00; -webkit-text-stroke: 6px #111; }
+
+      .card { position: absolute; border-radius: 30px; border: 12px solid #fff; overflow: hidden; box-shadow: 0 40px 80px rgba(60,30,0,0.30); background: #fff; }
+      .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      #cover { left: 250px; top: 330px; width: 580px; height: 580px; z-index: 6; }
+      .page { left: 90px; top: 300px; width: 900px; height: 900px; }
+      #pg10 img, #pg11 img { transform-origin: 50% 50%; }
+
+      .pill { position: absolute; z-index: 20; text-align: center; background: #ff5c00; color: #fff; border-radius: 70px; border: 5px solid #111; box-shadow: 12px 12px 0 #111; white-space: nowrap; }
+      #tagCv, #tagCuis { left: 140px; top: 1235px; width: 800px; font-size: 58px; padding: 22px 0 10px; }
+      #b7 { left: 70px; top: 1235px; width: 380px; font-size: 50px; padding: 22px 0 10px; }
+      #b0 { left: 480px; top: 1235px; width: 540px; font-size: 40px; padding: 28px 0 14px; background: #ffd60a; color: #111; }
+
+      .step { position: absolute; left: 90px; width: 900px; height: 118px; background: #fff; border: 5px solid #111; border-radius: 60px; box-shadow: 10px 10px 0 #111; display: flex; align-items: center; gap: 28px; padding-left: 16px; font-size: 50px; z-index: 8; }
+      .step .num { width: 84px; height: 84px; border-radius: 50%; background: #ff5c00; color: #fff; border: 4px solid #111; display: flex; align-items: center; justify-content: center; font-size: 50px; padding-top: 8px; }
+      .step img { width: 70px; height: 70px; margin-left: -8px; }
+      #st1 { top: 760px; } #st2 { top: 900px; } #st3 { top: 1040px; }
+
+      #week { position: absolute; left: 85px; top: 600px; width: 910px; display: flex; gap: 14px; }
+      .day { width: 118px; height: 160px; background: #fff; border: 5px solid #111; border-radius: 24px; box-shadow: 8px 8px 0 #111; display: flex; align-items: center; justify-content: center; font-size: 46px; padding-top: 8px; }
+      #weekTitle { position: absolute; left: 0; width: 1080px; top: 440px; text-align: center; font-size: 76px; }
+      #ready { left: 190px; top: 900px; width: 700px; font-size: 64px; padding: 26px 0 12px; background: #ffd60a; color: #111; }
+
+      #chat { position: absolute; left: 70px; top: 520px; width: 940px; display: flex; align-items: flex-end; gap: 22px; }
+      #chat > img { width: 120px; height: 120px; flex: 0 0 120px; }
+      #chat .bubble { flex: 1; background: #fff; border: 5px solid #111; border-radius: 44px 44px 44px 10px; box-shadow: 12px 12px 0 #111; padding: 26px; display: flex; gap: 26px; align-items: center; }
+      #chat .bubble img { width: 190px; height: 190px; border-radius: 18px; object-fit: cover; border: 4px solid #111; }
+      #chat .ttl { font-size: 46px; line-height: 1.05; }
+      #chat .lnk { display: flex; align-items: center; gap: 10px; font-size: 32px; color: #c94200; margin-top: 14px; }
+      #chat .lnk svg { width: 40px; height: 40px; fill: none; stroke: #c94200; stroke-width: 9; stroke-linecap: round; }
+      #ask { left: 140px; top: 1010px; width: 800px; font-size: 56px; padding: 26px 0 12px; background: #25d366; color: #111; }
+
+      .spark { position: absolute; width: 70px; height: 70px; z-index: 15; }
+      .spark svg { width: 100%; height: 100%; fill: #111; }
+
+      #caps { position: absolute; left: 60px; right: 60px; top: 1440px; height: 330px; z-index: 30; }
+      .grp { position: absolute; inset: 0; display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-start; column-gap: 18px; row-gap: 4px; text-align: center; font-size: 70px; line-height: 1.22; }
+      .w { position: relative; display: inline-block; opacity: 0.3; }
+      .w .hl { position: absolute; left: -10px; right: -10px; top: 6px; bottom: 2px; background: #ffd60a; border-radius: 14px; transform: scaleX(0); z-index: 0; }
+      .w .t { position: relative; z-index: 1; }
+      .w.acc .t { color: #c94200; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30.8" data-width="1080" data-height="1920">
+      <div id="progress"></div>
+      <div class="brand">DIGITALMIKAELSON</div>
+      <div class="stage">
+        <div id="merci">MERCI !</div>
+        <div class="card page" id="pg15"><img src="assets/img/page15.png" /></div>
+        <div class="card page" id="pg11"><img src="assets/img/page11.png" /></div>
+        <div class="card page" id="pg10"><img src="assets/img/page10.png" /></div>
+        <div class="card" id="cover"><img src="assets/img/ebook_cover.png" /></div>
+
+        <div class="step" id="st1"><div class="num">1</div>Ton offre en une phrase</div>
+        <div class="step" id="st2"><div class="num">2</div>Tu en parles autour de toi</div>
+        <div class="step" id="st3"><div class="num">3</div><img src="assets/img/wa_icon_clean.png" />Statut WhatsApp</div>
+
+        <div id="weekTitle">Une semaine</div>
+        <div id="week">
+          <div class="day" id="d1">J1</div><div class="day" id="d2">J2</div><div class="day" id="d3">J3</div>
+          <div class="day" id="d4">J4</div><div class="day" id="d5">J5</div><div class="day" id="d6">J6</div>
+          <div class="day" id="d7">J7</div>
+        </div>
+
+        <div id="chat"><img src="assets/img/wa_icon_clean.png" />
+          <div class="bubble"><img src="assets/img/ebook_cover.png" />
+            <div><div class="ttl">Gagne ta vie sans diplôme</div>
+              <div class="lnk"><svg viewBox="0 0 100 100"><path d="M42 58 L58 42"/><path d="M36 50 L26 60 a14 14 0 0 0 20 20 L56 70"/><path d="M64 50 L74 40 a14 14 0 0 0 -20 -20 L44 30"/></svg>Lien du guide</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pill" id="tagCv">MODÈLE DE CV</div>
+      <div class="pill" id="tagCuis">MINI-FORMATION CUISINE</div>
+      <div class="pill" id="b7">EN 7 JOURS</div>
+      <div class="pill" id="b0">SANS DÉPENSER UN CENTIME</div>
+      <div class="pill" id="ready">PRÊTS À PAYER ?</div>
+      <div class="pill" id="ask">UNE QUESTION ? ÉCRIS-MOI</div>
+
+      <div class="spark" id="s1" style="left:80px;top:360px"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0Z"/></svg></div>
+      <div class="spark" id="s2" style="left:930px;top:420px"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0Z"/></svg></div>
+      <div class="spark" id="s3" style="left:140px;top:960px;width:50px;height:50px"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0Z"/></svg></div>
+      <div class="spark" id="s4" style="left:900px;top:900px;width:56px;height:56px"><svg viewBox="0 0 100 100"><path d="M50 0 C54 38 62 46 100 50 C62 54 54 62 50 100 C46 62 38 54 0 50 C38 46 46 38 50 0Z"/></svg></div>
+
+      <div id="caps"></div>
+      <audio id="mix" src="assets/audio/mix_tunnel.wav" data-start="0" data-duration="30.8" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const T = {"merci": 0.293, "guide": 2.235, "open": 3.771, "p10": 4.278, "cv": 7.665, "p11": 8.065, "cuisine": 9.189, "plan": 11.346, "semaine": 15.065, "centime": 16.332, "s1": 17.468, "s2": 19.485, "s3": 20.998, "week": 23.028, "payer": 25.798, "sais": 24.347, "link": 26.327, "ask": 29.211, "end": 30.8, "weekStep": 0.11};
+      const CAPS = [{"start": 0.293, "end": 1.629, "words": [{"t": "Merci", "s": 0.293, "e": 0.652, "acc": false}, {"t": "pour", "s": 0.652, "e": 0.961, "acc": false}, {"t": "ta", "s": 0.961, "e": 1.167, "acc": false}, {"t": "réponse !", "s": 1.167, "e": 1.629, "acc": false}], "hide": 2.079}, {"start": 2.211, "end": 3.134, "words": [{"t": "Je", "s": 2.211, "e": 2.348, "acc": false}, {"t": "te", "s": 2.348, "e": 2.485, "acc": false}, {"t": "montre", "s": 2.485, "e": 2.758, "acc": false}, {"t": "ce", "s": 2.758, "e": 2.895, "acc": false}, {"t": "qu'il", "s": 2.895, "e": 3.134, "acc": false}], "hide": 3.134}, {"start": 3.134, "end": 3.921, "words": [{"t": "y", "s": 3.134, "e": 3.237, "acc": false}, {"t": "a", "s": 3.237, "e": 3.339, "acc": false}, {"t": "dans", "s": 3.339, "e": 3.544, "acc": false}, {"t": "le", "s": 3.544, "e": 3.681, "acc": false}, {"t": "guide.", "s": 3.681, "e": 3.921, "acc": true}], "hide": 4.247}, {"start": 4.247, "end": 6.002, "words": [{"t": "Des", "s": 4.247, "e": 4.478, "acc": false}, {"t": "exemples", "s": 4.478, "e": 4.94, "acc": false}, {"t": "de", "s": 4.94, "e": 5.125, "acc": false}, {"t": "produits", "s": 5.125, "e": 5.587, "acc": false}, {"t": "que", "s": 5.587, "e": 5.818, "acc": false}, {"t": "tu", "s": 5.818, "e": 6.002, "acc": false}], "hide": 6.002}, {"start": 6.002, "end": 7.665, "words": [{"t": "peux", "s": 6.002, "e": 6.279, "acc": false}, {"t": "créer,", "s": 6.279, "e": 6.603, "acc": false}, {"t": "comme", "s": 6.603, "e": 6.926, "acc": false}, {"t": "un", "s": 6.926, "e": 7.111, "acc": false}, {"t": "modèle", "s": 7.111, "e": 7.48, "acc": false}, {"t": "de", "s": 7.48, "e": 7.665, "acc": false}], "hide": 7.665}, {"start": 7.665, "end": 9.604, "words": [{"t": "CV", "s": 7.665, "e": 7.849, "acc": true}, {"t": "ou", "s": 7.849, "e": 8.034, "acc": false}, {"t": "une", "s": 8.034, "e": 8.265, "acc": false}, {"t": "mini-formation", "s": 8.265, "e": 9.004, "acc": false}, {"t": "de", "s": 9.004, "e": 9.189, "acc": false}, {"t": "cuisine", "s": 9.189, "e": 9.604, "acc": true}], "hide": 9.604}, {"start": 9.604, "end": 10.667, "words": [{"t": "filmée", "s": 9.604, "e": 9.974, "acc": false}, {"t": "au", "s": 9.974, "e": 10.159, "acc": false}, {"t": "téléphone.", "s": 10.159, "e": 10.667, "acc": false}], "hide": 11.117}, {"start": 11.342, "end": 12.103, "words": [{"t": "Et", "s": 11.342, "e": 11.494, "acc": false}, {"t": "un", "s": 11.494, "e": 11.646, "acc": false}, {"t": "plan", "s": 11.646, "e": 11.874, "acc": false}, {"t": "pour", "s": 11.874, "e": 12.103, "acc": false}], "hide": 12.103}, {"start": 12.103, "end": 12.977, "words": [{"t": "tester", "s": 12.103, "e": 12.407, "acc": false}, {"t": "ton", "s": 12.407, "e": 12.597, "acc": false}, {"t": "idée", "s": 12.597, "e": 12.825, "acc": false}, {"t": "et", "s": 12.825, "e": 12.977, "acc": false}], "hide": 13.229}, {"start": 13.229, "end": 15.065, "words": [{"t": "trouver", "s": 13.229, "e": 13.622, "acc": false}, {"t": "tes", "s": 13.622, "e": 13.841, "acc": false}, {"t": "premiers", "s": 13.841, "e": 14.278, "acc": false}, {"t": "clients", "s": 14.278, "e": 14.671, "acc": false}, {"t": "en", "s": 14.671, "e": 14.846, "acc": false}, {"t": "une", "s": 14.846, "e": 15.065, "acc": false}], "hide": 15.065}, {"start": 15.065, "end": 16.725, "words": [{"t": "semaine,", "s": 15.065, "e": 15.458, "acc": true}, {"t": "sans", "s": 15.458, "e": 15.72, "acc": false}, {"t": "dépenser", "s": 15.72, "e": 16.157, "acc": false}, {"t": "un", "s": 16.157, "e": 16.332, "acc": false}, {"t": "centime :", "s": 16.332, "e": 16.725, "acc": true}], "hide": 17.175}, {"start": 17.284, "end": 18.522, "words": [{"t": "tu", "s": 17.284, "e": 17.468, "acc": false}, {"t": "écris", "s": 17.468, "e": 17.789, "acc": false}, {"t": "ton", "s": 17.789, "e": 18.018, "acc": false}, {"t": "offre", "s": 18.018, "e": 18.339, "acc": false}, {"t": "en", "s": 18.339, "e": 18.522, "acc": false}], "hide": 18.522}, {"start": 18.522, "end": 19.852, "words": [{"t": "une", "s": 18.522, "e": 18.751, "acc": false}, {"t": "phrase,", "s": 18.751, "e": 19.118, "acc": false}, {"t": "tu", "s": 19.118, "e": 19.301, "acc": false}, {"t": "en", "s": 19.301, "e": 19.485, "acc": false}, {"t": "parles", "s": 19.485, "e": 19.852, "acc": false}], "hide": 19.852}, {"start": 19.852, "end": 20.998, "words": [{"t": "autour", "s": 19.852, "e": 20.218, "acc": false}, {"t": "de", "s": 20.218, "e": 20.402, "acc": false}, {"t": "toi,", "s": 20.402, "e": 20.631, "acc": false}, {"t": "tu", "s": 20.631, "e": 20.814, "acc": false}, {"t": "la", "s": 20.814, "e": 20.998, "acc": false}], "hide": 20.998}, {"start": 20.998, "end": 22.373, "words": [{"t": "postes", "s": 20.998, "e": 21.365, "acc": false}, {"t": "en", "s": 21.365, "e": 21.548, "acc": false}, {"t": "statut", "s": 21.548, "e": 21.915, "acc": false}, {"t": "WhatsApp.", "s": 21.915, "e": 22.373, "acc": true}], "hide": 22.823}, {"start": 23.053, "end": 23.837, "words": [{"t": "À", "s": 23.053, "e": 23.171, "acc": false}, {"t": "la", "s": 23.171, "e": 23.328, "acc": false}, {"t": "fin", "s": 23.328, "e": 23.524, "acc": false}, {"t": "de", "s": 23.524, "e": 23.681, "acc": false}, {"t": "la", "s": 23.681, "e": 23.837, "acc": false}], "hide": 23.837}, {"start": 23.837, "end": 24.935, "words": [{"t": "semaine,", "s": 23.837, "e": 24.19, "acc": true}, {"t": "tu", "s": 24.19, "e": 24.347, "acc": false}, {"t": "sais", "s": 24.347, "e": 24.582, "acc": false}, {"t": "si", "s": 24.582, "e": 24.739, "acc": false}, {"t": "des", "s": 24.739, "e": 24.935, "acc": false}], "hide": 24.935}, {"start": 24.935, "end": 26.072, "words": [{"t": "gens", "s": 24.935, "e": 25.17, "acc": false}, {"t": "sont", "s": 25.17, "e": 25.406, "acc": false}, {"t": "prêts", "s": 25.406, "e": 25.68, "acc": false}, {"t": "à", "s": 25.68, "e": 25.798, "acc": false}, {"t": "payer.", "s": 25.798, "e": 26.072, "acc": true}], "hide": 26.473}, {"start": 26.473, "end": 27.938, "words": [{"t": "Je", "s": 26.473, "e": 26.627, "acc": false}, {"t": "t'envoie", "s": 26.627, "e": 27.013, "acc": false}, {"t": "le", "s": 27.013, "e": 27.167, "acc": false}, {"t": "lien", "s": 27.167, "e": 27.398, "acc": false}, {"t": "juste", "s": 27.398, "e": 27.668, "acc": false}, {"t": "après.", "s": 27.668, "e": 27.938, "acc": false}], "hide": 28.388}, {"start": 28.53, "end": 29.612, "words": [{"t": "Si", "s": 28.53, "e": 28.691, "acc": false}, {"t": "tu", "s": 28.691, "e": 28.851, "acc": false}, {"t": "as", "s": 28.851, "e": 29.011, "acc": false}, {"t": "une", "s": 29.011, "e": 29.211, "acc": false}, {"t": "question,", "s": 29.211, "e": 29.612, "acc": false}], "hide": 29.993}, {"start": 29.993, "end": 30.467, "words": [{"t": "écris-moi.", "s": 29.993, "e": 30.467, "acc": true}], "hide": 30.6}];
+      const tl = gsap.timeline({ paused: true });
+      const IN = (s, f, t, at) => tl.fromTo(s, f, t, at);
+      const OUT = (s, t, at) => tl.to(s, t, at);
+      tl.set(["#merci","#cover","#pg10","#pg11","#pg15","#tagCv","#tagCuis","#b7","#b0","#st1","#st2","#st3",
+              "#weekTitle","#week","#ready","#chat","#ask","#s1","#s2","#s3","#s4"], { autoAlpha: 0 }, 0);
+      tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: 30.8, ease: "none" }, 0);
+      const sparks = (at) => ["#s1","#s2","#s3","#s4"].forEach((s, i) =>
+        IN(s, { autoAlpha: 1, scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.5)" }, at + i * 0.08));
+      const sparksOut = (at) => OUT(["#s1","#s2","#s3","#s4"], { scale: 0, autoAlpha: 0, duration: 0.2 }, at);
+
+      // merci
+      IN("#merci", { autoAlpha: 1, scale: 2.6, rotation: -14 }, { scale: 1, rotation: -4, duration: 0.3, ease: "power4.in" }, T.merci);
+      sparks(T.merci + 0.2);
+      OUT("#merci", { scale: 0.3, autoAlpha: 0, rotation: 10, duration: 0.25, ease: "back.in(2)" }, T.guide - 0.1);
+      sparksOut(T.guide - 0.1);
+
+      // le guide s'ouvre
+      IN("#cover", { autoAlpha: 1, y: 900, rotationY: 70, scale: 0.7, transformPerspective: 1400 },
+                   { y: 0, rotationY: -8, scale: 1, duration: 0.5, ease: "power3.out" }, T.guide);
+      tl.set("#pg10", { autoAlpha: 1, scale: 0.9 }, T.open - 0.05);
+      tl.to("#cover", { rotationY: -150, transformOrigin: "left center", autoAlpha: 0, duration: 0.5, ease: "power2.in" }, T.open);
+      tl.to("#pg10", { scale: 1, duration: 0.5, ease: "power2.out" }, T.open + 0.1);
+
+      // page 10 : modèle de CV
+      tl.to("#pg10 img", { scale: 2.1, x: 275, y: -480, duration: 0.6, ease: "power3.inOut" }, T.cv - 0.35);
+      IN("#tagCv", { autoAlpha: 1, scale: 0, rotation: -10 }, { scale: 1, rotation: -3, duration: 0.35, ease: "back.out(2.2)" }, T.cv);
+      OUT("#tagCv", { scale: 0, autoAlpha: 0, duration: 0.2 }, T.p11 - 0.1);
+      IN("#pg11", { autoAlpha: 1, x: 1200, rotation: 10 }, { x: 0, rotation: 1.5, duration: 0.45, ease: "power3.out" }, T.p11);
+      OUT("#pg10", { x: -1200, rotation: -12, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, T.p11);
+
+      // page 11 : mini-formation cuisine
+      tl.to("#pg11 img", { scale: 2.1, x: -147, y: -405, duration: 0.6, ease: "power3.inOut" }, T.cuisine - 0.35);
+      IN("#tagCuis", { autoAlpha: 1, scale: 0, rotation: 10 }, { scale: 1, rotation: 3, duration: 0.35, ease: "back.out(2.2)" }, T.cuisine);
+      OUT(["#pg11", "#tagCuis"], { y: -1500, rotation: -10, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, T.plan - 0.1);
+
+      // page 15 : le test en 7 jours
+      IN("#pg15", { autoAlpha: 1, y: 1300, rotation: 8 }, { y: 0, rotation: -1.5, duration: 0.5, ease: "back.out(1.2)" }, T.plan);
+      IN("#b7", { autoAlpha: 1, scale: 0, rotation: -12 }, { scale: 1, rotation: -4, duration: 0.35, ease: "back.out(2.2)" }, T.semaine);
+      IN("#b0", { autoAlpha: 1, scale: 2.6, rotation: 16 }, { scale: 1, rotation: 4, duration: 0.28, ease: "power4.in" }, T.centime - 0.1);
+      OUT(["#b7", "#b0"], { scale: 0, autoAlpha: 0, duration: 0.2 }, T.s1 - 0.35);
+      tl.to("#pg15", { scale: 0.46, y: -20, transformOrigin: "50% 0%", duration: 0.45, ease: "power3.inOut" }, T.s1 - 0.35);
+      [["#st1", T.s1], ["#st2", T.s2], ["#st3", T.s3]].forEach(([s, at]) =>
+        IN(s, { autoAlpha: 1, x: 1150, rotation: 6 }, { x: 0, rotation: 0, duration: 0.4, ease: "back.out(1.3)" }, at - 0.1));
+      OUT(["#st3", "#st2", "#st1", "#pg15"], { x: -1200, autoAlpha: 0, duration: 0.35, ease: "power3.in", stagger: 0.04 }, T.week - 0.15);
+
+      // une semaine
+      IN("#weekTitle", { autoAlpha: 1, y: -40 }, { y: 0, duration: 0.3, ease: "power2.out" }, T.week);
+      IN("#week", { autoAlpha: 1, y: 80 }, { y: 0, duration: 0.35, ease: "back.out(1.5)" }, T.week + 0.1);
+      for (let i = 1; i <= 7; i++) {
+        tl.to("#d" + i, { backgroundColor: "#ff5c00", color: "#ffffff", scale: 1.08, duration: 0.12 }, T.week + 0.4 + (i - 1) * T.weekStep);
+        tl.to("#d" + i, { scale: 1, duration: 0.12 }, T.week + 0.52 + (i - 1) * T.weekStep);
+      }
+      IN("#ready", { autoAlpha: 1, scale: 1.8, rotation: -12 }, { scale: 1, rotation: -3, duration: 0.25, ease: "power3.in" }, T.sais - 0.05);
+      OUT(["#weekTitle", "#week", "#ready"], { y: -1300, autoAlpha: 0, duration: 0.4, ease: "power3.in", stagger: 0.04 }, T.link - 0.15);
+
+      // le lien
+      IN("#chat", { autoAlpha: 1, x: 1100, rotation: 6 }, { x: 0, rotation: -1, duration: 0.5, ease: "back.out(1.3)" }, T.link);
+      IN("#ask", { autoAlpha: 1, scale: 0, rotation: 8 }, { scale: 1, rotation: -2, duration: 0.35, ease: "back.out(2.2)" }, T.ask);
+      tl.to("#ask", { scale: 1.06, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, T.ask + 0.45);
+      sparks(T.ask + 0.1);
+
+      // sous-titres karaoké
+      CAPS.forEach((c, ci) => {
+        const box = document.createElement("div");
+        box.className = "grp"; box.id = "cap" + ci;
+        c.words.forEach((w) => {
+          const el = document.createElement("span");
+          el.className = "w" + (w.acc ? " acc" : "");
+          el.innerHTML = '<span class="hl"></span><span class="t"></span>';
+          el.querySelector(".t").textContent = w.t;
+          box.appendChild(el); w.el = el;
+        });
+        document.getElementById("caps").appendChild(box);
+        tl.set(box, { autoAlpha: 0 }, 0);
+        tl.fromTo(box, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.14, ease: "power2.out" }, Math.max(0, c.start - 0.08));
+        c.words.forEach((w, i) => {
+          const hl = w.el.querySelector(".hl");
+          tl.to(w.el, { opacity: 1, duration: 0.06 }, w.s);
+          tl.set(hl, { transformOrigin: "left center" }, w.s);
+          tl.to(hl, { scaleX: 1, duration: 0.08, ease: "power1.out" }, w.s);
+          if (i < c.words.length - 1) {
+            tl.set(hl, { transformOrigin: "right center" }, w.e - 0.06);
+            tl.to(hl, { scaleX: 0, duration: 0.08, ease: "power1.in" }, w.e - 0.06);
+          }
+        });
+        tl.to(box, { autoAlpha: 0, duration: 0.1 }, c.hide - 0.1);
+      });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
