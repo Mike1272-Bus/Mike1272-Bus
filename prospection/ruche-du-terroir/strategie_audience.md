@@ -183,7 +183,8 @@ Ils sont d'accord sur le principe. Ils veulent savoir ce que sont « les textes 
 - Tirage au sort avec un outil gratuit de tirage de commentaires, filmé ou en capture pour la transparence.
 - Le gagnant est contacté en message privé et annoncé en story. Il a 48 h pour répondre, sinon on retire au sort.
 - Obligatoire sur Instagram : écrire que le concours n'est ni organisé ni sponsorisé par Instagram.
-- À confirmer par la Ruche : le lot, la zone (Kinshasa seulement ?) et le mode de remise (point de vente ou livraison).
+- Le lot (confirmé par la Ruche, 10 octobre) : un pot de miel avec une cuillère à miel.
+- À confirmer par la Ruche : la zone (Kinshasa seulement ?) et le mode de remise (point de vente ou livraison).
 
 ## Feu vert (8 octobre 2026)
 

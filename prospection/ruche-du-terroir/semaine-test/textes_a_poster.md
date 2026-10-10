@@ -6,6 +6,8 @@ Chaque vidéo est envoyée à La Ruche pour accord avant publication.
 
 Vidéo : `jour1-cannelle/renders/jour1-cannelle-whatsapp.mp4`
 
+Nouvelle version, même style que l'épisode 4 de Mike (fond clair, petite histoire « 7 h, le thé est prêt… », alvéoles, coulée de miel, conversation WhatsApp) : `jour1-cannelle-motion/renders/jour1-cannelle-motion.mp4`
+
 **Statut WhatsApp**
 > Notre miel à la cannelle 🍯 Dans le thé, sur le pain ou à la cuillère. Commandez ici 👉 +243 859 072 956
 
