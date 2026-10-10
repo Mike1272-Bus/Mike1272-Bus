@@ -1,10 +1,7 @@
-miel|honey jar
-burger|burger
-cafe|coffee cup
-gateau|cake
-epices|spices
-jus|juice bottles
-pain|bread bakery
-boutique|grocery shelf
-telephone|smartphone table
-cadeau|gift box
+ing-cannelle|cinnamon sticks
+ing-gingembre|ginger root
+ing-girofle|cloves spice
+ing-poivre|black peppercorns
+ing-hibiscus|hibiscus flower red
+ing-moringa|moringa leaves
+ing-rayon|honeycomb
