@@ -38,3 +38,21 @@ Pas de prix dans la vidéo tant que La Ruche n'a pas dit oui.
 > 📍 N°51 avenue Benseke, Joli-Parc, Ngaliema
 >
 > #cadeauentreprise #findannée #miel #madeinRDC #Kinshasa #LaRucheDuTerroir
+
+## Jour 3 · Mercredi 14 octobre · Miel au gingembre
+
+Vidéo : `jour3-gingembre/renders/jour3-gingembre.mp4` (20 s, même style que le jour 1)
+Scénario : « Il fait chaud… envie de fraîcheur ? » → « Mais il manque du piquant… » → « Miel au gingembre » (le pot tombe avec des morceaux de gingembre) → leur visuel, « Du miel pur et sauvage du Congo », « doux et piquant à la fois » → en citronnade, dans le thé, sur des crêpes → commande sur WhatsApp.
+
+**Statut WhatsApp**
+> Il fait chaud ? 🍋 Une citronnade avec notre miel au gingembre, doux et piquant à la fois. Commandez ici 👉 +243 859 072 956
+
+**Instagram et Facebook**
+> Miel au gingembre 🍯
+> Du miel pur et sauvage du Congo, au gingembre. Doux et piquant à la fois.
+> En citronnade quand il fait chaud, dans le thé, ou sur des crêpes le dimanche matin.
+>
+> 📲 Commandez sur WhatsApp : +243 859 072 956
+> 📍 N°51 avenue Benseke, Joli-Parc, Ngaliema
+>
+> #miel #gingembre #madeinRDC #Kinshasa #LaRucheDuTerroir
