@@ -256,3 +256,8 @@ Ce sont des objectifs, pas des promesses. Ils dépendent aussi de la régularit�
 
 Attention : leurs visuels disent « Miel soignant » et « note posologique ». Dans nos vidéos, on ne reprend pas ces mots (promesse de santé). On parle de goût, d'origine et d'idées d'usage.
 La 3e image (paniers pour les équipes) montre des personnes : on n'utilise que le panier et les pots, pas les personnes.
+
+## Règle confirmée par Mike (10 octobre 2026)
+
+Dans les vidéos de La Ruche : **uniquement les images du client** (leurs pots, leurs paniers, leur logo). Pas de photos libres de droits, pas de personnages, pas de personnes.
+Les photos d'ingrédients téléchargées (`allegra-landing/images/raw/ing-*`) ne sont donc **pas utilisées**. Les ingrédients (bâtons de cannelle, gouttes de miel…) sont dessinés en code, comme les bâtons de cannelle du jour 1.
