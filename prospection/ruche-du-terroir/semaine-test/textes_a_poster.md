@@ -4,9 +4,8 @@ Chaque vidéo est envoyée à La Ruche pour accord avant publication.
 
 ## Jour 1 · Lundi 12 octobre · Miel à la cannelle
 
-Vidéo : `jour1-cannelle/renders/jour1-cannelle-whatsapp.mp4`
-
-Nouvelle version, même style que l'épisode 4 de Mike (fond clair, petite histoire « 7 h, le thé est prêt… », alvéoles, coulée de miel, conversation WhatsApp) : `jour1-cannelle-motion/renders/jour1-cannelle-motion.mp4`
+Vidéo retenue (style motion design clair, version légère pour WhatsApp) : `jour1-cannelle-motion/renders/jour1-cannelle-whatsapp.mp4`
+Ancienne version sombre, plus utilisée : `jour1-cannelle/`
 
 **Statut WhatsApp**
 > Notre miel à la cannelle 🍯 Dans le thé, sur le pain ou à la cuillère. Commandez ici 👉 +243 859 072 956
@@ -20,3 +19,22 @@ Nouvelle version, même style que l'épisode 4 de Mike (fond clair, petite histo
 > 📍 N°51 avenue Benseke, Joli-Parc, Ngaliema
 >
 > #miel #cannelle #madeinRDC #Kinshasa #LaRucheDuTerroir
+
+## Jour 2 · Mardi 13 octobre · Les paniers cadeaux pour les entreprises
+
+Vidéo : `jour2-paniers/renders/jour2-paniers.mp4` (20 s, même style que le jour 1)
+Scénario : « La fin d'année approche » → « Quel cadeau pour vos équipes ? » → « Offrez du miel » (3 pots qui tombent) → leur photo du panier, « Faites plaisir à vos équipes avec des produits locaux » → Panier Or (2 pots), Platine (3 pots), Diamant (4 pots) → demande de devis sur WhatsApp.
+Pas de prix dans la vidéo tant que La Ruche n'a pas dit oui.
+
+**Statut WhatsApp**
+> La fin d'année approche 🎁 Offrez à vos équipes un panier de miel pur du Congo. Demandez votre devis ici 👉 +243 859 072 956
+
+**Instagram et Facebook**
+> Quel cadeau pour vos équipes cette fin d'année ? 🎁
+> Nos paniers de miel pur du Congo : Panier Or (2 pots), Panier Platine (3 pots) ou Panier Diamant (4 pots).
+> Faites plaisir à vos équipes et à vos clients avec des produits locaux.
+>
+> 📲 Demandez votre devis sur WhatsApp : +243 859 072 956
+> 📍 N°51 avenue Benseke, Joli-Parc, Ngaliema
+>
+> #cadeauentreprise #findannée #miel #madeinRDC #Kinshasa #LaRucheDuTerroir
