@@ -6,7 +6,7 @@ Maman Rose est un **profil type** pour aider à imaginer la cliente, pas une vra
 
 Si cette compétence vient d'un commentaire d'abonné : ajoute avant le hook « Quelqu'un m'a écrit en commentaire : développeur web » et publie avec « Répondre avec une vidéo », comme pour l'épisode 3.
 
-## Script (tu, environ 190 mots, environ 1 min 05 à ton rythme)
+## Script (tu, environ 215 mots, environ 1 min 15 à ton rythme)
 
 Pour la voix, lis seulement le texte après les deux-points.
 
