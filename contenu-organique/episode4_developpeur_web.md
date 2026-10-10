@@ -14,11 +14,11 @@ Pour la voix, lis seulement le texte après les deux-points.
 >
 > **Promesse** : Je te montre comment, avec un exemple précis.
 >
-> **Partie 1** : Imagine Maman Rose. Elle vend des pagnes au marché, à Kinshasa. Elle voudrait un site pour montrer ses modèles à ses clientes. Mais un site fait sur mesure, c'est trop cher pour elle.
+> **Partie 1** : Imagine Maman Rose. Elle vend des pagnes au marché, à Kinshasa. Elle voudrait une petite vitrine en ligne pour montrer ses modèles à ses clientes. Mais un site fait sur mesure, c'est trop cher pour elle.
 >
 > *Boucle 1* : Et c'est là que toi, tu entres.
 >
-> **Partie 2** : Tu prends un site que tu as déjà fait, et tu en fais un modèle de boutique prêt à remplir. Elle change le nom, les photos et les prix, et sa boutique est en ligne. Avec une petite vidéo qui lui montre comment faire, étape par étape. Tu le crées une fois, et tu le vends à toutes les vendeuses comme elle.
+> **Partie 2** : Tu crées une mini-vitrine : une seule page, avec ses produits, et un bouton qui ouvre WhatsApp avec la commande déjà écrite. Tu en fais un modèle prêt à remplir. Elle change le nom, les photos et les prix, et sa vitrine est en ligne. Avec une petite vidéo qui lui montre comment faire, étape par étape. Tu le crées une fois, et tu le vends à toutes les vendeuses comme elle.
 >
 > *Boucle 2* : Et pour créer ça, il te faut seulement quatre outils.
 >
@@ -36,7 +36,7 @@ Pour la voix, lis seulement le texte après les deux-points.
 | Promesse | « Un exemple précis » |
 | Partie 1 | Des pagnes, un étal de marché ; un devis « site sur mesure » barré, trop cher |
 | Boucle 1 | « C'est là que tu entres » |
-| Partie 2 | Un modèle de boutique : le nom, les photos et les prix changent en un clic ; la petite vidéo « étape par étape » ; le même modèle vendu plusieurs fois (étiquettes « Vendu ») |
+| Partie 2 | La mini-vitrine sur un téléphone (une page, produits, bouton WhatsApp) : le nom, les photos et les prix changent en un clic ; la petite vidéo « étape par étape » ; le même modèle vendu plusieurs fois (étiquettes « Vendu ») |
 | Boucle 2 | « 4 outils » |
 | Partie 3 | VS Code (écrire), GitHub (mettre en ligne), Canva (le guide), Chariow (vendre), chacun avec son rôle écrit |
 | Boucle 3 | Des messages de développeurs : « Comment tu as fait ? » |
@@ -46,5 +46,11 @@ Pour la voix, lis seulement le texte après les deux-points.
 
 ## Légende TikTok
 
-> Tu sais créer des sites web ? 💻 Un site que tu as déjà fait peut devenir un modèle que tu vends à toutes les vendeuses qui veulent leur boutique en ligne. Commente ta compétence, je te réponds en privé.
+> Tu sais créer des sites web ? 💻 Une mini-vitrine d'une page peut devenir un modèle que tu vends à toutes les vendeuses qui veulent montrer leurs produits en ligne. Commente ta compétence, je te réponds en privé.
 > #developpeurweb #developpeur #siteweb #codage #produitdigital #chariow #kinshasa #rdc
+
+## La mini-vitrine à montrer dans la vidéo
+
+Deux mini-vitrines existent déjà : La Ruche du Terroir (`prospection/ruche-du-terroir/site/apercu/`) et Les Délices d'Émilie (`prospection/delices-emilie/catalogue/`). Ce sont des démos faites pour des entreprises : **pas de publication sans leur accord écrit**.
+
+Option sans accord à demander : une vitrine de démo pour « Maman Rose, pagnes » (nom inventé, comme le profil type), faite sur le même modèle, avec des photos de pagnes libres de droits ou filmées par Mike.
