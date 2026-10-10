@@ -241,3 +241,17 @@ Ce sont des objectifs, pas des promesses. Ils dépendent aussi de la régularit�
 | 5 | Ven 16 | Miel au clou de girofle + concours | | | | |
 | 6 | Sam 17 | Pack cadeau fin d'année | | | | |
 | 7 | Dim 18 | Toute la gamme | | | | |
+
+## Ce qu'ils ont envoyé (10 octobre 2026) : dossier `photos-client/`
+
+- 5 visuels de pots : moringa, miel sauvage du Mai-Ndombe, poivre noir, cannelle, hibiscus. Les pots détourés sont dans `photos-client/detoure/`.
+- Les paniers (leurs visuels) :
+  - Panier Or, 20 $ : 2 pots de 510 g de variétés différentes, 1 produit d'accompagnement, 1 produit offert, 1 note, 1 flyer.
+  - Panier Platine, 30 $ : 3 pots de 510 g, 1 produit d'accompagnement, 2 produits offerts, 1 note, 1 flyer.
+  - Panier Diamant, 40 $ : 4 pots de 510 g, 2 produits d'accompagnement, 2 produits offerts, 1 note, 1 flyer.
+- Adresse sur leurs visuels : N°51 avenue Benseke, Q/Joli-Parc, C/Ngaliema, réf. arrêt Sakombi. E-mail : mess.rucheterroir@gmail.com.
+- Lot du concours : un pot de miel avec une cuillère à miel.
+- Manquent : les pots gingembre et clou de girofle (prévus jours 3 et 5). Sinon on les remplace par moringa et Mai-Ndombe.
+
+Attention : leurs visuels disent « Miel soignant » et « note posologique ». Dans nos vidéos, on ne reprend pas ces mots (promesse de santé). On parle de goût, d'origine et d'idées d'usage.
+La 3e image (paniers pour les équipes) montre des personnes : on n'utilise que le panier et les pots, pas les personnes.
