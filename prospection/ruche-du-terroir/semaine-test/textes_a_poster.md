@@ -4,11 +4,12 @@ Chaque vidéo est envoyée à La Ruche pour accord avant publication.
 
 ## Jour 1 · Lundi 12 octobre · Miel à la cannelle
 
-Vidéo retenue (style motion design clair, version légère pour WhatsApp) : `jour1-cannelle-motion/renders/jour1-cannelle-whatsapp.mp4`
+Vidéo retenue : `jour1-cannelle-v2/renders/jour1-cannelle-v2.mp4` (25 s, texte donné par La Ruche : lundi matin, 7 h, stress, « un miel gustatif et soignant »)
+Version précédente (20 s) : `jour1-cannelle-motion/renders/jour1-cannelle-whatsapp.mp4`
 Ancienne version sombre, plus utilisée : `jour1-cannelle/`
 
 **Statut WhatsApp**
-> Notre miel à la cannelle 🍯 Dans le thé, sur le pain ou à la cuillère. Commandez ici 👉 +243 859 072 956
+> Lundi matin, embouteillages, réunions… Pensez plutôt à votre miel à la cannelle 🍯 Dans le thé, sur le pain ou à la cuillère. Commandez ici 👉 +243 859 072 956
 
 **Instagram et Facebook**
 > Miel à la cannelle 🍯
