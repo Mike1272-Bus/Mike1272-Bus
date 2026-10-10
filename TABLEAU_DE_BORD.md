@@ -34,7 +34,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 | Compétence → revenu, ép. 1 (montage vidéo) | Vidéo livrée | `contenu-organique/video-competence-montage/` |
 | Compétence → revenu, ép. 2 (menuiserie, version histoire) | Audio pro fait, vidéo livrée (90 s, surtout des illustrations + vrais extraits aux moments clés). Mike vérifie le calage | `contenu-organique/video-episode2-metiers/` |
 | Compétence → revenu, ép. 3 (technicien réseaux, réponse à un commentaire d'abonné) | Vidéo livrée (1 min 53, illustrations animées + capture du commentaire). Extraits de Mike à ajouter s'il en envoie | `contenu-organique/video-episode3-reseaux/` |
-| Compétence → revenu, ép. 4 (développeur web) | Script prêt, attente de la validation puis de l'audio de Mike | `contenu-organique/episode4_developpeur_web.md` |
+| Compétence → revenu, ép. 4 (développeur web) | Script prêt (format hook, promesse, boucles, CTA), attente de la validation puis de l'audio de Mike | `contenu-organique/episode4_developpeur_web.md` |
 | Semaine « Turquie → RDC » (le soir) | Plan + script du mardi prêts | `contenu-organique/semaine_turquie_rdc.md` |
 | Pub « Mon histoire » (longue 1 min 20 + courte 30 s) | Script prêt, 4 passages à compléter par Mike (vécu, déclic, premier paiement), puis photos + voix | `campagne-pub/mon_histoire_script.md` |
 

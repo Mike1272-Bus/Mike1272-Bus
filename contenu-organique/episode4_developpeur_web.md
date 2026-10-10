@@ -1,52 +1,50 @@
 # Épisode 4 : développeur web
 
-Série « Transformer une compétence en revenu ». Même structure que l'épisode 3 (technicien réseaux) : on parle directement au développeur, la petite formation et le modèle de site, la vente (Chariow, WhatsApp), les réseaux et la pub, le bonus (les clients), la question finale.
+Série « Transformer une compétence en revenu ». Format **Hook, promesse, partie 1 + boucle, partie 2 + boucle, partie 3 + boucle, CTA** (voir `projet-claude/contexte_projet.md`, section 4). Vertical, 60 à 75 s.
 
-Si cette compétence vient d'un commentaire d'abonné : ajoute au début « Quelqu'un m'a écrit en commentaire : développeur web » et publie avec « Répondre avec une vidéo », comme pour l'épisode 3.
+Maman Rose est un **profil type** pour aider à imaginer la cliente, pas une vraie personne : ne jamais la présenter comme un témoignage.
 
-## Script (tu, environ 320 mots, environ 1 min 55 à ton rythme)
+Si cette compétence vient d'un commentaire d'abonné : ajoute avant le hook « Quelqu'un m'a écrit en commentaire : développeur web » et publie avec « Répondre avec une vidéo », comme pour l'épisode 3.
 
-> Développeur web, cette vidéo, c'est pour toi. C'est le quatrième épisode de ma série « Transformer une compétence en revenu ».
+## Script (tu, environ 190 mots, environ 1 min 05 à ton rythme)
+
+Pour la voix, lis seulement le texte après les deux-points.
+
+> **Hook** : Tu sais créer des sites web ? Tu peux en faire un produit qui se vend, même quand tu n'as pas de client.
 >
-> Toi, tu sais faire une chose que beaucoup de gens veulent, mais ne savent pas faire : créer un site. Une page pour une boutique, un restaurant, une église, ou un CV en ligne.
+> **Promesse** : Je te montre comment, avec un exemple précis.
 >
-> Mais aujourd'hui, tu es payé seulement quand un client te commande un site. Et entre deux clients, rien.
+> **Partie 1** : Imagine Maman Rose. Elle vend des pagnes au marché, à Kinshasa. Elle voudrait un site pour montrer ses modèles à ses clientes. Mais un site fait sur mesure, c'est trop cher pour elle.
 >
-> Alors imagine. Le site que tu as déjà fait pour un client, tu en fais un modèle. Une base propre, prête à être adaptée : on change le nom, les couleurs, les photos, et c'est en ligne.
+> *Boucle 1* : Et c'est là que toi, tu entres.
 >
-> Ce modèle, tu peux le vendre à d'autres développeurs qui veulent aller plus vite. Ou à des commerçants qui veulent faire leur site eux-mêmes, avec un petit guide pour le modifier.
+> **Partie 2** : Tu prends un site que tu as déjà fait, et tu en fais un modèle de boutique prêt à remplir. Elle change le nom, les photos et les prix, et sa boutique est en ligne. Avec une petite vidéo qui lui montre comment faire, étape par étape. Tu le crées une fois, et tu le vends à toutes les vendeuses comme elle.
 >
-> Tu peux aussi faire une petite formation pour ceux qui débutent : « Crée ton premier site de A à Z ». Quelques vidéos courtes, le code complet, et à la fin, un vrai projet à montrer pour un stage ou à un premier client. De quoi former la nouvelle génération.
+> *Boucle 2* : Et pour créer ça, il te faut seulement quatre outils.
 >
-> Tu la mets en vente sur une plateforme de paiement en ligne, comme Chariow. Puis tu partages le lien dans tes statuts WhatsApp.
+> **Partie 3** : VS Code, pour écrire ton modèle. GitHub, pour le mettre en ligne gratuitement. Canva, pour le petit guide qui explique comment le modifier. Et Chariow, pour le vendre et recevoir les paiements.
 >
-> Pour toucher plus de monde, tu publies sur TikTok et Facebook : un avant-après de site, une astuce par jour. Et quand une vidéo marche bien, tu en fais une petite publicité.
+> *Boucle 3* : Et ce n'est pas tout : quand tes premiers modèles seront en ligne, d'autres développeurs voudront savoir comment tu en as fait un produit.
 >
-> Et il y a un bonus. Ceux qui regardent tes vidéos, ce ne sont pas que des développeurs. Il y a aussi des commerçants, des restaurants, des boutiques qui ont besoin d'un site. Ton contenu te ramène des clients, et ton métier continue.
->
-> Ton modèle, tu l'as fait une seule fois. Tu peux le vendre encore et encore.
->
-> Alors, développeur web, tu commences par le modèle ou par la formation ? Dis-le-moi en commentaire. Et toi qui regardes, c'est quoi ta compétence ? Je t'en fais la prochaine vidéo.
+> **CTA** : Commente ta compétence : je te réponds en privé avec le guide pour la transformer en revenu.
 
 ## Ce qu'on voit à l'écran
 
 | Moment | À l'écran |
 |---|---|
-| Intro | « DÉVELOPPEUR WEB », badge « ÉPISODE 4 » |
-| Ce que tu sais faire | Un site qui se construit : la page d'une boutique, d'un restaurant, d'une église, un CV en ligne |
-| « payé seulement quand un client commande » | Un calendrier avec des semaines vides entre deux commandes |
-| Le modèle | Un site qui change de nom, de couleurs et de photos en un clic (même base, 3 versions) |
-| À qui le vendre | Deux cartes : « Développeurs : aller plus vite » et « Commerçants : le faire eux-mêmes + guide » |
-| La petite formation | Carte « Crée ton premier site de A à Z » : 3 vidéos, le code, le projet final |
-| La vente | Chariow, « Paiement reçu », statut WhatsApp |
-| Réseaux et pub | Avant-après d'un site, « une astuce par jour », « Booster la publication » |
-| Le bonus | Messages de commerçants : boutique, restaurant, pharmacie qui demandent un site |
-| Encore et encore | ∞ et étiquettes « Vendu » |
-| Question finale | « Le modèle ou la formation ? », puis « Et toi, c'est quoi ta compétence ? » |
+| Hook | Un site qui se construit ligne par ligne, « un produit qui se vend » |
+| Promesse | « Un exemple précis » |
+| Partie 1 | Des pagnes, un étal de marché ; un devis « site sur mesure » barré, trop cher |
+| Boucle 1 | « C'est là que tu entres » |
+| Partie 2 | Un modèle de boutique : le nom, les photos et les prix changent en un clic ; la petite vidéo « étape par étape » ; le même modèle vendu plusieurs fois (étiquettes « Vendu ») |
+| Boucle 2 | « 4 outils » |
+| Partie 3 | VS Code (écrire), GitHub (mettre en ligne), Canva (le guide), Chariow (vendre), chacun avec son rôle écrit |
+| Boucle 3 | Des messages de développeurs : « Comment tu as fait ? » |
+| CTA | « Commente ta compétence » |
 
-**Extraits utiles à filmer ou à envoyer :** ton écran pendant que tu codes (VS Code), un site que tu as fait qui s'affiche sur téléphone et ordinateur, tes mains sur le clavier, un client ou un commerçant devant sa boutique (avec son accord).
+**Extraits utiles à filmer ou à envoyer :** ton écran pendant que tu codes (VS Code), un site que tu as fait affiché sur téléphone, un étal de pagnes au marché (sans visage reconnaissable), tes mains sur le clavier.
 
 ## Légende TikTok
 
-> Développeur web 💻 Le site que tu as fait pour un client peut devenir un modèle que tu vends encore et encore. Tu veux créer le tien ? Écris-moi en privé, je t'accompagne. Et toi, c'est quoi ta compétence ? Dis-le en commentaire.
-> #developpeurweb #developpeur #codage #siteweb #produitdigital #formationenligne #chariow #kinshasa #rdc
+> Tu sais créer des sites web ? 💻 Un site que tu as déjà fait peut devenir un modèle que tu vends à toutes les vendeuses qui veulent leur boutique en ligne. Commente ta compétence, je te réponds en privé.
+> #developpeurweb #developpeur #siteweb #codage #produitdigital #chariow #kinshasa #rdc
