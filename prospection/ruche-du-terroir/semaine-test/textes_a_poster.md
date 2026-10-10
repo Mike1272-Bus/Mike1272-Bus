@@ -24,7 +24,7 @@ Ancienne version sombre, plus utilisée : `jour1-cannelle/`
 
 Vidéo : `jour2-paniers/renders/jour2-paniers.mp4` (20 s, même style que le jour 1)
 Scénario : « La fin d'année approche » → « Quel cadeau pour vos équipes ? » → « Offrez du miel » (3 pots qui tombent) → leur photo du panier, « Faites plaisir à vos équipes avec des produits locaux » → Panier Or (2 pots), Platine (3 pots), Diamant (4 pots) → demande de devis sur WhatsApp.
-Pas de prix dans la vidéo tant que La Ruche n'a pas dit oui.
+Aucun prix affiché (règle confirmée par Mike).
 
 **Statut WhatsApp**
 > La fin d'année approche 🎁 Offrez à vos équipes un panier de miel pur du Congo. Demandez votre devis ici 👉 +243 859 072 956
