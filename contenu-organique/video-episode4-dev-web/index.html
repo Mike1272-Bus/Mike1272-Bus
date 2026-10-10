@@ -35,12 +35,13 @@
       .pg { background: #1a9e4b; color: #fff; }
 
       /* commentaire */
-      #cmt { left: 140px; top: 520px; width: 800px; height: 210px; border-radius: 30px; background: #fff; border: 3px solid #ebe6de; box-shadow: 0 24px 50px rgba(0,0,0,0.14); }
+      #cmt { left: 110px; top: 505px; width: 860px; height: 300px; border-radius: 30px; background: #fff url(assets/photos/commentaire.png) center/92% auto no-repeat; border: 3px solid #ebe6de; box-shadow: 0 24px 50px rgba(0,0,0,0.14); }
       #cmt .av { position: absolute; left: 34px; top: 40px; width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, #2b3190, #ff3d1f); }
       #cmt .u { position: absolute; left: 170px; top: 44px; font-weight: 600; font-size: 30px; color: #8a8a8a; }
       #cmt .t { position: absolute; left: 170px; top: 92px; font-weight: 800; font-size: 50px; color: #111; }
       #cmtk { top: 450px; font-weight: 800; font-size: 28px; letter-spacing: 6px; color: #9a9a9a; }
 
+      #ecr { left: 90px; top: 150px; width: 900px; height: 522px; background: url(assets/photos/site_ecrans.png) center/contain no-repeat; }
       /* ordinateur B2B */
       #lap { left: 90px; top: 620px; width: 900px; height: 620px; border-radius: 26px; background: #fff; border: 3px solid #e3ded6; box-shadow: 0 30px 60px rgba(0,0,0,0.18); overflow: hidden; }
       #lap .bar { height: 56px; background: #e9e9e9; display: flex; align-items: center; gap: 12px; padding-left: 22px; }
@@ -66,7 +67,7 @@
       .vc { position: absolute; width: 252px; height: 330px; border-radius: 22px; background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.1); overflow: hidden; }
       .vc .im { position: absolute; left: 0; top: 0; width: 252px; height: 230px; background: #dcdcdc; }
       .vc .im svg { position: absolute; left: 86px; top: 75px; width: 80px; height: 80px; }
-      .vc img { position: absolute; left: 0; top: 0; width: 252px; height: 230px; object-fit: cover; }
+      .vc img { position: absolute; left: 0; top: 0; width: 252px; height: 230px; object-fit: cover; object-position: 50% 25%; }
       .vc .p0, .vc .p1 { position: absolute; left: 16px; top: 248px; font-weight: 900; font-size: 30px; }
       .vc .p0 { color: #b0b0b0; } .vc .p1 { color: #ff3d1f; }
       .vc .bt { position: absolute; left: 16px; right: 16px; bottom: 14px; height: 30px; border-radius: 15px; background: #e8541e; opacity: 0.85; }
@@ -82,7 +83,7 @@
       /* éventail de photos */
       .ph { position: absolute; width: 360px; height: 460px; border-radius: 22px; overflow: hidden; border: 10px solid #fff; box-shadow: 0 30px 60px rgba(0,0,0,0.35); background: #ddd; }
       .ph img { width: 100%; height: 100%; object-fit: cover; }
-      #f1 { left: 120px; top: 1080px; } #f2 { left: 360px; top: 1040px; } #f3 { left: 600px; top: 1080px; }
+      #f1 { left: 90px; top: 1100px; } #f2 { left: 330px; top: 1060px; width: 420px; height: 440px; } #f3 { left: 630px; top: 1100px; }
 
       /* devis */
       #devis { left: 220px; top: 560px; width: 640px; height: 420px; border-radius: 26px; background: #fff; padding: 46px; border: 3px solid #e3ded6; box-shadow: 0 30px 60px rgba(0,0,0,0.16); }
@@ -94,15 +95,15 @@
       .mini { position: absolute; width: 230px; height: 440px; border-radius: 34px; background: #0d0d0d; padding: 10px; }
       .mini div { width: 210px; height: 420px; border-radius: 26px; background: #fff8ef; overflow: hidden; position: relative; }
       .mini div::before { content: ""; position: absolute; left: 0; top: 0; width: 210px; height: 130px; background: #1b3a8a; }
-      .mini img { position: absolute; width: 90px; height: 90px; object-fit: cover; border-radius: 10px; }
+      .mini img { position: absolute; width: 90px; height: 110px; object-fit: cover; object-position: 50% 20%; border-radius: 10px; }
       .tag { position: absolute; width: 220px; height: 70px; border-radius: 35px; background: #25d366; color: #fff; font-weight: 900; font-size: 34px; text-align: center; line-height: 70px; }
 
       /* outils */
-      .tool { position: absolute; left: 90px; width: 900px; height: 190px; border-radius: 30px; background: #fff; border: 3px solid #e6e1d9; box-shadow: 0 18px 36px rgba(0,0,0,0.1); }
-      .tool img { position: absolute; left: 30px; top: 30px; width: 130px; height: 130px; }
-      .tool b { position: absolute; left: 190px; top: 34px; font-size: 56px; font-weight: 900; color: #141414; letter-spacing: -0.03em; }
-      .tool span { position: absolute; left: 190px; top: 108px; font-size: 34px; font-weight: 600; color: #e8401f; }
-      #t1 { top: 520px; } #t2 { top: 740px; } #t3 { top: 960px; } #t4 { top: 1180px; }
+      .tool { position: absolute; left: 90px; width: 900px; height: 210px; overflow: hidden; border-radius: 30px; background: #fff; border: 3px solid #e6e1d9; box-shadow: 0 18px 36px rgba(0,0,0,0.1); }
+      .tool .th { position: absolute; left: 20px; top: 20px; width: 226px; height: 170px; border-radius: 18px; background-size: cover; background-position: center; background-repeat: no-repeat; }
+      .tool b { position: absolute; left: 276px; top: 42px; font-size: 56px; font-weight: 900; color: #141414; letter-spacing: -0.03em; }
+      .tool span { position: absolute; left: 276px; top: 118px; font-size: 31px; font-weight: 600; color: #e8401f; }
+      #t1 { top: 470px; } #t2 { top: 710px; } #t3 { top: 950px; } #t4 { top: 1190px; }
       .code { position: absolute; left: 30px; top: 30px; width: 130px; height: 130px; border-radius: 26px; background: #1f6fd1; color: #fff; font-weight: 900; font-size: 60px; text-align: center; line-height: 128px; }
       .gh { position: absolute; left: 30px; top: 30px; width: 130px; height: 130px; border-radius: 50%; background: #141414; color: #fff; font-weight: 900; font-size: 46px; text-align: center; line-height: 130px; }
 
@@ -117,6 +118,10 @@
       .bub { position: absolute; height: 110px; border-radius: 55px 55px 55px 12px; background: #fff; color: #141414; font-weight: 800; font-size: 42px; line-height: 110px; padding: 0 44px; white-space: nowrap; border: 3px solid #ebe6de; box-shadow: 0 18px 36px rgba(0,0,0,0.12); }
       #d1 { left: 80px; top: 820px; } #d2 { left: 300px; top: 1000px; } #d3 { left: 140px; top: 1180px; }
       #ebk { left: 340px; top: 960px; width: 400px; height: 400px; border-radius: 18px; overflow: hidden; }
+      /* extraits vidéo de Mike */
+      .vcard { position: absolute; left: 60px; width: 960px; height: 540px; border-radius: 34px; overflow: hidden; border: 8px solid #fff; box-shadow: 0 30px 60px rgba(0,0,0,0.22); z-index: 20; background: #ddd; }
+      .vcard video { width: 100%; height: 100%; object-fit: cover; display: block; }
+      #wEnt { top: 830px; } #wBud { top: 780px; } #wPro { top: 990px; } #wMar { top: 990px; }
       #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; }
     </style>
   </head>
@@ -126,7 +131,7 @@
       <!-- 1. Hook : réponse au commentaire (0 - 5,5) -->
       <div class="scene light white" id="s1"><div class="cam" id="k1"><div class="grid"></div>
         <div class="line" id="cmtk">RÉPONSE À TON COMMENTAIRE</div>
-        <div class="ab" id="cmt"><div class="av"></div><div class="u">@abonné</div><div class="t">développeur web</div></div>
+        <div class="ab" id="cmt"></div>
         <div class="line" style="top:860px"><span class="w sm" id="a1">Tu</span><span class="w sm" id="a2">es</span></div>
         <div class="line" style="top:975px" data-layout-allow-overlap><span class="w big" id="a3">développeur web ?</span></div>
         <div class="line" style="top:1180px"><span class="w sm" id="a4">Merci</span><span class="w sm" id="a5">pour</span><span class="w sm" id="a6">ton</span><span class="w sm" id="a7">commentaire</span></div>
@@ -137,7 +142,8 @@
       <!-- 2. Promesse (5,5 - 10,8) -->
       <div class="scene light" id="s2"><div class="cam" id="k2"><div class="grid"></div>
         <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M200 -100 C 700 700, 1000 1300, 1500 2600" fill="none" stroke="#d3cfc8" stroke-width="230" stroke-linecap="round"/></svg>
-        <img class="obj" id="bag" src="assets/img/money_bag_3d.png" style="left:390px; top:300px; width:300px; height:300px" />
+        <div class="ab" id="ecr"></div>
+        <img class="obj" id="bag" src="assets/img/money_bag_3d.png" style="left:410px; top:1390px; width:260px; height:260px" />
         <div class="line" style="top:700px"><span class="w sm" id="b1">Transforme</span><span class="w sm" id="b2">ta</span><span class="w sm" id="b3">compétence</span></div>
         <div class="line" style="top:815px" data-layout-allow-overlap><span class="w big" id="b4">en revenu</span></div>
         <div class="line" style="top:1080px"><span class="w sm" id="b5">avec</span><span class="w sm" id="b6">un</span><span class="w sm" id="b7">exemple</span></div>
@@ -211,9 +217,9 @@
         <div class="line" style="top:445px" data-layout-allow-overlap><span class="w big" id="j4">un produit</span></div>
         <div class="line" style="top:700px"><span class="w sm" id="j5">Imagine</span><span class="w big" id="j6" style="font-size:96px">Maman Rose</span></div>
         <div class="line" style="top:860px"><span class="w sm" id="j7">elle</span><span class="w sm" id="j8">vend</span><span class="w sm" id="j9">au marché</span></div>
-        <div class="ph" id="f1"><img src="assets/produits/produit1.svg" /></div>
-        <div class="ph" id="f3"><img src="assets/produits/produit3.svg" /></div>
-        <div class="ph" id="f2"><img src="assets/produits/produit2.svg" /></div>
+        <div class="ph" id="f1"><img src="assets/photos/robe_verte.jpg" /></div>
+        <div class="ph" id="f3"><img src="assets/photos/robe_turquoise.jpg" /></div>
+        <div class="ph" id="f2"><img src="assets/photos/boutique_pagnes.jpg" /></div>
       </div></div>
 
       <!-- 9. Trop cher -> un modèle (49,8 - 55,6) -->
@@ -231,15 +237,15 @@
         <div class="ab" id="url"><i></i>maman-rose.github.io</div>
         <div class="ab" id="ph"><div id="scr">
           <div id="vh">
-            <div id="vlogo"><img id="vlimg" src="assets/produits/produit5.svg" /></div>
+            <div id="vlogo"><img id="vlimg" src="assets/photos/boutique_pagnes.jpg" /></div>
             <div class="vname" id="vn0">[ Nom de ta boutique ]</div>
             <div class="vname" id="vn1">Les Pagnes de Maman Rose</div>
             <div id="vbtn">Commander sur WhatsApp</div>
           </div>
-          <div class="vc" id="c1"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/produits/produit1.svg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
-          <div class="vc" id="c2"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/produits/produit2.svg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
-          <div class="vc" id="c3"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/produits/produit3.svg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
-          <div class="vc" id="c4"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/produits/produit4.svg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
+          <div class="vc" id="c1"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/photos/robe_kente.jpg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
+          <div class="vc" id="c2"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/photos/robe_verte.jpg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
+          <div class="vc" id="c3"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/photos/robe_marine.jpg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
+          <div class="vc" id="c4"><div class="im"><svg viewBox="0 0 80 80"><rect x="6" y="14" width="68" height="52" rx="8" fill="none" stroke="#aaa" stroke-width="6"/><circle cx="28" cy="32" r="7" fill="#aaa"/><path d="M12 60 L34 40 L48 52 L58 44 L70 60Z" fill="#aaa"/></svg></div><img class="pimg" src="assets/photos/robe_turquoise.jpg" /><div class="p0">[ Prix ]</div><div class="p1">[prix]</div><div class="bt"></div></div>
         </div></div>
         <div class="pill pg" id="enligne">✓ en ligne</div>
         <div class="ab" id="vid"><div class="pl"></div><div class="tt">Comment la modifier</div></div>
@@ -249,10 +255,10 @@
       <div class="scene light white" id="s11"><div class="cam" id="k11"><div class="grid"></div>
         <div class="line" style="top:300px"><span class="w sm" id="n1">Tu</span><span class="w sm" id="n2">le</span><span class="w sm" id="n3">crées</span></div>
         <div class="line" style="top:415px" data-layout-allow-overlap><span class="w big" id="n4">une fois</span></div>
-        <div class="mini" id="mp1" style="left:40px; top:700px"><div><img src="assets/produits/produit1.svg" style="left:12px; top:150px" /><img src="assets/produits/produit2.svg" style="left:108px; top:150px" /></div></div>
-        <div class="mini" id="mp2" style="left:300px; top:660px"><div><img src="assets/produits/produit3.svg" style="left:12px; top:150px" /><img src="assets/produits/produit4.svg" style="left:108px; top:150px" /></div></div>
-        <div class="mini" id="mp3" style="left:560px; top:700px"><div><img src="assets/produits/produit2.svg" style="left:12px; top:150px" /><img src="assets/produits/produit5.svg" style="left:108px; top:150px" /></div></div>
-        <div class="mini" id="mp4" style="left:820px; top:660px"><div><img src="assets/produits/produit4.svg" style="left:12px; top:150px" /><img src="assets/produits/produit1.svg" style="left:108px; top:150px" /></div></div>
+        <div class="mini" id="mp1" style="left:40px; top:700px"><div><img src="assets/photos/robe_brune.jpg" style="left:12px; top:150px" /><img src="assets/photos/ensemble_rouge.jpg" style="left:108px; top:150px" /></div></div>
+        <div class="mini" id="mp2" style="left:300px; top:660px"><div><img src="assets/photos/manteau_noir.jpg" style="left:12px; top:150px" /><img src="assets/photos/robe_kente.jpg" style="left:108px; top:150px" /></div></div>
+        <div class="mini" id="mp3" style="left:560px; top:700px"><div><img src="assets/photos/robe_marine.jpg" style="left:12px; top:150px" /><img src="assets/photos/robe_verte.jpg" style="left:108px; top:150px" /></div></div>
+        <div class="mini" id="mp4" style="left:820px; top:660px"><div><img src="assets/photos/robe_turquoise.jpg" style="left:12px; top:150px" /><img src="assets/photos/boutique_pagnes.jpg" style="left:108px; top:150px" /></div></div>
         <div class="tag" id="v1" style="left:45px; top:1180px">Vendu ✓</div>
         <div class="tag" id="v2" style="left:305px; top:1140px">Vendu ✓</div>
         <div class="tag" id="v3" style="left:565px; top:1180px">Vendu ✓</div>
@@ -269,10 +275,10 @@
 
       <!-- 13. Les outils (71,2 - 82,4) -->
       <div class="scene light white" id="s13"><div class="cam" id="k13"><div class="grid"></div>
-        <div class="ab tool" id="t1"><div class="code">&lt;/&gt;</div><b>VS Code</b><span>pour écrire ta vitrine</span></div>
-        <div class="ab tool" id="t2"><div class="gh">Git</div><b>GitHub</b><span>pour la mettre en ligne gratuitement</span></div>
-        <div class="ab tool" id="t3"><img src="assets/img/artist_palette_3d.png" /><b>Canva</b><span>pour le petit guide qui l'explique</span></div>
-        <div class="ab tool" id="t4"><img src="assets/img/chariow.png" style="border-radius:28px" /><b>Chariow</b><span>pour vendre et recevoir les paiements</span></div>
+        <div class="ab tool" id="t1"><div class="th" style="background-image:url(assets/photos/vscode.jpg)"></div><b>VS Code</b><span>pour écrire ta vitrine</span></div>
+        <div class="ab tool" id="t2"><div class="th" style="background-image:url(assets/photos/github.jpg)"></div><b>GitHub</b><span>pour la mettre en ligne gratuitement</span></div>
+        <div class="ab tool" id="t3"><div class="th" style="background-image:url(assets/photos/canva.jpg)"></div><b>Canva</b><span>pour le petit guide qui l'explique</span></div>
+        <div class="ab tool" id="t4"><div class="th" style="background-image:url(assets/photos/chariow_logo.jpg); background-size:contain; background-color:#fff"></div><b>Chariow</b><span>pour vendre et recevoir les paiements</span></div>
       </div></div>
 
       <!-- 14. Le guide IA : commente VITRINE (82,4 - 91,1) -->
@@ -303,6 +309,12 @@
         <div class="line" style="top:1440px"><span class="w sm" id="u3">je</span><span class="w sm" id="u4">te</span><span class="w sm" id="u5">réponds</span><span class="w sm" id="u6">en privé</span></div>
         <div class="line" style="top:1530px"><span class="w sm" id="u7" style="color:#ff3d1f; font-weight:900">avec le guide</span></div>
       </div></div>
+
+      <!-- extraits vidéo de Mike, posés sur les phrases -->
+      <div class="vcard" id="wEnt"><video id="vEnt" src="assets/video/entreprises.mp4" muted playsinline data-start="15.1" data-duration="1.45" data-media-start="0"></video></div>
+      <div class="vcard" id="wBud"><video id="vBud" src="assets/video/budget.mp4" muted playsinline data-start="28.0" data-duration="1.4" data-media-start="0"></video></div>
+      <div class="vcard" id="wPro"><video id="vPro" src="assets/video/produit.mp4" muted playsinline data-start="43.4" data-duration="2.2" data-media-start="0"></video></div>
+      <div class="vcard" id="wMar"><video id="vMar" src="assets/video/marche.mp4" muted playsinline data-start="47.05" data-duration="2.75" data-media-start="0"></video></div>
 
       <div class="ab" id="fade"></div>
       <audio id="voix" src="assets/audio/voix.mp3" data-start="0" data-duration="105.4" data-track-index="1" data-volume="1"></audio>
@@ -338,7 +350,8 @@
       words(["#a4", "#a5", "#a6", "#a7"], 2.1, 0.15);
       words(["#a8", "#a9", "#a10"], 3.5, 0.15); word("#a11", 4.3, 0.35);
       // 2. promesse
-      IN("#bag", { scale: 0.2, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.7, ease: "expo.out" }, 5.6); float("#bag", 6.4, 4);
+      IN("#ecr", { y: -120, scale: 0.8 }, { y: 0, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, 5.6);
+      IN("#bag", { scale: 0.2, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.6, ease: "expo.out" }, 7.85); float("#bag", 8.5, 2.2);
       words(["#b1", "#b2", "#b3"], 6.3, 0.2); word("#b4", 7.8, 0.35);
       words(["#b5", "#b6", "#b7"], 8.95, 0.18); word("#b8", 9.75, 0.35);
       // 3. deux types
@@ -373,9 +386,9 @@
       words(["#j1", "#j2", "#j3"], 43.5, 0.2); word("#j4", 44.4, 0.35);
       word("#j5", 45.6); word("#j6", 45.95, 0.35);
       words(["#j7", "#j8", "#j9"], 47.1, 0.2);
-      IN("#f1", { y: 600, rotation: -20 }, { y: 0, rotation: -9, duration: 0.5, ease: "back.out(1.4)" }, 47.6);
-      IN("#f3", { y: 600, rotation: 20 }, { y: 0, rotation: 9, duration: 0.5, ease: "back.out(1.4)" }, 47.85);
-      IN("#f2", { y: 600 }, { y: 0, duration: 0.5, ease: "back.out(1.4)" }, 48.1);
+      IN("#f1", { y: 600, rotation: -20 }, { y: 0, rotation: -9, duration: 0.45, ease: "back.out(1.4)" }, 45.6);
+      IN("#f3", { y: 600, rotation: 20 }, { y: 0, rotation: 9, duration: 0.45, ease: "back.out(1.4)" }, 45.8);
+      IN("#f2", { y: 600 }, { y: 0, duration: 0.45, ease: "back.out(1.4)" }, 46.0);
       // 9. trop cher -> un modèle
       IN("#devis", { y: -500, rotation: -6 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.3)" }, 50.0);
       IN("#trop", { scale: 2.6, rotation: -20 }, { scale: 1, rotation: -9, duration: 0.3, ease: "power4.in" }, 51.6);
@@ -421,6 +434,11 @@
       word("#u1", 97.4); word("#u2", 97.9, 0.35);
       IN("#ebk", { scale: 0.4, rotation: -15 }, { scale: 1, rotation: -3, duration: 0.5, ease: "back.out(1.6)" }, 99.0); float("#ebk", 99.6, 4);
       words(["#u3", "#u4", "#u5", "#u6"], 98.6, 0.15); word("#u7", 100.1, 0.35);
+      // extraits vidéo : entrée punchy, sortie franche
+      [["#wEnt", 15.1, 1.45], ["#wBud", 28.0, 1.4], ["#wPro", 43.4, 2.2], ["#wMar", 47.05, 2.75]].forEach(([w, a, d]) => {
+        IN(w, { scale: 0.75, y: 120, rotation: -3 }, { scale: 1, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.6)" }, a);
+        FT(w, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.1 }, a + d - 0.1);
+      });
       FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 104.8);
 
       gsap.set(HIDE, { autoAlpha: 0 });
