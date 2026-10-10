@@ -27,3 +27,16 @@ Demandée par un abonné (« comment tu fais des vidéos comme ça ? »). PDF de
 
 **Message à envoyer à l'abonné qui a demandé :**
 > Tu m'as demandé comment je fais mes vidéos 🎬 J'en ai fait un petit guide, étape par étape, avec les captures d'écran : [LIEN CHARIOW]. Il coûte [PRIX]. Si tu bloques à une étape, écris-moi, je t'aide.
+
+## Prix conseillés (proposition, à valider par Mike)
+
+Repères existants : le guide « Gagne ta vie sans diplôme » à 4,9 $ (puis 6,9 $), et une vidéo animée de 20-30 s faite par nous à 35 $ en lancement (`page-chariow/services_chariow.md`).
+
+| Offre | Contenu | Prix conseillé |
+|---|---|---|
+| PDF seul | Le guide de 10 pages avec captures | 9,9 $ |
+| Formation complète | Vidéo + PDF | 29 $ en lancement, puis 39 $ |
+| Formation + accompagnement | Vidéo + PDF + une semaine sur WhatsApp pour faire sa première vidéo pour son business | 49 $ |
+
+Pour l'entrepreneur qui a écrit : proposer l'offre à 49 $ (avec accompagnement), et la formation à 29 $ s'il trouve ça trop cher.
+Rappel à dire à l'acheteur : il lui faudra aussi un abonnement Claude payant (Pro ou Max), en plus du prix de la formation.
