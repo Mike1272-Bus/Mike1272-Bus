@@ -1,5 +1,5 @@
 {
-  "name": "Commerce : bilan du soir sur WhatsApp",
+  "name": "Stock 2 : bilan du soir sur WhatsApp",
   "nodes": [
     {
       "parameters": {
@@ -76,7 +76,7 @@
           "dataLocationOnSheet": {
             "values": {
               "rangeDefinition": "specifyRangeA1",
-              "range": "A4:M204"
+              "range": "A4:P204"
             }
           }
         }

@@ -1,5 +1,5 @@
 {
-  "name": "Commerce : commande → tableau + alertes WhatsApp",
+  "name": "Stock 1 : vente → tableau, WhatsApp patron et client, alerte stock",
   "nodes": [
     {
       "parameters": {
@@ -13,6 +13,7 @@
             },
             {
               "fieldLabel": "Téléphone du client",
+              "placeholder": "ex. 0812345678",
               "requiredField": true
             },
             {
@@ -49,8 +50,8 @@
         0,
         0
       ],
-      "id": "471ee92f-052d-4321-bd93-03f2687a62d3",
-      "webhookId": "91561082-abca-46ce-8a7c-7caa8dc41833"
+      "id": "580c432e-6338-4bd9-850c-e1513f48a9a8",
+      "webhookId": "d611c078-04e0-4958-aed0-c76d9598d0e9"
     },
     {
       "parameters": {
@@ -74,7 +75,7 @@
           "dataLocationOnSheet": {
             "values": {
               "rangeDefinition": "specifyRangeA1",
-              "range": "A4:M204"
+              "range": "A4:P204"
             }
           }
         }
@@ -86,12 +87,12 @@
         220,
         0
       ],
-      "id": "d9ece42c-077d-4ff9-a30d-1c045eb79afb",
+      "id": "75e8b343-3b87-48a0-8b48-ee456e8dcffa",
       "alwaysOutputData": true
     },
     {
       "parameters": {
-        "jsCode": "// Lit un nombre, même s'il arrive en texte (« 1 250 », « 12,5 »)\nfunction num(v) {\n  if (typeof v === 'number') return v;\n  if (v === undefined || v === null || v === '') return 0;\n  const s = String(v).replace(/\\s/g, '').replace(',', '.');\n  const n = parseFloat(s.replace(/[^0-9.\\-]/g, ''));\n  return isNaN(n) ? 0 : n;\n}\n\n// WhatsApp (modèles Meta) : pas de retour à la ligne ni de case vide dans les variables\nfunction wa(v) {\n  const s = String(v ?? '').replace(/[\\n\\r\\t]+/g, ' ').replace(/ {2,}/g, ' ').trim();\n  return s === '' ? '-' : s.slice(0, 900);\n}\n\nconst f = $('Formulaire de commande').first().json;\nconst code = String(f['Code produit'] || '').trim().toUpperCase();\nconst qte = num(f['Quantité']);\nif (qte <= 0) throw new Error('La quantité doit être supérieure à 0.');\n\nconst produit = $input.all().map(i => i.json)\n  .find(p => String(p['Code'] || '').trim().toUpperCase() === code);\nif (!produit) throw new Error(`Code produit inconnu : ${code}. Vérifiez l'onglet Produits.`);\n\nconst prixVente = num(produit['Prix de vente (1 unité)']);\nconst prixAchat = num(produit[\"Prix d'achat (1 unité)\"]);\nconst stockAvant = num(produit['Stock actuel']);\nconst seuil = num(produit[\"Seuil d'alerte\"]);\nconst stockApres = stockAvant - qte;\n\nreturn [{ json: {\n  // Colonnes de l'onglet Commandes (mêmes titres, même ordre)\n  'Date': $now.toFormat('yyyy-MM-dd HH:mm'),\n  'Client': f['Nom du client'],\n  'Téléphone': String(f['Téléphone du client']),\n  'Code produit': code,\n  'Produit': produit['Produit'],\n  'Quantité': qte,\n  'Prix unitaire': prixVente,\n  'Montant': qte * prixVente,\n  \"Coût d'achat\": qte * prixAchat,\n  'Statut': 'Nouvelle',\n  'Adresse': f['Adresse de livraison'] || '',\n  'Note': f['Note'] || '',\n  // Infos pour les alertes (pas écrites dans le tableau)\n  _stockAvant: stockAvant,\n  _stockApres: stockApres,\n  _seuil: seuil,\n  _unite: produit['Unité'] || '',\n  // Variables des messages WhatsApp\n  _wa: {\n    client: wa(f['Nom du client']),\n    tel: wa(f['Téléphone du client']),\n    produit: wa(produit['Produit']),\n    code: wa(code),\n    qte: wa(qte),\n    montant: wa(qte * prixVente),\n    adresse: wa(f['Adresse de livraison']),\n    stock: wa(`${stockApres} ${produit['Unité'] || ''}`),\n    seuil: wa(seuil),\n    etat: stockApres <= 0 ? 'Rupture de stock' : 'Stock bas',\n  },\n}}];\n"
+        "jsCode": "\n// Lit un nombre, même s'il arrive en texte (« 1 250 », « 12,5 »)\nfunction num(v) {\n  if (typeof v === 'number') return v;\n  if (v === undefined || v === null || v === '') return 0;\n  const s = String(v).replace(/\\s/g, '').replace(',', '.');\n  const n = parseFloat(s.replace(/[^0-9.\\-]/g, ''));\n  return isNaN(n) ? 0 : n;\n}\n// WhatsApp (modèles Meta) : pas de retour à la ligne ni de case vide dans les variables\nfunction wa(v) {\n  const s = String(v ?? '').replace(/[\\n\\r\\t]+/g, ' ').replace(/ {2,}/g, ' ').trim();\n  return s === '' ? '-' : s.slice(0, 900);\n}\n// Numéro RDC au format international : 0812345678 -> 243812345678\nfunction telIntl(v) {\n  let d = String(v ?? '').replace(/\\D/g, '');\n  if (d.startsWith('00')) d = d.slice(2);\n  if (d.startsWith('0')) d = '243' + d.slice(1);\n  else if (d.length === 9) d = '243' + d;\n  return d;\n}\nfunction trouver(code) {\n  const c = String(code || '').trim().toUpperCase();\n  const p = $input.all().map(i => i.json).find(x => String(x['Code'] || '').trim().toUpperCase() === c);\n  if (!p) throw new Error(`Code produit inconnu : ${c}. Vérifiez l'onglet Produits.`);\n  return [c, p];\n}\n\nconst f = $('Formulaire de commande').first().json;\nconst qte = num(f['Quantité']);\nif (qte <= 0) throw new Error('La quantité doit être supérieure à 0.');\nconst [code, produit] = trouver(f['Code produit']);\nconst prixVente = num(produit['Prix de vente (1 unité)']);\nconst prixAchat = num(produit[\"Prix d'achat (1 unité)\"]);\nconst stockApres = num(produit['Stock actuel']) - qte;\nconst seuil = num(produit[\"Seuil d'alerte\"]);\nconst unite = produit['Unité'] || '';\n\nreturn [{ json: {\n  // Colonnes de l'onglet Commandes\n  'Date': $now.toFormat('yyyy-MM-dd HH:mm'),\n  'Client': f['Nom du client'],\n  'Téléphone': String(f['Téléphone du client']),\n  'Code produit': code,\n  'Produit': produit['Produit'],\n  'Quantité': qte,\n  'Prix unitaire': prixVente,\n  'Montant': qte * prixVente,\n  \"Coût d'achat\": qte * prixAchat,\n  'Statut': 'Nouvelle',\n  'Adresse': f['Adresse de livraison'] || '',\n  'Note': f['Note'] || '',\n  // Pour les messages (pas écrit dans le tableau)\n  _stockApres: stockApres,\n  _seuil: seuil,\n  _wa: {\n    client: wa(f['Nom du client']), tel: wa(f['Téléphone du client']), telClient: telIntl(f['Téléphone du client']),\n    produit: wa(produit['Produit']), code: wa(code), qte: wa(`${qte} ${unite}`), montant: wa(qte * prixVente),\n    adresse: wa(f['Adresse de livraison']), stock: wa(`${stockApres} ${unite}`), seuil: wa(seuil),\n    etat: stockApres <= 0 ? 'Rupture de stock' : 'Stock bas',\n    fournisseur: wa(produit['Fournisseur'] || 'non renseigné'),\n  },\n}}];\n"
       },
       "name": "Préparer la commande",
       "type": "n8n-nodes-base.code",
@@ -100,7 +101,7 @@
         440,
         0
       ],
-      "id": "a092896d-bba6-4002-8bf0-b91c8306caf9"
+      "id": "c17276a6-692d-41e4-8165-db23536e3487"
     },
     {
       "parameters": {
@@ -133,7 +134,7 @@
         660,
         0
       ],
-      "id": "c74a5b16-d530-42e6-a554-4f415dc20711"
+      "id": "21729b42-21a9-4773-8268-b654b1d1cbf5"
     },
     {
       "parameters": {
@@ -182,14 +183,59 @@
           ]
         }
       },
-      "name": "WhatsApp : nouvelle commande",
+      "name": "WhatsApp patron : nouvelle commande",
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1.1,
       "position": [
         880,
         0
       ],
-      "id": "f77addb7-341a-403d-8d6f-7ae875f90116"
+      "id": "8bbf9d2c-8e0b-43a8-afa4-40889127801e"
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "sendTemplate",
+        "phoneNumberId": "CHOISIS_TON_NUMERO_WHATSAPP_BUSINESS",
+        "recipientPhoneNumber": "={{ $('Préparer la commande').item.json._wa.telClient }}",
+        "template": "confirmation_commande|fr",
+        "components": {
+          "component": [
+            {
+              "type": "body",
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.client }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.produit }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.qte }}"
+                  },
+                  {
+                    "type": "text",
+                    "text": "={{ $('Préparer la commande').item.json._wa.montant }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "name": "WhatsApp client : confirmation",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        1100,
+        0
+      ],
+      "id": "c4879f18-a37d-4a2c-9408-1bb2ca9b09d4",
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -202,7 +248,7 @@
           },
           "conditions": [
             {
-              "id": "3de40c5b-44ea-4bb0-8125-37a79f87486b",
+              "id": "250a11fa-79de-49aa-a8aa-75e9bdc153c5",
               "leftValue": "={{ $('Préparer la commande').item.json._stockApres <= $('Préparer la commande').item.json._seuil }}",
               "rightValue": true,
               "operator": {
@@ -220,10 +266,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1100,
+        1320,
         0
       ],
-      "id": "5f856f55-f05f-4e23-861b-bbb5ca4dc9f0"
+      "id": "8b85d912-4dab-410b-81ae-2a8eca2215f0"
     },
     {
       "parameters": {
@@ -264,14 +310,14 @@
           ]
         }
       },
-      "name": "WhatsApp : alerte stock",
+      "name": "WhatsApp patron : alerte stock",
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1.1,
       "position": [
-        1320,
+        1540,
         -100
       ],
-      "id": "f1d603a7-a230-47dd-950c-f5b6ffb6459d"
+      "id": "c9064ef2-e4a2-4b91-8d9f-eb36f31bc5ed"
     }
   ],
   "connections": {
@@ -312,14 +358,25 @@
       "main": [
         [
           {
-            "node": "WhatsApp : nouvelle commande",
+            "node": "WhatsApp patron : nouvelle commande",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "WhatsApp : nouvelle commande": {
+    "WhatsApp patron : nouvelle commande": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp client : confirmation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WhatsApp client : confirmation": {
       "main": [
         [
           {
@@ -334,7 +391,7 @@
       "main": [
         [
           {
-            "node": "WhatsApp : alerte stock",
+            "node": "WhatsApp patron : alerte stock",
             "type": "main",
             "index": 0
           }
