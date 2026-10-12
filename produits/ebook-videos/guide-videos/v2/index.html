@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr" data-resolution="landscape">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>Trouve ta compétence vendable</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: #fff; }
+#root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; }
+.ab { position: absolute; }
+.scene { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; }
+.cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.white { background: radial-gradient(ellipse at 50% 45%, #ffffff 0%, #f7f7f7 65%, #ececec 100%); }
+.cream { background: radial-gradient(ellipse at 50% 40%, #fbf8f3 0%, #efebe4 70%, #e4dfd7 100%); }
+.grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px); background-size: 60px 60px; }
+.swoosh { position: absolute; left: -200px; top: -400px; width: 2320px; height: 1880px; }
+.line { position: absolute; text-align: center; white-space: nowrap; }
+.w { display: inline-block; margin: 0 0.12em; }
+.sm { font-weight: 600; font-size: 54px; letter-spacing: -0.02em; color: #141414; }
+.red { color: #e8401f; font-weight: 800; font-size: 46px; }
+.big { font-weight: 900; letter-spacing: -0.045em; line-height: 0.95; color: #ff3d1f; text-shadow: 0 6px 0 #8f1d0c, 0 18px 30px rgba(0,0,0,0.25); }
+.obj { position: absolute; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.3)); }
+.photo { left: 300px; top: 210px; width: 600px; height: 600px; border-radius: 50%; overflow: hidden; border: 14px solid #fff; box-shadow: 0 0 0 10px #ff3d1f, 0 40px 70px rgba(0,0,0,0.3); }
+.photo img, .cover img { width: 100%; height: 100%; object-fit: cover; }
+.cover { left: 270px; top: 190px; width: 640px; height: 640px; border-radius: 18px; overflow: hidden; box-shadow: 0 40px 70px rgba(0,0,0,0.3); }
+.vcard { left: 90px; top: 240px; width: 880px; height: 495px; border-radius: 34px; overflow: hidden; border: 10px solid #fff; box-shadow: 0 30px 60px rgba(0,0,0,0.22); background: #ddd; }
+.vcard video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.wabtn { left: 1060px; top: 860px; width: 740px; height: 110px; border-radius: 55px; background: #1a9e4b; color: #fff; font-weight: 800; font-size: 38px; line-height: 110px; padding-left: 120px; box-shadow: 0 16px 34px rgba(26,158,75,0.35); }
+.wabtn img { position: absolute; left: 20px; top: 15px; width: 80px; height: 80px; border-radius: 20px; }
+.bpill { height: 120px; border-radius: 60px; background: #fff; border: 4px solid #e6e1d9; box-shadow: 0 16px 32px rgba(0,0,0,0.1); font-weight: 800; font-size: 46px; line-height: 112px; text-align: center; color: #141414; }
+.bpill i { position: absolute; left: 30px; right: 30px; top: 52px; height: 12px; border-radius: 6px; background: #ff3d1f; transform-origin: 0% 50%; }
+.card { top: 380px; height: 560px; border-radius: 36px; background: #fff; border: 4px solid #e6e1d9; box-shadow: 0 22px 44px rgba(0,0,0,0.1); text-align: center; padding: 0 26px; }
+.card img { display: block; width: 200px; height: 200px; margin: 40px auto 26px; }
+.card b { display: block; font-size: 44px; font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; color: #141414; }
+.card em { display: block; margin-top: 18px; font-style: normal; font-size: 32px; font-weight: 700; line-height: 1.25; color: #e8401f; }
+.step { top: 420px; width: 380px; text-align: center; }
+.step .sn { width: 170px; height: 170px; margin: 0 auto 30px; border-radius: 50%; background: #ff3d1f; color: #fff; font-weight: 900; font-size: 100px; line-height: 170px; box-shadow: 0 0 0 12px rgba(255,61,31,0.15), 0 18px 34px rgba(255,61,31,0.35); }
+.step b { display: block; font-size: 40px; font-weight: 900; line-height: 1.12; letter-spacing: -0.02em; color: #141414; }
+.step .ck { position: absolute; left: 230px; top: -10px; width: 110px; height: 110px; }
+.sheet { left: 360px; top: 320px; width: 1200px; height: 600px; border-radius: 26px; background: #fff; border: 3px solid #e6e1d9; box-shadow: 0 24px 50px rgba(0,0,0,0.12); background-image: repeating-linear-gradient(180deg, transparent 0 107px, #e4ecf7 107px 110px); }
+.sheet .col { position: absolute; top: 30px; width: 360px; height: 540px; }
+.sheet h4 { font-size: 34px; font-weight: 900; color: #141414; letter-spacing: -0.02em; }
+.sheet .col i { position: absolute; left: 0; height: 26px; border-radius: 13px; background: #c9d3e6; }
+.circ { position: absolute; width: 360px; height: 120px; overflow: visible; }
+.circ ellipse { fill: none; stroke: #ff3d1f; stroke-width: 9; stroke-linecap: round; }
+.day { top: 70px; width: 180px; height: 110px; border-radius: 24px; background: #fff; border: 4px solid #e6e1d9; font-weight: 900; font-size: 50px; line-height: 102px; text-align: center; color: #9a9a9a; }
+.day.on { background: #ff3d1f; border-color: #ff3d1f; color: #fff; box-shadow: 0 14px 30px rgba(255,61,31,0.35); }
+.day.done { background: #141414; border-color: #141414; color: #fff; }
+.phrase { left: 360px; top: 480px; width: 1200px; padding: 40px 50px; border-radius: 30px; background: #fff; border: 4px solid #e6e1d9; box-shadow: 0 20px 40px rgba(0,0,0,0.1); font-weight: 800; font-size: 58px; line-height: 1.35; color: #141414; text-align: center; }
+.phrase span { display: inline-block; }
+.phrase .blank { color: #ff3d1f; }
+.bulle { left: 460px; top: 480px; width: 1000px; padding: 40px 50px 56px; border-radius: 34px 34px 8px 34px; background: #d9fdd3; font-weight: 700; font-size: 50px; line-height: 1.3; color: #111; box-shadow: 0 16px 34px rgba(0,0,0,0.12); }
+.bulle span { position: absolute; right: 30px; bottom: 10px; font-size: 32px; font-weight: 900; color: #2f9fd0; letter-spacing: -8px; }
+.oui { top: 850px; width: 150px; height: 80px; border-radius: 40px; background: #1a9e4b; color: #fff; font-weight: 900; font-size: 40px; line-height: 80px; text-align: center; }
+.vs { top: 470px; width: 640px; height: 400px; border-radius: 36px; text-align: center; border: 4px solid #e6e1d9; background: #fff; box-shadow: 0 22px 44px rgba(0,0,0,0.1); }
+.vs img { display: block; width: 170px; height: 170px; margin: 36px auto 16px; }
+.vs b { display: block; font-size: 54px; font-weight: 900; color: #141414; }
+.vs em { display: block; margin-top: 10px; font-style: normal; font-size: 38px; font-weight: 700; color: #777; }
+.poli { left: 220px; } .reel { left: 1060px; border-color: #ff3d1f; } .reel em { color: #e8401f; }
+#fade { left: 0; top: 0; width: 1920px; height: 1080px; background: #fff; z-index: 50; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="39.4" data-width="1920" data-height="1080">
+<div class="scene white" id="s1"><div class="cam" id="k1"><div class="grid"></div>
+<img class="obj" id="s1i1" src="assets/img/gem_stone_3d.png" style="left:810px; top:130px; width:300px; height:300px" />
+<div class="line" style="top:470px; left:0px; width:1920px;"><span class="w sm" id="s1w2">Chapitre</span><span class="w sm" id="s1w3">2</span></div>
+<div class="line" style="top:565px; left:0px; width:1920px" data-layout-allow-overlap><span class="w big" id="s1b4" style="font-size:96px">Trouve ta compétence vendable</span></div>
+</div></div>
+<div class="scene cream" id="s2"><div class="cam" id="k2"><div class="grid"></div><svg class="swoosh" viewBox="0 0 2320 1880"><path d="M300 -100 C 900 700, 1400 900, 2300 1900" fill="none" stroke="#d9d4cc" stroke-width="200" stroke-linecap="round"/></svg>
+<img class="obj" id="s2i1" src="assets/img/light_bulb_3d.png" style="left:150px; top:360px; width:340px; height:340px" />
+<div class="line" style="top:417px; left:520px; width:1340px;"><span class="w sm" id="s2w2">Pas</span><span class="w sm" id="s2w3">besoin</span><span class="w sm" id="s2w4">d&#x27;une</span><span class="w sm" id="s2w5">révélation.</span></div>
+<div class="line" style="top:495px; left:520px; width:1340px" data-layout-allow-overlap><span class="w big" id="s2b6" style="font-size:110px">3 bonnes questions</span></div>
+</div></div>
+<div class="scene white" id="s3"><div class="cam" id="k3"><div class="grid"></div>
+<div class="line" style="top:120px; left:0px; width:1920px;"><span class="w sm" id="s3w1">3</span><span class="w sm" id="s3w2">familles</span><span class="w sm" id="s3w3">de</span><span class="w sm" id="s3w4">compétences</span></div>
+<div class="line" style="top:200px; left:0px; width:1920px" data-layout-allow-overlap><span class="w big" id="s3b5" style="font-size:96px">et leur question</span></div>
+<div class="ab card" id="s3c6" style="left:260px; width:440px; height:540px"><img src="assets/img/hammer_and_wrench_3d.png" /><b>La compétence pratique</b><em>Qu&#x27;est-ce qu&#x27;on me demande souvent ?</em></div>
+<div class="ab card" id="s3c7" style="left:740px; width:440px; height:540px"><img src="assets/img/books_3d.png" /><b>Le savoir transmis</b><em>Que pourrais-je expliquer à quelqu&#x27;un qui part de zéro ?</em></div>
+<div class="ab card" id="s3c8" style="left:1220px; width:440px; height:540px"><img src="assets/img/key_3d.png" /><b>Le problème que tu résous</b><em>Pour quoi m&#x27;appelle-t-on quand on est bloqué ?</em></div>
+</div></div>
+<div class="scene cream" id="s4"><div class="cam" id="k4"><div class="grid"></div><svg class="swoosh" viewBox="0 0 2320 1880"><path d="M300 -100 C 900 700, 1400 900, 2300 1900" fill="none" stroke="#d9d4cc" stroke-width="200" stroke-linecap="round"/></svg>
+<div class="ab vcard" id="s4m1"><video id="s4m1v" src="assets/video/expliquer.mp4" muted playsinline data-start="16.90" data-duration="5.50" data-media-start="0"></video></div>
+<div class="line" style="top:380px; left:1000px; width:860px;"><span class="w sm" id="s4w2">Pas</span><span class="w sm" id="s4w3">besoin</span><span class="w sm" id="s4w4">d&#x27;être</span><span class="w sm" id="s4w5">le</span><span class="w sm" id="s4w6">meilleur.</span></div>
+<div class="line" style="top:458px; left:1000px; width:860px" data-layout-allow-overlap><span class="w big" id="s4b7" style="font-size:110px">1 ou 2 pas</span></div>
+<div class="line" style="top:590px; left:1000px; width:860px;"><span class="w sm red" id="s4w8">d&#x27;avance</span><span class="w sm red" id="s4w9">suffisent</span></div>
+</div></div>
+<div class="scene white" id="s5"><div class="cam" id="k5"><div class="grid"></div>
+<div class="line" style="top:90px; left:0px; width:1920px;"><span class="w sm" id="s5w1">L&#x27;exercice</span><span class="w sm" id="s5w2">:</span></div>
+<div class="line" style="top:165px; left:0px; width:1920px" data-layout-allow-overlap><span class="w big" id="s5b3" style="font-size:84px">3 questions × 3 réponses</span></div>
+<div class="ab sheet" id="s5f4"><div class="col" style="left:40px"><h4>On me demande souvent…</h4><i id="s5f4l00" style="top:110px; width:300px"></i><i id="s5f4l01" style="top:220px; width:263px"></i><i id="s5f4l02" style="top:330px; width:226px"></i></div><div class="col" style="left:430px"><h4>Je peux expliquer…</h4><i id="s5f4l10" style="top:110px; width:277px"></i><i id="s5f4l11" style="top:220px; width:240px"></i><i id="s5f4l12" style="top:330px; width:293px"></i></div><div class="col" style="left:820px"><h4>On m&#x27;appelle pour…</h4><i id="s5f4l20" style="top:110px; width:254px"></i><i id="s5f4l21" style="top:220px; width:217px"></i><i id="s5f4l22" style="top:330px; width:270px"></i></div><svg class="circ" viewBox="0 0 360 120" style="left:400px; top:182px"><ellipse id="s5f4o" cx="180" cy="60" rx="170" ry="52" /></svg></div>
+<div class="line" style="top:960px; left:0px; width:1920px;"><span class="w sm red" id="s5w5">Entoure</span><span class="w sm red" id="s5w6">celle</span><span class="w sm red" id="s5w7">qui</span><span class="w sm red" id="s5w8">revient</span><span class="w sm red" id="s5w9">le</span><span class="w sm red" id="s5w10">plus</span><span class="w sm red" id="s5w11">souvent</span></div>
+</div></div>
+<div class="scene cream" id="s6"><div class="cam" id="k6"><div class="grid"></div><svg class="swoosh" viewBox="0 0 2320 1880"><path d="M300 -100 C 900 700, 1400 900, 2300 1900" fill="none" stroke="#d9d4cc" stroke-width="200" stroke-linecap="round"/></svg>
+<img class="obj" id="s6i1" src="assets/img/check_mark_button_3d.png" style="left:150px; top:360px; width:340px; height:340px" />
+<div class="line" style="top:380px; left:520px; width:1340px;"><span class="w sm" id="s6w2">Pas</span><span class="w sm" id="s6w3">la</span><span class="w sm" id="s6w4">plus</span><span class="w sm" id="s6w5">originale.</span></div>
+<div class="line" style="top:458px; left:520px; width:1340px" data-layout-allow-overlap><span class="w big" id="s6b6" style="font-size:110px">La plus vérifiée.</span></div>
+<div class="line" style="top:590px; left:520px; width:1340px;"><span class="w sm red" id="s6w7">celle</span><span class="w sm red" id="s6w8">pour</span><span class="w sm red" id="s6w9">laquelle</span><span class="w sm red" id="s6w10">on</span><span class="w sm red" id="s6w11">t&#x27;a</span><span class="w sm red" id="s6w12">déjà</span><span class="w sm red" id="s6w13">dit</span><span class="w sm red" id="s6w14">merci,</span><span class="w sm red" id="s6w15">ou</span><span class="w sm red" id="s6w16">payé</span></div>
+</div></div>
+<div class="scene white" id="s7"><div class="cam" id="k7"><div class="grid"></div>
+<img class="obj" id="s7i1" src="assets/img/pencil_3d.png" style="left:150px; top:360px; width:340px; height:340px" />
+<div class="line" style="top:425px; left:520px; width:1340px;"><span class="w sm" id="s7w2">Fais</span><span class="w sm" id="s7w3">l&#x27;exercice</span><span class="w sm" id="s7w4">maintenant,</span></div>
+<div class="line" style="top:503px; left:520px; width:1340px" data-layout-allow-overlap><span class="w big" id="s7b5" style="font-size:92px">avant le chapitre 3</span></div>
+</div></div>
+<div class="ab" id="fade"></div>
+<audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="39.4" data-track-index="1" data-volume="1"></audio>
+</div>
+<script>
+
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const HIDE = [];
+const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+const word = (sel, at, d = 0.28) => IN(sel, { y: -40, scale: 1.3, filter: "blur(12px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at);
+const words = (list, at, gap = 0.11) => list.forEach((s, i) => word(s, at + i * gap));
+const pop = (sel, at) => IN(sel, { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, at);
+const bigIn = (sel, at) => IN(sel, { scale: 2.0, filter: "blur(16px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, at);
+const drop = (sel, at) => IN(sel, { y: -260, scale: 1.4 }, { y: 0, scale: 1, duration: 0.45, ease: "bounce.out" }, at);
+const stamp = (sel, at) => IN(sel, { scale: 2.6, rotation: -14 }, { scale: 1, rotation: -4, duration: 0.3, ease: "power4.in" }, at);
+const float = (sel, at, d, y = -16) => FT(sel, { y: 0 }, { y: y, duration: d / 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, at);
+
+const SC = [["#s1", "#k1", 0.0, 3.6], ["#s2", "#k2", 3.6, 3.8], ["#s3", "#k3", 7.4, 9.5], ["#s4", "#k4", 16.9, 5.5], ["#s5", "#k5", 22.4, 8.0], ["#s6", "#k6", 30.4, 5.0], ["#s7", "#k7", 35.4, 4.0]];
+SC.forEach(([s, c, a, d], i) => {
+  HIDE.push(s);
+  tl.set(s, { autoAlpha: 1 }, a);
+  if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+  FT(c, { scale: 1.12 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+  FT(c, { rotation: 0, x: 0 }, { rotation: i % 2 ? 0.6 : -0.6, x: i % 2 ? -24 : 24, duration: d, ease: "sine.inOut" }, a);
+});
+pop("#s1i1", 0.15);
+float("#s1i1", 0.65, 2.85);
+words(["#s1w2", "#s1w3"], 0.40, 0.11);
+drop("#s1b4", 0.85);
+pop("#s2i1", 3.75);
+float("#s2i1", 4.25, 3.05);
+words(["#s2w2", "#s2w3", "#s2w4", "#s2w5"], 3.90, 0.11);
+bigIn("#s2b6", 4.90);
+words(["#s3w1", "#s3w2", "#s3w3", "#s3w4"], 7.60, 0.11);
+bigIn("#s3b5", 7.95);
+IN("#s3c6", { y: 300, scale: 0.6, rotation: 8 }, { y: 0, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.6)" }, 8.50);
+IN("#s3c7", { y: 300, scale: 0.6, rotation: -8 }, { y: 0, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.6)" }, 9.90);
+IN("#s3c8", { y: 300, scale: 0.6, rotation: 8 }, { y: 0, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.6)" }, 11.30);
+IN("#s4m1", { y: 400, rotation: 8, scale: 0.8 }, { y: 0, rotation: -3, scale: 1, duration: 0.55, ease: "back.out(1.4)" }, 17.00);
+float("#s4m1", 17.60, 4.70, -12);
+words(["#s4w2", "#s4w3", "#s4w4", "#s4w5", "#s4w6"], 17.50, 0.11);
+bigIn("#s4b7", 18.50);
+words(["#s4w8", "#s4w9"], 19.50, 0.08);
+words(["#s5w1", "#s5w2"], 22.60, 0.11);
+bigIn("#s5b3", 22.90);
+IN("#s5f4", { y: 500, rotation: 3 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.3)" }, 23.00);
+IN("#s5f4l00", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 23.80);
+IN("#s5f4l01", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 24.08);
+IN("#s5f4l02", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 24.36);
+IN("#s5f4l10", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 24.64);
+IN("#s5f4l11", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 24.92);
+IN("#s5f4l12", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 25.20);
+IN("#s5f4l20", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 25.48);
+IN("#s5f4l21", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 25.76);
+IN("#s5f4l22", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 26.04);
+FT("#s5f4o", { strokeDasharray: 1000, strokeDashoffset: 1000 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 26.52);
+words(["#s5w5", "#s5w6", "#s5w7", "#s5w8", "#s5w9", "#s5w10", "#s5w11"], 26.72, 0.08);
+pop("#s6i1", 30.55);
+float("#s6i1", 31.05, 4.25);
+words(["#s6w2", "#s6w3", "#s6w4", "#s6w5"], 30.70, 0.11);
+bigIn("#s6b6", 31.70);
+words(["#s6w7", "#s6w8", "#s6w9", "#s6w10", "#s6w11", "#s6w12", "#s6w13", "#s6w14", "#s6w15", "#s6w16"], 32.70, 0.08);
+pop("#s7i1", 35.55);
+float("#s7i1", 36.05, 2.85);
+words(["#s7w2", "#s7w3", "#s7w4"], 35.70, 0.11);
+bigIn("#s7b5", 36.65);
+FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 39.00);
+gsap.set(HIDE, { autoAlpha: 0 });
+gsap.set("#s1", { autoAlpha: 1 });
+gsap.set("#fade", { opacity: 0 });
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>
