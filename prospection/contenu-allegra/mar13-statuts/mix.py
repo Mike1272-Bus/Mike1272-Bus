@@ -5,6 +5,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SFX_DIR = os.path.join(ROOT, "..", "..", "..", "video-excel-13h", "assets", "sfx")
 MUSIC = os.path.join(ROOT, "..", "..", "..", "video-excel-13h", "assets", "audio", "musique.wav")
 OUT = os.path.join(ROOT, "assets", "audio", "mix.wav")
+VOIX = os.path.join(ROOT, "assets", "audio", "voix-hook.wav")  # accroche, voix Kokoro ff_siwis
 DUR = 22.0
 SFX = [(0.1, "whoosh-short", 0.2), (0.25, "whoosh", 0.25), (0.8, "pop", 0.22), (1.55, "impact-bass-1", 0.25), (1.95, "impact-bass-2", 0.25), (2.4, "pop", 0.18),
        (3.15, "whoosh-cinematic", 0.3), (3.45, "pop", 0.2), (3.6, "impact-bass-2", 0.32), (4.1, "whoosh-short", 0.18),
@@ -16,7 +17,7 @@ SFX = [(0.1, "whoosh-short", 0.2), (0.25, "whoosh", 0.25), (0.8, "pop", 0.22), (
 
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 inputs = ["-i", MUSIC]
-fl = [f"[0:a]aresample=44100,aformat=channel_layouts=stereo,atrim=duration={DUR},volume=0.85,afade=t=in:d=0.5,afade=t=out:st={DUR - 1.2}:d=1.2[mus]"]
+fl = [f"[0:a]aresample=44100,aformat=channel_layouts=stereo,atrim=duration={DUR},volume='if(lt(t,2.9),0.3,0.85)':eval=frame,afade=t=in:d=0.5,afade=t=out:st={DUR - 1.2}:d=1.2[mus]"]
 labels = ["[mus]"]
 for i, (t, name, vol) in enumerate(SFX):
     inputs += ["-i", os.path.join(SFX_DIR, f"{name}.mp3")]
@@ -24,6 +25,10 @@ for i, (t, name, vol) in enumerate(SFX):
     extra = ",atrim=duration=0.7" if name == "typing" else ""
     fl.append(f"[{i + 1}:a]aresample=44100,aformat=channel_layouts=stereo{extra},volume={vol},adelay={d}|{d}[s{i}]")
     labels.append(f"[s{i}]")
+inputs += ["-i", VOIX]
+n = len(SFX) + 1
+fl.append(f"[{n}:a]aresample=44100,aformat=channel_layouts=stereo,volume=1.6,adelay=100|100[voix]")
+labels.append("[voix]")
 fl.append("".join(labels) + f"amix=inputs={len(labels)}:normalize=0:duration=first,apad,atrim=duration={DUR},loudnorm=I=-14:TP=-1.5:LRA=11[out]")
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error"] + inputs + ["-filter_complex", ";".join(fl), "-map", "[out]", "-ar", "44100", OUT], check=True)
 print("ok", OUT)

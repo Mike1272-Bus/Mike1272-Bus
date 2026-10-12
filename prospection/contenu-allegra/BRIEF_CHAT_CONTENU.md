@@ -35,7 +35,8 @@ Passerelle entre les deux : quand une entreprise donne son **accord écrit**, sa
 
 ## La direction artistique (DA)
 
-- Format **vertical 1080×1920**, 20 à 25 s, texte à l'écran (beaucoup regardent sans le son), musique + bruitages, pas de voix.
+- Format **vertical 1080×1920**, 20 à 25 s, texte à l'écran (beaucoup regardent sans le son), musique + bruitages. **Voix seulement sur l'accroche** (2 à 3 s, décision de Mike du 12 oct.) : `npx --yes hyperframes@0.8.77 tts "..." -v ff_siwis -s 1.05 -o assets/audio/voix-hook.wav` (il faut `pip install kokoro-onnx soundfile`), la musique baisse pendant la voix (voir `mix.py`).
+- **Petit logo en haut à gauche** pendant toute la vidéo (`#bug` : icône + « Allegra »), vrai logo dans l'avatar WhatsApp et la signature de fin.
 - Fond bleu : `radial-gradient(circle at 30% 18%, #2a5bc4 0%, #123077 45%, #071434 100%)` + grille fine (60 px, opacité 0,16) + halo jaune.
 - Jaune `#ffd60a`, bleu nuit `#0b1e4a`, rouge erreur `#ff4b3e`.
 - Polices : **Bricolage Grotesque 800** pour les titres, **Work Sans 700/400** pour les petits textes (fichiers dans `assets/fonts/`).
