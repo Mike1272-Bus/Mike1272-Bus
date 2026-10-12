@@ -3,6 +3,14 @@
 But : que les commerçants de Kinshasa nous écrivent eux-mêmes sur WhatsApp, au lieu que ce soit toujours nous qui les prospections.
 Registre : « vous » partout (on parle aux entreprises).
 
+## 0. Décisions de Mike (12 octobre)
+
+- Offre validée : **5 vidéos d'essai gratuites par semaine**, « elle ne vous plaît pas : vous ne nous devez rien ».
+- Comptes : la page Facebook d'Allegra existe ; un **2e compte TikTok** dédié à Allegra est créé à côté de celui qui existe déjà.
+- **Semaine 1 : pas de vidéos de la Ruche.** On les demandera seulement quand la semaine test aura atteint ses objectifs (et avec accord écrit). En attendant : clips libres de droits (Mixkit, Pexels, Pixabay), sans personnes, marqués « Exemple de pub ». Pinterest est exclu : ses images ne sont pas libres de droits.
+- Le robot GitHub `fetch-videos.yml` télécharge les clips dans `prospection/contenu-allegra/stock/` (ajouter une ligne `nom|recherche` dans `queries.txt` puis pousser). Pour Pexels et Pixabay : ajouter les clés API gratuites en secrets GitHub `PEXELS_API_KEY` et `PIXABAY_API_KEY`.
+- Dans le calendrier ci-dessous, les vidéos « Ruche » sont remplacées par des démos sur clips libres.
+
 ## 1. Les principes (inspirés d'Alex Hormozi, Gary Vee, Russell Brunson)
 
 1. **Montrer le travail, pas le promettre.** Nos vidéos sont la preuve. Chaque post montre une vraie vidéo faite pour une vraie marque (avec son accord écrit) ou une démonstration sur nos propres visuels.
