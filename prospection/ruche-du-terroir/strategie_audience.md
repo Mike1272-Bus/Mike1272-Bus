@@ -247,9 +247,9 @@ Ce sont des objectifs, pas des promesses. Ils dépendent aussi de la régularit�
 
 - 5 visuels de pots : moringa, miel sauvage du Mai-Ndombe, poivre noir, cannelle, hibiscus. Les pots détourés sont dans `photos-client/detoure/`.
 - Les paniers (leurs visuels) :
-  - Panier Or, 20 $ : 2 pots de variétés différentes, 1 produit d'accompagnement, 1 produit offert, 1 note, 1 flyer.
-  - Panier Platine, 30 $ : 3 pots, 1 produit d'accompagnement, 2 produits offerts, 1 note, 1 flyer.
-  - Panier Diamant, 40 $ : 4 pots, 2 produits d'accompagnement, 2 produits offerts, 1 note, 1 flyer.
+  - Panier Or, 20 $ : 2 pots de variétés différentes, 1 produit d'accompagnement, 1 produit offert, 1 flyer (la note posologique n'est pas montrée dans les vidéos).
+  - Panier Platine, 30 $ : 3 pots, 1 produit d'accompagnement, 2 produits offerts, 1 flyer (la note posologique n'est pas montrée dans les vidéos).
+  - Panier Diamant, 40 $ : 4 pots, 2 produits d'accompagnement, 2 produits offerts, 1 flyer (la note posologique n'est pas montrée dans les vidéos).
   - Grammage : la Ruche a aussi du miel en pots de 300 g, en plus des 510 g. **Ne jamais afficher le grammage** dans les vidéos et les textes (demande du 12 octobre).
 - Adresse sur leurs visuels : N°51 avenue Benseke, Q/Joli-Parc, C/Ngaliema, réf. arrêt Sakombi. E-mail : mess.rucheterroir@gmail.com.
 - Lot du concours : un pot de miel avec une cuillère à miel.
