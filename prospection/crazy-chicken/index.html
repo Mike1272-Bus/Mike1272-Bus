@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #e8540a; }
+      /* couleurs de leur affiche : orange vif, rouge du logo, blanc */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff;
+        background: radial-gradient(ellipse at 50% 38%, #ffd2a1 0%, #ff8a2a 30%, #f05a0c 62%, #a32a00 100%); }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      #rays { left: -660px; top: -340px; width: 2400px; height: 2400px; opacity: 0.16;
+        background: repeating-conic-gradient(from 0deg, #fff 0deg 7deg, transparent 7deg 18deg); border-radius: 50%; }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .w { display: inline-block; margin: 0 0.1em; }
+      .sm { font-weight: 600; font-size: 60px; letter-spacing: -0.01em; color: #fff; text-shadow: 0 4px 14px rgba(90,20,0,0.45); }
+      .big { font-family: 'Baloo', sans-serif; font-weight: 800; font-size: 170px; line-height: 0.95; letter-spacing: -0.01em; color: #fff;
+        text-shadow: 0 4px 0 #d62718, 0 8px 0 #b51c10, 0 12px 0 #8f1309, 0 30px 40px rgba(60,10,0,0.45); }
+      .obj { position: absolute; filter: drop-shadow(0 36px 40px rgba(70,15,0,0.45)); }
+      .pill { position: absolute; height: 120px; border-radius: 60px; padding: 0 54px; font-weight: 900; font-size: 54px; line-height: 120px; white-space: nowrap;
+        background: linear-gradient(180deg, #ff3b2e, #d01f12); color: #fff; box-shadow: 0 12px 0 #8a1208, 0 26px 40px rgba(60,10,0,0.35); }
+      .pill.w2 { background: linear-gradient(180deg, #ffffff, #ffe9d6); color: #c21d10; box-shadow: 0 12px 0 #d9a77f, 0 26px 40px rgba(60,10,0,0.3); }
+      .crumb { position: absolute; width: 22px; height: 18px; border-radius: 45% 55% 40% 60%; background: #e9a04a; box-shadow: inset -3px -3px 0 rgba(120,50,0,0.35); }
+      #logo1 { left: 340px; top: 260px; width: 400px; height: 400px; filter: drop-shadow(0 20px 30px rgba(70,15,0,0.45)); }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #a32a00; z-index: 40; }
+      #flash { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; z-index: 30; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div class="ab" id="rays"></div>
+
+      <!-- 1. Une petite faim ? (0 - 2,6) -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <img id="logo1" class="ab" src="assets/img/logo.png" alt="" />
+        <div class="line" style="top:800px"><span class="w sm" id="a1">Lubumbashi,</span></div>
+        <div class="line" style="top:910px" data-layout-allow-overlap><span class="w big" id="a2">une petite</span></div>
+        <div class="line" style="top:1090px" data-layout-allow-overlap><span class="w big" id="a3" style="font-size:240px">faim ?</span></div>
+      </div></div>
+
+      <!-- 2. Le seau de poulet (2,6 - 7,6) -->
+      <div class="scene" id="s2"><div class="cam" id="k2">
+        <div class="line" style="top:170px"><span class="w sm" id="b1">Notre</span><span class="w sm" id="b2">grand</span></div>
+        <div class="line" style="top:260px" data-layout-allow-overlap><span class="w big" id="b3" style="font-size:150px">seau de poulet</span></div>
+        <img class="obj" id="seau" src="assets/img/seau.png" style="left:150px; top:560px; width:780px; height:903px" />
+        <div class="crumb" id="cr1" style="left:200px; top:1460px"></div><div class="crumb" id="cr2" style="left:860px; top:1440px"></div>
+        <div class="crumb" id="cr3" style="left:330px; top:1500px"></div><div class="crumb" id="cr4" style="left:730px; top:1510px"></div>
+        <img class="obj" id="spk" src="assets/img/sparkles_3d.png" style="left:800px; top:520px; width:200px; height:200px" />
+        <div class="line" style="top:1600px"><span class="w sm" id="b4">bien</span><span class="w sm" id="b5" style="font-weight:900">rempli</span><span class="w sm" id="b6">et</span><span class="w sm" id="b7" style="font-weight:900">doré</span></div>
+      </div></div>
+
+      <!-- 3. Le poulet croustillant et sa sauce (7,6 - 11,6) -->
+      <div class="scene" id="s3"><div class="cam" id="k3">
+        <img class="obj" id="ten" src="assets/img/tenders.png" style="left:40px; top:700px; width:1000px; height:596px" />
+        <div class="line" style="top:330px" data-layout-allow-overlap><span class="w big" id="c1" style="font-size:180px">Croustillant</span></div>
+        <div class="line" style="top:1380px"><span class="w sm" id="c2">avec</span><span class="w sm" id="c3">sa</span><span class="w sm" id="c4" style="font-weight:900">sauce</span></div>
+      </div></div>
+
+      <!-- 4. Pour accompagner (11,6 - 14,6) -->
+      <div class="scene" id="s4"><div class="cam" id="k4">
+        <img class="obj" id="seau4" src="assets/img/seau.png" style="left:260px; top:230px; width:560px; height:648px" />
+        <div class="line" style="top:960px"><span class="w sm" id="d1">Et</span><span class="w sm" id="d2">pour</span><span class="w sm" id="d3">accompagner :</span></div>
+        <div class="pill" id="d4" style="left:170px; top:1110px; width:740px; text-align:center; padding:0; font-size:60px">Salade de fruits</div>
+        <div class="pill w2" id="d5" style="left:170px; top:1310px; width:740px; text-align:center; padding:0; font-size:60px">Salade normale</div>
+      </div></div>
+
+      <!-- 5. Carte de fin (14,6 - 20) -->
+      <div class="scene" id="s5"><div class="cam" id="k5">
+        <img class="obj" id="logo5" src="assets/img/logo.png" style="left:330px; top:150px; width:420px; height:420px" />
+        <div class="line" style="top:620px" data-layout-allow-overlap><span class="w big" id="e1" style="font-size:150px">Crazy Chicken</span></div>
+        <div class="line" style="top:800px"><span class="w sm" id="e2">Lubumbashi</span></div>
+        <img class="obj" id="ten5" src="assets/img/tenders.png" style="left:20px; top:1080px; width:620px; height:370px" />
+        <img class="obj" id="seau5" src="assets/img/seau.png" style="left:560px; top:940px; width:470px; height:544px" />
+        <div class="pill w2" id="e3" style="left:120px; top:1580px; width:840px; text-align:center; padding:0; font-size:60px">Commandez maintenant !</div>
+      </div></div>
+
+      <div class="ab" id="flash"></div>
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="20" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const word = (sel, at, d = 0.28) => IN(sel, { y: -50, scale: 1.3, filter: "blur(12px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at);
+      const words = (list, at, gap = 0.12) => list.forEach((s, i) => word(s, at + i * gap));
+      const pop = (sel, at) => IN(sel, { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, at);
+      const float = (sel, at, d, y = -16) => FT(sel, { y: 0 }, { y: y, duration: d / 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, at);
+      const slam = (sel, at) => IN(sel, { scale: 2.2, filter: "blur(16px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, at);
+      const shake = (sel, at) => FT(sel, { x: 0 }, { x: 14, duration: 0.05, yoyo: true, repeat: 5 }, at);
+      const flash = at => { HIDE.push("#flash"); FT("#flash", { autoAlpha: 0.85 }, { autoAlpha: 0, duration: 0.25, ease: "power2.out" }, at); };
+
+      FT("#rays", { rotation: 0 }, { rotation: 40, duration: 20, ease: "none" }, 0);
+      const SC = [["#s1", "#k1", 0, 2.6], ["#s2", "#k2", 2.6, 5.0], ["#s3", "#k3", 7.6, 4.0], ["#s4", "#k4", 11.6, 3.0], ["#s5", "#k5", 14.6, 5.4]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        tl.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.14 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+        FT(c, { rotation: 0, x: 0 }, { rotation: i % 2 ? 0.6 : -0.6, x: i % 2 ? -16 : 16, duration: d, ease: "sine.inOut" }, a);
+        if (i) flash(a);
+      });
+
+      // 1. une petite faim
+      pop("#logo1", 0.1); float("#logo1", 0.6, 1.8, -14);
+      word("#a1", 0.35);
+      slam("#a2", 0.75);
+      IN("#a3", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.5, ease: "bounce.out" }, 1.15);
+      shake("#k1", 1.6);
+
+      // 2. le seau tombe
+      words(["#b1", "#b2"], 2.7);
+      slam("#b3", 3.0);
+      IN("#seau", { y: -1500, rotation: -14 }, { y: 0, rotation: 0, duration: 0.6, ease: "bounce.out" }, 3.4);
+      shake("#k2", 3.85);
+      [["#cr1", -160], ["#cr2", 160], ["#cr3", -90], ["#cr4", 100]].forEach(([c, dx], i) => IN(c, { x: 0, y: 0, scale: 0.4 }, { x: dx, y: -120 - i * 20, scale: 1, rotation: 200, duration: 0.5, ease: "power2.out" }, 3.9));
+      pop("#spk", 4.2); float("#spk", 4.6, 2.0, -18);
+      FT("#seau", { scale: 1 }, { scale: 1.06, duration: 3.0, ease: "sine.inOut" }, 4.4);
+      words(["#b4", "#b5", "#b6", "#b7"], 4.9, 0.14);
+
+      // 3. croustillant + sauce
+      IN("#ten", { x: 1200, rotation: 10 }, { x: 0, rotation: -2, duration: 0.55, ease: "expo.out" }, 7.7);
+      slam("#c1", 8.1);
+      shake("#k3", 8.45);
+      FT("#ten", { scale: 1 }, { scale: 1.08, duration: 3.0, ease: "none" }, 8.3);
+      words(["#c2", "#c3", "#c4"], 8.9, 0.14);
+
+      // 4. accompagnements
+      IN("#seau4", { y: -900 }, { y: 0, duration: 0.5, ease: "bounce.out" }, 11.65);
+      words(["#d1", "#d2", "#d3"], 11.9, 0.1);
+      IN("#d4", { x: -1100 }, { x: 0, duration: 0.45, ease: "expo.out" }, 12.4);
+      IN("#d5", { x: 1100 }, { x: 0, duration: 0.45, ease: "expo.out" }, 12.9);
+      float("#seau4", 12.2, 2.2, -16);
+
+      // 5. carte de fin
+      IN("#logo5", { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 14.7);
+      slam("#e1", 15.2);
+      word("#e2", 15.6);
+      IN("#ten5", { x: -900 }, { x: 0, duration: 0.5, ease: "expo.out" }, 15.9);
+      IN("#seau5", { y: 1000 }, { y: 0, duration: 0.55, ease: "back.out(1.3)" }, 16.1);
+      IN("#e3", { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.5)" }, 16.8);
+      FT("#e3", { scale: 1 }, { scale: 1.06, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 17.4);
+      float("#logo5", 15.4, 3.6, -14);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 19.65);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
