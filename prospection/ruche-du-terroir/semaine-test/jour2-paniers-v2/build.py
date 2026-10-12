@@ -32,7 +32,7 @@ css = head + keep.replace("cannelle_photo.jpg", "panier_photo.jpg").replace("wid
 P = {"or": ("Panier Or", "h-or", 2, "1 produit d'accompagnement", "1 produit offert"),
      "pl": ("Panier Platine", "h-pl", 3, "1 produit d'accompagnement", "2 produits offerts"),
      "di": ("Panier Diamant", "h-di", 4, "2 produits d'accompagnement", "2 produits offerts")}
-ITEMS = lambda pots, acc, off: [("honey_pot", f"{pots} pots de miel de 510 g", "de variétés différentes"),
+ITEMS = lambda pots, acc, off: [("honey_pot", f"{pots} pots de miel", "de variétés différentes"),
                                 ("package", acc, "pour accompagner votre miel"),
                                 ("wrapped_gift", off, "en cadeau"),
                                 ("open_book", "1 guide de consommation", "comment et quand le prendre"),
