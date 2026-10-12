@@ -1,0 +1,14 @@
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('inter-latin-600-normal.woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 800; src: url('inter-latin-800-normal.woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 900; src: url('inter-latin-900-normal.woff2'); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #141414; }
+.bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 42%, #ffffff 0%, #f6f4f0 65%, #ebe7e0 100%); }
+.grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px); background-size: 60px 60px; }
+.c { position: absolute; left: 0; width: 1080px; text-align: center; }
+.sm { font-weight: 600; font-size: 58px; letter-spacing: -0.02em; }
+.big { font-weight: 900; font-size: 120px; letter-spacing: -0.045em; line-height: 0.98; color: #ff3d1f; text-shadow: 0 6px 0 #8f1d0c, 0 18px 30px rgba(0,0,0,0.22); }
+.pill { display: inline-block; padding: 22px 46px; border-radius: 60px; font-weight: 800; font-size: 44px; }
+.red { background: #ff3d1f; color: #fff; box-shadow: 0 16px 30px rgba(255,61,31,0.35); }
+.dark { background: #141414; color: #fff; }
+.obj { position: absolute; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.25)); }
