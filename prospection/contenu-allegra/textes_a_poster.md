@@ -26,6 +26,29 @@ Légende :
 > (Exemple réalisé avec des images libres de droits.)
 > #Kinshasa #RDC #publicité #vidéo #entrepreneur
 
+## Mercredi 14 octobre, 13 h : « Photo ou vidéo ? »
+Vidéo : `mer14-photo-video/renders/allegra-mer14-photo-video.mp4`
+
+Légende :
+> Votre client fait défiler… Qu'est-ce qui l'arrête ? 👀
+> On a fait le test avec la même glace : une photo, puis une vidéo.
+> Ce qui bouge attire l'œil. On voit la matière, et ça donne envie.
+> Notre conseil : filmez votre produit, même 5 secondes avec votre téléphone.
+> Écrivez STATUT au +243 831 710 181 et recevez nos 3 règles pour des statuts qui font écrire.
+> (Images libres de droits.)
+> #Kinshasa #RDC #commerce #marketing #WhatsApp
+
+## Mercredi 14 octobre, 19 h : « Une simple photo de pizza… devient une pub »
+Vidéo : `mer14-demo-pizza/renders/allegra-mer14-demo-pizza.mp4`
+
+Légende :
+> Une simple photo de pizza… devient une pub 🍕
+> Voici comment on travaille : vos photos, un montage animé, du texte et de la musique. La vidéo est prête pour vos statuts, Facebook et TikTok.
+> Restaurant, pâtisserie, cosmétique, mode, téléphones : on peut le faire avec les photos de vos produits.
+> Vous voulez la vôtre ? Écrivez VIDÉO au +243 831 710 181, on vous montre ce que ça donne pour votre commerce.
+> (Exemple de pub réalisé avec des images libres de droits.)
+> #Kinshasa #RDC #restaurant #publicité #vidéo
+
 ## Réponses WhatsApp à préparer
 
 **STATUT :**
@@ -38,3 +61,10 @@ Légende :
 **ESSAI :**
 > Avec plaisir ! Envoyez-nous 3 photos de votre produit (bien éclairées, de près) et le nom de votre marque. Nous vous préparons votre vidéo d'essai gratuite. Elle ne vous plaît pas ? Vous ne nous devez rien.
 > (Places de la semaine : 5. Tenir le compte ici : 0/5)
+
+**VIDÉO :**
+> Avec plaisir ! Que vendez-vous ? 🙂
+> Voici ce que nous faisons pour les commerces : https://allegra-digital-ground.vercel.app
+> Envoyez-nous 3 photos de votre produit : nous vous préparons une vidéo d'essai gratuite (5 places par semaine).
+
+(Note pour Mike : ces essais comptent dans les 5 places de la semaine, avec ceux du mot-clé ESSAI.)
