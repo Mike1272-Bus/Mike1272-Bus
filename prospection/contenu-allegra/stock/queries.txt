@@ -1,0 +1,12 @@
+cafe|coffee
+miel|honey
+burger|burger
+jus|juice
+gateau|cake
+cosmetique|cosmetics
+parfum|perfume
+smartphone|smartphone
+colis|package
+epices|spices
+ville-nuit|city-lights
+tissu|fabric

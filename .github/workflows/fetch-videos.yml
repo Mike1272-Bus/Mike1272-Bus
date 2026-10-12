@@ -1,0 +1,92 @@
+name: Vidéos libres (Mixkit, Pexels, Pixabay, Wikimedia)
+on:
+  push:
+    branches: [claude/gallant-goldberg-l20gu3]
+    paths: [prospection/contenu-allegra/stock/queries.txt, .github/workflows/fetch-videos.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Télécharger
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+        run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg > /dev/null
+          pip install -q requests
+          python3 - <<'PY'
+          import requests, os, re, subprocess, tempfile
+          UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
+          base = "prospection/contenu-allegra/stock"; out = f"{base}/raw"; os.makedirs(out, exist_ok=True)
+          credits = []; PER = 4
+          def save(url, name, meta):
+              """Télécharge, coupe à 10 s, sans son, 1080 px de haut max, H.264."""
+              try:
+                  r = requests.get(url, headers=UA, timeout=120); r.raise_for_status()
+                  if len(r.content) > 120e6: return False
+                  with tempfile.NamedTemporaryFile(suffix=".src", delete=False) as f: f.write(r.content); src = f.name
+                  dst = f"{out}/{name}.mp4"
+                  subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-t", "10", "-an", "-vf", "scale='if(gt(ih,1080),-2,iw)':'if(gt(ih,1080),1080,ih)',fps=30", "-c:v", "libx264", "-crf", "26", "-preset", "medium", "-pix_fmt", "yuv420p", "-movflags", "+faststart", dst], check=True)
+                  credits.append(f"{name}.mp4 | {meta}"); print("ok", name); return True
+              except Exception as e:
+                  print("échec", name, e); return False
+          for line in open(f"{base}/queries.txt"):
+              line = line.strip()
+              if not line or line.startswith("#"): continue
+              slug, q = line.split("|", 1); n = 0
+              # 1) Pexels (si la clé existe)
+              if os.environ.get("PEXELS_API_KEY"):
+                  try:
+                      r = requests.get("https://api.pexels.com/videos/search", params={"query": q.replace("-", " "), "per_page": 10}, headers={"Authorization": os.environ["PEXELS_API_KEY"]}, timeout=30)
+                      for v in r.json().get("videos", []):
+                          if n >= PER: break
+                          fs = sorted([f for f in v["video_files"] if f.get("height") and f["height"] <= 1920], key=lambda f: -f["height"])
+                          if fs and save(fs[0]["link"], f"{slug}-{n+1}", f"Pexels License | {v['user']['name']} | {v['url']}"): n += 1
+                  except Exception as e: print("pexels", e)
+              # 2) Pixabay (si la clé existe)
+              if n < PER and os.environ.get("PIXABAY_API_KEY"):
+                  try:
+                      r = requests.get("https://pixabay.com/api/videos/", params={"key": os.environ["PIXABAY_API_KEY"], "q": q.replace("-", " "), "per_page": 10, "safesearch": "true"}, timeout=30)
+                      for v in r.json().get("hits", []):
+                          if n >= PER: break
+                          vv = v["videos"].get("large") or v["videos"].get("medium")
+                          if vv and vv.get("url") and save(vv["url"], f"{slug}-{n+1}", f"Pixabay Content License | {v.get('user')} | {v.get('pageURL')}"): n += 1
+                  except Exception as e: print("pixabay", e)
+              # 3) Mixkit (pas de clé)
+              if n < PER:
+                  try:
+                      r = requests.get(f"https://mixkit.co/free-stock-video/{q}/", headers=UA, timeout=30)
+                      print(slug, "mixkit", r.status_code)
+                      urls = []
+                      for u in re.findall(r"https://assets\.mixkit\.co/[^\"'\s]+?\.mp4", r.text):
+                          if u not in urls: urls.append(u)
+                      for u in urls:
+                          if n >= PER: break
+                          if save(u, f"{slug}-{n+1}", f"Mixkit License (usage commercial gratuit) | {u}"): n += 1
+                  except Exception as e: print("mixkit", e)
+              # 4) Wikimedia Commons (secours, CC0 / domaine public)
+              if n < PER:
+                  try:
+                      r = requests.get("https://commons.wikimedia.org/w/api.php", params={"action": "query", "format": "json", "generator": "search", "gsrsearch": f"filetype:video {q.replace('-', ' ')}", "gsrnamespace": 6, "gsrlimit": 20, "prop": "imageinfo", "iiprop": "url|extmetadata"}, headers={"User-Agent": "AllegraBot/1.0 (github.com/Mike1272-Bus)"}, timeout=30)
+                      for p in (r.json().get("query", {}).get("pages", {}) or {}).values():
+                          if n >= PER: break
+                          ii = p.get("imageinfo", [{}])[0]; lic = ii.get("extmetadata", {}).get("LicenseShortName", {}).get("value", "")
+                          if not any(k in lic.lower() for k in ["cc0", "public domain", "pd"]): continue
+                          if save(ii.get("url"), f"{slug}-{n+1}", f"{lic} | {ii.get('descriptionurl')}"): n += 1
+                  except Exception as e: print("commons", e)
+              print(slug, "->", n)
+          open(f"{base}/credits.txt", "w").write("\n".join(credits) + "\n")
+          PY
+          ls -la prospection/contenu-allegra/stock/raw
+      - name: Commit
+        run: |
+          git config user.name "videos-bot"
+          git config user.email "videos-bot@users.noreply.github.com"
+          git add prospection/contenu-allegra/stock
+          git commit -m "Vidéos libres de droits pour le contenu Allegra" || exit 0
+          git pull --rebase origin ${GITHUB_REF_NAME}
+          git push origin HEAD:${GITHUB_REF_NAME}
