@@ -69,10 +69,10 @@
       #ph { left: 290px; top: 200px; width: 500px; height: 900px; border-radius: 64px; background: #111; padding: 16px; box-shadow: 0 40px 70px rgba(0,0,0,0.25); }
       #scr { position: relative; width: 468px; height: 868px; border-radius: 50px; overflow: hidden; background: linear-gradient(160deg, #ffd7c9, #ffe9b8 50%, #d6e8ff); }
       #scr video { position: absolute; left: 0; top: 0; width: 468px; height: 868px; object-fit: cover; }
-      .app { position: absolute; width: 150px; height: 150px; border-radius: 36px; background-size: cover; background-position: center; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-      .app s { position: absolute; left: -20px; width: 190px; top: 160px; text-align: center; text-decoration: none; font-weight: 800; font-size: 26px; color: #141414; }
-      #ap1 { left: 54px; top: 300px; background-image: url(assets/img/canva.jpg); } #ap2 { left: 160px; top: 300px; background: #111 url(assets/img/clapper_board_3d.png) center/70% no-repeat; } #ap3 { left: 266px; top: 300px; background: #fff url(assets/img/chariow_logo.jpg) center/contain no-repeat; }
-      #ap1 { left: 40px; } #ap2 { left: 159px; } #ap3 { left: 278px; }
+      .app { position: absolute; width: 120px; height: 120px; border-radius: 30px; background-size: cover; background-position: center; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+      .app s { position: absolute; left: -20px; width: 160px; top: 130px; text-align: center; text-decoration: none; font-weight: 800; font-size: 26px; color: #141414; }
+      #ap1 { left: 54px; top: 300px; background-image: url(assets/img/canva.jpg); } #ap2 { left: 160px; top: 300px; background: url(assets/img/icon_capcut.png) center/cover no-repeat; } #ap3 { left: 266px; top: 300px; background: #fff url(assets/img/chariow_logo.jpg) center/contain no-repeat; }
+      #ap1 { left: 44px; } #ap2 { left: 174px; } #ap3 { left: 304px; }
       #notif { left: 30px; top: 30px; width: 408px; height: 110px; border-radius: 26px; background: rgba(255,255,255,0.96); box-shadow: 0 10px 24px rgba(0,0,0,0.25); font-weight: 800; font-size: 30px; line-height: 110px; padding-left: 100px; color: #141414; }
       #notif i { position: absolute; left: 24px; top: 25px; width: 60px; height: 60px; background: url(assets/img/check_mark_button_3d.png) center/contain no-repeat; }
       .tool { position: absolute; left: 90px; top: 1180px; width: 900px; height: 210px; border-radius: 30px; background: #fff; border: 3px solid #e6e1d9; box-shadow: 0 18px 36px rgba(0,0,0,0.1); overflow: hidden; }
@@ -84,16 +84,18 @@
       .plat { position: absolute; top: 640px; width: 310px; height: 380px; border-radius: 34px; overflow: hidden; box-shadow: 0 22px 44px rgba(0,0,0,0.18); }
       .plat b { position: absolute; left: 0; width: 310px; bottom: 26px; text-align: center; font-size: 40px; font-weight: 900; color: #fff; letter-spacing: -0.02em; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
       .plat video { width: 100%; height: 100%; object-fit: cover; display: block; }
-      #pl1 { left: 40px; background: #111; } #pl2 { left: 385px; background: #1a9e4b; } #pl3 { left: 730px; background: #1877f2; }
-      #pl2 img { position: absolute; left: 65px; top: 60px; width: 180px; height: 180px; }
+      #pl1 { left: 40px; background: #111; } #pl2 { left: 385px; background: #fff; } #pl3 { left: 730px; background: #fff; }
+      #pl2 b, #pl3 b { color: #141414; text-shadow: none; }
+      #pl2 img, #pl3 img { position: absolute; left: 60px; top: 50px; width: 190px; height: 190px; filter: drop-shadow(0 12px 20px rgba(0,0,0,0.2)); }
       #pl3 .fb { position: absolute; left: 95px; top: 50px; width: 120px; height: 200px; color: #fff; font-weight: 900; font-size: 210px; line-height: 200px; text-align: center; }
       .fly { position: absolute; width: 110px; height: 110px; }
 
       /* pub */
       #pv1, #pv2 { left: 90px; top: 480px; width: 900px; height: 506px; }
-      .pp { position: absolute; height: 84px; border-radius: 42px; font-weight: 800; font-size: 38px; line-height: 84px; text-align: center; color: #fff; }
-      #pfb { left: 470px; top: 1230px; width: 260px; background: #1877f2; }
-      #pig { left: 750px; top: 1230px; width: 260px; background: linear-gradient(90deg, #f58529, #dd2a7b 50%, #8134af); }
+      .pp { position: absolute; height: 84px; border-radius: 42px; font-weight: 800; font-size: 36px; line-height: 84px; padding-left: 70px; color: #141414; background: #fff; border: 3px solid #e6e1d9; box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
+      .pp img { position: absolute; left: 12px; top: 11px; width: 56px; height: 56px; }
+      #pfb { left: 470px; top: 1230px; width: 260px; }
+      #pig { left: 750px; top: 1230px; width: 270px; }
       .ring { position: absolute; left: 190px; top: 1110px; width: 160px; height: 160px; border-radius: 50%; border: 8px solid #ff3d1f; }
 
       /* guide + CTA */
@@ -147,7 +149,7 @@
         <div class="line" style="top:290px" data-layout-allow-overlap><span class="w sm" id="p6">et</span><span class="w sm" id="p7">le</span><span class="w sm" id="p8">transformer</span></div>
         <div class="line" style="top:395px" data-layout-allow-overlap><span class="w big" id="p9">en revenu</span></div>
         <img class="obj" id="n1" src="assets/img/brain_3d.png" style="left:60px; top:760px; width:260px; height:260px" />
-        <img class="obj" id="n2" src="assets/img/mobile_phone_3d.png" style="left:410px; top:740px; width:260px; height:260px" />
+        <img class="obj" id="n2" src="assets/img/smartphone.png" style="left:465px; top:712px; width:150px; height:308px" />
         <img class="obj" id="n3" src="assets/img/money_bag_3d.png" style="left:760px; top:760px; width:260px; height:260px" />
         <div class="lab" id="n1l" style="left:20px; top:1040px; width:340px">ton savoir-faire</div>
         <div class="lab" id="n2l" style="left:370px; top:1040px; width:340px">ton téléphone</div>
@@ -197,8 +199,8 @@
         <div class="fcard" id="fo2"><img src="assets/img/clipboard_3d.png" /><b>checklist</b></div>
         <div class="fcard" id="fo3"><img src="assets/img/memo_3d.png" /><b>modèle à remplir</b></div>
         <div class="fcard" id="fo4"><img src="assets/img/clapper_board_3d.png" /><b>vidéos courtes</b></div>
-        <img class="obj" id="fph" src="assets/img/mobile_phone_3d.png" style="left:340px; top:700px; width:400px; height:400px" />
-        <div class="pill pk" id="fd" style="left:190px; top:1380px; width:700px">tout au téléphone</div>
+        <img class="obj" id="fph" src="assets/img/smartphone.png" style="left:415px; top:720px; width:250px; height:514px" />
+        <div class="pill pk" id="fd" style="left:190px; top:1290px; width:700px">tout au téléphone</div>
       </div></div>
 
       <!-- 6. Partie 2 : les applications (42,0 - 51,0) -->
@@ -212,7 +214,7 @@
           <div class="ab" id="notif"><i></i>Paiement reçu</div>
         </div></div>
         <div class="tool" id="t1"><div class="th" style="background-image:url(assets/img/canva.jpg)"></div><b>Canva</b><span>pour créer ton guide en PDF</span></div>
-        <div class="tool" id="t2"><div class="th" style="background:#111 url(assets/img/clapper_board_3d.png) center/60% no-repeat"></div><b>CapCut</b><span>pour monter tes vidéos</span></div>
+        <div class="tool" id="t2"><div class="th" style="background:#f1f1f1 url(assets/img/icon_capcut.png) center/62% no-repeat"></div><b>CapCut</b><span>pour monter tes vidéos</span></div>
         <div class="tool" id="t3"><div class="th" style="background:#fff url(assets/img/chariow_logo.jpg) center/contain no-repeat"></div><b>Chariow</b><span>pour vendre et être payé</span></div>
       </div></div>
 
@@ -233,8 +235,8 @@
         <div class="line" style="top:390px" data-layout-allow-overlap><span class="w big" id="gc">les clients</span></div>
         <div class="pill pg" id="gd" style="left:340px; top:530px; width:400px; height:80px; line-height:80px">gratuit d'abord</div>
         <div class="plat" id="pl1"><video id="vt" src="assets/video/trepied.mp4" muted playsinline data-start="57.4" data-duration="8.8" data-media-start="0"></video><b>Vidéos TikTok</b></div>
-        <div class="plat" id="pl2"><img src="assets/img/speech_balloon_3d.png" /><b>Statut WhatsApp</b></div>
-        <div class="plat" id="pl3"><div class="fb">f</div><b>Page Facebook</b></div>
+        <div class="plat" id="pl2"><img src="assets/img/icon_whatsapp.png" /><b>Statut WhatsApp</b></div>
+        <div class="plat" id="pl3"><img src="assets/img/icon_facebook.png" /><b>Page Facebook</b></div>
         <img class="obj" id="mgn" src="assets/img/magnet_3d.png" style="left:410px; top:1090px; width:260px; height:260px" />
         <img class="fly" id="fl1" src="assets/img/red_heart_3d.png" style="left:485px; top:1160px" />
         <img class="fly" id="fl2" src="assets/img/speech_balloon_3d.png" style="left:485px; top:1160px" />
@@ -250,7 +252,7 @@
       <div class="scene light white" id="s9"><div class="cam" id="k9"><div class="grid"></div>
         <div class="line" style="top:200px" data-layout-allow-overlap><span class="w sm" id="h1">Ensuite,</span><span class="w sm" id="h2">quand</span><span class="w sm" id="h3">une</span><span class="w sm" id="h4">vidéo</span></div>
         <div class="line" style="top:300px" data-layout-allow-overlap><span class="w big" id="h5">marche bien</span></div>
-        <div class="vcard" id="pv1"><video id="vp1" src="assets/video/pub_tel.mp4" muted playsinline data-start="66.6" data-duration="4.0" data-media-start="0"></video></div>
+        <div class="vcard" id="pv1"><video id="vp1" src="assets/video/pub_tel.mp4" muted playsinline data-start="66.6" data-duration="6.2" data-media-start="0"></video></div>
         <div class="vcard" id="pv2"><video id="vp2" src="assets/video/reseaux.mp4" muted playsinline data-start="72.8" data-duration="1.9" data-media-start="0"></video></div>
         <img class="obj" id="chr" src="assets/img/chart_increasing_3d.png" style="left:790px; top:400px; width:230px; height:230px" />
         <img class="obj" id="fir" src="assets/img/fire_3d.png" style="left:60px; top:420px; width:170px; height:170px" />
@@ -258,7 +260,7 @@
         <img class="obj" id="meg" src="assets/img/megaphone_3d.png" style="left:110px; top:1040px; width:320px; height:320px" />
         <img class="obj" id="cn" src="assets/img/coin_3d.png" style="left:220px; top:860px; width:120px; height:120px" />
         <div class="pill pr" id="h6" style="left:470px; top:1110px; width:540px; height:92px">petit budget de pub</div>
-        <div class="pp" id="pfb">Facebook</div><div class="pp" id="pig">Instagram</div>
+        <div class="pp" id="pfb"><img src="assets/img/icon_facebook.png" />Facebook</div><div class="pp" id="pig"><img src="assets/img/icon_instagram.png" />Instagram</div>
         <div class="line" style="top:1440px"><span class="w sm" id="h7">pour</span><span class="w sm" id="h8">toucher</span></div>
         <div class="line" style="top:1530px" data-layout-allow-overlap><span class="w big" id="h9" style="font-size:110px">plus de monde</span></div>
         <div class="line" style="top:200px" data-layout-allow-overlap><span class="w sm" id="h10">Après</span><span class="w sm" id="h11">tes</span><span class="w sm" id="h12">premières</span><span class="w sm" id="h13">ventes</span></div>
@@ -419,7 +421,7 @@
 
       // 9. partie 3 : la publicité
       words(["#h1", "#h2", "#h3", "#h4"], 66.3, 0.13); bigIn("#h5", 67.3);
-      card("#pv1", 66.6, 4.0);
+      card("#pv1", 66.6, 6.2);
       pop("#chr", 67.6); FT("#chr", { y: 0 }, { y: -30, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 68.1); pop("#fir", 67.9);
       IN("#meg", { x: -500, rotation: -30 }, { x: 0, rotation: 0, duration: 0.45, ease: "back.out(1.6)" }, 69.3);
       IN("#cn", { y: -300 }, { y: 120, duration: 0.5, ease: "power2.in" }, 69.8); FT("#cn", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.1 }, 70.3);
