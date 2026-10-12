@@ -3,7 +3,7 @@
 6 vidéos en motion design (16:9, fond blanc, sans voix pour l'instant), une par étape du guide, et le PDF « Guide vidéo » qui les contient.
 
 - `finales/v0.mp4` à `v5.mp4` : les vidéos à envoyer ou à mettre sur YouTube.
-- `pdf/guide_video_gagne_ta_vie.pdf` : le guide vidéo (9 pages). Les 6 vidéos sont **dans** le PDF : toucher l'image d'une vidéo l'ouvre avec Adobe Acrobat (téléphone ou ordinateur). Dans d'autres applications PDF, les vidéos sont dans la liste des pièces jointes.
+- `pdf/pages_video_du_guide.pdf` : les pages vidéo du guide, dans la DA du guide (9 pages, à insérer au début de chaque chapitre du guide). Les 6 vidéos sont **dans** le PDF : toucher l'image d'une vidéo l'ouvre avec Adobe Acrobat (téléphone ou ordinateur). Dans d'autres applications PDF, les vidéos sont dans la liste des pièces jointes.
 - `build.py` : décrit les scènes de chaque vidéo. `python3 build.py` refait les compositions, puis dans `vN/` : `npx --yes hyperframes@0.8.77 render -o renders/vN.mp4`.
 - `pdf/build_pdf.py` : refait le PDF.
 

@@ -128,12 +128,39 @@ def page_html():
   .toc i {{ margin-left: auto; font-style: normal; font-weight: 700; color: #ff3d1f; font-size: 9pt; white-space: nowrap; }}
   .legend {{ margin-top: 3mm; font-size: 8.8pt; color: #666; }}
   .end .me {{ display: block; width: 44mm; height: 44mm; border-radius: 50%; object-fit: cover; margin: 8mm auto 5mm; border: 1.4mm solid #fff; box-shadow: 0 0 0 1mm #1a9e4b, 0 3mm 6mm rgba(0,0,0,.25); }}
+
+  /* DA du guide « Gagne ta vie sans diplôme » : bleu nuit, jaune, corail */
+  body {{ color: #211e5c; }}
+  .page {{ background-color: #fbf8f2; }}
+  h2 {{ color: #211e5c; }}
+  .tag {{ color: #e8553d; }}
+  .video {{ border: .8mm solid #211e5c; box-shadow: 1.6mm 1.8mm 0 #f7c21a; }}
+  .video .play {{ background: #f7c21a; border-color: #211e5c; }}
+  .video .play:after {{ border-left-color: #211e5c; }}
+  .video .cap {{ background: rgba(33,30,92,.92); }}
+  .box {{ border: .45mm solid #211e5c; box-shadow: 1.2mm 1.4mm 0 #f7c21a; }}
+  .li:before {{ background: #f7c21a; }}
+  .todo {{ background: #fff; border: .45mm solid #211e5c; }}
+  .todo div:before {{ border-color: #211e5c; }}
+  .btn.r {{ background: #f7c21a; color: #211e5c; }}
+  .btn.g {{ background: #1f9d55; }}
+  .cover {{ background: #211e5c; color: #fff; }}
+  .cover .tag {{ color: #f7c21a; }}
+  .cover p {{ color: #dfe1ff; }}
+  .cover h1 span {{ color: #f7c21a; }}
+  .cover .me {{ box-shadow: 0 0 0 1.2mm #f7c21a, 0 3mm 6mm rgba(0,0,0,.35); }}
+  .cover .who {{ color: #fff; }}
+  .brand {{ color: #aab0e6; }}
+  .toc a {{ border: .45mm solid #211e5c; }}
+  .toc .n {{ background: #211e5c; color: #f7c21a; }}
+  .toc i {{ color: #e8553d; }}
+  .end .me {{ box-shadow: 0 0 0 1mm #f7c21a, 0 3mm 6mm rgba(0,0,0,.25); }}
 </style></head>
 <body>
 <section class="page cover" id="couverture">
   <div class="tag">Guide vidéo</div>
   <h1>Gagne ta vie <span>sans diplôme</span></h1>
-  <p>6 vidéos courtes, une pour chaque étape du guide. Touche une image avec le bouton rouge pour regarder la vidéo, puis fais l'exercice de la page.</p>
+  <p>6 vidéos courtes, une pour chaque étape du guide. Touche une image avec le bouton jaune pour regarder la vidéo, puis fais l'exercice de la page.</p>
   <img class="me" src="mike.jpg" alt="">
   <div class="who">Mike · DigitalMikaelson</div>
   <a class="btn r" href="#sommaire">Commencer ▸</a>
@@ -143,7 +170,7 @@ def page_html():
   <div class="tag">Sommaire</div>
   <h2>Les 6 vidéos</h2>
   <div class="toc">{toc}</div>
-  <p class="legend">▶ Les images avec un bouton rouge ouvrent la vidéo. Les boutons verts ouvrent WhatsApp.</p>
+  <p class="legend">▶ Les images avec un bouton jaune ouvrent la vidéo. Les boutons verts ouvrent WhatsApp.</p>
   <span class="num">2</span>
 </section>
 {''.join(pages)}
@@ -185,7 +212,7 @@ def build():
             h = page.rect.height
             doc.xref_set_key(an.xref, "Rect", f"[{r.x0:.2f} {h - r.y1:.2f} {r.x1:.2f} {h - r.y0:.2f}]")
             joints += 1
-    out = os.path.join(HERE, "guide_video_gagne_ta_vie.pdf")
+    out = os.path.join(HERE, "pages_video_du_guide.pdf")
     doc.save(out, garbage=3, deflate=True)
     os.remove(raw)
     print("ok", out, f"{os.path.getsize(out) / 1e6:.1f} Mo", joints, "vidéo(s) glissée(s) dans le PDF")
