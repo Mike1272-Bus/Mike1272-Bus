@@ -20,9 +20,11 @@ Passerelle entre les deux : quand une entreprise donne son **accord écrit**, sa
 2. `prospection/strategie_contenu_allegra.md` : la stratégie (inspirée de Hormozi), le choix Facebook + TikTok, le calendrier de la semaine, les mots-clés, le suivi.
 3. `prospection/contenu-allegra/textes_a_poster.md` : les légendes et réponses WhatsApp déjà prêtes.
 4. `prospection/contenu-allegra/marque/bios.md` : logo, bios, profils.
-5. Les 2 vidéos modèles : `mar13-statuts/` (conseil, 13 h) et `mar13-essai/` (démo + offre, 19 h). **Copie un de ces dossiers pour chaque nouvelle vidéo.**
+5. Les 2 vidéos modèles : `mar13-burger/` (avant/après, 13 h), `mer14-transformations/` (3 avant/après) et `mar13-essai/` (démo + offre, 19 h). **Copie un de ces dossiers pour chaque nouvelle vidéo.**
 
 ## Les décisions de Mike (à respecter)
+
+- **Ligne éditoriale (12 oct.) : pas de conseils, pas de « 3 erreurs ».** On montre ce que nous faisons : des **transformations avant → après** (la photo du client, puis la pub faite avec cette même photo : recadrages, zooms, texte, bouton WhatsApp), les coulisses, et l'offre. Ne jamais montrer un autre clip filmé comme « après » d'une photo.
 
 - Offre : **vidéo d'essai gratuite**, « elle vous plaît : on parle de la suite ; elle ne vous plaît pas : vous ne nous devez rien ». **5 places par semaine.**
 - Comptes : page Facebook Allegra (existe) + un **nouveau compte TikTok** dédié à Allegra.
@@ -31,7 +33,7 @@ Passerelle entre les deux : quand une entreprise donne son **accord écrit**, sa
 - Pas de personnes dans les images (clips sans visages ; éviter aussi les mains quand c'est possible). Les icônes 3D Fluent sont autorisées.
 - Jamais de prix affiché. Jamais de chiffre, résultat ou témoignage inventé.
 - Registre « **vous** » (on parle aux entreprises). Jamais « tu » dans le contenu Allegra.
-- Appels à l'action avec mot-clé : **STATUT** (conseils), **VIDÉO** (coulisses, démos), **ESSAI** (offre). Numéro : **+243 831 710 181**. Site : https://allegra-digital-ground.vercel.app
+- Appels à l'action avec mot-clé : **VIDÉO** (avant/après, coulisses, démos), **ESSAI** (offre). Numéro : **+243 831 710 181**. Site : https://allegra-digital-ground.vercel.app
 
 ## La direction artistique (DA) : D.A. claire (choix de Mike du 12 oct.)
 
@@ -43,7 +45,7 @@ Référence : la vidéo des paniers de la Ruche (`prospection/ruche-du-terroir/s
 - Titres **orange `#f29a0e` en relief** (ombres empilées `#d47c00 → #7f4300`), petits textes `#1c1206`.
 - Pastilles en relief : jaune `#ffe14d→#ffcc00` (ombre `#c99a00`), rose `#ff3d7f→#d90f57` (ombre `#8f0838`). Cartes blanches arrondies. Pastille numéro noire au chiffre jaune. Téléphone à cadre noir, WhatsApp `#008069`, numéro dans une pilule verte `#1a9e4b`.
 - Logo v2 : `marque/logo-icone-v2.svg` (sac orange en relief + bouton lecture blanc), `photo-profil-v2.png`, `logo-horizontal-v2.png` (transparent) et `-creme.png`, `couverture-facebook-v2.png` (source : `marque/planches-v2.html`). Petit logo « Allegra » en haut à gauche pendant toute la vidéo.
-- **Méthode** : construire d'abord sur le modèle (`mar13-statuts/` ou `mar13-essai/`), puis `python3 appliquer_da_claire.py <dossier>` si on part d'un ancien dossier bleu. Les modèles actuels sont déjà en D.A. claire : copier un dossier `mer14-*` suffit.
+- **Méthode** : copier `mar13-burger/` (avant/après) ou `mar13-essai/` (offre), puis `python3 appliquer_da_claire.py <dossier>` si on part d'un ancien dossier bleu. Les modèles actuels sont déjà en D.A. claire : copier un dossier `mer14-*` suffit.
 
 ## Le motion design (HyperFrames + GSAP)
 

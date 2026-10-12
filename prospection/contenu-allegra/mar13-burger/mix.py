@@ -1,4 +1,4 @@
-"""Musique + bruitages : mardi 13 h, 3 erreurs sur vos statuts (22 s), sans voix."""
+"""Musique + bruitages : mardi 13 h, avant/après burger (22 s), sans voix."""
 import os, subprocess
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -7,13 +7,13 @@ MUSIC = os.path.join(ROOT, "..", "..", "..", "video-excel-13h", "assets", "audio
 OUT = os.path.join(ROOT, "assets", "audio", "mix.wav")
 VOIX = os.path.join(ROOT, "assets", "audio", "voix-hook.wav")  # accroche, voix Kokoro ff_siwis
 DUR = 22.0
-SFX = [(0.1, "whoosh-short", 0.2), (0.25, "whoosh", 0.25), (0.8, "pop", 0.22), (1.55, "impact-bass-1", 0.25), (1.95, "impact-bass-2", 0.25), (2.4, "pop", 0.18),
-       (3.15, "whoosh-cinematic", 0.3), (3.45, "pop", 0.2), (3.6, "impact-bass-2", 0.32), (4.1, "whoosh-short", 0.18),
-       (5.2, "whoosh", 0.28), (5.25, "pop", 0.2), (5.55, "impact-bass-1", 0.25), (5.8, "whoosh-short", 0.22), (6.6, "click", 0.2), (6.9, "whoosh-short", 0.3), (7.4, "ping", 0.25),
-       (9.2, "whoosh", 0.28), (9.25, "pop", 0.2), (9.55, "impact-bass-1", 0.25), (9.8, "whoosh-short", 0.22), (10.2, "whoosh-short", 0.22), (10.9, "whoosh-short", 0.3), (11.2, "sparkle", 0.22), (11.6, "ping", 0.25),
-       (13.6, "whoosh", 0.28), (13.65, "pop", 0.2), (13.95, "impact-bass-1", 0.25), (14.2, "pop", 0.22), (14.6, "whoosh-short", 0.3), (15.4, "ping", 0.25),
-       (17.15, "whoosh-cinematic", 0.3), (17.6, "whoosh", 0.25), (17.75, "impact-bass-2", 0.25), (18.3, "typing", 0.3), (19.0, "click", 0.25), (19.1, "notification", 0.3), (19.7, "notification", 0.22),
-       (20.0, "pop", 0.25), (20.6, "chime", 0.3)]
+SFX = [(0.1, "whoosh-short", 0.2), (0.55, "impact-bass-1", 0.25), (0.9, "whoosh", 0.25), (1.5, "pop", 0.22), (2.3, "click", 0.35),
+       (3.15, "whoosh-cinematic", 0.3), (3.45, "sparkle", 0.25), (3.85, "impact-bass-2", 0.3),
+       (4.55, "whoosh-cinematic", 0.3), (5.0, "pop", 0.2), (5.18, "impact-bass-1", 0.28), (6.53, "impact-bass-1", 0.28), (7.88, "impact-bass-2", 0.28), (9.2, "whoosh", 0.22), (9.4, "pop", 0.22), (9.7, "whoosh-short", 0.22), (10.2, "sparkle", 0.22),
+       (11.95, "impact-bass-2", 0.28), (12.2, "whoosh", 0.25), (12.5, "pop", 0.18), (12.6, "whoosh", 0.25), (12.9, "pop", 0.18), (13.9, "pop", 0.2), (14.2, "whoosh-short", 0.2),
+       (15.45, "pop", 0.2), (15.9, "pop", 0.15), (16.08, "pop", 0.15), (16.26, "pop", 0.15), (16.44, "pop", 0.15), (16.8, "ping", 0.2),
+       (17.35, "whoosh-cinematic", 0.3), (17.8, "whoosh", 0.25), (17.95, "impact-bass-2", 0.25), (18.5, "typing", 0.3), (19.1, "click", 0.25), (19.2, "notification", 0.3), (19.8, "notification", 0.22),
+       (20.1, "pop", 0.25), (20.7, "chime", 0.3)]
 
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 inputs = ["-i", MUSIC]

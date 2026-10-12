@@ -1,18 +1,18 @@
 # Textes à poster : contenu Allegra (Facebook + TikTok, puis statut WhatsApp)
 
+Ligne éditoriale (Mike, 12 oct.) : pas de conseils ni de « 3 erreurs ». On montre ce qu'on fait : des transformations avant → après, faites à partir de la photo du produit. Mots-clés : VIDÉO (démos) et ESSAI (offre).
+
 Règle de la semaine 1 : uniquement des clips libres de droits (Mixkit, crédits dans `stock/credits.txt`), sans personnes. Pas de vidéo de la Ruche tant que la semaine test n'a pas de résultats et sans son accord écrit.
 
-## Mardi 13 octobre, 13 h : « 3 erreurs sur vos statuts »
-Vidéo : `mar13-statuts/renders/allegra-mar13-statuts.mp4`
+## Mardi 13 octobre, 13 h : « Avant / après : le burger »
+Vidéo : `mar13-burger/renders/allegra-mar13-burger.mp4`
 
 Légende :
-> Vos statuts sont vus… mais personne ne vous écrit ? 👀
-> Ces 3 erreurs font fuir vos clients :
-> 1️⃣ Trop de texte
-> 2️⃣ Une photo figée
-> 3️⃣ Pas de consigne
-> Écrivez STATUT au +243 831 710 181 et recevez nos 3 règles pour des statuts qui font écrire.
-> #Kinshasa #RDC #commerce #marketing #WhatsApp
+> Vous nous envoyez une photo… on en fait une pub 🍔
+> Même photo, autre effet : du mouvement, du texte, de la musique et votre numéro WhatsApp. Prête pour vos statuts, Facebook et TikTok.
+> Vous voulez la vôtre ? Écrivez VIDÉO au +243 831 710 181, on vous montre ce que ça donne avec votre produit.
+> (Exemple de pub réalisé avec une image libre de droits.)
+> #Kinshasa #RDC #restaurant #publicité #vidéo
 
 ## Mardi 13 octobre, 19 h : « Vidéo d'essai gratuite »
 Vidéo : `mar13-essai/renders/allegra-mar13-essai.mp4`
@@ -26,17 +26,15 @@ Légende :
 > (Exemple réalisé avec des images libres de droits.)
 > #Kinshasa #RDC #publicité #vidéo #entrepreneur
 
-## Mercredi 14 octobre, 13 h : « Photo ou vidéo ? »
-Vidéo : `mer14-photo-video/renders/allegra-mer14-photo-video.mp4`
+## Mercredi 14 octobre, 13 h : « 3 photos, 3 transformations »
+Vidéo : `mer14-transformations/renders/allegra-mer14-transformations.mp4`
 
 Légende :
-> Votre client fait défiler… Qu'est-ce qui l'arrête ? 👀
-> On a fait le test avec la même glace : une photo, puis une vidéo.
-> Ce qui bouge attire l'œil. On voit la matière, et ça donne envie.
-> Notre conseil : filmez votre produit, même 5 secondes avec votre téléphone.
-> Écrivez STATUT au +243 831 710 181 et recevez nos 3 règles pour des statuts qui font écrire.
-> (Images libres de droits.)
-> #Kinshasa #RDC #commerce #marketing #WhatsApp
+> 3 photos de produits… regardez ce qu'on en fait ✨
+> Glacier, bijouterie, beauté : à chaque fois, une seule photo devient une pub animée pour vos statuts.
+> Écrivez VIDÉO au +243 831 710 181 et dites-nous ce que vous vendez.
+> (Exemples réalisés avec des images libres de droits.)
+> #Kinshasa #RDC #commerce #publicité #vidéo
 
 ## Mercredi 14 octobre, 19 h : « Une simple photo de pizza… devient une pub »
 Vidéo : `mer14-demo-pizza/renders/allegra-mer14-demo-pizza.mp4`
@@ -50,13 +48,6 @@ Légende :
 > #Kinshasa #RDC #restaurant #publicité #vidéo
 
 ## Réponses WhatsApp à préparer
-
-**STATUT :**
-> Merci pour votre message ! Voici nos 3 règles pour des statuts qui font écrire :
-> 1. Une seule idée par statut : un produit, une phrase.
-> 2. Une vidéo courte qui bouge plutôt qu'une photo figée.
-> 3. Dites quoi faire à la fin : « Écrivez OUI pour commander ».
-> Que vendez-vous ? Nous pouvons vous montrer ce que ça donne avec vos produits.
 
 **ESSAI :**
 > Avec plaisir ! Envoyez-nous 3 photos de votre produit (bien éclairées, de près) et le nom de votre marque. Nous vous préparons votre vidéo d'essai gratuite. Elle ne vous plaît pas ? Vous ne nous devez rien.
