@@ -35,11 +35,78 @@
       #m3 { left: 50px; top: 970px; } #m4 { left: 560px; top: 970px; }
       #m5 { left: 50px; top: 1300px; } #m6 { left: 560px; top: 1300px; }
       .coin { position: absolute; left: 470px; top: 1060px; width: 140px; height: 140px; }
+      .pill { position: absolute; height: 92px; border-radius: 46px; font-weight: 800; font-size: 42px; line-height: 92px; text-align: center; white-space: nowrap; }
+      .pr { background: #ff3d1f; color: #fff; box-shadow: 0 14px 30px rgba(255,61,31,0.35); }
+      .pk { background: #141414; color: #fff; box-shadow: 0 14px 30px rgba(0,0,0,0.2); }
+      .pg { background: #1a9e4b; color: #fff; box-shadow: 0 14px 30px rgba(0,0,0,0.15); }
+      .num { position: absolute; left: 480px; top: 160px; width: 120px; height: 120px; border-radius: 50%; background: #ff3d1f; color: #fff; font-weight: 900; font-size: 74px; line-height: 120px; text-align: center; box-shadow: 0 0 0 10px rgba(255,61,31,0.15), 0 16px 30px rgba(255,61,31,0.35); }
+      .lab { position: absolute; font-weight: 800; font-size: 38px; text-align: center; letter-spacing: -0.02em; color: #141414; }
+      .vcard { position: absolute; border-radius: 34px; overflow: hidden; border: 8px solid #fff; box-shadow: 0 30px 60px rgba(0,0,0,0.2); background: #ddd; }
+      .vcard video { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .arrow path { fill: none; stroke: #ff3d1f; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
+
+      /* feuille des 3 questions */
+      #sheet { left: 80px; top: 430px; width: 920px; height: 640px; border-radius: 26px; background: #fff; border: 3px solid #e6e1d9; box-shadow: 0 24px 50px rgba(0,0,0,0.12);
+        background-image: linear-gradient(90deg, transparent 96px, #ffb3a6 96px, #ffb3a6 100px, transparent 100px), repeating-linear-gradient(180deg, transparent 0 63px, #e4ecf7 63px 66px); }
+      .qrow { position: absolute; left: 120px; width: 770px; }
+      .qrow .qn { position: absolute; left: -96px; top: 4px; width: 60px; height: 60px; border-radius: 50%; background: #141414; color: #fff; font-weight: 900; font-size: 34px; line-height: 60px; text-align: center; }
+      .qrow .qt { font-weight: 800; font-size: 37px; line-height: 1.25; color: #141414; white-space: normal; }
+      .qrow .ans { position: absolute; left: 0; top: 104px; display: flex; gap: 18px; }
+      .qrow .ans i { display: block; width: 200px; height: 46px; border-radius: 12px; background: #fff4d6; border: 3px dashed #e8b84a; }
+      #qr1 { top: 30px; } #qr2 { top: 235px; } #qr3 { top: 440px; }
+      #hl { left: 112px; top: 437px; width: 226px; height: 54px; border-radius: 14px; background: rgba(255,214,0,0.55); transform-origin: 0% 50%; }
+      #pm1, #pm2, #pm3 { left: 140px; top: 1110px; width: 800px; height: 450px; }
+      #b3q { left: 470px; top: 1060px; height: 90px; line-height: 90px; font-size: 34px; z-index: 2; }
+      .bub { position: absolute; height: 100px; border-radius: 50px 50px 50px 12px; background: #fff; color: #141414; font-weight: 800; font-size: 38px; line-height: 100px; padding: 0 40px; white-space: nowrap; border: 3px solid #ebe6de; box-shadow: 0 18px 36px rgba(0,0,0,0.12); }
+
+      /* formats */
+      .fcard { position: absolute; width: 440px; height: 330px; border-radius: 34px; background: #fff; border: 3px solid #e6e1d9; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+      .fcard img { position: absolute; left: 125px; top: 26px; width: 190px; height: 190px; }
+      .fcard b { position: absolute; left: 0; width: 434px; top: 238px; text-align: center; font-size: 44px; font-weight: 900; letter-spacing: -0.03em; color: #141414; }
+      #fo1 { left: 80px; top: 600px; } #fo2 { left: 560px; top: 600px; } #fo3 { left: 80px; top: 960px; } #fo4 { left: 560px; top: 960px; }
+
+      /* téléphone des applications */
+      #ph { left: 290px; top: 200px; width: 500px; height: 900px; border-radius: 64px; background: #111; padding: 16px; box-shadow: 0 40px 70px rgba(0,0,0,0.25); }
+      #scr { position: relative; width: 468px; height: 868px; border-radius: 50px; overflow: hidden; background: linear-gradient(160deg, #ffd7c9, #ffe9b8 50%, #d6e8ff); }
+      #scr video { position: absolute; left: 0; top: 0; width: 468px; height: 868px; object-fit: cover; }
+      .app { position: absolute; width: 150px; height: 150px; border-radius: 36px; background-size: cover; background-position: center; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+      .app s { position: absolute; left: -20px; width: 190px; top: 160px; text-align: center; text-decoration: none; font-weight: 800; font-size: 26px; color: #141414; }
+      #ap1 { left: 54px; top: 300px; background-image: url(assets/img/canva.jpg); } #ap2 { left: 160px; top: 300px; background: #111 url(assets/img/clapper_board_3d.png) center/70% no-repeat; } #ap3 { left: 266px; top: 300px; background: #fff url(assets/img/chariow_logo.jpg) center/contain no-repeat; }
+      #ap1 { left: 40px; } #ap2 { left: 159px; } #ap3 { left: 278px; }
+      #notif { left: 30px; top: 30px; width: 408px; height: 110px; border-radius: 26px; background: rgba(255,255,255,0.96); box-shadow: 0 10px 24px rgba(0,0,0,0.25); font-weight: 800; font-size: 30px; line-height: 110px; padding-left: 100px; color: #141414; }
+      #notif i { position: absolute; left: 24px; top: 25px; width: 60px; height: 60px; background: url(assets/img/check_mark_button_3d.png) center/contain no-repeat; }
+      .tool { position: absolute; left: 90px; top: 1180px; width: 900px; height: 210px; border-radius: 30px; background: #fff; border: 3px solid #e6e1d9; box-shadow: 0 18px 36px rgba(0,0,0,0.1); overflow: hidden; }
+      .tool .th { position: absolute; left: 20px; top: 20px; width: 226px; height: 170px; border-radius: 18px; background-size: cover; background-position: center; background-repeat: no-repeat; }
+      .tool b { position: absolute; left: 276px; top: 40px; font-size: 58px; font-weight: 900; color: #141414; letter-spacing: -0.03em; }
+      .tool span { position: absolute; left: 276px; top: 118px; font-size: 33px; font-weight: 600; color: #e8401f; }
+
+      /* plateformes */
+      .plat { position: absolute; top: 640px; width: 310px; height: 380px; border-radius: 34px; overflow: hidden; box-shadow: 0 22px 44px rgba(0,0,0,0.18); }
+      .plat b { position: absolute; left: 0; width: 310px; bottom: 26px; text-align: center; font-size: 40px; font-weight: 900; color: #fff; letter-spacing: -0.02em; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+      .plat video { width: 100%; height: 100%; object-fit: cover; display: block; }
+      #pl1 { left: 40px; background: #111; } #pl2 { left: 385px; background: #1a9e4b; } #pl3 { left: 730px; background: #1877f2; }
+      #pl2 img { position: absolute; left: 65px; top: 60px; width: 180px; height: 180px; }
+      #pl3 .fb { position: absolute; left: 95px; top: 50px; width: 120px; height: 200px; color: #fff; font-weight: 900; font-size: 210px; line-height: 200px; text-align: center; }
+      .fly { position: absolute; width: 110px; height: 110px; }
+
+      /* pub */
+      #pv1, #pv2 { left: 90px; top: 480px; width: 900px; height: 506px; }
+      .pp { position: absolute; height: 84px; border-radius: 42px; font-weight: 800; font-size: 38px; line-height: 84px; text-align: center; color: #fff; }
+      #pfb { left: 470px; top: 1230px; width: 260px; background: #1877f2; }
+      #pig { left: 750px; top: 1230px; width: 260px; background: linear-gradient(90deg, #f58529, #dd2a7b 50%, #8134af); }
+      .ring { position: absolute; left: 190px; top: 1110px; width: 160px; height: 160px; border-radius: 50%; border: 8px solid #ff3d1f; }
+
+      /* guide + CTA */
+      #ebk { left: 290px; top: 520px; width: 500px; height: 500px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 70px rgba(0,0,0,0.3); }
+      #ebk img { width: 100%; height: 100%; object-fit: cover; }
+      #kv { left: 160px; top: 760px; width: 760px; height: 140px; border-radius: 34px; background: #fff; border: 3px solid #e6e1d9; box-shadow: 0 20px 40px rgba(0,0,0,0.15); font-weight: 800; font-size: 52px; line-height: 140px; padding-left: 44px; color: #141414; }
+      #kv b { color: #ff3d1f; }
+      #caret { display: inline-block; width: 6px; height: 60px; background: #141414; vertical-align: middle; margin-left: 4px; }
       #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="6.2" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="90" data-width="1080" data-height="1920">
 
       <!-- 1. Hook : « Tu as un savoir-faire qui peut te payer. Le problème, c'est que tu ne le sais pas encore. » -->
       <div class="scene light white" id="s1"><div class="cam" id="k1"><div class="grid"></div>
@@ -72,7 +139,159 @@
         <img class="obj" id="lock" src="assets/img/locked_3d.png" style="left:390px; top:980px; width:300px; height:300px" />
       </div></div>
 
+      <!-- 2. Promesse (6,2 - 12,2) -->
+      <div class="scene light" id="s2"><div class="cam" id="k2"><div class="grid"></div>
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M1500 -100 C 900 800, 700 1300, 200 2600" fill="none" stroke="#d9d4cc" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="line" style="top:290px" data-layout-allow-overlap><span class="w sm" id="p1">Je</span><span class="w sm" id="p2">vais</span><span class="w sm" id="p3">te</span><span class="w sm" id="p4">montrer</span></div>
+        <div class="line" style="top:395px" data-layout-allow-overlap><span class="w big" id="p5">comment le trouver</span></div>
+        <div class="line" style="top:290px" data-layout-allow-overlap><span class="w sm" id="p6">et</span><span class="w sm" id="p7">le</span><span class="w sm" id="p8">transformer</span></div>
+        <div class="line" style="top:395px" data-layout-allow-overlap><span class="w big" id="p9">en revenu</span></div>
+        <img class="obj" id="n1" src="assets/img/brain_3d.png" style="left:60px; top:760px; width:260px; height:260px" />
+        <img class="obj" id="n2" src="assets/img/mobile_phone_3d.png" style="left:410px; top:740px; width:260px; height:260px" />
+        <img class="obj" id="n3" src="assets/img/money_bag_3d.png" style="left:760px; top:760px; width:260px; height:260px" />
+        <div class="lab" id="n1l" style="left:20px; top:1040px; width:340px">ton savoir-faire</div>
+        <div class="lab" id="n2l" style="left:370px; top:1040px; width:340px">ton téléphone</div>
+        <div class="lab" id="n3l" style="left:720px; top:1040px; width:340px">un revenu</div>
+        <svg class="ab arrow" id="ar1" viewBox="0 0 120 60" style="left:315px; top:860px; width:110px; height:55px"><path id="ar1p" d="M8 30 H100 M80 12 L102 30 L80 48"/></svg>
+        <svg class="ab arrow" id="ar2" viewBox="0 0 120 60" style="left:665px; top:860px; width:110px; height:55px"><path id="ar2p" d="M8 30 H100 M80 12 L102 30 L80 48"/></svg>
+        <div class="pill pr" id="p10" style="left:140px; top:1240px; width:800px">avec seulement ton téléphone</div>
+      </div></div>
+
+      <!-- 3. Partie 1 : les 3 questions (12,2 - 29,8) -->
+      <div class="scene light white" id="s3"><div class="cam" id="k3"><div class="grid"></div>
+        <div class="num" id="q0">1</div>
+        <div class="line" style="top:310px"><span class="w sm" id="qa">Pose-toi</span><span class="w big" id="qb" style="font-size:96px">3 questions</span></div>
+        <div class="ab" id="sheet">
+          <div class="qrow" id="qr1"><div class="qn">1</div><div class="qt" id="qt1">Qu'est-ce que les gens autour de moi me demandent souvent ?</div><div class="ans"><i id="an1"></i><i id="an2"></i><i id="an3"></i></div></div>
+          <div class="qrow" id="qr2"><div class="qn">2</div><div class="qt" id="qt2">Qu'est-ce que je pourrais expliquer à quelqu'un qui part de zéro ?</div><div class="ans"><i id="an4"></i><i id="an5"></i><i id="an6"></i></div></div>
+          <div class="qrow" id="qr3"><div class="qn">3</div><div class="qt" id="qt3">Pour quoi est-ce qu'on m'appelle, moi, quand on est bloqué ?</div><div class="ans"><i id="an7"></i><i id="an8"></i><i id="an9"></i></div></div>
+          <div class="ab" id="hl"></div>
+        </div>
+        <div class="vcard" id="pm1"><video id="vq1" src="assets/video/q1.mp4" muted playsinline data-start="14.2" data-duration="3.2" data-media-start="0"></video></div>
+        <div class="vcard" id="pm2"><video id="vq2" src="assets/video/q2.mp4" muted playsinline data-start="17.4" data-duration="3.8" data-media-start="0"></video></div>
+        <div class="vcard" id="pm3"><video id="vq3" src="assets/video/q3.mp4" muted playsinline data-start="21.2" data-duration="4.2" data-media-start="0"></video></div>
+        <div class="bub" id="b3q">Tu peux m'aider ? Je bloque…</div>
+        <img class="obj" id="pen" src="assets/img/pencil_3d.png" style="left:820px; top:520px; width:170px; height:170px" />
+        <img class="obj" id="mag" src="assets/img/magnifying_glass_tilted_left_3d.png" style="left:660px; top:560px; width:260px; height:260px" />
+        <div class="line" style="top:1150px"><span class="w sm" id="qc1">Ton</span><span class="w sm" id="qc2">savoir-faire</span><span class="w sm" id="qc3">est</span></div>
+        <div class="line" style="top:1260px" data-layout-allow-overlap><span class="w big" id="qc4">dans cette liste</span></div>
+      </div></div>
+
+      <!-- 4. Boucle 1 (29,8 - 33,2) -->
+      <div class="scene light" id="s4"><div class="cam" id="k4"><div class="grid"></div>
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M200 -100 C 900 600, 500 1500, 1500 2600" fill="none" stroke="#d9d4cc" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="line" style="top:290px"><span class="w sm" id="r1">Maintenant,</span><span class="w sm" id="r2">il</span><span class="w sm" id="r3">faut</span><span class="w sm" id="r4">en</span><span class="w sm" id="r5">faire</span></div>
+        <div class="line" style="top:400px" data-layout-allow-overlap><span class="w big" id="r6" style="font-size:112px">quelque chose</span></div>
+        <div class="line" style="top:520px" data-layout-allow-overlap><span class="w big" id="r7" style="font-size:112px">qu'on peut acheter</span></div>
+        <img class="obj" id="pkg" src="assets/img/package_3d.png" style="left:330px; top:780px; width:420px; height:420px" />
+        <img class="obj" id="lbl" src="assets/img/label_3d.png" style="left:600px; top:760px; width:240px; height:240px" />
+        <img class="obj" id="spk" src="assets/img/sparkles_3d.png" style="left:180px; top:760px; width:160px; height:160px" />
+      </div></div>
+
+      <!-- 5. Partie 2 : choisis un format (33,2 - 42,0) -->
+      <div class="scene light white" id="s5"><div class="cam" id="k5"><div class="grid"></div>
+        <div class="num" id="f0">2</div>
+        <div class="line" style="top:310px"><span class="w sm" id="fa">Choisis</span><span class="w sm" id="fb">un</span></div>
+        <div class="line" style="top:400px" data-layout-allow-overlap><span class="w big" id="fc">format simple</span></div>
+        <div class="fcard" id="fo1"><img src="assets/img/page_facing_up_3d.png" /><b>mini-guide</b></div>
+        <div class="fcard" id="fo2"><img src="assets/img/clipboard_3d.png" /><b>checklist</b></div>
+        <div class="fcard" id="fo3"><img src="assets/img/memo_3d.png" /><b>modèle à remplir</b></div>
+        <div class="fcard" id="fo4"><img src="assets/img/clapper_board_3d.png" /><b>vidéos courtes</b></div>
+        <img class="obj" id="fph" src="assets/img/mobile_phone_3d.png" style="left:340px; top:700px; width:400px; height:400px" />
+        <div class="pill pk" id="fd" style="left:190px; top:1380px; width:700px">tout au téléphone</div>
+      </div></div>
+
+      <!-- 6. Partie 2 : les applications (42,0 - 51,0) -->
+      <div class="scene light" id="s6"><div class="cam" id="k6"><div class="grid"></div>
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M200 -100 C 700 700, 1000 1300, 1500 2600" fill="none" stroke="#d9d4cc" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="ab" id="ph"><div id="scr">
+          <div class="app" id="ap1"><s>Canva</s></div><div class="app" id="ap2"><s>CapCut</s></div><div class="app" id="ap3"><s>Chariow</s></div>
+          <video id="va1" src="assets/video/canva_app.mp4" muted playsinline data-start="42.6" data-duration="2.8" data-media-start="0"></video>
+          <video id="va2" src="assets/video/capcut_app.mp4" muted playsinline data-start="45.4" data-duration="2.0" data-media-start="0"></video>
+          <video id="va3" src="assets/video/paiement.mp4" muted playsinline data-start="47.4" data-duration="3.6" data-media-start="0"></video>
+          <div class="ab" id="notif"><i></i>Paiement reçu</div>
+        </div></div>
+        <div class="tool" id="t1"><div class="th" style="background-image:url(assets/img/canva.jpg)"></div><b>Canva</b><span>pour créer ton guide en PDF</span></div>
+        <div class="tool" id="t2"><div class="th" style="background:#111 url(assets/img/clapper_board_3d.png) center/60% no-repeat"></div><b>CapCut</b><span>pour monter tes vidéos</span></div>
+        <div class="tool" id="t3"><div class="th" style="background:#fff url(assets/img/chariow_logo.jpg) center/contain no-repeat"></div><b>Chariow</b><span>pour vendre et être payé</span></div>
+      </div></div>
+
+      <!-- 7. Boucle 2 (51,0 - 54,2) -->
+      <div class="scene light white" id="s7"><div class="cam" id="k7"><div class="grid"></div>
+        <div class="line" style="top:300px"><span class="w sm" id="x1" style="font-size:56px">un produit que personne ne voit,</span></div>
+        <img class="obj" id="x2" src="assets/img/package_3d.png" style="left:380px; top:620px; width:320px; height:320px" />
+        <img class="obj" id="x3" src="assets/img/eye_3d.png" style="left:680px; top:560px; width:200px; height:200px" />
+        <img class="obj" id="x4" src="assets/img/cross_mark_3d.png" style="left:720px; top:600px; width:120px; height:120px" />
+        <div class="pill pk" id="x5" style="left:370px; top:1010px; width:340px">0 vue</div>
+        <div class="line" style="top:1200px" data-layout-allow-overlap><span class="w big" id="x6" style="font-size:96px">personne ne l'achète</span></div>
+      </div></div>
+
+      <!-- 8. Partie 3 : contenu gratuit (54,2 - 66,2) -->
+      <div class="scene light" id="s8"><div class="cam" id="k8"><div class="grid"></div>
+        <div class="num" id="g0">3</div>
+        <div class="line" style="top:300px"><span class="w sm" id="ga">Fais</span><span class="w sm" id="gb">venir</span></div>
+        <div class="line" style="top:390px" data-layout-allow-overlap><span class="w big" id="gc">les clients</span></div>
+        <div class="pill pg" id="gd" style="left:340px; top:530px; width:400px; height:80px; line-height:80px">gratuit d'abord</div>
+        <div class="plat" id="pl1"><video id="vt" src="assets/video/trepied.mp4" muted playsinline data-start="57.4" data-duration="8.8" data-media-start="0"></video><b>Vidéos TikTok</b></div>
+        <div class="plat" id="pl2"><img src="assets/img/speech_balloon_3d.png" /><b>Statut WhatsApp</b></div>
+        <div class="plat" id="pl3"><div class="fb">f</div><b>Page Facebook</b></div>
+        <img class="obj" id="mgn" src="assets/img/magnet_3d.png" style="left:410px; top:1090px; width:260px; height:260px" />
+        <img class="fly" id="fl1" src="assets/img/red_heart_3d.png" style="left:485px; top:1160px" />
+        <img class="fly" id="fl2" src="assets/img/speech_balloon_3d.png" style="left:485px; top:1160px" />
+        <img class="fly" id="fl3" src="assets/img/red_heart_3d.png" style="left:485px; top:1160px" />
+        <img class="fly" id="fl4" src="assets/img/speech_balloon_3d.png" style="left:485px; top:1160px" />
+        <img class="fly" id="fl5" src="assets/img/red_heart_3d.png" style="left:485px; top:1160px" />
+        <img class="fly" id="fl6" src="assets/img/speech_balloon_3d.png" style="left:485px; top:1160px" />
+        <div class="line" style="top:1400px"><span class="w sm" id="gh">les</span><span class="w sm" id="gi">gens</span><span class="w sm" id="gj">viennent</span></div>
+        <div class="line" style="top:1500px" data-layout-allow-overlap><span class="w big" id="gk">vers toi</span></div>
+      </div></div>
+
+      <!-- 9. Partie 3 : la publicité (66,2 - 79,4) -->
+      <div class="scene light white" id="s9"><div class="cam" id="k9"><div class="grid"></div>
+        <div class="line" style="top:200px" data-layout-allow-overlap><span class="w sm" id="h1">Ensuite,</span><span class="w sm" id="h2">quand</span><span class="w sm" id="h3">une</span><span class="w sm" id="h4">vidéo</span></div>
+        <div class="line" style="top:300px" data-layout-allow-overlap><span class="w big" id="h5">marche bien</span></div>
+        <div class="vcard" id="pv1"><video id="vp1" src="assets/video/pub_tel.mp4" muted playsinline data-start="66.6" data-duration="4.0" data-media-start="0"></video></div>
+        <div class="vcard" id="pv2"><video id="vp2" src="assets/video/reseaux.mp4" muted playsinline data-start="72.8" data-duration="1.9" data-media-start="0"></video></div>
+        <img class="obj" id="chr" src="assets/img/chart_increasing_3d.png" style="left:790px; top:400px; width:230px; height:230px" />
+        <img class="obj" id="fir" src="assets/img/fire_3d.png" style="left:60px; top:420px; width:170px; height:170px" />
+        <div class="ring" id="rg1"></div><div class="ring" id="rg2"></div>
+        <img class="obj" id="meg" src="assets/img/megaphone_3d.png" style="left:110px; top:1040px; width:320px; height:320px" />
+        <img class="obj" id="cn" src="assets/img/coin_3d.png" style="left:220px; top:860px; width:120px; height:120px" />
+        <div class="pill pr" id="h6" style="left:470px; top:1110px; width:540px; height:92px">petit budget de pub</div>
+        <div class="pp" id="pfb">Facebook</div><div class="pp" id="pig">Instagram</div>
+        <div class="line" style="top:1440px"><span class="w sm" id="h7">pour</span><span class="w sm" id="h8">toucher</span></div>
+        <div class="line" style="top:1530px" data-layout-allow-overlap><span class="w big" id="h9" style="font-size:110px">plus de monde</span></div>
+        <div class="line" style="top:200px" data-layout-allow-overlap><span class="w sm" id="h10">Après</span><span class="w sm" id="h11">tes</span><span class="w sm" id="h12">premières</span><span class="w sm" id="h13">ventes</span></div>
+        <div class="line" style="top:300px" data-layout-allow-overlap><span class="w big" id="h14" style="font-size:104px">on te demandera</span></div>
+        <img class="obj" id="bel" src="assets/img/bell_3d.png" style="left:430px; top:520px; width:220px; height:220px" />
+        <div class="bub" id="d1" style="left:80px; top:840px">Comment tu as fait ?</div>
+        <div class="bub" id="d2" style="left:300px; top:1000px">Tu peux m'apprendre ?</div>
+        <div class="bub" id="d3" style="left:140px; top:1160px">Comment tu as fait ? 🔥</div>
+      </div></div>
+
+      <!-- 10. Boucle 3 : le guide (79,4 - 85,8) -->
+      <div class="scene light" id="s10"><div class="cam" id="k10"><div class="grid"></div>
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M1500 -100 C 900 800, 700 1300, 200 2600" fill="none" stroke="#d9d4cc" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="line" style="top:250px"><span class="w sm" id="e1">Toutes</span><span class="w sm" id="e2">ces</span><span class="w sm" id="e3">étapes,</span></div>
+        <div class="line" style="top:350px" data-layout-allow-overlap><span class="w big" id="e4">dans un guide</span></div>
+        <div class="ab" id="ebk"><img src="assets/img/ebook.png" /></div>
+        <img class="obj" id="cal" src="assets/img/spiral_calendar_3d.png" style="left:120px; top:1130px; width:220px; height:220px" />
+        <div class="pill pr" id="e5" style="left:350px; top:1190px; width:620px">+ un plan de 7 jours</div>
+        <div class="line" style="top:1380px"><span class="w sm" id="e6">pour</span><span class="w sm" id="e7">tester</span><span class="w sm" id="e8">ton</span><span class="w sm" id="e9">idée</span></div>
+      </div></div>
+
+      <!-- 11. CTA (85,8 - 90) -->
+      <div class="scene light white" id="s11"><div class="cam" id="k11"><div class="grid"></div>
+        <div class="line" style="top:420px"><span class="w sm" id="c11">Commente</span></div>
+        <div class="line" style="top:520px" data-layout-allow-overlap><span class="w big" id="c12">« EBOOK »</span></div>
+        <div class="ab" id="kv">Commente « <b id="kvw">EBOOK</b> »<span id="caret"></span></div>
+        <img class="obj" id="c13" src="assets/img/speech_balloon_3d.png" style="left:430px; top:980px; width:220px; height:220px" />
+        <div class="line" style="top:1250px"><span class="w sm" id="c14">je</span><span class="w sm" id="c15">te</span><span class="w sm" id="c16">réponds</span><span class="w sm" id="c17">en privé</span></div>
+        <div class="line" style="top:1350px"><span class="w sm" id="c18" style="color:#ff3d1f; font-weight:900">avec le guide</span></div>
+      </div></div>
+
       <div class="ab" id="fade"></div>
+      <audio id="mus" src="assets/audio/musique.wav" data-start="0" data-duration="90" data-track-index="1" data-volume="1"></audio>
     </div>
 
     <script>
@@ -85,9 +304,16 @@
       const word = (sel, at, d = 0.28) => IN(sel, { y: -50, scale: 1.3, filter: "blur(12px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at);
       const words = (list, at, gap = 0.14) => list.forEach((s, i) => word(s, at + i * gap));
 
-      // caméra : zoom punch d'entrée + légère dérive, petit punch sur chaque temps fort
-      FT("#k1", { scale: 1.14 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, 0);
-      FT("#k1", { rotation: 0, x: 0 }, { rotation: -0.8, x: 20, duration: 6.2, ease: "sine.inOut" }, 0);
+      // scènes : coupe franche + zoom punch + légère dérive de caméra (temps estimés, à recaler sur la voix)
+      const SC = [["#s1","#k1",0,6.2],["#s2","#k2",6.2,6.0],["#s3","#k3",12.2,17.6],["#s4","#k4",29.8,3.4],["#s5","#k5",33.2,8.8],["#s6","#k6",42.0,9.0],
+        ["#s7","#k7",51.0,3.2],["#s8","#k8",54.2,12.0],["#s9","#k9",66.2,13.2],["#s10","#k10",79.4,6.4],["#s11","#k11",85.8,4.2]];
+      SC.forEach(([sc, c, a, d], i) => {
+        HIDE.push(sc);
+        tl.set(sc, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(sc, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.14 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+        FT(c, { rotation: 0, x: 0 }, { rotation: i % 2 ? 0.8 : -0.8, x: i % 2 ? -20 : 20, duration: d, ease: "sine.inOut" }, a);
+      });
       [1.9, 3.95].forEach(t => FT("#k1", { scale: 1.0 }, { scale: 1.05, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t));
 
       // « Tu as un savoir-faire » + les métiers qui arrivent un par un
@@ -113,9 +339,119 @@
       IN("#lock", { scale: 2.4, y: -200 }, { scale: 1, y: 0, duration: 0.35, ease: "power4.in" }, 3.95);
       word("#c7", 4.3, 0.35);
       FT("#lock", { rotation: 0 }, { rotation: 10, duration: 0.07, yoyo: true, repeat: 5, ease: "sine.inOut" }, 4.75);
-      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 5.85);
+      const pop = (sel, at) => IN(sel, { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, at);
+      const rise = (sel, at) => IN(sel, { y: 80 }, { y: 0, duration: 0.4, ease: "power3.out" }, at);
+      const float = (sel, at, d, y = -16) => FT(sel, { y: 0 }, { y: y, duration: d / 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, at);
+      const bigIn = (sel, at) => IN(sel, { scale: 2.2, filter: "blur(16px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, at);
+      const drop = (sel, at) => IN(sel, { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.45, ease: "bounce.out" }, at);
+      const card = (sel, at, d) => { IN(sel, { scale: 0.75, y: 120, rotation: -3 }, { scale: 1, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.6)" }, at); if (d) FT(sel, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.12 }, at + d - 0.12); };
+      const draw = (sel, at) => FT(sel, { strokeDasharray: 200, strokeDashoffset: 200 }, { strokeDashoffset: 0, duration: 0.45, ease: "power2.out" }, at);
+
+      // 2. promesse
+      words(["#p1", "#p2", "#p3", "#p4"], 6.35, 0.12); bigIn("#p5", 7.3);
+      OUT(["#p1", "#p2", "#p3", "#p4", "#p5"], 8.3);
+      words(["#p6", "#p7", "#p8"], 8.4, 0.14); drop("#p9", 9.1);
+      pop("#n1", 8.5); rise("#n1l", 8.65); draw("#ar1p", 8.9);
+      pop("#n3", 9.3); rise("#n3l", 9.45);
+      IN("#n2", { scale: 0, y: 200 }, { scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" }, 10.4); rise("#n2l", 10.55); draw("#ar2p", 10.8);
+      IN("#p10", { scale: 0.4 }, { scale: 1, duration: 0.4, ease: "back.out(2.2)" }, 10.7);
+      FT("#n2", { scale: 1 }, { scale: 1.15, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 11.2);
+
+      // 3. partie 1 : les 3 questions
+      IN("#q0", { scale: 0, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 12.3);
+      word("#qa", 12.6); IN("#qb", { y: -200, scale: 1.4 }, { y: 0, scale: 1, duration: 0.45, ease: "bounce.out" }, 13.0);
+      IN("#sheet", { y: 500, rotation: 4 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.3)" }, 13.3);
+      [["#qt1", "#qr1", 14.3], ["#qt2", "#qr2", 17.5], ["#qt3", "#qr3", 21.3]].forEach(([t, r, a]) => {
+        HIDE.push(t); FT(t, { autoAlpha: 1, clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.9, ease: "steps(8)" }, a);
+        FT(r, { opacity: 1 }, { opacity: 1, duration: 0.01 }, a);
+      });
+      FT("#qr1", { opacity: 1 }, { opacity: 0.4, duration: 0.2 }, 17.4); FT("#qr2", { opacity: 1 }, { opacity: 0.4, duration: 0.2 }, 21.2);
+      FT(["#qr1", "#qr2"], { opacity: 0.4 }, { opacity: 1, duration: 0.2 }, 25.3);
+      card("#pm1", 14.2, 3.2); card("#pm2", 17.4, 3.8); card("#pm3", 21.2, 4.2);
+      IN("#b3q", { scale: 0.4, x: 100 }, { scale: 1, x: 0, duration: 0.35, ease: "back.out(2)" }, 22.2); FT("#b3q", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.12 }, 25.28);
+      IN("#pen", { x: 200, rotation: 30 }, { x: 0, rotation: 0, duration: 0.4, ease: "power3.out" }, 25.4);
+      ["#an1", "#an2", "#an3", "#an4", "#an5", "#an6", "#an7", "#an8", "#an9"].forEach((a, i) => IN(a, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.18, ease: "power2.out" }, 25.6 + i * 0.16));
+      FT("#pen", { x: 0, y: 0 }, { x: -600, y: 420, duration: 1.4, ease: "none" }, 25.6);
+      FT("#pen", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.2 }, 27.4);
+      IN("#mag", { scale: 0.3, x: 200 }, { scale: 1, x: 0, duration: 0.4, ease: "back.out(2)" }, 27.6);
+      FT("#mag", { x: 0, y: 0 }, { x: -500, y: 120, duration: 0.7, ease: "power2.inOut" }, 28.0);
+      HIDE.push("#hl"); FT("#hl", { autoAlpha: 1, scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, 28.5);
+      words(["#qc1", "#qc2", "#qc3"], 27.7, 0.15); bigIn("#qc4", 28.4);
+
+      // 4. boucle 1
+      words(["#r1", "#r2", "#r3", "#r4", "#r5"], 29.9, 0.1); word("#r6", 30.6, 0.3); word("#r7", 31.0, 0.35);
+      IN("#pkg", { y: 600, rotation: -15 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.5)" }, 30.2);
+      IN("#lbl", { scale: 2.5, rotation: -60, x: 200, y: -200 }, { scale: 1, rotation: 0, x: 0, y: 0, duration: 0.35, ease: "power4.in" }, 31.6);
+      FT("#k4", { scale: 1 }, { scale: 1.05, duration: 0.1, yoyo: true, repeat: 1 }, 31.95); pop("#spk", 32.0);
+
+      // 5. partie 2 : format
+      IN("#f0", { scale: 0, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 33.3);
+      words(["#fa", "#fb"], 33.6, 0.15); drop("#fc", 34.0);
+      [["#fo1", 35.0], ["#fo2", 36.1], ["#fo3", 37.1], ["#fo4", 38.7]].forEach(([f, a], i) => IN(f, { scale: 0.3, rotation: i % 2 ? 10 : -10 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, a));
+      [["#fo1", 230, 210], ["#fo2", -250, 210], ["#fo3", 230, -150], ["#fo4", -250, -150]].forEach(([f, x, y]) => FT(f, { x: 0, y: 0, scale: 1, autoAlpha: 1 }, { x: x, y: y, scale: 0.2, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 40.2));
+      IN("#fph", { scale: 0.2 }, { scale: 1, duration: 0.45, ease: "back.out(2.2)" }, 40.55);
+      IN("#fd", { y: 120 }, { y: 0, duration: 0.35, ease: "back.out(2)" }, 40.8);
+
+      // 6. applications
+      IN("#ph", { y: 1100 }, { y: 0, duration: 0.5, ease: "expo.out" }, 42.0);
+      ["#ap1", "#ap2", "#ap3"].forEach((a, i) => pop(a, 42.2 + i * 0.1));
+      FT("#ap1", { scale: 1 }, { scale: 1.25, duration: 0.15, yoyo: true, repeat: 1 }, 42.45);
+      [["#va1", 42.6], ["#va2", 45.4], ["#va3", 47.4]].forEach(([v, a]) => FT(v, { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, a));
+      [["#t1", 42.0, 3.4], ["#t2", 45.4, 2.0], ["#t3", 47.4, 3.6]].forEach(([t, a, d]) => { IN(t, { x: -900 }, { x: 0, duration: 0.4, ease: "expo.out" }, a); if (a < 47) FT(t, { autoAlpha: 1, x: 0 }, { autoAlpha: 0, x: 900, duration: 0.25, ease: "power2.in" }, a + d - 0.25); });
+      IN("#notif", { y: -160 }, { y: 0, duration: 0.4, ease: "back.out(1.8)" }, 49.4);
+
+      // 7. boucle 2
+      word("#x1", 51.1, 0.35);
+      IN("#x2", { scale: 0.5 }, { scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 51.2); FT("#x2", { rotation: 0 }, { rotation: -6, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 51.6);
+      pop("#x3", 51.8); IN("#x4", { scale: 3 }, { scale: 1, duration: 0.25, ease: "power4.in" }, 52.1);
+      IN("#x5", { scale: 0.4 }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 52.3);
+      bigIn("#x6", 52.7);
+
+      // 8. partie 3 : contenu gratuit
+      IN("#g0", { scale: 0, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 54.3);
+      words(["#ga", "#gb"], 54.6, 0.15); drop("#gc", 55.0);
+      IN("#gd", { scale: 0.4 }, { scale: 1, duration: 0.35, ease: "back.out(2.2)" }, 56.4);
+      [["#pl1", 57.4], ["#pl2", 58.9], ["#pl3", 60.3]].forEach(([p, a], i) => IN(p, { y: 500, rotation: i - 1 ? 8 : -8 }, { y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.5)" }, a));
+      pop("#mgn", 61.9); FT("#mgn", { rotation: 0 }, { rotation: 8, duration: 0.12, yoyo: true, repeat: 7, ease: "sine.inOut" }, 62.4);
+      [[-480, -900], [460, -880], [-500, 260], [480, 240], [-200, 500], [220, 520]].forEach(([x, y], i) => IN("#fl" + (i + 1), { x: x, y: y, scale: 0.6 }, { x: 0, y: 0, scale: 1, duration: 0.6, ease: "power2.in" }, 62.6 + i * 0.22));
+      ["#fl1", "#fl2", "#fl3", "#fl4", "#fl5", "#fl6"].forEach((f, i) => FT(f, { autoAlpha: 1 }, { autoAlpha: 0, scale: 0.3, duration: 0.15 }, 63.2 + i * 0.22));
+      words(["#gh", "#gi", "#gj"], 64.2, 0.15); drop("#gk", 64.8);
+
+      // 9. partie 3 : la publicité
+      words(["#h1", "#h2", "#h3", "#h4"], 66.3, 0.13); bigIn("#h5", 67.3);
+      card("#pv1", 66.6, 4.0);
+      pop("#chr", 67.6); FT("#chr", { y: 0 }, { y: -30, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 68.1); pop("#fir", 67.9);
+      IN("#meg", { x: -500, rotation: -30 }, { x: 0, rotation: 0, duration: 0.45, ease: "back.out(1.6)" }, 69.3);
+      IN("#cn", { y: -300 }, { y: 120, duration: 0.5, ease: "power2.in" }, 69.8); FT("#cn", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.1 }, 70.3);
+      IN("#h6", { x: 600 }, { x: 0, duration: 0.4, ease: "expo.out" }, 70.0);
+      IN("#pfb", { scale: 0.3 }, { scale: 1, duration: 0.35, ease: "back.out(2.5)" }, 71.7); IN("#pig", { scale: 0.3 }, { scale: 1, duration: 0.35, ease: "back.out(2.5)" }, 72.2);
+      card("#pv2", 72.8, 1.9);
+      ["#rg1", "#rg2"].forEach((r, i) => { IN(r, { scale: 0.5 }, { scale: 3.2, duration: 1.0, ease: "power1.out" }, 72.9 + i * 0.4); FT(r, { opacity: 1 }, { opacity: 0, duration: 0.6 }, 73.3 + i * 0.4); });
+      words(["#h7", "#h8"], 73.0, 0.15); drop("#h9", 73.6);
+      const P3 = ["#h1", "#h2", "#h3", "#h4", "#h5", "#chr", "#fir", "#meg", "#h6", "#pfb", "#pig", "#h7", "#h8", "#h9"];
+      OUT(P3, 74.55, 0.2);
+      words(["#h10", "#h11", "#h12", "#h13"], 74.7, 0.15); bigIn("#h14", 76.0);
+      pop("#bel", 75.2); FT("#bel", { rotation: 0 }, { rotation: 18, duration: 0.1, yoyo: true, repeat: 7, ease: "sine.inOut" }, 75.7);
+      IN("#d1", { x: -600, scale: 0.7 }, { x: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 76.6);
+      IN("#d2", { x: 600, scale: 0.7 }, { x: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 77.2);
+      IN("#d3", { x: -600, scale: 0.7 }, { x: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 77.8);
+
+      // 10. boucle 3 : le guide
+      words(["#e1", "#e2", "#e3"], 79.5, 0.15); drop("#e4", 80.3);
+      IN("#ebk", { y: 700, rotation: 12 }, { y: 0, rotation: -3, duration: 0.55, ease: "back.out(1.4)" }, 80.6); float("#ebk", 81.2, 4.4);
+      pop("#cal", 82.4); IN("#e5", { x: 700 }, { x: 0, duration: 0.4, ease: "expo.out" }, 82.6);
+      words(["#e6", "#e7", "#e8", "#e9"], 84.0, 0.14);
+
+      // 11. CTA
+      word("#c11", 85.9); bigIn("#c12", 86.3);
+      IN("#kv", { y: 200 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, 86.6);
+      HIDE.push("#kvw"); FT("#kvw", { autoAlpha: 1, clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "steps(5)" }, 87.0);
+      FT("#caret", { opacity: 1 }, { opacity: 0, duration: 0.25, yoyo: true, repeat: 9, ease: "steps(1)" }, 86.7);
+      pop("#c13", 87.6); words(["#c14", "#c15", "#c16", "#c17"], 87.8, 0.15); word("#c18", 88.6, 0.35);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 89.6);
 
       gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
       gsap.set("#fade", { opacity: 0 });
       window.__timelines["main"] = tl;
     </script>
