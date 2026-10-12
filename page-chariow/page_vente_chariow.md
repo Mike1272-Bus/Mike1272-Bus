@@ -10,7 +10,7 @@ Gagne ta vie sans diplôme
 
 ## 2. Sous-titre (description courte)
 
-Le guide pour transformer ce que tu sais déjà faire en produit digital et trouver tes premiers clients en 7 jours, sans dépenser un centime en publicité.
+Le guide (avec 6 vidéos explicatives et 2 bonus) pour transformer ce que tu sais déjà faire en produit digital et trouver tes premiers clients en 7 jours, sans dépenser un centime en publicité.
 
 ## 3. Prix
 
@@ -51,6 +51,18 @@ Tu le crées une fois, et tu peux le vendre plusieurs fois. 🔁
 4️⃣ **Le test en 7 jours.** Un plan jour par jour pour savoir si des gens sont prêts à payer pour ton idée, sans budget pub.
 
 🎁 Et à la fin, une checklist récapitulative pour ne rien oublier.
+
+### 🎁 Ce que tu reçois
+
+📘 **Le guide « Gagne ta vie sans diplôme »**, avec **une vidéo explicative au début de chaque chapitre** (6 vidéos courtes) : je te montre ce qui est écrit, avec des exemples, pour que tu passes à l'action tout de suite.
+
+🎁 **Bonus 1 : 60 idées de produits digitaux, métier par métier.** 20 savoir-faire (cuisine, couture, mécanique, anglais, comptabilité, Excel, élevage…), la bonne personne à aider pour chacun, et 3 produits que tu peux créer avec ton téléphone.
+
+🎁 **Bonus 2 : le kit du test en 7 jours.** Ta phrase d'offre à trous, les messages WhatsApp à copier-coller (à tes proches, en statut, pour proposer un prix) et le tableau pour suivre chaque jour.
+
+Le tout pour 4,9 $ pendant le lancement.
+
+[IMAGE : le guide, une page vidéo et les 2 bonus côte à côte]
 
 [IMAGE : une page du plan 7 jours]
 
@@ -102,7 +114,7 @@ Le chapitre 3 part de là. Tu n'as pas besoin de compétences techniques pour cr
 Non. Le test en 7 jours se fait avec ton entourage et tes statuts WhatsApp.
 
 **📥 Comment je reçois le guide ?**
-Tu y as accès juste après le paiement sur Chariow.
+Tu y as accès juste après le paiement sur Chariow : le guide avec ses vidéos, et les 2 bonus en PDF.
 
 **🏷️ Pourquoi 4,9 $ ?**
 C'est le prix de lancement, valable 7 jours. Ensuite, le guide passe à 6,9 $.
@@ -112,7 +124,7 @@ C'est le prix de lancement, valable 7 jours. Ensuite, le guide passe à 6,9 $.
 
 ### 🚀 Tu as déjà la compétence
 
-Il te manque la méthode pour la vendre. Elle tient dans ce guide, et elle coûte 4,9 $ pendant le lancement.
+Il te manque la méthode pour la vendre. Elle tient dans ce guide, avec ses 6 vidéos et ses 2 bonus, et elle coûte 4,9 $ pendant le lancement.
 
 👇 **[BOUTON] Je veux le guide à 4,9 $** 👇
 
