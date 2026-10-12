@@ -9,13 +9,13 @@ Style vidéo : le même que l'épisode 4, tout en fond blanc.
 ## Le script à lire
 
 **Hook**
-> Tu as une compétence qui peut te payer. Le problème, c'est que tu ne le sais pas encore.
+> Tu as un savoir-faire qui peut te payer. Le problème, c'est que tu ne le sais pas encore.
 
 **Promesse**
-> Je vais te montrer comment la trouver, et comment la transformer en revenu avec seulement ton téléphone.
+> Je vais te montrer comment le trouver, et comment le transformer en revenu avec seulement ton téléphone.
 
 **Partie 1 : trouve ta compétence**
-> Premièrement, pose-toi trois questions. Qu'est-ce que les gens autour de moi me demandent souvent ? Qu'est-ce que je pourrais expliquer à quelqu'un qui part de zéro ? Et pour quoi est-ce qu'on m'appelle, moi, quand on est bloqué ? Écris trois réponses à chaque question. Ta compétence est dans cette liste.
+> Premièrement, pose-toi trois questions. Qu'est-ce que les gens autour de moi me demandent souvent ? Qu'est-ce que je pourrais expliquer à quelqu'un qui part de zéro ? Et pour quoi est-ce qu'on m'appelle, moi, quand on est bloqué ? Écris trois réponses à chaque question. Ton savoir-faire est dans cette liste.
 
 **Boucle 1**
 > Maintenant, il faut en faire quelque chose qu'on peut acheter.
@@ -39,9 +39,9 @@ Style vidéo : le même que l'épisode 4, tout en fond blanc.
 
 | Moment | À l'écran |
 |---|---|
-| Hook | « une compétence » en grand relief, un cadenas 3D fermé, puis « tu ne le sais pas encore » |
+| Hook | « un savoir-faire » en grand relief, un cadenas 3D fermé, puis « tu ne le sais pas encore » |
 | Promesse | Un téléphone 3D au centre, la flèche « compétence → revenu », sac d'argent 3D |
-| Partie 1 | Une feuille qui se remplit : les 3 questions arrivent une par une, puis 3 lignes cochées sous chacune ; « Ta compétence est dans cette liste » avec la loupe 3D |
+| Partie 1 | Une feuille qui se remplit : les 3 questions arrivent une par une, puis 3 lignes cochées sous chacune ; « Ton savoir-faire est dans cette liste » avec la loupe 3D |
 | Boucle 1 | Une étiquette de prix qui se colle sur la feuille |
 | Partie 2 | 4 cartes : mini-guide, checklist, modèle, vidéos courtes. Puis un téléphone avec 3 applications qui s'allument une par une : Canva (créer le PDF), CapCut (monter les vidéos), Chariow (vendre et recevoir les paiements) |
 | Boucle 2 | Le produit seul dans le vide, compteur « 0 vue » |
@@ -58,7 +58,7 @@ Sans ces extraits, je fais tout en animation.
 
 ## Légende
 
-> Tu as une compétence qui peut te payer, même sans diplôme 📱
+> Tu as un savoir-faire qui peut te payer, même sans diplôme 📱
 > 1. Trouve-la avec 3 questions
 > 2. Transforme-la en produit avec ton téléphone (Canva, CapCut, Chariow)
 > 3. Fais venir les clients : contenu gratuit d'abord, publicité ensuite
