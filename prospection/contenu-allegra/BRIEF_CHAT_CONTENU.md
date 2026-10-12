@@ -33,16 +33,17 @@ Passerelle entre les deux : quand une entreprise donne son **accord écrit**, sa
 - Registre « **vous** » (on parle aux entreprises). Jamais « tu » dans le contenu Allegra.
 - Appels à l'action avec mot-clé : **STATUT** (conseils), **VIDÉO** (coulisses, démos), **ESSAI** (offre). Numéro : **+243 831 710 181**. Site : https://allegra-digital-ground.vercel.app
 
-## La direction artistique (DA)
+## La direction artistique (DA) : D.A. claire (choix de Mike du 12 oct.)
 
-- Format **vertical 1080×1920**, 20 à 25 s, texte à l'écran (beaucoup regardent sans le son), musique + bruitages. **Voix seulement sur l'accroche** (2 à 3 s, décision de Mike du 12 oct.) : `npx --yes hyperframes@0.8.77 tts "..." -v ff_siwis -s 1.05 -o assets/audio/voix-hook.wav` (il faut `pip install kokoro-onnx soundfile`), la musique baisse pendant la voix (voir `mix.py`).
-- **Petit logo en haut à gauche** pendant toute la vidéo (`#bug` : icône + « Allegra »), vrai logo dans l'avatar WhatsApp et la signature de fin.
-- Fond bleu : `radial-gradient(circle at 30% 18%, #2a5bc4 0%, #123077 45%, #071434 100%)` + grille fine (60 px, opacité 0,16) + halo jaune.
-- Jaune `#ffd60a`, bleu nuit `#0b1e4a`, rouge erreur `#ff4b3e`.
-- Polices : **Bricolage Grotesque 800** pour les titres, **Work Sans 700/400** pour les petits textes (fichiers dans `assets/fonts/`).
-- Signature : ombre jaune décalée (`text-shadow: 10px 12px 0 #0b1e4a` sur le jaune, `box-shadow: 12px 14px 0 #000` sur les boutons jaunes, `18px 20px 0 #ffd60a` sur les téléphones).
-- Éléments réutilisables : pastille numéro, titre barré en rouge, pilule jaune « solution » avec coche 3D, cartes en verre, polaroïds, téléphone WhatsApp avec saisie du mot-clé + bulle de réponse, gros bouton jaune « Écrivez MOT-CLÉ », numéro, signature « Allegra Digital Ground ».
-- Logo : `marque/photo-profil.png`, `marque/logo-horizontal-*.png`, `marque/logo-icone.svg` (sac + bouton lecture jaune). Phrase : « Vidéos qui font vendre ».
+Référence : la vidéo des paniers de la Ruche (`prospection/ruche-du-terroir/semaine-test/jour2-paniers-v2/`). L'ancienne D.A. bleue n'est plus utilisée.
+
+- Format **vertical 1080×1920**, 20 à 25 s, texte à l'écran, musique + bruitages. **Voix seulement sur l'accroche** (2 à 3 s) : `npx --yes hyperframes@0.8.77 tts "..." -v ff_siwis -s 1.05 -o assets/audio/voix-hook.wav` (il faut `pip install kokoro-onnx soundfile`), la musique baisse pendant la voix (voir `mix.py`).
+- Fond **crème/blanc** (`radial-gradient(ellipse at 50% 45%, #ffffff 0%, #f8f3ea 62%, #ecdfc6 100%)`) avec de grandes bandes diagonales `#efe6d6`.
+- Police **Inter** (600 petits textes, 900 titres), fichiers dans `marque/fonts/`.
+- Titres **orange `#f29a0e` en relief** (ombres empilées `#d47c00 → #7f4300`), petits textes `#1c1206`.
+- Pastilles en relief : jaune `#ffe14d→#ffcc00` (ombre `#c99a00`), rose `#ff3d7f→#d90f57` (ombre `#8f0838`). Cartes blanches arrondies. Pastille numéro noire au chiffre jaune. Téléphone à cadre noir, WhatsApp `#008069`, numéro dans une pilule verte `#1a9e4b`.
+- Logo v2 : `marque/logo-icone-v2.svg` (sac orange en relief + bouton lecture blanc), `photo-profil-v2.png`, `logo-horizontal-v2.png` (transparent) et `-creme.png`, `couverture-facebook-v2.png` (source : `marque/planches-v2.html`). Petit logo « Allegra » en haut à gauche pendant toute la vidéo.
+- **Méthode** : construire d'abord sur le modèle (`mar13-statuts/` ou `mar13-essai/`), puis `python3 appliquer_da_claire.py <dossier>` si on part d'un ancien dossier bleu. Les modèles actuels sont déjà en D.A. claire : copier un dossier `mer14-*` suffit.
 
 ## Le motion design (HyperFrames + GSAP)
 

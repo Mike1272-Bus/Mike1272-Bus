@@ -4,6 +4,8 @@ Registre : « vous » partout (on parle aux entreprises). Aucun résultat ni té
 
 ## Le logo
 
+**Nouveau (12 oct.) : logo v2 dans la D.A. claire** (sac orange en relief, bouton lecture blanc, fond blanc/crème) : `photo-profil-v2.png`, `logo-horizontal-v2.png` (transparent), `logo-horizontal-v2-creme.png`, `couverture-facebook-v2.png`, `logo-icone-v2.svg`. Source : `planches-v2.html`. À mettre sur Facebook, TikTok et WhatsApp pour que les profils collent aux vidéos. Les anciens fichiers bleus restent ci-dessous.
+
 - Idée : le sac de shopping d'Allegra (le commerce), avec un bouton lecture jaune à l'intérieur (la vidéo). Ombre jaune décalée, comme sur la landing et les vidéos.
 - Phrase de marque : **Vidéos qui font vendre**.
 - Fichiers :

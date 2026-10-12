@@ -71,11 +71,56 @@
       #iris { left: 540px; top: 960px; width: 100px; height: 100px; margin: -50px 0 0 -50px; border-radius: 50%; background: #ffd60a; z-index: 30; }
       #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #071434; z-index: 40; }
       #bug { left: 40px; top: 44px; display: flex; align-items: center; gap: 10px; font-size: 34px; letter-spacing: 0.02em; color: #fff; text-shadow: 2px 3px 0 #0b1e4a; z-index: 25; opacity: 0.92; }
+
+      /* ===== D.A. claire (comme les vidéos paniers) ===== */
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      html, body { background: #ffffff; }
+      #root { background: radial-gradient(ellipse at 50% 45%, #ffffff 0%, #f8f3ea 62%, #ecdfc6 100%); color: #1c1206; }
+      #root, #root * { font-family: 'Inter', sans-serif !important; }
+      .swoosh { position: absolute; left: -300px; top: -300px; width: 1680px; height: 2520px; }
+      .orb { display: none; }
+      .sm { font-weight: 600; color: #1c1206; }
+      .big { font-weight: 900; letter-spacing: -0.045em; color: #f29a0e; text-shadow: 0 6px 0 #9c5200, 0 18px 30px rgba(60,30,0,0.25); }
+      .ext { font-weight: 900; letter-spacing: -0.05em; color: #f29a0e; text-shadow: 0 3px 0 #d47c00, 0 6px 0 #b86600, 0 9px 0 #9c5200, 0 12px 0 #7f4300, 0 30px 40px rgba(60,30,0,0.3); }
+      .y { color: #f29a0e; font-weight: 800; }
+      .eyebrow { font-weight: 800; color: #c66f00; }
+      .obj { filter: drop-shadow(0 26px 34px rgba(60,30,0,0.28)); }
+      .phone { background: #111; border: 16px solid #111; box-shadow: 0 40px 70px rgba(0,0,0,0.25); }
+      .num { background: #1c1206; color: #ffd60a; font-weight: 900; box-shadow: 0 16px 30px rgba(0,0,0,0.3); }
+      .ttl { font-weight: 900; color: #1c1206; letter-spacing: -0.045em; }
+      .card, .vcard, .deal { background: #fff; border: 3px solid #eadfcb; box-shadow: 0 18px 36px rgba(60,30,0,0.12) !important; }
+      .vcard { border: 10px solid #fff; }
+      #c2b, #cb { border: 10px solid #fff !important; box-shadow: 0 0 0 6px #f29a0e, 0 30px 60px rgba(60,30,0,0.3) !important; }
+      .txtl { background: #e8dcc6; }
+      .fix, .stamp, .chip { font-weight: 900; background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 12px 0 #c99a00, 0 26px 40px rgba(60,30,0,0.25); }
+      .chip.alt { background: linear-gradient(180deg, #ff3d7f, #d90f57); color: #fff; border: none; box-shadow: 0 12px 0 #8f0838, 0 26px 40px rgba(60,0,20,0.25); line-height: 130px; }
+      .tag, .tag2 { font-weight: 800; }
+      .tg { background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 8px 0 #c99a00; }
+      .tr { background: linear-gradient(180deg, #ff3d7f, #d90f57); color: #fff; box-shadow: 0 8px 0 #8f0838; }
+      .deal b { color: #1c1206; font-weight: 900; } .deal span { color: #c66f00; font-weight: 800; }
+      .pol { box-shadow: 0 30px 60px rgba(60,30,0,0.25); }
+      #ph { background: #111; border: 18px solid #111; box-shadow: 0 40px 70px rgba(0,0,0,0.25); }
+      #hd { background: #008069; }
+      #hd b { color: #fff; font-weight: 800; } #hd span { color: #d4efe8; }
+      #hd .lg { background: #fff; }
+      #btn { font-weight: 900; background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 12px 0 #c99a00, 0 26px 40px rgba(60,30,0,0.25); }
+      .fix { font-size: 52px; }
+      #numb { top: 1675px; left: 190px; width: 700px; height: 100px; border-radius: 50px; background: #1a9e4b; color: #fff; font-weight: 800; font-size: 50px; line-height: 100px; box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
+      #wm { color: #1c1206; text-shadow: none; font-weight: 900; letter-spacing: 0.04em; font-size: 32px; top: 1806px; }
+      #wm img { width: 70px; height: 72px; }
+      #bug { color: #1c1206; text-shadow: none; font-weight: 900; padding: 8px 22px 8px 10px; border-radius: 999px; background: rgba(255,255,255,0.88); box-shadow: 0 8px 20px rgba(60,30,0,0.15); font-size: 32px; opacity: 1; }
+      #bug img { width: 54px; height: 56px; }
+      #demo { background: rgba(255,255,255,0.92); color: #c66f00; border: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); font-weight: 800; }
+      #logoici { background: rgba(255,255,255,0.88); border-color: #f29a0e; color: #f29a0e; font-weight: 900; }
+      #iris { background: #f29a0e; }
+      #fade { background: #ffffff; }
     </style>
   </head>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
-      <div class="grid"></div>
+      <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M1500 -100 C 900 800, 700 1300, 200 2600" fill="none" stroke="#efe6d6" stroke-width="230" stroke-linecap="round"/><path d="M1700 900 C 1300 1500, 1100 2000, 900 2700" fill="none" stroke="#f3ecdf" stroke-width="160" stroke-linecap="round"/></svg>
 
       <!-- 1. Le crochet (0 - 3,4) -->
       <div class="scene" id="s1"><div class="cam" id="k1">
@@ -96,7 +141,7 @@
       <div class="scene" id="s2"><div class="cam" id="k2">
         <div class="orb" style="left:90px; top:520px"></div>
         <img class="obj" id="q1" src="assets/img/red_question_mark_3d.png" style="left:420px; top:330px; width:240px; height:240px" />
-        <div class="line" style="top:680px" data-layout-allow-overlap><span class="w ext" id="b1" style="font-size:250px">3 erreurs</span></div>
+        <div class="line" style="top:680px" data-layout-allow-overlap><span class="w ext" id="b1" style="font-size:200px">3 erreurs</span></div>
         <div class="line" style="top:1000px"><span class="w sm" id="b2">qui</span><span class="w sm" id="b3">font</span><span class="w sm" id="b4">fuir</span></div>
         <div class="line" style="top:1090px"><span class="w sm" id="b5">vos</span><span class="w sm y" id="b6">clients</span></div>
       </div></div>
@@ -149,7 +194,7 @@
         <div class="line" style="top:170px"><span class="w sm" id="e1">Recevez</span><span class="w sm" id="e2">nos</span></div>
         <div class="line" style="top:270px" data-layout-allow-overlap><span class="w ext" id="e3" style="font-size:180px">3 règles</span></div>
         <div class="ab" id="ph"><div id="scr">
-          <div id="hd"><div class="lg"><img src="assets/img/photo-profil.png" alt="" /></div><b>Allegra Digital</b><span>en ligne</span></div>
+          <div id="hd"><div class="lg"><img src="assets/img/photo-profil-v2.png" alt="" /></div><b>Allegra Digital</b><span>en ligne</span></div>
           <div class="bub" id="bub1">STATUT</div>
           <div class="bub" id="bub2">Voici nos 3 règles pour des statuts qui font écrire 👇</div>
           <div id="inp"><span id="inp0">Message</span><span id="inp1">STATUT</span></div>
@@ -157,27 +202,11 @@
         </div></div>
         <div class="ab" id="btn"><svg width="66" height="66" viewBox="0 0 24 24" fill="#0b1e4a"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .100-3.300-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>Écrivez STATUT</div>
         <div class="line" id="numb">+243 831 710 181</div>
-        <div class="ab" id="wm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="78" height="78">
-  <g transform="translate(6 7)" fill="none" stroke="#ffd60a" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M42 32v-8a16 16 0 0 1 32 0v8"/><path d="M18 32h80l-7 66a8 8 0 0 1-8 7H33a8 8 0 0 1-8-7z"/>
-  </g>
-  <g fill="none" stroke="#ffffff" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M42 32v-8a16 16 0 0 1 32 0v8"/><path d="M18 32h80l-7 66a8 8 0 0 1-8 7H33a8 8 0 0 1-8-7z"/>
-  </g>
-  <path d="M50 52 L76 68 L50 84 Z" fill="#ffd60a" stroke="#ffd60a" stroke-width="6" stroke-linejoin="round"/>
-</svg>
+        <div class="ab" id="wm"><img src="assets/img/logo-icone-v2.svg" alt="" />
 <span>Allegra Digital Ground</span></div>
       </div></div>
 
-      <div class="ab" id="bug"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="64" height="64">
-  <g transform="translate(6 7)" fill="none" stroke="#ffd60a" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M42 32v-8a16 16 0 0 1 32 0v8"/><path d="M18 32h80l-7 66a8 8 0 0 1-8 7H33a8 8 0 0 1-8-7z"/>
-  </g>
-  <g fill="none" stroke="#ffffff" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M42 32v-8a16 16 0 0 1 32 0v8"/><path d="M18 32h80l-7 66a8 8 0 0 1-8 7H33a8 8 0 0 1-8-7z"/>
-  </g>
-  <path d="M50 52 L76 68 L50 84 Z" fill="#ffd60a" stroke="#ffd60a" stroke-width="6" stroke-linejoin="round"/>
-</svg>
+      <div class="ab" id="bug"><img src="assets/img/logo-icone-v2.svg" alt="" />
 <span>Allegra</span></div>
       <div class="ab" id="iris"></div>
       <div class="ab" id="fade"></div>
