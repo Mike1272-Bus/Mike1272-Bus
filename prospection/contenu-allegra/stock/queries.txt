@@ -1,12 +1,11 @@
-cafe|coffee
-miel|honey
-burger|burger
-jus|juice
-gateau|cake
-cosmetique|cosmetics
-parfum|perfume
-smartphone|smartphone
-colis|package
-epices|spices
+# Deuxième passage : clips en haute définition, sans personnes de préférence
 ville-nuit|city-lights
-tissu|fabric
+pizza|pizza
+chocolat|chocolate
+pain|bread
+fruits|fruits
+glace|ice-cream
+grillade|grill
+bijoux|jewelry
+montre|watch
+baskets|sneakers

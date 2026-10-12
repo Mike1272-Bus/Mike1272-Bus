@@ -61,12 +61,16 @@ jobs:
                   try:
                       r = requests.get(f"https://mixkit.co/free-stock-video/{q}/", headers=UA, timeout=30)
                       print(slug, "mixkit", r.status_code)
-                      urls = []
-                      for u in re.findall(r"https://assets\.mixkit\.co/[^\"'\s]+?\.mp4", r.text):
-                          if u not in urls: urls.append(u)
-                      for u in urls:
+                      ids = []
+                      for i in re.findall(r"https://assets\.mixkit\.co/videos/(\d+)/", r.text):
+                          if i not in ids: ids.append(i)
+                      for i in ids:
                           if n >= PER: break
-                          if save(u, f"{slug}-{n+1}", f"Mixkit License (usage commercial gratuit) | {u}"): n += 1
+                          for res in ("1080", "720"):
+                              u = f"https://assets.mixkit.co/videos/{i}/{i}-{res}.mp4"
+                              if requests.head(u, headers=UA, timeout=20).status_code == 200:
+                                  if save(u, f"{slug}-{n+1}", f"Mixkit License (usage commercial gratuit) | {u}"): n += 1
+                                  break
                   except Exception as e: print("mixkit", e)
               # 4) Wikimedia Commons (secours, CC0 / domaine public)
               if n < PER:
@@ -79,7 +83,12 @@ jobs:
                           if save(ii.get("url"), f"{slug}-{n+1}", f"{lic} | {ii.get('descriptionurl')}"): n += 1
                   except Exception as e: print("commons", e)
               print(slug, "->", n)
-          open(f"{base}/credits.txt", "w").write("\n".join(credits) + "\n")
+          prev = {}
+          if os.path.exists(f"{base}/credits.txt"):
+              for l in open(f"{base}/credits.txt"):
+                  if "|" in l: prev[l.split(" |")[0]] = l.rstrip("\n")
+          for l in credits: prev[l.split(" |")[0]] = l
+          open(f"{base}/credits.txt", "w").write("\n".join(prev[k] for k in sorted(prev)) + "\n")
           PY
           ls -la prospection/contenu-allegra/stock/raw
       - name: Commit
