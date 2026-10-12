@@ -24,7 +24,7 @@ Ancienne version sombre, plus utilisée : `jour1-cannelle/`
 ## Jour 2 · Mardi 13 octobre · Les paniers (version 2, à partir du visuel de la Ruche)
 
 Vidéo : `jour2-paniers-v2/renders/jour2-paniers-v2.mp4` (36 s, illustrations devant chaque élément, éléments un par un, compteur de pots). L'ancienne version `jour2-paniers/` (fin d'année, « miel pur du Congo ») n'est plus utilisée.
-Scénario, repris du visuel de la Ruche : « Offre de vente, miel soignant » avec leur vraie cuillère à miel → photo du panier, « Les paniers : Or, Platine, Diamant » → contenu de chaque panier (pots de miel de variétés différentes, produits d'accompagnement, produits offerts, guide de consommation, flyer). « Note posologique » est renommée « guide de consommation » (comment et quand le prendre), plus clair pour les clients → « La Ruche du Terroir, un miel gustatif et soignant » → « Commandez votre panier » sur WhatsApp.
+Scénario, repris du visuel de la Ruche : « Offre de vente, miel soignant » avec leur vraie cuillère à miel → photo du panier, « Les paniers : Or, Platine, Diamant » → contenu de chaque panier (pots de miel de variétés différentes, produits d'accompagnement, produits offerts, flyer). La note posologique est retirée (demande de Mike) → « La Ruche du Terroir, un miel gustatif et soignant » → « Commandez votre panier » sur WhatsApp.
 Aucun prix affiché (règle de Mike), même si le visuel de la Ruche les montre.
 
 **Statut WhatsApp**
@@ -36,7 +36,7 @@ Aucun prix affiché (règle de Mike), même si le visuel de la Ruche les montre.
 > 🟡 Panier Or : 2 pots de miel, 1 produit d'accompagnement, 1 produit offert
 > 🩷 Panier Platine : 3 pots de miel, 1 produit d'accompagnement, 2 produits offerts
 > 🟠 Panier Diamant : 4 pots de miel, 2 produits d'accompagnement, 2 produits offerts
-> Dans chaque panier : un guide de consommation (comment et quand le prendre) et un flyer.
+> Dans chaque panier : un flyer.
 >
 > 📲 Commandez sur WhatsApp : +243 859 072 956
 > 📍 N°51 avenue Benseke, Q/Joli-Parc, C/Ngaliema, réf. arrêt Sakombi

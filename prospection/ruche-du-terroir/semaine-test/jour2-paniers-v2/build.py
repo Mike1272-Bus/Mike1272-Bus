@@ -21,7 +21,7 @@ css = head + keep.replace("cannelle_photo.jpg", "panier_photo.jpg").replace("wid
       .jar { position: absolute; top: 430px; height: 400px; width: 270px; background-position: center bottom; background-size: contain; background-repeat: no-repeat; filter: drop-shadow(0 28px 30px rgba(60,30,0,0.32)); }
       .cnt { position: absolute; left: 860px; top: 360px; width: 170px; height: 170px; border-radius: 50%; background: #1c1206; color: #ffd60a; font-weight: 900; font-size: 92px; line-height: 170px; text-align: center; box-shadow: 0 16px 30px rgba(0,0,0,0.3); letter-spacing: -0.04em; }
       .cnt span { position: absolute; left: 0; top: 0; width: 170px; text-align: center; }
-      .box { position: absolute; left: 70px; top: 880px; width: 940px; height: 820px; border-radius: 44px; background: #fff; border: 3px solid #eadfcb; box-shadow: 0 18px 36px rgba(60,30,0,0.12); }
+      .box { position: absolute; left: 70px; top: 880px; width: 940px; height: 700px; border-radius: 44px; background: #fff; border: 3px solid #eadfcb; box-shadow: 0 18px 36px rgba(60,30,0,0.12); }
       .box h4 { position: absolute; left: 0; top: 38px; width: 940px; text-align: center; font-size: 40px; font-weight: 800; color: #c66f00; }
       .it { position: absolute; left: 34px; width: 870px; height: 128px; }
       .it img { position: absolute; left: 0; top: 4px; width: 118px; height: 118px; filter: drop-shadow(0 10px 12px rgba(60,30,0,0.25)); }
@@ -35,7 +35,6 @@ P = {"or": ("Panier Or", "h-or", 2, "1 produit d'accompagnement", "1 produit off
 ITEMS = lambda pots, acc, off: [("honey_pot", f"{pots} pots de miel", "de variétés différentes"),
                                 ("package", acc, "pour accompagner votre miel"),
                                 ("wrapped_gift", off, "en cadeau"),
-                                ("open_book", "1 guide de consommation", "comment et quand le prendre"),
                                 ("page_facing_up", "1 flyer", "")]
 def card(k, n):
     name, cls, pots, acc, off = P[k]
@@ -43,7 +42,7 @@ def card(k, n):
     x0 = (1080 - (pots * W + (pots - 1) * gap)) // 2
     jars = "".join(f'<div class="jar" id="{k}j{i}" style="width:{W}px; left:{x0 + i * (W + gap)}px; background-image:url(\'assets/img/pot{i + 1}.png\')"></div>' for i in range(pots))
     cnt = f'<div class="cnt" id="{k}c"' + (' style="top:285px; left:880px"' if pots == 4 else '') + '>' + "".join(f'<span id="{k}c{i + 1}">{i + 1}</span>' for i in range(pots)) + '</div>'
-    rows = "".join(f'<div class="it" id="{k}i{j}" style="top:{110 + j * 136}px"><img src="assets/img/{ic}_3d.png" /><b>{t}</b>' + (f'<em>{e}</em>' if e else '') + '</div>' for j, (ic, t, e) in enumerate(ITEMS(pots, acc, off)))
+    rows = "".join(f'<div class="it" id="{k}i{j}" style="top:{120 + j * 140}px"><img src="assets/img/{ic}_3d.png" /><b>{t}</b>' + (f'<em>{e}</em>' if e else '') + '</div>' for j, (ic, t, e) in enumerate(ITEMS(pots, acc, off)))
     return f'''
       <div class="scene cream" id="s{n}"><div class="cam" id="k{n}">
         <svg class="comb" viewBox="0 0 1080 1920"><defs><pattern id="hx{n}" width="90" height="156" patternUnits="userSpaceOnUse"><path d="M45 0l45 26v52l-45 26-45-26V26zM0 104l45 26v52M90 104L45 130" fill="none" stroke="#c98a1c" stroke-width="3"/></pattern></defs><rect width="1080" height="1920" fill="url(#hx{n})"/></svg>
@@ -138,11 +137,11 @@ def cardjs(k, a, pots):
     b = round(a + 0.45 + pots * 0.5 + 0.1, 2)
     js += f'''
       IN("#{k}b", {{ y: 900 }}, {{ y: 0, duration: 0.45, ease: "expo.out" }}, {b});
-      [0, 1, 2, 3, 4].forEach(i => {{ IN("#{k}i" + i, {{ x: i % 2 ? 700 : -700 }}, {{ x: 0, duration: 0.4, ease: "expo.out" }}, {b + 0.45} + i * 0.85); FT("#{k}i" + i + " img", {{ scale: 0.2, rotation: -40 }}, {{ scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.5)" }}, {b + 0.55} + i * 0.85); }});
+      [0, 1, 2, 3].forEach(i => {{ IN("#{k}i" + i, {{ x: i % 2 ? 700 : -700 }}, {{ x: 0, duration: 0.4, ease: "expo.out" }}, {b + 0.45} + i * 0.85); FT("#{k}i" + i + " img", {{ scale: 0.2, rotation: -40 }}, {{ scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.5)" }}, {b + 0.55} + i * 0.85); }});
       float("#{k}j0", {a + 1.6}, 3.0, -14);'''
     SFX.append((b, "whoosh-short", 0.22))
-    SFX.extend([(round(b + 0.45 + i * 0.85, 2), "whoosh-short", 0.18) for i in range(5)])
-    SFX.extend([(round(b + 0.6 + i * 0.85, 2), "ping" if i == 2 else "click-soft", 0.2) for i in range(5)])
+    SFX.extend([(round(b + 0.45 + i * 0.85, 2), "whoosh-short", 0.18) for i in range(4)])
+    SFX.extend([(round(b + 0.6 + i * 0.85, 2), "ping" if i == 2 else "click-soft", 0.2) for i in range(4)])
     return js
 SC = [("#s1", "#k1", T["s1"], T["s2"]), ("#s2", "#k2", T["s2"], T["or"]), ("#s3", "#k3", T["or"], T["pl"]), ("#s4", "#k4", T["pl"], T["di"]), ("#s5", "#k5", T["di"], T["s6"]), ("#s6", "#k6", T["s6"], T["s7"]), ("#s7", "#k7", T["s7"], DUR)]
 js = helpers + "      const SC = [" + ", ".join(f'["{s}", "{c}", {a}, {round(b - a, 2)}]' for s, c, a, b in SC) + '''];
