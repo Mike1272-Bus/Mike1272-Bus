@@ -59,8 +59,8 @@ Sans ces extraits, je fais tout en animation.
 ## Légende
 
 > Tu as un savoir-faire qui peut te payer, même sans diplôme 📱
-> 1. Trouve-la avec 3 questions
-> 2. Transforme-la en produit avec ton téléphone (Canva, CapCut, Chariow)
+> 1. Trouve-le avec 3 questions
+> 2. Transforme-le en produit avec ton téléphone (Canva, CapCut, Chariow)
 > 3. Fais venir les clients : contenu gratuit d'abord, publicité ensuite
 > Commente « EBOOK », je te réponds en privé avec le guide.
 > #competence #produitdigital #revenu #telephone #canva #capcut #chariow #kinshasa #rdc
