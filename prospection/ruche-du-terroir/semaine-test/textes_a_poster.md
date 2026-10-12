@@ -21,24 +21,27 @@ Ancienne version sombre, plus utilisée : `jour1-cannelle/`
 >
 > #miel #cannelle #madeinRDC #Kinshasa #LaRucheDuTerroir
 
-## Jour 2 · Mardi 13 octobre · Les paniers cadeaux pour les entreprises
+## Jour 2 · Mardi 13 octobre · Les paniers (version 2, à partir du visuel de la Ruche)
 
-Vidéo : `jour2-paniers/renders/jour2-paniers.mp4` (20 s, même style que le jour 1)
-Scénario : « La fin d'année approche » → « Quel cadeau pour vos équipes ? » → « Offrez du miel » (3 pots qui tombent) → leur photo du panier, « Faites plaisir à vos équipes avec des produits locaux » → Panier Or (2 pots), Platine (3 pots), Diamant (4 pots) → demande de devis sur WhatsApp.
-Aucun prix affiché (règle confirmée par Mike).
+Vidéo : `jour2-paniers-v2/renders/jour2-paniers-v2.mp4` (25 s). L'ancienne version `jour2-paniers/` (fin d'année, « miel pur du Congo ») n'est plus utilisée.
+Scénario, repris du visuel de la Ruche : « Offre de vente, miel soignant » avec leur vraie cuillère à miel → photo du panier, « Les paniers : Or, Platine, Diamant » → contenu de chaque panier (pots de 510 g de variétés différentes, produits d'accompagnement, produits offerts, note posologique, flyer) → « La Ruche du Terroir, un miel gustatif et soignant » → « Commandez votre panier » sur WhatsApp.
+Aucun prix affiché (règle de Mike), même si le visuel de la Ruche les montre.
 
 **Statut WhatsApp**
-> La fin d'année approche 🎁 Offrez à vos équipes un panier de miel pur du Congo. Demandez votre devis ici 👉 +243 859 072 956
+> Offre de vente : nos paniers de miel soignant 🍯🎁 Panier Or, Platine ou Diamant. Commandez le vôtre ici 👉 +243 859 072 956
 
 **Instagram et Facebook**
-> Quel cadeau pour vos équipes cette fin d'année ? 🎁
-> Nos paniers de miel pur du Congo : Panier Or (2 pots), Panier Platine (3 pots) ou Panier Diamant (4 pots).
-> Faites plaisir à vos équipes et à vos clients avec des produits locaux.
+> Offre de vente : miel soignant 🍯
+> Choisissez votre panier :
+> 🟡 Panier Or : 2 pots de miel de 510 g, 1 produit d'accompagnement, 1 produit offert
+> 🩷 Panier Platine : 3 pots de miel de 510 g, 1 produit d'accompagnement, 2 produits offerts
+> 🟠 Panier Diamant : 4 pots de miel de 510 g, 2 produits d'accompagnement, 2 produits offerts
+> Dans chaque panier : une note posologique et un flyer.
 >
-> 📲 Demandez votre devis sur WhatsApp : +243 859 072 956
-> 📍 N°51 avenue Benseke, Joli-Parc, Ngaliema
+> 📲 Commandez sur WhatsApp : +243 859 072 956
+> 📍 N°51 avenue Benseke, Q/Joli-Parc, C/Ngaliema, réf. arrêt Sakombi
 >
-> #cadeauentreprise #findannée #miel #madeinRDC #Kinshasa #LaRucheDuTerroir
+> #miel #paniercadeau #madeinRDC #Kinshasa #LaRucheDuTerroir
 
 ## Jour 3 · Mercredi 14 octobre · Miel au gingembre
 

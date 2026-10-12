@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #ffffff; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .cream { background: radial-gradient(ellipse at 50% 42%, #fffaf0 0%, #f6eddc 68%, #ecdfc6 100%); }
+      .white { background: radial-gradient(ellipse at 50% 45%, #ffffff 0%, #f8f6f2 65%, #eeeae3 100%); }
+      .comb { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0.09; }
+      .swoosh { position: absolute; left: -300px; top: -300px; width: 1680px; height: 2520px; }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .w { display: inline-block; margin: 0 0.12em; }
+      .sm { font-weight: 600; font-size: 62px; letter-spacing: -0.02em; color: #1c1206; }
+      .big { font-weight: 900; font-size: 124px; letter-spacing: -0.045em; line-height: 0.95; color: #f29a0e; text-shadow: 0 6px 0 #9c5200, 0 18px 30px rgba(60,30,0,0.25); }
+      .ext { font-weight: 900; font-size: 176px; letter-spacing: -0.05em; line-height: 0.95; color: #f29a0e; text-shadow: 0 3px 0 #d47c00, 0 6px 0 #b86600, 0 9px 0 #9c5200, 0 12px 0 #7f4300, 0 30px 40px rgba(60,30,0,0.3); }
+      .obj { position: absolute; filter: drop-shadow(0 26px 34px rgba(60,30,0,0.28)); }
+
+      /* photo client */
+      #photo { left: 210px; top: 300px; width: 700px; height: 570px; border-radius: 30px; overflow: hidden; border: 12px solid #fff; box-shadow: 0 30px 60px rgba(60,30,0,0.22); }
+      #photo div { width: 100%; height: 100%; background: url('assets/img/panier_photo.jpg') center / cover no-repeat; }
+      .pill { position: absolute; height: 96px; border-radius: 48px; font-weight: 800; font-size: 44px; line-height: 96px; text-align: center; white-space: nowrap; }
+      .pa { background: #f29a0e; color: #2a1600; box-shadow: 0 14px 30px rgba(156,82,0,0.3); }
+      .pg { background: #1a9e4b; color: #fff; box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
+      .drop { position: absolute; width: 44px; height: 60px; background: #f29a0e; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; box-shadow: inset -6px -8px 0 rgba(0,0,0,.16); }
+
+
+      #band { left: 0; top: 0; width: 1080px; height: 70px; background: linear-gradient(180deg, #d98200, #f5a623); }
+      .drip { position: absolute; top: 40px; width: 52px; border-radius: 0 0 26px 26px; background: linear-gradient(90deg, #e08a00, #f7b23b 40%, #e08a00); transform-origin: 50% 0%; }
+      .drip::after { content: ""; position: absolute; left: 12px; top: 10px; width: 10px; height: 40%; border-radius: 5px; background: rgba(255,255,255,0.45); }
+      #spoon { left: 270px; top: 720px; width: 540px; height: 540px; filter: drop-shadow(0 36px 40px rgba(60,30,0,0.35)); }
+      #logo2 { left: 360px; top: 300px; width: 360px; height: 360px; border-radius: 50%; background: #fff url('assets/img/logo.png') center / 88% no-repeat; box-shadow: 0 30px 60px rgba(60,30,0,0.22); }
+
+      /* paniers */
+      .hdr { position: absolute; left: 90px; top: 210px; width: 900px; height: 180px; border-radius: 44px; font-weight: 900; font-size: 104px; letter-spacing: -0.04em; line-height: 180px; text-align: center; white-space: nowrap; }
+      .h-or { background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 12px 0 #c99a00, 0 26px 40px rgba(60,30,0,0.25); }
+      .h-pl { background: linear-gradient(180deg, #ff3d7f, #d90f57); color: #fff; box-shadow: 0 12px 0 #8f0838, 0 26px 40px rgba(60,0,20,0.25); }
+      .h-di { background: linear-gradient(180deg, #ff7a3d, #e04a17); color: #fff; box-shadow: 0 12px 0 #962c08, 0 26px 40px rgba(60,20,0,0.25); }
+      .jar { position: absolute; top: 450px; height: 400px; width: 270px; background-position: center bottom; background-size: contain; background-repeat: no-repeat; filter: drop-shadow(0 28px 30px rgba(60,30,0,0.32)); }
+      .box { position: absolute; left: 90px; top: 900px; width: 900px; height: 740px; border-radius: 44px; background: #fff; border: 3px solid #eadfcb; box-shadow: 0 18px 36px rgba(60,30,0,0.12); }
+      .box h4 { position: absolute; left: 0; top: 40px; width: 900px; text-align: center; font-size: 40px; font-weight: 800; color: #c66f00; }
+      .it { position: absolute; left: 50px; width: 800px; height: 110px; }
+      .it img { position: absolute; left: 0; top: 10px; width: 86px; height: 86px; }
+      .it b { position: absolute; left: 112px; top: 20px; font-size: 45px; font-weight: 900; letter-spacing: -0.03em; color: #1c1206; white-space: nowrap; }
+      .it em { position: absolute; left: 114px; top: 78px; font-style: normal; font-size: 28px; font-weight: 600; color: #8a6a3a; white-space: nowrap; }
+      .tri { position: absolute; height: 110px; border-radius: 55px; font-weight: 900; font-size: 54px; line-height: 110px; text-align: center; white-space: nowrap; }
+      /* WhatsApp */
+      #ph { left: 250px; top: 200px; width: 580px; height: 960px; border-radius: 64px; background: #111; padding: 18px; box-shadow: 0 40px 70px rgba(0,0,0,0.25); }
+      #scr { position: relative; width: 544px; height: 924px; border-radius: 48px; overflow: hidden; background: #efeae2; }
+      #hd { position: absolute; left: 0; top: 0; width: 544px; height: 150px; background: #008069; }
+      #hd .lg { position: absolute; left: 30px; top: 50px; width: 80px; height: 80px; border-radius: 50%; background: #fff url('assets/img/logo.png') center / 92% no-repeat; }
+      #hd b { position: absolute; left: 128px; top: 58px; color: #fff; font-size: 32px; font-weight: 800; }
+      #hd span { position: absolute; left: 128px; top: 100px; color: #d4efe8; font-size: 22px; font-weight: 600; }
+      #inp { position: absolute; left: 18px; bottom: 22px; width: 420px; height: 76px; border-radius: 38px; background: #fff; padding: 0 26px; font-size: 23px; font-weight: 600; line-height: 76px; color: #1c1206; white-space: nowrap; overflow: hidden; }
+      #inp0 { position: absolute; left: 26px; top: 0; color: #8a8a8a; }
+      #inp1 { position: absolute; left: 26px; top: 0; }
+      #send { position: absolute; right: 18px; bottom: 22px; width: 76px; height: 76px; border-radius: 50%; background: #00a884; }
+      #send::after { content: ""; position: absolute; left: 28px; top: 22px; border-left: 28px solid #fff; border-top: 16px solid transparent; border-bottom: 16px solid transparent; }
+      #bub { position: absolute; right: 18px; top: 560px; width: 420px; border-radius: 22px 22px 6px 22px; background: #d9fdd3; padding: 20px 24px 46px; font-size: 30px; font-weight: 600; line-height: 1.3; color: #111; box-shadow: 0 4px 8px rgba(0,0,0,0.08); }
+      #tm { position: absolute; right: 70px; bottom: 12px; font-size: 20px; color: #5f6d5f; }
+      .tk { position: absolute; bottom: 10px; font-size: 26px; font-weight: 900; letter-spacing: -8px; }
+      #tk0 { right: 30px; color: #7d8d7d; } #tk1 { right: 30px; color: #2f9fd0; }
+      #num { left: 160px; top: 1530px; width: 760px; }
+
+      #hex { left: 0; top: 0; width: 1080px; height: 1920px; z-index: 30; pointer-events: none; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="25" data-width="1080" data-height="1920">
+
+      <!-- 1. Offre de vente, miel soignant (0 - 3,4) -->
+      <div class="scene cream" id="s1"><div class="cam" id="k1">
+        <svg class="comb" viewBox="0 0 1080 1920"><defs><pattern id="hx1" width="90" height="156" patternUnits="userSpaceOnUse"><path d="M45 0l45 26v52l-45 26-45-26V26zM0 104l45 26v52M90 104L45 130" fill="none" stroke="#c98a1c" stroke-width="3"/></pattern></defs><rect width="1080" height="1920" fill="url(#hx1)"/></svg>
+        <div class="ab" id="band"></div>
+        <div class="drip" id="dr1" style="left:70px; height:260px"></div>
+        <div class="drip" id="dr2" style="left:250px; height:150px"></div>
+        <div class="drip" id="dr3" style="left:770px; height:200px"></div>
+        <div class="drip" id="dr4" style="left:950px; height:300px"></div>
+        <div class="line" style="top:330px"><span class="w sm" id="a1">Offre</span><span class="w sm" id="a2">de</span><span class="w sm" id="a3">vente</span></div>
+        <div class="line" style="top:440px" data-layout-allow-overlap><span class="w ext" id="a4" style="font-size:150px">Miel soignant</span></div>
+        <img class="obj" id="spoon" src="assets/img/cuillere_miel.png" />
+        <img class="obj" id="sp1" src="assets/img/sparkles_3d.png" style="left:800px; top:700px; width:170px; height:170px" />
+        <img class="obj" id="sp2" src="assets/img/sparkles_3d.png" style="left:110px; top:1250px; width:130px; height:130px" />
+      </div></div>
+
+      <!-- 2. Les paniers (3,4 - 6,6) -->
+      <div class="scene white" id="s2"><div class="cam" id="k2">
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M1500 -100 C 900 800, 700 1300, 200 2600" fill="none" stroke="#efe6d6" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="ab" id="photo"><div id="phi"></div></div>
+        <div class="line" style="top:1000px" data-layout-allow-overlap><span class="w big" id="b1">Les paniers</span></div>
+        <div class="tri h-or" id="t1" style="left:90px; top:1240px; width:250px">Or</div>
+        <div class="tri h-pl" id="t2" style="left:370px; top:1240px; width:340px">Platine</div>
+        <div class="tri h-di" id="t3" style="left:740px; top:1240px; width:250px; font-size:46px">Diamant</div>
+        <img class="obj" id="gift" src="assets/img/wrapped_gift_3d.png" style="left:430px; top:1450px; width:220px; height:220px" />
+      </div></div>
+
+      <div class="scene cream" id="s3"><div class="cam" id="k3">
+        <svg class="comb" viewBox="0 0 1080 1920"><defs><pattern id="hx3" width="90" height="156" patternUnits="userSpaceOnUse"><path d="M45 0l45 26v52l-45 26-45-26V26zM0 104l45 26v52M90 104L45 130" fill="none" stroke="#c98a1c" stroke-width="3"/></pattern></defs><rect width="1080" height="1920" fill="url(#hx3)"/></svg>
+        <div class="hdr h-or" id="orh">Panier Or</div>
+        <div class="jar" id="orj0" style="left:280px; background-image:url('assets/img/pot1.png')"></div><div class="jar" id="orj1" style="left:530px; background-image:url('assets/img/pot2.png')"></div>
+        <div class="box" id="orb"><h4>Notre paquet livrable est composé de :</h4><div class="it" id="ori0" style="top:120px"><img src="assets/img/check_mark_button_3d.png" /><b>2 pots de miel de 510 g</b><em>variétés différentes</em></div><div class="it" id="ori1" style="top:238px"><img src="assets/img/check_mark_button_3d.png" /><b>1 produit d'accompagnement</b></div><div class="it" id="ori2" style="top:356px"><img src="assets/img/wrapped_gift_3d.png" /><b>1 produit offert</b></div><div class="it" id="ori3" style="top:474px"><img src="assets/img/check_mark_button_3d.png" /><b>1 note posologique</b></div><div class="it" id="ori4" style="top:592px"><img src="assets/img/check_mark_button_3d.png" /><b>1 flyer</b></div></div>
+      </div></div>
+
+      <div class="scene cream" id="s4"><div class="cam" id="k4">
+        <svg class="comb" viewBox="0 0 1080 1920"><defs><pattern id="hx4" width="90" height="156" patternUnits="userSpaceOnUse"><path d="M45 0l45 26v52l-45 26-45-26V26zM0 104l45 26v52M90 104L45 130" fill="none" stroke="#c98a1c" stroke-width="3"/></pattern></defs><rect width="1080" height="1920" fill="url(#hx4)"/></svg>
+        <div class="hdr h-pl" id="plh">Panier Platine</div>
+        <div class="jar" id="plj0" style="left:155px; background-image:url('assets/img/pot1.png')"></div><div class="jar" id="plj1" style="left:405px; background-image:url('assets/img/pot2.png')"></div><div class="jar" id="plj2" style="left:655px; background-image:url('assets/img/pot3.png')"></div>
+        <div class="box" id="plb"><h4>Notre paquet livrable est composé de :</h4><div class="it" id="pli0" style="top:120px"><img src="assets/img/check_mark_button_3d.png" /><b>3 pots de miel de 510 g</b><em>variétés différentes</em></div><div class="it" id="pli1" style="top:238px"><img src="assets/img/check_mark_button_3d.png" /><b>1 produit d'accompagnement</b></div><div class="it" id="pli2" style="top:356px"><img src="assets/img/wrapped_gift_3d.png" /><b>2 produits offerts</b></div><div class="it" id="pli3" style="top:474px"><img src="assets/img/check_mark_button_3d.png" /><b>1 note posologique</b></div><div class="it" id="pli4" style="top:592px"><img src="assets/img/check_mark_button_3d.png" /><b>1 flyer</b></div></div>
+      </div></div>
+
+      <div class="scene cream" id="s5"><div class="cam" id="k5">
+        <svg class="comb" viewBox="0 0 1080 1920"><defs><pattern id="hx5" width="90" height="156" patternUnits="userSpaceOnUse"><path d="M45 0l45 26v52l-45 26-45-26V26zM0 104l45 26v52M90 104L45 130" fill="none" stroke="#c98a1c" stroke-width="3"/></pattern></defs><rect width="1080" height="1920" fill="url(#hx5)"/></svg>
+        <div class="hdr h-di" id="dih">Panier Diamant</div>
+        <div class="jar" id="dij0" style="width:235px; left:77px; background-image:url('assets/img/pot1.png')"></div><div class="jar" id="dij1" style="width:235px; left:307px; background-image:url('assets/img/pot2.png')"></div><div class="jar" id="dij2" style="width:235px; left:537px; background-image:url('assets/img/pot3.png')"></div><div class="jar" id="dij3" style="width:235px; left:767px; background-image:url('assets/img/pot4.png')"></div>
+        <div class="box" id="dib"><h4>Notre paquet livrable est composé de :</h4><div class="it" id="dii0" style="top:120px"><img src="assets/img/check_mark_button_3d.png" /><b>4 pots de miel de 510 g</b><em>variétés différentes</em></div><div class="it" id="dii1" style="top:238px"><img src="assets/img/check_mark_button_3d.png" /><b>2 produits d'accompagnement</b></div><div class="it" id="dii2" style="top:356px"><img src="assets/img/wrapped_gift_3d.png" /><b>2 produits offerts</b></div><div class="it" id="dii3" style="top:474px"><img src="assets/img/check_mark_button_3d.png" /><b>1 note posologique</b></div><div class="it" id="dii4" style="top:592px"><img src="assets/img/check_mark_button_3d.png" /><b>1 flyer</b></div></div>
+      </div></div>
+
+      <!-- 6. Gustatif et soignant (18,4 - 21,4) -->
+      <div class="scene white" id="s6"><div class="cam" id="k6">
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M200 -100 C 700 700, 1000 1300, 1500 2600" fill="none" stroke="#efe6d6" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="ab" id="logo2"></div>
+        <div class="line" style="top:800px"><span class="w sm" id="d1">La</span><span class="w sm" id="d2">Ruche</span><span class="w sm" id="d3">du</span><span class="w sm" id="d4">Terroir</span></div>
+        <div class="line" style="top:930px" data-layout-allow-overlap><span class="w big" id="d6" style="font-size:108px">un miel gustatif</span></div>
+        <div class="pill pa" id="d7" style="left:290px; top:1110px; width:500px">et soignant</div>
+        <img class="obj" id="hp" src="assets/img/honey_pot_3d.png" style="left:420px; top:1300px; width:240px; height:240px" />
+      </div></div>
+
+      <!-- 7. Commande sur WhatsApp (21,4 - 25) -->
+      <div class="scene white" id="s7"><div class="cam" id="k7">
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M200 -100 C 900 600, 500 1500, 1500 2600" fill="none" stroke="#efe6d6" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="ab" id="ph"><div id="scr">
+          <div id="hd"><div class="lg"></div><b>La Ruche du Terroir</b><span>Un miel gustatif et soignant</span></div>
+          <div id="bub" data-layout-allow-overlap>Bonjour, je veux le Panier Or 🎁<span id="tm">09:15</span><span class="tk" id="tk0">✓✓</span><span class="tk" id="tk1">✓✓</span></div>
+          <div id="inp"><span id="inp0">Message</span><span id="inp1">Je veux le Panier Or 🎁</span></div>
+          <div id="send"></div>
+        </div></div>
+        <div class="line" style="top:1225px" data-layout-allow-overlap><span class="w big" id="f1">Commandez</span></div>
+        <div class="line" style="top:1385px"><span class="w sm" id="f2">votre</span><span class="w sm" id="f3">panier</span></div>
+        <div class="pill pg" id="num">+243 859 072 956</div>
+      </div></div>
+
+      <svg class="ab" id="hex" viewBox="0 0 1080 1920"></svg>
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="25" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const word = (sel, at, d = 0.28) => IN(sel, { y: -50, scale: 1.3, filter: "blur(12px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at);
+      const words = (list, at, gap = 0.14) => list.forEach((s, i) => word(s, at + i * gap));
+      const pop = (sel, at) => IN(sel, { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, at);
+      const float = (sel, at, d, y = -16) => FT(sel, { y: 0 }, { y: y, duration: d / 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, at);
+      const slam = (sel, at) => IN(sel, { scale: 2.2, filter: "blur(16px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, at);
+
+      const SC = [["#s1", "#k1", 0, 3.4], ["#s2", "#k2", 3.4, 3.2], ["#s3", "#k3", 6.6, 3.8], ["#s4", "#k4", 10.4, 3.8], ["#s5", "#k5", 14.2, 4.2], ["#s6", "#k6", 18.4, 3.0], ["#s7", "#k7", 21.4, 3.6]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        tl.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.14 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+        FT(c, { rotation: 0, x: 0 }, { rotation: i % 2 ? 0.8 : -0.8, x: i % 2 ? -20 : 20, duration: d, ease: "sine.inOut" }, a);
+      });
+
+      // 1. offre de vente, miel soignant, la cuillère de la Ruche
+      IN("#band", { y: -80 }, { y: 0, duration: 0.3, ease: "power2.out" }, 0.05);
+      ["#dr1", "#dr2", "#dr3", "#dr4"].forEach((d, i) => { HIDE.push(d); FT(d, { autoAlpha: 1, scaleY: 0 }, { scaleY: 1, duration: 1.6, ease: "power1.in" }, 0.2 + i * 0.15); });
+      words(["#a1", "#a2", "#a3"], 0.3, 0.12);
+      IN("#a4", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.5, ease: "bounce.out" }, 0.75);
+      IN("#spoon", { y: 1200, rotation: 40 }, { y: 0, rotation: -8, duration: 0.6, ease: "back.out(1.4)" }, 1.1);
+      FT("#spoon", { rotation: -8 }, { rotation: 6, duration: 1.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.7);
+      pop("#sp1", 1.6); pop("#sp2", 1.8);
+
+      // 2. les paniers
+      IN("#photo", { y: 500, rotation: 10, scale: 0.8 }, { y: 0, rotation: -3, scale: 1, duration: 0.55, ease: "back.out(1.4)" }, 3.45);
+      FT("#phi", { scale: 1 }, { scale: 1.12, duration: 3.1, ease: "none" }, 3.45);
+      IN("#b1", { scale: 2.2, filter: "blur(16px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, 4.0);
+      ["#t1", "#t2", "#t3"].forEach((t, i) => IN(t, { scale: 0.3, y: 120 }, { scale: 1, y: 0, duration: 0.4, ease: "back.out(2.2)" }, 4.5 + i * 0.22));
+      pop("#gift", 5.3); float("#gift", 5.6, 1.0, -18);
+
+      // or
+      IN("#orh", { scale: 2, filter: "blur(14px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, 6.6499999999999995);
+      ["#orj0","#orj1"].forEach((j, i) => IN(j, { y: -1300, rotation: -12 + i * 8 }, { y: 0, rotation: 0, duration: 0.5, ease: "bounce.out" }, 6.8999999999999995 + i * 0.14));
+      IN("#orb", { y: 900 }, { y: 0, duration: 0.45, ease: "expo.out" }, 7.1499999999999995);
+      [0, 1, 2, 3, 4].forEach(i => IN("#ori" + i, { x: i % 2 ? 700 : -700 }, { x: 0, duration: 0.35, ease: "expo.out" }, 7.5 + i * 0.32));
+      float("#orj0", 8.2, 2.0, -14);
+      // pl
+      IN("#plh", { scale: 2, filter: "blur(14px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, 10.450000000000001);
+      ["#plj0","#plj1","#plj2"].forEach((j, i) => IN(j, { y: -1300, rotation: -12 + i * 8 }, { y: 0, rotation: 0, duration: 0.5, ease: "bounce.out" }, 10.700000000000001 + i * 0.14));
+      IN("#plb", { y: 900 }, { y: 0, duration: 0.45, ease: "expo.out" }, 10.950000000000001);
+      [0, 1, 2, 3, 4].forEach(i => IN("#pli" + i, { x: i % 2 ? 700 : -700 }, { x: 0, duration: 0.35, ease: "expo.out" }, 11.3 + i * 0.32));
+      float("#plj0", 12.0, 2.0, -14);
+      // di
+      IN("#dih", { scale: 2, filter: "blur(14px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, 14.25);
+      ["#dij0","#dij1","#dij2","#dij3"].forEach((j, i) => IN(j, { y: -1300, rotation: -12 + i * 8 }, { y: 0, rotation: 0, duration: 0.5, ease: "bounce.out" }, 14.5 + i * 0.14));
+      IN("#dib", { y: 900 }, { y: 0, duration: 0.45, ease: "expo.out" }, 14.75);
+      [0, 1, 2, 3, 4].forEach(i => IN("#dii" + i, { x: i % 2 ? 700 : -700 }, { x: 0, duration: 0.35, ease: "expo.out" }, 15.1 + i * 0.32));
+      float("#dij0", 15.799999999999999, 2.0, -14);
+
+      // 6. gustatif et soignant
+      IN("#logo2", { scale: 0.3, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.8)" }, 18.45);
+      words(["#d1", "#d2", "#d3", "#d4"], 18.85, 0.12); word("#d6", 19.45, 0.35);
+      IN("#d7", { scale: 0.4 }, { scale: 1, duration: 0.4, ease: "back.out(2.2)" }, 19.95);
+      pop("#hp", 20.3); float("#hp", 20.6, 0.8, -16);
+      // 7. WhatsApp
+      IN("#ph", { y: 1000 }, { y: 0, duration: 0.55, ease: "expo.out" }, 21.4);
+      FT("#inp0", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.1 }, 21.9);
+      HIDE.push("#inp1"); FT("#inp1", { autoAlpha: 1, clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 1.0, ease: "steps(20)" }, 21.9);
+      FT("#inp1", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.05 }, 23.0);
+      FT("#inp0", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05 }, 23.0);
+      FT("#send", { scale: 1 }, { scale: 0.8, duration: 0.1, yoyo: true, repeat: 1 }, 22.9);
+      IN("#bub", { y: 300, scale: 0.6, transformOrigin: "100% 100%" }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 23.0);
+      HIDE.push("#tk1"); FT("#tk1", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.15 }, 23.6); FT("#tk0", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.1 }, 23.6);
+      slam("#f1", 23.2);
+      words(["#f2", "#f3"], 23.5, 0.15);
+      IN("#num", { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.5)" }, 23.8);
+      FT("#num", { scale: 1 }, { scale: 1.06, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 24.3);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 24.7);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set(["#inp0"], { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
