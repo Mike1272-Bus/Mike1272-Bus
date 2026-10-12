@@ -14,6 +14,7 @@ Un seul endroit pour savoir où en est chaque chose. À mettre à jour à chaque
 | La Ruche du Terroir | Feu vert + chiffres de départ reçus (statuts WA 130-150 vues, FB 636, Insta 517, 4-7 commandes/sem.) | Recevoir photos + lot d'ici samedi, vidéo jour 1 validée dimanche, démarrage lundi 12 oct. Suivi jour par jour dans le fichier | `prospection/ruche-du-terroir/strategie_audience.md` |
 | Burger Guys, Fatburger, Savane, ManiTech, Épicé Bon, Tomela, Kahawa, La Kinoise, Festa, Délices d'Émilie | Vidéo envoyée ou prête | Relance 1 maintenant, relance 2 cinq jours après, puis stop | `prospection/relances.md` |
 | Landing page Allegra (vitrine + vidéo explicative 25 s) | En ligne : https://allegra-digital-ground.vercel.app | Envoyer le lien à La Ruche et dans les relances. Vérifier le lien Facebook, ajouter Instagram/TikTok d'Allegra | `allegra-landing/` |
+| Contenu Allegra pour attirer des clients (2 vidéos/jour, Facebook + TikTok) | Stratégie et calendrier de la semaine prêts | Mike valide l'offre d'essai, accord écrit de la Ruche, vérifier les comptes Facebook/TikTok, puis je produis les 2 vidéos du mardi | `prospection/strategie_contenu_allegra.md` |
 | Burger Guys, Fatburger | Numéros pas encore trouvés | Trouver le numéro avant toute relance | `prospection/liste_whatsapp.md` |
 | 40 nouvelles entreprises (pharmacies, pâtisseries, cosmétiques, mode, fast-food, coiffure, téléphones, construction) | Liste prête, numéros publics à vérifier | Premier message avec la question de diagnostic, puis démo gratuite | `prospection/liste_40_nouvelles.md` |
 
