@@ -9,6 +9,8 @@ Un seul endroit pour savoir où en est chaque chose. À mettre à jour à chaque
 
 ## 1. Prospection d'entreprises (Allegra Digital Ground, « vous »)
 
+> **Décision de Mike (13 octobre) : aucun envoi avant 10 vidéos de partenariat prêtes.** Vidéos prêtes : 7/10 (Crazy Chicken, Chicken Inn, Wamiliki Food, +243 Fast Food, Fuegos, Biloko, Snack Away). Pistes pour les 3 suivantes : Royal Burger, Hungabusta, Chawarma City, Braised Afrik (`liste_40_nouvelles.md`), il faut leurs photos.
+
 | Entreprise | État | Prochaine action | Dossier |
 |---|---|---|---|
 | La Ruche du Terroir | Feu vert + chiffres de départ reçus (statuts WA 130-150 vues, FB 636, Insta 517, 4-7 commandes/sem.) | Recevoir photos + lot d'ici samedi, vidéo jour 1 validée dimanche, démarrage lundi 12 oct. Suivi jour par jour dans le fichier | `prospection/ruche-du-terroir/strategie_audience.md` |
