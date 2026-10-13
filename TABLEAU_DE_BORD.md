@@ -9,7 +9,7 @@ Un seul endroit pour savoir où en est chaque chose. À mettre à jour à chaque
 
 ## 1. Prospection d'entreprises (Allegra Digital Ground, « vous »)
 
-> **Décision de Mike (13 octobre) : aucun envoi avant 10 vidéos de partenariat prêtes.** Vidéos prêtes : 9/10 (Crazy Chicken, Chicken Inn, Wamiliki Food, +243 Fast Food, Fuegos, Biloko, Snack Away, LushiTacos, Burger Lab). RocoMamas Lubumbashi : infos reçues (0894 685 879, N1 Hyper Psaro Carrefour, terrasse, menu enfant), il manque des photos de plats. Pistes pour les 3 suivantes : Royal Burger, Hungabusta, Chawarma City, Braised Afrik (`liste_40_nouvelles.md`), il faut leurs photos.
+> **Décision de Mike (13 octobre) : aucun envoi avant 10 vidéos de partenariat prêtes.** ✅ **10/10 atteint** (Crazy Chicken, Chicken Inn, Wamiliki Food, +243 Fast Food, Fuegos, Biloko, Snack Away, LushiTacos, Burger Lab, Pizza Inn) : prêt pour l'envoi groupé. RocoMamas Lubumbashi : infos reçues (0894 685 879, N1 Hyper Psaro Carrefour, terrasse, menu enfant), il manque des photos de plats. Pistes pour les 3 suivantes : Royal Burger, Hungabusta, Chawarma City, Braised Afrik (`liste_40_nouvelles.md`), il faut leurs photos.
 
 | Entreprise | État | Prochaine action | Dossier |
 |---|---|---|---|
@@ -25,6 +25,7 @@ Un seul endroit pour savoir où en est chaque chose. À mettre à jour à chaque
 | Snack Away (Kinshasa) | Vidéo prête (25 s, storytelling « Midi approche… Où est-ce qu'on mange ? », musique seule) + message de partenariat | Trouver leur contact (fiche Google Maps, Instagram/Facebook) ou passer sur place, envoyer le message court puis la vidéo, relance à J+3 | `prospection/snack-away/` |
 | LushiTacos | Vidéo prête (24 s, storytelling « Comment naît un bon tacos ? », musique seule) + message de partenariat | (Après la 10e vidéo) WhatsApp au 081 289 2716 ou 098 515 2233, message court puis la vidéo, relance à J+3. Vérifier la ville et si les photos sont bien les leurs | `prospection/lushitacos/` |
 | Burger Lab (Kinshasa / Gombe) | Vidéo prête (27,5 s, storytelling « L'expérience Burger Lab », 4 expériences) + message de partenariat. **Prospect chaud** : compte Instagram très actif | (Après la 10e vidéo) message privé Instagram @burgerlabrdc, puis la vidéo, relance à J+3 (proposer une « Expérience n°5 ») | `prospection/burger-lab/` |
+| Pizza Inn (Lubumbashi) | Vidéo prête (26,5 s, storytelling « Must be the Pizza », recettes, 3 adresses, numéros) + message de partenariat. Même groupe que Chicken Inn | (Envoi groupé) Vérifier adresses et numéros (publication de mars 2024), WhatsApp au 081 132 3323, message court puis la vidéo, relance à J+3 | `prospection/pizza-inn/` |
 | Chicken Inn (Lubumbashi) | Vidéo prête (23 s, leurs affiches : Le Préféré, burgers, packs, vraie assiette, logo, n° 0844 323 323) + message de partenariat | Vérifier le numéro, envoyer le message court puis la vidéo, relance à J+3 | `prospection/chicken-inn/` |
 | Crazy Chicken (Lubumbashi) | Vidéo prête (20 s, faite avec leur affiche : seau de poulet, poulet pané, salades, logo) + message de partenariat | Trouver leur numéro (fiche Google Maps), envoyer le message court puis la vidéo, relance à J+3 | `prospection/crazy-chicken/` |
 | Burger Guys, Fatburger | Numéros pas encore trouvés | Trouver le numéro avant toute relance | `prospection/liste_whatsapp.md` |
