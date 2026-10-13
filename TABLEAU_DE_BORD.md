@@ -9,7 +9,7 @@ Un seul endroit pour savoir où en est chaque chose. À mettre à jour à chaque
 
 ## 1. Prospection d'entreprises (Allegra Digital Ground, « vous »)
 
-> **Décision de Mike (13 octobre) : aucun envoi avant 10 vidéos de partenariat prêtes.** Vidéos prêtes : 7/10 (Crazy Chicken, Chicken Inn, Wamiliki Food, +243 Fast Food, Fuegos, Biloko, Snack Away). Pistes pour les 3 suivantes : Royal Burger, Hungabusta, Chawarma City, Braised Afrik (`liste_40_nouvelles.md`), il faut leurs photos.
+> **Décision de Mike (13 octobre) : aucun envoi avant 10 vidéos de partenariat prêtes.** Vidéos prêtes : 8/10 (Crazy Chicken, Chicken Inn, Wamiliki Food, +243 Fast Food, Fuegos, Biloko, Snack Away, LushiTacos). RocoMamas Lubumbashi : infos reçues (0894 685 879, N1 Hyper Psaro Carrefour, terrasse, menu enfant), il manque des photos de plats. Pistes pour les 3 suivantes : Royal Burger, Hungabusta, Chawarma City, Braised Afrik (`liste_40_nouvelles.md`), il faut leurs photos.
 
 | Entreprise | État | Prochaine action | Dossier |
 |---|---|---|---|
@@ -23,6 +23,7 @@ Un seul endroit pour savoir où en est chaque chose. À mettre à jour à chaque
 | Fuegos (Kinshasa) | Vidéo prête (25 s, storytelling « petite faim, grosse faim, très grosse faim », musique seule) + message de partenariat | Trouver leur numéro (bio Instagram), envoyer le message court en privé sur Instagram puis la vidéo, relance à J+3 | `prospection/fuegos/` |
 | Biloko (appli de livraison, RDC) | Vidéo prête (22 s, storytelling animé « Un clic… Ding dong ! » à partir du logo et d'une affiche) + message de partenariat | Envoyer le message court sur WhatsApp au 081 574 4630 (demander le responsable marketing) puis la vidéo, relance à J+3 (proposer une vidéo pour l'offre Rocomamas avant le 30 octobre) | `prospection/biloko/` |
 | Snack Away (Kinshasa) | Vidéo prête (25 s, storytelling « Midi approche… Où est-ce qu'on mange ? », musique seule) + message de partenariat | Trouver leur contact (fiche Google Maps, Instagram/Facebook) ou passer sur place, envoyer le message court puis la vidéo, relance à J+3 | `prospection/snack-away/` |
+| LushiTacos | Vidéo prête (24 s, storytelling « Comment naît un bon tacos ? », musique seule) + message de partenariat | (Après la 10e vidéo) WhatsApp au 081 289 2716 ou 098 515 2233, message court puis la vidéo, relance à J+3. Vérifier la ville et si les photos sont bien les leurs | `prospection/lushitacos/` |
 | Chicken Inn (Lubumbashi) | Vidéo prête (23 s, leurs affiches : Le Préféré, burgers, packs, vraie assiette, logo, n° 0844 323 323) + message de partenariat | Vérifier le numéro, envoyer le message court puis la vidéo, relance à J+3 | `prospection/chicken-inn/` |
 | Crazy Chicken (Lubumbashi) | Vidéo prête (20 s, faite avec leur affiche : seau de poulet, poulet pané, salades, logo) + message de partenariat | Trouver leur numéro (fiche Google Maps), envoyer le message court puis la vidéo, relance à J+3 | `prospection/crazy-chicken/` |
 | Burger Guys, Fatburger | Numéros pas encore trouvés | Trouver le numéro avant toute relance | `prospection/liste_whatsapp.md` |
