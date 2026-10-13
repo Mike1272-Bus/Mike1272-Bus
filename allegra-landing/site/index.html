@@ -2,381 +2,719 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Allegra Digital Ground · Vidéos animées pour votre marque</title>
-  <meta name="description" content="Des vidéos animées faites avec vos propres photos, prêtes pour vos statuts WhatsApp, vos Reels et vos pages. Kinshasa." />
-  <meta property="og:title" content="Allegra Digital Ground" />
-  <meta property="og:description" content="Vos produits méritent d'être vus. Des vidéos animées faites avec vos photos, pour vos statuts, vos Reels et vos pages." />
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Allegra Digital · Vos photos deviennent des vidéos qui font vendre</title>
+  <meta name="description" content="Allegra Digital Ground, Kinshasa : motion design, montage vidéo et pubs animées faites avec vos photos. Pour vos statuts WhatsApp, Facebook, Instagram et TikTok. Vidéo d'essai gratuite." />
+  <meta property="og:title" content="Allegra Digital · Vidéos qui font vendre" />
+  <meta property="og:description" content="Vous avez la photo. Nous, on la fait bouger. Motion design, montage, vrais effets. Vidéo d'essai gratuite." />
   <meta property="og:image" content="/img/og.jpg" />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0b1e4a" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/img/favicon.png" />
-  <link rel="preload" href="/fonts/bricolage-800.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="/fonts/inter-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin />
   <style>
-    @font-face { font-family: 'Bricolage'; font-weight: 800; font-display: swap; src: url('/fonts/bricolage-800.ttf') format('truetype'); }
-    @font-face { font-family: 'Bricolage'; font-weight: 700; font-display: swap; src: url('/fonts/bricolage-700.ttf') format('truetype'); }
-    @font-face { font-family: 'Work Sans'; font-weight: 400; font-display: swap; src: url('/fonts/worksans-400.ttf') format('truetype'); }
-    @font-face { font-family: 'Work Sans'; font-weight: 700; font-display: swap; src: url('/fonts/worksans-700.ttf') format('truetype'); }
+    @font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url(/fonts/inter-latin-600-normal.woff2) format("woff2"); }
+    @font-face { font-family: "Inter"; font-weight: 800; font-display: swap; src: url(/fonts/inter-latin-800-normal.woff2) format("woff2"); }
+    @font-face { font-family: "Inter"; font-weight: 900; font-display: swap; src: url(/fonts/inter-latin-900-normal.woff2) format("woff2"); }
+
     :root {
-      --navy: #0b1e4a; --navy2: #071434; --blue: #1f4aa0; --sky: #3b6fe0; --yellow: #ffd60a;
-      --bg: #e6ebf7; --panel: #f4f6fc; --ink: #0b1e4a; --muted: #56627f; --glass: rgba(255,255,255,.55); --gline: rgba(255,255,255,.8);
+      --ink: #141009;
+      --muted: #6b6257;
+      --bg: #f4f2f0;
+      --creme: #fbf6eb;
+      --white: #ffffff;
+      --orange: #f29a0e;
+      --orange-txt: #d97a00;
+      --jaune: #ffd23f;
+      --rose: #ff3d7f;
+      --vert: #1a9e4b;
+      --line: 2.5px solid var(--ink);
+      --shadow: 5px 5px 0 var(--ink);
+      --r: 16px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Work Sans', system-ui, sans-serif; color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased;
-      background: radial-gradient(1200px 700px at 85% -10%, #c9d6fb 0%, transparent 60%), radial-gradient(900px 600px at -10% 40%, #d9e2fb 0%, transparent 60%), var(--bg); }
-    h1, h2, h3, .display { font-family: 'Bricolage', 'Work Sans', sans-serif; font-weight: 800; line-height: 1.02; letter-spacing: -0.025em; }
-    a { color: inherit; }
-    img { display: block; max-width: 100%; }
-    .shell { max-width: 1200px; margin: 14px auto 40px; background: var(--panel); border-radius: 36px; overflow: hidden;
-      box-shadow: 0 40px 100px rgba(11,30,74,.18), 0 0 0 1px rgba(255,255,255,.7) inset; }
-    .pad { padding: 0 20px; }
-    .glass { background: var(--glass); border: 1px solid var(--gline); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 18px 40px rgba(11,30,74,.10), inset 0 1px 0 rgba(255,255,255,.9); }
-    .dark { background: radial-gradient(600px 300px at 80% 0%, rgba(59,111,224,.45), transparent 70%), var(--navy2); color: #fff; }
-    .y { color: var(--yellow); }
-    .grad { background: linear-gradient(90deg, var(--blue), var(--sky)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .chip { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-weight: 600; color: var(--ink); background: var(--bg); line-height: 1.5;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    img, video { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, 100% - 32px); margin: 0 auto; }
+    .grid-bg {
+      background-color: var(--bg);
+      background-image: linear-gradient(rgba(20,16,9,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(20,16,9,.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    section { position: relative; }
+    .band { border-top: var(--line); }
+    .creme { background: var(--creme); }
+    .white { background: var(--white); }
+    .pad { padding: 96px 0; }
 
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Bricolage'; font-weight: 800; font-size: 17px;
-      text-decoration: none; padding: 15px 24px; border-radius: 999px; transition: transform .15s ease, box-shadow .15s ease; white-space: nowrap; }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-blue { background: linear-gradient(135deg, var(--blue), var(--sky)); color: #fff; box-shadow: 0 12px 26px rgba(31,74,160,.35); }
-    .btn-yellow { background: var(--yellow); color: var(--navy); box-shadow: 0 12px 26px rgba(255,214,10,.35); }
-    .btn-glass { color: var(--navy); }
-    .btn-dark { background: var(--navy); color: #fff; }
+    /* Titres */
+    h1, h2, h3 { font-weight: 900; letter-spacing: -0.035em; line-height: 1.02; }
+    h1 { font-size: clamp(42px, 7.2vw, 84px); }
+    h2 { font-size: clamp(34px, 5.4vw, 60px); }
+    .o { color: var(--orange); }
+    .g { color: #b7aea3; }
+    .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+    .kicker::before { content: ""; width: 9px; height: 9px; background: var(--orange); border: 2px solid var(--ink); }
+    .lead { font-size: clamp(16px, 2vw, 19px); color: var(--muted); max-width: 560px; }
+    .center { text-align: center; }
+    .center .lead { margin: 18px auto 0; }
+
+    /* Boutons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: 800 16px/1 "Inter", sans-serif; padding: 17px 26px; border: var(--line); border-radius: 999px; box-shadow: 4px 4px 0 var(--ink); transition: transform .15s, box-shadow .15s; cursor: pointer; background: var(--white); color: var(--ink); }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+    .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+    .btn-o { background: var(--orange); color: var(--white); }
+    .btn-v { background: var(--vert); color: var(--white); }
     .btn svg { width: 20px; height: 20px; flex: none; }
 
-    /* nav */
-    nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .brand .lg { width: 40px; height: 40px; border-radius: 12px; background: var(--navy); display: grid; place-items: center; }
-    .brand .lg svg { width: 22px; height: 25px; }
-    .brand b { font-family: 'Bricolage'; font-weight: 800; font-size: 17px; text-transform: uppercase; line-height: 1; display: block; }
-    .brand small { font-size: 10px; letter-spacing: .2em; color: var(--muted); font-weight: 700; }
-    .links { display: none; gap: 28px; font-size: 15px; }
-    .links a { text-decoration: none; color: var(--muted); }
-    .links a:hover { color: var(--navy); }
-    nav .btn { padding: 11px 18px; font-size: 14px; }
+    /* Bulles (pastilles avec pointe) */
+    .tag { display: inline-block; font-size: 13px; font-weight: 800; padding: 7px 14px; border: 2px solid var(--ink); border-radius: 10px; box-shadow: 3px 3px 0 var(--ink); background: var(--jaune); position: relative; white-space: nowrap; }
+    .tag::after { content: ""; position: absolute; left: 50%; bottom: -8px; width: 12px; height: 12px; background: inherit; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: translateX(-50%) rotate(45deg); }
+    .tag.noir { background: var(--ink); color: var(--white); }
+    .tag.org { background: var(--orange); color: var(--white); }
+    .tag.rose { background: var(--rose); color: var(--white); }
+    .chip { position: absolute; z-index: 3; font-size: 11px; font-weight: 800; padding: 4px 9px; border: 2px solid var(--ink); border-radius: 999px; background: var(--white); text-transform: lowercase; }
+    .chip.org { background: var(--orange); color: var(--white); }
+    .chip.rose { background: var(--rose); color: var(--white); }
 
-    /* hero */
-    .hero { position: relative; padding: 26px 20px 40px; display: grid; gap: 34px; }
-    .hero h1 { font-size: clamp(42px, 8.4vw, 82px); margin: 16px 0 18px; }
-    .hero .lead { font-size: 18px; color: var(--muted); max-width: 520px; }
-    .hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-    .stage { position: relative; min-height: 380px; display: grid; place-items: center; }
-    .vframe { position: relative; z-index: 2; width: min(100%, 440px); aspect-ratio: 1/1; border-radius: 30px; overflow: hidden; padding: 10px; }
-    .vframe video { width: 100%; height: 100%; object-fit: cover; border-radius: 22px; display: block; background: var(--navy2); }
-    .vframe .chip { position: absolute; left: 22px; bottom: 22px; z-index: 3; background: var(--yellow); color: var(--navy); }
-    .sound { position: absolute; right: 22px; bottom: 22px; z-index: 3; width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer; display: grid; place-items: center; background: rgba(255,255,255,.85); }
-    /* objets 3D en verre */
-    .cube { position: absolute; z-index: 1; width: 96px; height: 96px; border-radius: 26px;
-      background: linear-gradient(145deg, rgba(255,255,255,.75), rgba(200,214,250,.35)); border: 1px solid rgba(255,255,255,.9);
-      box-shadow: 0 24px 40px rgba(11,30,74,.18), inset 0 2px 10px rgba(255,255,255,.9), inset 0 -10px 24px rgba(59,111,224,.18);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); animation: float 6s ease-in-out infinite; }
-    .cube i { position: absolute; border-radius: 9px; }
-    .cube.c1 { left: -4px; top: 10px; transform: rotate(-12deg); }
-    .cube.c1 i:nth-child(1) { left: 20px; top: 24px; width: 34px; height: 22px; background: var(--sky); }
-    .cube.c1 i:nth-child(2) { left: 44px; top: 50px; width: 30px; height: 22px; background: var(--yellow); }
-    .cube.c2 { right: 0; top: -6px; width: 84px; height: 84px; animation-delay: -2s; transform: rotate(10deg); }
-    .cube.c2 i { left: 22px; top: 22px; width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff3a6, var(--yellow)); }
-    .cube.c3 { right: 6px; bottom: 26px; width: 104px; height: 104px; background: linear-gradient(145deg, #1a2f63, #0b1e4a); animation-delay: -4s; }
-    .cube.c3 i:nth-child(1) { left: 24px; top: 30px; width: 56px; height: 14px; background: var(--yellow); }
-    .cube.c3 i:nth-child(2) { left: 24px; top: 54px; width: 38px; height: 14px; background: var(--sky); }
-    .orb { position: absolute; z-index: 3; border-radius: 50%; background: radial-gradient(circle at 30% 28%, #fff 0%, rgba(214,226,255,.75) 30%, rgba(59,111,224,.35) 70%, rgba(59,111,224,.15) 100%);
-      box-shadow: 0 16px 30px rgba(11,30,74,.2); animation: float 7s ease-in-out infinite; }
-    .orb.o1 { width: 54px; height: 54px; left: 10%; bottom: 6%; animation-delay: -1s; }
-    .orb.o2 { width: 30px; height: 30px; right: 18%; top: 4%; animation-delay: -3s; }
-    @keyframes float { 0%,100% { translate: 0 0; } 50% { translate: 0 -14px; } }
+    /* Navigation */
+    .nav-wrap { position: sticky; top: 14px; z-index: 50; padding-top: 14px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--white); border: var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: 12px 14px 12px 18px; }
+    .logo { display: flex; align-items: center; gap: 9px; font-weight: 900; font-size: 22px; letter-spacing: -0.04em; }
+    .logo img { width: 30px; height: 31px; }
+    .logo em { font-style: normal; }
+    .logo span { color: var(--orange); font-weight: 800; }
+    .nav-links { display: flex; gap: 26px; font-size: 15px; font-weight: 800; }
+    .nav-links a:hover { color: var(--orange-txt); }
+    .nav-cta { display: flex; gap: 10px; }
+    .nav .btn { padding: 11px 16px; font-size: 14px; box-shadow: 3px 3px 0 var(--ink); }
 
-    /* bandeau sombre */
-    .band { margin: 0 20px; border-radius: 28px; padding: 22px; display: grid; gap: 18px; align-items: center; }
-    .band .bt { display: flex; align-items: center; gap: 14px; }
-    .band .bt .ic { width: 52px; height: 52px; border-radius: 16px; background: rgba(255,255,255,.1); display: grid; place-items: center; border: 1px solid rgba(255,255,255,.2); }
-    .band h3 { font-size: 22px; }
-    .band p { color: #c6d3f5; font-size: 15px; }
-    .thumbs { display: flex; gap: 10px; }
-    .thumbs img { width: 64px; height: 64px; border-radius: 16px; object-fit: cover; border: 2px solid rgba(255,255,255,.7); }
+    /* Hero */
+    .hero { padding: 64px 0 40px; text-align: center; overflow-x: clip; }
+    .hero-tags { display: flex; justify-content: center; gap: 12px; margin-bottom: 26px; }
+    .hero-tags .tag:first-child { transform: rotate(-4deg); }
+    .hero-tags .tag:last-child { transform: rotate(3deg); }
+    .hero h1 { max-width: 900px; margin: 0 auto; }
+    .hero .lead { margin: 22px auto 30px; }
+    .hero-cta { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .hero-small { margin-top: 16px; font-size: 13px; color: var(--muted); }
+    .fan-labels { display: flex; justify-content: space-between; max-width: 820px; margin: 54px auto 0; padding: 0 30px; }
+    .fan { position: relative; height: 330px; margin: 22px auto 0; max-width: 1000px; }
+    .card { position: absolute; left: 50%; top: 20px; width: 168px; aspect-ratio: 9/16; border: var(--line); border-radius: 14px; overflow: hidden; background: var(--white); box-shadow: var(--shadow); transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+    .card img, .card video { width: 100%; height: 100%; object-fit: cover; }
+    .card .chip { top: 8px; left: 8px; }
+    .card.photo { aspect-ratio: 4/5; top: 60px; padding: 8px 8px 26px; background: var(--white); }
+    .card.photo img { border-radius: 4px; border: 1.5px solid var(--ink); }
+    .card.mid { width: 196px; top: 0; z-index: 5; background: var(--creme); display: grid; place-items: center; text-align: center; padding: 16px; }
+    .card.mid img.ic { width: 82px; height: 85px; margin: 0 auto 12px; animation: bob 2.6s ease-in-out infinite; }
+    .card.mid b { display: block; font-size: 20px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; }
+    .card.mid small { display: block; margin-top: 8px; font-size: 12px; color: var(--muted); }
+    .fan:hover .card { }
+    @keyframes bob { 50% { transform: translateY(-8px) rotate(-3deg); } }
 
-    /* canaux */
-    .channels { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 22px 20px 6px; }
-    .ch { border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-    .ch .lb { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-    .ch .vl { font-family: 'Bricolage'; font-weight: 800; font-size: 20px; }
-    .ch .chip { align-self: flex-start; background: linear-gradient(135deg, var(--blue), var(--sky)); color: #fff; padding: 5px 12px; font-size: 11px; }
+    /* Avant / après */
+    .proof { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+    .proof h2 .g { display: block; }
+    .proof-stage { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; }
+    .polaroid { background: var(--white); border: var(--line); border-radius: 10px; padding: 10px 10px 34px; box-shadow: var(--shadow); transform: rotate(-4deg); position: relative; }
+    .polaroid img { border: 1.5px solid var(--ink); border-radius: 4px; aspect-ratio: 1; object-fit: cover; width: 100%; }
+    .polaroid .tag { position: absolute; top: -18px; left: 14px; }
+    .arrow { width: 52px; height: 52px; border-radius: 50%; border: var(--line); background: var(--orange); color: var(--white); display: grid; place-items: center; font-size: 24px; font-weight: 900; box-shadow: 3px 3px 0 var(--ink); }
+    .phone { position: relative; border: 3px solid var(--ink); border-radius: 26px; padding: 7px; background: var(--ink); box-shadow: var(--shadow); }
+    .phone video, .phone img { border-radius: 19px; width: 100%; aspect-ratio: 9/16; object-fit: cover; background: #ddd; }
+    .phone .tag { position: absolute; top: -18px; right: 12px; z-index: 2; }
+    .switch { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
+    .pill { font: 800 14px/1 "Inter", sans-serif; padding: 11px 16px; border: 2px solid var(--ink); border-radius: 999px; background: var(--white); cursor: pointer; }
+    .pill[aria-selected="true"] { background: var(--ink); color: var(--white); box-shadow: 3px 3px 0 var(--orange); }
+    .note { margin-top: 18px; font-size: 12px; color: var(--muted); }
 
-    /* sections */
-    section { padding: 70px 20px; }
-    .kicker { display: inline-block; font-weight: 700; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
-    h2 { font-size: clamp(32px, 5.6vw, 54px); margin-bottom: 14px; }
-    .sub { font-size: 17px; color: var(--muted); max-width: 620px; }
+    /* Formule */
+    .formula { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 22px; max-width: 900px; margin: 44px auto 0; }
+    .f-item { text-align: center; }
+    .f-box { position: relative; border: var(--line); border-radius: 16px; overflow: hidden; background: var(--white); box-shadow: var(--shadow); aspect-ratio: 3/4; }
+    .f-box.dash { border-style: dashed; }
+    .f-box img, .f-box video { width: 100%; height: 100%; object-fit: cover; }
+    .f-box.words { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 18px; background: var(--creme); }
+    .f-box.words span { display: block; font-weight: 900; font-size: 18px; letter-spacing: -0.02em; padding: 10px 12px; border: 2px solid var(--ink); border-radius: 12px; background: var(--white); text-align: left; }
+    .f-box.words span:nth-child(2) { background: var(--jaune); transform: rotate(-2deg); }
+    .f-box.words span:nth-child(3) { background: var(--vert); color: var(--white); }
+    .f-box .chip { top: 10px; right: 10px; left: auto; }
+    .f-label { margin-top: 14px; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .op { width: 46px; height: 46px; border-radius: 50%; border: var(--line); display: grid; place-items: center; font-weight: 900; font-size: 22px; background: var(--jaune); box-shadow: 3px 3px 0 var(--ink); }
+    .op.eq { background: var(--orange); color: var(--white); }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 54px; }
+    .step { text-align: left; display: flex; gap: 12px; padding: 18px; border: var(--line); border-radius: 14px; background: var(--white); box-shadow: 4px 4px 0 var(--ink); }
+    .step .n { flex: none; width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--ink); background: var(--jaune); display: grid; place-items: center; font-weight: 900; font-size: 14px; }
+    .step b { display: block; font-weight: 900; font-size: 16px; letter-spacing: -0.02em; }
+    .step p { font-size: 14px; color: var(--muted); margin-top: 3px; }
+    .tabpanel[hidden] { display: none; }
 
-    /* bento */
-    .bento { display: grid; gap: 16px; margin-top: 34px; }
-    .tile { border-radius: 28px; padding: 26px; position: relative; overflow: hidden; }
-    .tile h3 { font-size: 26px; margin-bottom: 8px; }
-    .tile p { color: var(--muted); }
-    .tile.dark p { color: #c6d3f5; }
-    .ba { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
-    .ba figure { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 1/1; }
-    .ba img { width: 100%; height: 100%; object-fit: cover; }
-    .ba .before img { filter: grayscale(.85) brightness(.85); }
-    .ba .after { box-shadow: 0 0 0 4px var(--yellow); }
-    .ba .after img { animation: kb 8s ease-in-out infinite alternate; }
-    @keyframes kb { from { transform: scale(1); } to { transform: scale(1.15) translateX(-4%); } }
-    .ba figcaption { position: absolute; left: 10px; bottom: 10px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; background: rgba(11,30,74,.8); color: #fff; }
-    .ba .after figcaption { background: var(--yellow); color: var(--navy); }
-    .mosaic { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
-    .mosaic img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 16px; }
-    .float-card { position: absolute; right: 18px; top: 18px; border-radius: 16px; padding: 10px 14px; font-weight: 700; font-size: 13px; color: var(--navy); }
-    .list { list-style: none; display: grid; gap: 12px; margin-top: 16px; }
-    .list li { display: flex; gap: 12px; align-items: flex-start; }
-    .list svg { flex: none; width: 22px; height: 22px; margin-top: 2px; }
+    /* Services */
+    .services-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 40px; }
+    .services-head p { max-width: 340px; color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .svc { border: var(--line); border-radius: var(--r); background: var(--white); box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s; }
+    .svc:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--ink); }
+    .svc-vis { position: relative; height: 260px; background: var(--creme); overflow: hidden; border-bottom: var(--line); }
+    .blob { position: absolute; border-radius: 50%; }
+    .svc-vis .media { position: absolute; left: 50%; top: 26px; transform: translateX(-50%) rotate(-3deg); width: 128px; aspect-ratio: 9/16; border: 2.5px solid var(--ink); border-radius: 14px; overflow: hidden; box-shadow: 4px 4px 0 var(--ink); background: #ddd; }
+    .svc-vis .media.wide { width: 250px; aspect-ratio: 16/9; top: 60px; transform: translateX(-50%) rotate(-2deg); }
+    .svc-vis .media.sq { width: 196px; aspect-ratio: 1; top: 30px; }
+    .svc-vis .media video, .svc-vis .media img { width: 100%; height: 100%; object-fit: cover; }
+    .svc-vis .mini { position: absolute; width: 74px; aspect-ratio: 1; border: 2px solid var(--ink); border-radius: 8px; overflow: hidden; background: var(--white); padding: 4px; box-shadow: 3px 3px 0 var(--ink); }
+    .svc-vis .mini img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+    .svc-vis .chip { top: 14px; left: 14px; }
+    .svc-body { padding: 16px 18px 18px; display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; flex: 1; }
+    .svc-body b { display: block; font-weight: 900; font-size: 17px; letter-spacing: -0.02em; }
+    .svc-body p { font-size: 14px; color: var(--muted); margin-top: 3px; }
+    .go { flex: none; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--ink); background: var(--jaune); display: grid; place-items: center; font-weight: 900; }
 
-    /* étapes */
-    .steps { display: grid; gap: 14px; margin-top: 30px; }
-    .step { border-radius: 24px; padding: 22px; display: flex; gap: 18px; align-items: center; }
-    .step .n { flex: none; width: 54px; height: 54px; border-radius: 18px; background: var(--yellow); color: var(--navy); display: grid; place-items: center; font-family: 'Bricolage'; font-weight: 800; font-size: 24px; }
-    .step h3 { font-size: 20px; }
-    .step p { color: #c6d3f5; font-size: 15px; }
-    .step.glass-d { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); }
+    /* Secteurs */
+    .pairs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 28px; max-width: 900px; margin: 34px auto 0; }
+    .pair { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; }
+    .pair .p-img { position: relative; border: var(--line); border-radius: 12px; overflow: hidden; aspect-ratio: 4/5; background: var(--white); box-shadow: 4px 4px 0 var(--ink); }
+    .pair .p-img img, .pair .p-img video { width: 100%; height: 100%; object-fit: cover; }
+    .pair .p-img.v { aspect-ratio: 4/5; }
+    .pair .chip { top: 8px; left: 8px; }
+    .pair .arrow { width: 40px; height: 40px; font-size: 18px; }
+    .sector-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .sector-tags span { font-size: 14px; font-weight: 800; padding: 8px 14px; border: 2px solid var(--ink); border-radius: 999px; background: var(--white); }
+    .sector-tags span:nth-child(odd) { background: var(--jaune); }
 
-    /* formules */
-    .plans { display: grid; gap: 16px; margin-top: 34px; }
-    .plan { border-radius: 28px; padding: 26px; display: flex; flex-direction: column; gap: 12px; }
-    .plan .tt { font-family: 'Bricolage'; font-weight: 800; font-size: 24px; }
-    .plan .pr { font-family: 'Bricolage'; font-weight: 800; font-size: 34px; }
-    .plan .pr small { font-family: 'Work Sans'; font-weight: 400; font-size: 14px; color: var(--muted); }
-    .plan ul { list-style: none; display: grid; gap: 8px; color: var(--muted); font-size: 15px; flex: 1; }
-    .plan li::before { content: "✓ "; color: var(--blue); font-weight: 700; }
-    .plan.hot { background: linear-gradient(160deg, var(--blue), var(--navy)); color: #fff; box-shadow: 0 24px 50px rgba(31,74,160,.35); }
-    .plan.hot ul, .plan.hot .pr small { color: #d5e0ff; }
-    .plan.hot li::before { color: var(--yellow); }
-    .plan .btn { margin-top: 8px; }
+    /* Vitrine (vidéos avec le son) */
+    .show-head { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 20px; }
+    .show-head .tag { justify-self: start; margin-bottom: 14px; }
+    .showcase { margin-top: 36px; background: var(--ink); border: var(--line); border-radius: 22px; padding: 36px 24px 24px; box-shadow: var(--shadow); }
+    .reel-row { display: flex; justify-content: center; align-items: center; gap: 22px; }
+    .reel { position: relative; width: 230px; flex: none; transition: transform .35s, opacity .35s; opacity: .55; transform: scale(.88); }
+    .reel.on { opacity: 1; transform: scale(1); }
+    .reel video { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 16px; border: 3px solid #2b241b; background: #222; }
+    .reel-cap { color: #fff; font-size: 13px; margin-top: 10px; text-align: center; opacity: .8; }
+    .show-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; gap: 12px; flex-wrap: wrap; }
+    .show-bar .btn { padding: 12px 18px; font-size: 14px; box-shadow: none; }
+    .round { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--white); background: transparent; color: var(--white); font: 900 18px/1 "Inter", sans-serif; cursor: pointer; }
+    .round:hover { background: var(--white); color: var(--ink); }
+
+    /* Galerie */
+    .marquee { overflow: hidden; margin-top: 40px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+    .track { display: flex; gap: 14px; width: max-content; animation: slide 60s linear infinite; padding: 6px 0 12px; }
+    .track.rev { animation-direction: reverse; animation-duration: 70s; margin-top: 14px; }
+    .track img { width: 150px; aspect-ratio: 9/16; object-fit: cover; border: 2px solid var(--ink); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); background: #eee; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    .marquee:hover .track { animation-play-state: paused; }
+
+    /* Ce que vous recevez */
+    .get { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
+    .get-item { border: var(--line); border-radius: 14px; background: var(--white); padding: 22px; box-shadow: 4px 4px 0 var(--ink); }
+    .get-item .em { font-size: 30px; line-height: 1; }
+    .get-item b { display: block; margin-top: 12px; font-weight: 900; font-size: 18px; letter-spacing: -0.02em; }
+    .get-item p { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .formats { display: flex; justify-content: center; align-items: flex-end; gap: 18px; margin-top: 40px; }
+    .fmt { border: var(--line); border-radius: 10px; background: var(--white); display: grid; place-items: center; font-weight: 900; font-size: 15px; box-shadow: 4px 4px 0 var(--ink); }
+    .fmt small { display: block; font-size: 11px; font-weight: 800; color: var(--muted); text-align: center; }
+
+    /* Offre */
+    .offer { max-width: 760px; margin: 44px auto 0; display: grid; grid-template-columns: 1.2fr 1fr; border: var(--line); border-radius: 22px; overflow: hidden; background: var(--white); box-shadow: 7px 7px 0 var(--ink); }
+    .offer-main { padding: 34px; background: #fff8ec; }
+    .offer-main .badge { display: inline-block; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; padding: 6px 12px; border-radius: 999px; background: var(--orange); color: var(--white); border: 2px solid var(--ink); }
+    .offer-main h3 { font-size: 26px; margin-top: 16px; }
+    .price { font-size: 64px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; margin-top: 12px; }
+    .price small { font-size: 16px; color: var(--muted); letter-spacing: 0; font-weight: 800; }
+    .offer-main .btn { width: 100%; margin-top: 26px; }
+    .offer-list { text-align: left; padding: 34px 30px; border-left: var(--line); }
+    .offer-list li { list-style: none; display: flex; gap: 10px; font-size: 15px; padding: 9px 0; border-bottom: 1.5px dashed #d8cfc3; }
+    .offer-list li:last-child { border-bottom: 0; }
+    .offer-list li::before { content: "✓"; flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--vert); color: var(--white); display: grid; place-items: center; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .after { text-align: center; margin-top: 22px; color: var(--muted); font-size: 15px; }
 
     /* FAQ */
-    .faq details { border-radius: 20px; padding: 18px 22px; margin-top: 12px; }
-    .faq summary { cursor: pointer; font-family: 'Bricolage'; font-weight: 800; font-size: 19px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    .faq { max-width: 720px; margin: 40px auto 0; border: var(--line); border-radius: 16px; overflow: hidden; background: var(--white); box-shadow: var(--shadow); }
+    .faq details { border-bottom: 2px solid var(--ink); }
+    .faq details:last-child { border-bottom: 0; }
+    .faq summary { list-style: none; cursor: pointer; padding: 18px 22px; font-weight: 800; font-size: 16px; display: flex; justify-content: space-between; gap: 16px; }
     .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::after { content: "+"; font-size: 24px; line-height: 1; color: var(--blue); }
-    .faq details[open] summary::after { content: "–"; }
-    .faq details p { margin-top: 10px; color: var(--muted); }
+    .faq summary::after { content: "+"; font-weight: 900; font-size: 20px; line-height: 1; transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { padding: 0 22px 20px; color: var(--muted); font-size: 15px; }
 
-    .final { margin: 0 20px 20px; border-radius: 32px; padding: 50px 24px; text-align: center; position: relative; overflow: hidden; }
-    .final h2 { color: #fff; }
-    .final .sub { color: #c6d3f5; margin: 0 auto 26px; }
-    .socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-    .socials a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 14px; padding: 10px 16px; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); color: #fff; }
-    .socials svg { width: 18px; height: 18px; }
-    footer { padding: 20px 24px 26px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+    /* Dernier appel */
+    .final { position: relative; overflow: hidden; background: var(--orange); border: var(--line); border-radius: 22px; box-shadow: 7px 7px 0 var(--ink); padding: 64px 24px 70px; text-align: center; color: var(--white); }
+    .final h2 { color: var(--white); position: relative; z-index: 1; }
+    .final p { position: relative; z-index: 1; margin: 14px 0 28px; font-size: 18px; }
+    .final .btn { position: relative; z-index: 1; }
+    .final .ghost { position: absolute; left: 50%; bottom: -0.2em; transform: translateX(-50%); font-weight: 900; font-size: clamp(90px, 18vw, 220px); letter-spacing: -0.05em; color: rgba(255,255,255,.14); white-space: nowrap; line-height: 1; }
 
-    .float-wa { position: fixed; right: 16px; bottom: 16px; z-index: 30; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
-    .float-wa svg { width: 30px; height: 30px; }
+    footer { padding: 54px 0 34px; background: var(--white); border-top: var(--line); }
+    .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 30px; }
+    .foot h4 { font-size: 12px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
+    .foot li { list-style: none; font-size: 14px; padding: 4px 0; }
+    .foot li a:hover { color: var(--orange-txt); }
+    .foot p { color: var(--muted); font-size: 14px; margin-top: 10px; max-width: 280px; }
+    .copy { margin-top: 36px; padding-top: 18px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .cube, .orb, .ba .after img { animation: none; } }
+    /* Bouton WhatsApp flottant (mobile) */
+    .wa-float { position: fixed; right: 16px; bottom: 16px; z-index: 60; display: none; }
 
-    @media (min-width: 860px) {
-      .shell { margin: 24px auto 50px; }
-      nav { padding: 24px 40px; }
-      .links { display: flex; }
-      .hero { grid-template-columns: 1.05fr 1fr; padding: 40px 40px 50px; align-items: center; }
-      .stage { min-height: 520px; }
-      .cube.c1 { left: 0; top: 40px; width: 120px; height: 120px; }
-      .band { margin: 0 40px; grid-template-columns: 1.2fr 1fr auto; padding: 26px 30px; }
-      .channels { grid-template-columns: repeat(4, 1fr); padding: 26px 40px 10px; }
-      section { padding: 100px 40px; }
-      .bento { grid-template-columns: 1fr 1.4fr; grid-auto-rows: auto; }
-      .bento .wide { grid-column: span 2; }
-      .mosaic { grid-template-columns: repeat(6, 1fr); }
-      .steps { grid-template-columns: repeat(3, 1fr); }
-      .step { flex-direction: column; align-items: flex-start; }
-      .plans { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
-      .final { margin: 0 40px 30px; padding: 80px 40px; }
-      footer { padding: 20px 44px 30px; }
+    /* Apparition */
+    .js .rv { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+    .js .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .js .rv { opacity: 1; transform: none; } .track { animation: none; } .card.mid img.ic { animation: none; } }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .proof { grid-template-columns: 1fr; gap: 36px; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .get { grid-template-columns: repeat(2, 1fr); }
+      .foot { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .pad { padding: 70px 0; }
+      .nav .btn-ghost { display: none; }
+      .nav { padding: 10px 10px 10px 14px; }
+      .logo { font-size: 19px; gap: 7px; }
+      .logo img { width: 26px; height: 27px; }
+      .nav .btn { white-space: nowrap; padding: 10px 13px; font-size: 13px; }
+      .f-box.words { padding: 10px; gap: 7px; }
+      .f-box.words span { font-size: 13px; padding: 7px 8px; border-radius: 9px; }
+      .fan { height: 290px; }
+      .fan-labels { padding: 0; }
+      .card { width: 130px; }
+      .card.mid { width: 150px; }
+      .card.mid img.ic { width: 60px; height: 62px; }
+      .card.mid b { font-size: 16px; }
+      .formula { grid-template-columns: 1fr auto 1fr; gap: 12px; }
+      .formula .op.eq { grid-column: 1 / -1; justify-self: center; }
+      .formula .f-item:last-child { grid-column: 1 / -1; width: 62%; justify-self: center; }
+      .steps { grid-template-columns: 1fr; }
+      .services-head { flex-direction: column; align-items: flex-start; }
+      .cards { grid-template-columns: 1fr; }
+      .pairs { grid-template-columns: 1fr; }
+      .reel { width: 200px; }
+      .reel:not(.on) { display: none; }
+      .get { grid-template-columns: 1fr; }
+      .offer { grid-template-columns: 1fr; }
+      .offer-list { border-left: 0; border-top: var(--line); }
+      .foot { grid-template-columns: 1fr; }
+      .wa-float { display: inline-flex; }
+      .final { padding: 48px 16px 56px; }
+      .final .btn { font-size: 14px; padding: 15px 18px; white-space: nowrap; }
+      .show-head { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-<div class="shell">
-  <nav>
-    <a class="brand" href="#">
-      <span class="lg"><svg viewBox="0 0 60 68" fill="none" stroke="#ffd60a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M20 20v-6a10 10 0 0 1 20 0v6"/><path d="M6 20h48l-4 44H10z"/><path d="M15 55l11-10 7 6 13-14"/></svg></span>
-      <span><b>Allegra Digital</b><small>GROUND · KINSHASA</small></span>
-    </a>
-    <div class="links"><a href="#services">Services</a><a href="#methode">Méthode</a><a href="#formules">Formules</a><a href="#faq">Questions</a></div>
-    <a class="btn btn-dark wa-link" href="#">Écrivez-nous</a>
-  </nav>
 
-  <header class="hero">
-    <div>
-      <span class="chip glass" style="color:var(--blue)">● Vidéos animées · Kinshasa</span>
-      <h1>Vos produits méritent <span class="grad">d'être vus.</span></h1>
-      <p class="lead">Nous créons des vidéos animées avec vos propres photos, prêtes à poster sur vos statuts WhatsApp, vos Reels Instagram et votre page Facebook.</p>
-      <div class="ctas">
-        <a class="btn btn-blue wa-link" href="#">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
-          Parlons de votre marque
-        </a>
-        <a class="btn btn-glass glass" href="#methode">Comment ça marche</a>
+<div class="grid-bg">
+  <div class="nav-wrap wrap">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="logo" href="#"><img src="/img/logo-icone.svg" alt="" width="30" height="31" /><em>Allegra<span>.digital</span></em></a>
+      <div class="nav-links">
+        <a href="#avant-apres">Avant / après</a>
+        <a href="#comment">Comment ça marche</a>
+        <a href="#services">Ce qu'on fait</a>
+        <a href="#faq">FAQ</a>
       </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#offre">L'offre</a>
+        <a class="btn btn-o" href="https://wa.me/243831710181?text=ESSAI" target="_blank" rel="noopener">Vidéo d'essai</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero wrap">
+    <div class="hero-tags rv">
+      <span class="tag">@motion-design</span>
+      <span class="tag noir">@montage-video</span>
     </div>
-    <div class="stage">
-      <div class="cube c1"><i></i><i></i></div>
-      <div class="cube c2"><i></i></div>
-      <div class="cube c3"><i></i><i></i></div>
-      <div class="orb o1"></div><div class="orb o2"></div>
-      <div class="vframe glass">
-        <span class="chip">La méthode en 25 s</span>
-        <video id="vid" src="/video/presentation.mp4" poster="/img/poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+    <h1 class="rv">Vous avez la photo.<br /><span class="o">Nous, on la fait bouger.</span></h1>
+    <p class="lead rv">Une photo de votre produit, ou de vous. Nous en faisons une vidéo avec de vrais effets : mouvement, texte, musique, bruitages. Prête pour vos statuts, Facebook, Instagram et TikTok.</p>
+    <div class="hero-cta rv">
+      <a class="btn btn-o" href="https://wa.me/243831710181?text=ESSAI" target="_blank" rel="noopener">Je veux ma vidéo d'essai</a>
+      <a class="btn" href="#avant-apres">Voir les avant / après ↓</a>
+    </div>
+    <p class="hero-small rv">Vidéo d'essai gratuite · 3 photos suffisent · Tout se passe sur WhatsApp</p>
+
+    <div class="fan-labels rv" aria-hidden="true">
+      <span class="tag">vos photos 📸</span>
+      <span class="tag org">vos vidéos 🎬</span>
+    </div>
+    <div class="fan rv" id="fan" aria-label="Exemples : des photos de produits deviennent des vidéos">
+      <div class="card photo" data-x="-395" data-r="-11"><span class="chip">photo</span><img src="/media/photo-glace.jpg" alt="Photo d'une glace" loading="eager" /></div>
+      <div class="card photo" data-x="-280" data-r="-7"><span class="chip">photo</span><img src="/media/photo-burger.jpg" alt="Photo d'un burger" /></div>
+      <div class="card photo" data-x="-165" data-r="-3"><span class="chip">photo</span><img src="/media/photo-bague.jpg" alt="Photo d'une bague" /></div>
+      <div class="card mid" data-x="0" data-r="0">
+        <div><img class="ic" src="/img/logo-icone.svg" alt="" /><b>+ Allegra</b><small>motion, montage, effets</small></div>
       </div>
+      <div class="card" data-x="165" data-r="3"><span class="chip org">vidéo</span><video src="/media/bague-apres.mp4" poster="/media/bague-apres.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <div class="card" data-x="280" data-r="7"><span class="chip org">vidéo</span><video src="/media/burger-apres.mp4" poster="/media/burger-apres.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <div class="card" data-x="395" data-r="11"><span class="chip org">vidéo</span><video src="/media/glace-apres.mp4" poster="/media/glace-apres.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
     </div>
   </header>
-
-  <div class="band dark reveal">
-    <div class="bt">
-      <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.2" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M10 9l5 3-5 3z" fill="#ffd60a"/></svg></div>
-      <div><h3>Une vidéo qui arrête le pouce</h3><p>Vos photos deviennent des vidéos courtes qui bougent, à vos couleurs.</p></div>
-    </div>
-    <p>Chaque vidéo finit par votre numéro de commande. Vos clients savent tout de suite comment vous écrire.</p>
-    <div class="thumbs"><img src="/img/photos/miel.jpg" alt="Pot de miel" loading="lazy" /><img src="/img/photos/burger.jpg" alt="Burger" loading="lazy" /><img src="/img/photos/cafe.jpg" alt="Tasse de café" loading="lazy" /></div>
-  </div>
-
-  <div class="channels">
-    <div class="ch glass reveal"><span class="lb">Canal</span><span class="vl">Statuts WhatsApp</span><span class="chip">Inclus</span></div>
-    <div class="ch glass reveal"><span class="lb">Canal</span><span class="vl">Reels Instagram</span><span class="chip">Inclus</span></div>
-    <div class="ch glass reveal"><span class="lb">Canal</span><span class="vl">Page Facebook</span><span class="chip">Inclus</span></div>
-    <div class="ch glass reveal"><span class="lb">Canal</span><span class="vl">TikTok</span><span class="chip" style="background:var(--yellow);color:var(--navy)">En option</span></div>
-  </div>
-
-  <section id="services">
-    <span class="kicker reveal">Ce que nous faisons</span>
-    <h2 class="reveal">Une belle photo <span class="grad">ne suffit plus.</span></h2>
-    <p class="sub reveal">Vos clients font défiler des dizaines de statuts chaque jour. Ce qui bouge attire le regard. Ce qui reste figé passe.</p>
-    <div class="bento">
-      <div class="tile dark reveal">
-        <span class="chip" style="background:rgba(255,255,255,.1);color:#ffd60a;border:1px solid rgba(255,255,255,.2)">Le service</span>
-        <h3 style="margin-top:14px">Vidéos animées en motion design</h3>
-        <p>Faites uniquement avec vos photos et votre logo. Format vertical pour les statuts et les Reels.</p>
-        <ul class="list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Le texte à copier-coller sous chaque vidéo</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Le calendrier : quoi poster, quand et où</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffd60a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Des idées de concours pour faire partager vos statuts</span></li>
-        </ul>
-      </div>
-      <div class="tile glass reveal">
-        <h3>Avant, après.</h3>
-        <p>La même photo. Posée telle quelle, ou transformée en vidéo qui donne envie.</p>
-        <div class="ba">
-          <figure class="before"><img src="/img/photos/miel.jpg" alt="Photo de produit simple" loading="lazy" /><figcaption>Photo seule</figcaption></figure>
-          <figure class="after"><img src="/img/photos/miel.jpg" alt="Le même produit mis en valeur" loading="lazy" /><figcaption>Avec Allegra</figcaption></figure>
-        </div>
-      </div>
-      <div class="tile glass wide reveal">
-        <div class="float-card glass">Alimentation · Cafés · Restaurants · Boutiques</div>
-        <h3 style="max-width:70%">Pour les commerçants qui vendent sur WhatsApp</h3>
-        <p>Miel, épices, burgers, cafés, gâteaux, jus, boutiques… Si vous avez des photos de vos produits, on peut les animer.</p>
-        <div class="mosaic">
-          <img src="/img/photos/epices.jpg" alt="Épices" loading="lazy" />
-          <img src="/img/photos/gateau.jpg" alt="Gâteau" loading="lazy" />
-          <img src="/img/photos/jus.jpg" alt="Bouteilles de jus" loading="lazy" />
-          <img src="/img/photos/burger.jpg" alt="Burger" loading="lazy" />
-          <img src="/img/photos/boutique.jpg" alt="Rayon de boutique" loading="lazy" />
-          <img src="/img/photos/cafe.jpg" alt="Café" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="methode" style="padding-top:0">
-    <div class="tile dark reveal" style="border-radius:32px;padding:34px 24px">
-      <span class="kicker" style="color:#9fb8f0">Comment ça marche</span>
-      <h2 style="color:#fff">Trois étapes, <span class="y">tout sur WhatsApp.</span></h2>
-      <div class="steps">
-        <div class="step glass-d"><div class="n">1</div><div><h3>Vous envoyez vos photos</h3><p>Vos produits, vos packs, votre logo. Même prises au téléphone.</p></div></div>
-        <div class="step glass-d"><div class="n">2</div><div><h3>Nous créons la vidéo</h3><p>Avec son texte. Vous demandez des changements si besoin.</p></div></div>
-        <div class="step glass-d"><div class="n">3</div><div><h3>Vous postez</h3><p>Puis on regarde ensemble vos vues et vos messages pour ajuster la suite.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="formules" style="padding-top:0">
-    <span class="kicker reveal">Formules</span>
-    <h2 class="reveal">Choisissez <span class="grad">votre rythme.</span></h2>
-    <p class="sub reveal">Le prix dépend du nombre de vidéos. Dites-nous ce dont vous avez besoin, on vous répond avec une proposition claire.</p>
-    <div class="plans">
-      <div class="plan glass reveal">
-        <span class="tt">Une vidéo</span>
-        <span class="pr">Sur devis <small>· pour un lancement</small></span>
-        <ul><li>Une vidéo animée avec vos photos</li><li>Le texte pour la poster</li><li>Format statut et Reel</li></ul>
-        <a class="btn btn-glass glass wa-link" href="#">Demander</a>
-      </div>
-      <div class="plan hot reveal">
-        <span class="chip" style="background:var(--yellow);color:var(--navy);align-self:flex-start">Le plus utile</span>
-        <span class="tt">Le mois complet</span>
-        <span class="pr">Sur devis <small>· chaque mois</small></span>
-        <ul><li>Une vidéo par jour, ou 3 par semaine</li><li>Le calendrier et tous les textes</li><li>Un point sur vos vues et vos messages</li></ul>
-        <a class="btn btn-yellow wa-link" href="#">Demander</a>
-      </div>
-      <div class="plan glass reveal">
-        <span class="tt">Boutique et pub</span>
-        <span class="pr">Sur devis <small>· sur mesure</small></span>
-        <ul><li>Une boutique en ligne à votre nom</li><li>Des publicités pour toucher de nouveaux clients</li><li>Les vidéos pour les alimenter</li></ul>
-        <a class="btn btn-glass glass wa-link" href="#">Demander</a>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top:0">
-    <div class="bento" style="margin-top:0">
-      <div class="tile glass reveal">
-        <span class="kicker">Nos engagements</span>
-        <h3 style="font-size:32px">Votre marque reste <span class="grad">la vôtre.</span></h3>
-        <ul class="list" style="color:var(--muted)">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f4aa0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Uniquement vos photos et vos informations. Rien d'inventé.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f4aa0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Aucune vidéo publiée sans votre accord écrit.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f4aa0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Jamais de mot de passe demandé. Vous gardez la main sur vos comptes.</span></li>
-        </ul>
-      </div>
-      <div class="tile glass faq reveal" id="faq">
-        <span class="kicker">Vos questions</span>
-        <details><summary>Combien ça coûte ?</summary><p>Ça dépend du nombre de vidéos par mois. Écrivez-nous ce dont vous avez besoin, on vous répond avec une proposition claire.</p></details>
-        <details><summary>Faut-il vous donner nos accès ?</summary><p>Non. Nous vous envoyons les vidéos et les textes, vous postez vous-mêmes. Vous pouvez aussi nous ajouter comme collaborateur dans Meta Business Suite.</p></details>
-        <details><summary>On n'a pas de belles photos, c'est grave ?</summary><p>Non. Envoyez ce que vous avez, même prises au téléphone. On vous dit lesquelles marchent le mieux et comment en prendre de nouvelles.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <div class="final dark reveal">
-    <div class="cube c2" style="left:6%;top:16%;right:auto"><i></i></div>
-    <div class="orb o2" style="right:10%;top:20%"></div>
-    <h2>Parlons de <span class="y">votre marque.</span></h2>
-    <p class="sub">Un message suffit. Dites-nous ce que vous vendez, on vous propose une première idée de vidéo.</p>
-    <a class="btn btn-yellow wa-link" href="#" style="font-size:19px;padding:17px 28px">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
-      +243 831 710 181
-    </a>
-    <div class="socials">
-      <a class="wa-link" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>WhatsApp</a>
-      <a href="https://www.facebook.com/ADigitalGround" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.7-.6z"/></svg>Facebook</a>
-    </div>
-  </div>
-
-  <footer><span>© 2026 Allegra Digital Ground · Kinshasa, RDC</span><span>Photos d'illustration libres de droits</span></footer>
 </div>
 
-<a class="float-wa wa-link" href="#" aria-label="Écrire sur WhatsApp">
-  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
-</a>
+<!-- LA PREUVE -->
+<section class="band creme pad" id="avant-apres">
+  <div class="wrap proof">
+    <div class="rv">
+      <span class="kicker">Avant / après</span>
+      <h2>1 photo.<br /><span class="o">1 vidéo qui vend.</span><span class="g">0 tournage.</span></h2>
+      <p class="lead" style="margin-top:18px">À gauche, la photo telle qu'on nous l'envoie. À droite, la pub que nous en faisons, avec la même photo : zooms, textes, votre logo et le bouton WhatsApp.</p>
+      <div class="switch" role="tablist" aria-label="Choisir un exemple">
+        <button class="pill" role="tab" aria-selected="true" data-ex="pizza">🍕 Pizza</button>
+        <button class="pill" role="tab" aria-selected="false" data-ex="glace">🍦 Glace</button>
+        <button class="pill" role="tab" aria-selected="false" data-ex="bague">💍 Bijou</button>
+        <button class="pill" role="tab" aria-selected="false" data-ex="beaute">💄 Beauté</button>
+      </div>
+      <p class="note">Exemples de pubs réalisés avec des images libres de droits.</p>
+    </div>
+    <div class="proof-stage rv">
+      <div class="polaroid"><span class="tag rose">avant</span><img id="exPhoto" src="/media/photo-pizza.jpg" alt="La photo envoyée" /></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="phone"><span class="tag org">après</span><video id="exVideo" src="/media/pizza-apres.mp4" poster="/media/pizza-apres.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- LA FORMULE -->
+<section class="band white pad" id="comment">
+  <div class="wrap center">
+    <span class="kicker rv">La formule</span>
+    <h2 class="rv">Pas de tournage. <span class="o">Une addition.</span></h2>
+    <p class="lead rv">La même formule pour vos produits, pour vous, et pour les vidéos que vous filmez déjà.</p>
+    <div class="switch rv" role="tablist" aria-label="Type de vidéo" style="justify-content:center">
+      <button class="pill" role="tab" aria-selected="true" data-tab="t-produit">📦 Produit</button>
+      <button class="pill" role="tab" aria-selected="false" data-tab="t-portrait">🙂 Portrait</button>
+      <button class="pill" role="tab" aria-selected="false" data-tab="t-montage">🎬 Montage</button>
+    </div>
+
+    <div class="tabpanel rv" id="t-produit">
+      <div class="formula">
+        <div class="f-item"><div class="f-box dash"><img src="/media/photo-pizza.jpg" alt="Photo d'une pizza" loading="lazy" /></div><div class="f-label">Votre photo</div></div>
+        <div class="op" aria-hidden="true">+</div>
+        <div class="f-item"><div class="f-box words"><span>Pâte maison.</span><span>Bien garnie.</span><span>Commandez sur WhatsApp</span></div><div class="f-label">Vos mots</div></div>
+        <div class="op eq" aria-hidden="true">=</div>
+        <div class="f-item"><div class="f-box"><span class="chip org">✨ monté</span><video data-lazy src="/media/pizza-apres.mp4" poster="/media/pizza-apres.jpg" muted loop playsinline preload="none"></video></div><div class="f-label">Votre pub</div></div>
+      </div>
+    </div>
+    <div class="tabpanel" id="t-portrait" hidden>
+      <div class="formula">
+        <div class="f-item"><div class="f-box dash"><img src="/media/photo-mike.jpg" alt="Photo de Mike, fondateur d'Allegra" loading="lazy" /></div><div class="f-label">Votre photo</div></div>
+        <div class="op" aria-hidden="true">+</div>
+        <div class="f-item"><div class="f-box words"><span>Salut, c'est Mike.</span><span>Bienvenue</span><span>Votre nom, votre titre</span></div><div class="f-label">Votre message</div></div>
+        <div class="op eq" aria-hidden="true">=</div>
+        <div class="f-item"><div class="f-box"><span class="chip org">✨ monté</span><video data-lazy src="/media/portrait.mp4" poster="/media/portrait.jpg" muted loop playsinline preload="none"></video></div><div class="f-label">Votre vidéo</div></div>
+      </div>
+      <p class="note">Exemple réel : la vidéo d'accueil du guide de Mike, le fondateur d'Allegra, faite à partir d'une seule photo.</p>
+    </div>
+    <div class="tabpanel" id="t-montage" hidden>
+      <div class="formula">
+        <div class="f-item"><div class="f-box dash"><img src="/media/g19.jpg" alt="Vos vidéos filmées" loading="lazy" /></div><div class="f-label">Vos vidéos</div></div>
+        <div class="op" aria-hidden="true">+</div>
+        <div class="f-item"><div class="f-box words"><span>Coupes et rythme</span><span>Textes animés</span><span>Musique et bruitages</span></div><div class="f-label">Nos effets</div></div>
+        <div class="op eq" aria-hidden="true">=</div>
+        <div class="f-item"><div class="f-box"><span class="chip org">✨ monté</span><video data-lazy src="/media/edu-motion.mp4" poster="/media/edu-motion.jpg" muted loop playsinline preload="none"></video></div><div class="f-label">Votre vidéo</div></div>
+      </div>
+      <p class="note">Exemple réel : une vidéo éducative de Mike, montée avec des extraits et du motion design.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step rv"><span class="n">1</span><div><b>Envoyez vos photos</b><p>Sur WhatsApp. 3 photos bien éclairées suffisent.</p></div></div>
+      <div class="step rv"><span class="n">2</span><div><b>Dites votre message</b><p>Votre offre, votre adresse, votre numéro.</p></div></div>
+      <div class="step rv"><span class="n">3</span><div><b>On anime</b><p>Mouvement, texte, musique, bruitages, votre logo.</p></div></div>
+      <div class="step rv"><span class="n">4</span><div><b>Vous publiez</b><p>Statut, Facebook, Instagram, TikTok.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CE QU'ON FAIT -->
+<section class="band grid-bg pad" id="services">
+  <div class="wrap">
+    <div class="services-head">
+      <div class="rv">
+        <span class="kicker">Ce qu'on fait</span>
+        <h2>9 formats vidéo.<br /><span class="o">Toute votre marque.</span></h2>
+      </div>
+      <p class="rv">Pubs produit, motion design, montage de vos vidéos, présentation de votre entreprise : tout ce dont votre marque a besoin pour se faire remarquer en ligne.</p>
+    </div>
+    <div class="cards">
+      <a class="svc rv" href="https://wa.me/243831710181?text=VID%C3%89O" target="_blank" rel="noopener">
+        <div class="svc-vis"><span class="blob" style="width:220px;height:220px;background:#ffd8a8;right:-60px;top:-50px"></span><span class="blob" style="width:160px;height:160px;background:var(--jaune);left:-40px;bottom:-60px"></span>
+          <div class="mini" style="left:28px;top:40px;transform:rotate(-8deg)"><img src="/media/photo-burger.jpg" alt="" loading="lazy" /></div>
+          <div class="media"><video data-lazy src="/media/burger-apres.mp4" poster="/media/burger-apres.jpg" muted loop playsinline preload="none"></video></div></div>
+        <div class="svc-body"><div><b>📦 Avant → après produit</b><p>Une photo de produit devient une pub animée.</p></div><span class="go">→</span></div>
+      </a>
+      <a class="svc rv" href="https://wa.me/243831710181?text=VID%C3%89O" target="_blank" rel="noopener">
+        <div class="svc-vis"><span class="blob" style="width:240px;height:240px;background:#ffc7d8;left:-70px;top:-70px"></span><span class="blob" style="width:150px;height:150px;background:#ffd8a8;right:-30px;bottom:-50px"></span>
+          <div class="media"><video data-lazy src="/media/pizza-apres.mp4" poster="/media/pizza-apres.jpg" muted loop playsinline preload="none"></video></div></div>
+        <div class="svc-body"><div><b>🍕 Pub plein écran</b><p>Gros plans, mots qui claquent, bouton commander.</p></div><span class="go">→</span></div>
+      </a>
+      <a class="svc rv" href="https://wa.me/243831710181?text=VID%C3%89O" target="_blank" rel="noopener">
+        <div class="svc-vis"><span class="blob" style="width:220px;height:220px;background:#b8ecf3;right:-50px;top:-60px"></span><span class="blob" style="width:170px;height:170px;background:var(--jaune);left:-50px;bottom:-70px"></span>
+          <div class="media"><video data-lazy src="/media/edu-motion.mp4" poster="/media/edu-motion.jpg" muted loop playsinline preload="none"></video></div></div>
+        <div class="svc-body"><div><b>✨ Motion design</b><p>Textes, icônes et formes animés pour expliquer.</p></div><span class="go">→</span></div>
+      </a>
+      <a class="svc rv" href="https://wa.me/243831710181?text=VID%C3%89O" target="_blank" rel="noopener">
+        <div class="svc-vis"><span class="blob" style="width:230px;height:230px;background:var(--jaune);left:-60px;top:-60px"></span><span class="blob" style="width:160px;height:160px;background:#ffd8a8;right:-40px;bottom:-60px"></span>
+          <div class="media wide"><video data-lazy src="/media/portrait.mp4" poster="/media/portrait.jpg" muted loop playsinline preload="none"></video></div></div>
+        <div class="svc-body"><div><b>🙂 Portrait animé</b><p>Votre photo devient une vidéo de présentation.</p></div><span class="go">→</span></div>
+      </a>
+      <a class="svc rv" href="https://wa.me/243831710181?text=VID%C3%89O" target="_blank" rel="noopener">
+        <div class="svc-vis"><span class="blob" style="width:220px;height:220px;background:#ffc7d8;right:-60px;top:-60px"></span><span class="blob" style="width:160px;height:160px;background:#b8ecf3;left:-40px;bottom:-60px"></span>
+          <div class="media"><img src="/media/g20.jpg" alt="" loading="lazy" /></div></div>
+        <div class="svc-body"><div><b>🎬 Montage de vos vidéos</b><p>Vous filmez, on coupe, on sous-titre, on ajoute les effets.</p></div><span class="go">→</span></div>
+      </a>
+      <a class="svc rv" href="https://wa.me/243831710181?text=VID%C3%89O" target="_blank" rel="noopener">
+        <div class="svc-vis"><span class="blob" style="width:220px;height:220px;background:#ffd8a8;left:-60px;top:-60px"></span><span class="blob" style="width:170px;height:170px;background:var(--jaune);right:-50px;bottom:-70px"></span>
+          <div class="media"><video data-lazy src="/media/catalogue.mp4" poster="/media/catalogue.jpg" muted loop playsinline preload="none"></video></div></div>
+        <div class="svc-body"><div><b>🛍️ Catalogue animé</b><p>Plusieurs produits dans une seule vidéo.</p></div><span class="go">→</span></div>
+      </a>
+      <a class="svc rv" href="https://wa.me/243831710181?text=VID%C3%89O" target="_blank" rel="noopener">
+        <div class="svc-vis"><span class="blob" style="width:230px;height:230px;background:#b8ecf3;left:-60px;top:-60px"></span><span class="blob" style="width:150px;height:150px;background:#ffc7d8;right:-40px;bottom:-50px"></span>
+          <div class="media sq"><video data-lazy src="/media/explicative.mp4" poster="/media/explicative.jpg" muted loop playsinline preload="none"></video></div></div>
+        <div class="svc-body"><div><b>💡 Vidéo explicative</b><p>Votre service expliqué en quelques secondes.</p></div><span class="go">→</span></div>
+      </a>
+      <a class="svc rv" href="https://wa.me/243831710181?text=VID%C3%89O" target="_blank" rel="noopener">
+        <div class="svc-vis"><span class="blob" style="width:220px;height:220px;background:#c9f0d6;right:-60px;top:-60px"></span><span class="blob" style="width:160px;height:160px;background:var(--jaune);left:-40px;bottom:-60px"></span>
+          <div class="media"><video data-lazy src="/media/burger-fin.mp4" poster="/media/burger-fin.jpg" muted loop playsinline preload="none"></video></div></div>
+        <div class="svc-body"><div><b>💬 Fin WhatsApp</b><p>Votre numéro et un mot-clé : les clients vous écrivent.</p></div><span class="go">→</span></div>
+      </a>
+      <a class="svc rv" href="https://wa.me/243831710181?text=VID%C3%89O" target="_blank" rel="noopener">
+        <div class="svc-vis"><span class="blob" style="width:230px;height:230px;background:#ffd8a8;left:-60px;top:-60px"></span><span class="blob" style="width:160px;height:160px;background:#ffc7d8;right:-40px;bottom:-60px"></span>
+          <div class="media"><video data-lazy src="/media/essai-plein.mp4" poster="/media/essai-plein.jpg" muted loop playsinline preload="none"></video></div></div>
+        <div class="svc-body"><div><b>📱 Statuts et Reels</b><p>Le bon format pour chaque réseau.</p></div><span class="go">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- POUR CHAQUE COMMERCE -->
+<section class="band creme pad">
+  <div class="wrap center">
+    <span class="kicker rv">Même effet</span>
+    <h2 class="rv">Pas que des <span class="o">burgers.</span></h2>
+    <p class="lead rv">Restaurant, glacier, bijouterie, beauté, boissons : la même méthode marche avec les photos de vos produits.</p>
+    <div class="pairs">
+      <div class="pair rv"><div class="p-img"><span class="chip">avant</span><img src="/media/photo-burger.jpg" alt="Photo d'un burger" loading="lazy" /></div><div class="arrow" aria-hidden="true">→</div><div class="p-img v"><span class="chip org">après</span><video data-lazy src="/media/burger-apres.mp4" poster="/media/burger-apres.jpg" muted loop playsinline preload="none"></video></div></div>
+      <div class="pair rv"><div class="p-img"><span class="chip">avant</span><img src="/media/photo-glace.jpg" alt="Photo d'une glace" loading="lazy" /></div><div class="arrow" aria-hidden="true">→</div><div class="p-img v"><span class="chip org">après</span><video data-lazy src="/media/glace-apres.mp4" poster="/media/glace-apres.jpg" muted loop playsinline preload="none"></video></div></div>
+      <div class="pair rv"><div class="p-img"><span class="chip">avant</span><img src="/media/photo-bague.jpg" alt="Photo d'une bague" loading="lazy" /></div><div class="arrow" aria-hidden="true">→</div><div class="p-img v"><span class="chip org">après</span><video data-lazy src="/media/bague-apres.mp4" poster="/media/bague-apres.jpg" muted loop playsinline preload="none"></video></div></div>
+      <div class="pair rv"><div class="p-img"><span class="chip">avant</span><img src="/media/photo-beaute.jpg" alt="Photo de pinceaux de maquillage" loading="lazy" /></div><div class="arrow" aria-hidden="true">→</div><div class="p-img v"><span class="chip org">après</span><video data-lazy src="/media/beaute-apres.mp4" poster="/media/beaute-apres.jpg" muted loop playsinline preload="none"></video></div></div>
+    </div>
+    <div class="sector-tags rv"><span>Restaurant</span><span>Pâtisserie</span><span>Glacier</span><span>Cosmétique</span><span>Mode</span><span>Bijoux</span><span>Téléphones</span><span>Boutique</span><span>Formateur</span><span>Coach</span></div>
+    <p class="note rv">Exemples de pubs réalisés avec des images libres de droits.</p>
+  </div>
+</section>
+
+<!-- VITRINE -->
+<section class="band white pad">
+  <div class="wrap">
+    <div class="show-head">
+      <div class="rv">
+        <span class="tag noir">🔊 avec le son</span>
+        <span class="kicker" style="display:flex">Nos vidéos</span>
+        <h2>Vos photos <span class="o">prennent vie.</span></h2>
+        <p class="lead" style="margin-top:16px">Mouvement, texte à l'écran, musique et bruitages calés sur l'image. Beaucoup regardent sans le son : le texte fait passer le message quand même.</p>
+      </div>
+    </div>
+    <div class="showcase rv">
+      <div class="reel-row" id="reels">
+        <div class="reel" data-i="0"><video src="/media/vitrine-burger.mp4" poster="/media/burger-apres.jpg" muted loop playsinline preload="none"></video><div class="reel-cap">Avant / après · burger</div></div>
+        <div class="reel on" data-i="1"><video src="/media/vitrine-pizza.mp4" poster="/media/pizza-apres.jpg" muted loop playsinline preload="none"></video><div class="reel-cap">Démo · une photo devient une pub</div></div>
+        <div class="reel" data-i="2"><video src="/media/vitrine-essai.mp4" poster="/media/essai-plein.jpg" muted loop playsinline preload="none"></video><div class="reel-cap">Café, jus, miel, beauté</div></div>
+      </div>
+      <div class="show-bar">
+        <a class="btn btn-o" href="https://wa.me/243831710181?text=VID%C3%89O" target="_blank" rel="noopener">🎥 Je veux la mienne</a>
+        <div style="display:flex;gap:10px">
+          <button class="round" id="sound" aria-label="Activer le son">🔇</button>
+          <button class="round" id="prev" aria-label="Vidéo précédente">‹</button>
+          <button class="round" id="next" aria-label="Vidéo suivante">›</button>
+        </div>
+      </div>
+    </div>
+    <p class="note rv">Exemples de pubs réalisés avec des images libres de droits.</p>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="band creme pad" style="padding-bottom:80px">
+  <div class="wrap center">
+    <span class="kicker rv">Fait par Allegra</span>
+    <h2 class="rv">Un aperçu de ce qu'on crée</h2>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="track" id="t1"></div>
+    <div class="track rev" id="t2"></div>
+  </div>
+</section>
+
+<!-- CE QUE VOUS RECEVEZ -->
+<section class="band white pad">
+  <div class="wrap center">
+    <span class="kicker rv">Le résultat</span>
+    <h2 class="rv">Une vidéo <span class="o">prête à poster.</span></h2>
+    <p class="lead rv">Pas de fichier à retoucher, pas de logiciel à installer. Vous recevez la vidéo finie sur WhatsApp.</p>
+    <div class="formats rv" aria-label="Formats">
+      <div class="fmt" style="width:72px;height:128px"><div>9:16<small>statut, Reels, TikTok</small></div></div>
+      <div class="fmt" style="width:104px;height:104px"><div>1:1<small>publication</small></div></div>
+      <div class="fmt" style="width:150px;height:84px"><div>16:9<small>YouTube, site</small></div></div>
+    </div>
+    <div class="get">
+      <div class="get-item rv"><div class="em">🎞️</div><b>Le fichier MP4</b><p>En haute qualité, au format de votre réseau.</p></div>
+      <div class="get-item rv"><div class="em">🔤</div><b>Le texte à l'écran</b><p>Lisible même quand la vidéo tourne sans le son.</p></div>
+      <div class="get-item rv"><div class="em">🎵</div><b>Musique et bruitages</b><p>Calés sur chaque mouvement de l'image.</p></div>
+      <div class="get-item rv"><div class="em">🏷️</div><b>Votre logo, votre numéro</b><p>Pour que les clients sachent où vous écrire.</p></div>
+      <div class="get-item rv"><div class="em">✍️</div><b>La légende</b><p>Le texte à mettre sous la vidéo, si vous le voulez.</p></div>
+      <div class="get-item rv"><div class="em">🔒</div><b>Vos photos restent à vous</b><p>Rien n'est publié par nous sans votre accord écrit.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFRE -->
+<section class="band grid-bg pad" id="offre">
+  <div class="wrap center">
+    <span class="kicker rv">L'offre</span>
+    <h2 class="rv">Plus simple <span class="o">qu'un tournage.</span></h2>
+    <p class="lead rv">Pas besoin de caméra, de studio ni de mannequin. Vos photos suffisent. Et la première vidéo est pour nous.</p>
+    <div class="offer rv">
+      <div class="offer-main">
+        <span class="badge">Vidéo d'essai</span>
+        <h3>Votre première vidéo</h3>
+        <div class="price">0 $ <small>gratuite</small></div>
+        <a class="btn btn-o" href="https://wa.me/243831710181?text=ESSAI" target="_blank" rel="noopener">Écrire ESSAI sur WhatsApp</a>
+      </div>
+      <ul class="offer-list">
+        <li>Envoyez 3 photos de votre produit</li>
+        <li>Nous préparons votre vidéo d'essai</li>
+        <li>Elle vous plaît : on parle de la suite</li>
+        <li>Elle ne vous plaît pas : vous ne nous devez rien</li>
+        <li>5 places par semaine</li>
+      </ul>
+    </div>
+    <p class="after rv">Ensuite, une vidéo ou un rythme régulier, selon vos besoins. Le prix, on en parle sur WhatsApp.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="band creme pad" id="faq">
+  <div class="wrap center">
+    <span class="kicker rv">FAQ</span>
+    <h2 class="rv">Les réponses à <span class="o">vos questions.</span></h2>
+    <div class="faq rv" style="text-align:left">
+      <details><summary>Combien de photos faut-il envoyer ?</summary><p>3 photos suffisent pour la vidéo d'essai. Prenez-les de près, à la lumière du jour, sans rien devant le produit.</p></details>
+      <details><summary>La vidéo d'essai est vraiment gratuite ?</summary><p>Oui. Si elle vous plaît, on parle de la suite. Si elle ne vous plaît pas, vous ne nous devez rien. Nous en faisons 5 par semaine.</p></details>
+      <details><summary>Vous faites seulement des vidéos de produits ?</summary><p>Non. Nous faisons aussi du motion design, des portraits animés à partir de votre photo, des vidéos explicatives et le montage des vidéos que vous filmez vous-même.</p></details>
+      <details><summary>Je peux vous envoyer une vidéo que j'ai filmée ?</summary><p>Oui. Nous la coupons, ajoutons les textes, la musique, les bruitages et les effets.</p></details>
+      <details><summary>Sur quels réseaux je peux publier la vidéo ?</summary><p>Statut WhatsApp, Facebook, Instagram, TikTok, et aussi YouTube ou votre site. Nous livrons le bon format.</p></details>
+      <details><summary>Je peux utiliser la vidéo pour une publicité payante ?</summary><p>Oui. La vidéo est à vous : publication normale ou publicité Facebook et Instagram.</p></details>
+      <details><summary>Allez-vous publier ma vidéo ou mes photos ?</summary><p>Jamais sans votre accord écrit. Les exemples de cette page sont faits avec des images libres de droits ou nos propres vidéos.</p></details>
+      <details><summary>Comment on commence ?</summary><p>Écrivez « ESSAI » au +243 831 710 181 sur WhatsApp. On vous répond et on vous dit quoi envoyer.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- DERNIER APPEL -->
+<section class="band grid-bg pad">
+  <div class="wrap">
+    <div class="final rv">
+      <h2>Prêt à faire bouger vos photos ?</h2>
+      <p>La première vidéo est gratuite. Vous n'avez rien à perdre.</p>
+      <a class="btn" href="https://wa.me/243831710181?text=ESSAI" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#1a9e4b" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>
+        Écrire ESSAI au +243 831 710 181
+      </a>
+      <div class="ghost" aria-hidden="true">ALLEGRA</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#"><img src="/img/logo-icone.svg" alt="" width="30" height="31" /><em>Allegra<span>.digital</span></em></a>
+        <p>Allegra Digital Ground, Kinshasa. Vidéos qui font vendre.</p>
+      </div>
+      <div><h4>Ce qu'on fait</h4><ul><li><a href="#services">Avant → après produit</a></li><li><a href="#services">Motion design</a></li><li><a href="#services">Portrait animé</a></li><li><a href="#services">Montage vidéo</a></li></ul></div>
+      <div><h4>Navigation</h4><ul><li><a href="#avant-apres">Avant / après</a></li><li><a href="#comment">Comment ça marche</a></li><li><a href="#offre">L'offre</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="https://wa.me/243831710181" target="_blank" rel="noopener">WhatsApp : +243 831 710 181</a></li><li><a href="https://www.facebook.com/ADigitalGround" target="_blank" rel="noopener">Facebook</a></li></ul></div>
+    </div>
+    <div class="copy"><span>© 2026 Allegra Digital Ground. Tous droits réservés.</span><span>Exemples réalisés avec des images libres de droits.</span></div>
+  </div>
+</footer>
+
+<a class="btn btn-v wa-float" href="https://wa.me/243831710181?text=ESSAI" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp">💬 ESSAI</a>
 
 <script>
-  var WA = "https://wa.me/243831710181?text=" + encodeURIComponent("Bonjour Allegra, j'ai vu votre page. Je voudrais une vidéo animée pour ma marque.");
-  document.querySelectorAll(".wa-link").forEach(function (a) { a.href = WA; a.target = "_blank"; a.rel = "noopener"; });
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: 0.1 });
-    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
-  } else { document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); }); }
+  // Éventail du hero : position selon la largeur
+  const fan = document.getElementById('fan');
+  function layoutFan() {
+    const k = Math.min(1, (fan.clientWidth) / 1000);
+    fan.querySelectorAll('.card').forEach((c, i) => {
+      const x = +c.dataset.x * (k < .75 ? k * 1.05 : k), r = +c.dataset.r;
+      const y = Math.abs(+c.dataset.x) * .07 * k;
+      c.style.transform = `translateX(calc(-50% + ${x}px)) translateY(${y}px) rotate(${r}deg)`;
+      c.style.zIndex = c.classList.contains('mid') ? 5 : 4 - Math.round(Math.abs(+c.dataset.x) / 120);
+    });
+  }
+  layoutFan(); addEventListener('resize', layoutFan);
+
+  // Exemples avant / après
+  document.querySelectorAll('[data-ex]').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('[data-ex]').forEach(x => x.setAttribute('aria-selected', x === b));
+    const n = b.dataset.ex, v = document.getElementById('exVideo');
+    document.getElementById('exPhoto').src = `/media/photo-${n}.jpg`;
+    v.poster = `/media/${n}-apres.jpg`; v.src = `/media/${n}-apres.mp4`; v.play().catch(() => {});
+  }));
+
+  // Onglets de la formule
+  document.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('[data-tab]').forEach(x => {
+      x.setAttribute('aria-selected', x === b);
+      const p = document.getElementById(x.dataset.tab); p.hidden = x !== b; if (x === b) p.classList.add('in');
+    });
+    document.querySelectorAll(`#${b.dataset.tab} video`).forEach(v => { v.preload = 'auto'; v.play().catch(() => {}); });
+  }));
+
+  // Vidéos : lecture seulement quand elles sont visibles
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { if (v.preload === 'none') v.preload = 'auto'; v.play().catch(() => {}); } else v.pause();
+  }), { rootMargin: '120px' });
+  document.querySelectorAll('video[data-lazy], .card video, #exVideo').forEach(v => io.observe(v));
+
+  // Apparition au défilement
+  const ro = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } }), { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+  // Filet de sécurité : tout s'affiche si l'observateur ne s'est pas déclenché
+  addEventListener('load', () => setTimeout(() => document.querySelectorAll('.rv:not(.in)').forEach(el => { if (el.getBoundingClientRect().top < innerHeight * 3) el.classList.add('in'); }), 1500));
+
+  // Vitrine avec le son
+  const reels = [...document.querySelectorAll('.reel')];
+  let cur = 1, sound = false;
+  const vis = new IntersectionObserver(es => es.forEach(e => { const v = reels[cur].querySelector('video'); e.isIntersecting ? v.play().catch(() => {}) : v.pause(); }), { threshold: .3 });
+  vis.observe(document.getElementById('reels'));
+  function show(i) {
+    cur = (i + reels.length) % reels.length;
+    reels.forEach((r, j) => { const v = r.querySelector('video'); r.classList.toggle('on', j === cur); if (j === cur) { v.muted = !sound; v.currentTime = 0; v.play().catch(() => {}); } else { v.pause(); v.muted = true; } });
+  }
+  document.getElementById('prev').onclick = () => show(cur - 1);
+  document.getElementById('next').onclick = () => show(cur + 1);
+  reels.forEach((r, j) => r.addEventListener('click', () => j !== cur && show(j)));
+  document.getElementById('sound').onclick = e => { sound = !sound; e.currentTarget.textContent = sound ? '🔊' : '🔇'; e.currentTarget.setAttribute('aria-label', sound ? 'Couper le son' : 'Activer le son'); const v = reels[cur].querySelector('video'); v.muted = !sound; v.play().catch(() => {}); };
+
+  // Galerie
+  const imgs = Array.from({ length: 20 }, (_, i) => `/media/g${String(i + 1).padStart(2, '0')}.jpg`);
+  const fill = (el, list) => { el.innerHTML = [...list, ...list].map(s => `<img src="${s}" alt="" loading="lazy" />`).join(''); };
+  fill(document.getElementById('t1'), imgs.slice(0, 10));
+  fill(document.getElementById('t2'), imgs.slice(10));
 </script>
 </body>
 </html>
