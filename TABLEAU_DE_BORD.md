@@ -61,6 +61,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 | Petite formation « Crée des vidéos motion design avec l'IA » (Chariow) | PDF de 10 pages prêt avec les captures. Fiche Chariow prête. Prix à fixer, puis mise en ligne et envoi à l'abonné qui a demandé | `produits/formation-videos-ia/` |
 | Services sur Chariow (vidéo, catalogue, mini-site) | Prix conseillés à confirmer | `page-chariow/services_chariow.md` |
 | Templates pour entreprises (vendus en produits digitaux sur Chariow, voir `produits/templates-entreprises/offre_produits_digitaux.md`) | Template n°1 « Gestion de stock » prêt (`gestion_de_stock.xlsx` + fiche Desire). Système de stock automatisé : 4 workflows n8n (vente, arrivage, point du matin, bilan du soir) + PDF explicatif, à tester sur le n8n de Mike. Vidéo de présentation v2 (37 s, script voix prêt) + vidéo « workflow n8n de l'intérieur » (35 s), à valider. Attente de la voix de Mike. Prix à fixer | `produits/templates-entreprises/` |
+| Prospection système de stock (47 entreprises, Kinshasa et Lubumbashi) | Plan + fichier de suivi prêts. Démarrer après le test n8n et les prix | `produits/templates-entreprises/prospection-stock/` |
 
 ## 5. En attente de Mike
 
