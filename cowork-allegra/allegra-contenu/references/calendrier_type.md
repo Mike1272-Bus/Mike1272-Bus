@@ -1,6 +1,6 @@
 # Le calendrier type d'Allegra
 
-2 publications par jour, sur Facebook, TikTok et le statut WhatsApp (repris de `prospection/strategie_contenu_allegra.md`).
+2 publications par jour, sur Facebook, Instagram et le statut WhatsApp (repris de `prospection/strategie_contenu_allegra.md`).
 
 | Jour | 13 h | 19 h |
 |---|---|---|
