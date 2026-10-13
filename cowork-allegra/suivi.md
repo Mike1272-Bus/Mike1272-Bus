@@ -2,7 +2,7 @@
 
 Rempli par Cowork (skill `allegra-contenu`) à chaque création. Mike ajoute les chiffres le lendemain : vues, messages reçus avec le mot-clé, et s'il a publié.
 
-Statuts : à valider → validé → publié (ou abandonné).
+Statuts : à valider → validé (Mike a écrit « valide ») → programmé (envoyé à Buffer) → publié (ou abandonné, ou échec Buffer).
 
 | Date | Heure | Type | Secteur | Sujet | Mot-clé | Statut | Vues FB | Vues TikTok | Vues statut | Messages |
 |---|---|---|---|---|---|---|---|---|---|---|
