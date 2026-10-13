@@ -1,6 +1,7 @@
 import sys
 sys.path.insert(0, '/tmp/claude-0/-home-user-Mike1272-Bus/7c68b9b5-f98d-5769-9dfc-b4f40cf3c57b/scratchpad')
 from prospects_data import *
+from prospects_data import _load_orig
 from collections import Counter
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
@@ -57,7 +58,7 @@ why = {'Téléphones, électronique, informatique': 'Beaucoup de modèles et d\'
        'Entrepôt et distribution': 'Beaucoup d\'entrées et de sorties. Entreprises plus grandes, peut-être déjà équipées.',
        'Pharmacie': 'Il manque la date de péremption dans le template : à ajouter avant de les contacter.',
        'À vérifier': 'Traitement d\'eau et construction : pas de boutique, besoin de stock à confirmer.'}
-s.append(table([['Segment', 'Nombre', 'Priorité', 'Pourquoi']] + [[sg, seg[sg], pr[sg], why[sg]] for sg in SEG_ORDER], [50*mm, 18*mm, 19*mm, 87*mm]))
+s.append(table([['Segment', 'Nombre', 'Priorité', 'Pourquoi']] + [[sg, seg[sg], pr[sg], why[sg]] for sg in SEG_ORDER if sg in seg], [50*mm, 18*mm, 19*mm, 87*mm]))
 s.append(Paragraph('À vérifier avant d\'écrire', H3))
 s += bl(['<font name="WSB">PREDI B</font> : pas de ville et un numéro turc (+90). Peut-être un fournisseur, pas une boutique.',
          '<font name="WSB">BRICOKIN</font> : classé « cosmétique » mais le nom évoque le bricolage.',
