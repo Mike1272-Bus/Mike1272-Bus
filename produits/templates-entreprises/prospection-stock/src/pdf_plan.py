@@ -37,7 +37,7 @@ def footer(c, d):
     c.saveState(); c.setFont('WS', 8); c.setFillColor(GREY)
     c.drawString(18*mm, 10*mm, 'Allegra Digital Ground · Plan de prospection, système de gestion de stock'); c.drawRightString(192*mm, 10*mm, str(d.page)); c.restoreState()
 
-R = load(); V = Counter(vague(r) for r in R)
+R_ALL = load(); V = Counter(vague(r) for r in R_ALL); R = _load_orig()
 doc = SimpleDocTemplate(sys.argv[1], pagesize=A4, leftMargin=18*mm, rightMargin=18*mm, topMargin=16*mm, bottomMargin=18*mm,
                         title='Plan de prospection : système de gestion de stock', author='Allegra Digital Ground')
 s = [Image(F + 'img/logo_adg.png', width=24*mm, height=19*mm, hAlign='LEFT'), Spacer(1, 3),
@@ -96,7 +96,8 @@ cal = [['Quand', 'Qui', 'Combien'],
        ['Jour 4', 'Relances 1 de la vague 1', 'selon les réponses'],
        ['Jour 5', 'Vague 3 : habillement, entrepôts, puis les « à vérifier » une fois vérifiés', f'{V[3]} messages au plus'],
        ['Jours 6 et 7', 'Relances 1 de la vague 2, démos avec ceux qui ont répondu', '-'],
-       ['Jours 8 à 12', 'Relances 2, démos, offres, premières installations', '-']]
+       ['Jours 8 à 12', 'Relances 2, démos, offres, premières installations', '-'],
+       ['Jour 6', 'Vague 4 : 5 entreprises alimentaires de la liste Vibe (voir l\'annexe)', f'{V[4]} messages']]
 s.append(table(cal, [30*mm, 100*mm, 44*mm]))
 s.append(Paragraph('Pourquoi commencer par les téléphones : on teste le message sur un seul segment. Si les réponses sont faibles, on ajuste la phrase d\'accroche avant la vague 2.', B))
 
@@ -135,9 +136,9 @@ s += bl(['Dans le fichier, mets la <font name="WSB">date du 1er message</font> e
 
 s.append(PageBreak())
 s.append(Paragraph('Annexe : les entreprises par vague', H2))
-for v, titre in [(1, 'Vague 1'), (2, 'Vague 2'), (3, 'Vague 3')]:
+for v, titre in [(1, 'Vague 1'), (2, 'Vague 2'), (3, 'Vague 3'), (4, 'Vague 4 : liste Vibe (alimentaire)')]:
     s.append(Paragraph(titre, H3))
-    rows = sorted([r for r in R if vague(r) == v], key=lambda r: (SEG_ORDER.index(r['seg']), r['ville'], r['n']))
+    rows = sorted([r for r in R_ALL if vague(r) == v], key=lambda r: (SEG_ORDER.index(r['seg']), r['ville'], r['n']))
     s.append(table([['N°', 'Entreprise', 'Ville', 'Segment', 'Prio.']] + [[r['n'], r['nom'], r['ville'], r['seg'], r['prio']] for r in rows],
                    [10*mm, 62*mm, 24*mm, 66*mm, 12*mm], st=SM))
 doc.build(s, onFirstPage=footer, onLaterPages=footer); print('ok')

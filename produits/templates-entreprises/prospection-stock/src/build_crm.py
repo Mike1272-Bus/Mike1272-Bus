@@ -65,15 +65,15 @@ su.column_dimensions['A'].width = 3; su.column_dimensions['B'].width = 34; su.co
 for c in 'DEFG': su.column_dimensions[c].width = 12
 su['B1'] = 'Suivi de la prospection'; su['B1'].font = fn(size=16, bold=True, color=NAVY)
 K = f'Prospects!$K${HR+1}:$K${last}'; V = f'Prospects!$B${HR+1}:$B${last}'
-su['B3'] = 'Statut'; su['C3'] = 'Total'; su['D3'] = 'Vague 1'; su['E3'] = 'Vague 2'; su['F3'] = 'Vague 3'
-for c in ('B3', 'C3', 'D3', 'E3', 'F3'): su[c].font = fn(bold=True, color='FFFFFF'); su[c].fill = HEAD; su[c].border = BD
+su['B3'] = 'Statut'; su['C3'] = 'Total'; su['D3'] = 'Vague 1'; su['E3'] = 'Vague 2'; su['F3'] = 'Vague 3'; su['G3'] = 'Vague 4'
+for c in ('B3', 'C3', 'D3', 'E3', 'F3', 'G3'): su[c].font = fn(bold=True, color='FFFFFF'); su[c].fill = HEAD; su[c].border = BD
 for i, st in enumerate(STATUTS):
     y = 4 + i
     su.cell(y, 2, st).border = BD
     su.cell(y, 3, f'=COUNTIF({K},B{y})').border = BD
-    for j, v in enumerate((1, 2, 3)):
+    for j, v in enumerate((1, 2, 3, 4)):
         su.cell(y, 4 + j, f'=COUNTIFS({K},$B{y},{V},{v})').border = BD
-    for x in range(2, 7): su.cell(y, x).font = fn()
+    for x in range(2, 8): su.cell(y, x).font = fn()
 y = 4 + len(STATUTS)
 su.cell(y, 2, 'Total').font = fn(bold=True); su.cell(y, 3, f'=SUM(C4:C{y-1})').font = fn(bold=True)
 y += 2

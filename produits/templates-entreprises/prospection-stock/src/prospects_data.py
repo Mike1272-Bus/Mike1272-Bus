@@ -67,3 +67,27 @@ def vague(r):
     if r['prio'] == 'A' and r['seg'] == 'Téléphones, électronique, informatique': return 1
     if r['prio'] == 'A': return 2
     return 3
+
+# --- Liste Vibe Prospection (alimentaire, 01/10/2026) : entreprises pertinentes ET joignables
+HOOK['Alimentaire et boissons'] = "Entre la production, les arrivages et les livraisons, savoir ce qu'il reste de chaque produit prend vite du temps."
+SEG_ORDER.append('Alimentaire et boissons')
+EXTRA = [
+ dict(n=101, nom='BIOFOODS CONGO', ville='Kinshasa', tel='+243 895 895 888', wa='243895895888', type_orig='Livraison produits alimentaires (poissons, viandes)',
+      notes="Liste Vibe. WhatsApp de Mme Lisette (Sales Manager) donné dans leur description. Aussi : appel +243 81 222 9100, biofoodscongo@gmail.com"),
+ dict(n=102, nom='FRIGOCONGO', ville='Lubumbashi', tel='+243 997 022 378', wa='243997022378', type_orig='Réseau de boucheries',
+      notes="Liste Vibe. Numéro trouvé sur leur page Facebook (info@frigocongo.com). Vérifier que c'est bien un WhatsApp"),
+ dict(n=103, nom='UMANDE FOODS', ville='Goma', tel='+260 970 463 609', wa='260970463609', type_orig='Légumes déshydratés',
+      notes="Liste Vibe. Numéro zambien (+260) trouvé sur leur site, e-mail umandesarl@gmail.com : écrire plutôt par e-mail ou vérifier le WhatsApp"),
+ dict(n=104, nom='BUTAMU ASPK', ville='Bukavu', tel='+243 997 374 225', wa='243997374225', type_orig='Farines de bouillie',
+      notes="Liste Vibe. WhatsApp trouvé sur ButamuCare (leur appli de nutrition) : vérifier que c'est la même équipe"),
+ dict(n=105, nom='MIDEMA (MINOTERIE DE MATADI)', ville='Kinshasa', tel='+243 81 555 8000', wa='243815558000', type_orig='Minoterie (farines, aliments bétail)',
+      notes="Liste Vibe. Standard de l'entreprise (51 à 200 employés) : demander le responsable commercial ou logistique. Peut-être déjà équipée d'un logiciel"),
+]
+for e in EXTRA:
+    e['seg'] = 'Alimentaire et boissons'; e['prio'] = 'B'
+_load_orig = load
+def load():
+    return _load_orig() + [dict(e) for e in EXTRA]
+_vague_orig = vague
+def vague(r):
+    return 4 if r['seg'] == 'Alimentaire et boissons' else _vague_orig(r)
