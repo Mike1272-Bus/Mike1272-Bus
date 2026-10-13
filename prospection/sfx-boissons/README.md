@@ -24,4 +24,4 @@ SFX_BOISSONS = os.path.join(ROOT, "..", "sfx-boissons")
 Couper un son trop long : `atrim=duration=2.5` dans le filtre de l'entrée (comme `typing` dans les anciens mix).
 
 ## À vérifier
-- Les fichiers s'appelaient « videoplayback » : ils viennent sans doute d'une vidéo en ligne. Avant de les mettre dans une vidéo **publiée** par un client, vérifier qu'ils sont libres de droits (chaîne de bruitages gratuits, mention « no copyright »). Pour une vidéo d'essai envoyée en privé, pas de problème.
+- Les fichiers s'appelaient « videoplayback » : ils viennent sans doute d'une vidéo en ligne. Avant de les mettre dans une vidéo **publiée** par un client, vérifier qu'ils sont libres de droits (chaîne de bruitages gratuits, mention « no copyright »). Pour une vidéo d'essai envoyée en privé, le risque est plus faible, mais mieux vaut le savoir avant que le client publie.
