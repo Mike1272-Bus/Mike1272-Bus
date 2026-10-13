@@ -9,7 +9,7 @@ Un seul endroit pour savoir où en est chaque chose. À mettre à jour à chaque
 
 ## 1. Prospection d'entreprises (Allegra Digital Ground, « vous »)
 
-> **Décision de Mike (13 octobre) : aucun envoi avant 10 vidéos de partenariat prêtes.** ✅ **10/10 atteint** (Crazy Chicken, Chicken Inn, Wamiliki Food, +243 Fast Food, Fuegos, Biloko, Snack Away, LushiTacos, Burger Lab, Pizza Inn) : prêt pour l'envoi groupé. RocoMamas Lubumbashi : infos reçues (0894 685 879, N1 Hyper Psaro Carrefour, terrasse, menu enfant), il manque des photos de plats. Pistes pour les 3 suivantes : Royal Burger, Hungabusta, Chawarma City, Braised Afrik (`liste_40_nouvelles.md`), il faut leurs photos.
+> **Décision de Mike (13 octobre) : aucun envoi avant 10 vidéos de partenariat prêtes.** ✅ **10/10 atteint** (Crazy Chicken, Chicken Inn, Wamiliki Food, +243 Fast Food, Fuegos, Biloko, Snack Away, LushiTacos, Burger Lab, Pizza Inn) : prêt pour l'envoi groupé. **Plan d'envoi : `prospection/PLAN_ENVOI_10.md`** (jour J proposé : mercredi 14 octobre, 14 h - 15 h 40 ; ce soir : fixer le prix, trouver les contacts manquants, vérifier les numéros). RocoMamas Lubumbashi : infos reçues (0894 685 879, N1 Hyper Psaro Carrefour, terrasse, menu enfant), il manque des photos de plats. Pistes pour les 3 suivantes : Royal Burger, Hungabusta, Chawarma City, Braised Afrik (`liste_40_nouvelles.md`), il faut leurs photos.
 
 | Entreprise | État | Prochaine action | Dossier |
 |---|---|---|---|
