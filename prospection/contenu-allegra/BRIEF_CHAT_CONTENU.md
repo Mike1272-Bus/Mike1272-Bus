@@ -24,6 +24,8 @@ Passerelle entre les deux : quand une entreprise donne son **accord écrit**, sa
 
 ## Les décisions de Mike (à respecter)
 
+- **Réseaux (13 oct.) : on poste des Reels sur Instagram + Facebook, programmés avec Buffer.** Fin de vidéo propre aux réseaux (« Commentez VIDÉO », « Écrivez ESSAI en privé »), pas de téléphone WhatsApp. Textes importants entre y = 260 et y = 1450 (zone visible). Méthode : `reels/faire_reels.py`, légendes dans `reels/PUBLICATIONS_BUFFER.md`, réglages et routine dans `GUIDE_INSTAGRAM.md`.
+
 - **Ligne éditoriale (12 oct.) : pas de conseils, pas de « 3 erreurs ».** On montre ce que nous faisons : des **transformations avant → après** (la photo du client, puis la pub faite avec cette même photo : recadrages, zooms, texte, bouton WhatsApp), les coulisses, et l'offre. Ne jamais montrer un autre clip filmé comme « après » d'une photo.
 
 - Offre : **vidéo d'essai gratuite**, « elle vous plaît : on parle de la suite ; elle ne vous plaît pas : vous ne nous devez rien ». **5 places par semaine.**
