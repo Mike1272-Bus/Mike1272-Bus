@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Fraunces'; font-weight: 800; src: url('assets/fonts/fraunces-800.woff2') format('woff2'); }
+      @font-face { font-family: 'Oswald'; font-weight: 700; src: url('assets/fonts/Oswald-Bold.ttf') format('truetype'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #c41a12; }
+      /* couleurs de leurs affiches : rouge, jaune, noir, blanc */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff;
+        background: radial-gradient(ellipse at 50% 55%, #f0362a 0%, #d8231a 45%, #a3120c 100%); }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .zig { position: absolute; left: -40px; width: 1160px; height: 40px; }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .w { display: inline-block; margin: 0 0.1em; }
+      .sm { font-weight: 600; font-size: 54px; color: #fff; }
+      .ttl { font-family: 'Fraunces', serif; font-weight: 800; font-size: 150px; letter-spacing: -0.01em; line-height: 1; color: #fff;
+        text-shadow: 0 5px 0 #7a0a05, 0 10px 0 #5c0603, 0 30px 40px rgba(40,0,0,0.45); }
+      .big { font-family: 'Fraunces', serif; font-weight: 800; font-size: 120px; line-height: 1; color: #ffc20e; text-shadow: 0 6px 0 #7a0a05, 0 26px 36px rgba(40,0,0,0.45); }
+      .tag { font-family: 'Oswald', sans-serif; font-weight: 700; color: #fff; background: #111; padding: 10px 34px; letter-spacing: 0.01em; transform-origin: 0 50%; }
+      .obj { position: absolute; filter: drop-shadow(0 34px 40px rgba(40,0,0,0.5)); }
+      .pill { position: absolute; border-radius: 999px; text-align: center; white-space: nowrap; font-weight: 900; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #a3120c; z-index: 40; }
+      #flash { left: 0; top: 0; width: 1080px; height: 1920px; background: #ffc20e; z-index: 30; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="23" data-width="1080" data-height="1920">
+      <svg class="zig" id="z1" style="top:120px" viewBox="0 0 1160 40"><polyline fill="none" stroke="#ffc20e" stroke-width="7" points="0,8 20,32 40,8 60,32 80,8 100,32 120,8 140,32 160,8 180,32 200,8 220,32 240,8 260,32 280,8 300,32 320,8 340,32 360,8 380,32 400,8 420,32 440,8 460,32 480,8 500,32 520,8 540,32 560,8 580,32 600,8 620,32 640,8 660,32 680,8 700,32 720,8 740,32 760,8 780,32 800,8 820,32 840,8 860,32 880,8 900,32 920,8 940,32 960,8 980,32 1000,8 1020,32 1040,8 1060,32 1080,8 1100,32 1120,8 1140,32 1160,8"/></svg>
+      <svg class="zig" id="z2" style="top:1800px" viewBox="0 0 1160 40"><polyline fill="none" stroke="#ffc20e" stroke-width="7" points="0,8 20,32 40,8 60,32 80,8 100,32 120,8 140,32 160,8 180,32 200,8 220,32 240,8 260,32 280,8 300,32 320,8 340,32 360,8 380,32 400,8 420,32 440,8 460,32 480,8 500,32 520,8 540,32 560,8 580,32 600,8 620,32 640,8 660,32 680,8 700,32 720,8 740,32 760,8 780,32 800,8 820,32 840,8 860,32 880,8 900,32 920,8 940,32 960,8 980,32 1000,8 1020,32 1040,8 1060,32 1080,8 1100,32 1120,8 1140,32 1160,8"/></svg>
+
+      <!-- Ouverture : logo et « Pour l'amour du goût » (0 - 2,8) -->
+      <div class="scene" id="s1"><div class="cam" id="ks1">
+        <img class="obj" id="lg1" src="assets/img/logo.png" style="left:240px; top:330px; width:600px; height:600px" />
+        <div class="line" style="top:1080px"><span class="w sm" id="a1">Lubumbashi,</span></div>
+        <div class="line" style="top:1170px" data-layout-allow-overlap><span class="w big" id="a2">Pour l'amour</span></div>
+        <div class="line" style="top:1310px" data-layout-allow-overlap><span class="w big" id="a3">du goût</span></div>
+      </div></div>
+
+      <!-- LE PRÉFÉRÉ (2.8 - 6.6) -->
+      <div class="scene" id="s2"><div class="cam" id="ks2">
+        <div class="line" style="top:230px"><span class="w sm" id="s2a">Le menu</span></div>
+        <div class="line" style="top:320px" data-layout-allow-overlap><span class="w ttl" id="s2b">LE PRÉFÉRÉ</span></div>
+        <div class="line" style="top:510px"><span class="w tag" id="s2c" style="font-size:46px">2 pièces et frites</span></div>
+        <img class="obj" id="s2p" src="assets/img/deux_pieces_frites.png" style="left:60px; top:897px; width:960px; height:667px" />
+        <img class="obj" id="s2s" src="assets/img/sparkles_3d.png" style="left:850px; top:817px; width:170px; height:170px" />
+      </div></div>
+
+      <!-- LES BURGERS (6.6 - 9.8) -->
+      <div class="scene" id="s3"><div class="cam" id="ks3">
+        <div class="line" style="top:230px"><span class="w sm" id="s3a">Pour les fans de burgers</span></div>
+        <div class="line" style="top:320px" data-layout-allow-overlap><span class="w ttl" id="s3b" style="font-size:136px">LES BURGERS</span></div>
+        <div class="line" style="top:510px"><span class="w tag" id="s3c" style="font-size:46px">Burger de poulet avec frites</span></div>
+        <img class="obj" id="s3p" src="assets/img/burger_frites.png" style="left:130px; top:883px; width:820px; height:695px" />
+        <img class="obj" id="s3s" src="assets/img/sparkles_3d.png" style="left:70px; top:851px; width:170px; height:170px" />
+      </div></div>
+
+      <!-- PACK DÉJEUNER (9.8 - 13) -->
+      <div class="scene" id="s4"><div class="cam" id="ks4">
+        <div class="line" style="top:230px"><span class="w sm" id="s4a">À midi</span></div>
+        <div class="line" style="top:320px" data-layout-allow-overlap><span class="w ttl" id="s4b" style="font-size:118px">PACK DÉJEUNER</span></div>
+        <div class="line" style="top:510px"><span class="w tag" id="s4c" style="font-size:38px">¼ poulet rôti, frites et salade de choux</span></div>
+        <img class="obj" id="s4p" src="assets/img/quart_poulet.png" style="left:50px; top:933px; width:980px; height:595px" />
+        <img class="obj" id="s4s" src="assets/img/sparkles_3d.png" style="left:850px; top:845px; width:170px; height:170px" />
+      </div></div>
+
+      <!-- PACK FAMILLE (13 - 16.2) -->
+      <div class="scene" id="s5"><div class="cam" id="ks5">
+        <div class="line" style="top:230px"><span class="w sm" id="s5a">Pour toute la famille</span></div>
+        <div class="line" style="top:320px" data-layout-allow-overlap><span class="w ttl" id="s5b" style="font-size:128px">PACK FAMILLE</span></div>
+        <div class="line" style="top:510px"><span class="w tag" id="s5c" style="font-size:38px">6 pièces, 2 grandes frites, 2 salades de choux</span></div>
+        <img class="obj" id="s5p" src="assets/img/pack_famille.png" style="left:60px; top:870px; width:960px; height:721px" />
+        <img class="obj" id="s5s" src="assets/img/sparkles_3d.png" style="left:70px; top:863px; width:170px; height:170px" />
+      </div></div>
+
+      <!-- Leur vraie assiette (16,2 - 19) -->
+      <div class="scene" id="s6"><div class="cam" id="ks6">
+        <div class="line" style="top:260px"><span class="w sm" id="f1">Et</span><span class="w sm" id="f2">en</span><span class="w sm" id="f3">vrai,</span></div>
+        <div class="line" style="top:350px" data-layout-allow-overlap><span class="w ttl" id="f4" style="font-size:130px">dans</span></div>
+        <div class="line" style="top:500px" data-layout-allow-overlap><span class="w big" id="f5" style="font-size:150px">l'assiette</span></div>
+        <img class="obj" id="f6" src="assets/img/assiette_frites.png" style="left:150px; top:760px; width:780px; height:767px" />
+      </div></div>
+
+      <!-- Carte de fin (19 - 23) -->
+      <div class="scene" id="s7"><div class="cam" id="ks7">
+        <img class="obj" id="lg7" src="assets/img/logo.png" style="left:290px; top:200px; width:500px; height:500px" />
+        <img class="obj" id="g1" src="assets/img/deux_pieces_frites.png" style="left:40px; top:820px; width:560px; height:390px" />
+        <img class="obj" id="g2" src="assets/img/burger_frites.png" style="left:580px; top:790px; width:440px; height:373px" />
+        <div class="line" style="top:1290px"><span class="w sm" id="g3">Commandez</span><span class="w sm" id="g4">au</span></div>
+        <div class="ab pill" id="g5" style="left:150px; top:1390px; width:780px; height:130px; line-height:130px; font-size:70px; background:#1a9e4b; color:#fff; box-shadow: 0 12px 0 #0d6a30, 0 26px 40px rgba(0,0,0,0.3)">0844 323 323</div>
+        <div class="ab pill" id="g6" style="left:240px; top:1580px; width:600px; height:96px; line-height:96px; font-size:44px; background:#ffc20e; color:#111; box-shadow: 0 10px 0 #b58600">Chicken Inn · Lubumbashi</div>
+      </div></div>
+
+      <div class="ab" id="flash"></div>
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="23" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const word = (sel, at, d = 0.28) => IN(sel, { y: -50, scale: 1.3, filter: "blur(12px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at);
+      const words = (list, at, gap = 0.12) => list.forEach((s, i) => word(s, at + i * gap));
+      const pop = (sel, at) => IN(sel, { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, at);
+      const float = (sel, at, d, y = -16) => FT(sel, { y: 0 }, { y: y, duration: d / 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, at);
+      const slam = (sel, at) => IN(sel, { scale: 2.2, filter: "blur(16px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, at);
+      const shake = (sel, at) => FT(sel, { x: 0 }, { x: 14, duration: 0.05, yoyo: true, repeat: 5 }, at);
+      const flash = at => { HIDE.push("#flash"); FT("#flash", { autoAlpha: 0.7 }, { autoAlpha: 0, duration: 0.22, ease: "power2.out" }, at); };
+
+      FT("#z1", { x: 0 }, { x: -40, duration: 23, ease: "none" }, 0);
+      FT("#z2", { x: -40 }, { x: 0, duration: 23, ease: "none" }, 0);
+      const SC = [["#s1", "#ks1", 0, 2.8], ["#s2", "#ks2", 2.8, 3.8], ["#s3", "#ks3", 6.6, 3.2], ["#s4", "#ks4", 9.8, 3.2], ["#s5", "#ks5", 13.0, 3.2], ["#s6", "#ks6", 16.2, 2.8], ["#s7", "#ks7", 19.0, 4.0]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        tl.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.14 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+        FT(c, { rotation: 0, x: 0 }, { rotation: i % 2 ? 0.6 : -0.6, x: i % 2 ? -16 : 16, duration: d, ease: "sine.inOut" }, a);
+        if (i) flash(a);
+      });
+
+      // ouverture
+      IN("#lg1", { scale: 0.2, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 0.1);
+      float("#lg1", 0.7, 2.0, -16);
+      word("#a1", 0.6);
+      slam("#a2", 0.95);
+      IN("#a3", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.5, ease: "bounce.out" }, 1.35);
+      shake("#ks1", 1.8);
+
+      // LE PRÉFÉRÉ
+      word("#s2a", 2.88);
+      slam("#s2b", 3.05);
+      IN("#s2c", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.out" }, 3.40);
+      IN("#s2p", { y: -1500, rotation: 10 }, { y: 0, rotation: 0, duration: 0.55, ease: "bounce.out" }, 3.25);
+      shake("#ks2", 3.75);
+      FT("#s2p", { scale: 1 }, { scale: 1.07, duration: 2.70, ease: "none" }, 3.80);
+      pop("#s2s", 3.90); float("#s2s", 4.30, 2.20, -16);
+
+      // LES BURGERS
+      word("#s3a", 6.68);
+      slam("#s3b", 6.85);
+      IN("#s3c", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.out" }, 7.20);
+      IN("#s3p", { y: -1500, rotation: -10 }, { y: 0, rotation: 0, duration: 0.55, ease: "bounce.out" }, 7.05);
+      shake("#ks3", 7.55);
+      FT("#s3p", { scale: 1 }, { scale: 1.07, duration: 2.10, ease: "none" }, 7.60);
+      pop("#s3s", 7.70); float("#s3s", 8.10, 1.60, -16);
+
+      // PACK DÉJEUNER
+      word("#s4a", 9.88);
+      slam("#s4b", 10.05);
+      IN("#s4c", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.out" }, 10.40);
+      IN("#s4p", { y: -1500, rotation: 10 }, { y: 0, rotation: 0, duration: 0.55, ease: "bounce.out" }, 10.25);
+      shake("#ks4", 10.75);
+      FT("#s4p", { scale: 1 }, { scale: 1.07, duration: 2.10, ease: "none" }, 10.80);
+      pop("#s4s", 10.90); float("#s4s", 11.30, 1.60, -16);
+
+      // PACK FAMILLE
+      word("#s5a", 13.08);
+      slam("#s5b", 13.25);
+      IN("#s5c", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.out" }, 13.60);
+      IN("#s5p", { y: -1500, rotation: -10 }, { y: 0, rotation: 0, duration: 0.55, ease: "bounce.out" }, 13.45);
+      shake("#ks5", 13.95);
+      FT("#s5p", { scale: 1 }, { scale: 1.07, duration: 2.10, ease: "none" }, 14.00);
+      pop("#s5s", 14.10); float("#s5s", 14.50, 1.60, -16);
+
+      // assiette
+      words(["#f1", "#f2", "#f3"], 16.3, 0.1);
+      slam("#f4", 16.6);
+      IN("#f5", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.5, ease: "bounce.out" }, 16.95);
+      IN("#f6", { y: 1200, rotation: 8 }, { y: 0, rotation: 0, duration: 0.55, ease: "expo.out" }, 16.7);
+      FT("#f6", { scale: 1 }, { scale: 1.06, duration: 2.0, ease: "none" }, 17.3);
+
+      // fin
+      IN("#lg7", { scale: 0.2, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 19.1);
+      IN("#g1", { x: -900 }, { x: 0, duration: 0.5, ease: "expo.out" }, 19.5);
+      IN("#g2", { x: 900 }, { x: 0, duration: 0.5, ease: "expo.out" }, 19.65);
+      words(["#g3", "#g4"], 20.0);
+      IN("#g5", { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.5)" }, 20.3);
+      FT("#g5", { scale: 1 }, { scale: 1.05, duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, 20.9);
+      IN("#g6", { y: 80 }, { y: 0, duration: 0.4, ease: "power3.out" }, 20.7);
+      float("#lg7", 19.8, 3.0, -14);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 22.65);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
