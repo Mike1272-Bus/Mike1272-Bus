@@ -43,20 +43,23 @@ Aucun prix affiché (règle de Mike), même si le visuel de la Ruche les montre.
 >
 > #miel #paniercadeau #madeinRDC #Kinshasa #LaRucheDuTerroir
 
-## Jour 3 · Mercredi 14 octobre · Miel au gingembre
+## Jour 3 · Mercredi 14 octobre · Miel au gingembre (version 2)
 
-Vidéo : `jour3-gingembre/renders/jour3-gingembre.mp4` (20 s, même style que le jour 1)
-Scénario : « Il fait chaud… envie de fraîcheur ? » → « Mais il manque du piquant… » → « Miel au gingembre » (le pot tombe avec des morceaux de gingembre) → leur visuel, « Du miel pur et sauvage du Congo », « doux et piquant à la fois » → en citronnade, dans le thé, sur des crêpes → commande sur WhatsApp.
+Vidéo : `jour3-gingembre-v2/renders/jour3-gingembre-v2.mp4` (30 s, nouveau style : illustrations, éléments un par un, vrai pot détouré, leur vraie cuillère). L'ancienne version `jour3-gingembre/` n'est plus utilisée.
+Scénario : « Il fait chaud… envie de fraîcheur ? » → « Et si on ajoutait du piquant ? » → transition alvéoles, « Miel au gingembre » (leur pot) → « Un goût unique : doux + piquant, à la fois » → « Comment le savourer ? » en citronnade, dans le thé, sur les crêpes, à la cuillère → « La Ruche du Terroir, un miel gustatif et soignant » → commande sur WhatsApp.
+Pas de prix, pas de grammage.
 
 **Statut WhatsApp**
 > Il fait chaud ? 🍋 Une citronnade avec notre miel au gingembre, doux et piquant à la fois. Commandez ici 👉 +243 859 072 956
 
 **Instagram et Facebook**
 > Miel au gingembre 🍯
-> Du miel pur et sauvage du Congo, au gingembre. Doux et piquant à la fois.
-> En citronnade quand il fait chaud, dans le thé, ou sur des crêpes le dimanche matin.
+> Doux comme le miel, piquant comme le gingembre.
+> En citronnade quand il fait chaud, dans le thé, sur les crêpes ou à la cuillère.
+> La Ruche du Terroir, un miel gustatif et soignant.
 >
 > 📲 Commandez sur WhatsApp : +243 859 072 956
-> 📍 N°51 avenue Benseke, Joli-Parc, Ngaliema
+> 📍 N°51 avenue Benseke, Q/Joli-Parc, C/Ngaliema, réf. arrêt Sakombi
 >
 > #miel #gingembre #madeinRDC #Kinshasa #LaRucheDuTerroir
+

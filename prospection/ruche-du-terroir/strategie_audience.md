@@ -253,7 +253,7 @@ Ce sont des objectifs, pas des promesses. Ils dépendent aussi de la régularit�
   - Grammage : la Ruche a aussi du miel en pots de 300 g, en plus des 510 g. **Ne jamais afficher le grammage** dans les vidéos et les textes (demande du 12 octobre).
 - Adresse sur leurs visuels : N°51 avenue Benseke, Q/Joli-Parc, C/Ngaliema, réf. arrêt Sakombi. E-mail : mess.rucheterroir@gmail.com.
 - Lot du concours : un pot de miel avec une cuillère à miel.
-- Manquent : les pots gingembre et clou de girofle (prévus jours 3 et 5). Sinon on les remplace par moringa et Mai-Ndombe.
+- Reçu le 13 octobre : les 7 visuels officiels (pot seul et duo) dans `photos-client/visuels/`, pots seuls détourés dans `photos-client/detoure-v2/` (à utiliser pour tous les jours suivants).
 
 Attention : leurs visuels disent « Miel soignant » et « note posologique ». Dans nos vidéos, on ne reprend pas ces mots (promesse de santé). On parle de goût, d'origine et d'idées d'usage.
 La 3e image (paniers pour les équipes) montre des personnes : on n'utilise que le panier et les pots, pas les personnes.
