@@ -173,7 +173,7 @@ def page(titre, mots, acc, icons):
       <!-- FIN (12,4 - 16) -->
       <div class="scene white" id="s3"><div class="cam" id="k3">
         {sw("M1500 -100 C 900 800, 700 1300, 200 2600")}
-        <div class="ab" id="lg" style="left:440px; top:300px; transform-origin:100px 110px; zoom:1.8">{logo}</div>
+        <div class="ab" id="lg" style="left:440px; top:300px; width:200px; height:225px">{logo.replace('width="110" height="124"', 'width="200" height="225"')}</div>
         <div class="line sm" id="e1" style="top:560px">Vos produits</div>
         <div class="line" id="e2" style="top:660px"><span class="big" style="font-size:130px">méritent ça.</span></div>
         <div class="pill pa" id="e3" style="left:190px; top:880px; width:700px">Vidéo d'essai gratuite 🎁</div>
