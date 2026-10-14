@@ -1,11 +1,9 @@
-# Deuxième passage : clips en haute définition, sans personnes de préférence
-ville-nuit|city-lights
-pizza|pizza
-chocolat|chocolate
-pain|bread
-fruits|fruits
-glace|ice-cream
-grillade|grill
-bijoux|jewelry
-montre|watch
-baskets|sneakers
+# Troisième passage (avant / après) : gadgets, vêtements, cosmétiques
+casque|headphones
+gadget|gadgets
+smartwatch|smartwatch
+vetements|clothes
+robe|dress
+mode|fashion
+maquillage|makeup
+creme|skin-care
