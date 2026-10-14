@@ -24,7 +24,7 @@ Si le message de confirmation au client échoue (numéro mal écrit), le reste c
 - Les 4 fichiers `workflow_*.json` : à importer dans n8n
 - `modeles_whatsapp_meta.md` : les 6 messages à faire valider par Meta
 - `src/generer_workflows.py` : régénère les 4 workflows si on change quelque chose
-- `variante-telegram/` : ancienne version Telegram des workflows 1 et 2 seulement (pas à jour)
+- `ancienne-version-telegram-NE-PAS-IMPORTER/` : ancienne version, ne pas utiliser
 
 ## Installation chez un client (environ 1 h)
 
