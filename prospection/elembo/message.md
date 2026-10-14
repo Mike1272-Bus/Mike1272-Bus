@@ -4,7 +4,7 @@ Marque de jus bio. D'après leur site **elembo-rdc.com** : un jeune couple suiss
 Ils sont aussi sur Instagram et TikTok (comptes vus dans la recherche : à vérifier, ex. TikTok « Jus elembo »).
 
 Contact : pas de numéro trouvé. Passer par le site (formulaire / contact) ou un message privé Instagram / TikTok. Comme les fondateurs vivent en Suisse, un message écrit (pas un appel) est le plus simple.
-Moment : en fin de matinée (heure de Kinshasa = heure de Lausanne en ce moment, à vérifier).
+Moment : en fin de matinée. La Suisse a 1 h d'avance sur Kinshasa jusqu'au 25 octobre (heure d'été), puis la même heure.
 
 ## Version courte (à envoyer en priorité)
 
