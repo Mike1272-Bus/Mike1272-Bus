@@ -63,3 +63,24 @@ Pas de prix, pas de grammage.
 >
 > #miel #gingembre #madeinRDC #Kinshasa #LaRucheDuTerroir
 
+## Jour 4 · Jeudi 15 octobre · 3 façons de savourer le miel chaque jour
+
+Vidéo : `jour4-3-facons/renders/jour4-3-facons.mp4` (32 s, même style que les jours 2 et 3).
+Scénario : « Le miel, c'est seulement pour le thé ? » → « Voici 3 façons de le savourer chaque jour » → 1. Le matin (pot cannelle) : sur le pain, sur les crêpes → 2. Dans vos boissons (pot gingembre) : thé ou café à la place du sucre, en citronnade → 3. En cuisine (pot poivre noir) : en marinade, dans la salade → « Quel parfum pour vous ? » avec les 7 pots → « La Ruche du Terroir, un miel gustatif et soignant » → commande sur WhatsApp.
+Pas de prix, pas de grammage, pas de promesse de santé.
+
+**Statut WhatsApp**
+> Le miel, c'est seulement pour le thé ? 🍯 Le matin sur le pain, dans vos boissons, en cuisine… Quel parfum pour vous ? Commandez ici 👉 +243 859 072 956
+
+**Instagram et Facebook**
+> 3 façons de savourer notre miel chaque jour 🍯
+> 1️⃣ Le matin : sur le pain ou les crêpes
+> 2️⃣ Dans vos boissons : thé, café, citronnade
+> 3️⃣ En cuisine : en marinade ou dans la salade
+> Cannelle, gingembre, hibiscus, moringa, poivre noir, clou de girofle ou miel sauvage du Mai-Ndombe : quel parfum pour vous ?
+>
+> 📲 Commandez sur WhatsApp : +243 859 072 956
+> 📍 N°51 avenue Benseke, Q/Joli-Parc, C/Ngaliema, réf. arrêt Sakombi
+>
+> #miel #recette #madeinRDC #Kinshasa #LaRucheDuTerroir
+
