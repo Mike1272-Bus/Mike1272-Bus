@@ -1,6 +1,7 @@
 # Avant / après : 6 vidéos de démonstration Allegra (16 s, vertical)
 
 Pour montrer aux commerçants la différence entre une photo fixe et une vidéo animée.
+- **Style** : DA crème de la Ruche (fond crème, gros texte en relief, cartes blanches, pilule WhatsApp verte), une couleur par produit.
 - **Avant** (0 à 4 s) : une simple photo dans un fil d'actualité, 0 like, on passe sans s'arrêter.
 - **Après** (4 à 12 s) : le produit en mouvement, mots qui claquent, icônes 3D, badge « NOUVEAU », reflet, bouton « Commandez sur WhatsApp ».
 - **Fin** (12 à 16 s) : « Vos produits méritent ça. Vidéo d'essai gratuite. Écrivez ESSAI », +243 831 710 181.
