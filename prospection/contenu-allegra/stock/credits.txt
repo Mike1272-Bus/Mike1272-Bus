@@ -1,6 +1,3 @@
-# Clips libres de droits (Mixkit). Trié le 12 oct. : retirés bijoux-3, bijoux-4, glace-3 (visages),
-# baskets-1 (personne entière), jus-1 (doublon de fruits-3). Colonne 4 = remarque d'usage.
-
 baskets-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/15060/15060-720.mp4 | mains + jambes, garder en petit (carte)
 baskets-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/15059/15059-720.mp4 | mains + jambes, garder en petit (carte)
 baskets-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/47879/47879-720.mp4 | jambes seules, image sombre
@@ -9,11 +6,19 @@ bijoux-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit
 burger-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/47159/47159-720.mp4
 burger-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/14010/14010-720.mp4
 cafe-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/41865/41865-1080.mp4
+casque-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/51134/51134-1080.mp4
+casque-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/51764/51764-1080.mp4
+casque-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/46700/46700-720.mp4
+casque-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/51739/51739-1080.mp4
 chocolat-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/41126/41126-1080.mp4 | même idée que chocolat-4 (vertical), les deux gardés
 chocolat-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/41117/41117-1080.mp4
 chocolat-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/41125/41125-1080.mp4
 chocolat-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/41112/41112-1080.mp4
 cosmetique-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/40549/40549-1080.mp4
+creme-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/33462/33462-720.mp4
+creme-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/50426/50426-1080.mp4
+creme-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/12843/12843-720.mp4
+creme-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/50417/50417-1080.mp4
 epices-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/28392/28392-720.mp4
 epices-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/32058/32058-720.mp4
 fruits-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/16007/16007-720.mp4
@@ -29,8 +34,16 @@ grillade-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixk
 grillade-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/45723/45723-720.mp4
 grillade-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/2774/2774-1080.mp4
 jus-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/26649/26649-720.mp4
+maquillage-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/40556/40556-1080.mp4
+maquillage-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/52057/52057-1080.mp4
+maquillage-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/52033/52033-1080.mp4
+maquillage-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/52055/52055-1080.mp4
 miel-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/2801/2801-1080.mp4
 miel-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/46374/46374-720.mp4
+mode-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/44556/44556-1080.mp4
+mode-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/44555/44555-1080.mp4
+mode-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/44542/44542-1080.mp4
+mode-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/49381/49381-720.mp4
 montre-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/3649/3649-1080.mp4
 montre-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/3672/3672-1080.mp4 | même montre que montre-1 (vertical), les deux gardés
 montre-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/39779/39779-1080.mp4 | mains, à éviter si possible
@@ -43,7 +56,19 @@ pizza-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.
 pizza-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/44001/44001-1080.mp4
 pizza-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/1669/1669-1080.mp4
 pizza-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/42469/42469-1080.mp4 | bras, sans visage
+robe-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/51221/51221-1080.mp4
+robe-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/51227/51227-1080.mp4
+robe-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/39898/39898-1080.mp4
+robe-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/24139/24139-720.mp4
+smartwatch-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/39779/39779-1080.mp4
+smartwatch-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/1822/1822-1080.mp4
+smartwatch-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/47881/47881-720.mp4
+smartwatch-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/52135/52135-1080.mp4
 tissu-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/40226/40226-1080.mp4
+vetements-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/49382/49382-720.mp4
+vetements-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/23327/23327-720.mp4
+vetements-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/33167/33167-720.mp4
+vetements-4.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/35382/35382-720.mp4
 ville-nuit-1.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/49875/49875-1080.mp4
 ville-nuit-2.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/49878/49878-1080.mp4
 ville-nuit-3.mp4 | Mixkit License (usage commercial gratuit) | https://assets.mixkit.co/videos/6754/6754-720.mp4 | motard flou au loin, sans visage
