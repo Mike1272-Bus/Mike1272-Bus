@@ -74,3 +74,26 @@ Musique plus douce (publicité), bruitages légers (abeilles, coulée).
 2. Lancer les 3 plans avec les images de départ et les prompts ci-dessus. Faire 2 essais par plan si les crédits le permettent.
 3. M'envoyer les vidéos (même avec le filigrane : je recadre ou je le cache dans le montage).
 4. Prévenir la Ruche que la vidéo de vendredi contient des images générées par IA, et avoir son accord.
+
+## 7. Version finale pour OpenArt (Kling), style grande pub (14 octobre)
+
+- **Miel choisi : clou de girofle** (prévu au planning du vendredi, et les clous de girofle sont très beaux à l'image).
+- **Image à mettre :** `images-depart/A-pot-clou-de-girofle.jpg` (leur vrai pot, sans texte ni logo autour). Si on prend un de leurs visuels, choisir « Miel au clou de girofle », pot seul, mais le texte et l'abeille risquent d'être déformés par l'IA.
+- Réglages : Image to Video, modèle Kling (la version la plus récente proposée), format 9:16, durée 5 s, qualité la plus haute permise.
+
+**Plan 1 « La révélation »**
+```
+Epic premium commercial hero shot, in the style of a big soda brand TV ad. The honey jar stands on a warm wooden table. The golden lid slowly lifts off by itself and spins in the air. Thick dark amber honey rises and overflows the rim in glossy slow-motion waves, rolling down the glass. Whole cloves fall around the jar in slow motion and bounce on the table. Golden light rays, sparkling particles in the air, warm backlight making the honey glow. Smooth slow camera orbit around the jar, ending on a perfect hero shot of the jar. Keep the jar and its label exactly as in the image. Photorealistic, ultra detailed, 4K, cinematic color grading.
+```
+**Plan 2 « L'explosion de goût »**
+```
+Ultra slow-motion macro shot: a wave of golden honey splashes in the air and wraps around falling whole cloves and a cinnamon stick, droplets glowing in warm backlight, against a dark warm brown background. Rich, glossy, delicious textures. Camera slowly pushes in. Photorealistic premium food commercial, 4K, high contrast cinematic lighting.
+```
+**Plan 3 « Le partage »**
+```
+Warm breakfast table in a bright African home at sunrise. Close-up of hands dipping a wooden honey dipper into a jar and drizzling honey on fresh bread, cups of hot tea steaming next to it. Faces out of frame. Soft golden sunlight, joyful cozy atmosphere, slow cinematic camera slide. Photorealistic, natural skin tones, premium commercial.
+```
+**Négatif (pour les 3) :**
+```
+text, letters, words, changed label, deformed jar, extra jars, cartoon, low quality, blurry, flicker, distorted hands, extra fingers, faces
+```
