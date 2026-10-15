@@ -12,3 +12,7 @@ Inspirée de la structure de dupliq.me (style « néo-brutal » clair : bordures
 Règles : aucun chiffre, prix ou témoignage inventé (la section « résultats » montre ce que le client reçoit, pas des statistiques). Les exemples produits sont faits avec des images libres de droits (mention sur la page). Aucune vidéo de client sans son accord écrit. Le portrait et le montage sont des vidéos de Mike.
 
 À compléter par Mike : des vidéos de vrais clients (avec accord écrit) et leurs résultats réels, les liens Instagram / TikTok d'Allegra.
+
+## Vidéo de présentation Instagram (15 oct.)
+
+`video-instagram/` : Reel de 32,6 s (1080×1920) qui présente Allegra en suivant le site : accroche, « Nous, c'est Allegra.digital », photos → vidéos, avant/après, la formule, 9 formats, l'offre d'essai, appel WhatsApp. Rendu : `video-instagram/renders/allegra_presentation_instagram.mp4`, légende : `video-instagram/legende.md`. Pour refaire : `python3 clips.py && python3 mix.py && npx --yes hyperframes@0.8.77 render . -q high -o renders/raw.mp4`.
