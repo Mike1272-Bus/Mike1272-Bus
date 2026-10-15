@@ -1,6 +1,6 @@
 # Message : Vin Semuliki (Semuliki SARL, Lubumbashi)
 
-Contact : message privé Instagram `semulikisarl`. Leur visuel montre aussi des numéros WhatsApp (à lire en grand sur leur photo de profil avant de s'en servir). Envoyer le message, puis la vidéo `renders/semuliki-apercu.mp4`.
+Contact : message privé Instagram `semulikisarl`. Leur visuel montre aussi des numéros WhatsApp (à lire en grand sur leur photo de profil avant de s'en servir). Envoyer le message, puis la vidéo `renders/semuliki-apercu-ia.mp4` (avec le clip IA ; version sans IA : `renders/semuliki-apercu.mp4`).
 
 > Bonjour l'équipe Semuliki 👋
 > Voici un petit aperçu de ce que nous pouvons faire pour vous 🎬

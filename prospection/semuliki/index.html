@@ -28,32 +28,30 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="12" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="13.6" data-width="1080" data-height="1920">
 
-      <!-- 1. Leur visuel (0 - 3,4) : la caméra entre vers la bouteille. Place prévue pour le clip IA 1 -->
+      <!-- 1. Le clip IA (0 - 8 ; la fin du clip est l'écran « Created with idea.ai », coupé) : bouteille dans la glacière, la caméra avance. Bandeau du haut = cache le filigrane et le titre fixe de l'IA -->
       <div class="scene" id="s1"><div class="cam" id="k1">
-        <img class="ab" id="a1" src="assets/img/post-9x16.jpg" style="left:0; top:0; width:1080px; height:1920px; transform-origin: 566px 1150px" />
-        <div class="ab" id="flare" style="left:-200px; top:1060px; width:1480px; height:70px; background: radial-gradient(ellipse at 50% 50%, rgba(255,240,200,0.95) 0%, rgba(255,160,40,0.55) 25%, rgba(255,120,0,0) 70%); mix-blend-mode: screen"></div>
-        <div class="ab" id="bandT" style="left:0; top:0; width:1080px; height:640px; background: linear-gradient(180deg, #1c0d06 0%, #1c0d06 62%, rgba(28,13,6,0) 100%)"></div>
-        <div class="ab" id="bandB" style="left:0; top:1300px; width:1080px; height:620px; background: linear-gradient(0deg, #1c0d06 0%, #1c0d06 58%, rgba(28,13,6,0) 100%)"></div>
-        <div class="line huge" id="a2" style="top:1640px; font-size:64px; color:#fff">Vin Semuliki</div>
-        <div class="line kick" id="a0" style="top:170px; color:#f7c919">LE VOICI ENFIN</div>
-      </div></div>
-
-      <!-- 2. La promesse (3,4 - 6,8) : griffes du léopard, titre en contour qui se remplit. Place prévue pour le clip IA 2 -->
-      <div class="scene" id="s2" style="background: radial-gradient(ellipse at 50% 45%, #6b3315 0%, #3b1d10 50%, #1c0d06 100%)"><div class="cam" id="k2">
-        <div id="spots"></div>
-        <svg class="ab" id="claws" style="left:140px; top:330px" width="800" height="1260" viewBox="0 0 800 1260">
+        <video id="vclip" class="clip" src="assets/video/clip-ia.mp4" muted playsinline data-start="0" data-duration="8" data-track-index="2" style="position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover"></video>
+        <div class="ab" id="bandT" style="left:0; top:0; width:1080px; height:470px; background: linear-gradient(180deg, #1c0d06 0%, #1c0d06 70%, rgba(28,13,6,0) 100%)"></div>
+        <div class="ab" id="bandB" style="left:0; top:1560px; width:1080px; height:360px; background: linear-gradient(0deg, rgba(28,13,6,0.92) 0%, rgba(28,13,6,0.6) 55%, rgba(28,13,6,0) 100%)"></div>
+        <div class="ab" id="flare" style="left:-200px; top:700px; width:1480px; height:60px; background: radial-gradient(ellipse at 50% 50%, rgba(255,240,200,0.9) 0%, rgba(255,160,40,0.5) 25%, rgba(255,120,0,0) 70%); mix-blend-mode: screen"></div>
+        <!-- partie 1 : le nom -->
+        <div class="line kick" id="a0" style="top:95px; color:#f7c919">LE VOICI ENFIN</div>
+        <div class="line huge" id="a1" style="top:170px; font-size:190px; letter-spacing:0.02em">SEMULIKI</div>
+        <div class="line" id="a2" style="top:1730px; font-weight:900; font-size:54px; letter-spacing:0.06em">VIN SEMULIKI · 300 ml</div>
+        <!-- partie 2 : la promesse, avec les griffes du léopard -->
+        <svg class="ab" id="claws" style="left:140px; top:330px; z-index:5" width="800" height="1260" viewBox="0 0 800 1260">
           <path class="claw" id="c1" d="M140 40 C 220 420, 200 820, 120 1220" />
           <path class="claw" id="c2" d="M400 20 C 470 420, 460 840, 400 1240" />
           <path class="claw" id="c3" d="M660 40 C 720 420, 700 820, 640 1220" />
         </svg>
-        <div class="line huge outl" id="b1" style="top:650px; font-size:138px">NGUVU KAMA</div>
-        <div class="line huge outl" id="b2" style="top:800px; font-size:138px">YA CHUI !</div>
-        <div class="line" id="b3" style="top:1020px; font-weight:900; font-size:56px; letter-spacing:0.1em">SAVEUR YA MBOKA.</div>
+        <div class="line huge outl" id="b1" style="top:90px; font-size:138px">NGUVU KAMA</div>
+        <div class="line huge outl" id="b2" style="top:230px; font-size:138px">YA CHUI !</div>
+        <div class="line" id="b3" style="top:1730px; font-weight:900; font-size:56px; letter-spacing:0.1em">SAVEUR YA MBOKA.</div>
       </div></div>
 
-      <!-- 3. La bouteille et ses chiffres (6,8 - 9,6) -->
+      <!-- 2. La bouteille et ses chiffres (8 - 10,8) -->
       <div class="scene" id="s3" style="background:#1c0d06"><div class="cam" id="k3">
         <div class="ab" id="rays" style="left:-460px; top:-40px; width:2000px; height:2000px; background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(247,150,40,0.16) 0deg 8deg, rgba(0,0,0,0) 8deg 20deg); border-radius:50%"></div>
         <div class="ab" style="left:-200px; top:300px; width:1100px; height:1300px; background: radial-gradient(ellipse at 50% 50%, rgba(217,102,28,0.55) 0%, rgba(28,13,6,0) 65%)"></div>
@@ -65,7 +63,7 @@
         <div class="badge" id="e3" style="top:1150px"><span style="font-size:44px; line-height:1.15; color:#a9d4ef">Ingrédients naturels,<br />zéro additif.</span></div>
       </div></div>
 
-      <!-- 4. Carte de fin (9,6 - 12) -->
+      <!-- 3. Carte de fin (10,8 - 13,6) -->
       <div class="scene" id="s4" style="background: radial-gradient(ellipse at 50% 40%, #5a2a12 0%, #3b1d10 50%, #1c0d06 100%)"><div class="cam" id="k4">
         <div class="line" id="d9" style="top:100px; font-weight:600; font-size:30px; letter-spacing:0.08em; color:rgba(255,255,255,0.8)">Aperçu · Allegra Digital Ground</div>
         <div class="line huge" id="d1" style="top:520px; font-size:190px; letter-spacing:0.02em">SEMULIKI</div>
@@ -80,64 +78,58 @@
       </div></div>
 
       <div class="ab" id="flash"></div>
-      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="12" data-track-index="1" data-volume="1"></audio>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="13.6" data-track-index="1" data-volume="1"></audio>
     </div>
     <script>
       window.__timelines = window.__timelines || {};
       let seed = 11; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
-      // taches de léopard en fond (scène 2)
-      const SP = [];
-      for (let i = 0; i < 40; i++) {
-        const d = document.createElement("div"); d.className = "spot"; const s = 24 + rnd() * 50;
-        Object.assign(d.style, { left: rnd() * 1060 + "px", top: rnd() * 1900 + "px", width: s + "px", height: s * (0.7 + rnd() * 0.5) + "px",
-          background: "transparent", border: (6 + rnd() * 6) + "px solid rgba(20,8,2,0.55)", transform: `rotate(${rnd() * 180}deg)` });
-        document.getElementById("spots").appendChild(d); SP.push(d);
-      }
       const tl = gsap.timeline({ paused: true });
       const HIDE = [];
       const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
       const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
 
-      const SC = [["#s1", "#k1", 0, 3.4], ["#s2", "#k2", 3.4, 3.4], ["#s3", "#k3", 6.8, 2.8], ["#s4", "#k4", 9.6, 2.4]];
+      const SC = [["#s1", "#k1", 0, 7.95], ["#s3", "#k3", 7.95, 2.85], ["#s4", "#k4", 10.8, 2.8]];
       SC.forEach(([s, c, a, d], i) => {
         HIDE.push(s);
         if (i) FT(s, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: "none" }, a); else tl.set(s, { autoAlpha: 1 }, 0);
         if (i !== SC.length - 1) FT(s, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.2, ease: "none" }, a + d);
         if (i) FT(c, { scale: 1.0 }, { scale: 1.05, duration: d, ease: "none" }, a);
       });
-      [3.35, 6.75, 9.55].forEach(t => FT("#flash", { opacity: 0 }, { keyframes: [{ opacity: 0.85, duration: 0.08 }, { opacity: 0, duration: 0.35 }] }, t));
+      [4.15, 7.9, 10.75].forEach(t => FT("#flash", { opacity: 0 }, { keyframes: [{ opacity: 0.85, duration: 0.08 }, { opacity: 0, duration: 0.35 }] }, t));
 
-      // 1 : la caméra entre vers la bouteille, l'éclat de lumière pulse
-      FT("#a1", { scale: 1.05 }, { scale: 1.5, duration: 3.4, ease: "power2.inOut" }, 0);
-      FT("#flare", { scaleX: 0.3, opacity: 0 }, { keyframes: [{ scaleX: 1.2, opacity: 1, duration: 0.9 }, { scaleX: 0.8, opacity: 0.6, duration: 1.0 }, { scaleX: 1.4, opacity: 1, duration: 1.0 }], ease: "sine.inOut" }, 0.3);
-      IN("#a2", { y: 30 }, { y: 0, duration: 0.5, ease: "back.out(2)" }, 1.2);
-      IN("#a0", { letterSpacing: "0.8em", y: 20 }, { letterSpacing: "0.3em", y: 0, duration: 0.9, ease: "expo.out" }, 0.4);
+      // 1a : le clip démarre, le nom arrive
+      FT("#flare", { scaleX: 0.3, opacity: 0 }, { keyframes: [{ scaleX: 1.2, opacity: 0.9, duration: 0.6 }, { scaleX: 0.7, opacity: 0, duration: 0.8 }] }, 0.1);
+      IN("#a0", { letterSpacing: "0.8em", y: 20 }, { letterSpacing: "0.3em", y: 0, duration: 0.9, ease: "expo.out" }, 0.3);
+      IN("#a1", { scale: 1.3, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, 0.8);
+      IN("#a2", { y: 40 }, { y: 0, duration: 0.5, ease: "back.out(2)" }, 1.6);
+      FT("#a1", { letterSpacing: "0.02em" }, { letterSpacing: "0.06em", duration: 2.6, ease: "none" }, 1.4);
+      FT(["#a0", "#a1", "#a2"], { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.25 }, 4.0);
 
-      // 2 : trois coups de griffe, puis le titre se remplit
+      IN("#claws", {}, { duration: 0.01 }, 4.2);
+      // 1b : trois coups de griffe, puis le slogan se remplit (pendant que la caméra se rapproche)
       ["#c1", "#c2", "#c3"].forEach((c, i) => {
         const L = 1300;
-        FT(c, { strokeDasharray: L, strokeDashoffset: L, opacity: 1 }, { strokeDashoffset: 0, duration: 0.22, ease: "power3.in" }, 3.55 + i * 0.12);
-        FT(c, { opacity: 1 }, { opacity: 0.18, duration: 0.5 }, 4.3);
+        FT(c, { strokeDasharray: L, strokeDashoffset: L, opacity: 1 }, { strokeDashoffset: 0, duration: 0.22, ease: "power3.in" }, 4.25 + i * 0.12);
+        FT(c, { opacity: 1 }, { opacity: 0, duration: 0.6 }, 5.0);
       });
-      SP.forEach(d => FT(d, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(2)" }, 3.5 + rnd() * 1.2));
-      IN("#b1", { scale: 1.25, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 4.0);
-      IN("#b2", { scale: 1.25, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 4.25);
-      FT(["#b1", "#b2"], { color: "rgba(247,201,25,0)" }, { color: "rgba(247,201,25,1)", duration: 0.8, ease: "power2.in" }, 5.0);
-      IN("#b3", { y: 30, letterSpacing: "0.45em" }, { y: 0, letterSpacing: "0.1em", duration: 0.6, ease: "expo.out" }, 5.6);
+      IN("#b1", { scale: 1.25, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 4.6);
+      IN("#b2", { scale: 1.25, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 4.85);
+      FT(["#b1", "#b2"], { color: "rgba(247,201,25,0)" }, { color: "rgba(247,201,25,1)", duration: 0.8, ease: "power2.in" }, 5.5);
+      IN("#b3", { y: 30, letterSpacing: "0.45em" }, { y: 0, letterSpacing: "0.1em", duration: 0.6, ease: "expo.out" }, 6.1);
 
-      // 3 : la bouteille arrive, les chiffres tombent
-      FT("#rays", { rotation: 0 }, { rotation: 25, duration: 2.8, ease: "none" }, 6.8);
-      IN("#c0", { x: -600, rotation: -8 }, { x: 0, rotation: 0, duration: 0.6, ease: "back.out(1.4)" }, 6.85);
-      FT("#c0", { y: 0 }, { y: -16, duration: 0.8, yoyo: true, repeat: 1, ease: "sine.inOut" }, 7.5);
-      ["#e1", "#e2", "#e3"].forEach((e, i) => IN(e, { x: 300 }, { x: 0, duration: 0.45, ease: "expo.out" }, 7.2 + i * 0.45));
+      // 2 : la bouteille arrive, les chiffres tombent
+      FT("#rays", { rotation: 0 }, { rotation: 25, duration: 2.8, ease: "none" }, 7.95);
+      IN("#c0", { x: -600, rotation: -8 }, { x: 0, rotation: 0, duration: 0.6, ease: "back.out(1.4)" }, 8.0);
+      FT("#c0", { y: 0 }, { y: -16, duration: 0.8, yoyo: true, repeat: 1, ease: "sine.inOut" }, 8.65);
+      ["#e1", "#e2", "#e3"].forEach((e, i) => IN(e, { x: 300 }, { x: 0, duration: 0.45, ease: "expo.out" }, 8.35 + i * 0.45));
 
-      // 4 : carte de fin
-      IN("#d2", { scale: 0.2, rotation: -30 }, { scale: 1, rotation: -4, duration: 0.6, ease: "back.out(1.8)" }, 9.7);
-      IN("#d1", { scale: 1.3, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 9.9);
-      IN("#d3", { y: 30 }, { y: 0, duration: 0.4, ease: "back.out(2)" }, 10.2);
-      IN("#d7", { y: 700 }, { y: 0, duration: 0.6, ease: "back.out(1.3)" }, 10.25);
-      IN("#d4", { y: 30 }, { y: 0, duration: 0.4 }, 10.6); IN("#d5", { y: 20 }, { y: 0, duration: 0.4 }, 10.8);
-      IN("#d6", {}, { duration: 0.3 }, 10.0); IN("#d9", { y: -20 }, { y: 0, duration: 0.4 }, 10.9);
+      // 3 : carte de fin
+      IN("#d2", { scale: 0.2, rotation: -30 }, { scale: 1, rotation: -4, duration: 0.6, ease: "back.out(1.8)" }, 10.85);
+      IN("#d1", { scale: 1.3, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 11.05);
+      IN("#d3", { y: 30 }, { y: 0, duration: 0.4, ease: "back.out(2)" }, 11.35);
+      IN("#d7", { y: 700 }, { y: 0, duration: 0.6, ease: "back.out(1.3)" }, 11.4);
+      IN("#d4", { y: 30 }, { y: 0, duration: 0.4 }, 11.75); IN("#d5", { y: 20 }, { y: 0, duration: 0.4 }, 11.95);
+      IN("#d6", {}, { duration: 0.3 }, 11.15); IN("#d9", { y: -20 }, { y: 0, duration: 0.4 }, 12.05);
 
       gsap.set(HIDE, { autoAlpha: 0 });
       gsap.set("#s1", { autoAlpha: 1 });

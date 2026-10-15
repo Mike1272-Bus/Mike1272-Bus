@@ -48,3 +48,16 @@ Quand les clips arrivent : clip 1 à la place du visuel de la scène 1, clip 2 e
 
 ## Fabrication
 `python3 mix.py`, `npx hyperframes@0.8.77 render . -q high -o renders/raw.mp4`, puis compression ffmpeg → `renders/semuliki-apercu.mp4`.
+
+## Version avec le clip IA (15 octobre, soir) : `renders/semuliki-apercu-ia.mp4` (13,6 s)
+
+Clip fait par Mike sur idea.ai (image de départ : leur visuel), 10,7 s en 1440×2560. On garde les 8 premières secondes : après, c'est l'écran « Created with idea.ai ». Le filigrane « idea.ai » (en haut à gauche) et le titre fixe « SEMULIKI » généré par l'IA sont cachés sous un bandeau brun, où l'on met nos propres titres animés.
+
+| Temps | Scène |
+|---|---|
+| 0 - 4,1 s | Clip IA (la caméra avance vers la bouteille dans la glacière), « LE VOICI ENFIN », « SEMULIKI », « VIN SEMULIKI · 300 ml » |
+| 4,1 - 8 s | Suite du clip : 3 coups de griffe, « NGUVU KAMA YA CHUI ! » en contour qui se remplit, « SAVEUR YA MBOKA. » |
+| 8 - 10,8 s | La bouteille, « 13 % d'alcool », « 300 ml », « Ingrédients naturels, zéro additif. » |
+| 10,8 - 13,6 s | Carte de fin (bandeau, slogan, Lubumbashi, modération, « Aperçu · Allegra Digital Ground ») |
+
+La version sans IA est gardée : `versions/index-sans-ia.html` et `renders/semuliki-apercu.mp4`.

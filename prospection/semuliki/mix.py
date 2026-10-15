@@ -1,22 +1,23 @@
-"""Semuliki (12 s) : musique + bruitages « boissons » de Mike (prospection/sfx-boissons)."""
+"""Semuliki version IA (13,6 s) : musique + bruitages « boissons » de Mike (prospection/sfx-boissons)."""
 import os, subprocess
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SFX_DIR = os.path.join(ROOT, "..", "..", "video-excel-13h", "assets", "sfx")
 BOISSONS = os.path.join(ROOT, "..", "sfx-boissons")
 MUSIC = os.path.join(ROOT, "..", "..", "video-excel-13h", "assets", "audio", "musique.wav")
-OUT = os.path.join(ROOT, "assets", "audio", "mix.wav"); DUR = 12.0
+OUT = os.path.join(ROOT, "assets", "audio", "mix.wav"); DUR = 13.6
 B = lambda n: os.path.join(BOISSONS, n + ".wav")
 L = lambda n: os.path.join(SFX_DIR, n + ".mp3")
 SFX = [  # (heure, fichier, volume, durée max ou None)
-    (0.1, B("boisson-4-ouverture-et-versement"), 0.9, 3.3),  # la bouteille s'ouvre
-    (0.3, L("riser"), 0.18, 3.0),
-    (3.35, L("impact-bass-1"), 0.4, None),
-    (3.55, L("whoosh-short"), 0.35, None), (3.67, L("whoosh-short"), 0.35, None), (3.79, L("whoosh-short"), 0.35, None),  # les griffes
-    (5.0, L("sparkle"), 0.22, None),
-    (6.75, L("impact-bass-2"), 0.35, None), (6.85, L("whoosh-cinematic"), 0.25, None),
-    (7.2, L("pop"), 0.25, None), (7.65, L("pop"), 0.25, None), (8.1, L("pop"), 0.25, None),
-    (9.55, B("boisson-1-tintements"), 0.6, 1.6), (9.7, L("pop"), 0.25, None), (10.2, L("chime"), 0.3, None),
-    (10.6, B("boisson-2-versement-petillant"), 0.5, 1.4),
+    (0.1, B("boisson-4-ouverture-et-versement"), 0.85, 4.0),  # la bouteille s'ouvre, ça coule
+    (0.6, L("whoosh-cinematic"), 0.25, None), (0.8, L("impact-bass-1"), 0.3, None),  # SEMULIKI
+    (2.4, L("riser"), 0.2, 1.8),
+    (4.15, L("impact-bass-2"), 0.4, None),
+    (4.25, L("whoosh-short"), 0.35, None), (4.37, L("whoosh-short"), 0.35, None), (4.49, L("whoosh-short"), 0.35, None),  # les griffes
+    (5.5, L("sparkle"), 0.25, None), (6.1, B("boisson-1-tintements"), 0.55, 1.8),  # glaçons
+    (7.9, L("impact-bass-1"), 0.35, None), (8.0, L("whoosh-cinematic"), 0.25, None),
+    (8.35, L("pop"), 0.25, None), (8.8, L("pop"), 0.25, None), (9.25, L("pop"), 0.25, None),
+    (10.75, L("whoosh-short"), 0.25, None), (10.85, L("pop"), 0.25, None), (11.35, L("chime"), 0.3, None),
+    (11.75, B("boisson-2-versement-petillant"), 0.5, 1.5),
 ]
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 inputs = ["-i", MUSIC]
