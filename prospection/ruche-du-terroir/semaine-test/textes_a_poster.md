@@ -84,3 +84,36 @@ Pas de prix, pas de grammage, pas de promesse de santé.
 >
 > #miel #recette #madeinRDC #Kinshasa #LaRucheDuTerroir
 
+
+## Jour 5 · Vendredi 16 octobre · Spot « miel au clou de girofle » + lancement du concours
+
+Vidéo : `jour5-spot-miel/renders/ruche-jour5-spot-miel.mp4` (27 s, version « spot pub » : fond brun doré, rayons de lumière).
+Le miel qui coule n'est **ni une vidéo IA ni une vidéo de banque d'images** : il est calculé image par image (`jour5-spot-miel/miel.py`), comme les ingrédients dessinés des autres jours. Le pot est leur vrai pot, agrandi net.
+Scénario : un rideau de miel coule du haut, « Ce vendredi, on vous fait plaisir. » → leur pot arrive, un filet de miel coule et déborde sur le couvercle, des clous de girofle tombent autour, « Le miel au clou de girofle · Pur miel congolais, macéré au clou de girofle. » → « CONCOURS : gagnez un pot de miel + une cuillère à miel », les 3 étapes, « Du 16 au 18 octobre · Tirage le 19 », « Concours non organisé ni sponsorisé par Instagram. » → logo, « Commandez sur WhatsApp » +243 859 072 956.
+Pas de prix, pas de grammage, pas de promesse de santé.
+
+**Statut WhatsApp**
+> 🍯 CONCOURS ! Gagnez un pot de miel + une cuillère à miel. Pour participer, rendez-vous sur notre Instagram @miel_de_la_ruche_du_terroir jusqu'au dimanche 18 octobre 🎁 Et pour commander : +243 859 072 956
+
+**Instagram (le post du concours)**
+> 🍯 CONCOURS 🍯
+> Ce vendredi, on vous fait plaisir : gagnez un pot de notre miel + une cuillère à miel !
+>
+> Pour participer :
+> 1️⃣ Abonnez-vous à @miel_de_la_ruche_du_terroir
+> 2️⃣ Aimez cette vidéo
+> 3️⃣ Identifiez 2 amis en commentaire
+>
+> 📅 Du vendredi 16 au dimanche 18 octobre à minuit. Tirage au sort le lundi 19 octobre, annoncé en story.
+> Une seule participation par personne. Le gagnant sera contacté en message privé et aura 48 h pour répondre.
+> Ce concours n'est ni organisé ni sponsorisé par Instagram.
+>
+> Et en attendant : le miel au clou de girofle, pur miel congolais macéré au clou de girofle.
+> 📲 Commandez sur WhatsApp : +243 859 072 956
+>
+> #concours #miel #clouDeGirofle #madeinRDC #Kinshasa #LaRucheDuTerroir
+
+**Facebook**
+> Même texte. Ajouter : « Le concours se passe sur Instagram : abonnez-vous à @miel_de_la_ruche_du_terroir pour participer. »
+
+⚠️ À confirmer avec la Ruche avant de poster : la zone du concours (Kinshasa seulement ?) et la remise du lot (point de vente ou livraison). Si c'est Kinshasa seulement, ajouter « Ouvert aux personnes vivant à Kinshasa. » dans le post.
