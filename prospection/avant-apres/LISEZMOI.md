@@ -24,3 +24,20 @@ Refaire : `python3 prep.py` (clips) puis `python3 build.py` (compositions), puis
 > Vos produits méritent ça. Nous transformons vos photos en vidéos pub.
 > 🎁 Vidéo d'essai gratuite : écrivez ESSAI au +243 831 710 181
 > #Kinshasa #RDC #publicité #vidéo #commerce
+
+## Calendrier de publication (1 vidéo par jour, à 19 h)
+
+| Jour | Vidéo | Description |
+|---|---|---|
+| Jeu 15 | Burger | Votre burger mérite mieux qu'une photo qu'on fait défiler 🍔🔥 |
+| Ven 16 | Glace | Une photo de glace ? On passe. Une glace qui fond sous le chocolat ? On commande 🍦 |
+| Sam 17 | Mode femme | Vos robes méritent d'être vues en mouvement 👗✨ |
+| Dim 18 | Cosmétiques | Vos produits de beauté, présentés comme dans une vraie pub 💄 |
+| Lun 19 | Chaussures | Une basket en photo, c'est joli. En vidéo, ça donne envie de l'avoir 👟⚡ |
+| Mar 20 | Gadget | Vos gadgets méritent une présentation à leur hauteur ⌚📱 |
+
+Fin de chaque description :
+> Avant : une photo qu'on fait défiler 😴 Après : une vidéo qui donne envie d'acheter.
+> Nous transformons vos photos en vidéos pub.
+> 🎁 Vidéo d'essai gratuite : écrivez ESSAI au +243 831 710 181
+> #Kinshasa #RDC #publicité #marketingdigital #[produit]
