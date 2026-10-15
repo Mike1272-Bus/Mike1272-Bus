@@ -14,10 +14,10 @@ Nouvelle commande reçue. Client : {{1}} ({{2}}). Produit : {{3}}, quantité {{4
 
 Exemples : {{1}} Jean · {{2}} 0810000000 · {{3}} Riz 25 kg · {{4}} 2 · {{5}} 72 · {{6}} Gombe · {{7}} 18 sacs
 
-## 2. `alerte_stock`
+## 2. `alerte_stock_bas`
 
 ```
-Alerte stock de votre boutique : {{1}} pour {{2}} (code {{3}}). Il reste {{4}} et votre seuil d'alerte est {{5}}. Pensez à recommander ce produit.
+Alerte stock de votre boutique : {{1}} pour {{2}} (code {{3}}). Il reste {{4}} et votre seuil d'alerte est {{5}}. Pensez à réapprovisionner ce produit auprès de votre fournisseur.
 ```
 
 Exemples : {{1}} Stock bas · {{2}} Riz 25 kg · {{3}} P001 · {{4}} 3 sacs · {{5}} 5
@@ -49,10 +49,12 @@ Exemples : {{1}} Huile 5 L · {{2}} 10 bidons · {{3}} Grossiste B · {{4}} 11 b
 ## 6. `stock_du_matin`
 
 ```
-Bonjour, point du stock du {{1}} : {{2}} produit(s) à recommander. Liste : {{3}}. En rupture : {{4}}. Bonne journée !
+Bonjour, point du stock du {{1}} : {{2}} produit(s) à réapprovisionner. Liste : {{3}}. En rupture : {{4}}. Bonne journée !
 ```
 
 Exemples : {{1}} 11/10/2026 · {{2}} 2 · {{3}} Riz 25 kg : 8 sacs chez Grossiste A ; Huile 5 L : 8 bidons · {{4}} Huile 5 L
 
 ---
+Attention au mot « recommander » : Meta le lit comme « conseiller un produit » et classe le modèle en Marketing (plus cher). Utiliser « réapprovisionner ». Le premier modèle `alerte_stock` a été reclassé en Marketing pour cette raison, d'où le nom `alerte_stock_bas`.
+
 Si Meta refuse un modèle, il donne la raison : envoie-la au chat « Produits & accompagnements », on corrige le texte. Si tu changes un nom de modèle ou l'ordre des variables, il faut changer aussi le nœud WhatsApp dans n8n.

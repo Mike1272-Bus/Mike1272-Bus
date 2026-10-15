@@ -277,7 +277,7 @@
         "operation": "sendTemplate",
         "phoneNumberId": "CHOISIS_TON_NUMERO_WHATSAPP_BUSINESS",
         "recipientPhoneNumber": "243XXXXXXXXX",
-        "template": "alerte_stock|fr",
+        "template": "alerte_stock_bas|fr",
         "components": {
           "component": [
             {

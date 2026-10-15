@@ -146,7 +146,7 @@ n1 = [
   wa_node("WhatsApp client : confirmation", "confirmation_commande", [P % k for k in ("client", "produit", "qte", "montant")], [1100, 0],
           to="={{ $('Préparer la commande').item.json._wa.telClient }}", soft=True),
   if_node("Stock bas ?", "={{ $('Préparer la commande').item.json._stockApres <= $('Préparer la commande').item.json._seuil }}", [1320, 0]),
-  wa_node("WhatsApp patron : alerte stock", "alerte_stock", [P % k for k in ("etat", "produit", "code", "stock", "seuil")], [1540, -100]),
+  wa_node("WhatsApp patron : alerte stock", "alerte_stock_bas", [P % k for k in ("etat", "produit", "code", "stock", "seuil")], [1540, -100]),
 ]
 W1 = wf("Stock 1 : vente → tableau, WhatsApp patron et client, alerte stock", n1,
         link(*[n["name"] for n in n1]))
