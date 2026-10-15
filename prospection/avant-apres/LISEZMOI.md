@@ -25,16 +25,27 @@ Refaire : `python3 prep.py` (clips) puis `python3 build.py` (compositions), puis
 > 🎁 Vidéo d'essai gratuite : écrivez ESSAI au +243 831 710 181
 > #Kinshasa #RDC #publicité #vidéo #commerce
 
-## Calendrier de publication (1 vidéo par jour, à 19 h)
+## Calendrier de publication : 2 vidéos par jour (13 h et 19 h)
 
-| Jour | Vidéo | Description |
+13 h = une démo avant / après (on montre). 19 h = une vidéo qui pousse à écrire (on demande).
+
+| Jour | 13 h | 19 h |
 |---|---|---|
-| Jeu 15 | Burger | Votre burger mérite mieux qu'une photo qu'on fait défiler 🍔🔥 |
-| Ven 16 | Glace | Une photo de glace ? On passe. Une glace qui fond sous le chocolat ? On commande 🍦 |
-| Sam 17 | Mode femme | Vos robes méritent d'être vues en mouvement 👗✨ |
-| Dim 18 | Cosmétiques | Vos produits de beauté, présentés comme dans une vraie pub 💄 |
-| Lun 19 | Chaussures | Une basket en photo, c'est joli. En vidéo, ça donne envie de l'avoir 👟⚡ |
-| Mar 20 | Gadget | Vos gadgets méritent une présentation à leur hauteur ⌚📱 |
+| Jeu 15 | Avant/après burger | Vidéo d'essai gratuite (`contenu-allegra/mar13-essai`) |
+| Ven 16 | Avant/après glace | 3 photos, 3 transformations (`contenu-allegra/mer14-transformations`) |
+| Sam 17 | Avant/après mode femme | Démo pizza (`contenu-allegra/mer14-demo-pizza`) |
+| Dim 18 | Avant/après cosmétiques | Nouvelle vidéo (chat Contenu Allegra) |
+| Lun 19 | Avant/après chaussures | Nouvelle vidéo (chat Contenu Allegra) |
+| Mar 20 | Avant/après gadget | Rappel de l'offre d'essai (même vidéo que jeudi, nouvelle légende) |
+
+Descriptions des avant / après (1re phrase) :
+- Burger : Votre burger mérite mieux qu'une photo qu'on fait défiler 🍔🔥
+- Glace : Une photo de glace ? On passe. Une glace qui fond sous le chocolat ? On commande 🍦
+- Mode femme : Vos robes méritent d'être vues en mouvement 👗✨
+- Cosmétiques : Vos produits de beauté, présentés comme dans une vraie pub 💄
+- Chaussures : Une basket en photo, c'est joli. En vidéo, ça donne envie de l'avoir 👟⚡
+- Gadget : Vos gadgets méritent une présentation à leur hauteur ⌚📱
+Les légendes de 19 h sont dans `contenu-allegra/textes_a_poster.md`.
 
 Fin de chaque description :
 > Avant : une photo qu'on fait défiler 😴 Après : une vidéo qui donne envie d'acheter.
