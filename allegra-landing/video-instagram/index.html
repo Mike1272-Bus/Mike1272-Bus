@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #f4f2f0; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #141009; background: #f4f2f0; }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .bg-grid { background-color: #f4f2f0; background-image: linear-gradient(rgba(20,16,9,.055) 2px, transparent 2px), linear-gradient(90deg, rgba(20,16,9,.055) 2px, transparent 2px); background-size: 72px 72px; }
+      .bg-creme { background: #fbf6eb; }
+      .bg-white { background: #ffffff; }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .w { display: inline-block; margin: 0 0.1em; }
+      .h { font-weight: 900; font-size: 140px; letter-spacing: -0.05em; line-height: 1; }
+      .h2 { font-weight: 900; font-size: 112px; letter-spacing: -0.05em; line-height: 1; }
+      .o { color: #f29a0e; text-shadow: 5px 5px 0 #141009; }
+      .g { color: #b7aea3; }
+      .lead { font-weight: 600; font-size: 44px; color: #6b6257; letter-spacing: -0.01em; }
+      .kick { font-weight: 800; font-size: 30px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b6257; display: inline-flex; align-items: center; gap: 16px; }
+      .kick::before { content: ""; width: 22px; height: 22px; background: #f29a0e; border: 4px solid #141009; }
+      .note { font-weight: 600; font-size: 26px; color: #6b6257; }
+
+      /* bulles */
+      .tag { position: absolute; font-weight: 800; font-size: 40px; padding: 16px 30px; border: 5px solid #141009; border-radius: 22px; box-shadow: 7px 7px 0 #141009; background: #ffd23f; white-space: nowrap; }
+      .tag::after { content: ""; position: absolute; left: 50%; bottom: -17px; width: 26px; height: 26px; background: inherit; border-right: 5px solid #141009; border-bottom: 5px solid #141009; transform: translateX(-50%) rotate(45deg); }
+      .tag.noir { background: #141009; color: #fff; }
+      .tag.org { background: #f29a0e; color: #fff; }
+      .tag.rose { background: #ff3d7f; color: #fff; }
+      .chip { position: absolute; z-index: 3; font-weight: 800; font-size: 26px; padding: 6px 16px; border: 4px solid #141009; border-radius: 999px; background: #fff; }
+      .chip.org { background: #f29a0e; color: #fff; }
+
+      /* cartes */
+      .pol { position: absolute; background: #fff; border: 6px solid #141009; border-radius: 22px; padding: 14px 14px 50px; box-shadow: 12px 12px 0 #141009; }
+      .pol img { width: 100%; height: 100%; object-fit: cover; border: 3px solid #141009; border-radius: 8px; display: block; }
+      .vc { position: absolute; border: 6px solid #141009; border-radius: 30px; overflow: hidden; background: #ddd; box-shadow: 12px 12px 0 #141009; }
+      .vc video, .vc img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      .vc .chip { top: 16px; left: 16px; }
+      .phone { position: absolute; border: 8px solid #141009; border-radius: 50px; padding: 14px; background: #141009; box-shadow: 14px 14px 0 #141009; }
+      .phone .scr { position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: #ddd; }
+      .phone video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      .circ { position: absolute; width: 120px; height: 120px; border-radius: 50%; border: 6px solid #141009; box-shadow: 7px 7px 0 #141009; display: grid; place-items: center; font-weight: 900; font-size: 64px; }
+      .circ.o2 { background: #f29a0e; color: #fff; }
+      .circ.j { background: #ffd23f; }
+
+      /* éventail */
+      #mid { left: 200px; top: 760px; width: 680px; height: 230px; background: #fbf6eb; border: 6px solid #141009; border-radius: 34px; box-shadow: 12px 12px 0 #141009; display: flex; align-items: center; gap: 30px; padding: 0 40px; z-index: 5; }
+      #mid img { width: 130px; height: 135px; }
+      #mid b { display: block; font-weight: 900; font-size: 74px; letter-spacing: -0.04em; line-height: 1; }
+      #mid small { display: block; font-weight: 600; font-size: 32px; color: #6b6257; margin-top: 10px; }
+
+      /* formule */
+      .box { position: absolute; border: 6px solid #141009; border-radius: 30px; overflow: hidden; background: #fff; box-shadow: 12px 12px 0 #141009; }
+      .box.dash { border-style: dashed; }
+      .box img, .box video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      .box.words { background: #fbf6eb; padding: 26px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+      .box.words span { display: block; font-weight: 900; font-size: 40px; letter-spacing: -0.02em; padding: 16px 18px; border: 4px solid #141009; border-radius: 18px; background: #fff; }
+      .box.words span:nth-child(2) { background: #ffd23f; transform: rotate(-3deg); }
+      .box.words span:nth-child(3) { background: #1a9e4b; color: #fff; font-size: 34px; }
+      .lbl { position: absolute; font-weight: 800; font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase; color: #6b6257; text-align: center; }
+
+      /* 9 formats */
+      .tile { position: absolute; width: 300px; height: 300px; background: #fff; border: 5px solid #141009; border-radius: 26px; overflow: hidden; box-shadow: 9px 9px 0 #141009; }
+      .tile img { position: absolute; left: 0; top: 0; width: 100%; height: 208px; object-fit: cover; border-bottom: 5px solid #141009; }
+      .tile b { position: absolute; left: 0; right: 0; bottom: 0; height: 87px; display: grid; place-items: center; font-weight: 900; font-size: 31px; letter-spacing: -0.02em; text-align: center; line-height: 1.05; padding: 0 10px; }
+
+      /* offre */
+      #offer { left: 90px; top: 600px; width: 900px; height: 860px; background: #fff8ec; border: 6px solid #141009; border-radius: 44px; box-shadow: 16px 16px 0 #141009; padding: 54px 60px; }
+      #badge { display: inline-block; font-weight: 900; font-size: 30px; letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 26px; border-radius: 999px; background: #f29a0e; color: #fff; border: 4px solid #141009; }
+      #offer h3 { font-weight: 900; font-size: 66px; letter-spacing: -0.04em; margin-top: 26px; }
+      #price { font-weight: 900; font-size: 190px; letter-spacing: -0.06em; line-height: 1; margin-top: 10px; }
+      #price small { font-size: 48px; letter-spacing: 0; color: #6b6257; font-weight: 800; }
+      .li { display: flex; align-items: center; gap: 22px; font-weight: 800; font-size: 40px; margin-top: 22px; letter-spacing: -0.01em; }
+      .li i { flex: none; width: 52px; height: 52px; border-radius: 50%; background: #1a9e4b; color: #fff; font-style: normal; font-size: 30px; display: grid; place-items: center; font-weight: 900; }
+      #places { left: 540px; top: 560px; transform: rotate(5deg); }
+
+      /* appel final */
+      #final { left: 60px; top: 330px; width: 960px; height: 1080px; background: #f29a0e; border: 6px solid #141009; border-radius: 48px; box-shadow: 16px 16px 0 #141009; overflow: hidden; }
+      #ghost { left: 0; width: 960px; top: 860px; text-align: center; font-weight: 900; font-size: 215px; letter-spacing: -0.06em; color: rgba(255,255,255,0.16); line-height: 1; }
+      .wt { color: #fff; text-shadow: 5px 5px 0 #141009; }
+      #btn { left: 140px; top: 650px; width: 680px; height: 150px; background: #fff; border: 6px solid #141009; border-radius: 999px; box-shadow: 9px 9px 0 #141009; display: flex; align-items: center; justify-content: center; gap: 22px; font-weight: 900; font-size: 60px; letter-spacing: -0.03em; }
+      #btn svg { width: 66px; height: 66px; }
+      #numb { left: 190px; top: 850px; width: 580px; height: 96px; border-radius: 48px; background: #1a9e4b; color: #fff; border: 5px solid #141009; font-weight: 900; font-size: 46px; line-height: 86px; text-align: center; letter-spacing: 0.01em; }
+      #site { left: 0; width: 1080px; top: 1490px; display: flex; align-items: center; justify-content: center; gap: 18px; font-weight: 800; font-size: 38px; }
+      #site img { width: 60px; height: 62px; }
+
+      /* qui sommes-nous */
+      #who { left: 90px; top: 420px; width: 900px; height: 470px; background: #fff; border: 6px solid #141009; border-radius: 44px; box-shadow: 16px 16px 0 #141009; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+      #who img { width: 190px; height: 197px; }
+      #who b { font-weight: 900; font-size: 110px; letter-spacing: -0.05em; line-height: 1; }
+      #who b span { color: #f29a0e; }
+      #who small { font-weight: 800; font-size: 38px; letter-spacing: 0.18em; text-transform: uppercase; color: #6b6257; }
+      .pill { position: absolute; font-weight: 900; font-size: 46px; letter-spacing: -0.02em; padding: 20px 36px; border: 5px solid #141009; border-radius: 999px; box-shadow: 8px 8px 0 #141009; white-space: nowrap; }
+      #bug { left: 40px; top: 60px; display: flex; align-items: center; gap: 12px; font-weight: 900; font-size: 36px; letter-spacing: -0.03em; background: #fff; border: 4px solid #141009; border-radius: 999px; padding: 8px 24px 8px 12px; box-shadow: 5px 5px 0 #141009; z-index: 25; }
+      #bug img { width: 46px; height: 48px; }
+      #bug span { color: #f29a0e; font-weight: 800; }
+      #iris { left: 540px; top: 960px; width: 100px; height: 100px; margin: -50px 0 0 -50px; border-radius: 50%; background: #f29a0e; z-index: 30; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #ffffff; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="32.6" data-width="1080" data-height="1920">
+
+      <!-- 1. Accroche -->
+      <div class="scene bg-grid" id="s1"><div class="cam" id="k1">
+        <div class="tag" id="a0" style="left:110px; top:330px; transform:rotate(-4deg)">@motion-design</div>
+        <div class="tag noir" id="a00" style="left:590px; top:350px; transform:rotate(3deg)">@montage-vidéo</div>
+        <div class="line" style="top:560px"><span class="w h" id="a1">Vous avez</span></div>
+        <div class="line" style="top:715px"><span class="w h" id="a2">la photo.</span></div>
+        <div class="line" style="top:900px"><span class="w h o" id="a3">Nous, on la</span></div>
+        <div class="line" style="top:1055px"><span class="w h o" id="a4">fait bouger.</span></div>
+        <div class="line" style="top:1260px"><span class="w lead" id="a5">Motion design · montage · vrais effets</span></div>
+      </div></div>
+
+      <!-- 1 bis. Qui sommes-nous -->
+      <div class="scene bg-creme" id="s1b"><div class="cam" id="k1b">
+        <div class="line" style="top:290px"><span class="w kick" id="w0">Nous, c'est</span></div>
+        <div class="ab" id="who"><img src="assets/img/logo-icone.svg" alt="" /><b>Allegra<span>.digital</span></b><small>Kinshasa · agence vidéo</small></div>
+        <div class="line" style="top:990px"><span class="w lead" id="w1" style="color:#141009; font-weight:800; font-size:52px">On crée le contenu vidéo</span></div>
+        <div class="line" style="top:1060px"><span class="w lead" id="w2" style="color:#141009; font-weight:800; font-size:52px">de votre marque.</span></div>
+        <div class="pill" id="w3" style="left:90px; top:1200px; background:#ffd23f; transform:rotate(-3deg)">Motion design</div>
+        <div class="pill" id="w4" style="left:560px; top:1210px; background:#f29a0e; color:#fff; transform:rotate(2deg)">Montage vidéo</div>
+        <div class="pill" id="w5" style="left:200px; top:1360px; background:#ff3d7f; color:#fff; transform:rotate(-1deg)">Pubs avec de vrais effets</div>
+      </div></div>
+
+      <!-- 2. Éventail : photos → Allegra → vidéos -->
+      <div class="scene bg-creme" id="s2"><div class="cam" id="k2">
+        <div class="tag" id="b0" style="left:80px; top:230px">vos photos 📸</div>
+        <div class="pol" id="p1" style="left:60px; top:360px; width:280px; height:350px; transform:rotate(-8deg)"><img src="assets/img/photo-glace.jpg" alt="" /></div>
+        <div class="pol" id="p2" style="left:400px; top:340px; width:280px; height:350px; transform:rotate(-1deg)"><img src="assets/img/photo-burger.jpg" alt="" /></div>
+        <div class="pol" id="p3" style="left:740px; top:360px; width:280px; height:350px; transform:rotate(6deg)"><img src="assets/img/photo-bague.jpg" alt="" /></div>
+        <div class="ab" id="mid"><img src="assets/img/logo-icone.svg" alt="" /><div><b>+ Allegra</b><small>motion, montage, effets</small></div></div>
+        <div class="tag org" id="b1" style="left:690px; top:1035px">vos vidéos 🎬</div>
+        <div class="vc" id="q1" style="left:60px; top:1110px; width:280px; height:498px; transform:rotate(-5deg)"><span class="chip org">vidéo</span>
+          <video id="vid1" class="clip" src="assets/clips/glace.mp4" muted playsinline data-start="7.0" data-duration="4.6" data-track-index="2"></video></div>
+        <div class="vc" id="q2" style="left:400px; top:1090px; width:280px; height:498px; transform:rotate(1deg)"><span class="chip org">vidéo</span>
+          <video id="vid2" class="clip" src="assets/clips/burger.mp4" muted playsinline data-start="7.0" data-duration="4.6" data-track-index="3"></video></div>
+        <div class="vc" id="q3" style="left:740px; top:1110px; width:280px; height:498px; transform:rotate(6deg)"><span class="chip org">vidéo</span>
+          <video id="vid3" class="clip" src="assets/clips/bague.mp4" muted playsinline data-start="7.0" data-duration="4.6" data-track-index="4"></video></div>
+        <div class="line" style="top:1660px"><span class="w note" id="b2">Exemples réalisés avec des images libres de droits.</span></div>
+      </div></div>
+
+      <!-- 3. Avant / après -->
+      <div class="scene bg-grid" id="s3"><div class="cam" id="k3">
+        <div class="line" style="top:220px"><span class="w kick" id="c0">Avant / après</span></div>
+        <div class="line" style="top:290px"><span class="w h" id="c1">1 photo.</span></div>
+        <div class="line" style="top:430px"><span class="w h2 o" id="c2">1 vidéo qui vend.</span></div>
+        <div class="line" style="top:560px"><span class="w h2 g" id="c3">0 tournage.</span></div>
+        <div class="pol" id="c4" style="left:60px; top:860px; width:430px; height:500px; transform:rotate(-5deg)"><img src="assets/img/photo-pizza.jpg" alt="" /></div>
+        <div class="tag rose" id="c5" style="left:90px; top:780px; transform:rotate(-6deg)">avant</div>
+        <div class="circ o2" id="c6" style="left:470px; top:1040px">→</div>
+        <div class="phone" id="c7" style="left:610px; top:740px; width:400px; height:740px"><div class="scr">
+          <video id="vid4" class="clip" src="assets/clips/pizza.mp4" muted playsinline data-start="11.6" data-duration="4.6" data-track-index="5"></video></div></div>
+        <div class="tag org" id="c8" style="left:800px; top:670px; transform:rotate(5deg)">après</div>
+        <div class="line" style="top:1580px"><span class="w note" id="c9">Exemple de pub réalisé avec une image libre de droits.</span></div>
+      </div></div>
+
+      <!-- 4. La formule -->
+      <div class="scene bg-white" id="s4"><div class="cam" id="k4">
+        <div class="line" style="top:210px"><span class="w kick" id="d0">La formule</span></div>
+        <div class="line" style="top:280px"><span class="w h2" id="d1">Pas de tournage.</span></div>
+        <div class="line" style="top:400px"><span class="w h2 o" id="d2">Une addition.</span></div>
+        <div class="box dash" id="d3" style="left:70px; top:560px; width:330px; height:370px"><img src="assets/img/photo-glace.jpg" alt="" /></div>
+        <div class="lbl" id="d3l" style="left:70px; top:955px; width:330px">Votre photo</div>
+        <div class="circ j" id="d4" style="left:425px; top:690px">+</div>
+        <div class="box words" id="d5" style="left:570px; top:560px; width:440px; height:370px"><span>Fondante.</span><span>Gourmande.</span><span>Commandez sur WhatsApp</span></div>
+        <div class="lbl" id="d5l" style="left:570px; top:955px; width:450px">Vos mots</div>
+        <div class="circ o2" id="d6" style="left:480px; top:1005px">=</div>
+        <div class="box" id="d7" style="left:365px; top:1140px; width:350px; height:520px"><span class="chip org" style="top:16px; right:16px; left:auto">✨ monté</span>
+          <video id="vid5" class="clip" src="assets/clips/glace2.mp4" muted playsinline data-start="16.2" data-duration="4.4" data-track-index="6"></video></div>
+      </div></div>
+
+      <!-- 5. 9 formats -->
+      <div class="scene bg-grid" id="s5"><div class="cam" id="k5">
+        <div class="line" style="top:200px"><span class="w kick" id="e0">Ce qu'on fait</span></div>
+        <div class="line" style="top:270px"><span class="w h2" id="e1">9 formats vidéo.</span></div>
+        <div class="line" style="top:390px"><span class="w h2 o" id="e2">Toute votre marque.</span></div>
+        <div class="tile" id="t1" style="left:60px; top:570px"><img src="assets/img/burger-apres.jpg" alt="" /><b>Avant → après</b></div>
+        <div class="tile" id="t2" style="left:390px; top:570px"><img src="assets/img/pizza-apres.jpg" alt="" /><b>Pub plein écran</b></div>
+        <div class="tile" id="t3" style="left:720px; top:570px"><img src="assets/img/edu-motion.jpg" alt="" /><b>Motion design</b></div>
+        <div class="tile" id="t4" style="left:60px; top:910px"><img src="assets/img/portrait.jpg" alt="" /><b>Portrait animé</b></div>
+        <div class="tile" id="t5" style="left:390px; top:910px"><img src="assets/img/g20.jpg" alt="" /><b>Montage vidéo</b></div>
+        <div class="tile" id="t6" style="left:720px; top:910px"><img src="assets/img/catalogue.jpg" alt="" /><b>Catalogue animé</b></div>
+        <div class="tile" id="t7" style="left:60px; top:1250px"><img src="assets/img/explicative.jpg" alt="" /><b>Vidéo explicative</b></div>
+        <div class="tile" id="t8" style="left:390px; top:1250px"><img src="assets/img/burger-fin.jpg" alt="" /><b>Fin WhatsApp</b></div>
+        <div class="tile" id="t9" style="left:720px; top:1250px"><img src="assets/img/essai-plein.jpg" alt="" /><b>Statuts et Reels</b></div>
+      </div></div>
+
+      <!-- 6. L'offre -->
+      <div class="scene bg-creme" id="s6"><div class="cam" id="k6">
+        <div class="line" style="top:220px"><span class="w kick" id="f0">L'offre</span></div>
+        <div class="line" style="top:290px"><span class="w h2" id="f1">Plus simple</span></div>
+        <div class="line" style="top:410px"><span class="w h2 o" id="f2">qu'un tournage.</span></div>
+        <div class="ab" id="offer">
+          <span id="badge">Vidéo d'essai</span>
+          <h3>Votre première vidéo</h3>
+          <div id="price">0 $ <small>gratuite</small></div>
+          <div class="li" id="l1"><i>✓</i>Envoyez 3 photos de votre produit</div>
+          <div class="li" id="l2"><i>✓</i>Elle vous plaît : on parle de la suite</div>
+          <div class="li" id="l3"><i>✓</i>Sinon, vous ne nous devez rien</div>
+        </div>
+        <div class="tag" id="places">5 places par semaine</div>
+      </div></div>
+
+      <!-- 7. Dernier appel -->
+      <div class="scene bg-grid" id="s7"><div class="cam" id="k7">
+        <div class="ab" id="final">
+          <div class="ab" id="ghost">ALLEGRA</div>
+          <div class="ab wt h2" id="g1" style="left:0; width:960px; top:110px; text-align:center">Prêt à faire</div>
+          <div class="ab wt h2" id="g2" style="left:0; width:960px; top:230px; text-align:center">bouger vos</div>
+          <div class="ab wt h2" id="g3" style="left:0; width:960px; top:350px; text-align:center">photos ?</div>
+          <div class="ab wt lead" id="g4" style="left:0; width:960px; top:520px; text-align:center; color:#fff">La première vidéo est gratuite.</div>
+          <div class="ab" id="btn"><svg viewBox="0 0 24 24" fill="#1a9e4b"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.1.1.7-.1 1.4z"/></svg>Écrivez ESSAI</div>
+          <div class="ab" id="numb">+243 831 710 181</div>
+        </div>
+        <div class="ab" id="site"><img src="assets/img/logo-icone.svg" alt="" />allegra-digital-ground.vercel.app</div>
+      </div></div>
+
+      <div class="ab" id="bug"><img src="assets/img/logo-icone.svg" alt="" />Allegra<span>.digital</span></div>
+      <div class="ab" id="iris"></div>
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="32.6" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      let T = tl;
+      const FT = (sel, from, to, at) => T.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const word = (sel, at, d = 0.3) => IN(sel, { y: -60, scale: 1.3, filter: "blur(12px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at);
+      const words = (list, at, gap = 0.14) => list.forEach((s, i) => word(s, at + i * gap));
+      const pop = (sel, at, r = -14) => IN(sel, { scale: 0.3, rotation: r }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, at);
+      const drop = (sel, at, rot) => IN(sel, { y: -1400, rotation: rot - 18 }, { y: 0, rotation: rot, duration: 0.55, ease: "back.out(1.2)" }, at);
+      const rise = (sel, at, rot) => IN(sel, { y: 1300, rotation: rot + 14 }, { y: 0, rotation: rot, duration: 0.55, ease: "back.out(1.2)" }, at);
+      const slam = (sel, at) => IN(sel, { scale: 2.2, filter: "blur(16px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, at);
+      const shake = (sel, at) => FT(sel, { x: 0 }, { x: 14, duration: 0.05, yoyo: true, repeat: 5 }, at);
+      const pulse = (sel, at, n = 3) => FT(sel, { scale: 1 }, { scale: 1.06, duration: 0.25, yoyo: true, repeat: n, ease: "sine.inOut" }, at);
+
+      const scenes = (SC) => SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        T.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1 || T === tl) T.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.12 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+        FT(c, { rotation: 0, x: 0 }, { rotation: i % 2 ? 0.5 : -0.5, x: i % 2 ? -12 : 12, duration: d, ease: "sine.inOut" }, a);
+      });
+      const iris = (list) => list.forEach(t => {
+        HIDE.push("#iris");
+        FT("#iris", { autoAlpha: 1, scale: 0 }, { scale: 24, duration: 0.25, ease: "power2.in" }, t);
+        FT("#iris", { scale: 24 }, { scale: 0, duration: 0.3, ease: "power2.out" }, t + 0.25);
+        T.set("#iris", { autoAlpha: 0 }, t + 0.56);
+      });
+      scenes([["#s1", "#k1", 0, 3.4], ["#s1b", "#k1b", 3.4, 3.6]]);
+      iris([3.15]);
+      IN("#bug", { x: -300 }, { x: 0, duration: 0.45, ease: "back.out(1.6)" }, 0.2);
+
+      // 1. accroche
+      IN("#a0", { y: -200, rotation: -20 }, { y: 0, rotation: -4, duration: 0.45, ease: "back.out(2)" }, 0.1);
+      IN("#a00", { y: -200, rotation: 20 }, { y: 0, rotation: 3, duration: 0.45, ease: "back.out(2)" }, 0.25);
+      words(["#a1", "#a2"], 0.4, 0.2);
+      slam("#a3", 1.2); slam("#a4", 1.45); shake("#k1", 1.8);
+      word("#a5", 2.2, 0.35);
+
+      // 1 bis. qui sommes-nous
+      word("#w0", 3.5);
+      IN("#who", { scale: 0.3, rotation: -8 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.8)" }, 3.6);
+      FT("#who img", { rotation: 0 }, { rotation: -10, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 4.1);
+      words(["#w1", "#w2"], 4.5, 0.2);
+      pop("#w3", 5.1); pop("#w4", 5.3, 14); pop("#w5", 5.5);
+      shake("#k1b", 5.9);
+
+      // la suite : sous-timeline décalée de 3.6 s (les temps ci-dessous sont ceux de la v1)
+      const tl2 = gsap.timeline(); T = tl2;
+      scenes([["#s2", "#k2", 3.4, 4.6], ["#s3", "#k3", 8.0, 4.6], ["#s4", "#k4", 12.6, 4.4], ["#s5", "#k5", 17.0, 4.4], ["#s6", "#k6", 21.4, 3.4], ["#s7", "#k7", 24.8, 4.2]]);
+      iris([3.15, 7.75, 12.35, 16.75, 21.15, 24.55]);
+
+      // 2. éventail
+      IN("#b0", { scale: 0.3 }, { scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 3.5);
+      drop("#p1", 3.6, -8); drop("#p2", 3.75, -1); drop("#p3", 3.9, 6);
+      IN("#mid", { scale: 0.2, rotation: -10 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 4.5);
+      FT("#mid img", { rotation: 0 }, { rotation: -12, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 5.0);
+      IN("#b1", { scale: 0.3 }, { scale: 1, duration: 0.35, ease: "back.out(2.4)" }, 5.2);
+      rise("#q1", 5.3, -5); rise("#q2", 5.45, 1); rise("#q3", 5.6, 6);
+      word("#b2", 6.2, 0.3);
+
+      // 3. avant / après
+      word("#c0", 8.05); word("#c1", 8.2); slam("#c2", 8.55); word("#c3", 8.9);
+      IN("#c4", { x: -900, rotation: -25 }, { x: 0, rotation: -5, duration: 0.55, ease: "back.out(1.3)" }, 9.2);
+      pop("#c5", 9.6);
+      pop("#c6", 9.85, 0); FT("#c6", { x: 0 }, { x: 16, duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, 10.3);
+      IN("#c7", { x: 900, rotation: 20 }, { x: 0, rotation: 0, duration: 0.55, ease: "back.out(1.3)" }, 10.0);
+      pop("#c8", 10.45, 14);
+      word("#c9", 10.9, 0.3);
+
+      // 4. formule
+      word("#d0", 12.65); word("#d1", 12.8); slam("#d2", 13.15);
+      IN("#d3", { y: 500, rotation: -8 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.4)" }, 13.5); word("#d3l", 13.8);
+      pop("#d4", 13.9, 0);
+      IN("#d5", { y: 500, rotation: 8 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.4)" }, 14.1); word("#d5l", 14.4);
+      pop("#d6", 14.75, 0);
+      IN("#d7", { scale: 0.3, rotation: -8 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.8)" }, 15.0);
+      shake("#k4", 15.4);
+
+      // 5. 9 formats
+      word("#e0", 17.05); word("#e1", 17.2); slam("#e2", 17.55);
+      ["#t1", "#t2", "#t3", "#t4", "#t5", "#t6", "#t7", "#t8", "#t9"].forEach((t, i) => IN(t, { scale: 0.2, rotation: i % 2 ? 10 : -10 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 17.95 + i * 0.22));
+
+      // 6. offre
+      word("#f0", 21.45); word("#f1", 21.6); slam("#f2", 21.9);
+      IN("#offer", { y: 1200 }, { y: 0, duration: 0.55, ease: "expo.out" }, 22.15);
+      ["#l1", "#l2", "#l3"].forEach((l, i) => IN(l, { x: -400 }, { x: 0, duration: 0.35, ease: "back.out(1.6)" }, 22.75 + i * 0.3));
+      IN("#places", { scale: 2.6, rotation: -20 }, { scale: 1, rotation: 5, duration: 0.35, ease: "power4.out" }, 23.8);
+      shake("#k6", 24.1);
+
+      // 7. dernier appel
+      IN("#final", { scale: 0.4, rotation: -6 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.6)" }, 24.85);
+      IN("#ghost", { y: 200 }, { y: 0, duration: 0.6, ease: "power3.out" }, 25.2);
+      words(["#g1", "#g2"], 25.2, 0.18); slam("#g3", 25.6);
+      word("#g4", 26.0, 0.35);
+      IN("#btn", { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.5)" }, 26.3); pulse("#btn", 26.9, 3);
+      IN("#numb", { y: 120 }, { y: 0, duration: 0.4, ease: "back.out(1.8)" }, 26.6);
+      IN("#site", { y: 60 }, { y: 0, duration: 0.4, ease: "power3.out" }, 27.0);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 28.65);
+
+      tl.add(tl2, 3.6);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
