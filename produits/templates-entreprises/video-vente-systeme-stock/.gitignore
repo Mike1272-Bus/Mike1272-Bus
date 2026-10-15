@@ -1,2 +1,4 @@
 node_modules/
 snapshots/
+renders/work-*/
+renders/.*hf-transaction*/
