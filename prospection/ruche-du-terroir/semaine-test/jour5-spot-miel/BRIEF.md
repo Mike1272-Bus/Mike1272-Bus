@@ -10,7 +10,7 @@ Le pot : leur vrai pot clou de girofle (`photos-client/detoure-v2`) agrandi x2 a
 |---|---|
 | 0 - 3,8 s | Bulle « PAF ! » + étoiles, « Ce vendredi, on vous fait plaisir. » |
 | 3,8 - 10,6 s | Leur pot sur une bulle d'explosion, clous de girofle qui tombent. « Le miel au clou de girofle · Pur miel congolais, macéré au clou de girofle. » |
-| 10,6 - 21,2 s | Bulle « CONCOURS ! », lignes de vitesse, pot + cuillère, les 3 étapes en cartes BD, « Du 16 au 18 octobre · Tirage le 19 », mention Instagram |
+| 10,6 - 21,2 s | Bulle « CONCOURS ! », lignes de vitesse, pot + cuillère, les 3 étapes en cartes BD, « Du 16 au 24 octobre » (16/10 : étapes « Partagez cette vidéo » et « Identifiez 5 personnes qui s'abonnent à la page », icônes cloche, mégaphone, bulle), mention Instagram |
 | 21,2 - 26 s | Logo sur une bulle, « Commandez sur WhatsApp » +243 859 072 956, le pot |
 
 Son : musique + bruitages BD (impact grave + pop sur chaque « PAF », whooshs, pops sur les cartes, carillon à la fin).

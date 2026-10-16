@@ -38,7 +38,9 @@
       .clove { position: absolute; width: 60px; height: 150px; }
       .card { position: absolute; left: 90px; width: 900px; height: 150px; border-radius: 34px; background: #fff0d7; border: 6px solid #1a0c03; box-shadow: 10px 12px 0 #1a0c03; }
       .card b { position: absolute; left: 24px; top: 19px; width: 100px; height: 100px; line-height: 100px; border-radius: 50%; background: #ffc21a; border: 5px solid #1a0c03; color: #1a0c03; text-align: center; font-family: 'Baloo', sans-serif; font-weight: 800; font-size: 62px; }
-      .card span { position: absolute; left: 160px; top: 0; height: 138px; display: flex; align-items: center; width: 720px; font-weight: 800; font-size: 46px; line-height: 1.1; color: #2a1600; letter-spacing: -0.02em; }
+      .card span { position: absolute; left: 160px; top: 0; height: 138px; display: flex; align-items: center; width: 590px; font-weight: 800; font-size: 44px; line-height: 1.1; color: #2a1600; letter-spacing: -0.02em; }
+      .card .ico { position: absolute; left: 752px; top: 8px; width: 124px; height: 124px; filter: drop-shadow(0 8px 8px rgba(0,0,0,0.35)); }
+      .card em { font-style: normal; color: #c25a00; text-decoration: underline 6px #ffc21a; text-underline-offset: 6px; }
       .pill { position: absolute; height: 110px; border-radius: 55px; font-weight: 900; font-size: 56px; line-height: 110px; text-align: center; white-space: nowrap; }
       .pg { background: #1a9e4b; color: #fff; border: 6px solid #1a0c03; box-shadow: 10px 12px 0 #1a0c03; line-height: 98px; }
       #flash { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff3d6; z-index: 30; }
@@ -109,10 +111,10 @@
         <div class="line" style="top:715px"><span class="w sm" id="d2" style="color:#ffc21a; font-weight:900">+ une cuillère à miel</span></div>
         <div class="ab" id="d3w" style="left:170px; top:810px; width:280px; height:408px; background:url('assets/img/pot.png') center / contain no-repeat; filter: drop-shadow(0 26px 30px rgba(0,0,0,0.5))"></div>
         <div class="ab" id="d4" style="left:570px; top:820px; width:360px; height:360px; background:url('assets/img/cuillere_miel.png') center / contain no-repeat; filter: drop-shadow(0 26px 30px rgba(0,0,0,0.5))"></div>
-        <div class="card" id="e1" style="top:1240px"><b>1</b><span>Abonnez-vous à @miel_de_la_ruche_du_terroir</span></div>
-        <div class="card" id="e2" style="top:1410px"><b>2</b><span>Aimez cette vidéo</span></div>
-        <div class="card" id="e3" style="top:1580px"><b>3</b><span>Identifiez 2 amis en commentaire</span></div>
-        <div class="line" style="top:1760px"><span class="w" id="e4" style="font-weight:900; font-size:44px; color:#ffe2b0">Du 16 au 18 octobre · Tirage le 19</span></div>
+        <div class="card" id="e1" style="top:1240px"><b>1</b><span style="font-size:35px">Abonnez-vous à<br />@miel_de_la_ruche_du_terroir</span><img class="ico" id="i1" src="assets/img/bell_3d.png" /></div>
+        <div class="card" id="e2" style="top:1410px"><b>2</b><span><em>Partagez</em>&nbsp;cette vidéo</span><img class="ico" id="i2" src="assets/img/megaphone_3d.png" /></div>
+        <div class="card" id="e3" style="top:1580px"><b>3</b><span style="font-size:40px">Identifiez 5 personnes qui s'abonnent à la page</span><img class="ico" id="i3" src="assets/img/speech_balloon_3d.png" /></div>
+        <div class="line" style="top:1760px"><span class="w" id="e4" style="font-weight:900; font-size:44px; color:#ffe2b0">Du 16 au 24 octobre</span></div>
         <div class="line" style="top:1836px"><span class="w" id="e5" style="font-weight:600; font-size:26px; color:#c9a77a">Concours non organisé ni sponsorisé par Instagram.</span></div>
       </div></div>
 
@@ -188,6 +190,7 @@
       IN("#d3w", { x: -600, rotation: -10 }, { x: 0, rotation: 0, duration: 0.55, ease: "back.out(1.6)" }, 12.4);
       IN("#d4", { x: 600, rotation: 20 }, { x: 0, rotation: 0, duration: 0.55, ease: "back.out(1.6)" }, 12.6);
       ["#e1", "#e2", "#e3"].forEach((e, i) => IN(e, { scale: 0.2, rotation: i % 2 ? 6 : -6 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 13.6 + i * 0.9));
+      ["#i1", "#i2", "#i3"].forEach((e, i) => { IN(e, { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2.6)" }, 13.85 + i * 0.9); FT(e, { rotation: 0 }, { rotation: i === 1 ? -12 : 10, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 14.25 + i * 0.9); });
       IN("#e4", { y: 20 }, { y: 0, duration: 0.4 }, 16.5); IN("#e5", { y: 10 }, { y: 0, duration: 0.4 }, 16.8);
       FT("#e4", { scale: 1 }, { scale: 1.06, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, 17.2);
       // 4 : commander
