@@ -1,0 +1,48 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><style>
+@font-face{font-family:Inter;font-weight:600;src:url(img/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(img/inter-latin-800-normal.woff2)}
+@font-face{font-family:Inter;font-weight:900;src:url(img/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1350px;overflow:hidden;font-family:Inter,sans-serif;color:#141009;background:#f4f2f0;background-image:linear-gradient(rgba(20,16,9,.055) 2px,transparent 2px),linear-gradient(90deg,rgba(20,16,9,.055) 2px,transparent 2px);background-size:72px 72px;position:relative}
+.ab{position:absolute}
+#bug{left:44px;top:44px;display:flex;align-items:center;gap:12px;font-weight:900;font-size:34px;letter-spacing:-.03em;background:#fff;border:4px solid #141009;border-radius:999px;padding:8px 24px 8px 12px;box-shadow:5px 5px 0 #141009}
+#bug img{width:44px;height:46px}#bug span{color:#f29a0e;font-weight:800}
+.kick{font-weight:800;font-size:28px;letter-spacing:.2em;text-transform:uppercase;color:#6b6257;display:inline-flex;align-items:center;gap:14px}
+.kick::before{content:"";width:20px;height:20px;background:#f29a0e;border:4px solid #141009}
+h1{font-weight:900;font-size:104px;letter-spacing:-.05em;line-height:1}
+.o{color:#f29a0e;text-shadow:5px 5px 0 #141009}
+.center{left:0;width:1080px;text-align:center}
+.pol{background:#fff;border:6px solid #141009;border-radius:22px;padding:14px 14px 54px;box-shadow:12px 12px 0 #141009}
+.pol img{width:100%;height:100%;object-fit:cover;border:3px solid #141009;border-radius:8px;display:block}
+.phone{border:8px solid #141009;border-radius:48px;padding:12px;background:#141009;box-shadow:14px 14px 0 #141009}
+.phone img{width:100%;height:100%;object-fit:cover;border-radius:36px;display:block}
+.tag{font-weight:800;font-size:38px;padding:12px 28px;border:5px solid #141009;border-radius:20px;box-shadow:6px 6px 0 #141009;white-space:nowrap}
+.tag::after{content:"";position:absolute;left:50%;bottom:-16px;width:24px;height:24px;background:inherit;border-right:5px solid #141009;border-bottom:5px solid #141009;transform:translateX(-50%) rotate(45deg)}
+.circ{width:110px;height:110px;border-radius:50%;border:6px solid #141009;box-shadow:6px 6px 0 #141009;display:grid;place-items:center;font-weight:900;font-size:60px;background:#f29a0e;color:#fff}
+.chip{font-weight:800;font-size:26px;padding:8px 16px;border:4px solid #141009;border-radius:999px;background:#ffd23f;white-space:nowrap}
+.steps{left:60px;top:1010px;width:960px;display:flex;gap:22px}
+.st{flex:1;background:#fff;border:5px solid #141009;border-radius:24px;box-shadow:8px 8px 0 #141009;padding:16px 16px 18px;display:flex;gap:14px;align-items:flex-start}
+.st i{flex:none;width:46px;height:46px;border-radius:50%;border:4px solid #141009;background:#ffd23f;font-style:normal;font-weight:900;font-size:28px;display:grid;place-items:center}
+.st b{display:block;font-weight:900;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.st p{font-weight:600;font-size:19px;color:#6b6257;margin-top:6px;line-height:1.25}
+#cta{left:0;width:1080px;top:1200px;display:flex;justify-content:center;align-items:center;gap:18px}
+#cta div{font-weight:900;font-size:34px;background:#1a9e4b;color:#fff;border:5px solid #141009;border-radius:999px;padding:14px 34px;box-shadow:6px 6px 0 #141009}
+#note{left:0;width:1080px;top:1305px;text-align:center;font-weight:600;font-size:18px;color:#6b6257}
+</style></head><body>
+<div class="ab" id="bug"><img src="img/logo-icone.svg" alt=""><em style="font-style:normal">Allegra<span>.digital</span></em></div>
+<div class="ab center" style="top:140px"><span class="kick">Avant / après · le processus</span></div>
+<div class="ab center" style="top:188px"><h1>1 photo. <span class="o">1 pub.</span></h1></div>
+<div class="ab pol" style="left:70px;top:430px;width:390px;height:440px;transform:rotate(-5deg)"><img src="img/photo-pizza.jpg" alt=""></div>
+<div class="ab tag" style="left:95px;top:370px;background:#ff3d7f;color:#fff;transform:rotate(-6deg)">avant</div>
+<div class="ab chip" style="left:150px;top:885px;transform:rotate(-3deg)">la photo envoyée</div>
+<div class="ab circ" style="left:480px;top:600px">→</div>
+<div class="ab phone" style="left:660px;top:385px;width:330px;height:590px"><img src="img/pizza-apres.jpg" alt=""></div>
+<div class="ab tag" style="left:830px;top:340px;background:#f29a0e;color:#fff;transform:rotate(5deg)">après</div>
+<div class="ab steps">
+ <div class="st"><i>1</i><div><b>Vous envoyez<br>la photo</b><p>Sur WhatsApp, 3 photos suffisent.</p></div></div>
+ <div class="st"><i>2</i><div><b>On l'anime<br>&nbsp;</b><p>Mouvement, texte, musique, votre logo.</p></div></div>
+ <div class="st"><i>3</i><div><b>Vous publiez<br>&nbsp;</b><p>Statut, Facebook, Instagram, TikTok.</p></div></div>
+</div>
+<div class="ab" id="cta"><div>Écrivez ESSAI au +243 831 710 181</div></div>
+<div class="ab" id="note">Exemple de pub réalisé avec une image libre de droits.</div>
+</body></html>
