@@ -6,7 +6,7 @@ SRC = {"burger": f"{CA}/mar13-burger/renders/allegra-mar13-burger.mp4", "trans":
        "pizza": f"{CA}/mer14-demo-pizza/renders/allegra-mer14-demo-pizza.mp4"}
 # nom, source, début, longueur du segment, durée finale
 CLIPS = [("bague", "trans", 10.3, 3.4, 5.0), ("burger", "burger", 5.0, 4.5, 5.0), ("glace", "trans", 5.8, 3.0, 5.0),
-         ("pizza", "pizza", 4.0, 6.5, 5.0), ("glace2", "trans", 5.8, 3.0, 4.6)]
+         ("pizza", "pizza", 4.0, 6.5, 5.4), ("glace2", "trans", 5.8, 3.0, 4.6)]
 os.makedirs(f"{R}/assets/clips", exist_ok=True)
 for n, s, ss, seg, d in CLIPS:
     tmp = f"{R}/assets/clips/_{n}.mp4"; out = f"{R}/assets/clips/{n}.mp4"
