@@ -3,7 +3,7 @@
 Pour : patrons de boutiques, dépôts, quincailleries, alimentations, pharmacies…
 Utilisée dans : approches LinkedIn et approches directes (WhatsApp, message froid).
 Marque : Allegra Digital Ground, on dit **« vous »** du début à la fin.
-Durée visée : environ 72 secondes (191 mots, à environ 2,7 mots par seconde).
+Durée visée : environ 78 secondes (197 mots, à environ 2,7 mots par seconde).
 Format vidéo : vertical 1080 × 1920 (téléphone, WhatsApp, LinkedIn).
 
 Aucun prix, aucun chiffre de résultat, aucun témoignage : rien n'est encore mesuré chez un client.
@@ -23,32 +23,32 @@ Aucun prix, aucun chiffre de résultat, aucun témoignage : rien n'est encore me
 
 | # | Scène (ce qu'on voit) | Voix | Mots |
 |---|---|---|---|
-| 1 | **Accroche** : un cahier de ventes raturé | Aujourd'hui, combien de ventes ont été notées dans un cahier… / que personne ne relira ? | 15 |
-| 2 | **Le problème** : produit introuvable, soirée sans chiffres, patron loin de la boutique | Un cahier qui se perd. / Un produit qui manque juste quand le client le demande. / Et le soir, impossible de savoir ce que la journée a vraiment rapporté. / Quand vous n'êtes pas sur place, vous ne voyez rien. | 41 |
-| 3 | **La solution** : le téléphone du vendeur, un formulaire simple | Avec Allegra Digital Ground, votre stock se suit tout seul. / Votre vendeur enregistre chaque vente sur son téléphone, en quelques secondes. / Le reste se fait sans lui. | 29 |
+| 1 | **Accroche** : un cahier et un tableur Excel, un crayon qui gratte | Cahier ou Excel… / dans votre entreprise, qui fait encore tout à la main ? | 13 |
+| 2 | **Le problème : tout est manuel** : noter, recompter, recalculer, appeler trop tard ; puis tout s'arrête sur un sablier | Chaque vente, il faut la noter. / Recompter le stock. / Refaire les calculs le soir. / Appeler le fournisseur quand il est déjà trop tard. / Même avec Excel, quelqu'un doit tout remplir à la main : / du temps perdu, et des erreurs qui coûtent cher. | 43 |
+| 3 | **La solution** : la vente sur téléphone, le tableau, l'alerte | Avec Allegra Digital Ground, tout ce travail se fait automatiquement. / Votre vendeur enregistre la vente sur son téléphone, en quelques secondes. / Le reste se fait sans lui. | 29 |
 | 4 | **La transformation** : tableau qui se met à jour, notification WhatsApp du patron, confirmation du client | Le stock se met à jour tout de suite. / Vous recevez la vente sur WhatsApp, où que vous soyez. / Et votre client reçoit sa confirmation. | 26 |
 | 5 | **Les alertes et les bilans** : alerte stock bas, bilan du soir, liste du matin | Un produit va bientôt manquer ? Vous êtes prévenu avant la rupture. / Chaque soir, le bilan de la journée arrive sur votre téléphone. / Chaque matin, la liste de ce qu'il faut racheter, avec le bon fournisseur. | 39 |
-| 6 | **Le bénéfice** : le patron serein, téléphone en main | Moins d'oublis, moins de ruptures, / et enfin une vraie visibilité sur votre boutique, même à distance. | 17 |
+| 6 | **Le bénéfice** | Fini la saisie à la main. / Moins d'erreurs, moins de ruptures, / et une vraie visibilité sur votre boutique, même à distance. | 22 |
 | 7 | **Ce qu'on peut faire d'autre** | Et ce n'est qu'un début : / la même méthode s'adapte aux autres tâches qui vous prennent du temps chaque jour. | 18 |
 | 8 | **Appel à l'action** : logo, WhatsApp | Écrivez-nous sur WhatsApp : / on vous montre le système en direct, et on l'installe avec vous. | 17 |
 
-Total : 191 mots, donc environ 70 à 75 secondes avec les pauses.
+Total : 197 mots, donc environ 75 à 80 secondes avec les pauses.
 
 ---
 
 ## Le texte en un seul bloc (à coller dans l'outil de voix IA)
 
-Aujourd'hui, combien de ventes ont été notées dans un cahier… que personne ne relira ?
+Cahier ou Excel… dans votre entreprise, qui fait encore tout à la main ?
 
-Un cahier qui se perd. Un produit qui manque juste quand le client le demande. Et le soir, impossible de savoir ce que la journée a vraiment rapporté. Quand vous n'êtes pas sur place, vous ne voyez rien.
+Chaque vente, il faut la noter. Recompter le stock. Refaire les calculs le soir. Appeler le fournisseur quand il est déjà trop tard. Même avec Excel, quelqu'un doit tout remplir à la main : du temps perdu, et des erreurs qui coûtent cher.
 
-Avec Allegra Digital Ground, votre stock se suit tout seul. Votre vendeur enregistre chaque vente sur son téléphone, en quelques secondes. Le reste se fait sans lui.
+Avec Allegra Digital Ground, tout ce travail se fait automatiquement. Votre vendeur enregistre la vente sur son téléphone, en quelques secondes. Le reste se fait sans lui.
 
 Le stock se met à jour tout de suite. Vous recevez la vente sur WhatsApp, où que vous soyez. Et votre client reçoit sa confirmation.
 
 Un produit va bientôt manquer ? Vous êtes prévenu avant la rupture. Chaque soir, le bilan de la journée arrive sur votre téléphone. Chaque matin, la liste de ce qu'il faut racheter, avec le bon fournisseur.
 
-Moins d'oublis, moins de ruptures, et enfin une vraie visibilité sur votre boutique, même à distance.
+Fini la saisie à la main. Moins d'erreurs, moins de ruptures, et une vraie visibilité sur votre boutique, même à distance.
 
 Et ce n'est qu'un début : la même méthode s'adapte aux autres tâches qui vous prennent du temps chaque jour.
 
@@ -64,6 +64,6 @@ Et ce n'est qu'un début : la même méthode s'adapte aux autres tâches qui vou
 
 **Approche directe (WhatsApp, premier message)**
 
-> Bonjour, je suis [Prénom] d'Allegra Digital Ground, à Kinshasa. Nous aidons les boutiques à suivre leur stock sans cahier : chaque vente arrive sur le WhatsApp du patron, avec une alerte avant la rupture et un bilan chaque soir. Je peux vous envoyer une vidéo d'une minute qui montre le système ?
+> Bonjour, je suis [Prénom] d'Allegra Digital Ground, à Kinshasa. Nous aidons les boutiques à arrêter de tout faire à la main (cahier, Excel) : chaque vente arrive sur le WhatsApp du patron, avec une alerte avant la rupture et un bilan chaque soir. Je peux vous envoyer une vidéo d'une minute qui montre le système ?
 
 (Envoyer la vidéo seulement après un « oui » : c'est plus respectueux et WhatsApp signale moins les comptes qui envoient des vidéos à des inconnus.)
