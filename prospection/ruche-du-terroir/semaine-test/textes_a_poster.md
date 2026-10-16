@@ -89,7 +89,7 @@ Pas de prix, pas de grammage, pas de promesse de santé.
 
 Vidéo : `jour5-spot-miel/renders/ruche-jour5-spot-miel.mp4` (26 s, version « spot pub » style bande dessinée : fond brun doré, rayons de lumière, bulles « SURPRISE ! » et « CONCOURS ! »).
 Le pot est leur vrai pot, agrandi net. Les bulles, étoiles et clous de girofle sont dessinés.
-Scénario : « SURPRISE ! » « Ce vendredi, on vous fait plaisir. » → leur pot sur une bulle d'explosion, des clous de girofle tombent, « Le miel au clou de girofle · Pur miel congolais, macéré au clou de girofle. » → « CONCOURS ! », les 3 étapes, « Du 17 au 24 octobre · Tirage au sort le 25 » (mis à jour le 16/10 : partager au lieu d'aimer, 5 personnes à identifier), « Concours non organisé ni sponsorisé par Instagram. » → logo, « Commandez sur WhatsApp » +243 859 072 956.
+Scénario : « SURPRISE ! » « Ce week-end, on vous fait plaisir. » → leur pot sur une bulle d'explosion, des clous de girofle tombent, « Le miel au clou de girofle · Pur miel congolais, macéré au clou de girofle. » → « CONCOURS ! », les 3 étapes, « Du 17 au 24 octobre · Tirage au sort le 25 » (mis à jour le 16/10 : partager au lieu d'aimer, 5 personnes à identifier), « Concours non organisé ni sponsorisé par Instagram. » → logo, « Commandez sur WhatsApp » +243 859 072 956.
 Pas de prix, pas de grammage, pas de promesse de santé.
 
 **Statut WhatsApp**
@@ -97,7 +97,7 @@ Pas de prix, pas de grammage, pas de promesse de santé.
 
 **Instagram (le post du concours)**
 > 🍯 CONCOURS 🍯
-> Ce vendredi, on vous fait plaisir : gagnez un pot de notre miel + une cuillère à miel !
+> Ce week-end, on vous fait plaisir : gagnez un pot de notre miel + une cuillère à miel !
 >
 > Pour participer :
 > 1️⃣ Abonnez-vous à @miel_de_la_ruche_du_terroir
