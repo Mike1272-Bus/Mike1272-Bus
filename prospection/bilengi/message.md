@@ -45,3 +45,26 @@ Demander : photos récentes de leurs jus (bouteilles, verres) et du bar, leur lo
 - Écartés : le livreur dessiné (une personne), le burger et les sandwichs de l'affiche (on parle boissons et épicerie).
 - Textes repris d'eux : « Jus de fruit frais », « Bar à jus », « Bilengi Bio », « Les délices d'Afrique », « Miel naturel », « Pilipili », « Produits 100 % naturel », l'adresse de Matadi, la réservation, « Livraison à domicile ». « Une envie de fraîcheur ? » et « à emporter, bien frais » sont notre fil narratif. Aucun prix.
 - Son : musique + les bruitages boissons de Mike (ouverture et versement, tintements, pétillement, gorgée juste avant le logo).
+
+## Email (16 octobre) : à bilengibio@gmail.com, avec la vidéo `renders/bilengi.mp4` en pièce jointe (6,7 Mo)
+
+**Objet :** Une vidéo offerte pour Bilengi 🎁 (jus frais, miel, pilipili)
+
+> Bonjour l'équipe Bilengi,
+>
+> « Les délices d'Afrique » : vos jus frais, votre miel naturel et votre pilipili donnent envie dès la première photo.
+>
+> Je suis Mike, d'Allegra Digital Ground. Nous transformons les photos des marques en courtes vidéos animées. Nous vous en avons préparé une de 24 secondes, avec vos propres images : vos jus, vos bouteilles, votre épicerie et votre bar à jus de Matadi. Elle est en pièce jointe, c'est cadeau.
+>
+> Elle est prête pour vos statuts WhatsApp, Instagram et TikTok. Nous pouvons aussi vous en faire une pour chaque nouveau jus ou pour la planche du week-end, avec quelques secondes d'images créées par intelligence artificielle si vous le souhaitez.
+>
+> Seriez-vous ouverts à un court échange cette semaine ?
+>
+> Bien à vous,
+> Mike
+> Allegra Digital Ground
+> WhatsApp : +243 831 710 181
+> https://allegra-digital-ground.vercel.app
+
+Relance par email (3 jours plus tard) :
+> Bonjour l'équipe Bilengi, avez-vous pu regarder la vidéo ? Si vous voulez, je vous en prépare une pour votre planche du week-end. Bien à vous, Mike
