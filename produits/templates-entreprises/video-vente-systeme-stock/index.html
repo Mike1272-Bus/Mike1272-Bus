@@ -5,256 +5,183 @@
     <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/gsap.min.js"></script>
     <style>
-      :root {
-        --ink: #0b1033; --ink2: #4a5275; --blue: #2342ff; --orange: #ff9d1c;
-        --navy: #030722; --wa: #22c55e; --yellow: #f4c518; --red: #ff3b30;
-      }
+      @font-face { font-family: 'Bricolage'; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); font-weight: 800; }
+      :root { --ink: #17181d; --ink2: #454854; --hot: #e2360c; --hot2: #e8380e; --sand: #e9dfd1; --bg: #f6f3ee; --wa: #16a34a; --blue: #2342ff; }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
-      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; background: var(--navy); }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; background: var(--bg); }
       .ab { position: absolute; }
-      .sc, .bgL, .bgD { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .sc { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
       .w { display: inline-block; }
 
-      .bgL { background: #f5f7fc; }
-      .blobA { left: -300px; top: -260px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(116,146,255,0.42) 0%, rgba(116,146,255,0) 65%); }
-      .blobB { left: 260px; top: 1060px; width: 1200px; height: 1200px; border-radius: 50%; background: radial-gradient(circle, rgba(255,214,130,0.55) 0%, rgba(255,214,130,0) 62%); }
-      .blobC { left: 420px; top: 300px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 65%); }
-      .bgD { background: radial-gradient(circle at 50% 40%, #0c1d9a 0%, #061060 34%, #030722 72%); }
-      .rings { left: 0; top: 0; width: 1080px; height: 1920px; }
-      .rings circle { fill: none; stroke: rgba(110,140,255,0.28); stroke-width: 2.5; }
+      /* fond : papier clair, quadrillage léger, grande diagonale sable */
+      #bg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; background-color: var(--bg); background-image: linear-gradient(rgba(23,24,29,0.035) 2px, transparent 2px), linear-gradient(90deg, rgba(23,24,29,0.035) 2px, transparent 2px); background-size: 60px 60px; }
+      #band1 { left: 300px; top: -400px; width: 300px; height: 2800px; background: var(--sand); transform: rotate(24deg); opacity: 0.85; }
+      #band2 { left: -380px; top: -400px; width: 190px; height: 2800px; background: var(--sand); transform: rotate(24deg); opacity: 0.6; }
 
-      .pill { position: absolute; left: 0; width: 1080px; top: 230px; text-align: center; }
-      .pill > span { display: inline-block; padding: 14px 40px; border-radius: 60px; font-size: 32px; font-weight: 700; letter-spacing: 0.06em; }
-      .pillL > span { background: rgba(35,66,255,0.10); color: var(--blue); border: 2px solid rgba(35,66,255,0.25); }
-      .pillD > span { background: rgba(255,255,255,0.10); color: #dfe5ff; border: 2px solid rgba(255,255,255,0.22); }
-      .title { position: absolute; left: 70px; width: 940px; text-align: center; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
-      .tL { color: var(--ink); } .tD { color: #fff; }
-      .acc { color: var(--orange); white-space: nowrap; display: inline-block; }
-      .accB { color: var(--blue); white-space: nowrap; display: inline-block; }
-      .sub { position: absolute; left: 90px; width: 900px; text-align: center; font-size: 46px; line-height: 1.3; }
-      .subL { color: var(--ink2); } .subD { color: #aab3e6; }
-      .card { position: absolute; background: rgba(255,255,255,0.95); border-radius: 56px; box-shadow: 0 40px 90px rgba(35,66,255,0.16), 0 6px 18px rgba(11,16,51,0.06); }
-      .bluebtn { background: linear-gradient(180deg, #3a5bff 0%, #1428e0 100%); box-shadow: 0 18px 50px rgba(35,66,255,0.55), inset 0 2px 0 rgba(255,255,255,0.35); color: #fff; }
-      .greenbtn { background: linear-gradient(180deg, #15803d 0%, #0f6b32 100%); box-shadow: 0 18px 50px rgba(34,197,94,0.5), inset 0 2px 0 rgba(255,255,255,0.35); color: #fff; }
+      /* textes */
+      .line { position: absolute; left: 60px; width: 960px; text-align: center; font-size: 56px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+      .big { position: absolute; left: 30px; width: 1020px; text-align: center; font-family: 'Bricolage', 'Poppins', sans-serif; font-weight: 800; font-size: 108px; line-height: 1.02; color: var(--hot); letter-spacing: -0.02em;
+        text-shadow: 4px 0 0 #fff, -4px 0 0 #fff, 0 4px 0 #fff, 0 -4px 0 #fff, 3px 3px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff, 0 14px 30px rgba(232,56,14,0.28); }
+      .sub { position: absolute; left: 90px; width: 900px; text-align: center; font-size: 44px; font-weight: 600; color: var(--ink2); line-height: 1.3; }
+      .i3d { position: absolute; filter: drop-shadow(0 26px 30px rgba(23,24,29,0.22)); }
+      .card { position: absolute; background: #fff; border-radius: 44px; box-shadow: 0 30px 70px rgba(23,24,29,0.12), 0 4px 12px rgba(23,24,29,0.06); }
+      .hotpill { position: absolute; border-radius: 70px; background: linear-gradient(180deg, #ff5a2b 0%, #e8380e 100%); color: #fff; font-weight: 700; text-align: center; box-shadow: 0 16px 40px rgba(232,56,14,0.35); }
+      .lab { position: absolute; left: 0; width: 100%; text-align: center; font-size: 40px; font-weight: 700; color: var(--ink); }
+      .arrow { position: absolute; width: 90px; height: 40px; }
+
+      /* bandeau du bas, sur toute la vidéo */
+      #foot { left: 150px; top: 1740px; width: 780px; height: 92px; line-height: 92px; font-size: 34px; }
 
       /* notification WhatsApp */
-      .notif { position: absolute; left: 70px; width: 940px; padding: 40px 46px 46px; border-radius: 52px; background: rgba(255,255,255,0.97); box-shadow: 0 30px 80px rgba(0,0,0,0.28); }
-      .nh { display: flex; align-items: center; gap: 22px; margin-bottom: 20px; }
-      .nico { width: 76px; height: 76px; border-radius: 22px; background: linear-gradient(180deg, #2ad06a 0%, #16a34a 100%); flex: none; }
-      .nico svg { width: 76px; height: 76px; }
-      .napp { font-size: 30px; font-weight: 700; color: var(--ink2); letter-spacing: 0.02em; }
-      .ntime { margin-left: auto; font-size: 28px; color: #5c6380; }
-      .nbody { font-size: 40px; line-height: 1.38; color: var(--ink); }
+      .notif { position: absolute; left: 70px; width: 940px; padding: 36px 44px 42px; border-radius: 48px; background: #fff; box-shadow: 0 30px 70px rgba(23,24,29,0.16); }
+      .nh { display: flex; align-items: center; gap: 20px; margin-bottom: 16px; }
+      .nico { width: 72px; height: 72px; border-radius: 20px; background: linear-gradient(180deg, #2ad06a 0%, #16a34a 100%); flex: none; }
+      .nico svg { width: 72px; height: 72px; }
+      .napp { font-size: 29px; font-weight: 700; color: var(--ink2); }
+      .ntime { margin-left: auto; font-size: 27px; color: #7a7d89; }
+      .nbody { font-size: 39px; line-height: 1.36; color: var(--ink); }
       .nbody b { font-weight: 700; }
-      .tag { color: #b85400; font-weight: 700; }
+      .tag { color: var(--hot2); font-weight: 700; }
 
-      /* grand cercle d'icône */
-      .halo { position: absolute; left: 330px; width: 420px; height: 420px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 3px solid rgba(255,255,255,0.18); }
-      .halo svg { position: absolute; left: 90px; top: 90px; width: 240px; height: 240px; }
+      /* S2 grille */
+      .tile { position: absolute; width: 420px; height: 400px; }
+      .tile .card { left: 0; top: 0; width: 420px; height: 400px; }
+      .tile img { position: absolute; left: 100px; top: 40px; width: 220px; height: 220px; filter: drop-shadow(0 18px 22px rgba(23,24,29,0.2)); }
+      .tile .lab { top: 290px; font-size: 38px; }
+      #g1 { left: 100px; top: 720px; } #g2 { left: 560px; top: 720px; } #g3 { left: 100px; top: 1160px; } #g4 { left: 560px; top: 1160px; }
 
-      /* S1 cahier */
-      #s1t { top: 330px; font-size: 96px; }
-      #book { left: 170px; top: 700px; width: 740px; height: 780px; border-radius: 40px; background: #fdfcf7; box-shadow: 0 40px 100px rgba(0,0,0,0.5); overflow: hidden; }
-      #book svg { position: absolute; left: 0; top: 0; width: 740px; height: 780px; }
-      .hw { position: absolute; left: 120px; font-size: 44px; color: #3b4470; font-style: italic; white-space: nowrap; }
-      #s1s { top: 1570px; }
-
-      /* S2 problème */
-      #s2h { top: 520px; }
-      .ptitle { top: 1080px; font-size: 88px; }
-      #p2sub { top: 1500px; }
-
-      /* S3 téléphone */
-      #s3t { top: 330px; font-size: 92px; }
-      #phone { left: 250px; top: 600px; width: 580px; height: 1100px; border-radius: 86px; background: #0b1033; box-shadow: 0 50px 120px rgba(35,66,255,0.3); }
-      #screen { position: absolute; left: 22px; top: 22px; width: 536px; height: 1056px; border-radius: 66px; background: #f5f7fc; overflow: hidden; }
-      .ftitle { position: absolute; left: 44px; top: 110px; font-size: 44px; font-weight: 700; color: var(--ink); }
-      .flab { position: absolute; left: 44px; font-size: 28px; font-weight: 700; color: var(--ink2); }
-      .fin { position: absolute; left: 44px; width: 448px; height: 96px; border-radius: 26px; background: #fff; border: 3px solid #dde3f5; }
-      .ftxt { position: absolute; left: 28px; top: 24px; display: inline-block; font-size: 38px; font-weight: 700; color: var(--ink); white-space: nowrap; }
-      #fbtn { position: absolute; left: 44px; top: 820px; width: 448px; height: 112px; border-radius: 56px; }
-      .btxt { position: absolute; left: 0; top: 0; width: 448px; height: 112px; line-height: 112px; text-align: center; font-weight: 700; font-size: 42px; color: #fff; border-radius: 56px; }
-      #fbtnOk { background: linear-gradient(180deg, #18a04c 0%, #11793a 100%); }
-      #ripple { position: absolute; left: 218px; top: 826px; width: 100px; height: 100px; border-radius: 50%; border: 6px solid var(--blue); }
-      #tap { position: absolute; left: 236px; top: 846px; width: 64px; height: 64px; border-radius: 50%; background: rgba(11,16,51,0.35); border: 4px solid #fff; }
-      #s3s { top: 1750px; font-size: 40px; }
-
-      /* S4 transformation */
-      #s4t { top: 330px; font-size: 90px; }
-      #stockCard { left: 70px; top: 600px; width: 940px; height: 300px; }
-      #stockName { left: 60px; top: 70px; font-size: 54px; font-weight: 700; color: var(--ink); }
-      #stockLab { left: 60px; top: 150px; font-size: 38px; color: var(--ink2); }
-      #stockTile { left: 640px; top: 40px; width: 240px; height: 220px; border-radius: 56px; }
-      #stockN { left: 0; top: 0; width: 240px; height: 220px; line-height: 220px; text-align: center; font-size: 140px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
-      #n4a { top: 990px; } #n4b { top: 1390px; }
-
-      /* S5 alertes et bilans */
-      #s5t1, #s5t2, #s5t3 { top: 330px; font-size: 90px; }
-      .ring { position: absolute; left: 360px; top: 560px; width: 360px; height: 360px; }
-      .ringT { position: absolute; left: 360px; top: 560px; width: 360px; height: 360px; line-height: 360px; text-align: center; color: #fff; font-weight: 700; font-size: 88px; }
-      #warn { left: 360px; top: 560px; width: 360px; height: 360px; border-radius: 50%; border: 20px solid var(--orange); box-shadow: 0 0 80px 18px rgba(255,157,28,0.55), inset 0 0 40px 8px rgba(255,157,28,0.45); }
-      #warnI { left: 360px; top: 560px; width: 360px; height: 360px; line-height: 340px; text-align: center; color: var(--orange); font-weight: 800; font-size: 200px; }
-      #n5a { top: 1020px; }
-      .bcard { position: absolute; left: 90px; top: 1020px; width: 900px; padding: 46px 60px 40px; border-radius: 56px; background: rgba(255,255,255,0.96); box-shadow: 0 30px 80px rgba(0,0,0,0.45); }
-      .bcard .bt { font-size: 44px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
-      .bl { display: flex; justify-content: space-between; gap: 30px; padding: 14px 0; border-bottom: 2px solid #e6e9f5; font-size: 38px; color: var(--ink2); }
+      /* S5 cartes bilan */
+      .bcard { position: absolute; left: 90px; top: 1130px; width: 900px; padding: 44px 56px 36px; }
+      .bt { font-size: 44px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+      .bl { display: flex; justify-content: space-between; gap: 30px; padding: 14px 0; border-bottom: 2px solid #eee8df; font-size: 38px; color: var(--ink2); }
       .bl:last-child { border-bottom: none; }
       .bl span:last-child { font-weight: 700; color: var(--ink); text-align: right; }
-      .bl.warnL span:last-child { color: #b85400; }
-      .ex { position: absolute; left: 0; top: 1640px; width: 1080px; text-align: center; font-size: 30px; color: #aab3e6; }
+      .bl.hot span:last-child { color: var(--hot2); }
+      .ex { position: absolute; left: 0; top: 1650px; width: 1080px; text-align: center; font-size: 28px; color: #5e616d; }
 
-      /* S6 bénéfice */
-      #s6a { top: 470px; font-size: 104px; }
-      #s6b { top: 610px; font-size: 104px; }
-      #s6pill { left: 120px; top: 860px; width: 840px; height: 150px; border-radius: 75px; line-height: 150px; text-align: center; font-size: 72px; font-weight: 700; }
-      #s6s { top: 1060px; font-size: 54px; }
-      .chip { position: absolute; top: 1330px; width: 290px; height: 120px; border-radius: 60px; background: rgba(255,255,255,0.95); box-shadow: 0 20px 50px rgba(35,66,255,0.16); font-size: 42px; font-weight: 700; color: var(--ink); line-height: 120px; text-align: center; }
-      .chip b { color: #16a34a; }
-      #c1 { left: 60px; } #c2 { left: 395px; } #c3 { left: 730px; }
-
-      /* S7 un début */
-      #s7t { top: 380px; font-size: 96px; }
-      #s7s { top: 640px; }
-      .tile { position: absolute; width: 440px; height: 330px; border-radius: 52px; background: rgba(255,255,255,0.95); box-shadow: 0 30px 70px rgba(0,0,0,0.35); }
-      .tile svg { position: absolute; left: 50px; top: 50px; width: 110px; height: 110px; }
-      .tile div { position: absolute; left: 50px; top: 190px; width: 360px; font-size: 42px; font-weight: 700; color: var(--ink); line-height: 1.15; }
-      #k1 { left: 80px; top: 860px; } #k2 { left: 560px; top: 860px; } #k3 { left: 80px; top: 1230px; } #k4 { left: 560px; top: 1230px; }
-      #ex7 { top: 1610px; }
-
-      /* S8 fin */
-      #logoGlow { left: 190px; top: 330px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(244,197,24,0.35) 0%, rgba(244,197,24,0) 62%); }
-      #logo { left: 270px; top: 420px; width: 540px; height: 427px; background: url('assets/img/logo_adg.png') center / contain no-repeat; }
-      #s8a { top: 1000px; font-size: 84px; }
-      #s8c { left: 120px; top: 1380px; width: 840px; height: 150px; border-radius: 75px; line-height: 150px; text-align: center; font-size: 50px; font-weight: 700; }
+      /* S7 tuiles */
+      .k { position: absolute; width: 440px; height: 360px; }
+      .k .card { left: 0; top: 0; width: 440px; height: 360px; }
+      .k img { position: absolute; left: 120px; top: 34px; width: 200px; height: 200px; filter: drop-shadow(0 18px 22px rgba(23,24,29,0.2)); }
+      .k .lab { top: 252px; font-size: 38px; line-height: 1.1; padding: 0 20px; }
+      #k1 { left: 80px; top: 720px; } #k2 { left: 560px; top: 720px; } #k3 { left: 80px; top: 1110px; } #k4 { left: 560px; top: 1110px; }
     </style>
   </head>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="77" data-width="1080" data-height="1920">
 
-      <!-- S1 : accroche, le cahier (0 - 6) -->
+      <!-- fond commun -->
+      <div id="bgc" class="clip sc" data-start="0" data-duration="77" data-track-index="0">
+        <div id="bg"><div id="band1" class="ab"></div><div id="band2" class="ab"></div></div>
+      </div>
+
+      <!-- S1 : accroche (0 - 6) -->
       <div id="s1" class="clip sc" data-start="0" data-duration="6" data-track-index="1">
-        <div class="bgD"><svg class="rings ab" id="rings1" viewBox="0 0 1080 1920"><circle cx="540" cy="1090" r="300" /><circle cx="540" cy="1090" r="470" /><circle cx="540" cy="1090" r="660" /><circle cx="540" cy="1090" r="860" /></svg></div>
         <div id="s1w" class="sc">
-          <div id="s1t" data-layout-allow-overlap class="title tD">Vos ventes, encore dans <span class="acc">un cahier ?</span></div>
-          <div id="book" class="ab">
-            <svg viewBox="0 0 740 780">
-              <line x1="90" y1="0" x2="90" y2="780" stroke="#f3a3a3" stroke-width="4" />
-              <g stroke="#c9d6f2" stroke-width="3"><line x1="0" y1="160" x2="740" y2="160" /><line x1="0" y1="270" x2="740" y2="270" /><line x1="0" y1="380" x2="740" y2="380" /><line x1="0" y1="490" x2="740" y2="490" /><line x1="0" y1="600" x2="740" y2="600" /><line x1="0" y1="710" x2="740" y2="710" /></g>
-              <path id="scr1" d="M110 330 C200 300 260 360 340 320 S500 300 620 340" fill="none" stroke="#e5484d" stroke-width="10" stroke-linecap="round" />
-              <path id="scr2" d="M110 545 C180 520 240 580 330 540 S470 520 560 560 S640 530 660 550" fill="none" stroke="#e5484d" stroke-width="10" stroke-linecap="round" />
-            </svg>
-            <div class="hw" id="hw1" style="top: 92px;">Jean · huile x2</div>
-            <div class="hw" id="hw2" style="top: 202px;">Marie · riz 25 kg</div>
-            <div class="hw" id="hw3" style="top: 312px;">??? · 3 savons</div>
-            <div class="hw" id="hw4" style="top: 422px;">Patrick · huile</div>
-            <div class="hw" id="hw5" style="top: 532px;">... · sucre ?</div>
-            <div class="hw" id="hw6" style="top: 642px;">total : ?</div>
-          </div>
-          <div id="s1s" class="sub subD">… que personne ne relira ?</div>
+          <div id="s1l" class="line" style="top: 300px;">Vos ventes sont encore</div>
+          <div id="s1b" class="big" style="top: 380px;">dans un cahier ?</div>
+          <img id="s1nb" class="i3d" src="assets/3d/notebook.png" style="left: 290px; top: 700px; width: 500px; height: 500px;" />
+          <img id="s1pen" class="i3d" src="assets/3d/pencil.png" style="left: 690px; top: 640px; width: 260px; height: 260px;" />
+          <img id="s1q" class="i3d" src="assets/3d/red_question_mark.png" style="left: 150px; top: 1100px; width: 240px; height: 240px;" />
+          <div id="s1s" class="sub" style="top: 1400px;">… que personne ne relira</div>
         </div>
       </div>
 
       <!-- S2 : le problème (6 - 21.5) -->
       <div id="s2" class="clip sc" data-start="6" data-duration="15.5" data-track-index="1">
-        <div class="bgD"><svg class="rings ab" id="rings2" viewBox="0 0 1080 1920"><circle cx="540" cy="730" r="260" /><circle cx="540" cy="730" r="420" /><circle cx="540" cy="730" r="600" /><circle cx="540" cy="730" r="800" /></svg></div>
         <div id="s2w" class="sc">
-          <div id="s2p" class="pill pillD"><span>LE PROBLÈME</span></div>
-          <div id="h2a" class="halo" style="top: 520px;"><svg viewBox="0 0 240 240"><rect x="50" y="30" width="140" height="180" rx="16" fill="none" stroke="#fff" stroke-width="12" /><path d="M80 80h80M80 120h80M80 160h50" stroke="#fff" stroke-width="12" stroke-linecap="round" /></svg></div>
-          <div id="h2b" class="halo" style="top: 520px;"><svg viewBox="0 0 240 240"><path d="M40 90 L120 50 L200 90 L200 180 L120 220 L40 180 Z" fill="none" stroke="#fff" stroke-width="12" stroke-linejoin="round" /><path d="M40 90 L120 130 L200 90 M120 130 V220" fill="none" stroke="#fff" stroke-width="12" stroke-linejoin="round" /><circle cx="196" cy="56" r="40" fill="#ff3b30" /><text x="196" y="72" text-anchor="middle" font-size="46" font-weight="700" fill="#fff" font-family="Poppins, sans-serif">0</text></svg></div>
-          <div id="h2c" class="halo" style="top: 520px;"><svg viewBox="0 0 240 240"><path d="M150 40 A85 85 0 1 0 200 160 A70 70 0 1 1 150 40 Z" fill="none" stroke="#fff" stroke-width="12" stroke-linejoin="round" /><text x="112" y="150" text-anchor="middle" font-size="96" font-weight="800" fill="#ff9d1c" font-family="Poppins, sans-serif">?</text></svg></div>
-          <div id="h2d" class="halo" style="top: 520px;"><svg viewBox="0 0 240 240"><path d="M20 120 C60 60 180 60 220 120 C180 180 60 180 20 120 Z" fill="none" stroke="#fff" stroke-width="12" stroke-linejoin="round" /><circle cx="120" cy="120" r="30" fill="none" stroke="#fff" stroke-width="12" /><path d="M40 210 L200 30" stroke="#ff9d1c" stroke-width="14" stroke-linecap="round" /></svg></div>
-          <div id="p2a" class="title tD ptitle">Un cahier <span class="acc">qui se perd</span></div>
-          <div id="p2b" class="title tD ptitle">Un produit qui manque <span class="acc">au pire moment</span></div>
-          <div id="p2c" class="title tD ptitle">Le soir : combien a rapporté <span class="acc">la journée ?</span></div>
-          <div id="p2d" class="title tD ptitle">Loin de la boutique, <span class="acc">vous ne voyez rien</span></div>
+          <div id="s2l" class="line" style="top: 300px;">Le problème, c'est</div>
+          <div id="s2b1" class="big" style="top: 380px;">le cahier perdu</div>
+          <div id="s2b2" class="big" style="top: 380px;">le produit manque</div>
+          <div id="s2b3" class="big" style="top: 380px;">le soir, sans chiffres</div>
+          <div id="s2b4" class="big" style="top: 380px;">vous ne voyez rien</div>
+          <div id="grid" class="sc">
+            <div class="tile" id="g1"><div class="card"></div><img src="assets/3d/notebook.png" /><div class="lab">Cahier perdu</div></div>
+            <div class="tile" id="g2"><div class="card"></div><img src="assets/3d/package.png" /><div class="lab">Rupture</div></div>
+            <div class="tile" id="g3"><div class="card"></div><img src="assets/3d/crescent_moon.png" /><div class="lab">Bilan inconnu</div></div>
+            <div class="tile" id="g4"><div class="card"></div><img src="assets/3d/department_store.png" /><div class="lab">Patron absent</div></div>
+          </div>
+          <img id="x1" class="i3d" src="assets/3d/cross_mark.png" style="left: 400px; top: 740px; width: 110px; height: 110px;" />
+          <img id="x2" class="i3d" src="assets/3d/warning.png" style="left: 860px; top: 740px; width: 110px; height: 110px;" />
+          <img id="x3" class="i3d" src="assets/3d/red_question_mark.png" style="left: 400px; top: 1180px; width: 110px; height: 110px;" />
+          <img id="lock" class="i3d" src="assets/3d/locked.png" style="left: 390px; top: 900px; width: 300px; height: 300px;" />
         </div>
       </div>
 
       <!-- S3 : la solution (21.5 - 32.5) -->
       <div id="s3" class="clip sc" data-start="21.5" data-duration="11" data-track-index="1">
-        <div class="bgL"><div class="ab blobA"></div><div class="ab blobB"></div><div class="ab blobC"></div></div>
         <div id="s3w" class="sc">
-          <div id="s3p" class="pill pillL"><span>LA SOLUTION</span></div>
-          <div id="s3t" class="title tL">Votre stock se suit <span class="accB">tout seul</span></div>
-          <div id="phone" class="ab">
-            <div id="screen">
-              <div class="ftitle">Nouvelle vente</div>
-              <div class="flab" style="top: 220px;">Client</div>
-              <div class="fin" style="top: 262px;"><span class="ftxt" id="ty1">Jean</span></div>
-              <div class="flab" style="top: 400px;">Produit</div>
-              <div class="fin" style="top: 442px;"><span class="ftxt" id="ty2">P002 · Huile 5 L</span></div>
-              <div class="flab" style="top: 580px;">Quantité</div>
-              <div class="fin" style="top: 622px; width: 220px;"><span class="ftxt" id="ty3">2</span></div>
-              <div id="fbtn" class="bluebtn">
-                <div class="btxt" id="fbtnTxt">Envoyer</div>
-                <div class="btxt" id="fbtnOk">✓ Enregistrée</div>
-              </div>
-              <div id="ripple"></div>
-              <div id="tap"></div>
-            </div>
-          </div>
-          <div id="s3s" class="sub subL">En quelques secondes, sur le téléphone du vendeur</div>
+          <div id="s3l" class="line" style="top: 300px;">Avec Allegra Digital Ground,</div>
+          <div id="s3b" class="big" style="top: 380px;">votre stock se suit tout seul</div>
+          <img id="f1" class="i3d" src="assets/3d/mobile_phone.png" style="left: 60px; top: 860px; width: 250px; height: 250px;" />
+          <img id="f2" class="i3d" src="assets/3d/clipboard.png" style="left: 415px; top: 860px; width: 250px; height: 250px;" />
+          <img id="f3" class="i3d" src="assets/3d/bell.png" style="left: 770px; top: 860px; width: 250px; height: 250px;" />
+          <svg id="a1" class="arrow" style="left: 315px; top: 965px;" viewBox="0 0 90 40"><path d="M4 20h70M58 6l16 14-16 14" fill="none" stroke="#ff4a1c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <svg id="a2" class="arrow" style="left: 670px; top: 965px;" viewBox="0 0 90 40"><path d="M4 20h70M58 6l16 14-16 14" fill="none" stroke="#ff4a1c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <div id="fl1" class="lab" style="left: 0; top: 1130px; width: 370px;">la vente</div>
+          <div id="fl2" class="lab" style="left: 355px; top: 1130px; width: 370px;">le tableau</div>
+          <div id="fl3" class="lab" style="left: 710px; top: 1130px; width: 370px;">l'alerte</div>
+          <div id="s3p" class="hotpill" style="left: 90px; top: 1340px; width: 900px; height: 110px; line-height: 110px; font-size: 40px;">en quelques secondes, sur téléphone</div>
+          <div id="s3s" class="sub" style="top: 1500px;">Le vendeur enregistre la vente. Le reste se fait sans lui.</div>
         </div>
       </div>
 
       <!-- S4 : la transformation (32.5 - 42.5) -->
       <div id="s4" class="clip sc" data-start="32.5" data-duration="10" data-track-index="1">
-        <div class="bgL"><div class="ab blobA"></div><div class="ab blobB"></div><div class="ab blobC"></div></div>
         <div id="s4w" class="sc">
-          <div id="s4p" class="pill pillL"><span>LA TRANSFORMATION</span></div>
-          <div id="s4t" data-layout-allow-overlap class="title tL">Tout suit <span class="accB">immédiatement</span></div>
-          <div id="stockCard" class="card">
-            <div id="stockName" class="ab">Huile 5 L</div>
-            <div id="stockLab" class="ab">bidons en stock</div>
-            <div id="stockTile" class="ab bluebtn"><div id="stockN" class="ab">10</div></div>
+          <div id="s4l" class="line" style="top: 300px;">Et tout se met à jour</div>
+          <div id="s4b" class="big" style="top: 380px;">tout de suite</div>
+          <div id="stk" class="card" style="left: 70px; top: 610px; width: 940px; height: 300px;">
+            <img class="i3d" src="assets/3d/package.png" style="left: 40px; top: 40px; width: 220px; height: 220px;" />
+            <div class="ab" style="left: 290px; top: 70px; font-size: 54px; font-weight: 700; color: #17181d;">Huile 5 L</div>
+            <div class="ab" style="left: 290px; top: 150px; font-size: 38px; color: #5b5e6b;">bidons en stock</div>
+            <div id="stkN" class="ab" style="left: 690px; top: 40px; width: 210px; height: 220px; border-radius: 52px; background: linear-gradient(180deg, #ff5a2b 0%, #e8380e 100%); color: #fff; font-size: 130px; font-weight: 800; line-height: 220px; text-align: center; font-variant-numeric: tabular-nums;">10</div>
           </div>
-          <div class="notif" id="n4a">
+          <div class="notif" id="n4a" style="top: 960px;">
             <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · VOUS</div><div class="ntime">14:32</div></div>
             <div class="nbody"><b>Nouvelle commande :</b> Jean, Huile 5 L x 2. Stock restant : 8.</div>
           </div>
-          <div class="notif" id="n4b">
+          <div class="notif" id="n4b" style="top: 1390px;">
             <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · VOTRE CLIENT</div><div class="ntime">14:32</div></div>
             <div class="nbody">Bonjour Jean, votre commande est <b>bien enregistrée.</b></div>
           </div>
+          <img id="s4bell" class="i3d" src="assets/3d/bell.png" style="left: 880px; top: 1225px; width: 150px; height: 150px;" />
         </div>
       </div>
 
       <!-- S5 : alertes et bilans (42.5 - 57) -->
       <div id="s5" class="clip sc" data-start="42.5" data-duration="14.5" data-track-index="1">
-        <div class="bgD"><svg class="rings ab" id="rings5" viewBox="0 0 1080 1920"><circle cx="540" cy="740" r="280" /><circle cx="540" cy="740" r="440" /><circle cx="540" cy="740" r="620" /><circle cx="540" cy="740" r="820" /></svg></div>
         <div id="s5w" class="sc">
-          <div id="s5p" class="pill pillD"><span>VOUS ÊTES PRÉVENU</span></div>
-          <!-- a : alerte -->
           <div id="b5a" class="sc">
-            <div id="s5t1" class="title tD">Avant <span class="acc">la rupture</span></div>
-            <div id="warn" class="ab"></div>
-            <div id="warnI" class="ab">!</div>
-            <div class="notif" id="n5a">
+            <div class="line" style="top: 300px;">Vous êtes prévenu</div>
+            <div id="s5b1" class="big" style="top: 380px;">avant la rupture</div>
+            <img id="warnI" class="i3d" src="assets/3d/warning.png" style="left: 340px; top: 600px; width: 400px; height: 400px;" />
+            <div class="notif" id="n5a" style="top: 1130px;">
               <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · VOUS</div><div class="ntime">16:05</div></div>
               <div class="nbody"><span class="tag">Alerte stock :</span> Riz 25 kg, il reste 3 sacs. Seuil d'alerte : 5.</div>
             </div>
           </div>
-          <!-- b : bilan du soir -->
           <div id="b5b" class="sc">
-            <div id="s5t2" data-layout-allow-overlap class="title tD">Chaque soir, <span class="acc">votre bilan</span></div>
-            <svg id="ringB" class="ring" viewBox="0 0 360 360"><circle id="ringBc" cx="180" cy="180" r="150" fill="none" stroke="#ff9d1c" stroke-width="24" stroke-linecap="round" style="transform-origin: 180px 180px; transform: rotate(-90deg); filter: drop-shadow(0 0 20px rgba(255,157,28,0.9));" /></svg>
-            <div id="ringBT" class="ringT">19:00</div>
-            <div id="bil" class="bcard">
-              <div class="bt">Bilan de votre boutique</div>
+            <div class="line" style="top: 300px;">Chaque soir,</div>
+            <div id="s5b2" class="big" style="top: 380px;">votre bilan</div>
+            <img id="moon" class="i3d" src="assets/3d/crescent_moon.png" style="left: 220px; top: 620px; width: 360px; height: 360px;" />
+            <img id="chart" class="i3d" src="assets/3d/bar_chart.png" style="left: 540px; top: 660px; width: 320px; height: 320px;" />
+            <div id="bil" class="card bcard">
+              <div class="bt">Bilan de votre boutique · 19:00</div>
               <div class="bl"><span>Commandes du jour</span><span>12</span></div>
               <div class="bl"><span>Pas encore livrées</span><span>3</span></div>
-              <div class="bl warnL"><span>À commander</span><span>Riz 25 kg</span></div>
+              <div class="bl hot"><span>À commander</span><span>Riz 25 kg</span></div>
             </div>
             <div id="exB" class="ex">Chiffres d'exemple</div>
           </div>
-          <!-- c : point du matin -->
           <div id="b5c" class="sc">
-            <div id="s5t3" data-layout-allow-overlap class="title tD">Chaque matin, <span class="acc">quoi racheter</span></div>
-            <svg id="ringC" class="ring" viewBox="0 0 360 360"><circle id="ringCc" cx="180" cy="180" r="150" fill="none" stroke="#f4c518" stroke-width="24" stroke-linecap="round" style="transform-origin: 180px 180px; transform: rotate(-90deg); filter: drop-shadow(0 0 20px rgba(244,197,24,0.9));" /></svg>
-            <div id="ringCT" class="ringT">08:00</div>
-            <div id="mat" class="bcard">
-              <div class="bt">À commander aujourd'hui</div>
+            <div class="line" style="top: 300px;">Chaque matin,</div>
+            <div id="s5b3" class="big" style="top: 380px;">quoi racheter</div>
+            <img id="sun" class="i3d" src="assets/3d/sun.png" style="left: 200px; top: 610px; width: 360px; height: 360px;" />
+            <img id="truck" class="i3d" src="assets/3d/delivery_truck.png" style="left: 540px; top: 670px; width: 330px; height: 330px;" />
+            <div id="mat" class="card bcard">
+              <div class="bt">À commander aujourd'hui · 08:00</div>
               <div class="bl"><span>Riz 25 kg · 7 sacs</span><span>Grossiste A</span></div>
               <div class="bl"><span>Huile 5 L · 4 bidons</span><span>Grossiste B</span></div>
             </div>
@@ -265,47 +192,54 @@
 
       <!-- S6 : le bénéfice (57 - 63.5) -->
       <div id="s6" class="clip sc" data-start="57" data-duration="6.5" data-track-index="1">
-        <div class="bgL"><div class="ab blobA"></div><div class="ab blobB"></div><div class="ab blobC"></div></div>
         <div id="s6w" class="sc">
-          <div id="s6a" class="title tL">Moins d'oublis.</div>
-          <div id="s6b" class="title tL">Moins de <span class="accB">ruptures.</span></div>
-          <div id="s6pill" class="ab bluebtn">Une vraie visibilité</div>
-          <div id="s6s" class="sub subL">sur votre boutique, <b>même à distance</b></div>
-          <div class="chip" id="c1"><b>✓</b> Ventes</div>
-          <div class="chip" id="c2"><b>✓</b> Stock</div>
-          <div class="chip" id="c3"><b>✓</b> Bilan</div>
+          <div id="s6b1" class="big" style="top: 330px; font-size: 96px;">Moins d'oublis.</div>
+          <div id="s6b2" class="big" style="top: 450px; font-size: 96px;">Moins de ruptures.</div>
+          <img id="s6chk" class="i3d" src="assets/3d/check_mark_button.png" style="left: 160px; top: 720px; width: 300px; height: 300px;" />
+          <img id="s6eye" class="i3d" src="assets/3d/eye.png" style="left: 560px; top: 700px; width: 360px; height: 360px;" />
+          <img id="s6star" class="i3d" src="assets/3d/sparkles.png" style="left: 860px; top: 640px; width: 160px; height: 160px;" />
+          <div id="s6p" class="hotpill" style="left: 110px; top: 1150px; width: 860px; height: 130px; line-height: 130px; font-size: 54px;">une vraie visibilité</div>
+          <div id="s6s" class="sub" style="top: 1320px; font-size: 50px; color: #17181d;">sur votre boutique, même à distance</div>
         </div>
       </div>
 
       <!-- S7 : ce n'est qu'un début (63.5 - 70) -->
       <div id="s7" class="clip sc" data-start="63.5" data-duration="6.5" data-track-index="1">
-        <div class="bgD"><svg class="rings ab" id="rings7" viewBox="0 0 1080 1920"><circle cx="540" cy="1150" r="300" /><circle cx="540" cy="1150" r="470" /><circle cx="540" cy="1150" r="660" /><circle cx="540" cy="1150" r="860" /></svg></div>
         <div id="s7w" class="sc">
-          <div id="s7t" data-layout-allow-overlap class="title tD">Et ce n'est <span class="acc">qu'un début</span></div>
-          <div id="s7s" class="sub subD">La même méthode s'adapte à vos autres tâches de chaque jour</div>
-          <div class="tile" id="k1"><svg viewBox="0 0 110 110"><path d="M55 14C32 14 14 31 14 51c0 8 3 15 7 20l-5 20 21-6c5 2 11 4 18 4 23 0 41-17 41-38S78 14 55 14z" fill="none" stroke="#2342ff" stroke-width="9" stroke-linejoin="round" /></svg><div>Relances clients</div></div>
-          <div class="tile" id="k2"><svg viewBox="0 0 110 110"><path d="M10 30h60v46H10z M70 46h18l12 16v14H70z" fill="none" stroke="#2342ff" stroke-width="9" stroke-linejoin="round" /><circle cx="30" cy="84" r="9" fill="#2342ff" /><circle cx="84" cy="84" r="9" fill="#2342ff" /></svg><div>Commandes fournisseurs</div></div>
-          <div class="tile" id="k3"><svg viewBox="0 0 110 110"><path d="M24 10h46l18 18v72H24z" fill="none" stroke="#2342ff" stroke-width="9" stroke-linejoin="round" /><path d="M40 52h32M40 70h32" stroke="#2342ff" stroke-width="9" stroke-linecap="round" /></svg><div>Factures</div></div>
-          <div class="tile" id="k4"><svg viewBox="0 0 110 110"><path d="M16 94V16 M16 94h80" fill="none" stroke="#2342ff" stroke-width="9" stroke-linecap="round" /><path d="M32 74l20-22 16 12 24-30" fill="none" stroke="#ff9d1c" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /></svg><div>Rapports</div></div>
-          <div id="ex7" class="ex">Exemples de ce qu'on peut automatiser</div>
+          <div id="s7l" class="line" style="top: 300px;">Et ce n'est</div>
+          <div id="s7b" class="big" style="top: 380px;">qu'un début</div>
+          <div id="s7s" class="sub" style="top: 560px;">La même méthode s'adapte à vos autres tâches</div>
+          <div class="k" id="k1"><div class="card"></div><img src="assets/3d/speech_balloon.png" /><div class="lab">Relances clients</div></div>
+          <div class="k" id="k2"><div class="card"></div><img src="assets/3d/delivery_truck.png" /><div class="lab">Commandes fournisseurs</div></div>
+          <div class="k" id="k3"><div class="card"></div><img src="assets/3d/receipt.png" /><div class="lab">Factures</div></div>
+          <div class="k" id="k4"><div class="card"></div><img src="assets/3d/chart_increasing.png" /><div class="lab">Rapports</div></div>
+          <img id="rocket" class="i3d" src="assets/3d/rocket.png" style="left: 860px; top: 270px; width: 180px; height: 180px;" />
+          <div id="ex7" class="ex" style="top: 1500px;">Exemples de ce qu'on peut automatiser</div>
         </div>
       </div>
 
       <!-- S8 : appel à l'action (70 - 77) -->
       <div id="s8" class="clip sc" data-start="70" data-duration="7" data-track-index="1">
-        <div class="bgD"><svg class="rings ab" id="rings8" viewBox="0 0 1080 1920"><circle cx="540" cy="630" r="320" /><circle cx="540" cy="630" r="480" /><circle cx="540" cy="630" r="660" /></svg></div>
         <div id="s8w" class="sc">
-          <div id="logoGlow" class="ab"></div>
-          <div id="logo" class="ab"></div>
-          <div id="s8a" class="title tD">On vous le montre <span class="acc">en direct</span></div>
-          <div id="s8c" class="ab greenbtn">Écrivez-nous sur WhatsApp</div>
+          <div id="logoBox" class="ab" style="left: 300px; top: 300px; width: 480px; height: 480px; border-radius: 120px; background: #0b1033; box-shadow: 0 40px 90px rgba(11,16,51,0.35);">
+            <div class="ab" style="left: 60px; top: 70px; width: 360px; height: 340px; background: url('assets/img/logo_adg.png') center / contain no-repeat;"></div>
+          </div>
+          <div id="s8l" class="line" style="top: 870px;">On vous montre le système</div>
+          <div id="s8b" class="big" style="top: 950px;">en direct</div>
+          <img id="s8ph" class="i3d" src="assets/3d/mobile_phone.png" style="left: 800px; top: 560px; width: 230px; height: 230px;" />
+          <div id="s8c" class="ab" style="left: 120px; top: 1250px; width: 840px; height: 150px; border-radius: 75px; line-height: 150px; text-align: center; font-size: 50px; font-weight: 700; color: #fff; background: linear-gradient(180deg, #15803d 0%, #0f6b32 100%); box-shadow: 0 18px 50px rgba(22,163,74,0.4);">Écrivez-nous sur WhatsApp</div>
+          <div id="s8s" class="sub" style="top: 1450px;">et on l'installe avec vous</div>
         </div>
+      </div>
+
+      <!-- bandeau du bas -->
+      <div id="footc" class="clip sc" data-start="0" data-duration="70" data-track-index="2">
+        <div id="foot" class="hotpill">Allegra Digital Ground · stock automatique</div>
       </div>
     </div>
 
     <script>
       const tl = gsap.timeline({ paused: true });
-      // Début de chaque scène (secondes). À recaler sur la vraie voix si besoin.
       const S = { s1: 0, s2: 6, s3: 21.5, s4: 32.5, s5: 42.5, s6: 57, s7: 63.5, s8: 70 };
 
       function words(sel) {
@@ -326,150 +260,149 @@
         walk(el);
         return el.querySelectorAll('.w');
       }
-      function blurIn(sel, at, stag) {
-        const ws = words(sel);
-        tl.fromTo(ws, { opacity: 0, y: 40, filter: 'blur(14px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6, stagger: stag || 0.07, ease: 'power3.out' }, at);
-        return ws;
-      }
-      const blurOut = (sel, at) => tl.to(sel, { opacity: 0, filter: 'blur(16px)', y: -30, duration: 0.35, ease: 'power2.in' }, at);
-      const sceneIn = (w, at) => tl.fromTo(w, { opacity: 0, filter: 'blur(16px)', scale: 1.04 }, { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 0.5, ease: 'power2.out' }, at);
-      const sceneOut = (w, at) => tl.to(w, { opacity: 0, filter: 'blur(18px)', scale: 0.97, duration: 0.35, ease: 'power2.in' }, at);
-      const pop = (sel, at, from) => tl.fromTo(sel, Object.assign({ opacity: 0, scale: 0.85, y: 50 }, from || {}), { opacity: 1, scale: 1, y: 0, x: 0, duration: 0.7, ease: 'expo.out' }, at);
-      const notifIn = (sel, at) => tl.fromTo(sel, { opacity: 0, y: -220, filter: 'blur(14px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out' }, at);
+      const lineIn = (sel, at) => tl.fromTo(words(sel), { opacity: 0, y: 30, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5, stagger: 0.06, ease: 'power3.out' }, at);
+      const bigIn = (sel, at) => tl.fromTo(words(sel), { opacity: 0, scale: 0.4, y: 40, filter: 'blur(12px)' }, { opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', duration: 0.6, stagger: 0.08, ease: 'back.out(2.2)' }, at);
+      const out = (sel, at) => tl.to(sel, { opacity: 0, filter: 'blur(14px)', y: -24, duration: 0.3, ease: 'power2.in' }, at);
+      const sceneOut = (w, at) => tl.to(w, { opacity: 0, filter: 'blur(16px)', scale: 0.97, duration: 0.35, ease: 'power2.in' }, at);
+      const pop3d = (sel, at, rot) => tl.fromTo(sel, { opacity: 0, scale: 0.2, rotation: rot || -14 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.75, ease: 'back.out(2)' }, at);
+      const float = (sel, at, dur, dy) => tl.to(sel, { y: dy || -22, rotation: 3, duration: dur || 1.6, ease: 'sine.inOut', yoyo: true, repeat: 3 }, at);
+      const cardIn = (sel, at) => tl.fromTo(sel, { opacity: 0, y: 120, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'expo.out' }, at);
+      const notifIn = (sel, at) => tl.fromTo(sel, { opacity: 0, y: -160, filter: 'blur(12px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out' }, at);
       const counter = (id, from, to, at, dur) => {
         const o = { v: from };
         tl.fromTo(o, { v: from }, { v: to, duration: dur, ease: 'power2.inOut', onUpdate: () => { document.getElementById(id).textContent = String(Math.round(o.v)); } }, at);
       };
-      const drawRing = (id, r, at) => {
-        const c = document.getElementById(id); const L = 2 * Math.PI * r;
-        c.style.strokeDasharray = String(L);
-        tl.fromTo(c, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: 1.2, ease: 'power2.inOut' }, at);
-      };
 
-      // ---- fonds vivants (répétitions finies)
-      gsap.utils.toArray('.blobA').forEach((b) => tl.fromTo(b, { x: 0, y: 0 }, { x: 140, y: 120, duration: 5, ease: 'sine.inOut', yoyo: true, repeat: 15 }, 0));
-      gsap.utils.toArray('.blobB').forEach((b) => tl.fromTo(b, { x: 0, y: 0 }, { x: -160, y: -90, duration: 6, ease: 'sine.inOut', yoyo: true, repeat: 13 }, 0));
-      ['#rings1', '#rings2', '#rings5', '#rings7', '#rings8'].forEach((r) => tl.fromTo(r, { scale: 0.92, transformOrigin: '50% 50%' }, { scale: 1.06, duration: 4, ease: 'sine.inOut', yoyo: true, repeat: 19 }, 0));
+      // fond vivant
+      tl.fromTo('#band1', { x: -60 }, { x: 60, duration: 9, ease: 'sine.inOut', yoyo: true, repeat: 7 }, 0);
+      tl.fromTo('#band2', { x: 40 }, { x: -40, duration: 11, ease: 'sine.inOut', yoyo: true, repeat: 6 }, 0);
+      tl.fromTo('#foot', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, 0.6);
+      tl.to('#foot', { scale: 1.04, duration: 0.6, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 30);
+      tl.to('#foot', { opacity: 0, y: 60, duration: 0.4, ease: 'power2.in' }, 69.5);
 
-      // ---- S1 accroche (0 - 6)
+      // ---- S1
       let t = S.s1;
-      blurIn('#s1t', t + 0.2, 0.08);
-      tl.fromTo('#book', { opacity: 0, y: 200, rotation: -6 }, { opacity: 1, y: 0, rotation: -3, duration: 0.9, ease: 'expo.out' }, t + 0.5);
-      tl.fromTo('#book .hw', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, stagger: 0.18, ease: 'power2.out' }, t + 1.0);
-      ['#scr1', '#scr2'].forEach((p, i) => {
-        const el = document.querySelector(p); const L = el.getTotalLength();
-        el.style.strokeDasharray = String(L);
-        tl.fromTo(el, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: 0.45, ease: 'power1.inOut' }, t + 2.4 + i * 0.4);
-      });
-      tl.to('#book', { rotation: 2, duration: 0.09, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 3.4);
-      blurIn('#s1s', t + 3.6, 0.06);
-      tl.to('#book', { opacity: 0.35, filter: 'blur(6px)', duration: 0.8, ease: 'power2.in' }, t + 4.6);
+      lineIn('#s1l', t + 0.15);
+      bigIn('#s1b', t + 0.6);
+      pop3d('#s1nb', t + 1.0, -10);
+      pop3d('#s1pen', t + 1.5, 30);
+      tl.to('#s1pen', { x: -120, y: 80, rotation: -20, duration: 0.25, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 2.1);
+      pop3d('#s1q', t + 3.1, -25);
+      float('#s1q', t + 3.8, 1.1, -26);
+      lineIn('#s1s', t + 3.4);
+      float('#s1nb', t + 1.8, 1.4, -18);
       sceneOut('#s1w', t + 5.65);
 
-      // ---- S2 problème (6 - 21.5) : 4 temps
+      // ---- S2 : grille qui se remplit, puis tout s'éteint et se verrouille
       t = S.s2;
-      sceneIn('#s2w', t);
-      blurIn('#s2p span', t + 0.1, 0.05);
-      const beats = [['#h2a', '#p2a', 0.4, 3.9], ['#h2b', '#p2b', 4.1, 7.7], ['#h2c', '#p2c', 7.9, 11.6], ['#h2d', '#p2d', 11.8, 15.1]];
-      beats.forEach(([h, p, a, b], i) => {
-        tl.fromTo(h, { opacity: 0, scale: 0.5, filter: 'blur(12px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out' }, t + a);
-        blurIn(p, t + a + 0.25, 0.07);
-        if (i === 0) tl.to(h, { rotation: 18, x: 160, y: -60, duration: 1.4, ease: 'power2.in' }, t + a + 1.6);
-        if (i === 1) tl.to(h, { x: 14, duration: 0.07, ease: 'sine.inOut', yoyo: true, repeat: 7 }, t + a + 1.4);
-        if (i === 3) tl.to(h, { opacity: 0.45, duration: 1.2, ease: 'sine.inOut' }, t + a + 1.4);
-        if (i < 3) { tl.to(h, { opacity: 0, scale: 0.8, filter: 'blur(14px)', duration: 0.35, ease: 'power2.in' }, t + b - 0.35); blurOut(p, t + b - 0.35); }
-      });
+      lineIn('#s2l', t + 0.1);
+      const bigs = ['#s2b1', '#s2b2', '#s2b3', '#s2b4'];
+      const at2 = [0.4, 4.1, 7.9, 11.8];
+      ['#g1', '#g2', '#g3', '#g4'].forEach((g, i) => cardIn(g, t + at2[i] + 0.2));
+      bigs.forEach((b, i) => { bigIn(b, t + at2[i]); if (i < 3) out(b, t + at2[i + 1] - 0.35); });
+      pop3d('#x1', t + 1.4, -20);
+      tl.to('#g1', { rotation: -4, x: -10, duration: 0.6, ease: 'sine.inOut' }, t + 1.6);
+      pop3d('#x2', t + 5.1, 20);
+      tl.to('#g2', { x: 12, duration: 0.07, ease: 'sine.inOut', yoyo: true, repeat: 7 }, t + 5.3);
+      pop3d('#x3', t + 9.0, -20);
+      tl.to('#grid', { filter: 'grayscale(1) brightness(0.92)', opacity: 0.75, duration: 0.8, ease: 'power2.inOut' }, t + 12.6);
+      tl.to(['#x1', '#x2', '#x3'], { opacity: 0, scale: 0.5, duration: 0.3, ease: 'power2.in' }, t + 12.6);
+      tl.fromTo('#lock', { opacity: 0, y: -500, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'bounce.out' }, t + 12.9);
       sceneOut('#s2w', t + 15.15);
 
-      // ---- S3 solution (21.5 - 32.5)
+      // ---- S3 : vente → tableau → alerte
       t = S.s3;
-      sceneIn('#s3w', t);
-      blurIn('#s3t', t + 0.2, 0.08);
-      pop('#phone', t + 0.8, { y: 260, scale: 0.9 });
-      [['#ty1', 2.0, 4], ['#ty2', 2.7, 16], ['#ty3', 3.8, 1]].forEach(([s, a, n]) => {
-        tl.fromTo(s, { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: Math.max(0.15, n * 0.05), ease: 'steps(' + n + ')' }, t + a);
-      });
-      tl.fromTo('#tap', { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: 'power2.out' }, t + 4.6);
-      tl.to('#fbtn', { scale: 0.95, duration: 0.08, ease: 'power2.in', yoyo: true, repeat: 1 }, t + 4.9);
-      tl.fromTo('#ripple', { scale: 0, opacity: 1 }, { scale: 6, opacity: 0, duration: 0.8, ease: 'power2.out' }, t + 4.92);
-      tl.to('#tap', { opacity: 0, duration: 0.3 }, t + 5.2);
-      tl.fromTo('#fbtnOk', { opacity: 0 }, { opacity: 1, duration: 0.25 }, t + 5.05);
-      tl.fromTo('#fbtnTxt', { opacity: 1 }, { opacity: 0, duration: 0.2 }, t + 5.05);
-      blurIn('#s3s', t + 5.6, 0.05);
-      tl.to('#phone', { y: -20, duration: 2, ease: 'sine.inOut', yoyo: true, repeat: 1 }, t + 6.2);
+      lineIn('#s3l', t + 0.15);
+      bigIn('#s3b', t + 0.6);
+      pop3d('#f1', t + 2.0, -15);
+      tl.fromTo('#fl1', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, t + 2.3);
+      tl.fromTo('#a1', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' }, t + 3.0);
+      pop3d('#f2', t + 3.4, 15);
+      tl.fromTo('#fl2', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, t + 3.7);
+      tl.fromTo('#a2', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' }, t + 4.4);
+      pop3d('#f3', t + 4.8, -15);
+      tl.fromTo('#fl3', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, t + 5.1);
+      tl.to('#f3', { rotation: 14, duration: 0.1, ease: 'sine.inOut', yoyo: true, repeat: 7 }, t + 5.6);
+      tl.fromTo('#s3p', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)' }, t + 6.4);
+      lineIn('#s3s', t + 7.4);
+      float('#f1', t + 6.0, 1.2, -18); float('#f2', t + 6.3, 1.2, -18);
       sceneOut('#s3w', t + 10.65);
 
-      // ---- S4 transformation (32.5 - 42.5)
+      // ---- S4 : stock 10 → 8, puis WhatsApp patron et client
       t = S.s4;
-      sceneIn('#s4w', t);
-      blurIn('#s4t', t + 0.2, 0.08);
-      pop('#stockCard', t + 0.6, { y: 120 });
-      counter('stockN', 10, 8, t + 1.4, 1.0);
-      tl.to('#stockTile', { scale: 1.08, duration: 0.25, ease: 'power2.out', yoyo: true, repeat: 1 }, t + 2.4);
-      notifIn('#n4a', t + 3.0);
-      notifIn('#n4b', t + 6.0);
-      tl.to('#n4b', { boxShadow: '0 0 0 8px rgba(34,197,94,0.75), 0 30px 80px rgba(0,0,0,0.28)', duration: 0.35, yoyo: true, repeat: 1, ease: 'sine.inOut' }, t + 6.9);
+      lineIn('#s4l', t + 0.15);
+      bigIn('#s4b', t + 0.6);
+      cardIn('#stk', t + 1.0);
+      counter('stkN', 10, 8, t + 1.9, 1.0);
+      tl.to('#stkN', { scale: 1.1, duration: 0.25, ease: 'power2.out', yoyo: true, repeat: 1 }, t + 2.9);
+      notifIn('#n4a', t + 3.4);
+      pop3d('#s4bell', t + 3.8, 25);
+      tl.to('#s4bell', { rotation: 16, duration: 0.1, ease: 'sine.inOut', yoyo: true, repeat: 9 }, t + 4.5);
+      notifIn('#n4b', t + 6.2);
       sceneOut('#s4w', t + 9.65);
 
-      // ---- S5 alertes et bilans (42.5 - 57)
+      // ---- S5 : alerte, bilan du soir, point du matin
       t = S.s5;
-      sceneIn('#s5w', t);
-      blurIn('#s5p span', t + 0.1, 0.05);
-      // a : alerte
-      blurIn('#s5t1', t + 0.3, 0.08);
-      tl.fromTo('#warn', { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.7, ease: 'expo.out' }, t + 0.6);
-      tl.fromTo('#warnI', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)' }, t + 0.8);
-      tl.to('#warn', { scale: 1.08, duration: 0.4, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 1.5);
-      notifIn('#n5a', t + 1.6);
-      tl.to('#b5a', { opacity: 0, filter: 'blur(16px)', duration: 0.35, ease: 'power2.in' }, t + 4.55);
-      // b : bilan du soir
+      lineIn('#b5a .line', t + 0.15);
+      bigIn('#s5b1', t + 0.5);
+      pop3d('#warnI', t + 0.9, -15);
+      tl.to('#warnI', { scale: 1.08, duration: 0.4, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 1.7);
+      notifIn('#n5a', t + 1.8);
+      tl.to('#b5a', { opacity: 0, filter: 'blur(14px)', duration: 0.35, ease: 'power2.in' }, t + 4.55);
       tl.fromTo('#b5b', { opacity: 0 }, { opacity: 1, duration: 0.01 }, t + 4.9);
-      blurIn('#s5t2', t + 4.95, 0.08);
-      drawRing('ringBc', 150, t + 5.2);
-      tl.fromTo('#ringBT', { opacity: 0, scale: 0.6, filter: 'blur(12px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.6, ease: 'expo.out' }, t + 5.5);
-      pop('#bil', t + 6.2, { y: 140 });
-      tl.fromTo('#bil .bl', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.15, ease: 'power2.out' }, t + 6.6);
-      tl.fromTo('#exB', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 7.2);
-      tl.to('#b5b', { opacity: 0, filter: 'blur(16px)', duration: 0.35, ease: 'power2.in' }, t + 9.55);
-      // c : point du matin
+      lineIn('#b5b .line', t + 4.95);
+      bigIn('#s5b2', t + 5.3);
+      pop3d('#moon', t + 5.7, -20);
+      pop3d('#chart', t + 6.0, 15);
+      cardIn('#bil', t + 6.5);
+      tl.fromTo('#bil .bl', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.15, ease: 'power2.out' }, t + 6.9);
+      tl.fromTo('#exB', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 7.4);
+      float('#moon', t + 6.6, 1.1, -16);
+      tl.to('#b5b', { opacity: 0, filter: 'blur(14px)', duration: 0.35, ease: 'power2.in' }, t + 9.55);
       tl.fromTo('#b5c', { opacity: 0 }, { opacity: 1, duration: 0.01 }, t + 9.9);
-      blurIn('#s5t3', t + 9.95, 0.08);
-      drawRing('ringCc', 150, t + 10.2);
-      tl.fromTo('#ringCT', { opacity: 0, scale: 0.6, filter: 'blur(12px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.6, ease: 'expo.out' }, t + 10.5);
-      pop('#mat', t + 11.1, { y: 140 });
-      tl.fromTo('#mat .bl', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.18, ease: 'power2.out' }, t + 11.5);
-      tl.fromTo('#exC', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 12.0);
+      lineIn('#b5c .line', t + 9.95);
+      bigIn('#s5b3', t + 10.3);
+      pop3d('#sun', t + 10.6, -30);
+      tl.fromTo('#truck', { opacity: 0, x: 400 }, { opacity: 1, x: 0, duration: 0.8, ease: 'expo.out' }, t + 10.9);
+      cardIn('#mat', t + 11.4);
+      tl.fromTo('#mat .bl', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.18, ease: 'power2.out' }, t + 11.8);
+      tl.fromTo('#exC', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 12.2);
+      tl.to('#sun', { rotation: 30, duration: 2.5, ease: 'sine.inOut' }, t + 11.4);
       sceneOut('#s5w', t + 14.15);
 
-      // ---- S6 bénéfice (57 - 63.5)
+      // ---- S6 : bénéfice
       t = S.s6;
-      sceneIn('#s6w', t);
-      blurIn('#s6a', t + 0.15, 0.08);
-      blurIn('#s6b', t + 0.9, 0.08);
-      tl.fromTo('#s6pill', { opacity: 0, scale: 0.6, filter: 'blur(12px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out' }, t + 1.9);
-      blurIn('#s6s', t + 2.4, 0.06);
-      ['#c1', '#c2', '#c3'].forEach((c, i) => pop(c, t + 3.3 + i * 0.15, { y: 80 }));
-      tl.to('#s6pill', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 1 }, t + 4.4);
+      bigIn('#s6b1', t + 0.15);
+      bigIn('#s6b2', t + 0.9);
+      pop3d('#s6chk', t + 1.4, -20);
+      pop3d('#s6eye', t + 1.9, 15);
+      pop3d('#s6star', t + 2.3, 40);
+      tl.fromTo('#s6p', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)' }, t + 2.6);
+      lineIn('#s6s', t + 3.2);
+      float('#s6eye', t + 2.8, 1.0, -18);
       sceneOut('#s6w', t + 6.15);
 
-      // ---- S7 un début (63.5 - 70)
+      // ---- S7 : un début
       t = S.s7;
-      sceneIn('#s7w', t);
-      blurIn('#s7t', t + 0.15, 0.08);
-      blurIn('#s7s', t + 1.0, 0.04);
-      ['#k1', '#k2', '#k3', '#k4'].forEach((k, i) => pop(k, t + 1.8 + i * 0.25, { y: 100 }));
-      tl.fromTo('#ex7', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 3.0);
+      lineIn('#s7l', t + 0.1);
+      bigIn('#s7b', t + 0.45);
+      pop3d('#rocket', t + 0.9, -30);
+      tl.to('#rocket', { x: 40, y: -60, duration: 2.5, ease: 'sine.inOut' }, t + 1.6);
+      lineIn('#s7s', t + 1.2);
+      ['#k1', '#k2', '#k3', '#k4'].forEach((k, i) => cardIn(k, t + 2.0 + i * 0.25));
+      tl.fromTo('#ex7', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 3.3);
       sceneOut('#s7w', t + 6.15);
 
-      // ---- S8 appel à l'action (70 - 77)
+      // ---- S8 : fin
       t = S.s8;
-      sceneIn('#s8w', t);
-      tl.fromTo('#logoGlow', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.out' }, t + 0.1);
-      tl.fromTo('#logo', { opacity: 0, scale: 0.7, filter: 'blur(16px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.9, ease: 'expo.out' }, t + 0.15);
-      blurIn('#s8a', t + 0.8, 0.07);
-      tl.fromTo('#s8c', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'expo.out' }, t + 1.8);
-      tl.to('#s8c', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 2.5);
-      tl.to('#logoGlow', { scale: 1.12, duration: 1.2, ease: 'sine.inOut', yoyo: true, repeat: 1 }, t + 1.5);
+      tl.fromTo('#logoBox', { opacity: 0, scale: 0.5, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.9, ease: 'back.out(1.8)' }, t + 0.1);
+      lineIn('#s8l', t + 0.9);
+      bigIn('#s8b', t + 1.3);
+      pop3d('#s8ph', t + 1.7, 20);
+      tl.fromTo('#s8c', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)' }, t + 2.2);
+      tl.to('#s8c', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 2.9);
+      lineIn('#s8s', t + 2.8);
+      float('#s8ph', t + 2.5, 1.0, -16);
 
       window.__timelines = window.__timelines || {};
       window.__timelines['main'] = tl;
