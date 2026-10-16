@@ -72,10 +72,10 @@
         </defs>
       </svg>
 
-      <!-- 1. PAF ! (0 - 3,8) -->
+      <!-- 1. SURPRISE ! (0 - 3,8) -->
       <div class="scene" id="s1"><div class="cam" id="k1">
         <svg class="burst" id="a0" style="left:540px; top:760px" width="1" height="1"><g transform="scale(1.45)"><use href="#boom" /></g></svg>
-        <div class="line" style="top:640px"><span class="w bd" id="a1" style="font-size:250px; transform:rotate(-8deg)">PAF !</span></div>
+        <div class="line" style="top:640px"><span class="w bd" id="a1" style="font-size:168px; transform:rotate(-8deg)">SURPRISE !</span></div>
         <svg class="star" id="st1" style="left:140px; top:420px" width="1" height="1"><use href="#etoile" /></svg>
         <svg class="star" id="st2" style="left:950px; top:520px" width="1" height="1"><g transform="scale(1.4)"><use href="#etoile" /></g></svg>
         <svg class="star" id="st3" style="left:170px; top:1150px" width="1" height="1"><g transform="scale(0.9)"><use href="#etoile" /></g></svg>
@@ -114,7 +114,7 @@
         <div class="card" id="e1" style="top:1240px"><b>1</b><span style="font-size:35px">Abonnez-vous à<br />@miel_de_la_ruche_du_terroir</span><img class="ico" id="i1" src="assets/img/bell_3d.png" /></div>
         <div class="card" id="e2" style="top:1410px"><b>2</b><span><em>Partagez</em>&nbsp;cette vidéo</span><img class="ico" id="i2" src="assets/img/megaphone_3d.png" /></div>
         <div class="card" id="e3" style="top:1580px"><b>3</b><span style="font-size:40px">Identifiez 5 personnes qui s'abonnent à la page</span><img class="ico" id="i3" src="assets/img/speech_balloon_3d.png" /></div>
-        <div class="line" style="top:1760px"><span class="w" id="e4" style="font-weight:900; font-size:44px; color:#ffe2b0">Du 16 au 24 octobre</span></div>
+        <div class="line" style="top:1760px"><span class="w" id="e4" style="font-weight:900; font-size:42px; color:#ffe2b0">Du 17 au 24 octobre · <span style="color:#ffc21a">Tirage au sort le 25</span></span></div>
         <div class="line" style="top:1836px"><span class="w" id="e5" style="font-weight:600; font-size:26px; color:#c9a77a">Concours non organisé ni sponsorisé par Instagram.</span></div>
       </div></div>
 
@@ -168,7 +168,7 @@
         if (i) flash(a, 0.5);
       });
 
-      // 1 : PAF !
+      // 1 : SURPRISE !
       boom("#a0", 0.25, 3.4); flash(0.25, 0.7); bd("#a1", 0.3, -8); shake("#k1", 0.55, 22);
       ["#st1", "#st2", "#st3", "#st4"].forEach((s, i) => star(s, 0.6 + i * 0.12));
       word("#a2", 1.6); IN("#a3", { y: 80, scale: 0.6 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, 1.9);

@@ -87,13 +87,13 @@ Pas de prix, pas de grammage, pas de promesse de santé.
 
 ## Jour 5 · Vendredi 16 octobre · Spot « miel au clou de girofle » + lancement du concours
 
-Vidéo : `jour5-spot-miel/renders/ruche-jour5-spot-miel.mp4` (26 s, version « spot pub » style bande dessinée : fond brun doré, rayons de lumière, bulles « PAF ! » et « CONCOURS ! »).
+Vidéo : `jour5-spot-miel/renders/ruche-jour5-spot-miel.mp4` (26 s, version « spot pub » style bande dessinée : fond brun doré, rayons de lumière, bulles « SURPRISE ! » et « CONCOURS ! »).
 Le pot est leur vrai pot, agrandi net. Les bulles, étoiles et clous de girofle sont dessinés.
-Scénario : « PAF ! » « Ce vendredi, on vous fait plaisir. » → leur pot sur une bulle d'explosion, des clous de girofle tombent, « Le miel au clou de girofle · Pur miel congolais, macéré au clou de girofle. » → « CONCOURS ! », les 3 étapes, « Du 16 au 24 octobre » (mis à jour le 16/10 : partager au lieu d'aimer, 5 personnes à identifier), « Concours non organisé ni sponsorisé par Instagram. » → logo, « Commandez sur WhatsApp » +243 859 072 956.
+Scénario : « SURPRISE ! » « Ce vendredi, on vous fait plaisir. » → leur pot sur une bulle d'explosion, des clous de girofle tombent, « Le miel au clou de girofle · Pur miel congolais, macéré au clou de girofle. » → « CONCOURS ! », les 3 étapes, « Du 17 au 24 octobre · Tirage au sort le 25 » (mis à jour le 16/10 : partager au lieu d'aimer, 5 personnes à identifier), « Concours non organisé ni sponsorisé par Instagram. » → logo, « Commandez sur WhatsApp » +243 859 072 956.
 Pas de prix, pas de grammage, pas de promesse de santé.
 
 **Statut WhatsApp**
-> 🍯 CONCOURS ! Gagnez un pot de miel + une cuillère à miel. Pour participer, rendez-vous sur notre Instagram @miel_de_la_ruche_du_terroir jusqu'au samedi 24 octobre 🎁 Partagez la vidéo ! Et pour commander : +243 859 072 956
+> 🍯 CONCOURS ! Gagnez un pot de miel + une cuillère à miel. Pour participer, rendez-vous sur notre Instagram @miel_de_la_ruche_du_terroir du samedi 17 au samedi 24 octobre, tirage au sort le dimanche 25 🎁 Partagez la vidéo ! Et pour commander : +243 859 072 956
 
 **Instagram (le post du concours)**
 > 🍯 CONCOURS 🍯
@@ -104,7 +104,7 @@ Pas de prix, pas de grammage, pas de promesse de santé.
 > 2️⃣ Partagez cette vidéo (en story ou dans vos groupes)
 > 3️⃣ Identifiez au moins 5 personnes en commentaire, qui viennent s'abonner à la page
 >
-> 📅 Du vendredi 16 au samedi 24 octobre à minuit. Tirage au sort annoncé en story après la fin du concours.
+> 📅 Du samedi 17 au samedi 24 octobre à minuit. Tirage au sort le dimanche 25 octobre, annoncé en story.
 > Une seule participation par personne. Le gagnant sera contacté en message privé et aura 48 h pour répondre.
 > Ce concours n'est ni organisé ni sponsorisé par Instagram.
 >
