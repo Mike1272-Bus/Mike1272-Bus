@@ -242,8 +242,9 @@
             <div class="ab" style="left: 50px; top: 60px; width: 300px; height: 280px; background: url('assets/img/logo_adg.png') center / contain no-repeat;"></div>
           </div>
           <div id="s8c" class="ab" style="left: 120px; top: 760px; width: 840px; height: 150px; border-radius: 75px; line-height: 150px; text-align: center; font-size: 50px; font-weight: 700; color: #fff; background: linear-gradient(180deg, #15803d 0%, #0f6b32 100%); box-shadow: 0 18px 50px rgba(22,163,74,0.4);">Écrivez-nous sur WhatsApp</div>
-          <div id="s8l" class="line" style="top: 1010px; font-size: 46px;">On étudie votre façon de travailler,</div>
-          <div id="s8b" class="big" style="top: 1100px;">et on construit votre système</div>
+          <div id="s8num" class="ab" style="left: 0; top: 945px; width: 1080px; text-align: center; font-size: 76px; font-weight: 800; color: #17181d; letter-spacing: 0.01em;">+243 831 710 181</div>
+          <div id="s8l" class="line" style="top: 1100px; font-size: 46px;">On étudie votre façon de travailler,</div>
+          <div id="s8b" class="big" style="top: 1180px;">et on construit votre système</div>
           <img id="s8ph" class="i3d" src="assets/3d/mobile_phone.png" style="left: 800px; top: 520px; width: 230px; height: 230px;" />
           <img id="s8hw" class="i3d" src="assets/3d/hammer_and_wrench.png" style="left: 60px; top: 520px; width: 220px; height: 220px;" />
         </div>
@@ -251,7 +252,7 @@
 
       <!-- bandeau du bas -->
       <div id="footc" class="clip sc" data-start="0" data-duration="63.5" data-track-index="2">
-        <div id="foot" class="hotpill">Allegra Digital Ground · automatisation</div>
+        <div id="foot" class="hotpill">Allegra Digital Ground · +243 831 710 181</div>
       </div>
     </div>
 
@@ -431,6 +432,7 @@
       tl.fromTo('#logoBox', { opacity: 0, scale: 0.5, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.8)' }, t + 0.05);
       tl.fromTo('#s8c', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 0.4);
       pop3d('#s8ph', t + 0.7, 20);
+      tl.fromTo('#s8num', { opacity: 0, y: 30, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 0.8);
       lineIn('#s8l', t + 1.7);
       bigIn('#s8b', t + 3.5);
       pop3d('#s8hw', t + 3.8, -20);
