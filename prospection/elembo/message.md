@@ -44,3 +44,28 @@ Demander : leur logo en haute définition, des photos des champs, de la producti
 - Les fruits (oranges, ananas) et les flèches du recyclage sont dessinés par nous, dans le style de leurs étiquettes.
 - Textes repris de leur site et de leurs étiquettes : « Kongo-Central », « 100 % congolais », « fraîchement pressés », « bio », « sans additif chimique », « faible en sucre ajouté », « alternative saine aux sodas classiques », « bouteilles en verre recyclées », « évite les déchets dans les rues », « La vie saine se fait avec du jus de fruits », « Made in DRC », les noms des jus. Aucun prix (le site affiche un prix, on ne l'a pas repris).
 - Son : musique + les bruitages boissons de Mike (ouverture et versement, pétillement, tintements, gorgée avant le slogan).
+
+## Email (16 octobre), avec la vidéo `renders/elembo.mp4` en pièce jointe (4,8 Mo)
+
+Adresse : aucune trouvée pour l'instant. La chercher sur elembo-rdc.com (page contact, bas de page) ou dans la bio Instagram / TikTok. S'il n'y a qu'un formulaire : coller le texte, puis envoyer la vidéo en message privé Instagram.
+
+**Objet :** Une vidéo offerte pour vos jus Elembo 🍍🍊
+
+> Bonjour l'équipe Elembo,
+>
+> « La vie saine se fait avec du jus de fruits » : des fruits 100 % congolais, pressés au Kongo-Central, en bouteilles de verre recyclées. Votre projet nous a vraiment plu.
+>
+> Je suis Mike, d'Allegra Digital Ground, à Kinshasa. Nous transformons les images des marques en courtes vidéos animées. Nous vous en avons préparé une de 24 secondes avec vos trois jus, avec le son de la bouteille qui s'ouvre et du jus qui pétille. Elle est en pièce jointe, c'est cadeau.
+>
+> Elle est prête pour vos Reels, TikTok et statuts WhatsApp. Comme vous êtes en Suisse et vos jus en RDC, nous pouvons être votre équipe vidéo sur place : une vidéo pour chaque nouveau jus, chaque point de vente, chaque étape de votre aventure.
+>
+> Seriez-vous ouverts à un court échange cette semaine ?
+>
+> Bien à vous,
+> Mike
+> Allegra Digital Ground
+> WhatsApp : +243 831 710 181
+> https://allegra-digital-ground.vercel.app
+
+Relance par email (3 jours plus tard) :
+> Bonjour l'équipe Elembo, avez-vous pu regarder la vidéo ? Si vous avez des photos de vos producteurs ou de vos champs d'ananas, je vous en prépare une autre. Bien à vous, Mike
