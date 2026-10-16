@@ -87,9 +87,9 @@ Pas de prix, pas de grammage, pas de promesse de santé.
 
 ## Jour 5 · Vendredi 16 octobre · Spot « miel au clou de girofle » + lancement du concours
 
-Vidéo : `jour5-spot-miel/renders/ruche-jour5-spot-miel.mp4` (27 s, version « spot pub » : fond brun doré, rayons de lumière).
-Le miel qui coule n'est **ni une vidéo IA ni une vidéo de banque d'images** : il est calculé image par image (`jour5-spot-miel/miel.py`), comme les ingrédients dessinés des autres jours. Le pot est leur vrai pot, agrandi net.
-Scénario : un rideau de miel coule du haut, « Ce vendredi, on vous fait plaisir. » → leur pot arrive, un filet de miel coule et déborde sur le couvercle, des clous de girofle tombent autour, « Le miel au clou de girofle · Pur miel congolais, macéré au clou de girofle. » → « CONCOURS : gagnez un pot de miel + une cuillère à miel », les 3 étapes, « Du 16 au 18 octobre · Tirage le 19 », « Concours non organisé ni sponsorisé par Instagram. » → logo, « Commandez sur WhatsApp » +243 859 072 956.
+Vidéo : `jour5-spot-miel/renders/ruche-jour5-spot-miel.mp4` (26 s, version « spot pub » style bande dessinée : fond brun doré, rayons de lumière, bulles « PAF ! » et « CONCOURS ! »).
+Le pot est leur vrai pot, agrandi net. Les bulles, étoiles et clous de girofle sont dessinés.
+Scénario : « PAF ! » « Ce vendredi, on vous fait plaisir. » → leur pot sur une bulle d'explosion, des clous de girofle tombent, « Le miel au clou de girofle · Pur miel congolais, macéré au clou de girofle. » → « CONCOURS ! », les 3 étapes, « Du 16 au 18 octobre · Tirage le 19 », « Concours non organisé ni sponsorisé par Instagram. » → logo, « Commandez sur WhatsApp » +243 859 072 956.
 Pas de prix, pas de grammage, pas de promesse de santé.
 
 **Statut WhatsApp**

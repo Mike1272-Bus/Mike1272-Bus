@@ -1,18 +1,18 @@
-"""Ruche jour 5 (27 s) : musique + quelques sons (le versement doux sous le miel qui coule, impact sur CONCOURS, carillon)."""
+"""Ruche jour 5 (26 s), version BD : musique + « PAF » (impact grave + pop) à chaque explosion, pops, carillon."""
 import os, subprocess
 ROOT = os.path.dirname(os.path.abspath(__file__)); TOP = os.path.join(ROOT, "..", "..", "..", "..")
 SFX_DIR = os.path.join(TOP, "video-excel-13h", "assets", "sfx"); BOISSONS = os.path.join(TOP, "prospection", "sfx-boissons")
 MUSIC = os.path.join(TOP, "video-excel-13h", "assets", "audio", "musique.wav")
-OUT = os.path.join(ROOT, "assets", "audio", "mix.wav"); DUR = 27.0
+OUT = os.path.join(ROOT, "assets", "audio", "mix.wav"); DUR = 26.0
 B = lambda n: os.path.join(BOISSONS, n + ".wav"); L = lambda n: os.path.join(SFX_DIR, n + ".mp3")
-SFX = [  # (heure, fichier, volume, durée max ou None)
-    (0.1, L("whoosh-cinematic"), 0.2, None), (2.0, L("impact-bass-1"), 0.22, None), (2.4, L("impact-bass-2"), 0.25, None),
-    (4.2, L("whoosh-cinematic"), 0.22, None), (4.5, L("whoosh"), 0.22, None), (4.65, L("impact-bass-1"), 0.22, None),
-    (5.0, B("boisson-3-versement-long"), 0.35, 6.0),  # le miel qui coule sur le pot
-    (6.0, L("sparkle"), 0.2, None),
-    (11.4, L("whoosh-cinematic"), 0.25, None), (12.4, L("impact-bass-2"), 0.32, None), (13.6, L("whoosh"), 0.2, None), (13.8, L("whoosh"), 0.2, None),
-    (15.0, L("pop"), 0.22, None), (15.9, L("pop"), 0.22, None), (16.8, L("pop"), 0.22, None), (17.9, L("ping"), 0.2, None),
-    (22.2, L("whoosh-cinematic"), 0.25, None), (22.3, L("pop"), 0.22, None), (22.8, L("impact-bass-1"), 0.22, None), (23.4, L("whoosh-short"), 0.2, None), (24.0, L("chime"), 0.3, None),
+SFX = [  # (heure, fichier, volume, durée max ou None) : chaque « PAF » BD = impact grave + pop
+    (0.2, L("whoosh-short"), 0.2, None), (0.3, L("impact-bass-2"), 0.4, None), (0.32, L("pop"), 0.3, None), (0.6, L("sparkle"), 0.2, None),
+    (1.9, L("pop"), 0.2, None),
+    (3.8, L("whoosh-cinematic"), 0.25, None), (4.0, L("impact-bass-1"), 0.3, None), (4.3, L("pop"), 0.25, None), (4.5, L("whoosh"), 0.25, None), (5.0, L("impact-bass-2"), 0.3, None),
+    (5.6, L("sparkle"), 0.2, None),
+    (10.6, L("whoosh-cinematic"), 0.28, None), (10.85, L("impact-bass-2"), 0.45, None), (10.87, L("pop"), 0.35, None), (11.15, L("impact-bass-1"), 0.3, None), (11.3, L("sparkle"), 0.22, None),
+    (12.4, L("whoosh"), 0.2, None), (12.6, L("whoosh"), 0.2, None), (13.6, L("pop"), 0.25, None), (14.5, L("pop"), 0.25, None), (15.4, L("pop"), 0.25, None), (16.5, L("ping"), 0.22, None),
+    (21.2, L("whoosh-cinematic"), 0.28, None), (21.3, L("impact-bass-1"), 0.28, None), (21.9, L("impact-bass-2"), 0.32, None), (21.92, L("pop"), 0.25, None), (22.6, L("whoosh-short"), 0.2, None), (23.2, L("chime"), 0.3, None),
 ]
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 inputs = ["-i", MUSIC]
