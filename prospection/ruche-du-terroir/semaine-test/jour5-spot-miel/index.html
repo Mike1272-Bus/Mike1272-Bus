@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #1a0c03; }
+      /* même D.A. que la série (brun chaud, orange miel, crème) + effets « BD » : explosions, trames de points, étoiles, traits de vitesse */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff;
+        background: radial-gradient(ellipse at 50% 46%, #6a330a 0%, #351806 45%, #160801 85%); }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .w { display: inline-block; margin: 0 0.12em; }
+      .sm { font-weight: 600; font-size: 58px; letter-spacing: -0.01em; color: #ffe2b0; text-shadow: 0 4px 18px rgba(20,8,0,0.95); }
+      .big { font-weight: 900; font-size: 124px; letter-spacing: -0.045em; line-height: 0.95; color: #f29a0e; text-shadow: 0 6px 0 #9c5200, 0 18px 30px rgba(0,0,0,0.45); }
+      /* le lettrage BD : gros, penché, contour noir épais, ombre décalée */
+      .bd { font-family: 'Baloo', sans-serif; font-weight: 800; line-height: 1; color: #ffc21a; letter-spacing: 0.01em;
+        -webkit-text-stroke: 16px #1a0c03; paint-order: stroke fill; text-shadow: 10px 12px 0 #1a0c03; }
+      #rays { left: -460px; top: -40px; width: 2000px; height: 2000px; opacity: 0.55;
+        background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,190,80,0.2) 0deg 7deg, rgba(255,190,80,0) 7deg 20deg);
+        -webkit-mask: radial-gradient(circle, #000 0%, rgba(0,0,0,0) 62%); mask: radial-gradient(circle, #000 0%, rgba(0,0,0,0) 62%); }
+      .spark { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle, #fff6d8 0%, #ffc35a 45%, rgba(255,160,40,0) 72%); opacity: 0; }
+      .burst { position: absolute; overflow: visible; }
+      .star { position: absolute; overflow: visible; }
+      .speed { position: absolute; height: 14px; border-radius: 7px; background: #ffe2b0; opacity: 0.9; }
+      #potw { position: absolute; left: 240px; top: 900px; width: 600px; height: 873px; }
+      #pot { position: absolute; inset: 0; background: url('assets/img/pot.png') center / contain no-repeat; filter: drop-shadow(0 40px 50px rgba(0,0,0,0.55)); }
+      #shine { position: absolute; inset: 0; -webkit-mask: url('assets/img/pot.png') center / contain no-repeat; mask: url('assets/img/pot.png') center / contain no-repeat;
+        background: linear-gradient(105deg, rgba(255,255,255,0) 42%, rgba(255,240,200,0.7) 50%, rgba(255,255,255,0) 58%); background-size: 300% 100%; background-repeat: no-repeat; }
+      .clove { position: absolute; width: 60px; height: 150px; }
+      .card { position: absolute; left: 90px; width: 900px; height: 150px; border-radius: 34px; background: #fff0d7; border: 6px solid #1a0c03; box-shadow: 10px 12px 0 #1a0c03; }
+      .card b { position: absolute; left: 24px; top: 19px; width: 100px; height: 100px; line-height: 100px; border-radius: 50%; background: #ffc21a; border: 5px solid #1a0c03; color: #1a0c03; text-align: center; font-family: 'Baloo', sans-serif; font-weight: 800; font-size: 62px; }
+      .card span { position: absolute; left: 160px; top: 0; height: 138px; display: flex; align-items: center; width: 590px; font-weight: 800; font-size: 44px; line-height: 1.1; color: #2a1600; letter-spacing: -0.02em; }
+      .card .ico { position: absolute; left: 752px; top: 8px; width: 124px; height: 124px; filter: drop-shadow(0 8px 8px rgba(0,0,0,0.35)); }
+      .card em { font-style: normal; color: #c25a00; text-decoration: underline 6px #ffc21a; text-underline-offset: 6px; }
+      .pill { position: absolute; height: 110px; border-radius: 55px; font-weight: 900; font-size: 56px; line-height: 110px; text-align: center; white-space: nowrap; }
+      .pg { background: #1a9e4b; color: #fff; border: 6px solid #1a0c03; box-shadow: 10px 12px 0 #1a0c03; line-height: 98px; }
+      #flash { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff3d6; z-index: 30; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #160801; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="26" data-width="1080" data-height="1920">
+      <div class="ab" id="rays"></div>
+      <div id="sparks"></div>
+      <svg width="0" height="0" style="position:absolute">
+        <defs>
+          <!-- trame de points façon BD -->
+          <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="5" fill="#e88a00" opacity="0.55" /></pattern>
+          <pattern id="dots2" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="5" fill="#ffb53a" opacity="0.6" /></pattern>
+          <!-- explosion BD : contour noir, blanc, puis crème tramée -->
+          <g id="boom">
+            <polygon points="0,-300 52,-170 160,-262 132,-120 290,-150 172,-40 300,40 160,82 230,230 90,150 40,300 -20,166 -140,272 -112,120 -290,150 -160,30 -300,-40 -150,-90 -230,-230 -70,-160" fill="#1a0c03" transform="translate(10,14)" />
+            <polygon points="0,-300 52,-170 160,-262 132,-120 290,-150 172,-40 300,40 160,82 230,230 90,150 40,300 -20,166 -140,272 -112,120 -290,150 -160,30 -300,-40 -150,-90 -230,-230 -70,-160" fill="#fff8e6" stroke="#1a0c03" stroke-width="12" stroke-linejoin="round" />
+            <polygon points="0,-232 40,-130 124,-202 102,-92 224,-116 132,-30 232,30 124,64 178,178 70,116 30,232 -16,128 -108,210 -86,92 -224,116 -124,22 -232,-30 -116,-70 -178,-178 -54,-124" fill="#ffd36b" />
+            <polygon points="0,-232 40,-130 124,-202 102,-92 224,-116 132,-30 232,30 124,64 178,178 70,116 30,232 -16,128 -108,210 -86,92 -224,116 -124,22 -232,-30 -116,-70 -178,-178 -54,-124" fill="url(#dots)" />
+          </g>
+          <g id="etoile"><polygon points="0,-40 11,-12 40,-12 17,6 26,36 0,18 -26,36 -17,6 -40,-12 -11,-12" fill="#ffc21a" stroke="#1a0c03" stroke-width="6" stroke-linejoin="round" /></g>
+          <g id="clou">
+            <path d="M30 40 L26 146 Q30 152 34 146 Z" fill="#5b2a10" /><path d="M30 40 L28 140" stroke="#8a4a22" stroke-width="3" />
+            <circle cx="30" cy="22" r="13" fill="#7a3a16" />
+            <path d="M30 34 L12 8 L24 18 Z M30 34 L48 8 L36 18 Z M30 34 L8 30 L20 28 Z M30 34 L52 30 L40 28 Z" fill="#6b3212" />
+          </g>
+        </defs>
+      </svg>
+
+      <!-- 1. SURPRISE ! (0 - 3,8) -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <svg class="burst" id="a0" style="left:540px; top:760px" width="1" height="1"><g transform="scale(1.45)"><use href="#boom" /></g></svg>
+        <div class="line" style="top:640px"><span class="w bd" id="a1" style="font-size:168px; transform:rotate(-8deg)">SURPRISE !</span></div>
+        <svg class="star" id="st1" style="left:140px; top:420px" width="1" height="1"><use href="#etoile" /></svg>
+        <svg class="star" id="st2" style="left:950px; top:520px" width="1" height="1"><g transform="scale(1.4)"><use href="#etoile" /></g></svg>
+        <svg class="star" id="st3" style="left:170px; top:1150px" width="1" height="1"><g transform="scale(0.9)"><use href="#etoile" /></g></svg>
+        <svg class="star" id="st4" style="left:920px; top:1100px" width="1" height="1"><use href="#etoile" /></svg>
+        <div class="line" style="top:1270px"><span class="w sm" id="a2">Ce week-end,</span></div>
+        <div class="line" style="top:1360px"><span class="w big" id="a3">on vous fait plaisir.</span></div>
+      </div></div>
+
+      <!-- 2. Le pot (3,8 - 10,6) -->
+      <div class="scene" id="s2"><div class="cam" id="k2">
+        <svg class="burst" id="b0" style="left:540px; top:1300px" width="1" height="1"><g transform="scale(1.75)"><use href="#boom" /></g></svg>
+        <div class="line" style="top:150px"><span class="w sm" id="b1">Le miel au</span></div>
+        <div class="line" style="top:240px"><span class="w bd" id="b2" style="font-size:140px; transform:rotate(-4deg)">clou de girofle</span></div>
+        <div class="line" style="top:470px"><span class="w sm" id="b3" style="font-size:48px">Pur miel congolais, macéré au clou de girofle.</span></div>
+        <svg class="clove" id="c1" style="left:90px; top:760px" viewBox="0 0 60 150"><use href="#clou" /></svg>
+        <svg class="clove" id="c2" style="left:900px; top:820px" viewBox="0 0 60 150"><use href="#clou" /></svg>
+        <svg class="clove" id="c3" style="left:120px; top:1640px" viewBox="0 0 60 150"><use href="#clou" /></svg>
+        <svg class="clove" id="c4" style="left:890px; top:1600px" viewBox="0 0 60 150"><use href="#clou" /></svg>
+        <div id="potw"><div id="pot"></div><div id="shine"></div></div>
+        <svg class="star" id="st5" style="left:230px; top:930px" width="1" height="1"><g transform="scale(1.2)"><use href="#etoile" /></g></svg>
+        <svg class="star" id="st6" style="left:850px; top:1010px" width="1" height="1"><use href="#etoile" /></svg>
+      </div></div>
+
+      <!-- 3. CONCOURS ! (10,6 - 21,2) -->
+      <div class="scene" id="s3"><div class="cam" id="k3">
+        <div class="speed" id="sp1" style="left:40px; top:250px; width:230px"></div><div class="speed" id="sp2" style="left:20px; top:330px; width:170px"></div>
+        <div class="speed" id="sp3" style="left:810px; top:250px; width:230px"></div><div class="speed" id="sp4" style="left:890px; top:330px; width:170px"></div>
+        <svg class="burst" id="d00" style="left:540px; top:350px" width="1" height="1"><g transform="scale(1.7,1.0)"><use href="#boom" /></g></svg>
+        <div class="line" style="top:270px"><span class="w bd" id="d0" style="font-size:148px; transform:rotate(-6deg)">CONCOURS !</span></div>
+        <svg class="star" id="st7" style="left:110px; top:120px" width="1" height="1"><g transform="scale(1.2)"><use href="#etoile" /></g></svg>
+        <svg class="star" id="st8" style="left:980px; top:580px" width="1" height="1"><use href="#etoile" /></svg>
+        <div class="line" style="top:640px"><span class="w sm" id="d1">Gagnez un pot de miel</span></div>
+        <div class="line" style="top:715px"><span class="w sm" id="d2" style="color:#ffc21a; font-weight:900">+ une cuillère à miel</span></div>
+        <div class="ab" id="d3w" style="left:170px; top:810px; width:280px; height:408px; background:url('assets/img/pot.png') center / contain no-repeat; filter: drop-shadow(0 26px 30px rgba(0,0,0,0.5))"></div>
+        <div class="ab" id="d4" style="left:570px; top:820px; width:360px; height:360px; background:url('assets/img/cuillere_miel.png') center / contain no-repeat; filter: drop-shadow(0 26px 30px rgba(0,0,0,0.5))"></div>
+        <div class="card" id="e1" style="top:1240px"><b>1</b><span style="font-size:35px">Abonnez-vous à<br />@miel_de_la_ruche_du_terroir</span><img class="ico" id="i1" src="assets/img/bell_3d.png" /></div>
+        <div class="card" id="e2" style="top:1410px"><b>2</b><span><em>Partagez</em>&nbsp;cette vidéo</span><img class="ico" id="i2" src="assets/img/megaphone_3d.png" /></div>
+        <div class="card" id="e3" style="top:1580px"><b>3</b><span style="font-size:40px">Identifiez 5 personnes qui s'abonnent à la page</span><img class="ico" id="i3" src="assets/img/speech_balloon_3d.png" /></div>
+        <div class="line" style="top:1760px"><span class="w" id="e4" style="font-weight:900; font-size:42px; color:#ffe2b0">Du 17 au 24 octobre · <span style="color:#ffc21a">Tirage au sort le 25</span></span></div>
+        <div class="line" style="top:1836px"><span class="w" id="e5" style="font-weight:600; font-size:26px; color:#c9a77a">Concours non organisé ni sponsorisé par Instagram.</span></div>
+      </div></div>
+
+      <!-- 4. Carte de fin (21,2 - 26) -->
+      <div class="scene" id="s4"><div class="cam" id="k4">
+        <svg class="burst" id="f0" style="left:540px; top:510px" width="1" height="1"><g transform="scale(1.25)"><use href="#boom" /></g></svg>
+        <img class="ab" id="f1" src="assets/img/logo.png" style="left:315px; top:285px; width:450px; height:450px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4))" />
+        <div class="line" style="top:880px"><span class="w bd" id="f2" style="font-size:150px; transform:rotate(-4deg)">Commandez</span></div>
+        <div class="line" style="top:1050px"><span class="w sm" id="f3">sur WhatsApp</span></div>
+        <div class="pill pg" id="f4" style="left:140px; top:1170px; width:800px">+243 859 072 956</div>
+        <div class="ab" id="f5" style="left:390px; top:1370px; width:300px; height:437px; background:url('assets/img/pot.png') center / contain no-repeat; filter: drop-shadow(0 26px 30px rgba(0,0,0,0.5))"></div>
+      </div></div>
+
+      <div class="ab" id="flash"></div>
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="26" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      let seed = 16; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const SP = [];
+      for (let i = 0; i < 24; i++) {
+        const d = document.createElement("div"); d.className = "spark"; const s = 6 + rnd() * 12;
+        Object.assign(d.style, { left: rnd() * 1080 + "px", top: 300 + rnd() * 1500 + "px", width: s + "px", height: s + "px" });
+        document.getElementById("sparks").appendChild(d); SP.push(d);
+      }
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const word = (sel, at) => IN(sel, { y: -40, scale: 1.25, filter: "blur(10px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power3.out" }, at);
+      // l'explosion BD : surgit en tournant, rebondit, puis « respire »
+      const boom = (sel, at, d) => {
+        IN(sel, { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.42, ease: "back.out(2.6)" }, at);
+        FT(sel, { rotation: 0 }, { rotation: 6, duration: 0.5, yoyo: true, repeat: Math.max(1, Math.floor(d / 0.5) - 1), ease: "sine.inOut" }, at + 0.42);
+      };
+      const bd = (sel, at, r = -6) => IN(sel, { scale: 3, rotation: r - 25 }, { scale: 1, rotation: r, duration: 0.32, ease: "back.out(2.2)" }, at);
+      const star = (sel, at) => { IN(sel, { scale: 0, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(3)" }, at); FT(sel, { rotation: 0 }, { rotation: 360, duration: 3, ease: "none" }, at + 0.45); };
+      const shake = (sel, at, a = 18) => FT(sel, { x: 0, y: 0 }, { x: a, y: -a / 2, duration: 0.05, yoyo: true, repeat: 7 }, at);
+      const flash = (at, o = 0.65) => { HIDE.push("#flash"); FT("#flash", { autoAlpha: o }, { autoAlpha: 0, duration: 0.25, ease: "power2.out" }, at); };
+
+      FT("#rays", { rotation: 0 }, { rotation: 40, duration: 26, ease: "none" }, 0);
+      SP.forEach(d => FT(d, { y: 0, opacity: 0 }, { keyframes: [{ opacity: 0.9, duration: 1 }, { opacity: 0, duration: 2 }], y: -300 - rnd() * 300, duration: 3, repeat: 7, ease: "sine.out" }, rnd() * 2));
+
+      const SC = [["#s1", "#k1", 0, 3.8], ["#s2", "#k2", 3.8, 6.8], ["#s3", "#k3", 10.6, 10.6], ["#s4", "#k4", 21.2, 4.8]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        tl.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.12 }, { scale: 1.0, duration: 0.5, ease: "expo.out" }, a);
+        if (i) flash(a, 0.5);
+      });
+
+      // 1 : SURPRISE !
+      boom("#a0", 0.25, 3.4); flash(0.25, 0.7); bd("#a1", 0.3, -8); shake("#k1", 0.55, 22);
+      ["#st1", "#st2", "#st3", "#st4"].forEach((s, i) => star(s, 0.6 + i * 0.12));
+      word("#a2", 1.6); IN("#a3", { y: 80, scale: 0.6 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, 1.9);
+      // 2 : le pot jaillit devant l'explosion
+      boom("#b0", 4.0, 6.4); word("#b1", 4.1); bd("#b2", 4.3, -4);
+      IN("#potw", { y: 1100, rotation: 8 }, { y: 0, rotation: 0, duration: 0.6, ease: "back.out(1.6)" }, 4.5); shake("#k2", 5.0, 16);
+      FT("#shine", { backgroundPosition: "100% 0" }, { backgroundPosition: "-100% 0", duration: 1.1, ease: "power2.inOut" }, 5.6);
+      star("#st5", 5.2); star("#st6", 5.4);
+      ["#c1", "#c2", "#c3", "#c4"].forEach((c, i) => IN(c, { y: -1200, rotation: rnd() * 360 }, { y: 0, rotation: rnd() * 120 - 60, duration: 0.9, ease: "bounce.out" }, 5.4 + i * 0.22));
+      IN("#b3", { y: 20 }, { y: 0, duration: 0.45 }, 6.2);
+      FT("#potw", { scale: 1 }, { scale: 1.04, duration: 4.0, ease: "none", transformOrigin: "50% 100%" }, 6.0);
+      // 3 : CONCOURS ! façon BD
+      boom("#d00", 10.75, 10.2); flash(10.8, 0.7); bd("#d0", 10.85, -6); shake("#k3", 11.15, 24);
+      ["#sp1", "#sp2"].forEach((s, i) => IN(s, { scaleX: 0, transformOrigin: "100% 50%" }, { scaleX: 1, duration: 0.25 }, 11.0 + i * 0.06));
+      ["#sp3", "#sp4"].forEach((s, i) => IN(s, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.25 }, 11.0 + i * 0.06));
+      FT("#d0", { scale: 1 }, { scale: 1.07, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 11.4);
+      star("#st7", 11.3); star("#st8", 11.45);
+      word("#d1", 11.8); word("#d2", 12.1);
+      IN("#d3w", { x: -600, rotation: -10 }, { x: 0, rotation: 0, duration: 0.55, ease: "back.out(1.6)" }, 12.4);
+      IN("#d4", { x: 600, rotation: 20 }, { x: 0, rotation: 0, duration: 0.55, ease: "back.out(1.6)" }, 12.6);
+      ["#e1", "#e2", "#e3"].forEach((e, i) => IN(e, { scale: 0.2, rotation: i % 2 ? 6 : -6 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 13.6 + i * 0.9));
+      ["#i1", "#i2", "#i3"].forEach((e, i) => { IN(e, { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2.6)" }, 13.85 + i * 0.9); FT(e, { rotation: 0 }, { rotation: i === 1 ? -12 : 10, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 14.25 + i * 0.9); });
+      IN("#e4", { y: 20 }, { y: 0, duration: 0.4 }, 16.5); IN("#e5", { y: 10 }, { y: 0, duration: 0.4 }, 16.8);
+      FT("#e4", { scale: 1 }, { scale: 1.06, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, 17.2);
+      // 4 : commander
+      boom("#f0", 21.3, 4.4);
+      IN("#f1", { scale: 0.3, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 21.4);
+      bd("#f2", 21.9, -4); shake("#k4", 22.2, 14); word("#f3", 22.3);
+      IN("#f4", { y: 160 }, { y: 0, duration: 0.5, ease: "back.out(1.6)" }, 22.6);
+      FT("#f4", { scale: 1 }, { scale: 1.05, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 23.2);
+      IN("#f5", { y: 500 }, { y: 0, duration: 0.6, ease: "back.out(1.4)" }, 22.9);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.45 }, 25.55);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

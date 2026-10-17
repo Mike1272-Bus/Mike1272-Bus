@@ -1,0 +1,13 @@
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+import path from 'path';
+const dir = path.dirname(new URL(import.meta.url).pathname);
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+let p = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+await p.goto('file://' + path.join(dir, 'demo/index.html')); await p.waitForTimeout(500);
+await p.screenshot({ path: path.join(dir, 'img/demo_mobile_haut.png') });
+await p.evaluate(() => window.scrollTo(0, 560)); await p.waitForTimeout(200);
+await p.screenshot({ path: path.join(dir, 'img/demo_mobile_produits.png') });
+p = await b.newPage({ viewport: { width: 1280, height: 800 } });
+await p.goto('file://' + path.join(dir, 'demo/index.html')); await p.waitForTimeout(500);
+await p.screenshot({ path: path.join(dir, 'img/demo_ordinateur.png') });
+await b.close();

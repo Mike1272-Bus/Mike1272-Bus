@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>Feuille de route DigitalMikaelson</title>
+<style>
+  @font-face { font-family: 'Baloo'; font-weight: 800; src: url('Baloo2-ExtraBold.ttf'); }
+  @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('worksans-400.ttf'); }
+  @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('worksans-700.ttf'); }
+  @page { size: 148mm 210mm; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Work Sans', sans-serif; color: #1b1f5e; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 148mm; height: 210mm; padding: 14mm 12mm 12mm; position: relative; overflow: hidden; page-break-after: always; background: #fbf8f2; }
+  .page:last-child { page-break-after: auto; }
+  h1, h2, .h { font-family: 'Baloo', sans-serif; font-weight: 800; line-height: 1.05; }
+  h2 { font-size: 23pt; margin-bottom: 3mm; }
+  p { font-size: 10.5pt; line-height: 1.5; margin-bottom: 3mm; }
+  a { text-decoration: none; color: inherit; }
+  .tag { display: inline-block; font-weight: 700; font-size: 8.5pt; letter-spacing: 1.5pt; text-transform: uppercase; color: #e8553d; margin-bottom: 2mm; }
+  .btn { display: block; border-radius: 4mm; padding: 4mm 5mm; font-weight: 700; font-size: 11pt; margin-top: 3mm; }
+  .btn small { display: block; font-weight: 400; font-size: 8.5pt; opacity: .85; margin-top: .6mm; }
+  .btn.y { background: #f5c518; color: #1b1f5e; }
+  .btn.n { background: #1b1f5e; color: #fff; }
+  .btn.g { background: #1f9d55; color: #fff; }
+  .back { position: absolute; left: 12mm; bottom: 8mm; font-size: 8.5pt; font-weight: 700; color: #6b6f9a; }
+  .num { position: absolute; right: 12mm; bottom: 8mm; font-size: 8.5pt; color: #6b6f9a; }
+
+  /* couverture */
+  .cover { background: #1b1f5e; color: #fff; }
+  .cover h1 { font-size: 34pt; margin: 6mm 0 4mm; }
+  .cover h1 span { color: #f5c518; }
+  .cover p { font-size: 11.5pt; color: #dfe1ff; }
+  .cover .stage { font-family: 'Baloo'; font-size: 120pt; color: #f5c518; line-height: .8; margin-top: 18mm; }
+  .cover .btn { position: absolute; left: 12mm; right: 12mm; bottom: 22mm; text-align: center; font-size: 13pt; }
+  .cover .brand { position: absolute; left: 12mm; bottom: 10mm; font-size: 8.5pt; color: #aab0e6; }
+
+  /* sommaire */
+  .toc a { display: flex; align-items: center; gap: 4mm; background: #fff; border: .4mm solid #e4e1f0; border-radius: 4mm; padding: 4mm; margin-bottom: 3.5mm; }
+  .toc .n { flex: 0 0 13mm; height: 13mm; border-radius: 50%; background: #f5c518; font-family: 'Baloo'; font-size: 20pt; text-align: center; line-height: 14mm; }
+  .toc b { display: block; font-size: 11.5pt; }
+  .toc span { font-size: 9pt; color: #55526a; }
+  .toc i { margin-left: auto; font-style: normal; font-weight: 700; color: #e8553d; font-size: 9pt; white-space: nowrap; }
+  .legend { margin-top: 5mm; font-size: 9pt; color: #55526a; }
+
+  /* carte vidéo */
+  .video { display: block; position: relative; border-radius: 4mm; overflow: hidden; margin: 2mm 0 3mm; box-shadow: 0 2mm 5mm rgba(27,31,94,.25); }
+  .video img { display: block; width: 100%; height: 69mm; object-fit: cover; }
+  .video .play { position: absolute; left: 50%; top: 50%; width: 18mm; height: 18mm; margin: -9mm 0 0 -9mm; border-radius: 50%; background: #e8553d; border: 1.2mm solid #fff; }
+  .video .play:after { content: ""; position: absolute; left: 6.6mm; top: 4.6mm; border-left: 6.5mm solid #fff; border-top: 4.2mm solid transparent; border-bottom: 4.2mm solid transparent; }
+  .video .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 2.5mm 4mm; background: rgba(27,31,94,.88); color: #fff; font-weight: 700; font-size: 9.5pt; }
+  .todo { background: #fff; border: .4mm solid #e4e1f0; border-radius: 4mm; padding: 3.5mm 4mm; }
+  .todo div { font-size: 10pt; padding: 1.2mm 0 1.2mm 7mm; position: relative; }
+  .todo div:before { content: ""; position: absolute; left: 0; top: 1.6mm; width: 4mm; height: 4mm; border: .5mm solid #1b1f5e; border-radius: 1mm; }
+  .row { display: flex; gap: 3mm; }
+  .row .btn { flex: 1; }
+
+  /* fin */
+  .end { background: #1b1f5e; color: #fff; }
+  .end h2 { color: #fff; font-size: 26pt; }
+  .end h2 span { color: #f5c518; }
+  .end p { color: #dfe1ff; }
+  .end .ebook { display: block; width: 46mm; margin: 4mm auto 2mm; filter: drop-shadow(0 3mm 4mm rgba(0,0,0,.4)); }
+  .end .back, .end .num { color: #aab0e6; }
+</style></head>
+<body>
+
+<!-- 1. Couverture : le bouton envoie au sommaire (lien interne) -->
+<section class="page cover" id="couverture">
+  <div class="tag" style="color:#f5c518">Feuille de route</div>
+  <div class="stage">0</div>
+  <h1>Trouve la compétence <span>que tu vas vendre</span></h1>
+  <p>Une vidéo courte et un exercice par étape. Touche les boutons pour regarder les vidéos et me poser tes questions.</p>
+  <a class="btn y" href="#sommaire">Commencer ▸</a>
+  <div class="brand">DigitalMikaelson · Pas de blabla, juste ce qu'il faut faire, concrètement.</div>
+</section>
+
+<!-- 2. Sommaire : chaque ligne renvoie à sa page -->
+<section class="page" id="sommaire">
+  <div class="tag">Sommaire</div>
+  <h2>Les 3 étapes</h2>
+  <div class="toc">
+    <a href="#etape1"><div class="n">1</div><div><b>Liste ce que tu sais déjà faire</b><span>Vidéo + exercice</span></div><i>Aller ▸</i></a>
+    <a href="#etape2"><div class="n">2</div><div><b>Choisis une seule personne à aider</b><span>Vidéo + exercice</span></div><i>Aller ▸</i></a>
+    <a href="#fin"><div class="n">3</div><div><b>Passe à l'action</b><span>Les ressources pour aller plus loin</span></div><i>Aller ▸</i></a>
+  </div>
+  <p class="legend">▶ Les images avec un bouton rouge ouvrent une vidéo. Les boutons verts ouvrent WhatsApp.</p>
+  <span class="num">2</span>
+</section>
+
+<!-- 3. Étape 1 : vidéo, exercice, boutons -->
+<section class="page" id="etape1">
+  <div class="tag">Étape 1</div>
+  <h2>Liste ce que tu sais déjà faire</h2>
+  <a class="video" href="{{VIDEO_1}}"><img src="miniature_video1.jpg" alt=""><div class="play"></div><div class="cap">▶ Regarder la vidéo de l'étape 1</div></a>
+  <div class="todo">
+    <div>Note 10 choses que tu sais faire, même petites</div>
+    <div>Entoure celles pour lesquelles on te demande déjà conseil</div>
+    <div>Garde-en une seule pour la suite</div>
+  </div>
+  <div class="row">
+    <a class="btn g" href="{{WHATSAPP}}">Une question ?<small>Écris-moi sur WhatsApp</small></a>
+    <a class="btn n" href="{{COMMUNAUTE}}">La communauté<small>Partage ta liste</small></a>
+  </div>
+  <a class="back" href="#sommaire">◂ Sommaire</a><span class="num">3</span>
+</section>
+
+<!-- 4. Étape 2 -->
+<section class="page" id="etape2">
+  <div class="tag">Étape 2</div>
+  <h2>Choisis une seule personne à aider</h2>
+  <a class="video" href="{{VIDEO_2}}"><img src="miniature_video1.jpg" alt=""><div class="play"></div><div class="cap">▶ Regarder la vidéo de l'étape 2</div></a>
+  <div class="todo">
+    <div>Décris cette personne : son âge, ce qu'elle fait, ce qui la bloque</div>
+    <div>Écris en une phrase ce que tu l'aides à obtenir</div>
+    <div>Envoie cette phrase à 3 personnes de ton entourage</div>
+  </div>
+  <div class="row">
+    <a class="btn g" href="{{WHATSAPP}}">Une question ?<small>Écris-moi sur WhatsApp</small></a>
+    <a class="btn n" href="{{COMMUNAUTE}}">La communauté<small>Partage ta phrase</small></a>
+  </div>
+  <a class="back" href="#sommaire">◂ Sommaire</a><span class="num">4</span>
+</section>
+
+<!-- 5. Fin : l'offre payante -->
+<section class="page end" id="fin">
+  <div class="tag" style="color:#f5c518">Étape 3</div>
+  <h2>Passe à <span>l'action</span></h2>
+  <p>Tu as ta compétence et ta personne. Le guide complet te montre comment en faire un produit et trouver tes premiers clients.</p>
+  <a href="{{CHARIOW}}"><img class="ebook" src="ebook.png" alt="Gagne ta vie sans diplôme"></a>
+  <a class="btn y" href="{{CHARIOW}}">Je veux le guide complet<small>« Gagne ta vie sans diplôme »</small></a>
+  <a class="btn g" href="{{WHATSAPP}}">Je préfère en parler avec Mike<small>WhatsApp, je t'accompagne</small></a>
+  <a class="back" href="#sommaire">◂ Sommaire</a><span class="num">5</span>
+</section>
+</body></html>

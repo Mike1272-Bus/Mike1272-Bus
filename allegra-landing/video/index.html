@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1080px; overflow: hidden; background: #071434; }
+      #root { position: relative; width: 1080px; height: 1080px; overflow: hidden; color: #fff; font-family: 'Bricolage', sans-serif;
+        background: radial-gradient(circle at 30% 20%, #2a5bc4 0%, #123077 45%, #071434 100%); }
+      .ab { position: absolute; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .mid { font-weight: 800; font-size: 72px; line-height: 1.06; letter-spacing: -0.015em; }
+      .mid span { display: inline-block; }
+      .y { color: #ffd60a; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 24px; letter-spacing: 0.3em; text-transform: uppercase; color: #9fb8f0; }
+      #grid { left: 0; top: 0; width: 1080px; height: 1080px; opacity: 0.16;
+        background-image: linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px);
+        background-size: 60px 60px; }
+      #orb { left: 640px; top: 620px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(255,214,10,0.26) 0%, rgba(255,214,10,0) 65%); }
+      .phone { position: absolute; width: 360px; height: 640px; border-radius: 52px; background: #0b1e4a; border: 10px solid #e9eefc; box-shadow: 14px 16px 0 #ffd60a; overflow: hidden; }
+      .feed { position: absolute; left: 20px; top: 0; width: 300px; }
+      .post { width: 300px; height: 300px; border-radius: 26px; margin-top: 22px; background-size: cover; background-position: center; }
+      .tag { font-family: 'Work Sans'; font-weight: 700; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; padding: 8px 18px; border-radius: 999px; background: #ffd60a; color: #0b1e4a; display: inline-block; }
+      .prod { position: absolute; width: 320px; height: 320px; border-radius: 34px; overflow: hidden; }
+      .prod .ph { position: absolute; left: -10%; top: -10%; width: 120%; height: 120%; background-size: cover; background-position: center; }
+      .prod.still .ph { filter: grayscale(0.85) brightness(0.7); }
+      .prod.live { box-shadow: 12px 14px 0 #ffd60a, 0 0 90px rgba(255,214,10,.45); border: 5px solid #fff; }
+      .prod .band { position: absolute; left: 0; bottom: 0; width: 100%; padding: 16px 20px; background: linear-gradient(transparent, rgba(7,20,52,.92)); font-weight: 800; font-size: 30px; }
+      .spark { position: absolute; width: 26px; height: 26px; background: #fff; clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
+      .play { position: absolute; right: 16px; top: 16px; width: 60px; height: 60px; border-radius: 50%; background: #ffd60a; display: flex; align-items: center; justify-content: center; }
+      .step { position: absolute; left: 110px; width: 860px; height: 170px; border-radius: 34px; display: flex; align-items: center; gap: 30px; padding: 0 34px;
+        background: linear-gradient(145deg, rgba(255,255,255,0.22), rgba(255,255,255,0.05)); border: 2px solid rgba(255,255,255,0.4); }
+      .step .n { flex: none; width: 92px; height: 92px; border-radius: 50%; background: #ffd60a; color: #0b1e4a; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 50px; }
+      .step .t { font-weight: 800; font-size: 44px; line-height: 1.05; }
+      .step .s { font-family: 'Work Sans'; font-size: 25px; color: #cfdcff; margin-top: 6px; }
+      .step .th { margin-left: auto; flex: none; width: 120px; height: 120px; border-radius: 22px; background-size: cover; background-position: center; border: 3px solid #fff; }
+      .bubble { position: absolute; font-family: 'Work Sans'; font-size: 24px; padding: 18px 24px; border-radius: 26px 26px 26px 8px; background: #fff; color: #0b1e4a; box-shadow: 6px 8px 0 rgba(0,0,0,.2); white-space: nowrap; }
+      .chathead { position: absolute; left: 0; top: 0; width: 100%; height: 86px; background: #075e54; display: flex; align-items: center; gap: 14px; padding: 0 22px; font-family: 'Work Sans'; font-weight: 700; font-size: 24px; }
+      .chathead i { width: 46px; height: 46px; border-radius: 50%; background-size: cover; background-position: center; display: block; }
+      #logo { left: 0; width: 1080px; display: flex; align-items: center; justify-content: center; gap: 28px; }
+      #logo .wm { font-weight: 800; font-size: 76px; line-height: 0.95; text-transform: uppercase; text-shadow: 5px 6px 0 #ffd60a; }
+      #btn { left: 170px; top: 640px; width: 740px; height: 130px; border-radius: 65px; background: #ffd60a; color: #0b1e4a;
+        display: flex; align-items: center; justify-content: center; gap: 22px; font-weight: 800; font-size: 56px; box-shadow: 10px 12px 0 #000; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="25" data-width="1080" data-height="1080">
+      <div id="grid" class="ab"></div>
+      <div id="orb" class="ab"></div>
+
+      <!-- S1 : le fil qui défile -->
+      <div id="s1" class="clip ab" data-start="0" data-duration="4.2" data-track-index="0" style="left:0;top:0;width:1080px;height:1080px">
+        <div class="ab eyebrow" style="left:80px;top:270px" id="s1e">Vous postez vos produits…</div>
+        <div class="ab mid" style="left:80px;top:330px;width:540px" id="s1t"><span>…mais</span> <span>personne</span><br /><span>ne</span> <span class="y">s'arrête.</span></div>
+        <div class="phone" id="ph1" style="left:640px;top:220px">
+          <div class="feed" id="feed">
+            <div class="post" style="background-image:url('assets/img/f1.jpg')"></div>
+            <div class="post" style="background-image:url('assets/img/f2.jpg')"></div>
+            <div class="post" style="background-image:url('assets/img/f3.jpg')"></div>
+            <div class="post" style="background-image:url('assets/img/f4.jpg')"></div>
+            <div class="post" style="background-image:url('assets/img/f5.jpg')"></div>
+            <div class="post" style="background-image:url('assets/img/f6.jpg')"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S2 : avant / après -->
+      <div id="s2" class="clip ab" data-start="4.2" data-duration="5.4" data-track-index="1" style="left:0;top:0;width:1080px;height:1080px">
+        <div class="ab center mid" style="top:110px;font-size:66px" id="s2t">Une photo figée <span class="y">passe.</span><br /><span>Une vidéo animée</span> <span class="y">arrête.</span></div>
+        <div class="prod still" id="pStill" style="left:140px;top:450px"><div class="ph" style="background-image:url('assets/img/hero.jpg')"></div></div>
+        <svg class="ab" id="arrow" style="left:490px;top:570px" width="100" height="80" viewBox="0 0 100 80" fill="none" stroke="#ffd60a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40h76M58 14l26 26-26 26"/></svg>
+        <div class="prod live" id="pLive" style="left:620px;top:450px">
+          <div class="ph" id="kb" style="background-image:url('assets/img/hero.jpg')"></div>
+          <div class="band" id="band">Commandez sur <span class="y">WhatsApp</span></div>
+          <div class="spark" id="sp1" style="left:30px;top:30px"></div>
+          <div class="spark" id="sp2" style="left:250px;top:110px"></div>
+          <div class="spark" id="sp3" style="left:70px;top:190px"></div>
+          <div class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#0b1e4a"><path d="M7 4l13 8-13 8z"/></svg></div>
+        </div>
+        <div class="ab tag" id="lab1" style="left:215px;top:810px;background:#3c4f7a;color:#cfdcff">Avant</div>
+        <div class="ab tag" id="lab2" style="left:650px;top:810px">Avec Allegra</div>
+      </div>
+
+      <!-- S3 : les 3 étapes -->
+      <div id="s3" class="clip ab" data-start="9.6" data-duration="8" data-track-index="2" style="left:0;top:0;width:1080px;height:1080px">
+        <div class="ab center eyebrow" style="top:110px" id="s3e">Comment ça marche</div>
+        <div class="ab center mid" style="top:160px;font-size:62px" id="s3t">Trois étapes, <span class="y">tout sur WhatsApp.</span></div>
+        <div class="step" id="st1" style="top:370px"><div class="n">1</div><div><div class="t">Vous envoyez vos photos</div><div class="s">Vos produits, vos packs, votre logo.</div></div><div class="th" style="background-image:url('assets/img/f2.jpg')"></div></div>
+        <div class="step" id="st2" style="top:570px"><div class="n">2</div><div><div class="t">On crée la vidéo</div><div class="s">Avec le texte, à vos couleurs.</div></div><div class="th" style="background-image:url('assets/img/hero.jpg');border-color:#ffd60a"></div></div>
+        <div class="step" id="st3" style="top:770px"><div class="n">3</div><div><div class="t">Vous postez</div><div class="s">Statuts, Reels, page Facebook.</div></div><div class="th" style="background-image:url('assets/img/f4.jpg')"></div></div>
+      </div>
+
+      <!-- S4 : l'objectif -->
+      <div id="s4" class="clip ab" data-start="17.6" data-duration="3.8" data-track-index="3" style="left:0;top:0;width:1080px;height:1080px">
+        <div class="ab mid" style="left:80px;top:300px;width:540px" id="s4t">L'objectif :<br /><span class="y">que vos clients</span><br /><span class="y">vous écrivent.</span></div>
+        <div class="phone" style="left:640px;top:220px;background:#e5ddd5" id="ph2">
+          <div class="chathead"><i style="background-image:url('assets/img/hero.jpg')"></i>Votre boutique</div>
+          <div class="bubble" id="b1" style="left:22px;top:130px">Bonjour, c'est dispo ?</div>
+          <div class="bubble" id="b2" style="left:22px;top:230px">Vous livrez à Gombe ?</div>
+          <div class="bubble" id="b3" style="left:22px;top:330px">Je veux commander 🙌</div>
+        </div>
+      </div>
+
+      <!-- S5 : l'appel -->
+      <div id="s5" class="clip ab" data-start="21.4" data-duration="3.6" data-track-index="4" style="left:0;top:0;width:1080px;height:1080px">
+        <div id="logo" class="ab" style="top:230px">
+          <svg width="120" height="136" viewBox="0 0 60 68" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" style="filter: drop-shadow(5px 6px 0 #ffd60a)"><path d="M20 20v-6a10 10 0 0 1 20 0v6"/><path d="M6 20h48l-4 44H10z"/><circle cx="21" cy="35" r="4" fill="#fff" stroke="none"/><path d="M15 55l11-10 7 6 13-14"/><path d="M38 37h8v8"/></svg>
+          <div class="wm">Allegra<br />Digital</div>
+        </div>
+        <div class="ab center mid" style="top:470px;font-size:58px" id="s5t">Parlons de <span class="y">votre marque.</span></div>
+        <div id="btn" class="ab">
+          <svg width="58" height="58" viewBox="0 0 24 24" fill="#0b1e4a"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.900-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
+          <span>+243 831 710 181</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const E = "power3.out";
+      tl.fromTo("#orb", { x: 0, y: 0, scale: 0.9 }, { x: -520, y: -460, scale: 1.25, duration: 25, ease: "sine.inOut" }, 0);
+      tl.fromTo("#grid", { backgroundPosition: "0px 0px" }, { backgroundPosition: "0px 360px", duration: 25, ease: "none" }, 0);
+
+      // S1
+      tl.from("#ph1", { x: 300, opacity: 0, duration: 0.6, ease: E }, 0.1);
+      tl.from("#s1e", { opacity: 0, y: 20, duration: 0.5, ease: E }, 0.3);
+      tl.fromTo("#feed", { y: 0 }, { y: -1300, duration: 3.4, ease: "power1.in" }, 0.6);
+      tl.from("#s1t span", { opacity: 0, y: 60, duration: 0.55, ease: "back.out(1.6)", stagger: 0.12 }, 1.2);
+      tl.to("#s1", { opacity: 0, duration: 0.3 }, 3.9);
+
+      // S2
+      tl.from("#s2t", { opacity: 0, y: 40, duration: 0.5, ease: E }, 4.3);
+      tl.from("#pStill", { opacity: 0, y: 60, duration: 0.5, ease: E }, 4.7);
+      tl.from("#lab1", { opacity: 0, y: 20, duration: 0.4, ease: E }, 5.0);
+      tl.fromTo("#arrow", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: E }, 5.5);
+      tl.from("#pLive", { opacity: 0, scale: 0.4, rotation: -8, duration: 0.7, ease: "back.out(1.7)" }, 5.9);
+      tl.fromTo("#kb", { scale: 1, x: 0 }, { scale: 1.18, x: -18, duration: 3.4, ease: "sine.inOut" }, 5.9);
+      tl.from("#band", { y: 80, duration: 0.5, ease: E }, 6.6);
+      tl.from("#lab2", { opacity: 0, y: 20, duration: 0.4, ease: E }, 6.4);
+      tl.fromTo(["#sp1", "#sp2", "#sp3"], { scale: 0, rotation: 0 }, { scale: 1.3, rotation: 90, duration: 0.5, yoyo: true, repeat: 3, stagger: 0.18, ease: "sine.inOut" }, 6.6);
+      tl.to("#pStill", { opacity: 0.5, scale: 0.92, duration: 0.5 }, 6.6);
+      tl.to("#s2", { opacity: 0, duration: 0.3 }, 9.3);
+
+      // S3
+      tl.from("#s3e", { opacity: 0, y: 20, duration: 0.4, ease: E }, 9.7);
+      tl.from("#s3t", { opacity: 0, y: 40, duration: 0.5, ease: E }, 9.85);
+      tl.from("#st1", { opacity: 0, x: -200, duration: 0.6, ease: E }, 10.6);
+      tl.from("#st2", { opacity: 0, x: -200, duration: 0.6, ease: E }, 12.4);
+      tl.from("#st3", { opacity: 0, x: -200, duration: 0.6, ease: E }, 14.2);
+      tl.to("#st1 .n", { scale: 1.15, duration: 0.25, yoyo: true, repeat: 1 }, 11.1);
+      tl.to("#st2 .n", { scale: 1.15, duration: 0.25, yoyo: true, repeat: 1 }, 12.9);
+      tl.to("#st3 .n", { scale: 1.15, duration: 0.25, yoyo: true, repeat: 1 }, 14.7);
+      tl.to("#s3", { opacity: 0, duration: 0.3 }, 17.3);
+
+      // S4
+      tl.from("#ph2", { x: 300, opacity: 0, duration: 0.6, ease: E }, 17.7);
+      tl.from("#s4t", { opacity: 0, y: 40, duration: 0.5, ease: E }, 17.9);
+      tl.from(["#b1", "#b2", "#b3"], { opacity: 0, scale: 0.6, y: 30, transformOrigin: "left bottom", duration: 0.45, ease: "back.out(2)", stagger: 0.6 }, 18.6);
+      tl.to("#s4", { opacity: 0, duration: 0.3 }, 21.1);
+
+      // S5
+      tl.from("#logo", { opacity: 0, scale: 0.7, duration: 0.6, ease: E }, 21.5);
+      tl.from("#s5t", { opacity: 0, y: 30, duration: 0.5, ease: E }, 21.9);
+      tl.from("#btn", { opacity: 0, scale: 0.5, duration: 0.55, ease: "back.out(1.8)" }, 22.3);
+      tl.to("#btn", { scale: 1.05, duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, 23.1);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

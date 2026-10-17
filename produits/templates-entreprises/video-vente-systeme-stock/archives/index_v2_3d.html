@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); font-weight: 800; }
+      :root { --ink: #17181d; --ink2: #454854; --hot: #e2360c; --hot2: #e8380e; --sand: #e9dfd1; --bg: #f6f3ee; --wa: #16a34a; --blue: #2342ff; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; background: var(--bg); }
+      .ab { position: absolute; }
+      .sc { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .w { display: inline-block; }
+
+      /* fond : papier clair, quadrillage léger, grande diagonale sable */
+      #bg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; background-color: var(--bg); background-image: linear-gradient(rgba(23,24,29,0.035) 2px, transparent 2px), linear-gradient(90deg, rgba(23,24,29,0.035) 2px, transparent 2px); background-size: 60px 60px; }
+      #band1 { left: 300px; top: -400px; width: 300px; height: 2800px; background: var(--sand); transform: rotate(24deg); opacity: 0.85; }
+      #band2 { left: -380px; top: -400px; width: 190px; height: 2800px; background: var(--sand); transform: rotate(24deg); opacity: 0.6; }
+
+      /* textes */
+      .line { position: absolute; left: 60px; width: 960px; text-align: center; font-size: 56px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+      .big { position: absolute; left: 30px; width: 1020px; text-align: center; font-family: 'Bricolage', 'Poppins', sans-serif; font-weight: 800; font-size: 108px; line-height: 1.02; color: var(--hot); letter-spacing: -0.02em;
+        text-shadow: 4px 0 0 #fff, -4px 0 0 #fff, 0 4px 0 #fff, 0 -4px 0 #fff, 3px 3px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff, 0 14px 30px rgba(232,56,14,0.28); }
+      .sub { position: absolute; left: 90px; width: 900px; text-align: center; font-size: 44px; font-weight: 600; color: var(--ink2); line-height: 1.3; }
+      .i3d { position: absolute; filter: drop-shadow(0 26px 30px rgba(23,24,29,0.22)); }
+      .card { position: absolute; background: #fff; border-radius: 44px; box-shadow: 0 30px 70px rgba(23,24,29,0.12), 0 4px 12px rgba(23,24,29,0.06); }
+      .hotpill { position: absolute; border-radius: 70px; background: linear-gradient(180deg, #ff5a2b 0%, #e8380e 100%); color: #fff; font-weight: 700; text-align: center; box-shadow: 0 16px 40px rgba(232,56,14,0.35); }
+      .lab { position: absolute; left: 0; width: 100%; text-align: center; font-size: 40px; font-weight: 700; color: var(--ink); }
+      .arrow { position: absolute; width: 90px; height: 40px; }
+
+      /* bandeau du bas, sur toute la vidéo */
+      #foot { left: 150px; top: 1740px; width: 780px; height: 92px; line-height: 92px; font-size: 34px; }
+
+      /* notification WhatsApp */
+      .notif { position: absolute; left: 70px; width: 940px; padding: 36px 44px 42px; border-radius: 48px; background: #fff; box-shadow: 0 30px 70px rgba(23,24,29,0.16); }
+      .nh { display: flex; align-items: center; gap: 20px; margin-bottom: 16px; }
+      .nico { width: 72px; height: 72px; border-radius: 20px; background: linear-gradient(180deg, #2ad06a 0%, #16a34a 100%); flex: none; }
+      .nico svg { width: 72px; height: 72px; }
+      .napp { font-size: 29px; font-weight: 700; color: var(--ink2); }
+      .ntime { margin-left: auto; font-size: 27px; color: #7a7d89; }
+      .nbody { font-size: 39px; line-height: 1.36; color: var(--ink); }
+      .nbody b { font-weight: 700; }
+      .tag { color: var(--hot2); font-weight: 700; }
+
+      /* S2 grille */
+      .tile { position: absolute; width: 420px; height: 400px; }
+      .tile .card { left: 0; top: 0; width: 420px; height: 400px; }
+      .tile img { position: absolute; left: 100px; top: 40px; width: 220px; height: 220px; filter: drop-shadow(0 18px 22px rgba(23,24,29,0.2)); }
+      .tile .lab { top: 290px; font-size: 38px; }
+      #g1 { left: 100px; top: 720px; } #g2 { left: 560px; top: 720px; } #g3 { left: 100px; top: 1160px; } #g4 { left: 560px; top: 1160px; }
+
+      /* S5 cartes bilan */
+      .bcard { position: absolute; left: 90px; top: 1130px; width: 900px; padding: 44px 56px 36px; }
+      .bt { font-size: 44px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+      .bl { display: flex; justify-content: space-between; gap: 30px; padding: 14px 0; border-bottom: 2px solid #eee8df; font-size: 38px; color: var(--ink2); }
+      .bl:last-child { border-bottom: none; }
+      .bl span:last-child { font-weight: 700; color: var(--ink); text-align: right; }
+      .bl.hot span:last-child { color: var(--hot2); }
+      .ex { position: absolute; left: 0; top: 1650px; width: 1080px; text-align: center; font-size: 28px; color: #5e616d; }
+
+      /* S7 tuiles */
+      .k { position: absolute; width: 440px; height: 360px; }
+      .k .card { left: 0; top: 0; width: 440px; height: 360px; }
+      .k img { position: absolute; left: 120px; top: 34px; width: 200px; height: 200px; filter: drop-shadow(0 18px 22px rgba(23,24,29,0.2)); }
+      .k .lab { top: 252px; font-size: 38px; line-height: 1.1; padding: 0 20px; }
+      #k1 { left: 80px; top: 720px; } #k2 { left: 560px; top: 720px; } #k3 { left: 80px; top: 1110px; } #k4 { left: 560px; top: 1110px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="79.5" data-width="1080" data-height="1920">
+
+      <!-- fond commun -->
+      <div id="bgc" class="clip sc" data-start="0" data-duration="79.5" data-track-index="0">
+        <div id="bg"><div id="band1" class="ab"></div><div id="band2" class="ab"></div></div>
+      </div>
+
+      <!-- S1 : accroche (0 - 5.5) -->
+      <div id="s1" class="clip sc" data-start="0" data-duration="5.5" data-track-index="1">
+        <div id="s1w" class="sc">
+          <div id="s1l" class="line" style="top: 300px;">Cahier ou Excel…</div>
+          <div id="s1b" class="big" style="top: 380px;">qui fait tout à la main ?</div>
+          <img id="s1nb" class="i3d" src="assets/3d/notebook.png" style="left: 70px; top: 760px; width: 420px; height: 420px;" />
+          <div id="xl" class="card" style="left: 540px; top: 800px; width: 460px; height: 360px; overflow: hidden;">
+            <div class="ab" style="left: 0; top: 0; width: 460px; height: 80px; background: #1e8e3e; color: #fff; font-size: 34px; font-weight: 700; line-height: 80px; padding-left: 30px;">Excel</div>
+            <svg class="ab" style="left: 0; top: 80px;" width="460" height="280" viewBox="0 0 460 280"><g stroke="#d9dfe8" stroke-width="2"><line x1="0" y1="56" x2="460" y2="56" /><line x1="0" y1="112" x2="460" y2="112" /><line x1="0" y1="168" x2="460" y2="168" /><line x1="0" y1="224" x2="460" y2="224" /><line x1="115" y1="0" x2="115" y2="280" /><line x1="230" y1="0" x2="230" y2="280" /><line x1="345" y1="0" x2="345" y2="280" /></g><rect id="xlc" x="231" y="113" width="114" height="55" fill="none" stroke="#1e8e3e" stroke-width="5" /></svg>
+            <div id="xlt" class="ab" style="left: 246px; top: 207px; font-size: 30px; font-weight: 700; color: #17181d;">12 ?</div>
+          </div>
+          <img id="s1pen" class="i3d" src="assets/3d/pencil.png" style="left: 360px; top: 640px; width: 240px; height: 240px;" />
+          <img id="s1q" class="i3d" src="assets/3d/red_question_mark.png" style="left: 860px; top: 630px; width: 180px; height: 180px;" />
+          <div id="s1s" class="sub" style="top: 1300px;">On note, on recopie, on recompte…</div>
+        </div>
+      </div>
+
+      <!-- S2 : le problème, tout est manuel (5.5 - 22.5) -->
+      <div id="s2" class="clip sc" data-start="5.5" data-duration="17" data-track-index="1">
+        <div id="s2w" class="sc">
+          <div id="s2l" class="line" style="top: 300px;">Tout se fait à la main :</div>
+          <div id="s2b1" class="big" style="top: 380px;">noter chaque vente</div>
+          <div id="s2b2" class="big" style="top: 380px;">recompter le stock</div>
+          <div id="s2b3" class="big" style="top: 380px;">refaire les calculs</div>
+          <div id="s2b4" class="big" style="top: 380px;">appeler trop tard</div>
+          <div id="s2b5" class="big" style="top: 380px;">même avec Excel</div>
+          <div id="s2b6" class="big" style="top: 380px;">du temps perdu</div>
+          <div id="grid" class="sc">
+            <div class="tile" id="g1"><div class="card"></div><img src="assets/3d/memo.png" /><div class="lab">Noter</div></div>
+            <div class="tile" id="g2"><div class="card"></div><img src="assets/3d/package.png" /><div class="lab">Recompter</div></div>
+            <div class="tile" id="g3"><div class="card"></div><img src="assets/3d/receipt.png" /><div class="lab">Recalculer</div></div>
+            <div class="tile" id="g4"><div class="card"></div><img src="assets/3d/telephone_receiver.png" /><div class="lab">Appeler</div></div>
+          </div>
+          <img id="m1" class="i3d" src="assets/3d/pencil.png" style="left: 400px; top: 730px; width: 120px; height: 120px;" />
+          <img id="m2" class="i3d" src="assets/3d/magnifying_glass_tilted_left.png" style="left: 860px; top: 730px; width: 120px; height: 120px;" />
+          <img id="m3" class="i3d" src="assets/3d/red_question_mark.png" style="left: 400px; top: 1170px; width: 120px; height: 120px;" />
+          <img id="m4" class="i3d" src="assets/3d/alarm_clock.png" style="left: 860px; top: 1170px; width: 120px; height: 120px;" />
+          <img id="hg" class="i3d" src="assets/3d/hourglass_not_done.png" style="left: 390px; top: 900px; width: 300px; height: 300px;" />
+          <img id="e1" class="i3d" src="assets/3d/cross_mark.png" style="left: 130px; top: 760px; width: 110px; height: 110px;" />
+          <img id="e2" class="i3d" src="assets/3d/cross_mark.png" style="left: 850px; top: 1430px; width: 110px; height: 110px;" />
+          <div id="s2s" class="sub" style="top: 1590px; color: #e2360c;">et des erreurs qui coûtent cher</div>
+        </div>
+      </div>
+
+      <!-- S3 : la solution (21.5 - 32.5) -->
+      <div id="s3" class="clip sc" data-start="22.5" data-duration="11" data-track-index="1">
+        <div id="s3w" class="sc">
+          <div id="s3l" class="line" style="top: 300px;">Avec Allegra Digital Ground,</div>
+          <div id="s3b" class="big" style="top: 380px;">tout se fait automatiquement</div>
+          <img id="f1" class="i3d" src="assets/3d/mobile_phone.png" style="left: 60px; top: 860px; width: 250px; height: 250px;" />
+          <img id="f2" class="i3d" src="assets/3d/clipboard.png" style="left: 415px; top: 860px; width: 250px; height: 250px;" />
+          <img id="f3" class="i3d" src="assets/3d/bell.png" style="left: 770px; top: 860px; width: 250px; height: 250px;" />
+          <svg id="a1" class="arrow" style="left: 315px; top: 965px;" viewBox="0 0 90 40"><path d="M4 20h70M58 6l16 14-16 14" fill="none" stroke="#ff4a1c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <svg id="a2" class="arrow" style="left: 670px; top: 965px;" viewBox="0 0 90 40"><path d="M4 20h70M58 6l16 14-16 14" fill="none" stroke="#ff4a1c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <div id="fl1" class="lab" style="left: 0; top: 1130px; width: 370px;">la vente</div>
+          <div id="fl2" class="lab" style="left: 355px; top: 1130px; width: 370px;">le tableau</div>
+          <div id="fl3" class="lab" style="left: 710px; top: 1130px; width: 370px;">l'alerte</div>
+          <div id="s3p" class="hotpill" style="left: 90px; top: 1340px; width: 900px; height: 110px; line-height: 110px; font-size: 40px;">en quelques secondes, sur téléphone</div>
+          <div id="s3s" class="sub" style="top: 1500px;">Le vendeur enregistre la vente. Le reste se fait sans lui.</div>
+        </div>
+      </div>
+
+      <!-- S4 : la transformation (32.5 - 42.5) -->
+      <div id="s4" class="clip sc" data-start="33.5" data-duration="10" data-track-index="1">
+        <div id="s4w" class="sc">
+          <div id="s4l" class="line" style="top: 300px;">Et tout se met à jour</div>
+          <div id="s4b" class="big" style="top: 380px;">tout de suite</div>
+          <div id="stk" class="card" style="left: 70px; top: 610px; width: 940px; height: 300px;">
+            <img class="i3d" src="assets/3d/package.png" style="left: 40px; top: 40px; width: 220px; height: 220px;" />
+            <div class="ab" style="left: 290px; top: 70px; font-size: 54px; font-weight: 700; color: #17181d;">Huile 5 L</div>
+            <div class="ab" style="left: 290px; top: 150px; font-size: 38px; color: #5b5e6b;">bidons en stock</div>
+            <div id="stkN" class="ab" style="left: 690px; top: 40px; width: 210px; height: 220px; border-radius: 52px; background: linear-gradient(180deg, #ff5a2b 0%, #e8380e 100%); color: #fff; font-size: 130px; font-weight: 800; line-height: 220px; text-align: center; font-variant-numeric: tabular-nums;">10</div>
+          </div>
+          <div class="notif" id="n4a" style="top: 960px;">
+            <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · VOUS</div><div class="ntime">14:32</div></div>
+            <div class="nbody"><b>Nouvelle commande :</b> Jean, Huile 5 L x 2. Stock restant : 8.</div>
+          </div>
+          <div class="notif" id="n4b" style="top: 1390px;">
+            <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · VOTRE CLIENT</div><div class="ntime">14:32</div></div>
+            <div class="nbody">Bonjour Jean, votre commande est <b>bien enregistrée.</b></div>
+          </div>
+          <img id="s4bell" class="i3d" src="assets/3d/bell.png" style="left: 880px; top: 1225px; width: 150px; height: 150px;" />
+        </div>
+      </div>
+
+      <!-- S5 : alertes et bilans (42.5 - 57) -->
+      <div id="s5" class="clip sc" data-start="43.5" data-duration="14.5" data-track-index="1">
+        <div id="s5w" class="sc">
+          <div id="b5a" class="sc">
+            <div class="line" style="top: 300px;">Vous êtes prévenu</div>
+            <div id="s5b1" class="big" style="top: 380px;">avant la rupture</div>
+            <img id="warnI" class="i3d" src="assets/3d/warning.png" style="left: 340px; top: 600px; width: 400px; height: 400px;" />
+            <div class="notif" id="n5a" style="top: 1130px;">
+              <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · VOUS</div><div class="ntime">16:05</div></div>
+              <div class="nbody"><span class="tag">Alerte stock :</span> Riz 25 kg, il reste 3 sacs. Seuil d'alerte : 5.</div>
+            </div>
+          </div>
+          <div id="b5b" class="sc">
+            <div class="line" style="top: 300px;">Chaque soir,</div>
+            <div id="s5b2" class="big" style="top: 380px;">votre bilan</div>
+            <img id="moon" class="i3d" src="assets/3d/crescent_moon.png" style="left: 220px; top: 620px; width: 360px; height: 360px;" />
+            <img id="chart" class="i3d" src="assets/3d/bar_chart.png" style="left: 540px; top: 660px; width: 320px; height: 320px;" />
+            <div id="bil" class="card bcard">
+              <div class="bt">Bilan de votre boutique · 19:00</div>
+              <div class="bl"><span>Commandes du jour</span><span>12</span></div>
+              <div class="bl"><span>Pas encore livrées</span><span>3</span></div>
+              <div class="bl hot"><span>À commander</span><span>Riz 25 kg</span></div>
+            </div>
+            <div id="exB" class="ex">Chiffres d'exemple</div>
+          </div>
+          <div id="b5c" class="sc">
+            <div class="line" style="top: 300px;">Chaque matin,</div>
+            <div id="s5b3" class="big" style="top: 380px;">quoi racheter</div>
+            <img id="sun" class="i3d" src="assets/3d/sun.png" style="left: 200px; top: 610px; width: 360px; height: 360px;" />
+            <img id="truck" class="i3d" src="assets/3d/delivery_truck.png" style="left: 540px; top: 670px; width: 330px; height: 330px;" />
+            <div id="mat" class="card bcard">
+              <div class="bt">À commander aujourd'hui · 08:00</div>
+              <div class="bl"><span>Riz 25 kg · 7 sacs</span><span>Grossiste A</span></div>
+              <div class="bl"><span>Huile 5 L · 4 bidons</span><span>Grossiste B</span></div>
+            </div>
+            <div id="exC" class="ex">Chiffres d'exemple</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S6 : le bénéfice (57 - 63.5) -->
+      <div id="s6" class="clip sc" data-start="58" data-duration="8" data-track-index="1">
+        <div id="s6w" class="sc">
+          <div id="s6b1" class="big" style="top: 330px; font-size: 96px;">Fini la saisie</div>
+          <div id="s6b2" class="big" style="top: 450px; font-size: 96px;">à la main.</div>
+          <img id="s6chk" class="i3d" src="assets/3d/check_mark_button.png" style="left: 160px; top: 720px; width: 300px; height: 300px;" />
+          <img id="s6eye" class="i3d" src="assets/3d/eye.png" style="left: 560px; top: 700px; width: 360px; height: 360px;" />
+          <img id="s6star" class="i3d" src="assets/3d/sparkles.png" style="left: 860px; top: 640px; width: 160px; height: 160px;" />
+          <div id="s6p" class="hotpill" style="left: 110px; top: 1150px; width: 860px; height: 130px; line-height: 130px; font-size: 46px;">moins d'erreurs, moins de ruptures</div>
+          <div id="s6s" class="sub" style="top: 1320px; font-size: 50px; color: #17181d;">et une vraie visibilité sur votre boutique, même à distance</div>
+        </div>
+      </div>
+
+      <!-- S7 : ce n'est qu'un début (63.5 - 70) -->
+      <div id="s7" class="clip sc" data-start="66" data-duration="6.5" data-track-index="1">
+        <div id="s7w" class="sc">
+          <div id="s7l" class="line" style="top: 300px;">Et ce n'est</div>
+          <div id="s7b" class="big" style="top: 380px;">qu'un début</div>
+          <div id="s7s" class="sub" style="top: 560px;">La même méthode s'adapte à vos autres tâches</div>
+          <div class="k" id="k1"><div class="card"></div><img src="assets/3d/speech_balloon.png" /><div class="lab">Relances clients</div></div>
+          <div class="k" id="k2"><div class="card"></div><img src="assets/3d/delivery_truck.png" /><div class="lab">Commandes fournisseurs</div></div>
+          <div class="k" id="k3"><div class="card"></div><img src="assets/3d/receipt.png" /><div class="lab">Factures</div></div>
+          <div class="k" id="k4"><div class="card"></div><img src="assets/3d/chart_increasing.png" /><div class="lab">Rapports</div></div>
+          <img id="rocket" class="i3d" src="assets/3d/rocket.png" style="left: 860px; top: 270px; width: 180px; height: 180px;" />
+          <div id="ex7" class="ex" style="top: 1500px;">Exemples de ce qu'on peut automatiser</div>
+        </div>
+      </div>
+
+      <!-- S8 : appel à l'action (70 - 77) -->
+      <div id="s8" class="clip sc" data-start="72.5" data-duration="7" data-track-index="1">
+        <div id="s8w" class="sc">
+          <div id="logoBox" class="ab" style="left: 300px; top: 300px; width: 480px; height: 480px; border-radius: 120px; background: #0b1033; box-shadow: 0 40px 90px rgba(11,16,51,0.35);">
+            <div class="ab" style="left: 60px; top: 70px; width: 360px; height: 340px; background: url('assets/img/logo_adg.png') center / contain no-repeat;"></div>
+          </div>
+          <div id="s8l" class="line" style="top: 870px;">On vous montre le système</div>
+          <div id="s8b" class="big" style="top: 950px;">en direct</div>
+          <img id="s8ph" class="i3d" src="assets/3d/mobile_phone.png" style="left: 800px; top: 560px; width: 230px; height: 230px;" />
+          <div id="s8c" class="ab" style="left: 120px; top: 1250px; width: 840px; height: 150px; border-radius: 75px; line-height: 150px; text-align: center; font-size: 50px; font-weight: 700; color: #fff; background: linear-gradient(180deg, #15803d 0%, #0f6b32 100%); box-shadow: 0 18px 50px rgba(22,163,74,0.4);">Écrivez-nous sur WhatsApp</div>
+          <div id="s8s" class="sub" style="top: 1450px;">et on l'installe avec vous</div>
+        </div>
+      </div>
+
+      <!-- bandeau du bas -->
+      <div id="footc" class="clip sc" data-start="0" data-duration="72.5" data-track-index="2">
+        <div id="foot" class="hotpill">Allegra Digital Ground · stock automatique</div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const S = { s1: 0, s2: 5.5, s3: 22.5, s4: 33.5, s5: 43.5, s6: 58, s7: 66, s8: 72.5 };
+
+      function words(sel) {
+        const el = document.querySelector(sel);
+        const walk = (node) => {
+          Array.from(node.childNodes).forEach((c) => {
+            if (c.nodeType === 3) {
+              const frag = document.createDocumentFragment();
+              c.textContent.split(/(\s+)/).forEach((p) => {
+                if (!p) return;
+                if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+                const s = document.createElement('span'); s.className = 'w'; s.textContent = p; frag.appendChild(s);
+              });
+              node.replaceChild(frag, c);
+            } else if (c.nodeType === 1) walk(c);
+          });
+        };
+        walk(el);
+        return el.querySelectorAll('.w');
+      }
+      const lineIn = (sel, at) => tl.fromTo(words(sel), { opacity: 0, y: 30, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5, stagger: 0.06, ease: 'power3.out' }, at);
+      const bigIn = (sel, at) => tl.fromTo(words(sel), { opacity: 0, scale: 0.4, y: 40, filter: 'blur(12px)' }, { opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', duration: 0.6, stagger: 0.08, ease: 'back.out(2.2)' }, at);
+      const out = (sel, at) => tl.to(sel, { opacity: 0, filter: 'blur(14px)', y: -24, duration: 0.3, ease: 'power2.in' }, at);
+      const sceneOut = (w, at) => tl.to(w, { opacity: 0, filter: 'blur(16px)', scale: 0.97, duration: 0.35, ease: 'power2.in' }, at);
+      const pop3d = (sel, at, rot) => tl.fromTo(sel, { opacity: 0, scale: 0.2, rotation: rot || -14 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.75, ease: 'back.out(2)' }, at);
+      const float = (sel, at, dur, dy) => tl.to(sel, { y: dy || -22, rotation: 3, duration: dur || 1.6, ease: 'sine.inOut', yoyo: true, repeat: 3 }, at);
+      const cardIn = (sel, at) => tl.fromTo(sel, { opacity: 0, y: 120, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'expo.out' }, at);
+      const notifIn = (sel, at) => tl.fromTo(sel, { opacity: 0, y: -160, filter: 'blur(12px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out' }, at);
+      const counter = (id, from, to, at, dur) => {
+        const o = { v: from };
+        tl.fromTo(o, { v: from }, { v: to, duration: dur, ease: 'power2.inOut', onUpdate: () => { document.getElementById(id).textContent = String(Math.round(o.v)); } }, at);
+      };
+
+      // fond vivant
+      tl.fromTo('#band1', { x: -60 }, { x: 60, duration: 9, ease: 'sine.inOut', yoyo: true, repeat: 7 }, 0);
+      tl.fromTo('#band2', { x: 40 }, { x: -40, duration: 11, ease: 'sine.inOut', yoyo: true, repeat: 6 }, 0);
+      tl.fromTo('#foot', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, 0.6);
+      tl.to('#foot', { scale: 1.04, duration: 0.6, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 30);
+      tl.to('#foot', { opacity: 0, y: 60, duration: 0.4, ease: 'power2.in' }, 72);
+
+      // ---- S1 : cahier ou Excel, tout à la main
+      let t = S.s1;
+      lineIn('#s1l', t + 0.15);
+      bigIn('#s1b', t + 0.6);
+      pop3d('#s1nb', t + 0.9, -10);
+      cardIn('#xl', t + 1.2);
+      pop3d('#s1pen', t + 1.5, 30);
+      tl.to('#s1pen', { x: -40, y: 70, rotation: -18, duration: 0.22, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 2.0);
+      tl.fromTo('#xlt', { opacity: 0 }, { opacity: 1, duration: 0.2 }, t + 3.8);
+      tl.to('#xlc', { opacity: 0.2, duration: 0.25, ease: 'sine.inOut', yoyo: true, repeat: 3 }, t + 2.4);
+      pop3d('#s1q', t + 3.9, -25);
+      lineIn('#s1s', t + 3.6);
+      float('#s1nb', t + 1.8, 1.3, -16);
+      sceneOut('#s1w', t + 5.15);
+
+      // ---- S2 : quatre tâches manuelles, puis le temps perdu
+      t = S.s2;
+      lineIn('#s2l', t + 0.1);
+      const bigs = ['#s2b1', '#s2b2', '#s2b3', '#s2b4', '#s2b5', '#s2b6'];
+      const at2 = [0.4, 3.0, 5.5, 8.0, 11.2, 14.0];
+      ['#g1', '#g2', '#g3', '#g4'].forEach((g, i) => cardIn(g, t + at2[i] + 0.2));
+      bigs.forEach((b, i) => { bigIn(b, t + at2[i]); if (i < 5) out(b, t + at2[i + 1] - 0.35); });
+      pop3d('#m1', t + 1.2, -20);
+      tl.to('#m1', { x: -30, y: 30, rotation: -14, duration: 0.2, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 1.8);
+      pop3d('#m2', t + 3.8, 20);
+      tl.to('#m2', { x: -60, duration: 0.6, ease: 'sine.inOut', yoyo: true, repeat: 1 }, t + 4.3);
+      pop3d('#m3', t + 6.3, -20);
+      pop3d('#m4', t + 8.8, 20);
+      tl.to('#m4', { rotation: 14, duration: 0.08, ease: 'sine.inOut', yoyo: true, repeat: 9 }, t + 9.4);
+      tl.to('#grid', { filter: 'grayscale(1) brightness(0.92)', opacity: 0.75, duration: 0.8, ease: 'power2.inOut' }, t + 11.6);
+      tl.to(['#m1', '#m2', '#m3', '#m4'], { opacity: 0, scale: 0.5, duration: 0.3, ease: 'power2.in' }, t + 11.6);
+      tl.fromTo('#hg', { opacity: 0, y: -500, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'bounce.out' }, t + 12.0);
+      tl.to('#hg', { rotation: 180, duration: 0.8, ease: 'power2.inOut' }, t + 13.2);
+      pop3d('#e1', t + 14.6, -20);
+      pop3d('#e2', t + 14.9, 20);
+      lineIn('#s2s', t + 14.8);
+      sceneOut('#s2w', t + 16.65);
+
+      // ---- S3 : vente → tableau → alerte
+      t = S.s3;
+      lineIn('#s3l', t + 0.15);
+      bigIn('#s3b', t + 0.6);
+      pop3d('#f1', t + 2.0, -15);
+      tl.fromTo('#fl1', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, t + 2.3);
+      tl.fromTo('#a1', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' }, t + 3.0);
+      pop3d('#f2', t + 3.4, 15);
+      tl.fromTo('#fl2', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, t + 3.7);
+      tl.fromTo('#a2', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' }, t + 4.4);
+      pop3d('#f3', t + 4.8, -15);
+      tl.fromTo('#fl3', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, t + 5.1);
+      tl.to('#f3', { rotation: 14, duration: 0.1, ease: 'sine.inOut', yoyo: true, repeat: 7 }, t + 5.6);
+      tl.fromTo('#s3p', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)' }, t + 6.4);
+      lineIn('#s3s', t + 7.4);
+      float('#f1', t + 6.0, 1.2, -18); float('#f2', t + 6.3, 1.2, -18);
+      sceneOut('#s3w', t + 10.65);
+
+      // ---- S4 : stock 10 → 8, puis WhatsApp patron et client
+      t = S.s4;
+      lineIn('#s4l', t + 0.15);
+      bigIn('#s4b', t + 0.6);
+      cardIn('#stk', t + 1.0);
+      counter('stkN', 10, 8, t + 1.9, 1.0);
+      tl.to('#stkN', { scale: 1.1, duration: 0.25, ease: 'power2.out', yoyo: true, repeat: 1 }, t + 2.9);
+      notifIn('#n4a', t + 3.4);
+      pop3d('#s4bell', t + 3.8, 25);
+      tl.to('#s4bell', { rotation: 16, duration: 0.1, ease: 'sine.inOut', yoyo: true, repeat: 9 }, t + 4.5);
+      notifIn('#n4b', t + 6.2);
+      sceneOut('#s4w', t + 9.65);
+
+      // ---- S5 : alerte, bilan du soir, point du matin
+      t = S.s5;
+      lineIn('#b5a .line', t + 0.15);
+      bigIn('#s5b1', t + 0.5);
+      pop3d('#warnI', t + 0.9, -15);
+      tl.to('#warnI', { scale: 1.08, duration: 0.4, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 1.7);
+      notifIn('#n5a', t + 1.8);
+      tl.to('#b5a', { opacity: 0, filter: 'blur(14px)', duration: 0.35, ease: 'power2.in' }, t + 4.55);
+      tl.fromTo('#b5b', { opacity: 0 }, { opacity: 1, duration: 0.01 }, t + 4.9);
+      lineIn('#b5b .line', t + 4.95);
+      bigIn('#s5b2', t + 5.3);
+      pop3d('#moon', t + 5.7, -20);
+      pop3d('#chart', t + 6.0, 15);
+      cardIn('#bil', t + 6.5);
+      tl.fromTo('#bil .bl', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.15, ease: 'power2.out' }, t + 6.9);
+      tl.fromTo('#exB', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 7.4);
+      float('#moon', t + 6.6, 1.1, -16);
+      tl.to('#b5b', { opacity: 0, filter: 'blur(14px)', duration: 0.35, ease: 'power2.in' }, t + 9.55);
+      tl.fromTo('#b5c', { opacity: 0 }, { opacity: 1, duration: 0.01 }, t + 9.9);
+      lineIn('#b5c .line', t + 9.95);
+      bigIn('#s5b3', t + 10.3);
+      pop3d('#sun', t + 10.6, -30);
+      tl.fromTo('#truck', { opacity: 0, x: 400 }, { opacity: 1, x: 0, duration: 0.8, ease: 'expo.out' }, t + 10.9);
+      cardIn('#mat', t + 11.4);
+      tl.fromTo('#mat .bl', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.18, ease: 'power2.out' }, t + 11.8);
+      tl.fromTo('#exC', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 12.2);
+      tl.to('#sun', { rotation: 30, duration: 2.5, ease: 'sine.inOut' }, t + 11.4);
+      sceneOut('#s5w', t + 14.15);
+
+      // ---- S6 : bénéfice
+      t = S.s6;
+      bigIn('#s6b1', t + 0.15);
+      bigIn('#s6b2', t + 0.9);
+      pop3d('#s6chk', t + 1.4, -20);
+      pop3d('#s6eye', t + 1.9, 15);
+      pop3d('#s6star', t + 2.3, 40);
+      tl.fromTo('#s6p', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)' }, t + 2.6);
+      lineIn('#s6s', t + 3.2);
+      float('#s6eye', t + 2.8, 1.0, -18);
+      sceneOut('#s6w', t + 7.65);
+
+      // ---- S7 : un début
+      t = S.s7;
+      lineIn('#s7l', t + 0.1);
+      bigIn('#s7b', t + 0.45);
+      pop3d('#rocket', t + 0.9, -30);
+      tl.to('#rocket', { x: 40, y: -60, duration: 2.5, ease: 'sine.inOut' }, t + 1.6);
+      lineIn('#s7s', t + 1.2);
+      ['#k1', '#k2', '#k3', '#k4'].forEach((k, i) => cardIn(k, t + 2.0 + i * 0.25));
+      tl.fromTo('#ex7', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 3.3);
+      sceneOut('#s7w', t + 6.15);
+
+      // ---- S8 : fin
+      t = S.s8;
+      tl.fromTo('#logoBox', { opacity: 0, scale: 0.5, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.9, ease: 'back.out(1.8)' }, t + 0.1);
+      lineIn('#s8l', t + 0.9);
+      bigIn('#s8b', t + 1.3);
+      pop3d('#s8ph', t + 1.7, 20);
+      tl.fromTo('#s8c', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)' }, t + 2.2);
+      tl.to('#s8c', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 2.9);
+      lineIn('#s8s', t + 2.8);
+      float('#s8ph', t + 2.5, 1.0, -16);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

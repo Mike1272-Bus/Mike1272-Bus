@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); font-weight: 800; }
+      :root { --ink: #17181d; --ink2: #454854; --hot: #e2360c; --hot2: #e8380e; --sand: #e9dfd1; --bg: #f6f3ee; --wa: #16a34a; --blue: #2342ff; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; background: var(--bg); }
+      .ab { position: absolute; }
+      .sc { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .w { display: inline-block; }
+
+      /* fond : papier clair, quadrillage léger, grande diagonale sable */
+      #bg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; background-color: var(--bg); background-image: linear-gradient(rgba(23,24,29,0.035) 2px, transparent 2px), linear-gradient(90deg, rgba(23,24,29,0.035) 2px, transparent 2px); background-size: 60px 60px; }
+      #band1 { left: 300px; top: -400px; width: 300px; height: 2800px; background: var(--sand); transform: rotate(24deg); opacity: 0.85; }
+      #band2 { left: -380px; top: -400px; width: 190px; height: 2800px; background: var(--sand); transform: rotate(24deg); opacity: 0.6; }
+
+      /* textes */
+      .line { position: absolute; left: 60px; width: 960px; text-align: center; font-size: 56px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+      .big { position: absolute; left: 30px; width: 1020px; text-align: center; font-family: 'Bricolage', 'Poppins', sans-serif; font-weight: 800; font-size: 108px; line-height: 1.02; color: var(--hot); letter-spacing: -0.02em;
+        text-shadow: 4px 0 0 #fff, -4px 0 0 #fff, 0 4px 0 #fff, 0 -4px 0 #fff, 3px 3px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff, 0 14px 30px rgba(232,56,14,0.28); }
+      .sub { position: absolute; left: 90px; width: 900px; text-align: center; font-size: 44px; font-weight: 600; color: var(--ink2); line-height: 1.3; }
+      .i3d { position: absolute; filter: drop-shadow(0 26px 30px rgba(23,24,29,0.22)); }
+      .card { position: absolute; background: #fff; border-radius: 44px; box-shadow: 0 30px 70px rgba(23,24,29,0.12), 0 4px 12px rgba(23,24,29,0.06); }
+      .hotpill { position: absolute; border-radius: 70px; background: linear-gradient(180deg, #ff5a2b 0%, #e8380e 100%); color: #fff; font-weight: 700; text-align: center; box-shadow: 0 16px 40px rgba(232,56,14,0.35); }
+      .lab { position: absolute; left: 0; width: 100%; text-align: center; font-size: 40px; font-weight: 700; color: var(--ink); }
+      .arrow { position: absolute; width: 90px; height: 40px; }
+
+      /* bandeau du bas, sur toute la vidéo */
+      #foot { left: 150px; top: 1740px; width: 780px; height: 92px; line-height: 92px; font-size: 34px; }
+
+      /* notification WhatsApp */
+      .notif { position: absolute; left: 70px; width: 940px; padding: 36px 44px 42px; border-radius: 48px; background: #fff; box-shadow: 0 30px 70px rgba(23,24,29,0.16); }
+      .nh { display: flex; align-items: center; gap: 20px; margin-bottom: 16px; }
+      .nico { width: 72px; height: 72px; border-radius: 20px; background: linear-gradient(180deg, #2ad06a 0%, #16a34a 100%); flex: none; }
+      .nico svg { width: 72px; height: 72px; }
+      .napp { font-size: 29px; font-weight: 700; color: var(--ink2); }
+      .ntime { margin-left: auto; font-size: 27px; color: #5e616d; }
+      .nbody { font-size: 39px; line-height: 1.36; color: var(--ink); }
+      .nbody b { font-weight: 700; }
+      .tag { color: var(--hot2); font-weight: 700; }
+
+      /* S2 grille */
+      .tile { position: absolute; width: 420px; height: 400px; }
+      .tile .card { left: 0; top: 0; width: 420px; height: 400px; }
+      .tile img { position: absolute; left: 100px; top: 40px; width: 220px; height: 220px; filter: drop-shadow(0 18px 22px rgba(23,24,29,0.2)); }
+      .tile .lab { top: 290px; font-size: 38px; }
+      #g1 { left: 100px; top: 720px; } #g2 { left: 560px; top: 720px; } #g3 { left: 100px; top: 1160px; } #g4 { left: 560px; top: 1160px; }
+
+      /* S5 cartes bilan */
+      .bcard { position: absolute; left: 90px; top: 1130px; width: 900px; padding: 44px 56px 36px; }
+      .bt { font-size: 44px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+      .bl { display: flex; justify-content: space-between; gap: 30px; padding: 14px 0; border-bottom: 2px solid #eee8df; font-size: 38px; color: var(--ink2); }
+      .bl:last-child { border-bottom: none; }
+      .bl span:last-child { font-weight: 700; color: var(--ink); text-align: right; }
+      .bl.hot span:last-child { color: var(--hot2); }
+      .ex { position: absolute; left: 0; top: 1650px; width: 1080px; text-align: center; font-size: 28px; color: #5e616d; }
+
+      /* S7 tuiles */
+      .k { position: absolute; width: 440px; height: 360px; }
+      .k .card { left: 0; top: 0; width: 440px; height: 360px; }
+      .k img { position: absolute; left: 120px; top: 34px; width: 200px; height: 200px; filter: drop-shadow(0 18px 22px rgba(23,24,29,0.2)); }
+      .k .lab { top: 252px; font-size: 38px; line-height: 1.1; padding: 0 20px; }
+      #k1 { left: 80px; top: 600px; } #k2 { left: 560px; top: 600px; } #k3 { left: 80px; top: 990px; } #k4 { left: 560px; top: 990px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="71.5" data-width="1080" data-height="1920">
+
+      <!-- voix : Hugo (ElevenLabs), 69,15 s -->
+      <audio id="vo" class="clip" src="assets/audio/voix_hugo.mp3" data-start="0" data-duration="69.15" data-track-index="5" data-volume="1"></audio>
+
+      <!-- fond commun -->
+      <div id="bgc" class="clip sc" data-start="0" data-duration="71.5" data-track-index="0">
+        <div id="bg"><div id="band1" class="ab"></div><div id="band2" class="ab"></div></div>
+      </div>
+
+      <!-- S1 : accroche (0 - 5.4) « Cahier ou Excel… combien de tâches se font encore à la main ? » -->
+      <div id="s1" class="clip sc" data-start="0" data-duration="5.4" data-track-index="1">
+        <div id="s1w" class="sc">
+          <div id="s1l" class="line" style="top: 300px;">Cahier ou Excel…</div>
+          <div id="s1b" class="big" style="top: 380px;">combien de tâches à la main ?</div>
+          <img id="s1nb" class="i3d" src="assets/3d/notebook.png" style="left: 70px; top: 760px; width: 420px; height: 420px;" />
+          <div id="xl" class="card" style="left: 540px; top: 800px; width: 460px; height: 360px; overflow: hidden;">
+            <div class="ab" style="left: 0; top: 0; width: 460px; height: 80px; background: #1e8e3e; color: #fff; font-size: 34px; font-weight: 700; line-height: 80px; padding-left: 30px;">Excel</div>
+            <svg class="ab" style="left: 0; top: 80px;" width="460" height="280" viewBox="0 0 460 280"><g stroke="#d9dfe8" stroke-width="2"><line x1="0" y1="56" x2="460" y2="56" /><line x1="0" y1="112" x2="460" y2="112" /><line x1="0" y1="168" x2="460" y2="168" /><line x1="0" y1="224" x2="460" y2="224" /><line x1="115" y1="0" x2="115" y2="280" /><line x1="230" y1="0" x2="230" y2="280" /><line x1="345" y1="0" x2="345" y2="280" /></g><rect id="xlc" x="231" y="113" width="114" height="55" fill="none" stroke="#1e8e3e" stroke-width="5" /></svg>
+            <div id="xlt" class="ab" style="left: 246px; top: 207px; font-size: 30px; font-weight: 700; color: #17181d;">12 ?</div>
+          </div>
+          <img id="s1pen" class="i3d" src="assets/3d/pencil.png" style="left: 360px; top: 640px; width: 240px; height: 240px;" />
+          <img id="s1q" class="i3d" src="assets/3d/red_question_mark.png" style="left: 860px; top: 630px; width: 180px; height: 180px;" />
+          <div id="s1s" class="sub" style="top: 1300px;">On note, on recopie, on recompte…</div>
+        </div>
+      </div>
+
+      <!-- S2 : tout est manuel (5.4 - 17.5) -->
+      <div id="s2" class="clip sc" data-start="5.4" data-duration="12.1" data-track-index="1">
+        <div id="s2w" class="sc">
+          <div id="s2l" class="line" style="top: 300px;">Tout se fait à la main :</div>
+          <div id="s2b1" class="big" style="top: 380px;">noter chaque vente</div>
+          <div id="s2b2" class="big" style="top: 380px;">recompter le stock</div>
+          <div id="s2b3" class="big" style="top: 380px;">refaire les calculs</div>
+          <div id="s2b4" class="big" style="top: 380px;">relancer, relancer…</div>
+          <div id="s2b5" class="big" style="top: 380px;">même avec Excel</div>
+          <div id="s2b6" class="big" style="top: 380px;">du temps perdu</div>
+          <div id="grid" class="sc">
+            <div class="tile" id="g1"><div class="card"></div><img src="assets/3d/memo.png" /><div class="lab">Noter</div></div>
+            <div class="tile" id="g2"><div class="card"></div><img src="assets/3d/package.png" /><div class="lab">Recompter</div></div>
+            <div class="tile" id="g3"><div class="card"></div><img src="assets/3d/receipt.png" /><div class="lab">Recalculer</div></div>
+            <div class="tile" id="g4"><div class="card"></div><img src="assets/3d/telephone_receiver.png" /><div class="lab">Relancer</div></div>
+          </div>
+          <img id="m1" class="i3d" src="assets/3d/pencil.png" style="left: 400px; top: 730px; width: 120px; height: 120px;" />
+          <img id="m2" class="i3d" src="assets/3d/magnifying_glass_tilted_left.png" style="left: 860px; top: 730px; width: 120px; height: 120px;" />
+          <img id="m3" class="i3d" src="assets/3d/red_question_mark.png" style="left: 400px; top: 1170px; width: 120px; height: 120px;" />
+          <img id="m4" class="i3d" src="assets/3d/alarm_clock.png" style="left: 860px; top: 1170px; width: 120px; height: 120px;" />
+          <img id="hg" class="i3d" src="assets/3d/hourglass_not_done.png" style="left: 390px; top: 900px; width: 300px; height: 300px;" />
+          <img id="e1" class="i3d" src="assets/3d/cross_mark.png" style="left: 130px; top: 760px; width: 110px; height: 110px;" />
+          <img id="e2" class="i3d" src="assets/3d/cross_mark.png" style="left: 850px; top: 1430px; width: 110px; height: 110px;" />
+          <div id="s2s" class="sub" style="top: 1590px; color: #e2360c;">et des erreurs qui coûtent cher</div>
+        </div>
+      </div>
+
+      <!-- S3 : nous automatisons, voici un exemple (17.5 - 30.7) -->
+      <div id="s3" class="clip sc" data-start="17.5" data-duration="13.2" data-track-index="1">
+        <div id="s3w" class="sc">
+          <div id="s3l" class="line" style="top: 300px;">Chez Allegra Digital Ground,</div>
+          <div id="s3b" class="big" style="top: 380px;">nous automatisons ce travail</div>
+          <img id="s3gear" class="i3d" src="assets/3d/gear.png" style="left: 140px; top: 720px; width: 300px; height: 300px;" />
+          <img id="s3volt" class="i3d" src="assets/3d/high_voltage.png" style="left: 640px; top: 720px; width: 300px; height: 300px;" />
+          <div id="s3ex" class="ab" style="left: 140px; top: 700px; width: 800px; height: 120px; border-radius: 60px; background: #17181d; color: #fff; font-size: 46px; font-weight: 700; line-height: 120px; text-align: center;">EXEMPLE : la gestion de stock</div>
+          <img id="f1" class="i3d" src="assets/3d/mobile_phone.png" style="left: 60px; top: 900px; width: 250px; height: 250px;" />
+          <img id="f2" class="i3d" src="assets/3d/clipboard.png" style="left: 415px; top: 900px; width: 250px; height: 250px;" />
+          <img id="f3" class="i3d" src="assets/3d/bell.png" style="left: 770px; top: 900px; width: 250px; height: 250px;" />
+          <svg id="a1" class="arrow" style="left: 315px; top: 1005px;" viewBox="0 0 90 40"><path d="M4 20h70M58 6l16 14-16 14" fill="none" stroke="#e2360c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <svg id="a2" class="arrow" style="left: 670px; top: 1005px;" viewBox="0 0 90 40"><path d="M4 20h70M58 6l16 14-16 14" fill="none" stroke="#e2360c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <div id="fl1" class="lab" style="left: 0; top: 1170px; width: 370px;">la vente</div>
+          <div id="fl2" class="lab" style="left: 355px; top: 1170px; width: 370px;">le tableau</div>
+          <div id="fl3" class="lab" style="left: 710px; top: 1170px; width: 370px;">l'alerte</div>
+          <div id="s3p" class="hotpill" style="left: 90px; top: 1340px; width: 900px; height: 110px; line-height: 110px; font-size: 40px;">en quelques secondes, sur téléphone</div>
+          <div id="s3s" class="sub" style="top: 1500px; color: #17181d; font-size: 50px;">Le reste se fait tout seul.</div>
+        </div>
+      </div>
+
+      <!-- S4 : la transformation (30.7 - 37.9) -->
+      <div id="s4" class="clip sc" data-start="30.7" data-duration="7.2" data-track-index="1">
+        <div id="s4w" class="sc">
+          <div id="s4l" class="line" style="top: 300px;">Le stock se met à jour</div>
+          <div id="s4b" class="big" style="top: 380px;">tout de suite</div>
+          <div id="stk" class="card" style="left: 70px; top: 610px; width: 940px; height: 300px;">
+            <img class="i3d" src="assets/3d/package.png" style="left: 40px; top: 40px; width: 220px; height: 220px;" />
+            <div class="ab" style="left: 290px; top: 70px; font-size: 54px; font-weight: 700; color: #17181d;">Huile 5 L</div>
+            <div class="ab" style="left: 290px; top: 150px; font-size: 38px; color: #454854;">bidons en stock</div>
+            <div id="stkN" class="ab" style="left: 690px; top: 40px; width: 210px; height: 220px; border-radius: 52px; background: linear-gradient(180deg, #ff5a2b 0%, #e8380e 100%); color: #fff; font-size: 130px; font-weight: 800; line-height: 220px; text-align: center; font-variant-numeric: tabular-nums;">10</div>
+          </div>
+          <div class="notif" id="n4a" style="top: 960px;">
+            <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · VOUS</div><div class="ntime">14:32</div></div>
+            <div class="nbody"><b>Nouvelle commande :</b> Jean, Huile 5 L x 2. Stock restant : 8.</div>
+          </div>
+          <div class="notif" id="n4b" style="top: 1390px;">
+            <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · VOTRE CLIENT</div><div class="ntime">14:32</div></div>
+            <div class="nbody">Bonjour Jean, votre commande est <b>bien enregistrée.</b></div>
+          </div>
+          <img id="s4bell" class="i3d" src="assets/3d/bell.png" style="left: 880px; top: 1225px; width: 150px; height: 150px;" />
+        </div>
+      </div>
+
+      <!-- S5 : alertes et bilans (37.9 - 49.2) -->
+      <div id="s5" class="clip sc" data-start="37.9" data-duration="11.3" data-track-index="1">
+        <div id="s5w" class="sc">
+          <div id="b5a" class="sc">
+            <div class="line" style="top: 300px;">Vous êtes prévenu</div>
+            <div id="s5b1" class="big" style="top: 380px;">avant la rupture</div>
+            <img id="warnI" class="i3d" src="assets/3d/warning.png" style="left: 340px; top: 600px; width: 400px; height: 400px;" />
+            <div class="notif" id="n5a" style="top: 1130px;">
+              <div class="nh"><div class="nico"><svg viewBox="0 0 76 76"><path d="M38 16c-12 0-22 9-22 20 0 4 1 8 4 11l-3 11 11-3c3 1 6 2 10 2 12 0 22-9 22-21S50 16 38 16z" fill="#fff" /></svg></div><div class="napp">WHATSAPP · VOUS</div><div class="ntime">16:05</div></div>
+              <div class="nbody"><span class="tag">Alerte stock :</span> Riz 25 kg, il reste 3 sacs. Seuil d'alerte : 5.</div>
+            </div>
+          </div>
+          <div id="b5b" class="sc">
+            <div class="line" style="top: 300px;">Chaque soir,</div>
+            <div id="s5b2" class="big" style="top: 380px;">votre bilan</div>
+            <img id="moon" class="i3d" src="assets/3d/crescent_moon.png" style="left: 220px; top: 620px; width: 360px; height: 360px;" />
+            <img id="chart" class="i3d" src="assets/3d/bar_chart.png" style="left: 540px; top: 660px; width: 320px; height: 320px;" />
+            <div id="bil" class="card bcard">
+              <div class="bt">Bilan de votre boutique · 19:00</div>
+              <div class="bl"><span>Commandes du jour</span><span>12</span></div>
+              <div class="bl"><span>Pas encore livrées</span><span>3</span></div>
+              <div class="bl hot"><span>À commander</span><span>Riz 25 kg</span></div>
+            </div>
+            <div id="exB" class="ex">Chiffres d'exemple</div>
+          </div>
+          <div id="b5c" class="sc">
+            <div class="line" style="top: 300px;">Chaque matin,</div>
+            <div id="s5b3" class="big" style="top: 380px;">quoi racheter</div>
+            <img id="sun" class="i3d" src="assets/3d/sun.png" style="left: 200px; top: 610px; width: 360px; height: 360px;" />
+            <img id="truck" class="i3d" src="assets/3d/delivery_truck.png" style="left: 540px; top: 670px; width: 330px; height: 330px;" />
+            <div id="mat" class="card bcard">
+              <div class="bt">À commander aujourd'hui · 08:00</div>
+              <div class="bl"><span>Riz 25 kg · 7 sacs</span><span>Grossiste A</span></div>
+              <div class="bl"><span>Huile 5 L · 4 bidons</span><span>Grossiste B</span></div>
+            </div>
+            <div id="exC" class="ex">Chiffres d'exemple</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S6 : le bénéfice (49.2 - 55.3) -->
+      <div id="s6" class="clip sc" data-start="49.2" data-duration="6.1" data-track-index="1">
+        <div id="s6w" class="sc">
+          <div id="s6b1" class="big" style="top: 330px; font-size: 96px;">Fini la saisie</div>
+          <div id="s6b2" class="big" style="top: 450px; font-size: 96px;">à la main.</div>
+          <img id="s6chk" class="i3d" src="assets/3d/check_mark_button.png" style="left: 160px; top: 720px; width: 300px; height: 300px;" />
+          <img id="s6eye" class="i3d" src="assets/3d/eye.png" style="left: 560px; top: 700px; width: 360px; height: 360px;" />
+          <img id="s6star" class="i3d" src="assets/3d/sparkles.png" style="left: 860px; top: 640px; width: 160px; height: 160px;" />
+          <div id="s6p" class="hotpill" style="left: 210px; top: 1150px; width: 660px; height: 130px; line-height: 130px; font-size: 54px;">moins d'erreurs</div>
+          <div id="s6s" class="sub" style="top: 1320px; font-size: 50px; color: #17181d;">et une vraie visibilité sur votre activité, même à distance</div>
+        </div>
+      </div>
+
+      <!-- S7 : chaque entreprise travaille à sa façon (55.3 - 63.5) -->
+      <div id="s7" class="clip sc" data-start="55.3" data-duration="8.2" data-track-index="1">
+        <div id="s7w" class="sc">
+          <div id="s7l" class="line" style="top: 300px;">Mais chaque entreprise</div>
+          <div id="s7b" class="big" style="top: 380px;">travaille à sa façon</div>
+          <div class="k" id="k1"><div class="card"></div><img src="assets/3d/convenience_store.png" /><div class="lab">Boutique</div></div>
+          <div class="k" id="k2"><div class="card"></div><img src="assets/3d/pill.png" /><div class="lab">Pharmacie</div></div>
+          <div class="k" id="k3"><div class="card"></div><img src="assets/3d/toolbox.png" /><div class="lab">Quincaillerie</div></div>
+          <div class="k" id="k4"><div class="card"></div><img src="assets/3d/fork_and_knife_with_plate.png" /><div class="lab">Restaurant</div></div>
+          <img id="pz" class="i3d" src="assets/3d/puzzle_piece.png" style="left: 420px; top: 840px; width: 240px; height: 240px;" />
+          <div id="s7p" class="ab" style="left: 140px; top: 1390px; width: 800px; height: 110px; border-radius: 55px; background: #17181d; color: #fff; font-size: 42px; font-weight: 700; line-height: 110px; text-align: center;">ce système n'est qu'un exemple</div>
+          <div id="s7s" class="sub" style="top: 1530px; color: #17181d;">on l'adapte à votre façon de travailler, à vos outils, à vos besoins</div>
+        </div>
+      </div>
+
+      <!-- S8 : appel à l'action (63.5 - 71.5) -->
+      <div id="s8" class="clip sc" data-start="63.5" data-duration="8" data-track-index="1">
+        <div id="s8w" class="sc">
+          <div id="logoBox" class="ab" style="left: 340px; top: 260px; width: 400px; height: 400px; border-radius: 100px; background: #0b1033; box-shadow: 0 40px 90px rgba(11,16,51,0.35);">
+            <div class="ab" style="left: 50px; top: 60px; width: 300px; height: 280px; background: url('assets/img/logo_adg.png') center / contain no-repeat;"></div>
+          </div>
+          <div id="s8c" class="ab" style="left: 120px; top: 760px; width: 840px; height: 150px; border-radius: 75px; line-height: 150px; text-align: center; font-size: 50px; font-weight: 700; color: #fff; background: linear-gradient(180deg, #15803d 0%, #0f6b32 100%); box-shadow: 0 18px 50px rgba(22,163,74,0.4);">Écrivez-nous sur WhatsApp</div>
+          <div id="s8num" class="ab" style="left: 0; top: 945px; width: 1080px; text-align: center; font-size: 76px; font-weight: 800; color: #17181d; letter-spacing: 0.01em;">+243 831 710 181</div>
+          <div id="s8l" class="line" style="top: 1100px; font-size: 46px;">On étudie votre façon de travailler,</div>
+          <div id="s8b" class="big" style="top: 1180px;">et on construit votre système</div>
+          <img id="s8ph" class="i3d" src="assets/3d/mobile_phone.png" style="left: 800px; top: 520px; width: 230px; height: 230px;" />
+          <img id="s8hw" class="i3d" src="assets/3d/hammer_and_wrench.png" style="left: 60px; top: 520px; width: 220px; height: 220px;" />
+        </div>
+      </div>
+
+      <!-- bandeau du bas -->
+      <div id="footc" class="clip sc" data-start="0" data-duration="63.5" data-track-index="2">
+        <div id="foot" class="hotpill">Allegra Digital Ground · +243 831 710 181</div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // Début de chaque scène, calé sur les pauses de la voix (assets/audio/voix_hugo.mp3)
+      const S = { s1: 0, s2: 5.4, s3: 17.5, s4: 30.7, s5: 37.9, s6: 49.2, s7: 55.3, s8: 63.5 };
+
+      function words(sel) {
+        const el = document.querySelector(sel);
+        const walk = (node) => {
+          Array.from(node.childNodes).forEach((c) => {
+            if (c.nodeType === 3) {
+              const frag = document.createDocumentFragment();
+              c.textContent.split(/(\s+)/).forEach((p) => {
+                if (!p) return;
+                if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+                const s = document.createElement('span'); s.className = 'w'; s.textContent = p; frag.appendChild(s);
+              });
+              node.replaceChild(frag, c);
+            } else if (c.nodeType === 1) walk(c);
+          });
+        };
+        walk(el);
+        return el.querySelectorAll('.w');
+      }
+      const lineIn = (sel, at) => tl.fromTo(words(sel), { opacity: 0, y: 30, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5, stagger: 0.06, ease: 'power3.out' }, at);
+      const bigIn = (sel, at) => tl.fromTo(words(sel), { opacity: 0, scale: 0.4, y: 40, filter: 'blur(12px)' }, { opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', duration: 0.55, stagger: 0.07, ease: 'back.out(2.2)' }, at);
+      const out = (sel, at) => tl.to(sel, { opacity: 0, filter: 'blur(14px)', y: -24, duration: 0.3, ease: 'power2.in' }, at);
+      const sceneOut = (w, at) => tl.to(w, { opacity: 0, filter: 'blur(16px)', scale: 0.97, duration: 0.35, ease: 'power2.in' }, at);
+      const pop3d = (sel, at, rot) => tl.fromTo(sel, { opacity: 0, scale: 0.2, rotation: rot || -14 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'back.out(2)' }, at);
+      const float = (sel, at, dur, dy) => tl.to(sel, { y: dy || -22, rotation: 3, duration: dur || 1.6, ease: 'sine.inOut', yoyo: true, repeat: 3 }, at);
+      const cardIn = (sel, at) => tl.fromTo(sel, { opacity: 0, y: 120, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'expo.out' }, at);
+      const notifIn = (sel, at) => tl.fromTo(sel, { opacity: 0, y: -160, filter: 'blur(12px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out' }, at);
+      const fadeUp = (sel, at) => tl.fromTo(sel, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, at);
+      const counter = (id, from, to, at, dur) => {
+        const o = { v: from };
+        tl.fromTo(o, { v: from }, { v: to, duration: dur, ease: 'power2.inOut', onUpdate: () => { document.getElementById(id).textContent = String(Math.round(o.v)); } }, at);
+      };
+
+      // fond vivant et bandeau
+      tl.fromTo('#band1', { x: -60 }, { x: 60, duration: 9, ease: 'sine.inOut', yoyo: true, repeat: 7 }, 0);
+      tl.fromTo('#band2', { x: 40 }, { x: -40, duration: 11, ease: 'sine.inOut', yoyo: true, repeat: 6 }, 0);
+      tl.fromTo('#foot', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, 0.6);
+      tl.to('#foot', { opacity: 0, y: 60, duration: 0.4, ease: 'power2.in' }, 63.0);
+
+      // ---- S1 (voix : « Cahier ou Excel… » 0-1.5, « dans votre entreprise… » 2.0-5.0)
+      let t = S.s1;
+      lineIn('#s1l', t + 0.1);
+      pop3d('#s1nb', t + 0.3, -10);
+      cardIn('#xl', t + 0.9);
+      bigIn('#s1b', t + 2.0);
+      pop3d('#s1pen', t + 1.3, 30);
+      tl.to('#s1pen', { x: -40, y: 70, rotation: -18, duration: 0.22, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 1.8);
+      tl.to('#xlc', { opacity: 0.2, duration: 0.25, ease: 'sine.inOut', yoyo: true, repeat: 3 }, t + 1.9);
+      tl.fromTo('#xlt', { opacity: 0 }, { opacity: 1, duration: 0.2 }, t + 3.0);
+      pop3d('#s1q', t + 3.4, -25);
+      lineIn('#s1s', t + 3.2);
+      float('#s1nb', t + 1.2, 1.2, -16);
+      sceneOut('#s1w', t + 5.05);
+
+      // ---- S2 (noter 0, recompter 1.1, refaire 2.2, relancer 3.4, même avec Excel 6.2, du temps perdu 9.4)
+      t = S.s2;
+      lineIn('#s2l', t + 0.05);
+      const bigs = ['#s2b1', '#s2b2', '#s2b3', '#s2b4', '#s2b5', '#s2b6'];
+      const at2 = [0.15, 1.15, 2.2, 3.4, 6.25, 9.45];
+      ['#g1', '#g2', '#g3', '#g4'].forEach((g, i) => cardIn(g, t + at2[i] + 0.1));
+      bigs.forEach((b, i) => { bigIn(b, t + at2[i]); if (i < 5) out(b, t + at2[i + 1] - 0.28); });
+      pop3d('#m1', t + 0.6, -20);
+      tl.to('#m1', { x: -30, y: 30, rotation: -14, duration: 0.2, ease: 'sine.inOut', yoyo: true, repeat: 3 }, t + 1.0);
+      pop3d('#m2', t + 1.6, 20);
+      tl.to('#m2', { x: -60, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 1 }, t + 2.0);
+      pop3d('#m3', t + 2.7, -20);
+      pop3d('#m4', t + 3.9, 20);
+      tl.to('#m4', { rotation: 14, duration: 0.08, ease: 'sine.inOut', yoyo: true, repeat: 11 }, t + 4.4);
+      tl.to('#grid', { filter: 'grayscale(1) brightness(0.92)', opacity: 0.75, duration: 0.8, ease: 'power2.inOut' }, t + 6.3);
+      tl.to(['#m1', '#m2', '#m3', '#m4'], { opacity: 0, scale: 0.5, duration: 0.3, ease: 'power2.in' }, t + 6.3);
+      tl.fromTo('#hg', { opacity: 0, y: -500, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'bounce.out' }, t + 6.8);
+      tl.to('#hg', { rotation: 180, duration: 0.8, ease: 'power2.inOut' }, t + 8.2);
+      pop3d('#e1', t + 10.2, -20);
+      pop3d('#e2', t + 10.5, 20);
+      lineIn('#s2s', t + 10.1);
+      sceneOut('#s2w', t + 11.75);
+
+      // ---- S3 (nous automatisons 0, voici un exemple 3.7, le vendeur… 7.8, le reste… 11.6)
+      t = S.s3;
+      lineIn('#s3l', t + 0.1);
+      bigIn('#s3b', t + 0.6);
+      pop3d('#s3gear', t + 1.2, -40);
+      tl.to('#s3gear', { rotation: 180, duration: 2.4, ease: 'none' }, t + 1.9);
+      pop3d('#s3volt', t + 1.5, 20);
+      tl.to(['#s3gear', '#s3volt'], { opacity: 0, scale: 0.5, duration: 0.35, ease: 'power2.in' }, t + 3.4);
+      tl.fromTo('#s3ex', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)' }, t + 3.75);
+      pop3d('#f1', t + 4.6, -15);
+      fadeUp('#fl1', t + 4.9);
+      tl.fromTo('#a1', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: 'power2.out' }, t + 5.3);
+      pop3d('#f2', t + 5.6, 15);
+      fadeUp('#fl2', t + 5.9);
+      tl.fromTo('#a2', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: 'power2.out' }, t + 6.3);
+      pop3d('#f3', t + 6.6, -15);
+      fadeUp('#fl3', t + 6.9);
+      tl.to('#f1', { scale: 1.15, duration: 0.3, ease: 'power2.out', yoyo: true, repeat: 1 }, t + 7.8);
+      tl.fromTo('#s3p', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 8.4);
+      tl.to('#f3', { rotation: 14, duration: 0.1, ease: 'sine.inOut', yoyo: true, repeat: 7 }, t + 11.4);
+      lineIn('#s3s', t + 11.6);
+      float('#f1', t + 10.8, 1.0, -16); float('#f2', t + 11.0, 1.0, -16);
+      sceneOut('#s3w', t + 12.85);
+
+      // ---- S4 (stock 0, vous recevez 1.9, votre client 5.0)
+      t = S.s4;
+      lineIn('#s4l', t + 0.05);
+      bigIn('#s4b', t + 0.35);
+      cardIn('#stk', t + 0.5);
+      counter('stkN', 10, 8, t + 0.9, 0.9);
+      tl.to('#stkN', { scale: 1.1, duration: 0.25, ease: 'power2.out', yoyo: true, repeat: 1 }, t + 1.8);
+      notifIn('#n4a', t + 1.95);
+      pop3d('#s4bell', t + 2.3, 25);
+      tl.to('#s4bell', { rotation: 16, duration: 0.1, ease: 'sine.inOut', yoyo: true, repeat: 9 }, t + 2.9);
+      notifIn('#n4b', t + 5.0);
+      sceneOut('#s4w', t + 6.85);
+
+      // ---- S5 (alerte 0, chaque soir 3.8, chaque matin 7.2)
+      t = S.s5;
+      lineIn('#b5a .line', t + 0.05);
+      bigIn('#s5b1', t + 0.4);
+      pop3d('#warnI', t + 0.5, -15);
+      tl.to('#warnI', { scale: 1.08, duration: 0.35, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 1.2);
+      notifIn('#n5a', t + 1.3);
+      tl.to('#b5a', { opacity: 0, filter: 'blur(14px)', duration: 0.3, ease: 'power2.in' }, t + 3.45);
+      tl.fromTo('#b5b', { opacity: 0 }, { opacity: 1, duration: 0.01 }, t + 3.75);
+      lineIn('#b5b .line', t + 3.8);
+      bigIn('#s5b2', t + 4.1);
+      pop3d('#moon', t + 4.3, -20);
+      pop3d('#chart', t + 4.6, 15);
+      cardIn('#bil', t + 5.0);
+      tl.fromTo('#bil .bl', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, stagger: 0.12, ease: 'power2.out' }, t + 5.3);
+      tl.fromTo('#exB', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 5.7);
+      float('#moon', t + 5.0, 0.8, -16);
+      tl.to('#b5b', { opacity: 0, filter: 'blur(14px)', duration: 0.3, ease: 'power2.in' }, t + 6.9);
+      tl.fromTo('#b5c', { opacity: 0 }, { opacity: 1, duration: 0.01 }, t + 7.2);
+      lineIn('#b5c .line', t + 7.25);
+      bigIn('#s5b3', t + 7.55);
+      pop3d('#sun', t + 7.7, -30);
+      tl.fromTo('#truck', { opacity: 0, x: 400 }, { opacity: 1, x: 0, duration: 0.7, ease: 'expo.out' }, t + 8.0);
+      cardIn('#mat', t + 8.5);
+      tl.fromTo('#mat .bl', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, stagger: 0.15, ease: 'power2.out' }, t + 8.8);
+      tl.fromTo('#exC', { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 9.1);
+      tl.to('#sun', { rotation: 30, duration: 2.5, ease: 'sine.inOut' }, t + 8.4);
+      sceneOut('#s5w', t + 10.95);
+
+      // ---- S6 (fini la saisie 0, moins d'erreurs… 1.4)
+      t = S.s6;
+      bigIn('#s6b1', t + 0.1);
+      bigIn('#s6b2', t + 0.6);
+      pop3d('#s6chk', t + 1.0, -20);
+      tl.fromTo('#s6p', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 1.5);
+      pop3d('#s6eye', t + 2.4, 15);
+      pop3d('#s6star', t + 2.7, 40);
+      lineIn('#s6s', t + 2.5);
+      float('#s6eye', t + 3.1, 0.9, -18);
+      sceneOut('#s6w', t + 5.75);
+
+      // ---- S7 (chaque entreprise 0, ce système n'est qu'un exemple 2.6, nous l'adaptons 4.6)
+      t = S.s7;
+      lineIn('#s7l', t + 0.05);
+      bigIn('#s7b', t + 0.6);
+      ['#k1', '#k2', '#k3', '#k4'].forEach((k, i) => cardIn(k, t + 0.9 + i * 0.25));
+      tl.fromTo('#s7p', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 2.6);
+      tl.fromTo('#pz', { opacity: 0, scale: 0.2, rotation: -40 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'back.out(2.2)' }, t + 4.6);
+      tl.to(['#k1', '#k2', '#k3', '#k4'], { scale: 1.05, duration: 0.25, stagger: 0.12, ease: 'power2.out', yoyo: true, repeat: 1 }, t + 4.9);
+      lineIn('#s7s', t + 4.8);
+      tl.to('#pz', { rotation: 12, duration: 0.6, ease: 'sine.inOut', yoyo: true, repeat: 3 }, t + 5.4);
+      sceneOut('#s7w', t + 7.85);
+
+      // ---- S8 (écrivez-nous 0, on étudie 1.7, on construit 3.7)
+      t = S.s8;
+      tl.fromTo('#logoBox', { opacity: 0, scale: 0.5, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.8)' }, t + 0.05);
+      tl.fromTo('#s8c', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 0.4);
+      pop3d('#s8ph', t + 0.7, 20);
+      tl.fromTo('#s8num', { opacity: 0, y: 30, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 0.8);
+      lineIn('#s8l', t + 1.7);
+      bigIn('#s8b', t + 3.5);
+      pop3d('#s8hw', t + 3.8, -20);
+      tl.to('#s8c', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 4.6);
+      float('#s8ph', t + 1.5, 1.0, -16);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

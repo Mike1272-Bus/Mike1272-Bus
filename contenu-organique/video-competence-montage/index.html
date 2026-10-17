@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0d0f2b; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff; font-family: 'Baloo', sans-serif;
+        background: radial-gradient(circle at 50% 40%, #262b7a 0%, #1b1f5e 45%, #0d0f2b 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .bgv { object-fit: cover; z-index: 0; }
+      #h1a, #h1b, #h1c, #tl1, #ep { z-index: 5; }
+      #bgsh { background: linear-gradient(180deg, rgba(13,15,43,0.94) 0%, rgba(13,15,43,0.8) 22%, rgba(13,15,43,0.55) 50%, rgba(13,15,43,0.82) 68%, rgba(13,15,43,0.95) 100%); z-index: 1; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .t { font-weight: 800; line-height: 1.04; text-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+      .y { color: #f5c518; }
+      .c { color: #ff7a63; }
+      .ws { font-family: 'Work Sans', sans-serif; font-weight: 700; }
+      #grid { background-image: linear-gradient(rgba(255,255,255,0.05) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.05) 2px, transparent 2px);
+        background-size: 90px 90px; }
+      #lbl { left: 0; width: 1080px; top: 230px; text-align: center; font-size: 30px; letter-spacing: 6px; color: #f5c518; z-index: 20; }
+
+      /* S1 */
+      #h1a { top: 560px; font-size: 96px; }
+      #h1b { top: 672px; font-size: 116px; white-space: nowrap; }
+      #tl1 { left: 120px; top: 900px; width: 840px; height: 300px; border-radius: 28px; background: #10133f; border: 3px solid rgba(255,255,255,0.12); overflow: hidden; }
+      .trk { position: absolute; left: 30px; height: 52px; border-radius: 12px; }
+      #ph { left: 120px; top: 30px; width: 6px; height: 240px; background: #ff7a63; border-radius: 3px; box-shadow: 0 0 18px #ff7a63; }
+      #h1c { top: 1290px; font-size: 92px; }
+      #ep { left: 160px; top: 1440px; width: 760px; height: 84px; border-radius: 42px; background: #f5c518; color: #1b1f5e; text-align: center; line-height: 90px; font-size: 34px; white-space: nowrap; }
+
+      /* titres de partie */
+      .pill { left: 290px; top: 330px; width: 500px; height: 90px; border-radius: 45px; text-align: center; line-height: 96px; font-size: 52px; color: #1b1f5e; z-index: 10; }
+      .ptitle { top: 440px; font-size: 92px; z-index: 10; }
+      .step { top: 580px; font-size: 62px; z-index: 10; }
+      .step b { color: #f5c518; }
+
+      /* étape : les restaurants */
+      #shops { left: 120px; top: 760px; width: 840px; height: 620px; }
+      .shop { position: absolute; width: 240px; height: 260px; }
+      /* étape : téléphone avec la vraie vidéo */
+      .phone { position: absolute; border-radius: 46px; border: 12px solid #090b26; overflow: hidden; background: #000; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+      .phone video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      #ph2 { left: 340px; top: 720px; width: 400px; height: 711px; z-index: 6; }
+      .ico { position: absolute; width: 150px; height: 150px; z-index: 7; filter: drop-shadow(0 14px 22px rgba(0,0,0,0.45)); }
+      #aiG1 { left: 130px; top: 800px; } #aiC1 { left: 800px; top: 960px; } #aiM1 { left: 130px; top: 1120px; }
+      #aiG5 { left: 290px; top: 1540px; width: 140px; height: 140px; } #aiC5 { left: 470px; top: 1540px; width: 140px; height: 140px; } #aiM5 { left: 650px; top: 1540px; width: 140px; height: 140px; }
+      #chw { left: 445px; top: 690px; width: 190px; height: 190px; z-index: 8; }
+      /* étape : 10 messages */
+      #msgs { left: 100px; top: 720px; width: 880px; height: 760px; }
+      .msg { position: absolute; width: 400px; height: 96px; border-radius: 28px 28px 28px 8px; background: #25d366; color: #0b3b1e; font-family: 'Work Sans'; font-weight: 700;
+        font-size: 28px; line-height: 64px; padding: 16px 18px; white-space: nowrap; box-sizing: border-box; box-shadow: 0 12px 24px rgba(0,0,0,0.3); }
+      #cnt { left: 0; width: 1080px; top: 1480px; text-align: center; font-size: 120px; color: #f5c518; z-index: 8; }
+      /* étape : paiement */
+      #pay { left: 190px; top: 800px; width: 700px; height: 560px; border-radius: 40px; background: #fff; color: #1b1f5e; box-shadow: 0 30px 60px rgba(0,0,0,0.45); text-align: center; }
+      #payok { left: 270px; top: 70px; width: 160px; height: 160px; border-radius: 50%; background: #25d366; color: #fff; font-size: 110px; line-height: 176px; }
+      #pay .l1 { position: absolute; left: 0; width: 700px; top: 262px; font-size: 64px; line-height: 80px; }
+      #pay .l2 { position: absolute; left: 0; width: 700px; top: 362px; font-family: 'Work Sans'; font-weight: 700; font-size: 36px; line-height: 44px; color: #55526a; }
+      #pay .l3 { position: absolute; left: 150px; width: 400px; top: 436px; height: 84px; border-radius: 42px; background: #1b1f5e; color: #f5c518; font-size: 40px; line-height: 90px; padding-left: 70px; box-sizing: border-box; }
+      #pay .l3 img { position: absolute; left: 12px; top: 10px; width: 64px; height: 64px; }
+
+      /* voie 2 : document, couverture, infini */
+      #doc { left: 200px; top: 740px; width: 680px; height: 760px; border-radius: 24px; background: #fff; box-shadow: 0 30px 60px rgba(0,0,0,0.45); }
+      #doc .ln { position: absolute; left: 60px; height: 22px; border-radius: 11px; background: #d9dbef; }
+      #doc .hd { position: absolute; left: 60px; top: 60px; width: 420px; height: 40px; border-radius: 12px; background: #1b1f5e; }
+      #cur { left: 60px; top: 160px; width: 8px; height: 40px; background: #ff7a63; }
+            #cover { left: 300px; top: 700px; width: 480px; height: 680px; border-radius: 14px 28px 28px 14px; overflow: hidden; box-shadow: 0 34px 70px rgba(0,0,0,0.55), inset 12px 0 0 rgba(0,0,0,0.25);
+        background: linear-gradient(160deg, #f5c518 0%, #ff9f43 100%); color: #1b1f5e; }
+      #cover .k { position: absolute; left: 44px; top: 44px; font-family: 'Work Sans'; font-weight: 700; font-size: 26px; letter-spacing: 4px; }
+      #cover .ti { position: absolute; left: 44px; top: 110px; width: 400px; font-size: 64px; line-height: 1.02; }
+      #cover .pl { position: absolute; left: 150px; top: 400px; width: 180px; height: 180px; border-radius: 50%; background: #1b1f5e; }
+      #cover .pl:after { content: ""; position: absolute; left: 70px; top: 50px; border-left: 64px solid #f5c518; border-top: 40px solid transparent; border-bottom: 40px solid transparent; }
+      #cover .ft { position: absolute; left: 44px; bottom: 34px; font-family: 'Work Sans'; font-weight: 700; font-size: 26px; }
+      #inf1 { top: 910px; font-size: 80px; z-index: 8; }
+      #infsym { top: 1000px; font-size: 330px; line-height: 1; color: #f5c518; z-index: 8; }
+      #inf2 { top: 1350px; font-size: 80px; z-index: 8; }
+      .tag { position: absolute; width: 190px; height: 64px; border-radius: 32px; background: #25d366; color: #0b3b1e; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; text-align: center; line-height: 64px; z-index: 7; }
+
+      /* fin : tes vraies vidéos */
+      .mini { width: 300px; height: 533px; z-index: 6; }
+      #mA { left: 150px; top: 700px; } #mB { left: 630px; top: 700px; }
+      #mC { left: 150px; top: 1260px; } #mD { left: 630px; top: 1260px; }
+      #wait { left: 240px; top: 860px; width: 600px; height: 200px; border-radius: 60px 60px 60px 16px; background: #fff; z-index: 9; }
+      .dot { position: absolute; top: 76px; width: 50px; height: 50px; border-radius: 50%; background: #1b1f5e; }
+      #w2 { top: 1110px; font-size: 54px; z-index: 9; }
+      #cta1 { top: 560px; font-size: 100px; z-index: 12; }
+      #cta2 { top: 680px; font-size: 130px; z-index: 12; }
+      #cta3 { left: 140px; top: 1500px; width: 800px; height: 110px; border-radius: 55px; background: #f5c518; color: #1b1f5e; text-align: center; line-height: 118px; font-size: 54px; z-index: 12; }
+      .chip { position: absolute; height: 84px; padding: 0 40px; border-radius: 42px; background: #fff; color: #1b1f5e; font-family: 'Work Sans'; font-weight: 700; font-size: 40px; line-height: 84px; z-index: 12; }
+      #arrow { left: 490px; top: 1650px; width: 100px; height: 120px; z-index: 12; }
+      #fade { background: #0d0f2b; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="57.2" data-width="1080" data-height="1920">
+      <div class="ab full" id="grid"></div>
+      <video class="ab full bgv" id="bgA" src="assets/video/fatburger.mp4" muted playsinline data-start="0" data-duration="4.2" data-media-start="1.5"></video>
+      <video class="ab full bgv" id="bgB" src="assets/video/savane.mp4" muted playsinline data-start="4.2" data-duration="3.9" data-media-start="2.6"></video>
+      <div class="ab full" id="bgsh"></div>
+      <div class="ab ws" id="lbl">COMPÉTENCE → REVENU · ÉP. 1</div>
+
+      <!-- S1 : l'accroche -->
+      <div class="ab center t" id="h1a" data-layout-allow-overlap>Tu sais faire du</div>
+      <div class="ab center t y" id="h1b" data-layout-allow-overlap data-layout-allow-occlusion>montage vidéo ?</div>
+      <div class="ab" id="tl1">
+        <div class="trk" id="k1" style="top:30px;width:330px;background:#ff7a63"></div>
+        <div class="trk" id="k2" style="top:30px;left:380px;width:420px;background:#ff9f43"></div>
+        <div class="trk" id="k3" style="top:120px;width:520px;background:#4d6bff"></div>
+        <div class="trk" id="k4" style="top:120px;left:570px;width:230px;background:#25d366"></div>
+        <div class="trk" id="k5" style="top:210px;width:770px;height:40px;background:#f5c518;opacity:0.85"></div>
+        <div class="ab" id="ph"></div>
+      </div>
+      <div class="ab center t" id="h1c" data-layout-allow-overlap>→ un <span class="y">revenu en ligne</span></div>
+      <div class="ab" id="ep">ÉPISODE 1 · TA COMPÉTENCE → TON REVENU</div>
+
+      <!-- S2 : voie 1, un service -->
+      <div class="ab pill" id="p1" style="background:#f5c518">VOIE 1</div>
+      <div class="ab center t ptitle" id="pt1" data-layout-allow-overlap>Un <span class="y">service</span></div>
+      <div class="ab center t step" id="s1" data-layout-allow-overlap><b>1.</b> Choisis un type de client</div>
+      <div class="ab" id="shops"></div>
+      <div class="ab center t step" id="s2" data-layout-allow-overlap><b>2.</b> Prépare une vidéo d'exemple</div>
+      <div class="phone" id="ph2"><video id="vBG" src="assets/video/burger-guys.mp4" muted playsinline data-start="13.15" data-duration="6.3" data-media-start="5.5"></video></div>
+      <img class="ico" id="aiG1" src="assets/icons/chatgpt.png" alt="ChatGPT"><img class="ico" id="aiC1" src="assets/icons/claude.png" alt="Claude"><img class="ico" id="aiM1" src="assets/icons/gemini.png" alt="Gemini">
+      <div class="ab center t step" id="s3" data-layout-allow-overlap><b>3.</b> Envoie-la à 10 restaurants</div>
+      <div class="ab" id="msgs"></div>
+      <div class="ab t" id="cnt" data-layout-allow-overlap>0 / 10</div>
+      <div class="ab center t step" id="s4" data-layout-allow-overlap><b>4.</b> Ils commandent et paient</div>
+      <div class="ab" id="pay"><div class="ab" id="payok">✓</div><div class="l1">Commande payée</div><div class="l2">Paiement en ligne</div><div class="ab l3"><img src="assets/icons/chariow.png" alt="Chariow">via Chariow</div></div>
+
+      <!-- S3 : voie 2, un produit digital -->
+      <div class="ab pill" id="p2" style="background:#ff7a63">VOIE 2</div>
+      <div class="ab center t ptitle" id="pt2" data-layout-allow-overlap>Un <span class="c">produit digital</span></div>
+      <div class="ab center t step" id="s5" data-layout-allow-overlap><b>1.</b> L'IA t'aide à écrire ton guide</div>
+      <div class="ab" id="doc"><div class="hd"></div><div class="ab" id="cur"></div></div>
+      <div class="ico" id="aiG5" style="background:url(assets/icons/chatgpt.png) center/100% 100% no-repeat"></div><div class="ico" id="aiC5" style="background:url(assets/icons/claude.png) center/100% 100% no-repeat"></div><div class="ico" id="aiM5" style="background:url(assets/icons/gemini.png) center/100% 100% no-repeat"></div>
+      <div class="ab center t step" id="s6" data-layout-allow-overlap><b>2.</b> … et à faire la couverture</div>
+      <div class="ab" id="cover"><div class="k">GUIDE</div><div class="ti">Monter une vidéo de produit en 10 minutes</div><div class="pl"></div><div class="ft">Pour les vendeurs en ligne</div></div>
+      <div class="ab center t step" id="s7" data-layout-allow-overlap><b>3.</b> Tu le mets sur Chariow</div>
+      <div class="ico" id="chw" style="background:url(assets/icons/chariow.png) center/100% 100% no-repeat"></div>
+      <div class="ab center t" id="inf1" data-layout-allow-overlap>Créé <span class="y">1 fois</span></div>
+      <div class="ab center t" id="infsym" data-layout-allow-overlap>∞</div>
+      <div class="ab center t" id="inf2" data-layout-allow-overlap>vendu <span class="y">à l'infini</span></div>
+      <div class="ab" id="tags"></div>
+
+      <!-- S4 : ce que je fais en ce moment -->
+      <div class="ab center t step" id="s8" style="top:400px" data-layout-allow-overlap>C'est ce que je fais <span class="y">en ce moment</span></div>
+      <div class="phone mini" id="mA"><video id="vM1" src="assets/video/manitech.mp4" muted playsinline data-start="42.8" data-duration="8.4" data-media-start="3"></video></div>
+      <div class="phone mini" id="mB"><video id="vM2" src="assets/video/burger-guys.mp4" muted playsinline data-start="42.8" data-duration="8.4" data-media-start="7"></video></div>
+      <div class="phone mini" id="mC"><video id="vM3" src="assets/video/fatburger.mp4" muted playsinline data-start="42.8" data-duration="8.4" data-media-start="1.5"></video></div>
+      <div class="phone mini" id="mD"><video id="vM4" src="assets/video/savane.mp4" muted playsinline data-start="42.8" data-duration="8.4" data-media-start="2.6"></video></div>
+      <div class="ab" id="wait"><div class="dot" style="left:190px"></div><div class="dot" style="left:275px"></div><div class="dot" style="left:360px"></div></div>
+      <div class="ab center t" id="w2" data-layout-allow-overlap>J'attends les réponses<br>des restaurants…</div>
+
+      <!-- fin : la question -->
+      <div class="ab center t" id="cta1" data-layout-allow-overlap>Et toi, c'est quoi</div>
+      <div class="ab center t y" id="cta2" data-layout-allow-overlap>ta compétence ?</div>
+      <div class="chip" id="c1" style="left:120px;top:960px">Couture</div>
+      <div class="chip" id="c2" style="left:560px;top:960px">Cuisine</div>
+      <div class="chip" id="c3" style="left:190px;top:1090px">Excel</div>
+      <div class="chip" id="c4" style="left:500px;top:1090px">Langues</div>
+      <div class="chip" id="c5" style="left:300px;top:1220px">Coiffure</div>
+      <div class="ab" id="cta3">Dis-le en commentaire</div>
+      <svg class="ab" id="arrow" viewBox="0 0 100 120"><path d="M50 5 V95 M15 62 L50 100 L85 62" stroke="#f5c518" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="voix" src="assets/audio/voix.mp3" data-start="0" data-duration="57.2" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const OUT = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 1 }, { ...to, autoAlpha: 0 }, at);
+      const pop = (sel, at) => IN(sel, { scale: 0.4, y: 40 }, { scale: 1, y: 0, duration: 0.4, ease: "back.out(2)" }, at);
+      const slideIn = (sel, at) => IN(sel, { x: 300 }, { x: 0, duration: 0.45, ease: "expo.out" }, at);
+      const away = (sel, at) => OUT(sel, { x: 0 }, { x: -500, duration: 0.35, ease: "power3.in" }, at);
+
+      // restaurants : 6 devantures avec un store rayé (aucun personnage)
+      const SHOPS = [];
+      for (let i = 0; i !== 6; i++) {
+        const d = document.createElement("div"); d.className = "shop"; d.id = "sh" + i;
+        d.style.left = (i % 3) * 300 + "px"; d.style.top = Math.floor(i / 3) * 320 + "px";
+        const c = ["#ff7a63", "#f5c518", "#4d6bff", "#25d366", "#ff9f43", "#c084fc"][i];
+        d.innerHTML = `<svg viewBox="0 0 240 260" width="240" height="260"><rect x="20" y="90" width="200" height="160" rx="10" fill="#f3efe6"/>
+          <path d="M10 40 H230 L220 100 H20 Z" fill="${c}"/><path d="M50 40 L44 100 M90 40 L88 100 M130 40 L132 100 M170 40 L176 100" stroke="#fff" stroke-width="12"/>
+          <rect x="45" y="130" width="70" height="120" rx="6" fill="#1b1f5e"/><rect x="135" y="130" width="65" height="60" rx="6" fill="#9fb3ff"/>
+          <rect x="60" y="8" width="120" height="34" rx="8" fill="#1b1f5e"/></svg>`;
+        $("shops").appendChild(d); SHOPS.push(d);
+      }
+      // 10 messages qui partent
+      const MSG = [];
+      for (let i = 0; i !== 10; i++) {
+        const d = document.createElement("div"); d.className = "msg"; d.id = "ms" + i;
+        d.textContent = "🎬 Une vidéo pour vous !";
+        d.style.left = (i % 2) * 470 + "px"; d.style.top = Math.floor(i / 2) * 140 + "px";
+        $("msgs").appendChild(d); MSG.push(d);
+      }
+      // lignes du guide qui s'écrivent
+      const LINES = [];
+      for (let i = 0; i !== 11; i++) {
+        const d = document.createElement("div"); d.className = "ln"; d.id = "ln" + i;
+        d.style.top = 170 + i * 52 + "px"; d.style.width = [520, 480, 540, 360, 500, 520, 300, 540, 460, 500, 260][i] + "px";
+        $("doc").appendChild(d); LINES.push(d);
+      }
+      // étiquettes « Vendu » qui s'accumulent
+      const TAGS = [];
+      for (let i = 0; i !== 8; i++) {
+        const d = document.createElement("div"); d.className = "tag"; d.id = "tg" + i; d.textContent = "Vendu ✓";
+        d.style.left = [60, 830, 90, 800, 40, 850, 120, 780][i] + "px"; d.style.top = [760, 800, 1000, 1040, 1240, 1280, 1560, 1580][i] + "px";
+        $("tags").appendChild(d); TAGS.push(d);
+      }
+
+      gsap.set(["#fade"], { autoAlpha: 0 });
+      FT("#grid", { backgroundPosition: "0px 0px" }, { backgroundPosition: "0px 180px", duration: 57.2, ease: "none" }, 0);
+      IN("#lbl", { y: -20 }, { y: 0, duration: 0.5, ease: "power2.out" }, 0.3);
+
+      // ---------- S1 : accroche (0.6 - 8.0) ----------
+      IN("#h1a", { y: 60 }, { y: 0, duration: 0.4, ease: "power3.out" }, 0.6);
+      IN("#h1b", { scale: 2.2, rotation: -4 }, { scale: 1, rotation: -2, duration: 0.4, ease: "power4.in" }, 0.85);
+      IN("#tl1", { y: 120 }, { y: 0, duration: 0.5, ease: "back.out(1.6)" }, 1.0);
+      ["#k1", "#k2", "#k3", "#k4", "#k5"].forEach((k, i) => FT(k, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.4, ease: "power2.out" }, 1.2 + i * 0.12));
+      FT("#ph", { x: 0 }, { x: 640, duration: 6.4, ease: "none" }, 1.4);
+      IN("#h1c", { y: 50 }, { y: 0, duration: 0.45, ease: "back.out(1.8)" }, 2.0);
+      pop("#ep", 4.6);
+      FT("#bgA", { scale: 1.12 }, { scale: 1, duration: 4.2, ease: "power1.out" }, 0);
+      FT("#bgB", { scale: 1.18 }, { scale: 1.04, duration: 3.9, ease: "power1.out" }, 4.2);
+      OUT(["#bgB", "#bgsh"], { opacity: 1 }, { opacity: 0, duration: 0.35 }, 7.7);
+      OUT(["#h1a", "#h1b", "#tl1", "#h1c", "#ep"], { y: 0 }, { y: -160, duration: 0.35, ease: "power3.in" }, 7.65);
+
+      // ---------- S2 : voie 1 (8.0 - 26.5) ----------
+      pop("#p1", 8.0);
+      IN("#pt1", { y: 40 }, { y: 0, duration: 0.4, ease: "power3.out" }, 8.25);
+      // étape 1 : 9.7
+      OUT("#pt1", { y: 0 }, { y: -30, duration: 0.25 }, 9.55);
+      slideIn("#s1", 9.7);
+      SHOPS.forEach((s, i) => IN(s, { y: 180, scale: 0.6 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, 9.95 + i * 0.12));
+      FT("#sh1", { scale: 1 }, { scale: 1.12, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 11.2);
+      away(["#s1", ...SHOPS], 12.85);
+      // étape 2 : 13.15
+      slideIn("#s2", 13.15);
+      IN("#ph2", { y: 900, rotation: 6 }, { y: 0, rotation: 0, duration: 0.6, ease: "expo.out" }, 13.2);
+      ["#aiG1", "#aiC1", "#aiM1"].forEach((k, i) => { pop(k, 13.7 + i * 0.2); FT(k, { y: 0 }, { y: -14, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, 14.4 + i * 0.25); });
+      away(["#s2", "#ph2", "#aiG1", "#aiC1", "#aiM1"], 19.15);
+      // étape 3 : 19.42
+      slideIn("#s3", 19.42);
+      MSG.forEach((m, i) => IN(m, { x: -260, scale: 0.6 }, { x: 0, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 19.6 + i * 0.16));
+      IN("#cnt", { scale: 0.5 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 19.6);
+      const cnt = { v: 0 };
+      tl.fromTo(cnt, { v: 0 }, { v: 10, duration: 1.6, ease: "none", immediateRender: false, onUpdate: () => { $("cnt").textContent = Math.round(cnt.v) + " / 10"; } }, 19.6);
+      away(["#s3", ...MSG, "#cnt"], 21.3);
+      // étape 4 : 21.52
+      slideIn("#s4", 21.52);
+      IN("#pay", { y: 300, scale: 0.8 }, { y: 0, scale: 1, duration: 0.55, ease: "back.out(1.5)" }, 21.7);
+      IN("#payok", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 22.25);
+      FT("#pay", { y: 0 }, { y: -16, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, 22.8);
+      away(["#s4", "#pay", "#p1"], 26.15);
+
+      // ---------- S3 : voie 2 (26.5 - 42.8) ----------
+      pop("#p2", 26.5);
+      IN("#pt2", { y: 40 }, { y: 0, duration: 0.4, ease: "power3.out" }, 26.75);
+      OUT("#pt2", { y: 0 }, { y: -30, duration: 0.25 }, 28.35);
+      slideIn("#s5", 28.5);
+      IN("#doc", { y: 500, rotation: -4 }, { y: 0, rotation: 0, duration: 0.55, ease: "expo.out" }, 28.6);
+      ["#aiG5", "#aiC5", "#aiM5"].forEach((k, i) => pop(k, 29.0 + i * 0.2));
+      LINES.forEach((l, i) => FT(l, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.35, ease: "power1.out" }, 29.3 + i * 0.4));
+      FT("#cur", { y: 0 }, { y: 520, duration: 4.4, ease: "none" }, 29.3);
+      away(["#s5", "#doc"], 33.95);
+      ["#aiG5", "#aiC5", "#aiM5"].forEach((k, i) => FT(k, { y: 0 }, { y: -24, duration: 0.25, yoyo: true, repeat: 1, ease: "power2.out" }, 34.4 + i * 0.12));
+      // couverture : 34.18
+      slideIn("#s6", 34.18);
+      IN("#cover", { rotationY: 80, scale: 0.7 }, { rotationY: 0, scale: 1, duration: 0.7, ease: "back.out(1.4)" }, 34.35);
+      FT("#cover", { rotation: 0 }, { rotation: -3, duration: 1.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 35.1);
+      away(["#s6", "#cover", "#aiG5", "#aiC5", "#aiM5"], 36.6);
+      // Chariow et l'infini : 36.82
+      slideIn("#s7", 36.82);
+      pop("#chw", 37.0);
+      FT("#chw", { rotation: 0 }, { rotation: -6, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 37.5);
+      IN("#inf1", { y: 30 }, { y: 0, duration: 0.4, ease: "power3.out" }, 37.1);
+      IN("#infsym", { scale: 0, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(1.6)" }, 37.9);
+      FT("#infsym", { scale: 1 }, { scale: 1.1, duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, 38.6);
+      IN("#inf2", { y: 30 }, { y: 0, duration: 0.4, ease: "power3.out" }, 39.85);
+      TAGS.forEach((t, i) => pop(t, 40.0 + i * 0.25));
+      away(["#s7", "#chw", "#inf1", "#infsym", "#inf2", ...TAGS, "#p2"], 42.45);
+
+      // ---------- S4 : tes vraies vidéos (42.8 - 51.2) ----------
+      IN("#s8", { y: 40 }, { y: 0, duration: 0.45, ease: "back.out(1.8)" }, 42.8);
+      ["#mA", "#mB", "#mC", "#mD"].forEach((m, i) => IN(m, { y: 700, rotation: (i % 2 ? 6 : -6) }, { y: 0, rotation: (i % 2 ? 2 : -2), duration: 0.55, ease: "expo.out" }, 43.0 + i * 0.15));
+      // « j'attends les réponses » : 46.7
+      FT(["#mA", "#mB", "#mC", "#mD"], { opacity: 1 }, { opacity: 0.25, duration: 0.4 }, 46.6);
+      pop("#wait", 46.7);
+      [0, 1, 2].forEach((k) => FT(`#wait .dot:nth-child(${k + 1})`, { y: 0 }, { y: -26, duration: 0.3, yoyo: true, repeat: 7, ease: "sine.inOut" }, 46.9 + k * 0.12));
+      IN("#w2", { y: 30 }, { y: 0, duration: 0.4, ease: "power3.out" }, 47.0);
+      OUT(["#s8", "#mA", "#mB", "#mC", "#mD", "#wait", "#w2"], { scale: 1 }, { scale: 0.85, duration: 0.35, ease: "power3.in" }, 50.85);
+
+      // ---------- fin : la question (51.2 - 57.2) ----------
+      IN("#cta1", { y: 60 }, { y: 0, duration: 0.4, ease: "power3.out" }, 51.2);
+      IN("#cta2", { scale: 2, rotation: -4 }, { scale: 1, rotation: -2, duration: 0.4, ease: "power4.in" }, 51.45);
+      ["#c1", "#c2", "#c3", "#c4", "#c5"].forEach((c, i) => pop(c, 52.0 + i * 0.15));
+      pop("#cta3", 53.0);
+      IN("#arrow", { y: -30 }, { y: 0, duration: 0.4, ease: "power2.out" }, 53.3);
+      FT("#arrow", { y: 0 }, { y: 24, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, 53.7);
+      FT("#cta3", { scale: 1 }, { scale: 1.05, duration: 0.35, yoyo: true, repeat: 5, ease: "sine.inOut" }, 53.6);
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 56.7);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
