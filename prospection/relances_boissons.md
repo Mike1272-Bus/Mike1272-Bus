@@ -8,22 +8,21 @@ Après chaque envoi, note la date dans le tableau de suivi en bas.
 
 Elles ont répondu, donc la conversation est ouverte. On ne renvoie pas une « relance » classique : on rebondit sur leur réponse et on pose **une seule question**, simple, pour ouvrir la discussion.
 
-### Elembo : a répondu « Merci pour la vidéo »
-**Aujourd'hui, mardi 20 octobre** (réponse reçue la semaine dernière). WhatsApp, fin de matinée (la Suisse a 1 h d'avance jusqu'au 25 octobre).
+### Elembo : a répondu « Merci pour la vidéo » (la semaine dernière)
+**Aujourd'hui, mardi 20 octobre, à 16 h** (17 h en Suisse). WhatsApp.
+Décision de Mike : on leur offre une 2e vidéo, gratuite. On demande seulement leurs photos.
 > Bonjour l'équipe Elembo 👋 Merci encore pour votre message de la semaine dernière, contents que la vidéo vous ait plu 🍍🍊
-> Une petite question : comment faites-vous connaître vos jus aujourd'hui ? Plutôt Instagram, TikTok, ou les statuts WhatsApp ?
-> Je vous demande ça parce qu'on peut vous préparer une vidéo sur l'histoire de vos jus, du fruit cueilli au Kongo-Central jusqu'à la bouteille. Il nous suffit de quelques photos de vos champs ou de la fabrication.
+> Nous aimerions vous en offrir une deuxième : l'histoire de vos jus, du fruit cueilli au Kongo-Central jusqu'à la bouteille. C'est gratuit et sans engagement : il nous faut seulement quelques photos de vos champs, de la fabrication ou de vos points de vente.
+> Pouvez-vous nous en envoyer quelques-unes ici ?
 
-Si on te répond : demande leurs photos et le réseau qu'ils utilisent le plus, puis on prépare la vidéo. Le prix, seulement quand ils demandent (et après avoir compris le besoin).
-
-### Semuliki : a répondu « Merci, on vous recontacte plus tard »
-Ils ont répondu la semaine dernière (il y a environ 4 jours) : on peut revenir **aujourd'hui, mardi 20 octobre**, en fin de matinée, avec une raison concrète : les fêtes de fin d'année, la grosse période pour le vin.
+### Semuliki : a répondu « Merci, on vous recontacte plus tard » (la semaine dernière)
+**Aujourd'hui, mardi 20 octobre, à 16 h 10.** Instagram `semulikisarl` (ou WhatsApp).
+Décision de Mike : on leur offre la vidéo complète, gratuite. On demande seulement leurs photos.
 > Bonjour l'équipe Semuliki 👋 J'espère que vous allez bien. Je fais suite à votre message de la semaine dernière.
-> Je reviens vers vous car les fêtes de fin d'année approchent, et c'est souvent là que le vin se vend le plus 🍷
-> Est-ce que vous préparez quelque chose pour cette période (coffrets, promotions, nouveaux points de vente) ? Si oui, on peut vous préparer la vidéo complète « Nguvu kama ya chui ! » à temps pour décembre.
-> Quel serait le bon moment pour en parler ?
+> Les fêtes de fin d'année approchent, et nous aimerions vous offrir la vidéo complète « Nguvu kama ya chui ! » avec vos propres produits 🍷 C'est gratuit et sans engagement : il nous faut seulement quelques photos de vos bouteilles, de vos coffrets ou de vos points de vente.
+> Pouvez-vous nous en envoyer quelques-unes ici ?
 
-S'ils répondent encore « plus tard » : « Pas de souci, bonne continuation ! » et on les recontacte seulement début novembre, une seule fois.
+Quand les photos arrivent : envoie-les-moi, on fait la vidéo, puis on voit la suite avec eux. Pas de prix tant qu'ils ne demandent pas.
 
 ---
 
