@@ -4,7 +4,30 @@ Règle : on relance **seulement** si le premier message est vraiment parti. Si q
 Moment : mardi à jeudi, entre 10 h et 12 h. Une relance toutes les 10 minutes environ, pas toutes d'un coup.
 Après chaque envoi, note la date dans le tableau de suivi en bas.
 
-## A. Relance 1 (vidéo envoyée vers le 15-16 octobre) : à envoyer aujourd'hui
+## ⭐ Priorité : les 2 marques qui ont répondu
+
+Elles ont répondu, donc la conversation est ouverte. On ne renvoie pas une « relance » classique : on rebondit sur leur réponse et on pose **une seule question**, simple, pour ouvrir la discussion.
+
+### Elembo : a répondu « Merci pour la vidéo »
+WhatsApp, fin de matinée (la Suisse a 1 h d'avance jusqu'au 25 octobre).
+> Bonjour l'équipe Elembo 👋 Avec plaisir, contents que la vidéo vous ait plu 🍍🍊
+> Une petite question : comment faites-vous connaître vos jus aujourd'hui ? Plutôt Instagram, TikTok, ou les statuts WhatsApp ?
+> Je vous demande ça parce qu'on peut vous préparer une vidéo sur l'histoire de vos jus, du fruit cueilli au Kongo-Central jusqu'à la bouteille. Il nous suffit de quelques photos de vos champs ou de la fabrication.
+
+Si on te répond : demande leurs photos et le réseau qu'ils utilisent le plus, puis on prépare la vidéo. Le prix, seulement quand ils demandent (et après avoir compris le besoin).
+
+### Semuliki : a répondu « Merci, on vous recontacte plus tard »
+Ils ont dit « plus tard » : on ne force pas. On attend quelques jours, puis on revient avec une raison concrète : les fêtes de fin d'année, la grosse période pour le vin. **À envoyer jeudi 22 ou vendredi 23 octobre**, en fin de matinée.
+> Bonjour l'équipe Semuliki 👋 J'espère que vous allez bien.
+> Je reviens vers vous car les fêtes de fin d'année approchent, et c'est souvent là que le vin se vend le plus 🍷
+> Est-ce que vous préparez quelque chose pour cette période (coffrets, promotions, nouveaux points de vente) ? Si oui, on peut vous préparer la vidéo complète « Nguvu kama ya chui ! » à temps pour décembre.
+> Quel serait le bon moment pour en parler ?
+
+S'ils répondent encore « plus tard » : « Pas de souci, bonne continuation ! » et on les recontacte seulement début novembre, une seule fois.
+
+---
+
+## A. Relance 1 (pour ceux qui n'ont pas répondu) (vidéo envoyée vers le 15-16 octobre) : à envoyer aujourd'hui
 
 ### 1. Bilengi (bar à jus + épicerie, Matadi / Kinshasa)
 Vidéo envoyée par **email** le 16 octobre. On relance sur WhatsApp (plus lu que l'email), et on répond aussi au même email.
@@ -25,15 +48,7 @@ Si tu leur écris pour la 1re fois sur WhatsApp, envoie la vidéo `bilengi/rende
 > Allegra Digital Ground
 > WhatsApp : +243 831 710 181
 
-### 2. Elembo (jus 100 % congolais, Kimpese / Suisse)
-WhatsApp (le numéro que tu as utilisé le 16 octobre). Fin de matinée : la Suisse a 1 h d'avance jusqu'au 25 octobre.
-> Bonjour l'équipe Elembo 👋 Je reviens vers vous pour la vidéo de vos trois jus. Avez-vous pu la regarder ? Si vous avez des photos de vos champs d'ananas ou de la fabrication à Kimpese, je peux vous en préparer une sur l'histoire de vos jus, « du fruit à la bouteille ». Ça vous intéresse ?
-
-### 3. Semuliki (vin, Lubumbashi)
-Message privé Instagram `semulikisarl` (ou WhatsApp si tu as lu leur numéro sur leur visuel).
-> Bonjour l'équipe Semuliki 👋 Je reviens vers vous pour l'aperçu « Nguvu kama ya chui ! ». Avez-vous pu le regarder ? Les fêtes de fin d'année arrivent : je peux vous préparer la version complète avec vos bouteilles, pour vos statuts et vos points de vente à Lubumbashi. Ça vous dirait ?
-
-### 4. Jambo « Jus ya Mboka »
+### 2. Jambo « Jus ya Mboka »
 Message privé Instagram. Seulement si le compte publie encore (leurs photos datent de 2020).
 > Bonjour l'équipe Jambo 👋 Je reviens vers vous pour l'aperçu « Jus ya Mboka ». Avez-vous pu le regarder ? Je peux vous préparer une vidéo complète pour un de vos 5 goûts. Lequel aimeriez-vous mettre en avant en premier ?
 
@@ -64,8 +79,8 @@ Message privé Instagram @la.kinoise.cafe
 | Marque | 1er envoi | Relance 1 | Relance 2 | Réponse |
 |---|---|---|---|---|
 | Bilengi | 16 oct. (email) | | | |
-| Elembo | 16 oct. (WhatsApp) | | | |
-| Semuliki | | | | |
+| Elembo | 16 oct. (WhatsApp) | | | « Merci pour la vidéo » |
+| Semuliki | ~15 oct. | | | « Merci, on vous recontacte plus tard » |
 | Jambo | | | | |
 | Tomela | | 6 oct. | | |
 | Festa RDC | | 6 oct. | | |
