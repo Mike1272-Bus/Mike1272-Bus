@@ -9,16 +9,16 @@ Après chaque envoi, note la date dans le tableau de suivi en bas.
 Elles ont répondu, donc la conversation est ouverte. On ne renvoie pas une « relance » classique : on rebondit sur leur réponse et on pose **une seule question**, simple, pour ouvrir la discussion.
 
 ### Elembo : a répondu « Merci pour la vidéo »
-WhatsApp, fin de matinée (la Suisse a 1 h d'avance jusqu'au 25 octobre).
-> Bonjour l'équipe Elembo 👋 Avec plaisir, contents que la vidéo vous ait plu 🍍🍊
+**Aujourd'hui, mardi 20 octobre** (réponse reçue la semaine dernière). WhatsApp, fin de matinée (la Suisse a 1 h d'avance jusqu'au 25 octobre).
+> Bonjour l'équipe Elembo 👋 Merci encore pour votre message de la semaine dernière, contents que la vidéo vous ait plu 🍍🍊
 > Une petite question : comment faites-vous connaître vos jus aujourd'hui ? Plutôt Instagram, TikTok, ou les statuts WhatsApp ?
 > Je vous demande ça parce qu'on peut vous préparer une vidéo sur l'histoire de vos jus, du fruit cueilli au Kongo-Central jusqu'à la bouteille. Il nous suffit de quelques photos de vos champs ou de la fabrication.
 
 Si on te répond : demande leurs photos et le réseau qu'ils utilisent le plus, puis on prépare la vidéo. Le prix, seulement quand ils demandent (et après avoir compris le besoin).
 
 ### Semuliki : a répondu « Merci, on vous recontacte plus tard »
-Ils ont dit « plus tard » : on ne force pas. On attend quelques jours, puis on revient avec une raison concrète : les fêtes de fin d'année, la grosse période pour le vin. **À envoyer jeudi 22 ou vendredi 23 octobre**, en fin de matinée.
-> Bonjour l'équipe Semuliki 👋 J'espère que vous allez bien.
+Ils ont répondu la semaine dernière (il y a environ 4 jours) : on peut revenir **aujourd'hui, mardi 20 octobre**, en fin de matinée, avec une raison concrète : les fêtes de fin d'année, la grosse période pour le vin.
+> Bonjour l'équipe Semuliki 👋 J'espère que vous allez bien. Je fais suite à votre message de la semaine dernière.
 > Je reviens vers vous car les fêtes de fin d'année approchent, et c'est souvent là que le vin se vend le plus 🍷
 > Est-ce que vous préparez quelque chose pour cette période (coffrets, promotions, nouveaux points de vente) ? Si oui, on peut vous préparer la vidéo complète « Nguvu kama ya chui ! » à temps pour décembre.
 > Quel serait le bon moment pour en parler ?
@@ -80,7 +80,7 @@ Message privé Instagram @la.kinoise.cafe
 |---|---|---|---|---|
 | Bilengi | 16 oct. (email) | | | |
 | Elembo | 16 oct. (WhatsApp) | | | « Merci pour la vidéo » |
-| Semuliki | ~15 oct. | | | « Merci, on vous recontacte plus tard » |
+| Semuliki | sem. du 12 oct. | | | « Merci, on vous recontacte plus tard » |
 | Jambo | | | | |
 | Tomela | | 6 oct. | | |
 | Festa RDC | | 6 oct. | | |
