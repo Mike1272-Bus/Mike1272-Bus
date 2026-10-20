@@ -73,7 +73,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 | Projet | État | Dossier |
 |---|---|---|
 | Pôle site web : nouveau chat réservé aux landing pages et sites | Contexte prêt (méthode DA de référence → `DESIGN.md` → textes → HTML statique → Vercel). Mike doit donner 1 à 3 sites de référence avec des captures, et ses skills de design | `site-web/CONTEXTE_CHAT_SITE.md` |
-| Landing « Système de stock automatisé » (Allegra, 3D + vidéos motion) | Skills design installés (taste-skill, impeccable, pack Emil Kowalski). Textes prêts (parcours du constat jusqu'au CTA WhatsApp). 5 points tranchés (suivi 2 mois, garantie 30 jours, démo gratuite). Prochaine étape : DA avec taste-skill | `site-web/landing-systeme-stock/` |
+| Landing « Système de stock » de **My automation** (nouveau nom de l'offre automatisation) | Page prête dans `site-web/landing-systeme-stock/` (DA verre 3D + réseau géométrique, police Josefin Sans, démo, circuit animé, formulaire). Google Sheet « My automation - Demandes de démo (site) » créé. Reste à Mike : 1) créer le projet Vercel « my-automation » (Claude n'a pas le droit de créer un projet), 2) déployer l'Apps Script (`apps-script/LISEZMOI.md`) et envoyer l'URL | `site-web/landing-systeme-stock/` |
 
 ## 5. En attente de Mike
 
