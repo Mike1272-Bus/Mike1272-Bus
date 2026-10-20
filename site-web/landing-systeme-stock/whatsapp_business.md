@@ -12,18 +12,48 @@ Les messages pour les clients sont au « vous ». Aucun prix, aucun chiffre inve
 | Nom | My automation |
 | Catégorie | Services informatiques (ou « Service aux entreprises ») |
 | Description | Nous automatisons le travail fait à la main dans votre entreprise. Exemple : votre stock se met à jour tout seul et chaque vente arrive sur votre WhatsApp. Démonstration gratuite de 15 minutes. |
+| Infos (la petite phrase sous le nom, 139 caractères max) | Votre stock se gère tout seul. Démo gratuite de 15 min 📲 |
 | Adresse | Kinshasa, RDC (adresse exacte si vous recevez des clients) |
 | Horaires | Vos vraies heures de réponse, par exemple lundi à samedi |
 | Site web | https://my-automation-rdc.vercel.app |
 | E-mail | L'adresse pro que vous voulez montrer |
 
-## 2. Catalogue (3 fiches, sans prix pour l'instant)
+## 2. Catalogue (textes prêts à copier)
 
-1. **Système de stock automatisé** : chaque vente met à jour le stock et arrive sur votre WhatsApp. Alerte avant la rupture, bilan du soir, liste du matin. Image : `logo/logo_my_automation.png` ou une image de la vidéo.
-2. **Automatisation sur mesure** : nous étudions votre façon de travailler et nous automatisons la tâche qui vous prend le plus de temps.
-3. **Démonstration gratuite (15 min)** : on regarde ensemble comment ça marcherait chez vous, avec vos produits.
+Dans Outils → **Catalogue** → Ajouter un article. Laisser le **prix vide** tant qu'il n'est pas fixé.
 
-Prix : à ajouter seulement quand Mike les aura fixés.
+### Article 1 : Système de stock automatisé
+- **Image** : `logo/cat_stock.png`
+- **Nom** : Système de stock automatisé
+- **Description** :
+> Votre vendeur enregistre la vente sur son téléphone, en quelques secondes. Le reste se fait tout seul :
+> • le stock se met à jour tout de suite ;
+> • la vente arrive sur votre WhatsApp, où que vous soyez ;
+> • votre client reçoit sa confirmation ;
+> • une alerte vous prévient avant qu'un produit manque ;
+> • chaque soir, le bilan de la journée ; chaque matin, la liste de ce qu'il faut racheter.
+> Pour boutiques, dépôts, quincailleries, alimentations et pharmacies. Installation en quelques jours, formation de votre vendeur, suivi pendant 2 mois. Garantie 30 jours.
+- **Lien** : https://my-automation-rdc.vercel.app
+- **Code article** : MA-STOCK
+
+### Article 2 : Démonstration gratuite (15 min)
+- **Image** : `logo/cat_demo.png`
+- **Nom** : Démonstration gratuite (15 min)
+- **Description** :
+> On regarde ensemble, en 15 minutes, comment le système marcherait chez vous, avec vos propres produits. En appel vidéo ou chez vous. C'est gratuit et sans engagement. Écrivez-nous le jour et l'heure qui vous arrangent.
+- **Lien** : https://my-automation-rdc.vercel.app/#contact
+- **Code article** : MA-DEMO
+
+### Article 3 : Automatisation sur mesure
+- **Image** : `logo/cat_sur_mesure.png`
+- **Nom** : Automatisation sur mesure
+- **Description** :
+> Chaque entreprise travaille à sa façon. Dites-nous quelle tâche vous prend le plus de temps (saisie, comptes, relances, commandes, rapports) : nous étudions votre façon de travailler et nous construisons le système qui la fait à votre place, avec les outils que vous utilisez déjà, comme WhatsApp.
+- **Lien** : https://my-automation-rdc.vercel.app
+- **Code article** : MA-MESURE
+
+### Collection (pour ranger les articles)
+- **Nom** : Nos solutions. Y mettre les 3 articles, dans cet ordre : Système de stock, Démonstration gratuite, Sur mesure.
 
 ## 3. Message d'accueil (premier message d'un nouveau contact)
 
