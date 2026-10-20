@@ -65,3 +65,23 @@ Classement selon les signaux de Chanel : pub qui tourne depuis longtemps (= rent
 > Bonjour Maman Blandine, j'ai vu votre publicité sur l'arrivage de Turquie, avenue Kabambare. Petite question : à la boutique, les ventes et le stock, c'est encore noté à la main, sur un cahier ou sur Excel ?
 
 La suite (vidéo + proposition de 15 minutes, relances J+2, J+5, J+10) est dans `../messages_approche_hormozi.md`.
+
+## Les 3 signaux (score sur 3)
+
+1. **Pub** : elle paie des pubs, donc elle a du budget. Bonus si la pub tourne depuis plus d'un mois.
+2. **Croissance** : nouvelle adresse, 2e boutique, plusieurs villes ou pays, expédition en provinces, annonce « on recrute ». À voir dans la pub et sur sa page Facebook (5 derniers posts).
+3. **Débordement** : trop de messages à gérer à la main. Indices :
+   - texte du genre « lisez avant de poser une question », « le prix est sur chaque photo » ;
+   - commentaires « prix ? », « encore disponible ? » sans réponse (« Voir les détails » → ouvrir la publication) ;
+   - beaucoup de modèles, tailles ou couleurs.
+
+| Entreprise | Pub | Croissance | Débordement | Score |
+|---|---|---|---|---|
+| Maelys kid's | ✅ depuis 1 an | ✅ nouvelle adresse + provinces | ✅ « lisez avant de poser une question », prix sur chaque article | **3/3** |
+| AFROBAM | ✅ environ 10 pages | ✅ Kinshasa + Lubumbashi | à vérifier (commentaires) | 2-3/3 |
+| Kamane Trade International | ✅ | ✅ plusieurs pays | ✅ modèles × pointures | **3/3** |
+| ELDORADO CONGO | ✅ 3 pubs | à vérifier | ✅ modèles + garanties à suivre | 2-3/3 |
+| BELPRo business | ✅ | à vérifier | ✅ dizaines de références | 2-3/3 |
+| El-Elisha Boutique | ✅ 2 pubs | à vérifier | ✅ couleurs × pointures | 2-3/3 |
+
+Priorité : 3/3 d'abord, puis 2/3. 1/3 = deuxième vague.
