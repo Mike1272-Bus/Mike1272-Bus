@@ -39,6 +39,7 @@ Mike va fournir des skills de design. Range chacun dans `.claude/skills/<nom>/SK
 | `mobile-native` | Rendu « appli » sur téléphone | oui |
 | `break-ui`, `prototype`, `find-animation-opportunities`, `improve-animations`, `animation-vocabulary`, `apple-design`, `pick-ui-library` | Tests, variantes, audit | oui |
 | `animate-expo`, `write-swift`, `ask-sonner` | Pack Emil Kowalski, peu utiles ici (apps mobiles, React) | oui |
+| `impeccable` (pbakaus) | Direction artistique, critique, audit et finition des pages (anti « site IA ») | oui |
 | *(à venir)* | DA / design | |
 
 ## Organisation
