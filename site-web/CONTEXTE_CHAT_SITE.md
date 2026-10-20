@@ -20,7 +20,7 @@ Ce chat sert **uniquement** à créer des landing pages et des sites internet. L
 6. **Mise en ligne** gratuite sur Vercel, comme la landing Allegra.
 
 ## Règles anti « site IA moche »
-- Pas de dégradés violet-bleu, ni d'emojis en guise d'icônes, ni de « glassmorphism » partout.
+- Pas de dégradés violet-bleu ni de « glassmorphism » partout, sauf si Mike donne une DA qui en contient (cas de la landing My automation : verre dosé sur les objets 3D). Pas d'emojis en guise d'icônes.
 - Une seule couleur d'accent, beaucoup d'espace blanc et une vraie hiérarchie des titres.
 - Les vraies photos et vidéos des clients ou de Mike. **Aucune illustration de personnes.**
 - Le téléphone d'abord : la majorité des visiteurs viennent de WhatsApp, TikTok ou Facebook.
