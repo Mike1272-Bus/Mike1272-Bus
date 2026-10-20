@@ -8,6 +8,7 @@ Les messages pour les clients sont au « vous ». Aucun prix, aucun chiffre inve
 | Champ | À mettre |
 |---|---|
 | Photo | `logo/photo_profil_whatsapp.png` (carré, elle s'affiche en rond) |
+| Photo de couverture | `logo/couverture_whatsapp.png` (1920 × 1080) |
 | Nom | My automation |
 | Catégorie | Services informatiques (ou « Service aux entreprises ») |
 | Description | Nous automatisons le travail fait à la main dans votre entreprise. Exemple : votre stock se met à jour tout seul et chaque vente arrive sur votre WhatsApp. Démonstration gratuite de 15 minutes. |
