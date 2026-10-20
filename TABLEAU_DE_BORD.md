@@ -66,6 +66,12 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 | Templates pour entreprises (vendus en produits digitaux sur Chariow, voir `produits/templates-entreprises/offre_produits_digitaux.md`) | Template n°1 « Gestion de stock » prêt (`gestion_de_stock.xlsx` + fiche Desire). Système de stock automatisé : 4 workflows n8n (vente, arrivage, point du matin, bilan du soir) + PDF explicatif. Installation chez Mike (15 oct.) : 4 workflows importés, Google Sheets connecté, app Meta « Allegra business » + numéro de test OK (Hello World reçu), 3 modèles WhatsApp soumis (nouvelle_commande, alerte_stock, confirmation_commande), connexion WhatsApp créée dans n8n. Reste : validation Meta des modèles puis grand test de Stock 1, puis Stock 2-3-4. Formation interne pour un collaborateur prête (32 slides, `automatisation-n8n/formation/`). Vidéo de vente v3 en 3D avec la voix de Hugo (ElevenLabs), 71,5 s : travail à la main → exemple du système de stock → « on adapte à votre façon de travailler » + script voix pour la voix IA + messages LinkedIn et WhatsApp (`video-vente-systeme-stock/`), à recaler sur la voix de Mike. Vidéo de présentation v2 (37 s, script voix prêt) + vidéo « workflow n8n de l'intérieur » (35 s), à valider. Attente de la voix de Mike. Prix à fixer | `produits/templates-entreprises/` |
 | Prospection système de stock (47 entreprises, Kinshasa et Lubumbashi) | Plan + fichier de suivi prêts. Messages méthode Hormozi, avis « 0 $ » et méthode de vente en 6 étapes (PDF, d'après la masterclass de Chanel) prêts. Démarrer après le test n8n et les prix | `produits/templates-entreprises/prospection-stock/` |
 
+## 6. Site web (chat dédié)
+
+| Projet | État | Dossier |
+|---|---|---|
+| Pôle site web : nouveau chat réservé aux landing pages et sites | Contexte prêt (méthode DA de référence → `DESIGN.md` → textes → HTML statique → Vercel). Mike doit donner 1 à 3 sites de référence avec des captures, et ses skills de design | `site-web/CONTEXTE_CHAT_SITE.md` |
+
 ## 5. En attente de Mike
 
 - Épisode 2 : dire si un bruitage ou une scène tombe mal
