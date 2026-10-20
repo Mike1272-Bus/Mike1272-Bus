@@ -85,3 +85,18 @@ La suite (vidéo + proposition de 15 minutes, relances J+2, J+5, J+10) est dans 
 | El-Elisha Boutique | ✅ 2 pubs | à vérifier | ✅ couleurs × pointures | 2-3/3 |
 
 Priorité : 3/3 d'abord, puis 2/3. 1/3 = deuxième vague.
+
+## Vidéo 2 (tri « plus récentes ») : pubs lancées les 19 et 20 oct.
+
+Signal faible : pubs de moins de 24 h, souvent « nombre faible d'impressions », donc aucune preuve qu'elles rapportent. À garder pour la 2e vague. Les plus intéressantes :
+
+| Entreprise | Vend | Signal en plus | Contact |
+|---|---|---|---|
+| Express Time | Montres **en gros et au détail** | Kinshasa + Lubumbashi + provinces (croissance), grossiste | Bouton dans la pub |
+| Bong.com | Véhicules (11 en stock) | Stock de forte valeur | +243 833 402 824 |
+| KAZI BORA service | Véhicules | Stock de forte valeur | Bouton dans la pub |
+| Stel'Land | Bassins et articles bébé | Boutique ouverte du lundi au samedi | Bouton dans la pub |
+| Cedrick business | Powerbanks | | Bouton dans la pub |
+| Di-Fashion | Chapeaux (Turquie), 2 pubs | | 0822 929 045 |
+
+Autres boutiques de mode (petits vendeurs) : Deborah Fashion 0822 696 120, Deve Business 0827 867 537, Business P +243 846 300 380, S-style 0808 821 818, GR Shopping 0893 320 063, Zoé Sallon 0827 540 721, Queen Hair, Mina business, Candiwax, SD Business, Mhaya business, Franky shopping, CAPO STYLE, Zannotty boutique, VK Business, ALMAKcollection, Alpha mode, zoe boutique, Jk show business, La vie continue MDK, NK cosmétique.
