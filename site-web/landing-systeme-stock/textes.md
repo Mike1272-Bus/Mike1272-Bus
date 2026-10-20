@@ -137,14 +137,13 @@ Ce système de stock est un exemple. Chaque entreprise a sa façon de vendre, se
 Vous nous écrivez sur WhatsApp. On regarde ensemble comment ça marcherait chez vous, avec vos produits.
 
 **2. On construit votre système**
-Nous l'adaptons à votre façon de travailler. Délai : **[À DÉCIDER : nombre de jours]**.
+Nous l'adaptons à votre façon de travailler. Selon votre entreprise, ça prend quelques jours. On vous donne le délai exact pendant la démonstration.
 
 **3. On installe et on forme votre vendeur**
 On l'installe et on montre à votre vendeur comment s'en servir. Vous, vous recevez juste les messages.
 
-**4. On reste à côté**
-Une question, un réglage à changer ? Vous nous écrivez, on vous accompagne.
-*(À confirmer par Mike : suivi après installation, et pendant combien de temps.)*
+**4. On vous suit pendant 2 mois**
+Une question, un réglage à changer ? Pendant les 2 mois après l'installation, vous nous écrivez et on vous accompagne.
 
 ---
 
@@ -157,16 +156,16 @@ Oui. Il a une seule chose à faire : enregistrer la vente sur son téléphone. O
 Non. C'est le système qui s'adapte à vous, pas l'inverse.
 
 **Je travaille déjà avec Excel. Je perds tout ?**
-**[À CONFIRMER par Mike : peut-on reprendre le fichier Excel du client ?]** Si oui : « Non. On peut partir de ce que vous avez déjà. »
+Ça dépend de votre fichier. Montrez-le-nous pendant la démonstration : on vous dit tout de suite ce qu'on peut reprendre.
 
 **Il me faut un ordinateur ?**
-**[À CONFIRMER par Mike : ce qu'il faut côté client, par exemple un téléphone avec internet.]**
+Non. Un téléphone avec internet suffit à votre vendeur pour enregistrer les ventes. Vous, vous recevez tout sur WhatsApp.
 
 **Combien ça coûte ?**
 Le prix dépend de votre entreprise et de ce qu'on automatise. On en parle pendant la démonstration, qui elle est gratuite.
 
 **Et si ça ne me fait pas gagner de temps ?**
-**[À DÉCIDER : garantie.]** Exemple prévu dans la prospection : « Si après [X] semaines le système ne vous fait pas gagner de temps, on le retire et vous ne payez pas l'installation. » À n'afficher que si Mike la valide.
+Alors vous ne payez pas l'installation. Si après 30 jours le système ne vous fait pas gagner de temps, on le retire et l'installation ne vous coûte rien.
 
 ---
 
@@ -201,10 +200,11 @@ Bouton WhatsApp flottant sur téléphone (en bas à droite), visible après le h
 
 ---
 
-## Points à trancher par Mike
+## Décisions de Mike (20 oct.)
 
-1. Délai d'installation (section 8).
-2. Garantie : on l'affiche ou pas (section 9) ?
-3. Suivi après installation : oui ou non, et pendant combien de temps (section 8) ?
-4. Reprise d'un fichier Excel existant, et matériel nécessaire chez le client (section 9).
-5. « Démonstration gratuite de 15 minutes, sans engagement » : je l'ai reprise de tes messages de prospection. Confirme que c'est bien l'offre du site.
+1. Délai d'installation : quelques jours, ça dépend de l'entreprise. Le délai exact est donné pendant la démo.
+2. Garantie : affichée. Durée de 30 jours choisie par Claude (dans les 2 mois de suivi). Mike peut la changer.
+3. Suivi après installation : 2 mois.
+4. Fichier Excel du client : ça dépend, on regarde pendant la démo.
+5. Démo gratuite de 15 minutes, sans engagement : confirmée.
+6. Matériel : un téléphone avec internet pour le vendeur (réponse de Claude, d'après le fonctionnement du système).
