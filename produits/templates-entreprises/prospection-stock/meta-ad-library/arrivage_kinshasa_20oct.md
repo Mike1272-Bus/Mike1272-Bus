@@ -117,3 +117,26 @@ Autres boutiques de mode (petits vendeurs) : Deborah Fashion 0822 696 120, Deve 
 Autres (mode, chaussures) : AIGLE ROYAL habilleur, Stelle Mode, Robinson's Fashion Style (Assossa n° 21), FRY Collection, Miss Gaga Store +243 898 254 908, Djemi Wisnton, JN business 0820 477 888, Bedjiringo store +243 861 958 796, MK boutique +243 830 595 793, lotinmode001, Haute pointure d'élégance, Man Style, Youba business 0824 804 226, GRK Ultra Chic, RAGUEL business 0980 983 404, Ngana mall (DK boutique), CHEZ TUMA 0834 173 440, Sarah paradoxe business, Gloire business 0850 844 502, Parisienne style, TrendMen, Vente en ligne habillement.
 
 Total Bibliothèque pub au 20 oct. : 19 + 27 + 27 = **73 entreprises**.
+
+## Vidéo 4 (21 oct., pubs lancées surtout en septembre) : 26 nouvelles entreprises
+
+Les prospects déjà connus réapparaissent (Eldorado, Maelys kid's avec 4 pubs, Cadet.K, AFROBAM, Kamane, BELPRo, Mon Style, Boutique le coin du curieux, L'Univers du crochet) : ce sont bien les plus actifs.
+
+**Nouveaux à sortir du lot :**
+
+| Entreprise | Vend | Signal | Contact |
+|---|---|---|---|
+| **CASI secret's** | Nuisettes, **au détail et en gros** (« grossistes et revendeuses attendus ») | Grossiste. Avenue Ngungu, croisement Dumarché n° 89 bis. Pub depuis le 3 oct. | Bouton dans la pub |
+| **Itel Business** | Électroménager, téléphones | **2 adresses** : Barumbu (av. Kabambare 1370) et Kimbaseke (Mont-Kali) = croissance | +243 863 828 767 |
+| **ETS Papa Simba « Tatu Wanyi »** (+ page papa_simba_) | Articles maison | 2 pages qui font de la pub, boutique à Limete (1re rue, Funa industriel) | +243 850 062 300 |
+| **Ets VIP PLAST ET Vivers** | Chaises de jardin | Expédition en provinces | 0973 175 986 |
+| **NGF Agro-business** | Matériel d'élevage (abreuvoirs, plateaux, pipettes) | Beaucoup de petites références | 0827 171 476 |
+| **Congo market** | Trousses, maroquinerie | Boutique avenue Mpika n° 2, Bandal. Livraison avec plusieurs tarifs par zone | +243 982 755 466 |
+| **Global Market** | Marmites Tefal | Pub depuis le 7 sept. | Bouton WhatsApp |
+| **EAGLE GROUP** | Écouteurs Samsung (Galaxy Buds) | Pub depuis le 3 sept., électronique | Bouton WhatsApp |
+| **Sté kz** | Valises | « Stock très limité » | 0846 999 583 |
+| **Herk boutik** | Blazers, jeans | 2 pubs depuis le 16 sept. | 0811 160 474 |
+
+Autres : Poussins Kinshasa (pré-réservation de poussins pondeuses), ZION Lustre RDC (luminaires), RHcollection +243 894 019 823 (bagues), JM Boutique / JM Business (micros pro), Mkb shop (AirPods), Wiz shop +243 982 507 301, Ma Cuisine (layette), D-kloset, Naomie Style 0897 420 986, BM business et Hk business (draps), héro business, Express Ek business vente, Pm Collection.
+
+**Total Bibliothèque pub : 73 + 26 = 99 entreprises.**
