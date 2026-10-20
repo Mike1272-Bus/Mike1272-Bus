@@ -71,6 +71,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 | Projet | État | Dossier |
 |---|---|---|
 | Pôle site web : nouveau chat réservé aux landing pages et sites | Contexte prêt (méthode DA de référence → `DESIGN.md` → textes → HTML statique → Vercel). Mike doit donner 1 à 3 sites de référence avec des captures, et ses skills de design | `site-web/CONTEXTE_CHAT_SITE.md` |
+| Landing « Système de stock automatisé » (Allegra, 3D + vidéos motion) | Skills design installés (taste-skill, impeccable, pack Emil Kowalski). Textes prêts (parcours du constat jusqu'au CTA WhatsApp). Mike doit trancher 5 points (délai, garantie, suivi, Excel, offre démo), puis DA | `site-web/landing-systeme-stock/` |
 
 ## 5. En attente de Mike
 
