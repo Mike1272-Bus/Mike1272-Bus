@@ -1,9 +1,9 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/:path*",
+      "src": "^/(.*)$",
       "has": [{ "type": "host", "value": "my-automation-rdc.vercel.app" }],
-      "destination": "/my-automation/:path*"
+      "dest": "/my-automation/$1"
     }
   ]
 }
