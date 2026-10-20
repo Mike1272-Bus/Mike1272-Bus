@@ -100,3 +100,20 @@ Signal faible : pubs de moins de 24 h, souvent « nombre faible d'impressions »
 | Di-Fashion | Chapeaux (Turquie), 2 pubs | | 0822 929 045 |
 
 Autres boutiques de mode (petits vendeurs) : Deborah Fashion 0822 696 120, Deve Business 0827 867 537, Business P +243 846 300 380, S-style 0808 821 818, GR Shopping 0893 320 063, Zoé Sallon 0827 540 721, Queen Hair, Mina business, Candiwax, SD Business, Mhaya business, Franky shopping, CAPO STYLE, Zannotty boutique, VK Business, ALMAKcollection, Alpha mode, zoe boutique, Jk show business, La vie continue MDK, NK cosmétique.
+
+## Vidéo 3 (suite des pubs récentes, 18 et 19 oct.) : 27 nouvelles entreprises
+
+À sortir du lot (stock réel ou plusieurs pubs) :
+
+| Entreprise | Vend | Signal | Contact |
+|---|---|---|---|
+| **KAJET Store** | iPhone (XR, 11…) en plusieurs capacités | Boutique physique : immeuble Botour, local 33, Gombe. Stock de forte valeur | +243 972 421 847 |
+| **Kenaya Chambre Froide** | Viande (chèvre, dindon), chambre froide | Stock périssable : besoin fort de suivi. Livre du lundi au samedi | 0970 140 623 |
+| **Maison Allure** | Sacs à main de Dubaï | **5 pubs en même temps** : gros budget | Bouton WhatsApp |
+| **boutique_maddyshop** | Parfums Zara | Bouton « Commander » | Bouton WhatsApp |
+| **Rolandsyl business** | Vestes, safari (Turquie), tailles 44 à 70 | 2 pubs, expédition en provinces | Bouton dans la pub |
+| Maelys kid's (déjà dans le top 10) | Bodies bébé | Une nouvelle pub de plus : très active | 0893 308 096 |
+
+Autres (mode, chaussures) : AIGLE ROYAL habilleur, Stelle Mode, Robinson's Fashion Style (Assossa n° 21), FRY Collection, Miss Gaga Store +243 898 254 908, Djemi Wisnton, JN business 0820 477 888, Bedjiringo store +243 861 958 796, MK boutique +243 830 595 793, lotinmode001, Haute pointure d'élégance, Man Style, Youba business 0824 804 226, GRK Ultra Chic, RAGUEL business 0980 983 404, Ngana mall (DK boutique), CHEZ TUMA 0834 173 440, Sarah paradoxe business, Gloire business 0850 844 502, Parisienne style, TrendMen, Vente en ligne habillement.
+
+Total Bibliothèque pub au 20 oct. : 19 + 27 + 27 = **73 entreprises**.
