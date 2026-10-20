@@ -34,7 +34,16 @@ Mike va fournir des skills de design. Range chacun dans `.claude/skills/<nom>/SK
 |---|---|---|
 | `copywriting` | Textes de marque | oui |
 | `web-project-scaffold` | Site React ou boutique (si besoin) | oui (intégré) |
+| `emil-design-eng` | Finitions UI, détails qui font « pro » | oui |
+| `animate`, `review-animations`, `animation-performance` | Animations web propres et légères | oui |
+| `mobile-native` | Rendu « appli » sur téléphone | oui |
+| `break-ui`, `prototype`, `find-animation-opportunities`, `improve-animations`, `animation-vocabulary`, `apple-design`, `pick-ui-library` | Tests, variantes, audit | oui |
+| `animate-expo`, `write-swift`, `ask-sonner` | Pack Emil Kowalski, peu utiles ici (apps mobiles, React) | oui |
+| `impeccable` (pbakaus) | Direction artistique, critique, audit et finition des pages (anti « site IA ») | oui |
+| `taste-skill` (Leonxlnx) | Propose 3 directions artistiques tirées de 247 sites primés, puis vérifie la page | oui |
 | *(à venir)* | DA / design | |
+
+**Attention** : `taste-skill` peut aller chercher des photos libres sur internet. On ne s'en sert pas : uniquement les images des clients ou de Mike, et aucune illustration de personnes.
 
 ## Organisation
 - Chaque nouveau site a son dossier : `site-web/<nom-du-projet>/`, qui contient `DESIGN.md`, `textes.md`, `index.html` et `images/`. La landing Allegra reste dans `allegra-landing/`.
