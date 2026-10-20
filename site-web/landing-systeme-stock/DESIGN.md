@@ -9,3 +9,8 @@ Références de Mike : une maquette « verre 3D » lavande (mise en page en case
 - **Images** : vidéo de vente My automation, images tirées de la vidéo, illustrations 3D Fluent Emoji (Microsoft, licence MIT). Aucune personne.
 - **Le workflow** est le fil de la page : démo « Simuler une vente » (tubes de stock), panneau du circuit animé (vente → stock → WhatsApp → client → alerte), 4 messages du jour.
 - **Appel à l'action** : WhatsApp +243 831 710 181 (message pré-rempli) + formulaire final (Google Sheet + email + WhatsApp).
+
+## Mise en ligne
+- Adresse : https://my-automation-rdc.vercel.app (domaine ajouté au projet Vercel `allegra-digital-ground`, faute de droit pour créer un projet).
+- Copie publiée : `allegra-landing/site/my-automation/`. Le fichier `allegra-landing/site/vercel.json` envoie ce domaine vers ce dossier.
+- Après une modif ici, recopier `index.html` et `media/` dans `allegra-landing/site/my-automation/`, puis redéployer.
