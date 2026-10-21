@@ -1,75 +1,120 @@
-# Top 20 : premiers messages WhatsApp (méthode Hormozi, une seule question)
+# Premiers messages WhatsApp My automation : 10 entreprises par jour
 
-5 messages par jour, depuis le WhatsApp Business de My automation. **Heures d'envoi (heure de Kinshasa)** : 9h30, 9h50, 10h10, 10h30, 10h50. C'est après l'ouverture des boutiques et avant le rush de midi. Si tu rates le matin, envoie entre 15h et 16h30. À éviter : avant 8h, entre 12h et 14h, après 19h, et le dimanche matin. Pas de vidéo ni de prix dans le premier message. Quand le lien wa.me manque, passe par le bouton « Envoyer un message » de la pub.
+Depuis le WhatsApp Business de **My automation**. Pas de vidéo ni de prix dans le premier message. Quand le lien wa.me manque, passe par le bouton « Envoyer un message » de la pub.
 
-## Jour 1 : mercredi 21 oct.
+**Rythme : 10 entreprises par jour, une toutes les 15 minutes, de 9h30 à 11h45** (heure de Kinshasa) : après l'ouverture des boutiques, avant le rush de midi.
+- L'après-midi : relances J+2, J+5, J+10 à **14h30**, puis Allegra (vidéos) de 15h à 16h.
+- À éviter : avant 8h, entre 12h et 14h, après 19h, le samedi (jour de grosse vente) et le dimanche matin.
+- Sécurité du numéro : chaque message est personnalisé, jamais de copier-coller identique, jamais d'envoi groupé. Si WhatsApp affiche un avertissement, on redescend à 5 par jour.
 
-1. **9h30** · **Maelys kid's** : https://wa.me/243893308096
-> Bonjour, j'ai vu que vous demandez aux clients de lire avant de poser une question : vous devez recevoir énormément de messages ! Petite question : les commandes et le stock chez Maelys kid's, c'est encore noté à la main, sur un cahier ou sur Excel ?
+**Modèle (3 lignes)** : qui on est → ce qu'on a vu dans leur pub et le risque qui coûte cher → une seule question.
 
-2. **9h50** · **Kamane Trade International** : bouton de la pub
-> Bonjour, j'ai vu votre publicité sur les sneakers premium, livrées dans plusieurs pays. Petite question : le stock par modèle et par pointure, vous le suivez encore à la main (cahier ou Excel) ?
+## Jour 1 : mercredi 21 oct. (déjà envoyé, ancien message court)
 
-3. **10h10** · **Ets ELDORADO CONGO** : https://wa.me/243970792929
-> Bonjour, j'ai vu votre publicité sur le nouvel arrivage des groupes Toyama 10 et 12 KVA. Petite question : chez Eldorado, les ventes, le stock et les garanties de chaque générateur, c'est encore suivi à la main (cahier ou Excel) ?
-
-4. **10h30** · **KAJET Store** : https://wa.me/243972421847
-> Bonjour, j'ai vu votre publicité sur les iPhone XR et 11 chez KAJET Store, immeuble Botour. Petite question : avec tous ces modèles et ces capacités (64, 128 Go…), les ventes et le stock, vous les suivez encore à la main, sur un cahier ou sur Excel ?
-
-5. **10h50** · **Itel Business** : https://wa.me/243863828767
-> Bonjour, j'ai vu votre publicité : vous avez une boutique à Barumbu et une autre à Kimbaseke, bravo ! Petite question : avec deux boutiques, savoir ce qui reste en stock dans chacune, c'est encore noté à la main (cahier ou Excel) ?
+Maelys kid's, Kamane Trade International, Ets ELDORADO CONGO, KAJET Store, Itel Business (a répondu).
 
 ## Jour 2 : jeudi 22 oct.
 
-6. **9h30** · **AFROBAM** : https://wa.me/243845001638
-> Bonjour, j'ai vu vos publicités sur les stations d'énergie contre les coupures de courant, à Kinshasa et à Lubumbashi. Petite question : avec deux villes, le stock de chaque modèle, vous le suivez encore à la main (cahier ou Excel) ?
+1. **9h30** · **AFROBAM** : https://wa.me/243845001638
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu vos publicités sur les stations d'énergie, à Kinshasa et à Lubumbashi. Avec deux villes, une chose revient souvent et coûte cher : un modèle manque d'un côté alors qu'il en reste de l'autre, et la vente part ailleurs.
+> Une question avant tout : aujourd'hui, le stock de chaque ville, vous le suivez sur un cahier, sur Excel, ou autrement ?
 
-7. **9h50** · **BELPRo business** : bouton de la pub
-> Bonjour, j'ai vu votre publicité sur le nouvel arrivage : congélateurs de 150 à 500 L, écrans, baffles… Petite question : avec autant de modèles et de tailles, le stock chez Belpro, c'est encore noté à la main ?
+2. **9h45** · **BELPRo business** : bouton de la pub
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité : congélateurs de 150 à 500 L, écrans de 32 à 75 pouces, baffles… Avec autant de tailles, une chose revient souvent : on annonce un modèle disponible alors qu'il est déjà parti.
+> Une question avant tout : aujourd'hui, le stock par modèle, vous le suivez sur un cahier, sur Excel, ou autrement ?
 
-8. **10h10** · **CASI secret's** : bouton de la pub
-> Bonjour, j'ai vu votre publicité sur les nuisettes, au détail et en gros pour les revendeuses. Petite question : entre les ventes au détail et les commandes en gros, le stock, vous le suivez encore à la main (cahier ou Excel) ?
+3. **10h00** · **CASI secret's** : bouton de la pub
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les nuisettes, au détail et en gros pour les revendeuses. Entre le détail et le gros, une chose revient souvent : on ne sait plus exactement ce qui reste, ni ce que chaque revendeuse a pris.
+> Une question avant tout : aujourd'hui, vous suivez ça sur un cahier, sur Excel, ou autrement ?
 
-9. **10h30** · **Cadet.K** : bouton de la pub
-> Bonjour, j'ai vu votre publicité sur le nouvel arrivage d'équipements pour salons de coiffure et barbiers. Petite question : avec tous ces petits produits, les ventes et le stock, vous les notez encore à la main (cahier ou Excel) ?
+4. **10h15** · **Cadet.K** : bouton de la pub
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les équipements pour salons de coiffure et barbiers. Avec beaucoup de petits produits, une chose revient souvent : un article s'épuise sans qu'on le remarque, et le client va acheter ailleurs.
+> Une question avant tout : aujourd'hui, les ventes et le stock, vous les suivez sur un cahier, sur Excel, ou autrement ?
 
-10. **10h50** · **ETS Papa Simba « Tatu Wanyi »** : https://wa.me/243850062300
-> Bonjour Papa Simba, j'ai vu vos publicités pour la boutique de Limete, sur la 1re rue. Petite question : les ventes et le stock de la boutique, c'est encore noté à la main, sur un cahier ou sur Excel ?
+5. **10h30** · **ETS Papa Simba** : https://wa.me/243850062300
+> Bonjour Papa Simba, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu vos publicités pour la boutique de Limete. Quand on est à la fois en boutique et sur les réseaux, une chose revient souvent : des ventes qui ne sont notées nulle part, et un stock qui ne correspond plus.
+> Une question avant tout : aujourd'hui, les ventes et le stock, vous les suivez sur un cahier, sur Excel, ou autrement ?
+
+6. **10h45** · **Kenaya Chambre Froide** : https://wa.me/243970140623
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité Kenaya sur la chèvre et le dindon. Avec de la marchandise en chambre froide, une chose coûte cher : une viande qui reste trop longtemps sans qu'on s'en rende compte.
+> Une question avant tout : aujourd'hui, les entrées et les sorties, vous les suivez sur un cahier, sur Excel, ou autrement ?
+
+7. **11h00** · **NGF Agro-business** : https://wa.me/243827171476
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur le matériel d'élevage : abreuvoirs, plateaux, pipettes… Avec autant de petites références, une chose revient souvent : on tombe en rupture au moment où les éleveurs en ont besoin.
+> Une question avant tout : aujourd'hui, le stock, vous le suivez sur un cahier, sur Excel, ou autrement ?
+
+8. **11h15** · **Ets VIP PLAST ET Vivers** : https://wa.me/243973175986
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les chaises de jardin, avec les envois en provinces. Entre Kinshasa et les provinces, une chose revient souvent : une commande payée qu'on oublie d'expédier, ou un client qu'on oublie de prévenir.
+> Une question avant tout : aujourd'hui, les commandes et les envois, vous les suivez sur un cahier, sur Excel, ou autrement ?
+
+9. **11h30** · **Congo market** : https://wa.me/243982755466
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les trousses, et votre boutique de l'avenue Mpika à Bandal. Entre la boutique et les livraisons, une chose revient souvent : des ventes notées à moitié, et le stock ne correspond plus.
+> Une question avant tout : aujourd'hui, vous suivez ça sur un cahier, sur Excel, ou autrement ?
+
+10. **11h45** · **Maison Allure** : bouton de la pub
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu vos publicités sur les sacs de Dubaï : vous en avez plusieurs en ce moment ! Avec beaucoup de messages, une chose revient souvent : une cliente commande un modèle qui n'est déjà plus disponible.
+> Une question avant tout : aujourd'hui, les commandes et le stock, vous les suivez sur un cahier, sur Excel, ou autrement ?
 
 ## Jour 3 : vendredi 23 oct.
 
-11. **9h30** · **Kenaya Chambre Froide** : https://wa.me/243970140623
-> Bonjour, j'ai vu votre publicité Kenaya sur la chèvre et le dindon. Petite question : avec de la marchandise en chambre froide, les entrées, les sorties et ce qui reste, vous le suivez encore à la main (cahier ou Excel) ?
+1. **9h30** · **El-Elisha Boutique** : bouton de la pub
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les sneakers, en plusieurs couleurs et pointures. Avec autant de tailles, une chose revient souvent : un client demande une pointure qu'on croit avoir, mais qui est déjà partie.
+> Une question avant tout : aujourd'hui, le stock par pointure, vous le suivez sur un cahier, sur Excel, ou autrement ?
 
-12. **9h50** · **NGF Agro-business** : https://wa.me/243827171476
-> Bonjour, j'ai vu votre publicité sur le matériel d'élevage : abreuvoirs, plateaux, pipettes… Petite question : avec autant de petites références, le stock chez NGF, c'est encore noté à la main (cahier ou Excel) ?
+2. **9h45** · **Mon style shopping** : bouton de la pub
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les mocassins, et votre boutique du boulevard Triomphal. Entre la boutique et les commandes en ligne, une chose revient souvent : un article vendu deux fois, ou une vente qui n'est notée nulle part.
+> Une question avant tout : aujourd'hui, vous suivez ça sur un cahier, sur Excel, ou autrement ?
 
-13. **10h10** · **Ets VIP PLAST ET Vivers** : https://wa.me/243973175986
-> Bonjour, j'ai vu votre publicité sur les chaises de jardin, avec les expéditions en provinces. Petite question : les commandes, les envois et le stock, vous les suivez encore à la main (cahier ou Excel) ?
+3. **10h00** · **Express Time** : bouton de la pub
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les montres en gros et au détail, à Kinshasa et à Lubumbashi. Entre le gros, le détail et deux villes, une chose revient souvent : on ne sait plus exactement ce qui reste, ni où.
+> Une question avant tout : aujourd'hui, le stock, vous le suivez sur un cahier, sur Excel, ou autrement ?
 
-14. **10h30** · **Congo market** : https://wa.me/243982755466
-> Bonjour, j'ai vu votre publicité sur les trousses, avec la boutique de l'avenue Mpika à Bandal. Petite question : les ventes en boutique et les livraisons, c'est encore noté à la main (cahier ou Excel) ?
+4. **10h15** · **bk business 2** : https://wa.me/243825941071
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les powerbanks, avec paiement à la livraison. Avec ce mode de paiement, une chose coûte cher : l'argent d'une livraison qu'on oublie de vérifier.
+> Une question avant tout : aujourd'hui, les commandes et les paiements, vous les suivez sur un cahier, sur Excel, ou autrement ?
 
-15. **10h50** · **Maison Allure** : bouton de la pub
-> Bonjour, j'ai vu vos publicités sur les sacs à main de Dubaï, vous en avez plusieurs en ce moment ! Petite question : les commandes et le stock de chaque modèle, vous les suivez encore à la main (cahier ou Excel) ?
+5. **10h30** · **Boutique le coin du curieux** : https://wa.me/243862253932
+> Bonjour Maman Blandine, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur l'arrivage de Turquie, avenue Kabambare. À chaque arrivage, une chose revient souvent : on ne sait plus vite ce qui part bien et ce qu'il faut racheter.
+> Une question avant tout : aujourd'hui, les ventes et le stock, vous les suivez sur un cahier, sur Excel, ou autrement ?
 
-## Jour 4 : lundi 26 oct. (pas le samedi : jour de grosse vente)
+6. **10h45** · **Global Market** : bouton de la pub
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les faitouts Tefal. Quand une pub tourne depuis des semaines, une chose revient souvent : les commandes arrivent plus vite qu'on ne peut les noter.
+> Une question avant tout : aujourd'hui, les commandes et le stock, vous les suivez sur un cahier, sur Excel, ou autrement ?
 
-16. **9h30** · **El-Elisha Boutique** : bouton de la pub
-> Bonjour, j'ai vu votre publicité sur le nouvel arrivage de sneakers chez Abdiel Munoki, en plusieurs couleurs et pointures. Petite question : savoir ce qui reste en 42 noir ou en 44 camel, c'est encore noté à la main ?
+7. **11h00** · **EAGLE GROUP** : bouton de la pub
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les Galaxy Buds 4 Pro. Avec de l'électronique, une chose coûte cher : un article qui manque dans le stock sans qu'on sache quand il est parti.
+> Une question avant tout : aujourd'hui, les ventes et le stock, vous les suivez sur un cahier, sur Excel, ou autrement ?
 
-17. **9h50** · **Mon style shopping** : bouton de la pub
-> Bonjour, j'ai vu votre publicité sur le nouvel arrivage de mocassins, boulevard Triomphal. Petite question : chez Mon Style, les ventes et le stock, c'est encore noté à la main (cahier ou Excel) ?
+8. **11h15** · **Herk boutik** : https://wa.me/243811160474
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu vos publicités sur les blazers et les jeans. Avec plusieurs modèles et tailles, une chose revient souvent : on vend le dernier article d'une taille sans s'en rendre compte, et on ne rachète pas à temps.
+> Une question avant tout : aujourd'hui, le stock, vous le suivez sur un cahier, sur Excel, ou autrement ?
 
-18. **10h10** · **Express Time** : bouton de la pub
-> Bonjour, j'ai vu votre publicité sur les montres en gros et au détail, à Kinshasa et à Lubumbashi. Petite question : entre le gros, le détail et deux villes, le stock, vous le suivez encore à la main (cahier ou Excel) ?
+9. **11h30** · **Sté kz** : https://wa.me/243846999583
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu votre publicité sur les valises, avec un stock très limité. Quand le stock est limité, une chose coûte cher : promettre un article à un client alors qu'il vient de partir.
+> Une question avant tout : aujourd'hui, le stock, vous le suivez sur un cahier, sur Excel, ou autrement ?
 
-19. **10h30** · **bk business 2** : https://wa.me/243825941071
-> Bonjour, j'ai vu votre publicité sur l'arrivage des powerbanks, avec paiement à la livraison. Petite question : les commandes, les livraisons et le stock, c'est encore suivi à la main ?
+10. **11h45** · **Rolandsyl business** : bouton de la pub
+> Bonjour, je suis Mike de My automation : nous aidons les entreprises de Kinshasa à automatiser ce qu'elles font encore à la main.
+> J'ai vu vos publicités sur les vestes et les safaris de Turquie, en tailles 44 à 70, avec envois en provinces. Avec autant de tailles, une chose revient souvent : on ne sait plus exactement ce qui reste.
+> Une question avant tout : aujourd'hui, le stock, vous le suivez sur un cahier, sur Excel, ou autrement ?
 
-20. **10h50** · **Boutique le coin du curieux** : https://wa.me/243862253932
-> Bonjour Maman Blandine, j'ai vu votre publicité sur l'arrivage de Turquie, avenue Kabambare. Petite question : à la boutique, les ventes et le stock, c'est encore noté à la main, sur un cahier ou sur Excel ?
-
-Relances sans réponse : J+2, J+5 et J+10, **à 15h** (on ne relance jamais le matin d'un premier envoi).
-
-Suite (réponse « oui » → vidéo + proposition de 15 minutes, relances J+2, J+5, J+10) : `../messages_approche_hormozi.md`.
+Suite (réponse « cahier » ou « Excel » → vidéo + proposition de 15 minutes) : `../messages_approche_hormozi.md`. Jour 4 et suivants : prochains noms de `arrivage_kinshasa_20oct.md` (2e vague).
