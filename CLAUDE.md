@@ -1,6 +1,6 @@
 # Contexte pour Claude (lu automatiquement à chaque nouveau chat)
 
-Mike (DigitalMikaelson / Allegra Digital Ground / My automation, Kinshasa, RDC) : produits digitaux, prospection d'entreprises avec des vidéos animées, accompagnements, contenu TikTok. **Tout ce qui est automatisation pour entreprises se vend sous le nom « My automation »** (plus Allegra).
+Mike (DigitalMikaelson / Allegra Digital Ground / My automation, Kinshasa, RDC) : produits digitaux, prospection d'entreprises avec des vidéos animées, accompagnements, contenu TikTok. **Tout ce qui est automatisation pour entreprises se vend sous le nom « My automation »** (plus Allegra). **Mike n'est pas à Kinshasa en ce moment : aucun rendez-vous en personne, toutes les démos se font à distance (appel vidéo, partage d'écran).**
 
 - **Commence toujours par lire `TABLEAU_DE_BORD.md`** : l'état de chaque projet, les prochaines actions, les dossiers. Mets-le à jour quand quelque chose avance.
 - Le contexte complet de la marque est dans `projet-claude/contexte_projet.md`.

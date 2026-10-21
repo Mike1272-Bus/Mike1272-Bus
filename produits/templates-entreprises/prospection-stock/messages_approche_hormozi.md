@@ -86,6 +86,8 @@ Ensuite, même suite que sur WhatsApp : la vidéo après un « oui », puis la d
 
 ## 5. En personne (le plus fort à Kinshasa)
 
+> **Pour l'instant, Mike n'est pas à Kinshasa : pas de visite.** Démo à distance : appel vidéo WhatsApp ou Google Meet (partage d'écran : formulaire, Sheet, message WhatsApp qui arrive), ou vidéo de démo enregistrée. Dans les messages, proposer « 15 minutes en appel vidéo », jamais « je passe à la boutique ».
+
 Hormozi : « montrer » vaut mieux que « dire ».
 
 1. Entrer dans la boutique avec le téléphone prêt et le système de démonstration ouvert.
