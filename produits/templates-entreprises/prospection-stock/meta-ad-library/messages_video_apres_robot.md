@@ -86,3 +86,69 @@ Angle utile : « votre assistant répond déjà aux clients 👍 » = ils sont d
 > Avec tous vos messages pour les sacs de Dubaï 👜 on peut garder le stock de chaque modèle à jour tout seul, pour ne plus jamais promettre un sac déjà parti.
 > Voici une vidéo d'une minute avec un exemple 👇
 > Pouvez-vous la montrer à la responsable ? 🙏 Si ça l'intéresse, je lui montre en 15 minutes en appel vidéo 📲
+
+---
+
+## Jeudi 22 oct. : message 2 (texte + vidéo) pour la 3e série
+
+À envoyer dès que leur robot ou leur employé a répondu au message 1.
+
+**El-Elisha Boutique**
+> Merci pour votre réponse 🙏
+> Avec toutes vos couleurs et pointures 👟 on peut garder le stock de chaque paire à jour tout seul, et vous prévenir avant qu'une pointure manque.
+> Voici une vidéo d'une minute avec un exemple 👇
+> Pouvez-vous la montrer au responsable ? 🙏 Si ça l'intéresse, je lui montre en 15 minutes en appel vidéo 📲
+
+**Mon style shopping**
+> Merci pour votre retour 🙏
+> Entre la boutique du boulevard Triomphal et les commandes en ligne 👞 on peut faire arriver chaque vente sur WhatsApp et garder le stock juste, pour ne plus promettre un article deux fois.
+> Voici en une minute un exemple 👇
+> Pouvez-vous la transmettre au responsable ? 15 minutes en appel vidéo suffisent 📲
+
+**Express Time**
+> Merci pour votre réponse 🙏
+> Entre le gros, le détail et deux villes ⌚ on peut vous dire à tout moment combien il reste de chaque modèle, et où, directement sur WhatsApp.
+> Voici une vidéo d'une minute avec un exemple 👇
+> Pouvez-vous la montrer au responsable ? 🙏 Si ça l'intéresse, une démo de 15 minutes en appel vidéo 📲
+
+**bk business 2**
+> Merci pour votre retour 🙏
+> Avec le paiement à la livraison 🛵 on peut suivre chaque commande jusqu'à l'argent encaissé, tout seul, pour qu'aucun paiement ne passe entre les mailles.
+> Voici en une minute un exemple 👇
+> Pouvez-vous la transmettre au responsable ? 15 minutes en appel vidéo pour lui montrer 📲
+
+**Boutique le coin du curieux**
+> Merci beaucoup pour votre réponse 🙏
+> À chaque arrivage de Turquie 🇹🇷 on peut vous montrer tout seul ce qui part bien et ce qu'il faut racheter, directement sur WhatsApp.
+> Voici une vidéo d'une minute avec un exemple 👇
+> Pouvez-vous la montrer à Maman Blandine ? 🙏 Si ça l'intéresse, je lui montre en 15 minutes en appel vidéo 📲
+
+**Global Market**
+> Merci pour votre retour 🙏
+> Quand une pub marche comme la vôtre 🍲 on peut faire en sorte que chaque commande soit notée toute seule et que le stock suive, même quand les messages arrivent en masse.
+> Voici en une minute un exemple 👇
+> Pouvez-vous la transmettre au responsable ? 15 minutes en appel vidéo suffisent 📲
+
+**EAGLE GROUP**
+> Merci pour votre réponse 🙏
+> Avec de l'électronique 🎧 chaque article compte : on peut suivre chaque vente et chaque pièce en stock automatiquement, sur WhatsApp.
+> Voici une vidéo d'une minute avec un exemple 👇
+> Pouvez-vous la montrer au responsable ? 🙏 Si ça l'intéresse, une démo de 15 minutes en appel vidéo 📲
+
+**Herk boutik**
+> Merci pour votre retour 🙏
+> Avec vos blazers et jeans en plusieurs tailles 🧥 on peut vous prévenir tout seul quand une taille arrive à la fin, pour racheter à temps.
+> Voici en une minute un exemple 👇
+> Pouvez-vous la transmettre au responsable ? 15 minutes en appel vidéo pour lui montrer 📲
+
+**Sté kz**
+> Merci pour votre réponse 🙏
+> Avec un stock limité de valises 🧳 on peut vous dire en temps réel ce qui reste, pour ne jamais promettre une valise déjà partie.
+> Voici une vidéo d'une minute avec un exemple 👇
+> Pouvez-vous la montrer au responsable ? 🙏 Si ça l'intéresse, je lui montre en 15 minutes en appel vidéo 📲
+
+**Rolandsyl business**
+> Merci pour votre retour 🙏
+> Du 44 au 70, avec des envois en provinces 👔 on peut garder le stock de chaque taille à jour tout seul et suivre chaque envoi.
+> Voici en une minute un exemple 👇
+> Pouvez-vous la transmettre au responsable ? 15 minutes en appel vidéo suffisent 📲

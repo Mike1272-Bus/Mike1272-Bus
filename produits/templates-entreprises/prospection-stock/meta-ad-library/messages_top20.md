@@ -106,7 +106,7 @@ Une seule question 👇
 Vos commandes et votre stock, c'est plutôt 📒 cahier, 📊 Excel, ou autre chose ?
 ```
 
-## Jour 3 : vendredi 23 oct.
+## Jour 3 : jeudi 22 oct. (avancé d'un jour)
 
 1. **9h30** · **El-Elisha Boutique** : bouton de la pub
 
