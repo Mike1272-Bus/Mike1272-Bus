@@ -27,7 +27,7 @@ Hormozi : la valeur perçue monte quand le résultat rêvé est clair et que la 
 |---|---|
 | Résultat rêvé | « Vous ne faites plus rien à la main : chaque vente arrive sur votre WhatsApp, et vous êtes prévenu avant une rupture. » |
 | Ils y croient | On le montre **en direct**, sur leur téléphone, avec leurs produits. Pas de promesse dans le vide. |
-| Temps d'attente | Installation en **[À DÉCIDER : nombre de jours]**. |
+| Temps d'attente | Installation et rodage en une semaine environ (planning J0-J7). Prix de lancement : **150 $**, pour les 4 premières entreprises. Capacité : **4 entreprises par mois**. |
 | Effort pour eux | Presque zéro : on installe, on forme le vendeur, le patron reçoit juste les messages. |
 | Risque | **[À DÉCIDER]**, par exemple : « Si après [X] semaines le système ne vous fait pas gagner de temps, on le retire et vous ne payez pas l'installation. » |
 

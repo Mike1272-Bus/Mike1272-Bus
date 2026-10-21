@@ -41,8 +41,8 @@ On ne cite pas leurs noms. On dit seulement ce qu'on a vraiment vu.
 
 ### ⏳ Déclencheur 4 : la vraie fenêtre de tir
 - **La saison** : « Les fêtes de fin d'année approchent, c'est souvent la période la plus chargée. Un système s'installe et se rode avant le rush, pas pendant. » Le système prend environ une semaine à installer et à prendre en main (planning J0-J7 de la méthode de vente), donc il faut le lancer avant.
-- **Nos places** : on ne peut installer qu'un nombre limité d'entreprises par mois, parce qu'on adapte chaque système. **[À DÉCIDER : le vrai nombre, par exemple 4 par mois.]** On ne dit ce nombre que s'il est vrai.
-- **L'offre de lancement** : un prix de lancement pour les premières entreprises, en échange d'un avis et du droit de montrer leur cas. **[À DÉCIDER : le prix et le nombre de places.]** Une fois les places prises, l'offre s'arrête vraiment. Pas de réouverture.
+- **Nos places** : on installe **4 entreprises par mois maximum**, parce qu'on adapte chaque système à la façon de travailler de l'entreprise (décision de Mike, 21 oct.). C'est vrai, donc on peut le dire.
+- **L'offre de lancement** : **150 $** l'installation pour les **4 premières entreprises**, en échange d'un avis et du droit de montrer leur cas (avec leur accord écrit). Une fois les 4 places prises, l'offre s'arrête vraiment. Pas de réouverture.
 
 ## 4. Où placer chaque déclencheur dans le parcours
 
@@ -72,6 +72,17 @@ Comme le dit la vidéo, on ne met pas tout dans un seul message : **un déclench
 Après J+10, on s'arrête. On note le prospect en « froid, recontacter dans 2-3 mois ».
 
 ## 6. Pendant la démo (phrase de clôture)
-> « Vous m'avez dit qu'environ [son chiffre] part chaque mois à cause des ruptures et des erreurs. Le système coûte [prix]. Chaque mois où on attend, c'est [son chiffre] de plus qui part. On commence cette semaine ? »
+> « Vous m'avez dit qu'environ [son chiffre] part chaque mois à cause des ruptures et des erreurs. Le système coûte 150 $ à l'installation (prix de lancement). Chaque mois où on attend, c'est [son chiffre] de plus qui part. On commence cette semaine ? »
 
 C'est l'urgence la plus honnête qui existe : **ses chiffres, sa décision.**
+
+## 7. Le message de proposition (après la démo)
+> Comme convenu, voici notre proposition 👇
+> ✅ Installation de votre système, adapté à votre façon de travailler
+> ✅ Formation de votre équipe (15 minutes)
+> ✅ Une semaine de suivi pour tout roder
+> 💰 Prix de lancement : *150 $*, réservé aux 4 premières entreprises
+> On installe 4 entreprises par mois au maximum, parce que chaque système est fait sur mesure 🛠️ Il reste [nombre réel] place(s) ce mois-ci.
+> On réserve la vôtre ? 🙏
+
+À vérifier avant d'envoyer : le nombre de places restantes doit être **le vrai**.
