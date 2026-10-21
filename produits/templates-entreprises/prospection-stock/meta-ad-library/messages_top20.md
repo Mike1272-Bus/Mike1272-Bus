@@ -1,6 +1,6 @@
 # Top 20 : premiers messages WhatsApp (méthode Hormozi, une seule question)
 
-5 messages par jour, depuis le WhatsApp Business d'Allegra. **Heures d'envoi (heure de Kinshasa)** : 9h30, 9h50, 10h10, 10h30, 10h50. C'est après l'ouverture des boutiques et avant le rush de midi. Si tu rates le matin, envoie entre 15h et 16h30. À éviter : avant 8h, entre 12h et 14h, après 19h, et le dimanche matin. Pas de vidéo ni de prix dans le premier message. Quand le lien wa.me manque, passe par le bouton « Envoyer un message » de la pub.
+5 messages par jour, depuis le WhatsApp Business de My automation. **Heures d'envoi (heure de Kinshasa)** : 9h30, 9h50, 10h10, 10h30, 10h50. C'est après l'ouverture des boutiques et avant le rush de midi. Si tu rates le matin, envoie entre 15h et 16h30. À éviter : avant 8h, entre 12h et 14h, après 19h, et le dimanche matin. Pas de vidéo ni de prix dans le premier message. Quand le lien wa.me manque, passe par le bouton « Envoyer un message » de la pub.
 
 ## Jour 1 : mercredi 21 oct.
 

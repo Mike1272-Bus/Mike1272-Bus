@@ -1,6 +1,6 @@
 # Messages d'approche : vendre le système d'automatisation (méthode Alex Hormozi)
 
-Pour : Allegra Digital Ground → patrons d'entreprises (on dit **« vous »**).
+Pour : My automation (automatisation pour entreprises) → patrons d'entreprises (on dit **« vous »**).
 Avec : la vidéo de vente `../video-vente-systeme-stock/` (exemple du système de stock).
 Fichier de suivi : `prospection_50_entreprises.xlsx` (onglet Suivi).
 
@@ -12,7 +12,7 @@ Rien n'est inventé : pas de prix, pas de chiffres de résultats, pas de témoig
 
 | Règle Hormozi | Ce que ça donne chez nous |
 |---|---|
-| **Parler de leur problème, pas de nous** | Le premier message pose une question sur leur travail à la main (cahier, Excel). On ne présente pas Allegra en premier. |
+| **Parler de leur problème, pas de nous** | Le premier message pose une question sur leur travail à la main (cahier, Excel). On ne présente pas My automation en premier. |
 | **Une seule question, facile, oui ou non** | « Chez vous, les ventes et le stock, c'est encore noté à la main ? » Répondre prend 2 secondes. |
 | **Personnaliser** | Un vrai détail sur l'entreprise dans la première ligne (quartier, produit, publication récente). Ça montre qu'on n'envoie pas le même message à tout le monde. |
 | **Donner avant de demander** | La vidéo arrive après un « oui ». On offre une démonstration gratuite sur leur propre activité, pas un devis. |
@@ -74,7 +74,7 @@ Le message de fin marche souvent mieux que les autres : la personne sent qu'elle
 
 **Note d'invitation** (300 caractères maximum)
 
-> Bonjour [Prénom], je suis [Prénom] d'Allegra Digital Ground, à Kinshasa. J'aide les entreprises à automatiser les tâches qu'elles font encore à la main. Votre travail chez [Entreprise] m'intéresse, ravi d'échanger avec vous.
+> Bonjour [Prénom], je suis [Prénom] de My automation, à Kinshasa. J'aide les entreprises à automatiser les tâches qu'elles font encore à la main. Votre travail chez [Entreprise] m'intéresse, ravi d'échanger avec vous.
 
 **Message après l'acceptation** (on ne vend pas tout de suite)
 
