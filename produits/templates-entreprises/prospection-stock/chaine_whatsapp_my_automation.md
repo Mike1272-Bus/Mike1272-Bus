@@ -83,7 +83,7 @@ Nombre d'abonnés, réactions, réponses aux sondages, messages privés reçus, 
 
 ### L'aimant : un cadeau réservé aux abonnés
 Une **checklist PDF d'une page : « Votre stock vous fait-il perdre de l'argent ? 7 questions, 2 minutes »**, publiée sur la chaîne (pas envoyée en privé). Elle donne une vraie raison de s'abonner, et chaque « non » est un problème que My automation règle.
-**[À FAIRE : créer le PDF. Ne pas l'annoncer avant qu'il existe.]**
+Prête : `aimant/checklist_stock_my_automation.pdf` (source `aimant/src/checklist_stock.py`). À publier sur la chaîne le jour où on envoie les invitations.
 
 ### Les 3 arguments à répéter partout
 - **Sans engagement** : on se désabonne en un clic.
