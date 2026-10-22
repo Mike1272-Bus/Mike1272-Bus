@@ -152,3 +152,28 @@ Angle utile : « votre assistant répond déjà aux clients 👍 » = ils sont d
 > Du 44 au 70, avec des envois en provinces 👔 on peut garder le stock de chaque taille à jour tout seul et suivre chaque envoi.
 > Voici en une minute un exemple 👇
 > Pouvez-vous la transmettre au responsable ? 15 minutes en appel vidéo suffisent 📲
+
+---
+
+## Réponse type quand ils disent « on suit sur Excel » (limites d'Excel → vidéo → appel pour calculer leurs pertes)
+
+**Texte 1**
+> Merci pour votre réponse 🙏 Excel, c'est déjà une bonne base, beaucoup de boutiques n'ont même pas ça 👍
+>
+> Mais Excel a ses limites, et elles coûtent souvent plus qu'on ne le pense 👇
+> 📝 Quelqu'un doit tout remplir à la main : chaque vente, chaque sortie, chaque arrivage
+> 😬 Une vente oubliée, une case mal tapée… et le stock du fichier ne correspond plus à celui des étagères
+> 📵 Quand vous n'êtes pas à la boutique, vous ne voyez rien en direct
+> 🚫 Excel ne vous prévient pas quand un produit va manquer : on le découvre quand le client le demande
+> ⏳ Et le soir, il faut encore recompter et refaire les calculs
+>
+> Nous, on garde votre tableau, mais il se remplit tout seul ⚡ Voici une vidéo d'une minute qui montre un exemple 👇
+
+**Vidéo** My automation v4
+
+**Texte 2 (juste après la vidéo)**
+> Je vous propose 15 minutes en appel vidéo 📲 On calcule ensemble, avec vos propres chiffres, ce que le travail à la main vous coûte vraiment : le temps passé chaque jour, les ventes perdues à cause des ruptures, les écarts de stock.
+> Vous verrez tout de suite si ça vaut le coup pour vous, sans engagement 🙏
+> Plutôt demain matin ou dans l'après-midi ?
+
+Pendant l'appel : les 3 questions du « coût de ne rien faire » (`../declencheur_fomo_my_automation.md`, déclencheur 1).
