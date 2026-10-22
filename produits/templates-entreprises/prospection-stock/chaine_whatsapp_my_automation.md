@@ -78,3 +78,41 @@ Copier le **lien de la chaîne** : Infos de la chaîne → Partager → Copier l
 
 ## 6. Ce qu'on regarde chaque vendredi
 Nombre d'abonnés, réactions, réponses aux sondages, messages privés reçus, appels fixés. On garde ce qui marche, on change le reste.
+
+## 7. Inviter à suivre la chaîne
+
+### L'aimant : un cadeau réservé aux abonnés
+Une **checklist PDF d'une page : « Votre stock vous fait-il perdre de l'argent ? 7 questions, 2 minutes »**, publiée sur la chaîne (pas envoyée en privé). Elle donne une vraie raison de s'abonner, et chaque « non » est un problème que My automation règle.
+**[À FAIRE : créer le PDF. Ne pas l'annoncer avant qu'il existe.]**
+
+### Les 3 arguments à répéter partout
+- **Sans engagement** : on se désabonne en un clic.
+- **Discret** : personne ne voit votre numéro, et on ne vous écrit plus en privé.
+- **Utile même sans nous** : des méthodes applicables dès demain.
+
+### Les messages d'invitation (14h30, envoyés une seule fois)
+
+**À la place de la dernière relance (types A, B, C : sans réponse)**
+> Bonjour, je ne vais plus vous écrire en privé, promis 🙏
+> Si le sujet vous intéresse quand même, nous partageons chaque semaine sur notre chaîne WhatsApp des méthodes simples pour ne plus perdre de ventes à cause du stock. Cette semaine : une checklist de 7 questions pour savoir en 2 minutes si votre stock vous coûte de l'argent.
+> Sans engagement, personne ne voit votre numéro, et vous partez quand vous voulez 👇
+> [lien de la chaîne]
+
+**« On verra », « pas maintenant » (types E, F)**
+> Pas de souci, je comprends 🙏 Pour garder le contact sans vous déranger : notre chaîne WhatsApp partage des conseils concrets sur le stock et les ventes, 3 fois par semaine, 2 minutes de lecture. Le jour où vous voulez aller plus loin, vous saurez où nous trouver 👇
+> [lien de la chaîne]
+
+**Après une démo sans achat**
+> Merci encore pour votre temps 🙏 Pour suivre les nouveautés et voir d'autres démonstrations en vrai, rejoignez notre chaîne WhatsApp 👇 Sans engagement.
+> [lien de la chaîne]
+
+### Les endroits où le lien reste en permanence
+- **Message d'accueil automatique** de WhatsApp Business (Outils → Message d'accueil) : « Merci pour votre message, nous répondons très vite. En attendant, nos conseils sont ici : [lien] »
+- **Message d'absence** (le soir et le dimanche) : même phrase.
+- **Profil WhatsApp Business** : le lien dans la description.
+- **Statut WhatsApp** : 1 fois par semaine, une capture de la publication la plus utile + le lien.
+- **Site** my-automation-rdc.vercel.app : un bouton « Suivre nos conseils » (à demander au chat Site web).
+- **Page Facebook et TikTok** : le lien en bio.
+
+### Objectif des 3 semaines
+On suit le nombre d'abonnés chaque vendredi. On ne fixe pas de chiffre à l'avance : on mesure, puis on améliore.
