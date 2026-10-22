@@ -22,11 +22,18 @@ Onglet **Actus** → **+** (ou « Chaînes ») → **Créer une chaîne** → su
 Copier le **lien de la chaîne** : Infos de la chaîne → Partager → Copier le lien.
 
 ## 2. Avant de partager le lien : 3 publications (la chaîne ne doit pas être vide)
-1. **Bienvenue**
-> 👋 Bienvenue sur la chaîne My automation !
-> Ici, pas de blabla : des conseils simples pour ne plus perdre de temps (ni d'argent) avec le stock, les ventes et les relances 📦📲
-> Chaque semaine : des astuces, des démonstrations en vrai, et vos questions.
-> Une question ? Écrivez-nous en privé au +243 831 710 181 🙏
+1. **Bienvenue** (à épingler)
+> *Bienvenue sur la chaîne My automation*
+>
+> Chaque semaine, ce qui fait perdre du temps et de l'argent aux commerces de Kinshasa, et comment l'éviter :
+> ▪️ les erreurs de stock qui coûtent des ventes
+> ▪️ des méthodes simples, applicables dès demain, même sans nous
+> ▪️ des démonstrations en vrai de ce qui peut tourner tout seul
+>
+> 3 publications par semaine, 2 minutes de lecture. Pas de publicité à répétition.
+>
+> Un point précis sur votre boutique ? Écrivez-nous en privé : +243 831 710 181
+
 2. **La vidéo de vente My automation v4** avec : « En une minute : comment une vente peut mettre à jour votre stock toute seule ⚡ »
 3. **Un sondage** (bouton 📊 Sondage) : « Aujourd'hui, votre stock, vous le suivez comment ? » · Cahier 📒 · Excel 📊 · Appli 📱 · De tête 🧠
 
