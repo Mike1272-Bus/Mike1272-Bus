@@ -177,3 +177,22 @@ Angle utile : « votre assistant répond déjà aux clients 👍 » = ils sont d
 > Plutôt demain matin ou dans l'après-midi ?
 
 Pendant l'appel : les 3 questions du « coût de ne rien faire » (`../declencheur_fomo_my_automation.md`, déclencheur 1).
+
+---
+
+## Objection : « Votre application n'exige pas aussi de saisir les données ? »
+
+Réponse honnête : oui, la vente est saisie **une seule fois**, en quelques secondes sur le téléphone. Tout le reste se fait tout seul. On ne promet jamais « zéro saisie ».
+
+> Très bonne question, merci 🙏 Oui, la vente est notée une fois, en quelques secondes sur le téléphone 📱 (nom du client, produit, quantité).
+>
+> La différence, c'est tout ce qui se passe après, sans que personne ne touche à rien ⚡
+> ✅ le stock se met à jour tout seul
+> ✅ les calculs (montant, marge) se font tout seuls
+> ✅ vous recevez la vente sur WhatsApp, même à distance
+> ✅ le client reçoit sa confirmation
+> ✅ vous êtes prévenu avant une rupture, et le bilan arrive chaque soir
+>
+> Aujourd'hui, une vente, c'est souvent : la noter, la recopier dans Excel, recompter, refaire les calculs le soir… Avec le système, c'est une seule saisie, et c'est fini 🙌
+>
+> Et comme chaque boutique travaille à sa façon, on regarde avec vous comment rendre cette saisie encore plus simple. On en parle 15 minutes en appel vidéo ? Plutôt le matin ou l'après-midi ? 📲
