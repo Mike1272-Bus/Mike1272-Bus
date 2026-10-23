@@ -36,3 +36,23 @@ Pas de relance : **Cadet.K** (il a dit non) et **Jiangmenribo** (en conversation
 ## Pour ne plus perdre l'historique
 - WhatsApp Business → Paramètres → Discussions → **Sauvegarde** → Google Drive, **chaque jour**.
 - Après chaque échange, noter dans le fichier de suivi : le type (A à F), la dernière action et la date de la prochaine relance.
+
+## Relance 3 (la dernière) : inviter sur la chaîne WhatsApp
+**Quand** : mercredi 28 oct. à 14h30, pour ceux qui n'ont toujours pas pris de rendez-vous.
+**Avant** : la chaîne doit exister, avec ses 3 premières publications **et la checklist PDF** publiée.
+
+> Bonjour [nom] 👋 C'est mon dernier message en privé, promis 🙏
+> Si ce n'est pas le bon moment pour vous, aucun souci. Pour garder le contact sans être dérangé, nous partageons sur notre chaîne WhatsApp des conseils concrets pour ne plus perdre de ventes à cause du stock, surtout avant les fêtes 🎄
+> Cette semaine : une checklist de 7 questions pour savoir en 2 minutes si votre stock vous coûte de l'argent 📋
+> Sans engagement, personne ne voit votre numéro, et vous partez quand vous voulez 👇
+> [lien de la chaîne]
+
+Ensuite : plus aucun message privé. Ils voient le contenu sur la chaîne, et ils écrivent d'eux-mêmes quand ils sont prêts.
+
+## Calendrier des 3 relances
+
+| Série | Relance 1 | Relance 2 (générale + vidéo) | Relance 3 (chaîne) |
+|---|---|---|---|
+| Mercredi 21 oct. | faite le 21-22 | **ven. 23 oct., 14h30** | **mer. 28 oct., 14h30** |
+| Jeudi 22 oct. | lun. 26 oct., 14h30 | jeu. 29 oct., 14h30 | lun. 2 nov., 14h30 |
+| Vendredi 23 oct. | lun. 26 oct., 14h30 | jeu. 29 oct., 14h30 | lun. 2 nov., 14h30 |
