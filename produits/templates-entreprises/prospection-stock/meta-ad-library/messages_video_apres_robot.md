@@ -196,3 +196,26 @@ Réponse honnête : oui, la vente est saisie **une seule fois**, en quelques sec
 > Aujourd'hui, une vente, c'est souvent : la noter, la recopier dans Excel, recompter, refaire les calculs le soir… Avec le système, c'est une seule saisie, et c'est fini 🙌
 >
 > Et comme chaque boutique travaille à sa façon, on regarde avec vous comment rendre cette saisie encore plus simple. On en parle 15 minutes en appel vidéo ? Plutôt le matin ou l'après-midi ? 📲
+
+---
+
+## Message 2 universel : « vous avez un assistant automatique = beaucoup de commandes » (version du 23 oct.)
+
+À envoyer juste après la réponse du robot, puis la vidéo, puis la proposition d'appel. Remplacer [vos produits] par ce qu'ils vendent.
+
+**Texte**
+> Merci pour votre réponse 🙏
+> Je vois que vous avez un assistant automatique : c'est le signe que vous recevez beaucoup de messages et de commandes 👏
+>
+> Le souci, c'est souvent ce qui se passe derrière 👇
+> 📩 l'assistant répond, mais chaque commande doit encore être notée à la main
+> 😬 avec le rythme, une commande s'oublie, ou on vend [vos produits] qui ne sont déjà plus en stock
+> ⏳ et le soir, il faut tout recompter
+>
+> L'accueil est déjà automatique chez vous. La suite peut l'être aussi ⚡ Voici en une minute comment 👇
+
+**Vidéo** My automation v4
+
+**Texte juste après la vidéo**
+> Si ça vous parle, je vous propose un appel gratuit de 15 minutes, en vidéo 📲 Une petite démonstration en direct, sur votre cas, pour voir si ça vous plaît. Sans engagement 🙏
+> Plutôt le matin ou l'après-midi ?
