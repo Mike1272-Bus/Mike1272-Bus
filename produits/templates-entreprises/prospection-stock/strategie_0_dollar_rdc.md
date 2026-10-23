@@ -92,7 +92,7 @@ Sur les 50 secteurs de ton document, voici ceux qui donnent de l'argent le plus 
 | **J3** | Envoyer 20 messages « question » (méthode Hormozi, voir `messages_approche_hormozi.md`). Passer dans 5 commerces avec la démo. | Premières réponses. |
 | **J4** | 20 nouveaux messages + relances J+2 + notes vocales aux personnes qui ont répondu. Envoyer la vidéo à ceux qui disent « oui ». | 2 à 3 démos fixées (objectif, pas une garantie). |
 | **J5** | Démos de 15 minutes, sur **leurs** produits. Proposer un essai : installation sur leur stock, paiement en 2 fois (une partie au démarrage, le reste après 7 jours si ça marche). | Une proposition envoyée. |
-| **J6** | Relances J+5, nouvelles démos, réponses aux objections (coupures internet : le système rattrape quand la connexion revient ; vendeur pas à l'aise : formulaire très simple + formation de 15 minutes). | Un « oui ». |
+| **J6** | Relances J+5, nouvelles démos, réponses aux objections (coupures internet : il faut un téléphone avec un peu de données mobiles ; pendant une coupure, le vendeur note la vente et l'envoie dès que le réseau revient ; vendeur pas à l'aise : formulaire très simple + formation de 15 minutes). | Un « oui ». |
 | **J7** | Installer chez le premier client. Demander, avec son accord écrit, un court témoignage vidéo. | **Premier client + première preuve.** |
 
 Un premier client en 7 jours, c'est un objectif, pas une promesse. Ce qui compte : **20 contacts par jour, tous les jours**, et noter chaque réponse pour améliorer le message.

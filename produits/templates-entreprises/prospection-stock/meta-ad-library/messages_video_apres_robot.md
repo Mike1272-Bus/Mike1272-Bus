@@ -219,3 +219,19 @@ Réponse honnête : oui, la vente est saisie **une seule fois**, en quelques sec
 **Texte juste après la vidéo**
 > Si ça vous parle, je vous propose un appel gratuit de 15 minutes, en vidéo 📲 Une petite démonstration en direct, sur votre cas, pour voir si ça vous plaît. Sans engagement 🙏
 > Plutôt le matin ou l'après-midi ?
+
+---
+
+## Objection : « Et si on n'a pas de téléphone connecté ou pas d'internet sur place ? »
+
+Réponse honnête : le système a besoin d'un téléphone avec un peu de connexion **au moment d'envoyer la vente**. Pas de wifi nécessaire, des données mobiles suffisent. On ne promet pas un fonctionnement hors ligne.
+
+> Bonne question 🙏 Il suffit d'un smartphone avec des données mobiles, pas besoin de wifi. Envoyer une vente consomme très peu, comme un message WhatsApp 📱
+> Si le réseau coupe un moment, le vendeur la note et l'envoie dès qu'il revient : quelques secondes, et tout se met à jour.
+>
+> Le plus simple, c'est de le voir en vrai 😊 Je vous propose une démo de 15 minutes en appel vidéo :
+> ▪️ je vous montre en direct comment une vente arrive sur WhatsApp et met le stock à jour
+> ▪️ on calcule ensemble ce que le suivi à la main vous coûte aujourd'hui, en temps et en ventes perdues
+> Vous jugerez par vous-même, sans engagement 🙏
+>
+> Demain samedi, plutôt à [heure 1] ou à [heure 2] ?
