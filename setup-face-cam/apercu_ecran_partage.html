@@ -1,0 +1,48 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><style>
+@font-face { font-family: 'Baloo'; font-weight: 800; src: url('Baloo2-ExtraBold.ttf'); }
+@font-face { font-family: 'Work Sans'; font-weight: 400; src: url('worksans-400.ttf'); }
+@font-face { font-family: 'Work Sans'; font-weight: 700; src: url('worksans-700.ttf'); }
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;overflow:hidden;background:#0d0f2b;font-family:'Work Sans',sans-serif;position:relative}
+/* moitié haute : l'écran */
+#top{position:absolute;left:0;top:0;width:1080px;height:960px;background:linear-gradient(160deg,#1b1f5e,#11143d)}
+#screen{position:absolute;left:70px;top:200px;width:940px;height:640px;border-radius:28px;background:#f7f7fb;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+#bar{height:62px;background:#e9e9f2;display:flex;align-items:center;padding:0 24px;gap:12px}
+#bar i{width:16px;height:16px;border-radius:50%;background:#c9c9d6;display:block}
+#bar span{margin-left:18px;font-weight:700;font-size:24px;color:#55526a}
+.msg{margin:26px 30px 0;padding:22px 26px;border-radius:22px;font-size:27px;line-height:1.35;max-width:780px}
+.me{margin-left:auto;background:#1b1f5e;color:#fff;border-bottom-right-radius:6px}
+.ai{background:#fff;color:#1b1f5e;border:2px solid #e3e3ee;border-bottom-left-radius:6px}
+.ai b{color:#e8553d}
+.line{height:16px;border-radius:8px;background:#e3e3ee;margin-top:14px}
+#cursor{position:absolute;left:760px;top:730px;width:0;height:0}
+#cursor svg{filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))}
+#ring{position:absolute;left:690px;top:640px;width:150px;height:150px;border-radius:50%;border:6px solid #f5c518;opacity:.9}
+/* bande du milieu : le texte */
+#cap{position:absolute;left:50%;top:905px;transform:translateX(-50%) rotate(-2deg);background:#f5c518;color:#1b1f5e;font-family:'Baloo';font-size:62px;line-height:1;padding:22px 38px 14px;border-radius:18px;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.35);z-index:5}
+/* moitié basse : le visage */
+#bottom{position:absolute;left:0;top:960px;width:1080px;height:960px;overflow:hidden;
+  background:radial-gradient(circle at 25% 35%,#2a2f6e 0,#141739 45%,#07081a 100%)}
+#key{position:absolute;left:-260px;top:-120px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(255,240,205,.22),rgba(255,240,205,0) 65%)}
+#p{position:absolute;left:19px;top:-318px;width:1000px;filter:drop-shadow(0 24px 40px rgba(0,0,0,.55)) brightness(1.04)}
+#sub{position:absolute;left:0;right:0;top:1470px;text-align:center;font-family:'Baloo';font-size:58px;color:#fff;-webkit-text-stroke:0;text-shadow:0 4px 0 #000,0 0 18px rgba(0,0,0,.8);z-index:6}
+#sub em{font-style:normal;color:#f5c518}
+</style></head><body>
+<div id="top">
+  <div id="screen">
+    <div id="bar"><i></i><i></i><i></i><span>Assistant IA</span></div>
+    <div class="msg me">Écris un message WhatsApp court pour proposer un catalogue digital à une boulangerie de Kinshasa</div>
+    <div class="msg ai">Bonjour ! J'ai vu vos photos de pains et de croissants, elles donnent envie. <b>Vos clients pourraient voir tout votre menu en un scan</b> et commander directement sur WhatsApp…
+      <div class="line" style="width:92%"></div><div class="line" style="width:76%"></div><div class="line" style="width:58%"></div>
+    </div>
+  </div>
+  <div id="ring"></div>
+  <div id="cursor"><svg width="70" height="90" viewBox="0 0 70 90"><path d="M6 4 L6 70 L22 56 L34 84 L46 78 L34 51 L56 51 Z" fill="#fff" stroke="#111" stroke-width="5" stroke-linejoin="round"/></svg></div>
+</div>
+<div id="cap">Étape 1 : je demande à l'IA</div>
+<div id="bottom">
+  <div id="key"></div>
+  <img id="p" src="mike_detoure.png" alt="">
+</div>
+<div id="sub">« Regarde, <em>je te montre</em> »</div>
+</body></html>

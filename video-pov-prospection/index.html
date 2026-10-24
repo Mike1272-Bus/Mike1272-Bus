@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo 2'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Noto Color Emoji'; src: url('assets/fonts/NotoColorEmoji.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #fbf6ee; }
+      #root {
+        position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #111;
+        background:
+          repeating-linear-gradient(0deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 54px),
+          repeating-linear-gradient(90deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 54px),
+          radial-gradient(circle at 50% 36%, #fde3c8 0%, #fbf6ee 62%);
+      }
+      .ab { position: absolute; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .em { font-family: 'Noto Color Emoji', sans-serif; font-weight: 400; }
+      #progress { left: 0; top: 0; width: 1080px; height: 12px; background: #ff5c00; transform-origin: left center; z-index: 50; }
+      .brand { top: 150px; left: 70px; z-index: 40; background: #111; color: #fff; font-size: 28px; letter-spacing: 0.04em; padding: 12px 30px 6px; border-radius: 40px; }
+      .card { background: #fff; border: 5px solid #111; border-radius: 36px; box-shadow: 14px 14px 0 #111; }
+      .pill { text-align: center; background: #ff5c00; color: #fff; border-radius: 70px; border: 5px solid #111; box-shadow: 10px 10px 0 #111; white-space: nowrap; padding: 18px 40px 6px; }
+      .pill.y { background: #ffd60a; color: #111; }
+      .pill.g { background: #1d7a46; color: #fff; }
+      .pill.k { background: #111; color: #fff; box-shadow: 10px 10px 0 #ff5c00; }
+      .words span { display: inline-block; }
+
+      /* téléphones (vidéos floutées) */
+      .ph { width: 270px; height: 480px; border: 6px solid #111; border-radius: 34px; overflow: hidden; background: #111; box-shadow: 10px 10px 0 #111; z-index: 10; }
+      .ph video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      #ph0 { left: 105px; top: 500px; } #ph1 { left: 405px; top: 500px; } #ph2 { left: 705px; top: 500px; }
+      #ph3 { left: 105px; top: 1010px; } #ph4 { left: 405px; top: 1010px; } #ph5 { left: 705px; top: 1010px; }
+
+      /* S0 */
+      #pov { left: 80px; top: 300px; font-size: 96px; }
+      #hook { top: 500px; font-size: 92px; line-height: 1.02; }
+
+      /* étapes */
+      .num { left: 70px; top: 250px; width: 130px; height: 130px; border-radius: 50%; background: #ff5c00; color: #111; border: 6px solid #111; box-shadow: 8px 8px 0 #111; font-size: 96px; display: flex; align-items: center; justify-content: center; padding-top: 14px; }
+      .stitle { left: 230px; top: 262px; width: 790px; font-size: 62px; line-height: 1.02; }
+
+      /* S1 : écran filmé */
+      #scr { left: 290px; top: 430px; width: 500px; height: 762px; border: 7px solid #111; border-radius: 40px; overflow: hidden; background: #111; box-shadow: 14px 14px 0 #111; }
+      #scr video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      #found { left: 150px; top: 1250px; font-size: 52px; transform: rotate(-5deg); z-index: 12; }
+      #keep { left: 560px; top: 1370px; font-size: 50px; transform: rotate(4deg); z-index: 12; }
+
+      /* S2 */
+      #count { left: 0; width: 1080px; top: 400px; display: flex; justify-content: center; }
+      #count .pill { font-size: 46px; padding: 12px 36px 2px; }
+
+      /* S3 : DM */
+      #dmv { left: 290px; top: 425px; width: 500px; height: 960px; border: 7px solid #111; border-radius: 40px; overflow: hidden; background: #111; box-shadow: 14px 14px 0 #111; }
+      #dmv video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      #sent6 { left: 330px; top: 1330px; font-size: 52px; transform: rotate(-5deg); z-index: 12; }
+
+      #hook2 { top: 720px; font-size: 76px; color: #ff5c00; }
+
+      /* cartons « SCÈNE » plein écran */
+      .scard { left: 0; top: 0; width: 1080px; height: 1920px; z-index: 45; border-left: 10px solid #111; border-right: 10px solid #111; }
+      #card1 { background: #ff5c00; } #card2 { background: #ffd60a; } #card3 { background: #1d7a46; }
+      .scard .tag { position: absolute; left: 0; width: 1080px; top: 470px; display: flex; justify-content: center; }
+      .scard .tag div { font-size: 64px; letter-spacing: 0.08em; padding: 18px 50px 6px; }
+      .scard .big { position: absolute; left: 0; width: 1080px; top: 760px; text-align: center; font-size: 118px; line-height: 1.0; color: #fff;
+        -webkit-text-stroke: 5px #111; paint-order: stroke fill; text-shadow: 10px 10px 0 #111; }
+      #card2 .big { top: 690px; }
+
+      /* S5 : appel à l'action */
+      #bref { left: 80px; top: 260px; font-size: 60px; transform: rotate(-4deg); }
+      #c1 { top: 420px; font-size: 66px; line-height: 1.06; }
+      #cbox { left: 110px; top: 800px; width: 860px; height: 150px; display: flex; align-items: center; gap: 24px; padding: 0 30px; }
+      #cbox .av { width: 82px; height: 82px; border-radius: 50%; border: 4px solid #111; background: url('assets/img/logo_dm_icone.png') center / 80% no-repeat #fff; }
+      #ctext { position: relative; font-family: 'Work Sans'; font-weight: 700; font-size: 54px; color: #111; display: flex; align-items: center; height: 70px; }
+      #ph_c { position: absolute; left: 0; top: 10px; white-space: nowrap; font-family: 'Work Sans'; font-weight: 400; font-size: 40px; color: #8b857b; }
+      #caret { display: inline-block; width: 5px; height: 56px; background: #ff5c00; margin-left: 4px; }
+      #send { margin-left: auto; width: 84px; height: 84px; border-radius: 50%; background: #ff5c00; border: 4px solid #111; display: flex; align-items: center; justify-content: center; }
+      #cta { left: 0; width: 1080px; top: 1020px; display: flex; justify-content: center; }
+      #cta .pill { font-size: 84px; padding: 22px 54px 8px; }
+      #c2 { top: 1380px; font-size: 62px; }
+      #cover { left: 290px; top: 520px; width: 500px; height: 710px; background: url('assets/img/guide_cover.png') center / cover no-repeat; border: 6px solid #111; border-radius: 24px; box-shadow: 16px 16px 0 #111; }
+      #logo { left: 390px; top: 1560px; width: 300px; height: 134px; background: url('assets/img/logo_dm.png') center / 92% no-repeat #fff; border: 5px solid #111; border-radius: 28px; box-shadow: 10px 10px 0 #111; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="34" data-width="1080" data-height="1920">
+      <div class="ab" id="progress"></div>
+      <div class="ab brand">DigitalMikaelson</div>
+
+      <!-- S0 : accroche -->
+      <div class="ab pill y" id="pov">POV :</div>
+      <div class="ab center words" id="hook"></div>
+      <div class="ab center words" id="hook2"></div>
+
+      <!-- S1 : trouver des entreprises -->
+      <div class="ab num" id="n1">1</div>
+      <div class="ab stitle words" id="st1"></div>
+      <div class="ab" id="scr"><video class="clip" id="vrec" src="assets/video/rec.mp4" data-start="5.2" data-duration="4.4" muted playsinline></video></div>
+      <div class="ab pill g" id="found">50 entreprises trouvées <span class="em">✅</span></div>
+      <div class="ab pill y" id="keep">J'en choisis 6 <span class="em">👇</span></div>
+
+      <!-- S2 : créer les vidéos -->
+      <div class="ab num" id="n2">2</div>
+      <div class="ab stitle words" id="st2"></div>
+      <div class="ab" id="count"><div class="pill k">6 vidéos · 1 nuit</div></div>
+
+      <!-- S3 : DM Instagram -->
+      <div class="ab num" id="n3">3</div>
+      <div class="ab stitle words" id="st3"></div>
+      <div class="ab" id="dmv"><video class="clip" id="vdm" src="assets/video/dm.mp4" data-start="18.1" data-duration="5" muted playsinline></video></div>
+      <div class="ab pill" id="sent6">DM envoyé <span class="em">✅</span></div>
+
+
+      <!-- les 6 vidéos (floutées tant que les marques n'ont pas dit oui) -->
+      <div class="ab ph" id="ph0"><video class="clip" id="v0" src="assets/video/b0.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+      <div class="ab ph" id="ph1"><video class="clip" id="v1" src="assets/video/b1.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+      <div class="ab ph" id="ph2"><video class="clip" id="v2" src="assets/video/b2.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+      <div class="ab ph" id="ph3"><video class="clip" id="v3" src="assets/video/b3.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+      <div class="ab ph" id="ph4"><video class="clip" id="v4" src="assets/video/b4.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+      <div class="ab ph" id="ph5"><video class="clip" id="v5" src="assets/video/b5.mp4" data-start="0" data-duration="34" muted playsinline></video></div>
+
+      <!-- S5 : appel à l'action -->
+      <div class="ab pill y" id="bref">Bref…</div>
+      <div class="ab center words" id="c1"></div>
+      <div class="ab card" id="cbox"><div class="av"></div><div id="ctext"><span id="ph_c">Ajouter un commentaire…</span><span id="typed"></span><span id="caret"></span></div>
+        <div id="send"><svg width="44" height="44" viewBox="0 0 24 24"><path d="M3 11 L21 3 L13 21 L11 13 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg></div></div>
+      <div class="ab" id="cta"><div class="pill">Commente « IA »</div></div>
+      <div class="ab" id="cover"></div>
+      <div class="ab center words" id="c2"></div>
+      <div class="ab" id="logo"></div>
+
+      <!-- cartons « SCÈNE » -->
+      <div class="ab scard" id="card1"><div class="tag"><div class="pill k">SCÈNE 1</div></div><div class="big">Trouver des<br>entreprises</div></div>
+      <div class="ab scard" id="card2"><div class="tag"><div class="pill k">SCÈNE 2</div></div><div class="big">Créer des vidéos<br>d'animation pour<br>ces entreprises</div></div>
+      <div class="ab scard" id="card3"><div class="tag"><div class="pill k">SCÈNE 3</div></div><div class="big">Je leur ai envoyé<br>en DM Instagram</div></div>
+
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="34" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at);
+      const OUT = (sel, at, to = {}) => FT(sel, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.35, ease: "power2.in", ...to }, at);
+
+      // mots découpés ; "|" force un retour à la ligne ; les émojis ont leur propre police
+      function words(host, text, prefix) {
+        const out = [];
+        text.split("|").forEach((line, li) => {
+          if (li) host.appendChild(document.createElement("br"));
+          line.trim().split(" ").forEach((w, i) => {
+            if (i) host.appendChild(document.createTextNode(" "));
+            const s = document.createElement("span"); s.id = prefix + out.length; s.setAttribute("data-layout-allow-overlap", "");
+            if (/\p{Extended_Pictographic}/u.test(w)) s.className = "em";
+            s.textContent = w; host.appendChild(s); out.push(s);
+          });
+        });
+        return out;
+      }
+      const HOOK = words($("hook"), "J'ai utilisé une|compétence IA pour…", "hk");
+      const HOOK2 = words($("hook2"), "attends, tu vas voir ! 👀", "hl");
+      const ST1 = words($("st1"), "Trouver des entreprises", "sa");
+      const ST2 = words($("st2"), "Créer des vidéos d'animation pour elles", "sb");
+      const ST3 = words($("st3"), "Je leur ai envoyé en DM Instagram", "sc");
+      const C1 = words($("c1"), "Si tu es jeune et que tu veux|apprendre à gagner de l'argent|avec l'IA…", "c1");
+      const C2 = words($("c2"), "je t'envoie un guide gratuit 🎁", "c2");
+
+      // positions des téléphones : grille (CSS) → décalages pour l'éventail
+      const PH = [0, 1, 2, 3, 4, 5].map((i) => "#ph" + i);
+      const BASE = [[240, 740], [540, 740], [840, 740], [240, 1250], [540, 1250], [840, 1250]];
+      const FAN = [0, 1, 2, 3, 4, 5].map((i) => [145 + i * 158, 1300 + Math.abs(i - 2.5) * 34, (i - 2.5) * 6]);
+      const toFan = (i) => ({ x: FAN[i][0] - BASE[i][0], y: FAN[i][1] - BASE[i][1], rotation: FAN[i][2], scale: 0.82 });
+      const ZERO = { x: 0, y: 0, rotation: 0, scale: 1 };
+      const CARDS = [["#card1", 3.8], ["#card2", 9.6], ["#card3", 16.6]];
+
+      gsap.set(["#pov", "#n1", "#scr", "#found", "#keep", "#n2", "#count", "#n3", "#dmv", "#sent6", "#bref", "#cbox", "#cta", "#cover", "#logo", ...PH,
+        ...HOOK, ...HOOK2, ...ST1, ...ST2, ...ST3, ...C1, ...C2, "#typed", ...CARDS.map((c) => c[0])], { autoAlpha: 0 });
+
+      tl.fromTo("#progress", { scaleX: 0 }, { scaleX: 1, duration: 34, ease: "none" }, 0);
+
+      // ---------- cartons « SCÈNE » : montée sonore puis impact ----------
+      CARDS.forEach(([id, t]) => {
+        IN(id, { x: 1100 }, { x: 0, duration: 0.3, ease: "power3.out" }, t - 0.1);
+        FT(id + " .tag", { scale: 0, rotation: -12 }, { scale: 1, rotation: -3, duration: 0.35, ease: "back.out(2.6)" }, t + 0.05);
+        FT(id + " .big", { scale: 2.4 }, { scale: 1, duration: 0.25, ease: "power4.in" }, t - 0.1);
+        FT(id + " .big", { x: 0 }, { x: 12, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, t + 0.15);
+        FT(id, { x: 0, autoAlpha: 1 }, { x: -1100, autoAlpha: 0, duration: 0.3, ease: "power3.in" }, t + 1.05);
+      });
+
+      // ---------- S0 : accroche, avec la voix (0 - 3.7) ----------
+      IN("#pov", { scale: 0, rotation: -20 }, { scale: 1, rotation: -4, duration: 0.45, ease: "back.out(2.4)" }, 0.1);
+      HOOK.forEach((s, i) => IN(s, { y: 80, scale: 0.6 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 0.3 + i * 0.22));
+      HOOK2.forEach((s, i) => IN(s, { y: 60, scale: 0.6 }, { y: 0, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, 2.25 + i * 0.16));
+      PH.forEach((p, i) => IN(p, { ...toFan(i), y: toFan(i).y + 900, rotation: toFan(i).rotation * 3 }, { ...toFan(i), duration: 0.7, ease: "back.out(1.4)" }, 1.0 + i * 0.08));
+      PH.forEach((p, i) => FT(p, { y: toFan(i).y }, { y: toFan(i).y - 22, duration: 0.9, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.8 + i * 0.05));
+      OUT(["#pov", ...HOOK, ...HOOK2], 3.5, { y: -120 });
+      PH.forEach((p, i) => FT(p, { ...toFan(i), autoAlpha: 1 }, { ...toFan(i), y: toFan(i).y + 1000, autoAlpha: 0, duration: 0.4, ease: "power3.in" }, 3.4 + i * 0.03));
+
+      // ---------- S1 : trouver des entreprises (5 - 9.5) ----------
+      IN("#n1", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 5.0);
+      ST1.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 5.1 + i * 0.08));
+      IN("#scr", { y: 900, rotation: 6 }, { y: 0, rotation: 0, duration: 0.5, ease: "expo.out" }, 5.05);
+      FT("#scr", { scale: 1 }, { scale: 1.04, duration: 4.0, ease: "none" }, 5.5);
+      IN("#found", { scale: 2.4, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "power4.in" }, 7.4);
+      IN("#keep", { scale: 0, rotation: 20 }, { scale: 1, rotation: 4, duration: 0.4, ease: "back.out(2.4)" }, 8.3);
+      OUT(["#n1", ...ST1, "#found", "#keep"], 9.2);
+      FT("#scr", { x: 0, autoAlpha: 1 }, { x: -1200, autoAlpha: 0, duration: 0.4, ease: "power3.in" }, 9.2);
+
+      // ---------- S2 : créer les vidéos (10.8 - 16.4) ----------
+      IN("#n2", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 10.8);
+      ST2.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 10.9 + i * 0.07));
+      const SCAT = [[-700, -300, -40], [0, -1300, 30], [700, -300, 40], [-700, 600, 30], [0, 1300, -30], [700, 600, -40]];
+      PH.forEach((p, i) => IN(p, { x: SCAT[i][0], y: SCAT[i][1], rotation: SCAT[i][2], scale: 0.4 }, { ...ZERO, duration: 0.8, ease: "expo.out" }, 11.3 + [2, 0, 4, 1, 5, 3][i] * 0.1));
+      IN("#count", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 12.4);
+      PH.forEach((p, i) => FT(p, { rotation: 0 }, { rotation: i % 2 ? 2 : -2, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, 13.2));
+      OUT(["#n2", ...ST2, "#count"], 16.2);
+      PH.forEach((p, i) => FT(p, { ...ZERO, autoAlpha: 1 }, { x: (i % 2 ? 1 : -1) * 1100, rotation: (i % 2 ? 30 : -30), scale: 0.6, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 16.2 + i * 0.03));
+
+      // ---------- S3 : DM Instagram (17.8 - 22.9) ----------
+      IN("#n3", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.4)" }, 17.85);
+      ST3.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 17.95 + i * 0.07));
+      IN("#dmv", { scale: 0.6, y: 400, rotation: 6 }, { scale: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.4)" }, 17.9);
+      IN("#sent6", { scale: 2.4, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "power4.in" }, 20.3);
+      OUT(["#n3", ...ST3, "#sent6"], 22.6);
+      FT("#dmv", { y: 0, autoAlpha: 1 }, { y: 1300, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 22.6);
+
+      // ---------- CTA, avec la voix (23.2 - 34) ----------
+      IN("#bref", { scale: 0, rotation: -20 }, { scale: 1, rotation: -4, duration: 0.4, ease: "back.out(2.4)" }, 23.2);
+      C1.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 24.25 + i * 0.2));
+      IN("#cbox", { y: 400 }, { y: 0, duration: 0.5, ease: "expo.out" }, 27.9);
+      tl.set("#ph_c", { autoAlpha: 0 }, 28.7);
+      tl.set("#typed", { autoAlpha: 1 }, 28.7);
+      const TI = { n: 0 };
+      tl.fromTo(TI, { n: 0 }, { n: 2, duration: 0.35, ease: "none", immediateRender: false,
+        onUpdate: () => { $("typed").textContent = "IA".slice(0, Math.round(TI.n)); } }, 28.7);
+      FT("#send", { scale: 1 }, { scale: 1.25, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" }, 29.05);
+      IN("#cta", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, 29.15);
+      // la couverture de l'ebook prend la place
+      OUT(["#bref", ...C1], 30.15, { y: -120 });
+      OUT("#cbox", 30.15, { y: 300 });
+      FT("#cta", { y: 0 }, { y: -690, duration: 0.5, ease: "power3.inOut" }, 30.15);
+      IN("#cover", { scale: 0.2, rotation: -25, y: 300 }, { scale: 1, rotation: -2, y: 0, duration: 0.6, ease: "back.out(1.6)" }, 30.3);
+      C2.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.35, ease: "power3.out" }, 30.45 + i * 0.2));
+      IN("#logo", { y: 40 }, { y: 0, duration: 0.5, ease: "power3.out" }, 31.6);
+      FT("#cover", { y: 0, rotation: -2 }, { y: -16, rotation: 1, duration: 1.0, yoyo: true, repeat: 1, ease: "sine.inOut" }, 31.0);
+      FT("#cta", { scale: 1 }, { scale: 1.06, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 31.4);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

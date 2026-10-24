@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #ffffff; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .cream { background: radial-gradient(ellipse at 50% 42%, #fffaf0 0%, #f6eddc 68%, #ecdfc6 100%); }
+      .white { background: radial-gradient(ellipse at 50% 45%, #ffffff 0%, #f8f6f2 65%, #eeeae3 100%); }
+      .comb { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0.09; }
+      .swoosh { position: absolute; left: -300px; top: -300px; width: 1680px; height: 2520px; }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .w { display: inline-block; margin: 0 0.12em; }
+      .sm { font-weight: 600; font-size: 62px; letter-spacing: -0.02em; color: #1c1206; }
+      .big { font-weight: 900; font-size: 124px; letter-spacing: -0.045em; line-height: 0.95; color: #f29a0e; text-shadow: 0 6px 0 #9c5200, 0 18px 30px rgba(60,30,0,0.25); }
+      .ext { font-weight: 900; font-size: 176px; letter-spacing: -0.05em; line-height: 0.95; color: #f29a0e; text-shadow: 0 3px 0 #d47c00, 0 6px 0 #b86600, 0 9px 0 #9c5200, 0 12px 0 #7f4300, 0 30px 40px rgba(60,30,0,0.3); }
+      .obj { position: absolute; filter: drop-shadow(0 26px 34px rgba(60,30,0,0.28)); }
+
+      /* tasse et vapeur */
+      #steam { left: 420px; top: 690px; width: 240px; height: 180px; }
+      #steam path { fill: none; stroke: #c9b89c; stroke-width: 12; stroke-linecap: round; }
+
+      /* coulée de miel */
+      #band { left: 0; top: 0; width: 1080px; height: 70px; background: linear-gradient(180deg, #d98200, #f5a623); }
+      .drip { position: absolute; top: 40px; width: 52px; border-radius: 0 0 26px 26px; background: linear-gradient(90deg, #e08a00, #f7b23b 40%, #e08a00); transform-origin: 50% 0%; }
+      .drip::after { content: ""; position: absolute; left: 12px; top: 10px; width: 10px; height: 40%; border-radius: 5px; background: rgba(255,255,255,0.45); }
+
+      /* le pot */
+      #potw { left: 279px; top: 560px; width: 522px; height: 820px; }
+      #pot { position: absolute; inset: 0; background: url('assets/img/pot.png') center / contain no-repeat; filter: drop-shadow(0 40px 46px rgba(60,30,0,0.35)); }
+      #shine { position: absolute; inset: 0; -webkit-mask: url('assets/img/pot.png') center / contain no-repeat; mask: url('assets/img/pot.png') center / contain no-repeat;
+        background: linear-gradient(105deg, rgba(255,255,255,0) 42%, rgba(255,255,255,0.75) 50%, rgba(255,255,255,0) 58%); background-size: 300% 100%; background-repeat: no-repeat; }
+      .stick { position: absolute; width: 38px; height: 320px; border-radius: 19px; background: linear-gradient(90deg, #6b3410, #b0652a 45%, #7a3c14); box-shadow: inset -6px 0 0 rgba(0,0,0,.25), 0 16px 26px rgba(60,30,0,.3); }
+      .stick::after { content: ""; position: absolute; left: 7px; top: 0; width: 24px; height: 320px; border-radius: 12px; background: repeating-linear-gradient(180deg, rgba(0,0,0,.12) 0 6px, transparent 6px 22px); }
+
+      /* photo client */
+      #photo { left: 210px; top: 300px; width: 660px; height: 660px; border-radius: 30px; overflow: hidden; border: 12px solid #fff; box-shadow: 0 30px 60px rgba(60,30,0,0.22); }
+      #photo div { width: 100%; height: 100%; background: url('assets/img/cannelle_photo.jpg') center / cover no-repeat; }
+      .pill { position: absolute; height: 96px; border-radius: 48px; font-weight: 800; font-size: 44px; line-height: 96px; text-align: center; white-space: nowrap; }
+      .pa { background: #f29a0e; color: #2a1600; box-shadow: 0 14px 30px rgba(156,82,0,0.3); }
+      .pg { background: #1a9e4b; color: #fff; box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
+      .drop { position: absolute; width: 44px; height: 60px; background: #f29a0e; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; box-shadow: inset -6px -8px 0 rgba(0,0,0,.16); }
+
+      /* façons de le savourer */
+      .use { position: absolute; left: 110px; width: 860px; height: 200px; border-radius: 40px; background: #fff; border: 3px solid #eadfcb; box-shadow: 0 18px 36px rgba(60,30,0,0.12); }
+      .use img { position: absolute; left: 30px; top: 25px; width: 150px; height: 150px; }
+      .use b { position: absolute; left: 210px; top: 52px; font-size: 66px; font-weight: 900; letter-spacing: -0.03em; color: #1c1206; }
+      .use em { position: absolute; left: 212px; top: 128px; font-style: normal; font-size: 30px; font-weight: 600; color: #8a6a3a; }
+      .use i { position: absolute; right: 34px; top: 56px; width: 88px; height: 88px; background: url('assets/img/check_mark_button_3d.png') center / contain no-repeat; }
+      #u1 { top: 720px; } #u2 { top: 950px; } #u3 { top: 1180px; }
+      .row { position: absolute; left: 150px; width: 780px; height: 170px; border-radius: 36px; background: #fff; border: 3px solid #eadfcb; box-shadow: 0 18px 36px rgba(60,30,0,0.12); }
+      .row img { position: absolute; left: 26px; top: 20px; width: 130px; height: 130px; }
+      .row b { position: absolute; left: 180px; top: 52px; font-size: 58px; font-weight: 900; letter-spacing: -0.03em; color: #1c1206; }
+      .red { color: #e5483b; text-shadow: 0 6px 0 #8f1d14, 0 18px 30px rgba(60,10,0,0.25); }
+
+      /* WhatsApp */
+      #ph { left: 250px; top: 200px; width: 580px; height: 960px; border-radius: 64px; background: #111; padding: 18px; box-shadow: 0 40px 70px rgba(0,0,0,0.25); }
+      #scr { position: relative; width: 544px; height: 924px; border-radius: 48px; overflow: hidden; background: #efeae2; }
+      #hd { position: absolute; left: 0; top: 0; width: 544px; height: 150px; background: #008069; }
+      #hd .lg { position: absolute; left: 30px; top: 50px; width: 80px; height: 80px; border-radius: 50%; background: #fff url('assets/img/logo.png') center / 92% no-repeat; }
+      #hd b { position: absolute; left: 128px; top: 58px; color: #fff; font-size: 32px; font-weight: 800; }
+      #hd span { position: absolute; left: 128px; top: 100px; color: #d4efe8; font-size: 22px; font-weight: 600; }
+      #inp { position: absolute; left: 18px; bottom: 22px; width: 420px; height: 76px; border-radius: 38px; background: #fff; padding: 0 26px; font-size: 23px; font-weight: 600; line-height: 76px; color: #1c1206; white-space: nowrap; overflow: hidden; }
+      #inp0 { position: absolute; left: 26px; top: 0; color: #8a8a8a; }
+      #inp1 { position: absolute; left: 26px; top: 0; }
+      #send { position: absolute; right: 18px; bottom: 22px; width: 76px; height: 76px; border-radius: 50%; background: #00a884; }
+      #send::after { content: ""; position: absolute; left: 28px; top: 22px; border-left: 28px solid #fff; border-top: 16px solid transparent; border-bottom: 16px solid transparent; }
+      #bub { position: absolute; right: 18px; top: 560px; width: 420px; border-radius: 22px 22px 6px 22px; background: #d9fdd3; padding: 20px 24px 46px; font-size: 30px; font-weight: 600; line-height: 1.3; color: #111; box-shadow: 0 4px 8px rgba(0,0,0,0.08); }
+      #tm { position: absolute; right: 70px; bottom: 12px; font-size: 20px; color: #5f6d5f; }
+      .tk { position: absolute; bottom: 10px; font-size: 26px; font-weight: 900; letter-spacing: -8px; }
+      #tk0 { right: 30px; color: #7d8d7d; } #tk1 { right: 30px; color: #2f9fd0; }
+      #num { left: 160px; top: 1530px; width: 760px; }
+
+      #hex { left: 0; top: 0; width: 1080px; height: 1920px; z-index: 30; pointer-events: none; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; z-index: 40; }
+
+      .badge { position: absolute; left: 440px; top: 170px; width: 200px; height: 200px; border-radius: 50%; background: #1c1206; color: #ffd60a; font-size: 130px; font-weight: 900; line-height: 196px; text-align: center; box-shadow: 0 20px 36px rgba(0,0,0,0.3); }
+      .fpot { position: absolute; left: 380px; top: 600px; width: 320px; height: 460px; object-fit: contain; filter: drop-shadow(0 30px 34px rgba(60,30,0,0.32)); }
+      .use { height: 190px; } .use img { top: 20px; }
+      .ua { top: 1120px; } .ub { top: 1340px; }
+      .gpot { position: absolute; top: 780px; width: 190px; height: 300px; object-fit: contain; filter: drop-shadow(0 24px 26px rgba(60,30,0,0.3)); }
+      #logo2 { left: 400px; top: 200px; width: 280px; height: 280px; border-radius: 50%; background: #fff url('assets/img/logo.png') center / 88% no-repeat; box-shadow: 0 30px 60px rgba(60,30,0,0.22); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="32" data-width="1080" data-height="1920">
+
+      <!-- 1. Seulement pour le thé ? -->
+      <div class="scene cream" id="s1"><div class="cam" id="k1">
+        <svg class="comb" viewBox="0 0 1080 1920"><defs><pattern id="hx1" width="90" height="156" patternUnits="userSpaceOnUse"><path d="M45 0l45 26v52l-45 26-45-26V26zM0 104l45 26v52M90 104L45 130" fill="none" stroke="#c98a1c" stroke-width="3"/></pattern></defs><rect width="1080" height="1920" fill="url(#hx1)"/></svg>
+        <img class="obj" id="tea" src="assets/img/teacup_without_handle_3d.png" style="left:220px; top:380px; width:320px; height:320px" />
+        <img class="obj" id="qm" src="assets/img/red_question_mark_3d.png" style="left:600px; top:330px; width:260px; height:260px" />
+        <div class="line" style="top:820px"><span class="w sm" id="a1">Le</span><span class="w sm" id="a2">miel,</span><span class="w sm" id="a3">c'est</span><span class="w sm" id="a4">seulement</span></div>
+        <div class="line" style="top:930px" data-layout-allow-overlap><span class="w big" id="a5">pour le thé ?</span></div>
+      </div></div>
+
+      <!-- 2. 3 façons -->
+      <div class="scene white" id="s2"><div class="cam" id="k2">
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M200 -100 C 700 700, 1000 1300, 1500 2600" fill="none" stroke="#efe6d6" stroke-width="230" stroke-linecap="round"/></svg>
+        <img class="obj" id="sr" src="assets/img/sunrise_3d.png" style="left:390px; top:360px; width:300px; height:300px" />
+        <div class="line" style="top:740px"><span class="w sm" id="b1">Voici</span></div>
+        <div class="line" style="top:840px" data-layout-allow-overlap><span class="w ext" id="b2">3 façons</span></div>
+        <div class="line" style="top:1060px"><span class="w sm" id="b3">de</span><span class="w sm" id="b4">le</span><span class="w sm" id="b5">savourer</span></div>
+        <div class="line" style="top:1150px"><span class="w sm" id="b6">chaque</span><span class="w sm" id="b7">jour</span></div>
+      </div></div>
+
+      <div class="scene cream" id="s3"><div class="cam" id="k3">
+        <svg class="comb" viewBox="0 0 1080 1920"><defs><pattern id="hx3" width="90" height="156" patternUnits="userSpaceOnUse"><path d="M45 0l45 26v52l-45 26-45-26V26zM0 104l45 26v52M90 104L45 130" fill="none" stroke="#c98a1c" stroke-width="3"/></pattern></defs><rect width="1080" height="1920" fill="url(#hx3)"/></svg>
+        <div class="badge" id="n3">1</div>
+        <div class="line" style="top:420px" data-layout-allow-overlap><span class="w big" id="t3" style="font-size:132px">Le matin</span></div>
+        <img class="fpot" id="p3" src="assets/img/pot-cannelle.png" />
+        <img class="obj" id="sp3" src="assets/img/sparkles_3d.png" style="left:740px; top:620px; width:150px; height:150px" />
+        <div class="use ua" id="u30"><img src="assets/img/bread_3d.png" /><b>Sur le pain</b><em>au petit-déjeuner</em><i id="ck30"></i></div><div class="use ub" id="u31"><img src="assets/img/pancakes_3d.png" /><b>Sur les crêpes</b><em>ou les beignets</em><i id="ck31"></i></div>
+      </div></div>
+      <div class="scene white" id="s4"><div class="cam" id="k4">
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M1500 -100 C 900 800, 700 1300, 200 2600" fill="none" stroke="#efe6d6" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="badge" id="n4">2</div>
+        <div class="line" style="top:420px" data-layout-allow-overlap><span class="w big" id="t4" style="font-size:104px">Dans vos boissons</span></div>
+        <img class="fpot" id="p4" src="assets/img/pot-gingembre.png" />
+        <img class="obj" id="sp4" src="assets/img/sparkles_3d.png" style="left:740px; top:620px; width:150px; height:150px" />
+        <div class="use ua" id="u40"><img src="assets/img/hot_beverage_3d.png" /><b>Thé ou café</b><em>à la place du sucre</em><i id="ck40"></i></div><div class="use ub" id="u41"><img src="assets/img/lemon_3d.png" /><b>En citronnade</b><em>bien fraîche</em><i id="ck41"></i></div>
+      </div></div>
+      <div class="scene cream" id="s5"><div class="cam" id="k5">
+        <svg class="comb" viewBox="0 0 1080 1920"><defs><pattern id="hx5" width="90" height="156" patternUnits="userSpaceOnUse"><path d="M45 0l45 26v52l-45 26-45-26V26zM0 104l45 26v52M90 104L45 130" fill="none" stroke="#c98a1c" stroke-width="3"/></pattern></defs><rect width="1080" height="1920" fill="url(#hx5)"/></svg>
+        <div class="badge" id="n5">3</div>
+        <div class="line" style="top:420px" data-layout-allow-overlap><span class="w big" id="t5" style="font-size:104px">En cuisine</span></div>
+        <img class="fpot" id="p5" src="assets/img/pot-poivre-noir.png" />
+        <img class="obj" id="sp5" src="assets/img/sparkles_3d.png" style="left:740px; top:620px; width:150px; height:150px" />
+        <div class="use ua" id="u50"><img src="assets/img/poultry_leg_3d.png" /><b>En marinade</b><em>pour le poulet ou le poisson</em><i id="ck50"></i></div><div class="use ub" id="u51"><img src="assets/img/green_salad_3d.png" /><b>Dans la salade</b><em>une touche sucrée</em><i id="ck51"></i></div>
+      </div></div>
+
+      <!-- 6. La gamme -->
+      <div class="scene cream" id="s6"><div class="cam" id="k6">
+        <svg class="comb" viewBox="0 0 1080 1920"><defs><pattern id="hx6" width="90" height="156" patternUnits="userSpaceOnUse"><path d="M45 0l45 26v52l-45 26-45-26V26zM0 104l45 26v52M90 104L45 130" fill="none" stroke="#c98a1c" stroke-width="3"/></pattern></defs><rect width="1080" height="1920" fill="url(#hx6)"/></svg>
+        <div class="ab" id="logo2"></div>
+        <div class="line" style="top:530px"><span class="w sm" id="g1">Quel</span><span class="w sm" id="g2">parfum</span></div>
+        <div class="line" style="top:630px" data-layout-allow-overlap><span class="w big" id="g3">pour vous ?</span></div>
+        <img class="gpot" id="gp0" src="assets/img/pot-cannelle.png" style="left:40px; top:760px; z-index:7" /><img class="gpot" id="gp1" src="assets/img/pot-gingembre.png" style="left:175px; top:830px; z-index:8" /><img class="gpot" id="gp2" src="assets/img/pot-hibiscus.png" style="left:310px; top:760px; z-index:9" /><img class="gpot" id="gp3" src="assets/img/pot-moringa.png" style="left:445px; top:830px; z-index:10" /><img class="gpot" id="gp4" src="assets/img/pot-poivre-noir.png" style="left:580px; top:760px; z-index:9" /><img class="gpot" id="gp5" src="assets/img/pot-clou-de-girofle.png" style="left:715px; top:830px; z-index:8" /><img class="gpot" id="gp6" src="assets/img/pot-sauvage-mai-ndombe.png" style="left:850px; top:760px; z-index:7" />
+        <div class="line" style="top:1240px"><span class="w sm" id="g4">La</span><span class="w sm" id="g5">Ruche</span><span class="w sm" id="g6">du</span><span class="w sm" id="g7">Terroir</span></div>
+        <div class="line" style="top:1350px" data-layout-allow-overlap><span class="w big" id="g8" style="font-size:100px">un miel gustatif</span></div>
+        <div class="pill pa" id="g9" style="left:290px; top:1510px; width:500px">et soignant</div>
+      </div></div>
+
+      <!-- 7. WhatsApp -->
+      <div class="scene white" id="s7"><div class="cam" id="k7">
+        <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M200 -100 C 900 600, 500 1500, 1500 2600" fill="none" stroke="#efe6d6" stroke-width="230" stroke-linecap="round"/></svg>
+        <div class="ab" id="ph"><div id="scr">
+          <div id="hd"><div class="lg"></div><b>La Ruche du Terroir</b><span>Un miel gustatif et soignant</span></div>
+          <div id="bub" data-layout-allow-overlap>Bonjour, je veux un pot de miel 🍯<span id="tm">08:10</span><span class="tk" id="tk0">✓✓</span><span class="tk" id="tk1">✓✓</span></div>
+          <div id="inp"><span id="inp0">Message</span><span id="inp1">Je veux un pot de miel 🍯</span></div>
+          <div id="send"></div>
+        </div></div>
+        <div class="line" style="top:1225px" data-layout-allow-overlap><span class="w big" id="f8">Commandez</span></div>
+        <div class="line" style="top:1385px"><span class="w sm" id="f9">sur</span><span class="w sm" id="f10">WhatsApp</span></div>
+        <div class="pill pg" id="num">+243 859 072 956</div>
+      </div></div>
+
+      <svg class="ab" id="hex" viewBox="0 0 1080 1920"></svg>
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="32" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const word = (sel, at, d = 0.28) => IN(sel, { y: -50, scale: 1.3, filter: "blur(12px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at);
+      const words = (list, at, gap = 0.14) => list.forEach((s, i) => word(s, at + i * gap));
+      const pop = (sel, at) => IN(sel, { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, at);
+      const float = (sel, at, d, y = -16) => FT(sel, { y: 0 }, { y: y, duration: d / 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, at);
+      const slam = (sel, at) => IN(sel, { scale: 2.2, filter: "blur(16px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, at);
+
+      const SC = [["#s1", "#k1", 0, 3.6], ["#s2", "#k2", 3.6, 3.0], ["#s3", "#k3", 6.6, 5.4], ["#s4", "#k4", 12.0, 5.4], ["#s5", "#k5", 17.4, 5.4], ["#s6", "#k6", 22.8, 4.8], ["#s7", "#k7", 27.6, 4.4]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        tl.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.14 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+        FT(c, { rotation: 0, x: 0 }, { rotation: i % 2 ? 0.8 : -0.8, x: i % 2 ? -20 : 20, duration: d, ease: "sine.inOut" }, a);
+      });
+
+      // 1. seulement pour le thé ?
+      pop("#tea", 0.1); pop("#qm", 0.5); FT("#qm", { rotation: 0 }, { rotation: 12, duration: 0.15, yoyo: true, repeat: 5 }, 1.0);
+      words(["#a1", "#a2", "#a3", "#a4"], 0.6, 0.12);
+      slam("#a5", 1.3);
+
+      // 2. 3 façons
+      IN("#sr", { y: 200, scale: 0.5 }, { y: 0, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 3.65);
+      word("#b1", 3.9);
+      IN("#b2", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.5, ease: "bounce.out" }, 4.15);
+      words(["#b3", "#b4", "#b5", "#b6", "#b7"], 4.7, 0.12);
+
+      // transition alvéoles
+      const hex = document.getElementById("hex"); const R = 78; const cells = [];
+      for (let row = 0; row * R * 1.5 < 1920 + R; row++) for (let col = 0; col * R * 1.732 < 1080 + R * 2; col++) {
+        const cx = col * R * 1.732 + (row % 2 ? R * 0.866 : 0), cy = row * R * 1.5;
+        const pts = [0, 1, 2, 3, 4, 5].map(k => { const a = Math.PI / 180 * (60 * k - 30); return (cx + R * Math.cos(a)).toFixed(1) + "," + (cy + R * Math.sin(a)).toFixed(1); }).join(" ");
+        const p = document.createElementNS("http://www.w3.org/2000/svg", "polygon"); p.setAttribute("points", pts); p.setAttribute("fill", (row + col) % 3 ? "#f29a0e" : "#e08600");
+        hex.appendChild(p); cells.push([p, Math.hypot(cx - 540, cy - 960)]);
+      }
+      cells.forEach(([p, dist]) => { const at = 6.25 + dist / 1100 * 0.3; FT(p, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1.08, duration: 0.2, ease: "power2.out" }, at); FT(p, { scale: 1.08 }, { scale: 0, duration: 0.25, ease: "power2.in" }, at + 0.4); });
+      gsap.set(cells.map(c => c[0]), { scale: 0, transformOrigin: "50% 50%" });
+
+
+      // façon 1
+      IN("#n3", { scale: 3, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.4, ease: "power4.out" }, 6.699999999999999);
+      word("#t3", 7.0, 0.35);
+      IN("#p3", { y: -1400, rotation: -10 }, { y: 0, rotation: 0, duration: 0.6, ease: "bounce.out" }, 7.3);
+      pop("#sp3", 7.8999999999999995); float("#p3", 8.0, 3.0, -18);
+      [0, 1].forEach(j => { IN("#u3" + j, { x: j ? 900 : -900 }, { x: 0, duration: 0.45, ease: "expo.out" }, 8.2 + j * 1.5); FT("#u3" + j + " img", { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.5)" }, 8.299999999999999 + j * 1.5); IN("#ck3" + j, { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2.5)" }, 8.8 + j * 1.5); });
+      // façon 2
+      IN("#n4", { scale: 3, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.4, ease: "power4.out" }, 12.1);
+      word("#t4", 12.4, 0.35);
+      IN("#p4", { y: -1400, rotation: -10 }, { y: 0, rotation: 0, duration: 0.6, ease: "bounce.out" }, 12.7);
+      pop("#sp4", 13.3); float("#p4", 13.4, 3.0, -18);
+      [0, 1].forEach(j => { IN("#u4" + j, { x: j ? 900 : -900 }, { x: 0, duration: 0.45, ease: "expo.out" }, 13.6 + j * 1.5); FT("#u4" + j + " img", { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.5)" }, 13.7 + j * 1.5); IN("#ck4" + j, { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2.5)" }, 14.2 + j * 1.5); });
+      // façon 3
+      IN("#n5", { scale: 3, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.4, ease: "power4.out" }, 17.5);
+      word("#t5", 17.799999999999997, 0.35);
+      IN("#p5", { y: -1400, rotation: -10 }, { y: 0, rotation: 0, duration: 0.6, ease: "bounce.out" }, 18.099999999999998);
+      pop("#sp5", 18.7); float("#p5", 18.799999999999997, 3.0, -18);
+      [0, 1].forEach(j => { IN("#u5" + j, { x: j ? 900 : -900 }, { x: 0, duration: 0.45, ease: "expo.out" }, 19.0 + j * 1.5); FT("#u5" + j + " img", { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.5)" }, 19.099999999999998 + j * 1.5); IN("#ck5" + j, { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2.5)" }, 19.599999999999998 + j * 1.5); });
+
+      // 6. la gamme
+      IN("#logo2", { scale: 0.3, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.8)" }, 22.85);
+      words(["#g1", "#g2"], 23.1, 0.12); word("#g3", 23.35, 0.35);
+      [0, 1, 2, 3, 4, 5, 6].forEach(i => IN("#gp" + i, { y: -1300, rotation: -15 + i * 5 }, { y: 0, rotation: 0, duration: 0.5, ease: "bounce.out" }, 23.7 + i * 0.18));
+      words(["#g4", "#g5", "#g6", "#g7"], 25.2, 0.1); word("#g8", 25.650000000000002, 0.35);
+      IN("#g9", { scale: 0.4 }, { scale: 1, duration: 0.4, ease: "back.out(2.2)" }, 26.1);
+      // 7. WhatsApp
+      IN("#ph", { y: 1000 }, { y: 0, duration: 0.55, ease: "expo.out" }, 27.6);
+      FT("#inp0", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.1 }, 28.1);
+      HIDE.push("#inp1"); FT("#inp1", { autoAlpha: 1, clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 1.0, ease: "steps(20)" }, 28.1);
+      FT("#inp1", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.05 }, 29.2);
+      FT("#inp0", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05 }, 29.2);
+      FT("#send", { scale: 1 }, { scale: 0.8, duration: 0.1, yoyo: true, repeat: 1 }, 29.1);
+      IN("#bub", { y: 300, scale: 0.6, transformOrigin: "100% 100%" }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 29.2);
+      HIDE.push("#tk1"); FT("#tk1", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.15 }, 29.8); FT("#tk0", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.1 }, 29.8);
+      slam("#f8", 29.4);
+      words(["#f9", "#f10"], 29.7, 0.15);
+      IN("#num", { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.5)" }, 30.0);
+      FT("#num", { scale: 1 }, { scale: 1.06, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 30.5);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 30.9);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set(["#inp0"], { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

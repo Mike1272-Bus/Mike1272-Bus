@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 400; src: url('assets/fonts/bricolage-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 700; src: url('assets/fonts/bricolage-700.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #120a03; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff5e0; font-family: 'Bricolage', sans-serif;
+        background: radial-gradient(circle at 50% 32%, #4a2c09 0%, #241405 48%, #0e0803 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+      .title span, .words span, .eyebrow span { display: inline-block; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: 0.32em; color: #f2a516; text-transform: uppercase; }
+      .words { font-family: 'Work Sans'; font-weight: 400; font-size: 46px; color: #f6e7c8; }
+      #glow { left: -300px; top: -200px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(242,165,22,0.26) 0%, rgba(242,165,22,0) 65%); }
+      #comb { opacity: 0.09; }
+      .hex { position: absolute; background-repeat: no-repeat; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+      .piece { position: absolute; background-repeat: no-repeat; }
+      .lg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url('assets/img/logo.png') center / 100% 100% no-repeat; }
+
+      /* S1 */
+      #logoA, #logoAfull { left: 270px; top: 470px; width: 540px; height: 540px; }
+      #wA { top: 1100px; font-size: 84px; }
+      #tagA1 { top: 1240px; font-family: 'Work Sans'; font-size: 46px; color: #f6e7c8; }
+      #tagA2 { top: 1304px; font-family: 'Work Sans'; font-weight: 700; font-size: 46px; color: #f2a516; }
+
+      /* S2 */
+      #e2 { top: 140px; }
+      .t2 { top: 185px; font-size: 230px; }
+      #t2a { clip-path: inset(0 0 50% 0); color: #fff5e0; }
+      #t2b { clip-path: inset(50% 0 0 0); color: #f2a516; }
+      #p2 { left: 140px; top: 470px; width: 800px; height: 769px; overflow: hidden; border-radius: 28px; }
+      #p2full { left: 0; top: 0; width: 800px; height: 769px; background: url('assets/img/cannelle.jpg') center / 100% 100% no-repeat; }
+      #slot2 { left: 0; top: 1300px; width: 1080px; height: 110px; overflow: hidden; }
+      .sw { left: 0; top: 0; width: 1080px; text-align: center; font-weight: 800; font-size: 80px; line-height: 110px; color: #fff5e0; white-space: nowrap; }
+
+      /* S3 */
+      #e3 { top: 520px; }
+      #t3a { top: 570px; font-size: 120px; }
+      #t3b { top: 690px; font-size: 120px; color: #f2a516; }
+      #g3 { left: 40px; top: 880px; width: 1000px; height: 333px; }
+      #s3 { top: 1280px; font-size: 60px; font-style: italic; color: #fff5e0; }
+
+      /* S4 */
+      #s4 { overflow: hidden; }
+      #e4 { top: 330px; }
+      #t4a { top: 380px; font-size: 100px; }
+      #t4b { top: 485px; font-size: 100px; color: #f2a516; }
+      #g4 { left: 60px; top: 640px; width: 960px; height: 455px; }
+      #s4w { top: 1150px; font-size: 54px; font-style: italic; color: #fff5e0; }
+      #pill4 { left: 290px; top: 1250px; width: 500px; height: 96px; line-height: 98px; border-radius: 48px; text-align: center; background: #f2a516; color: #241405; font-weight: 800; font-size: 50px; box-shadow: 0 16px 34px rgba(0,0,0,0.5); }
+
+      /* S5 */
+      #logoB, #logoBfull { left: 340px; top: 420px; width: 400px; height: 400px; }
+      #wB { top: 890px; height: 100px; overflow: hidden; font-size: 82px; line-height: 100px; }
+      #s5 { top: 1030px; font-size: 40px; }
+      #ctaFill { left: 170px; top: 1170px; width: 740px; height: 104px; border-radius: 52px; background: #f2a516; opacity: 0; }
+      #ctaT { left: 170px; top: 1170px; width: 740px; height: 104px; line-height: 104px; text-align: center; font-family: 'Work Sans'; font-weight: 700; font-size: 38px; color: #fff5e0; }
+      #h5 { top: 1320px; font-family: 'Work Sans'; font-weight: 700; font-size: 36px; color: #f2a516; letter-spacing: 0.02em; }
+      #fade { background: #0e0803; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div class="ab" id="glow"></div>
+      <svg class="ab full" id="comb" viewBox="0 0 1080 1920"></svg>
+      <svg class="ab full" id="bigRing" viewBox="0 0 1080 1920"><circle cx="540" cy="900" r="500" fill="none" stroke="#f2a516" stroke-width="2" stroke-dasharray="3 22" opacity="0.4"/></svg>
+
+      <!-- S1 : le logo se construit en alvéoles -->
+      <svg class="ab full" id="ringsA" viewBox="0 0 1080 1920"><circle id="ringA" cx="540" cy="740" r="292" fill="none" stroke="#f2a516" stroke-width="6" transform="rotate(-90 540 740)"/></svg>
+      <div class="ab" id="logoA"></div>
+      <div class="ab" id="logoAfull"><div class="lg"></div></div>
+      <div class="ab center title" id="wA" data-layout-allow-overlap></div>
+      <div class="ab center" id="tagA1">Le miel, votre allié</div>
+      <div class="ab center" id="tagA2">de bien-être au quotidien</div>
+
+      <!-- S2 : le pot se construit alvéole par alvéole, les parfums défilent -->
+      <div class="ab center eyebrow" id="e2"></div>
+      <div class="ab center title t2" id="t2a">Miel</div>
+      <div class="ab center title t2" id="t2b">Miel</div>
+      <div class="ab" id="p2"><div class="ab" id="p2full"></div></div>
+      <div class="ab" id="slot2"></div>
+
+      <!-- S3 : la gamme tombe pot par pot -->
+      <div class="ab center eyebrow" id="e3">La gamme</div>
+      <div class="ab center title" id="t3a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t3b" data-layout-allow-overlap></div>
+      <div class="ab" id="g3"></div>
+      <div class="ab center words" id="s3"></div>
+
+      <!-- S4 : packs cadeaux, la photo en bandes -->
+      <div class="ab full" id="s4">
+        <div class="ab center eyebrow" id="e4">Fêtes et événements</div>
+        <div class="ab center title" id="t4a" data-layout-allow-overlap></div>
+        <div class="ab center title" id="t4b" data-layout-allow-overlap></div>
+        <div class="ab" id="g4"></div>
+        <div class="ab center words" id="s4w"></div>
+        <div class="ab" id="pill4">Packs cadeaux</div>
+      </div>
+      <svg class="ab full" id="iris" viewBox="0 0 1080 1920"><circle id="irisC" cx="540" cy="620" r="1300" fill="none" stroke="#f2a516" stroke-width="10"/></svg>
+
+      <!-- S5 : le logo se reforme -->
+      <svg class="ab full" id="ringsB" viewBox="0 0 1080 1920"><circle id="ringB" cx="540" cy="620" r="218" fill="none" stroke="#f2a516" stroke-width="5" transform="rotate(-90 540 620)"/>
+        <rect id="ctaR" x="170" y="1170" width="740" height="104" rx="52" fill="none" stroke="#f2a516" stroke-width="4"/></svg>
+      <div class="ab" id="logoB"></div>
+      <div class="ab" id="logoBfull"><div class="lg"></div></div>
+      <div class="ab center title" id="wB" data-layout-allow-overlap></div>
+      <div class="ab center words" id="s5"></div>
+      <div class="ab" id="ctaFill"></div>
+      <div class="ab" id="ctaT">Commandez au +243 859 072 956</div>
+      <div class="ab center" id="h5"></div>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="20" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      let seed = 31;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at);
+
+      // ---------- fabrique des morceaux ----------
+      // alvéoles hexagonales : chacune porte le morceau d'image qui est derrière elle
+      function hexes(host, img, W, H, r, prefix, keep) {
+        const w = Math.sqrt(3) * r, out = [];
+        for (let row = -1; row * 1.5 * r < H + r; row++) for (let col = -1; col * w < W + w; col++) {
+          const cx = col * w + (Math.abs(row) % 2 ? w / 2 : 0), cy = row * 1.5 * r;
+          if (keep && !keep(cx, cy)) continue;
+          const d = document.createElement("div");
+          d.className = "hex"; d.id = prefix + out.length;
+          Object.assign(d.style, { left: cx - w / 2 + "px", top: cy - r + "px", width: w + 1 + "px", height: 2 * r + 1 + "px",
+            backgroundImage: `url('${img}')`, backgroundSize: `${W}px ${H}px`, backgroundPosition: `${-(cx - w / 2)}px ${-(cy - r)}px` });
+          host.appendChild(d); out.push({ el: d, cx, cy, d: Math.hypot(cx - W / 2, cy - H / 2), a: Math.atan2(cy - H / 2, cx - W / 2) });
+        }
+        return out;
+      }
+      function letters(host, text, prefix) {
+        return [...text].map((ch, i) => {
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = ch === " " ? " " : ch;
+          host.appendChild(s); return s;
+        });
+      }
+      function words(host, text, prefix) {
+        const out = [];
+        text.split(" ").forEach((w, i) => {
+          if (i) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = w; host.appendChild(s); out.push(s);
+        });
+        return out;
+      }
+      function grid(host, img, W, H, cols, rows, prefix) {
+        const out = [];
+        for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+          const x = Math.round((c * W) / cols), y = Math.round((r * H) / rows);
+          const w = Math.round(((c + 1) * W) / cols) - x, h = Math.round(((r + 1) * H) / rows) - y;
+          const d = document.createElement("div");
+          d.className = "piece"; d.id = `${prefix}${r}_${c}`;
+          Object.assign(d.style, { left: x + "px", top: y + "px", width: w + 1 + "px", height: h + 1 + "px",
+            backgroundImage: `url('${img}')`, backgroundSize: `${W}px ${H}px`, backgroundPosition: `${-x}px ${-y}px` });
+          host.appendChild(d); out.push({ el: d, c, r });
+        }
+        return out;
+      }
+
+      // fond : quelques alvéoles en filigrane
+      (() => {
+        const r = 70, w = Math.sqrt(3) * r, pts = (cx, cy) => [0, 1, 2, 3, 4, 5].map((k) => {
+          const a = ((60 * k - 90) * Math.PI) / 180; return `${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`; }).join(" ");
+        let s = "";
+        [[0, 0], [1, 0], [0, 1], [7, 2], [8, 3], [7, 3], [0, 10], [1, 11], [0, 11], [8, 12], [7, 13], [8, 13]].forEach(([c, rw]) => {
+          s += `<polygon points="${pts(c * w + (rw % 2 ? w / 2 : 0), rw * 1.5 * r)}" fill="none" stroke="#f2a516" stroke-width="5"/>`;
+        });
+        $("comb").innerHTML = s;
+      })();
+
+      const HA = hexes($("logoA"), "assets/img/logo.png", 540, 540, 54, "ha", (x, y) => Math.hypot(x - 270, y - 270) < 290);
+      const HB = hexes($("logoB"), "assets/img/logo.png", 400, 400, 40, "hb", (x, y) => Math.hypot(x - 200, y - 200) < 215);
+      const H2 = hexes($("p2"), "assets/img/cannelle.jpg", 800, 769, 72, "hp");
+      $("p2").appendChild($("p2full"));
+      const LA = letters($("wA"), "La Ruche du Terroir", "la");
+      const LE2 = letters($("e2"), "Nos parfums", "le");
+      const FLAV = ["à la cannelle", "au gingembre", "au clou de girofle", "au poivre noir", "à l'hibiscus", "au moringa"];
+      const SW = FLAV.map((t, i) => { const d = document.createElement("div"); d.className = "ab sw"; d.id = "fl" + i; d.setAttribute("data-layout-allow-overlap", ""); d.textContent = t; $("slot2").appendChild(d); return d; });
+      const T3 = [...words($("t3a"), "Votre allié", "ta"), ...words($("t3b"), "bien-être", "tb")];
+      const S3 = words($("s3"), "au quotidien", "sx");
+      const JARS = grid($("g3"), "assets/img/gamme.jpg", 1000, 333, 5, 1, "jr");
+      const T4 = [...words($("t4a"), "Faites plaisir", "fa"), ...words($("t4b"), "à vos équipes", "fb")];
+      const S4 = words($("s4w"), "avec des produits locaux", "sp");
+      const BANDS = grid($("g4"), "assets/img/panier.jpg", 960, 455, 1, 6, "bd");
+      const LB = letters($("wB"), "La Ruche du Terroir", "lk");
+      const S5 = words($("s5"), "Packs cadeaux pour vos fêtes et événements", "sz");
+      const H5 = letters($("h5"), "@miel_de_la_ruche_du_terroir", "hh");
+
+      const L_A = $("ringA").getTotalLength(), L_B = $("ringB").getTotalLength(), L_C = $("ctaR").getTotalLength();
+      gsap.set("#ringA", { strokeDasharray: L_A, strokeDashoffset: L_A });
+      gsap.set("#ringB", { strokeDasharray: L_B, strokeDashoffset: L_B });
+      gsap.set("#ctaR", { strokeDasharray: L_C, strokeDashoffset: L_C });
+      gsap.set(["#logoAfull", "#tagA1", "#tagA2", "#t2a", "#t2b", "#p2full", "#e3", "#e4", "#pill4", "#iris", "#logoBfull", "#ctaT", "#bigRing"], { autoAlpha: 0 });
+      gsap.set([...HA.map((h) => h.el), ...HB.map((h) => h.el), ...H2.map((h) => h.el), ...LA, ...LE2, ...SW, ...T3, ...S3, ...JARS.map((j) => j.el),
+        ...T4, ...S4, ...BANDS.map((b) => b.el), ...LB, ...S5, ...H5], { autoAlpha: 0 });
+      gsap.set("#s4", { clipPath: "circle(150% at 50% 620px)" });
+      gsap.set("#fade", { autoAlpha: 1 });
+
+      // ---------- ambiance continue ----------
+      tl.fromTo("#glow", { x: 0, y: 0 }, { x: 420, y: 900, duration: 20, ease: "sine.inOut" }, 0);
+      tl.fromTo("#comb", { y: 0 }, { y: -160, duration: 20, ease: "none" }, 0);
+      IN("#bigRing", {}, { duration: 1.5 }, 0.3);
+      tl.fromTo("#bigRing", { rotation: 0, transformOrigin: "540px 900px" }, { rotation: 120, duration: 20, ease: "none" }, 0);
+
+      // ---------- S1 : le logo arrive alvéole par alvéole, comme un essaim (0 - 3.4) ----------
+      tl.to("#fade", { autoAlpha: 0, duration: 0.5, ease: "power2.out" }, 0);
+      HA.forEach((h) => {
+        const a = rnd() * Math.PI * 2, r = 650 + rnd() * 400;
+        IN(h.el, { x: Math.cos(a) * r, y: Math.sin(a) * r, rotation: (rnd() - 0.5) * 360, scale: 0.3 },
+          { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.9, ease: "expo.out" }, 0.2 + (h.d / 290) * 0.55);
+      });
+      tl.set("#logoAfull", { autoAlpha: 1 }, 1.75);
+      tl.set(HA.map((h) => h.el), { autoAlpha: 0 }, 1.75);
+      tl.fromTo("#ringA", { strokeDashoffset: L_A }, { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut", immediateRender: false }, 0.9);
+      LA.forEach((s, i) => IN(s, { y: 140, rotation: (rnd() - 0.5) * 60, scale: 0.4 }, { y: 0, rotation: 0, scale: 1, duration: 0.6, ease: "back.out(1.8)" }, 1.4 + i * 0.03));
+      IN("#tagA1", { x: -1100 }, { x: 0, duration: 0.6, ease: "expo.out" }, 2.0);
+      IN("#tagA2", { x: 1100 }, { x: 0, duration: 0.6, ease: "expo.out" }, 2.12);
+
+      // l'essaim repart
+      tl.set("#logoAfull", { autoAlpha: 0 }, 3.1);
+      HA.forEach((h) => FT(h.el, { x: 0, y: 0, rotation: 0, scale: 1, autoAlpha: 1 },
+        { x: Math.cos(h.a) * 1000, y: Math.sin(h.a) * 1000, rotation: (rnd() - 0.5) * 300, scale: 0.5, autoAlpha: 0, duration: 0.6, ease: "power3.in" }, 3.1 + (1 - h.d / 290) * 0.12));
+      tl.fromTo("#ringA", { strokeDashoffset: 0 }, { strokeDashoffset: -L_A, duration: 0.5, ease: "power2.in", immediateRender: false }, 3.05);
+      LA.forEach((s, i) => FT(s, { y: 0, rotation: 0, autoAlpha: 1 },
+        { y: 700 + rnd() * 300, rotation: (rnd() - 0.5) * 240, autoAlpha: 0, duration: 0.6, ease: "power2.in" }, 3.1 + i * 0.015));
+      FT("#tagA1", { x: 0, autoAlpha: 1 }, { x: 1100, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+      FT("#tagA2", { x: 0, autoAlpha: 1 }, { x: -1100, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+
+      // ---------- S2 : le pot se construit en alvéoles, les parfums défilent (3.45 - 7.8) ----------
+      const DMAX = Math.max(...H2.map((h) => h.d));
+      H2.forEach((h) => IN(h.el, { scale: 0, rotation: 90 }, { scale: 0.9, rotation: 0, duration: 0.5, ease: "back.out(1.7)" }, 3.45 + (h.d / DMAX) * 0.7));
+      FT(H2.map((h) => h.el), { scale: 0.9 }, { scale: 1.02, duration: 0.4, ease: "power2.inOut" }, 4.75);
+      tl.set("#p2full", { autoAlpha: 1 }, 5.2);
+      tl.set(H2.map((h) => h.el), { autoAlpha: 0 }, 5.2);
+      FT("#p2full", { scale: 1 }, { scale: 1.06, duration: 2.0, ease: "none" }, 5.2);
+      IN("#t2a", { x: -1200 }, { x: 0, duration: 0.8, ease: "expo.out" }, 3.6);
+      IN("#t2b", { x: 1200 }, { x: 0, duration: 0.8, ease: "expo.out" }, 3.6);
+      LE2.forEach((s, i) => IN(s, { y: 30 }, { y: 0, duration: 0.4, ease: "power2.out" }, 4.0 + i * 0.04));
+      SW.forEach((el, i) => {
+        const at = 4.3 + i * 0.52;
+        IN(el, { y: 110 }, { y: 0, duration: 0.32, ease: "power3.inOut" }, at);
+        if (i < SW.length - 1) FT(el, { y: 0, autoAlpha: 1 }, { y: -110, autoAlpha: 0, duration: 0.32, ease: "power3.inOut" }, at + 0.52);
+      });
+      // le pot se défait en alvéoles qui tombent comme des gouttes
+      tl.set(H2.map((h) => h.el), { autoAlpha: 1 }, 7.3);
+      tl.set("#p2full", { autoAlpha: 0 }, 7.3);
+      H2.forEach((h) => FT(h.el, { y: 0, scale: 1.02, rotation: 0 },
+        { y: 500 + rnd() * 300, scale: 0, rotation: (rnd() - 0.5) * 200, duration: 0.55, ease: "power2.in" }, 7.3 + (h.cy / 769) * 0.2 + rnd() * 0.08));
+      tl.set(H2.map((h) => h.el), { autoAlpha: 0 }, 8.2);
+      FT("#t2a", { x: 0, autoAlpha: 1 }, { x: 1200, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.3);
+      FT("#t2b", { x: 0, autoAlpha: 1 }, { x: -1200, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.3);
+      FT([...LE2, SW[SW.length - 1]], { y: 0, autoAlpha: 1 }, { y: 60, autoAlpha: 0, duration: 0.35, ease: "power2.in" }, 7.3);
+
+      // ---------- S3 : la gamme tombe pot par pot (7.9 - 11.9) ----------
+      IN("#e3", { y: 20 }, { y: 0, duration: 0.4 }, 7.95);
+      T3.forEach((s, i) => IN(s, { y: -260, rotation: -12 }, { y: 0, rotation: 0, duration: 0.6, ease: "back.out(1.6)" }, 8.05 + i * 0.12));
+      JARS.forEach((j, i) => IN(j.el, { y: 900, rotation: i % 2 ? 6 : -6 }, { y: 0, rotation: 0, duration: 0.75, ease: "back.out(1.5)" }, 8.6 + i * 0.13));
+      S3.forEach((s, i) => IN(s, { y: 50 }, { y: 0, duration: 0.5, ease: "power3.out" }, 9.9 + i * 0.12));
+      FT(JARS.map((j) => j.el), { scale: 1 }, { scale: 1.04, duration: 1.4, ease: "sine.inOut" }, 10.1);
+      JARS.forEach((j, i) => FT(j.el, { y: 0, autoAlpha: 1 }, { y: 1300, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 11.45 + i * 0.05));
+      FT([...T3, "#e3"], { y: 0, autoAlpha: 1 }, { y: -300, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 11.45);
+      FT(S3, { y: 0, autoAlpha: 1 }, { y: 200, autoAlpha: 0, duration: 0.4, ease: "power3.in" }, 11.45);
+
+      // ---------- S4 : packs cadeaux, la photo arrive en 6 bandes (12 - 16.1) ----------
+      IN("#e4", { y: 20 }, { y: 0, duration: 0.4 }, 12.0);
+      T4.forEach((s, i) => IN(s, { y: 120, scale: 0.6 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 12.1 + i * 0.09));
+      BANDS.forEach((b, i) => IN(b.el, { x: i % 2 ? 1100 : -1100 }, { x: 0, duration: 0.7, ease: "expo.out" }, 12.45 + i * 0.07));
+      FT("#g4", { scale: 1.06 }, { scale: 1, duration: 3.2, ease: "power1.out" }, 12.45);
+      S4.forEach((s, i) => IN(s, { y: 50 }, { y: 0, duration: 0.45, ease: "power3.out" }, 13.4 + i * 0.1));
+      IN("#pill4", { scale: 0, rotation: -8 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2.2)" }, 14.1);
+      FT("#pill4", { scale: 1 }, { scale: 1.06, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 14.7);
+      // sortie en iris vers le logo
+      FT("#s4", { clipPath: "circle(150% at 50% 620px)" }, { clipPath: "circle(0% at 50% 620px)", duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 1 }, 15.7);
+      FT("#irisC", { attr: { r: 1300 } }, { attr: { r: 0 }, duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 0 }, 16.25);
+
+      // ---------- S5 : l'essaim reforme le logo (16.2 - 20) ----------
+      HB.forEach((h) => IN(h.el, { x: Math.cos(h.a + 1.4) * 520, y: Math.sin(h.a + 1.4) * 520, rotation: -180, scale: 0.2 },
+        { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.8, ease: "expo.out" }, 16.2 + (1 - h.d / 215) * 0.45));
+      tl.set("#logoBfull", { autoAlpha: 1 }, 17.5);
+      tl.set(HB.map((h) => h.el), { autoAlpha: 0 }, 17.5);
+      tl.fromTo("#ringB", { strokeDashoffset: L_B }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 16.5);
+      LB.forEach((s, i) => IN(s, { y: 110 }, { y: 0, duration: 0.5, ease: "power3.out" }, 16.75 + i * 0.03));
+      S5.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.45, ease: "power3.out" }, 17.2 + i * 0.06));
+      tl.fromTo("#ctaR", { strokeDashoffset: L_C }, { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut", immediateRender: false }, 17.5);
+      IN("#ctaT", { y: 20 }, { y: 0, duration: 0.45, ease: "power2.out" }, 17.9);
+      FT("#ctaFill", { opacity: 0 }, { opacity: 0.2, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 18.4);
+      H5.forEach((s, i) => IN(s, { y: 20 }, { y: 0, duration: 0.3, ease: "power2.out" }, 18.1 + i * 0.025));
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 19.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 400; src: url('assets/fonts/bricolage-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 700; src: url('assets/fonts/bricolage-700.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #1b110c; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #f5e9d8; font-family: 'Bricolage', sans-serif;
+        background: radial-gradient(circle at 50% 30%, #3a2416 0%, #22150e 45%, #140b07 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+      .title span, .words span, .eyebrow span { display: inline-block; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: 0.32em; color: #d9a441; text-transform: uppercase; }
+      .words { font-family: 'Work Sans'; font-weight: 400; font-size: 46px; color: #e9d6bc; }
+      #glow { left: -300px; top: -200px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(217,164,65,0.26) 0%, rgba(217,164,65,0) 65%); }
+      #beans { opacity: 0.07; }
+      .wedge { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url('assets/img/logo.png') center / 100% 100% no-repeat; }
+      .piece { position: absolute; background-repeat: no-repeat; }
+      .tc { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; }
+
+      /* S1 */
+      #logoA { left: 270px; top: 470px; width: 540px; height: 540px; }
+      #logoAfull { left: 270px; top: 470px; width: 540px; height: 540px; }
+      #burst { left: 540px; top: 740px; width: 0; height: 0; }
+      .bean { position: absolute; left: -18px; top: -26px; width: 36px; height: 52px; }
+      #wA { top: 1095px; font-size: 136px; letter-spacing: 0.01em; }
+      #tagA1 { top: 1268px; font-family: 'Work Sans'; font-size: 46px; color: #e9d6bc; }
+      #tagA2 { top: 1332px; font-family: 'Work Sans'; font-weight: 700; font-size: 46px; color: #d9a441; }
+
+      /* S2 */
+      #e2 { top: 150px; }
+      .t2 { top: 205px; font-size: 168px; color: #f5e9d8; }
+      #t2a { clip-path: inset(0 0 50% 0); }
+      #t2b { clip-path: inset(50% 0 0 0); }
+      #p2, #g2 { left: 90px; top: 430px; width: 900px; height: 1121px; }
+      #fr2 { left: 0; top: 0; width: 900px; height: 1121px; overflow: visible; }
+      #s2 { top: 1600px; font-size: 54px; font-style: italic; color: #f5e9d8; }
+      #line2 { left: 390px; top: 1695px; width: 300px; height: 4px; background: #d9a441; }
+
+      /* S3 */
+      #e3 { top: 140px; }
+      #t3a { top: 196px; font-size: 104px; }
+      #t3b { top: 300px; font-size: 104px; color: #d9a441; }
+      .grp { top: 430px; width: 290px; height: 1120px; overflow: hidden; }
+      #g3_0 { left: 75px; } #g3_1 { left: 395px; } #g3_2 { left: 715px; }
+      .col { position: absolute; left: 0; top: 0; width: 290px; height: 1120px; }
+      .lab { position: absolute; left: -415px; top: 495px; width: 1120px; height: 130px; text-align: center; transform: rotate(-90deg);
+        font-weight: 800; font-size: 128px; line-height: 130px; text-transform: uppercase; color: #f5e9d8; white-space: nowrap; }
+      .lab span { display: inline-block; }
+      .ph3 { position: absolute; left: 0; top: 0; width: 290px; height: 1120px; background-image: url('assets/img/rayon.jpg'); background-size: 899px 1120px; background-repeat: no-repeat; }
+      .chip { position: absolute; left: 25px; top: 990px; width: 240px; padding: 16px 0 12px; border-radius: 50px; text-align: center; font-weight: 800; font-size: 40px; color: #fff; box-shadow: 0 14px 30px rgba(0,0,0,0.5); }
+      #s3 { top: 1610px; }
+
+      /* S4 */
+      #s4 { overflow: hidden; }
+      .n4 { top: 200px; font-size: 300px; color: #d9a441; }
+      #n4a { clip-path: inset(0 0 50% 0); }
+      #n4b { clip-path: inset(50% 0 0 0); }
+      #slot4 { left: 0; top: 520px; width: 1080px; height: 140px; overflow: hidden; }
+      .sw { left: 0; top: 0; width: 1080px; text-align: center; font-weight: 800; font-size: 112px; line-height: 140px; text-transform: uppercase; color: #f5e9d8; }
+      #pan4 { left: 70px; top: 760px; width: 940px; height: 560px; }
+      .pimg { position: absolute; left: 0; top: 0; width: 940px; height: 560px; background-size: cover; background-position: center; }
+      #ph4s { background-image: url('assets/img/stand.jpg'); }
+      #m4a, #m4b { background-image: url('assets/img/mains.jpg'); }
+      #m4a { clip-path: polygon(0 0, 100% 0, 100% 35%, 0 65%); }
+      #m4b { clip-path: polygon(0 65%, 100% 35%, 100% 100%, 0 100%); }
+      #cut4 { left: 40px; top: 1037px; width: 1000px; height: 6px; background: #d9a441; box-shadow: 0 0 24px rgba(217,164,65,0.9); }
+      #t4a { top: 1385px; font-size: 100px; }
+      #t4b { top: 1490px; font-size: 100px; color: #d9a441; }
+
+      /* S5 */
+      #logoB, #logoBfull { left: 340px; top: 420px; width: 400px; height: 400px; }
+      #wB { top: 880px; height: 140px; overflow: hidden; font-size: 124px; line-height: 140px; }
+      #s5 { top: 1040px; }
+      #ctaFill { left: 170px; top: 1170px; width: 740px; height: 104px; border-radius: 52px; background: #d9a441; opacity: 0; }
+      #ctaT { left: 170px; top: 1170px; width: 740px; height: 104px; line-height: 104px; text-align: center; font-family: 'Work Sans'; font-weight: 700; font-size: 38px; color: #f5e9d8; }
+      #h5 { top: 1320px; font-family: 'Work Sans'; font-weight: 700; font-size: 38px; color: #d9a441; letter-spacing: 0.04em; }
+      #fade { background: #140b07; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div class="ab" id="glow"></div>
+      <svg class="ab full" id="beans" viewBox="0 0 1080 1920"><defs><g id="bn"><ellipse cx="0" cy="0" rx="26" ry="38" fill="#d9a441"/><path d="M0 -34 C-12 -10 12 10 0 34" stroke="#22150e" stroke-width="6" fill="none"/></g></defs>
+        <use href="#bn" x="120" y="180" transform="rotate(20 120 180)"/><use href="#bn" x="930" y="260" transform="rotate(-30 930 260)"/><use href="#bn" x="80" y="900" transform="rotate(50 80 900)"/>
+        <use href="#bn" x="1000" y="1100" transform="rotate(-10 1000 1100)"/><use href="#bn" x="150" y="1650" transform="rotate(35 150 1650)"/><use href="#bn" x="900" y="1780" transform="rotate(-45 900 1780)"/>
+        <use href="#bn" x="560" y="1860" transform="rotate(10 560 1860)"/><use href="#bn" x="520" y="90" transform="rotate(-20 520 90)"/></svg>
+      <svg class="ab full" id="bigRing" viewBox="0 0 1080 1920"><circle cx="540" cy="900" r="500" fill="none" stroke="#d9a441" stroke-width="2" stroke-dasharray="3 22" opacity="0.4"/></svg>
+
+      <!-- S1 : le logo se construit en parts -->
+      <svg class="ab full" id="ringsA" viewBox="0 0 1080 1920"><circle id="ringA" cx="540" cy="740" r="292" fill="none" stroke="#d9a441" stroke-width="6" transform="rotate(-90 540 740)"/></svg>
+      <div class="ab" id="burst"></div>
+      <div class="ab" id="logoA"></div>
+      <div class="ab"  id="logoAfull"><div class="wedge"></div></div>
+      <div class="ab center title" id="wA" data-layout-allow-overlap></div>
+      <div class="ab center" id="tagA1">Café 100 % naturel,</div>
+      <div class="ab center" id="tagA2">100 % congolais</div>
+
+      <!-- S2 : Arabica en bandes, puis en tuiles -->
+      <div class="ab center eyebrow" id="e2"></div>
+      <div class="ab center title t2" id="t2a">Arabica</div>
+      <div class="ab center title t2" id="t2b">Arabica</div>
+      <div class="ab" id="p2"><svg class="ab" id="fr2" viewBox="0 0 900 1121"><rect id="fr2R" x="3" y="3" width="894" height="1115" fill="none" stroke="#d9a441" stroke-width="6"/></svg></div>
+      <div class="ab" id="g2"></div>
+      <div class="ab center words" id="s2"></div>
+      <div class="ab" id="line2"></div>
+
+      <!-- S3 : trois colonnes, trois cafés, une photo -->
+      <div class="ab center eyebrow" id="e3">La gamme</div>
+      <div class="ab center title words3" id="t3a" data-layout-allow-overlap></div>
+      <div class="ab center title words3" id="t3b" data-layout-allow-overlap></div>
+      <div class="ab grp" id="g3_0"><div class="col" id="k3_0" style="background:#b5641a"></div><div class="lab" id="l3_0"></div><div class="ph3" id="ph3_0" style="background-position:-14px 0"></div><div class="chip" id="c3_0" style="background:#b5641a">Liberica</div></div>
+      <div class="ab grp" id="g3_1"><div class="col" id="k3_1" style="background:#b9472a"></div><div class="lab" id="l3_1"></div><div class="ph3" id="ph3_1" style="background-position:-304px 0"></div><div class="chip" id="c3_1" style="background:#b9472a">Arabica</div></div>
+      <div class="ab grp" id="g3_2"><div class="col" id="k3_2" style="background:#2f7d5c"></div><div class="lab" id="l3_2"></div><div class="ph3" id="ph3_2" style="background-position:-594px 0"></div><div class="chip" id="c3_2" style="background:#2f7d5c">Robusta</div></div>
+      <div class="ab center words" id="s3"></div>
+
+      <!-- S4 : 100 % qui se fend, photo coupée en diagonale -->
+      <div class="ab full" id="s4">
+        <svg class="ab full" id="shock" viewBox="0 0 1080 1920"><circle id="shockC" cx="540" cy="360" r="60" fill="none" stroke="#d9a441" stroke-width="5"/></svg>
+        <div class="ab center title n4" id="n4a">100 %</div>
+        <div class="ab center title n4" id="n4b">100 %</div>
+        <div class="ab" id="slot4"><div class="ab sw" id="w4a">naturel</div><div class="ab sw" id="w4b">congolais</div></div>
+        <div class="ab" id="pan4"><div class="pimg" id="ph4w" style="overflow:hidden"><div class="pimg" id="ph4s"></div></div><div class="pimg" id="m4a"></div><div class="pimg" id="m4b"></div></div>
+        <div class="ab" id="cut4"></div>
+        <div class="ab center title" id="t4a" data-layout-allow-overlap></div>
+        <div class="ab center title" id="t4b" data-layout-allow-overlap></div>
+      </div>
+      <svg class="ab full" id="iris" viewBox="0 0 1080 1920"><circle id="irisC" cx="540" cy="620" r="1300" fill="none" stroke="#d9a441" stroke-width="10"/></svg>
+
+      <!-- S5 : le logo se reforme -->
+      <svg class="ab full" id="ringsB" viewBox="0 0 1080 1920"><circle id="ringB" cx="540" cy="620" r="218" fill="none" stroke="#d9a441" stroke-width="5" transform="rotate(-90 540 620)"/>
+        <rect id="ctaR" x="170" y="1170" width="740" height="104" rx="52" fill="none" stroke="#d9a441" stroke-width="4"/></svg>
+      <div class="ab" id="logoB"></div>
+      <div class="ab" id="logoBfull"><div class="wedge"></div></div>
+      <div class="ab center title" id="wB" data-layout-allow-overlap></div>
+      <div class="ab center words" id="s5"></div>
+      <div class="ab" id="ctaFill"></div>
+      <div class="ab" id="ctaT">En vente dans vos supermarchés</div>
+      <div class="ab center" id="h5"></div>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="20" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      let seed = 11;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at);
+      const HIDE = [];
+
+      // ---------- fabrique des morceaux ----------
+      function wedges(host, n, prefix) {
+        const out = [];
+        for (let i = 0; i < n; i++) {
+          const a0 = -90 + (i * 360) / n, pts = ["50% 50%"];
+          for (let k = 0; k <= 3; k++) {
+            const a = ((a0 + (k * 360) / n / 3) * Math.PI) / 180;
+            pts.push(`${(50 + 75 * Math.cos(a)).toFixed(2)}% ${(50 + 75 * Math.sin(a)).toFixed(2)}%`);
+          }
+          const d = document.createElement("div");
+          d.className = "wedge"; d.id = prefix + i; d.style.clipPath = `polygon(${pts.join(",")})`;
+          host.appendChild(d); out.push({ el: d, mid: ((a0 + 180 / n) * Math.PI) / 180 });
+        }
+        return out;
+      }
+      function letters(host, text, prefix) {
+        return [...text].map((ch, i) => {
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = ch === " " ? " " : ch;
+          host.appendChild(s); return s;
+        });
+      }
+      function words(host, text, prefix) {
+        const out = [];
+        text.split(" ").forEach((w, i) => {
+          if (i) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = w; host.appendChild(s); out.push(s);
+        });
+        return out;
+      }
+      function grid(host, img, W, H, cols, rows, prefix, overlay) {
+        const out = [];
+        for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+          const x = Math.round((c * W) / cols), y = Math.round((r * H) / rows);
+          const w = Math.round(((c + 1) * W) / cols) - x, h = Math.round(((r + 1) * H) / rows) - y;
+          const d = document.createElement("div");
+          d.className = "piece"; d.id = `${prefix}${r}_${c}`;
+          Object.assign(d.style, { left: x + "px", top: y + "px", width: w + 1 + "px", height: h + 1 + "px",
+            backgroundImage: `url('${img}')`, backgroundSize: `${W}px ${H}px`, backgroundPosition: `${-x}px ${-y}px` });
+          if (overlay) { const o = document.createElement("div"); o.className = "tc"; o.id = d.id + "c"; d.appendChild(o); }
+          host.appendChild(d); out.push({ el: d, c, r, cx: x + w / 2, cy: y + h / 2 });
+        }
+        return out;
+      }
+
+      const WA = wedges($("logoA"), 10, "wa");
+      const WB = wedges($("logoB"), 10, "wb");
+      const beans = [];
+      for (let i = 0; i < 14; i++) {
+        const NS = "http://www.w3.org/2000/svg", s = document.createElementNS(NS, "svg");
+        s.setAttribute("viewBox", "-18 -26 36 52"); s.setAttribute("class", "bean"); s.id = "bean" + i;
+        s.innerHTML = '<ellipse cx="0" cy="0" rx="16" ry="24" fill="#d9a441"/><path d="M0 -21 C-8 -6 8 6 0 21" stroke="#22150e" stroke-width="4" fill="none"/>';
+        $("burst").appendChild(s); beans.push(s);
+      }
+      const LA = letters($("wA"), "La Kinoise", "la");
+      const LE2 = letters($("e2"), "Saveur du Kivu", "le");
+      const S2 = words($("s2"), "Doux, fin, et cultivé chez nous.", "sw");
+      const STR = grid($("p2"), "assets/img/arabica.jpg", 900, 1121, 7, 1, "st", false);
+      $("p2").appendChild($("fr2"));
+      const TIL = grid($("g2"), "assets/img/arabica.jpg", 900, 1121, 5, 6, "ti", true);
+      const T3 = [...words($("t3a"), "Un café", "ta"), ...words($("t3b"), "pour chacun", "tb")];
+      const LAB = ["Liberica", "Arabica", "Robusta"].map((t, k) => letters($("l3_" + k), t, `lb${k}_`));
+      const S3 = words($("s3"), "Dans les rayons de vos supermarchés", "sx");
+      const T4 = [...letters($("t4a"), "Goûtez", "ga"), ...letters($("t4b"), "la différence", "gb")];
+      const LB = letters($("wB"), "La Kinoise", "lk");
+      const S5 = words($("s5"), "Le café made in Congo", "sz");
+      const H5 = letters($("h5"), "@la.kinoise.cafe", "hh");
+
+      const L_A = $("ringA").getTotalLength(), L_B = $("ringB").getTotalLength(), L_C = $("ctaR").getTotalLength(), L_F = $("fr2R").getTotalLength();
+      gsap.set("#ringA", { strokeDasharray: L_A, strokeDashoffset: L_A });
+      gsap.set("#ringB", { strokeDasharray: L_B, strokeDashoffset: L_B });
+      gsap.set("#ctaR", { strokeDasharray: L_C, strokeDashoffset: L_C });
+      gsap.set("#fr2R", { strokeDasharray: L_F, strokeDashoffset: L_F });
+      gsap.set(["#logoAfull", "#tagA1", "#tagA2", "#t2a", "#t2b", "#g2", "#line2", "#e3", "#k3_0", "#k3_1", "#k3_2", "#c3_0", "#c3_1", "#c3_2",
+        "#n4a", "#n4b", "#w4a", "#w4b", "#m4a", "#m4b", "#ph4w", "#cut4", "#shock", "#iris", "#logoBfull", "#ctaT", "#bigRing", ...HIDE], { autoAlpha: 0 });
+      gsap.set([...WA.map((w) => w.el), ...WB.map((w) => w.el), ...beans, ...LA, ...LE2, ...S2, ...STR.map((s) => s.el), ...T3, ...LAB.flat(), ...S3, ...T4, ...LB, ...S5, ...H5], { autoAlpha: 0 });
+      gsap.set(".ph3", { clipPath: "inset(100% 0% 0% 0%)" });
+      gsap.set("#s4", { clipPath: "circle(150% at 50% 620px)" });
+      gsap.set("#cut4", { rotation: -10.13 });
+      gsap.set("#fade", { autoAlpha: 1 });
+
+      // ---------- ambiance continue ----------
+      tl.fromTo("#glow", { x: 0, y: 0 }, { x: 420, y: 900, duration: 20, ease: "sine.inOut" }, 0);
+      tl.fromTo("#beans", { y: 0 }, { y: -160, duration: 20, ease: "none" }, 0);
+      IN("#bigRing", {}, { duration: 1.5 }, 0.3);
+      tl.fromTo("#bigRing", { rotation: 0, transformOrigin: "540px 900px" }, { rotation: 120, duration: 20, ease: "none" }, 0);
+
+      // ---------- S1 : le logo arrive en 10 parts (0 - 3.4) ----------
+      tl.to("#fade", { autoAlpha: 0, duration: 0.5, ease: "power2.out" }, 0);
+      WA.forEach((w, i) => IN(w.el,
+        { x: Math.cos(w.mid) * 760, y: Math.sin(w.mid) * 760, rotation: i % 2 ? 140 : -140, scale: 0.3 },
+        { x: 0, y: 0, rotation: 0, scale: 1, duration: 1.0, ease: "expo.out" }, 0.2 + i * 0.045));
+      tl.set("#logoAfull", { autoAlpha: 1 }, 1.65);
+      tl.set(WA.map((w) => w.el), { autoAlpha: 0 }, 1.65);
+      tl.fromTo("#ringA", { strokeDashoffset: L_A }, { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut", immediateRender: false }, 0.8);
+      beans.forEach((b, i) => {
+        const a = (i / beans.length) * Math.PI * 2 + 0.2, r = 340 + rnd() * 120;
+        FT(b, { x: 0, y: 0, scale: 0.4, rotation: 0, autoAlpha: 1 },
+          { x: Math.cos(a) * r, y: Math.sin(a) * r, scale: 1.1, rotation: (rnd() - 0.5) * 300, autoAlpha: 0, duration: 1.0, ease: "power3.out" }, 1.0);
+      });
+      LA.forEach((s, i) => IN(s,
+        { x: (rnd() - 0.5) * 900, y: (rnd() - 0.5) * 700, rotation: (rnd() - 0.5) * 360, scale: 0 },
+        { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.8, ease: "back.out(1.5)" }, 1.25 + i * 0.045));
+      IN("#tagA1", { x: -1100 }, { x: 0, duration: 0.6, ease: "expo.out" }, 2.0);
+      IN("#tagA2", { x: 1100 }, { x: 0, duration: 0.6, ease: "expo.out" }, 2.12);
+
+      // le logo se décompose
+      tl.set("#logoAfull", { autoAlpha: 0 }, 3.1);
+      WA.forEach((w, i) => FT(w.el,
+        { x: 0, y: 0, rotation: 0, scale: 1, autoAlpha: 1 },
+        { x: Math.cos(w.mid) * 1050, y: Math.sin(w.mid) * 1050, rotation: i % 2 ? -100 : 100, scale: 1.4, autoAlpha: 0, duration: 0.6, ease: "power3.in" }, 3.1 + i * 0.015));
+      tl.fromTo("#ringA", { strokeDashoffset: 0 }, { strokeDashoffset: -L_A, duration: 0.5, ease: "power2.in", immediateRender: false }, 3.05);
+      LA.forEach((s, i) => FT(s, { y: 0, rotation: 0, autoAlpha: 1 },
+        { y: 700 + rnd() * 300, rotation: (rnd() - 0.5) * 240, autoAlpha: 0, duration: 0.6, ease: "power2.in" }, 3.1 + i * 0.02));
+      FT("#tagA1", { x: 0, autoAlpha: 1 }, { x: 1100, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+      FT("#tagA2", { x: 0, autoAlpha: 1 }, { x: -1100, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+
+      // ---------- S2 : Arabica, la photo arrive en 7 bandes (3.45 - 7.2) ----------
+      STR.forEach((s, i) => IN(s.el, { y: i % 2 ? 1500 : -1500 }, { y: 0, duration: 0.9, ease: "expo.out" }, 3.45 + i * 0.055));
+      tl.fromTo("#p2", { scale: 1.1 }, { scale: 1, duration: 3.7, ease: "power1.out", immediateRender: false }, 3.45);
+      tl.fromTo("#fr2R", { strokeDashoffset: L_F }, { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut", immediateRender: false }, 4.3);
+      IN("#t2a", { x: -1200 }, { x: 0, duration: 0.8, ease: "expo.out" }, 3.65);
+      IN("#t2b", { x: 1200 }, { x: 0, duration: 0.8, ease: "expo.out" }, 3.65);
+      LE2.forEach((s, i) => IN(s, { y: 30 }, { y: 0, duration: 0.4, ease: "power2.out" }, 4.2 + i * 0.03));
+      S2.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.5, ease: "power3.out" }, 4.8 + i * 0.12));
+      IN("#line2", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 5.5);
+
+      // la photo se découpe en 30 tuiles qui deviennent 3 pastilles de couleur
+      const DOTS = [[130, 560], [450, 560], [770, 560]], COLS = ["#b5641a", "#b9472a", "#2f7d5c"];
+      TIL.forEach((t) => { $(t.el.id + "c").style.background = COLS[(t.r * 5 + t.c) % 3]; });
+      tl.to("#fr2R", { strokeDashoffset: -L_F, duration: 0.3, ease: "power2.in" }, 6.9);
+      tl.set("#g2", { autoAlpha: 1 }, 7.15);
+      tl.set(STR.map((s) => s.el), { autoAlpha: 0 }, 7.15);
+      TIL.forEach((t) => {
+        const [tx, ty] = DOTS[(t.r * 5 + t.c) % 3], d = Math.hypot(t.cx - 450, t.cy - 560) / 720, at = 7.2 + d * 0.25;
+        FT(t.el, { x: 0, y: 0, scale: 1, rotation: 0, borderRadius: "0%" },
+          { x: tx - t.cx, y: ty - t.cy, scale: 0.33, rotation: (rnd() - 0.5) * 180, borderRadius: "50%", duration: 0.7, ease: "power3.inOut" }, at);
+        FT("#" + t.el.id + "c", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none" }, at + 0.25);
+      });
+      tl.set("#g2", { autoAlpha: 0 }, 8.15);
+      FT("#t2a", { x: 0, autoAlpha: 1 }, { x: 1200, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.05);
+      FT("#t2b", { x: 0, autoAlpha: 1 }, { x: -1200, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.05);
+      FT([...LE2, ...S2, "#line2"], { y: 0, autoAlpha: 1 }, { y: -40, autoAlpha: 0, duration: 0.35, ease: "power2.in" }, 7.0);
+
+      // ---------- S3 : les pastilles deviennent 3 colonnes (8.1 - 12.1) ----------
+      [0, 1, 2].forEach((k) => {
+        tl.set("#k3_" + k, { autoAlpha: 1 }, 8.1);
+        FT("#k3_" + k, { scaleX: 60 / 290, scaleY: 60 / 1120, borderRadius: "50%" },
+          { scaleX: 1, scaleY: 1, borderRadius: "0%", duration: 0.85, ease: "expo.inOut" }, 8.1 + k * 0.08);
+        LAB[k].forEach((s, i) => IN(s, { y: 150 }, { y: 0, duration: 0.5, ease: "power3.out" }, 8.75 + k * 0.1 + i * 0.035));
+        FT("#ph3_" + k, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power3.inOut" }, 9.75 + k * 0.12);
+        IN("#c3_" + k, { scale: 0, y: 40 }, { scale: 1, y: 0, duration: 0.45, ease: "back.out(2)" }, 11.0 + k * 0.12);
+      });
+      IN("#e3", { y: 20 }, { y: 0, duration: 0.4 }, 8.2);
+      T3.forEach((s, i) => IN(s, { y: -260, rotation: -14 }, { y: 0, rotation: 0, duration: 0.6, ease: "back.out(1.6)" }, 8.3 + i * 0.1));
+      // les colonnes se rapprochent : la photo se recompose
+      FT("#g3_0", { x: 0 }, { x: 30, duration: 0.6, ease: "power4.inOut" }, 10.55);
+      FT("#g3_2", { x: 0 }, { x: -30, duration: 0.6, ease: "power4.inOut" }, 10.55);
+      S3.forEach((s, i) => IN(s, { y: 50 }, { y: 0, duration: 0.45, ease: "power3.out" }, 11.1 + i * 0.07));
+      // sortie : les colonnes partent en sens opposés
+      [0, 1, 2].forEach((k) => FT("#g3_" + k, { y: 0 }, { y: k === 1 ? 1700 : -1700, duration: 0.55, ease: "power3.in" }, 11.75 + k * 0.05));
+      FT([...T3, "#e3"], { y: 0, autoAlpha: 1 }, { y: -300, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 11.75);
+      FT(S3, { y: 0, autoAlpha: 1 }, { y: 200, autoAlpha: 0, duration: 0.4, ease: "power3.in" }, 11.75);
+      tl.set(["#g3_0", "#g3_1", "#g3_2"], { autoAlpha: 0 }, 12.45);
+
+      // ---------- S4 : « 100 % » se soude, la photo se fend (12.2 - 16.1) ----------
+      IN("#n4a", { y: -900 }, { y: 0, duration: 0.6, ease: "expo.out" }, 12.2);
+      IN("#n4b", { y: 900 }, { y: 0, duration: 0.6, ease: "expo.out" }, 12.2);
+      tl.set("#shock", { autoAlpha: 1 }, 12.35);
+      FT("#shockC", { attr: { r: 60 }, opacity: 1 }, { attr: { r: 640 }, opacity: 0, duration: 0.8, ease: "power2.out" }, 12.35);
+      tl.set("#shock", { autoAlpha: 0 }, 13.2);
+      IN("#w4a", { y: 140 }, { y: 0, duration: 0.5, ease: "power3.out" }, 12.6);
+      IN("#m4a", { x: -1150 }, { x: 0, duration: 0.75, ease: "expo.out" }, 12.75);
+      IN("#m4b", { x: 1150 }, { x: 0, duration: 0.75, ease: "expo.out" }, 12.8);
+      tl.set("#ph4w", { autoAlpha: 1 }, 13.6);
+      FT("#ph4s", { scale: 1.18 }, { scale: 1, duration: 2.2, ease: "power2.out" }, 13.85);
+      IN("#cut4", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 13.5);
+      FT("#cut4", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.2 }, 13.95);
+      FT("#m4a", { x: 0, y: 0, rotation: 0 }, { x: -1200, y: -210, rotation: -6, duration: 0.7, ease: "power2.inOut" }, 13.85);
+      FT("#m4b", { x: 0, y: 0, rotation: 0 }, { x: 1200, y: 210, rotation: 6, duration: 0.7, ease: "power2.inOut" }, 13.85);
+      tl.set(["#m4a", "#m4b"], { autoAlpha: 0 }, 14.6);
+      FT("#w4a", { y: 0 }, { y: -140, duration: 0.5, ease: "power3.inOut" }, 13.85);
+      IN("#w4b", { y: 140 }, { y: 0, duration: 0.5, ease: "power3.inOut" }, 13.85);
+      T4.forEach((s, i) => IN(s, { scale: 0, rotation: i % 2 ? 30 : -30 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, 14.4 + i * 0.03));
+      // sortie en iris vers le logo
+      FT("#s4", { clipPath: "circle(150% at 50% 620px)" }, { clipPath: "circle(0% at 50% 620px)", duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 1 }, 15.7);
+      FT("#irisC", { attr: { r: 1300 } }, { attr: { r: 0 }, duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 0 }, 16.25);
+
+      // ---------- S5 : le logo se reforme en éventail (16.2 - 20) ----------
+      WB.forEach((w, i) => IN(w.el, { rotation: -220 - i * 12, scale: 0.15 }, { rotation: 0, scale: 1, duration: 0.9, ease: "expo.out" }, 16.2 + i * 0.035));
+      tl.set("#logoBfull", { autoAlpha: 1 }, 17.45);
+      tl.set(WB.map((w) => w.el), { autoAlpha: 0 }, 17.45);
+      tl.fromTo("#ringB", { strokeDashoffset: L_B }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 16.5);
+      LB.forEach((s, i) => IN(s, { y: 150 }, { y: 0, duration: 0.55, ease: "power3.out" }, 16.75 + i * 0.04));
+      S5.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.45, ease: "power3.out" }, 17.2 + i * 0.08));
+      tl.fromTo("#ctaR", { strokeDashoffset: L_C }, { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut", immediateRender: false }, 17.5);
+      IN("#ctaT", { y: 20 }, { y: 0, duration: 0.45, ease: "power2.out" }, 17.9);
+      FT("#ctaFill", { opacity: 0 }, { opacity: 0.2, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 18.4);
+      H5.forEach((s, i) => IN(s, { y: 20 }, { y: 0, duration: 0.3, ease: "power2.out" }, 18.1 + i * 0.03));
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 19.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

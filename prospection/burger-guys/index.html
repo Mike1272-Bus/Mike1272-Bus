@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #071d14; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff3dc; font-family: 'Baloo', sans-serif;
+        background: radial-gradient(circle at 50% 42%, #1d6a48 0%, #0f3f2b 45%, #071d14 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1.02; text-shadow: 0 8px 24px rgba(0,0,0,0.45); }
+      .title span, .words span { display: inline-block; }
+      .words { font-family: 'Work Sans'; font-weight: 700; }
+      .red { color: #ff6a6d; }
+      .gold { color: #ffc93c; }
+      /* le mur vert ondulé de leurs photos */
+      #wall { background: repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0 34px, rgba(0,0,0,0.10) 34px 70px); opacity: 0.9; }
+      #spot { background: radial-gradient(ellipse 60% 40% at 50% 52%, rgba(255,214,150,0.28), rgba(255,214,150,0) 70%); }
+
+      /* S1 : l'accroche */
+      #h1 { top: 820px; font-size: 150px; }
+      #h0 { top: 740px; font-size: 46px; font-family: 'Work Sans'; font-weight: 700; color: #ffc93c; letter-spacing: 6px; }
+
+      /* S2 : les couches du burger */
+      #bwrap { left: 110px; top: 620px; width: 860px; height: 828px; z-index: 5; }
+      .layer { position: absolute; left: 0; top: 0; width: 860px; height: 828px; background-size: 100% 100%; background-repeat: no-repeat;
+        filter: drop-shadow(0 22px 26px rgba(0,0,0,0.45)); }
+      #shine { position: absolute; left: 0; top: 0; width: 860px; height: 828px; mix-blend-mode: screen; opacity: 0.85;
+        background: linear-gradient(105deg, rgba(255,255,255,0) 42%, rgba(255,240,210,0.65) 50%, rgba(255,255,255,0) 58%) 0 0 / 300% 100% no-repeat;
+        -webkit-mask: url('assets/img/burger.png') center / 100% 100% no-repeat; mask: url('assets/img/burger.png') center / 100% 100% no-repeat; }
+      #shadow { left: 170px; top: 1395px; width: 740px; height: 90px; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,0,0,0.55), rgba(0,0,0,0) 70%); z-index: 4; }
+      .chip { position: absolute; z-index: 8; font-family: 'Work Sans'; font-weight: 700; font-size: 40px; color: #c8161c; background: #fff3dc;
+        border-radius: 40px; padding: 12px 32px 10px; box-shadow: 0 12px 26px rgba(0,0,0,0.35); white-space: nowrap; }
+      .chip b { color: #0f3f2b; }
+      .crumb { position: absolute; left: 540px; top: 1130px; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; z-index: 6; }
+      .steam { position: absolute; width: 120px; height: 220px; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,0.45), rgba(255,255,255,0) 70%); filter: blur(10px); z-index: 4; }
+      #t2a { top: 250px; font-size: 140px; z-index: 7; }
+      #t2b { top: 1540px; font-size: 48px; z-index: 7; }
+      #flash { background: #fff3dc; z-index: 20; }
+
+      /* S3 : les accompagnements */
+      #rings { left: 0; top: 980px; width: 620px; height: 710px; background: url('assets/img/onion_rings.png') center / 100% 100% no-repeat;
+        filter: drop-shadow(0 26px 30px rgba(0,0,0,0.5)); z-index: 6; }
+      .card { position: absolute; border: 10px solid #fff3dc; border-radius: 28px; overflow: hidden; box-shadow: 0 28px 50px rgba(0,0,0,0.5); z-index: 7; background-repeat: no-repeat; }
+      .card i { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 0 10px; text-align: center; font-style: normal; font-family: 'Work Sans'; font-weight: 700;
+        font-size: 38px; color: #fff3dc; background: linear-gradient(0deg, rgba(0,0,0,0.75), rgba(0,0,0,0)); }
+      #cFrites { left: 600px; top: 1010px; width: 420px; height: 420px; background-image: url('assets/img/menu.jpg'); background-size: 1050px 1036px; background-position: -17px -472px; }
+      #cPoulet { left: 560px; top: 1440px; width: 420px; height: 420px; background-image: url('assets/img/menu.jpg'); background-size: 1096px 1081px; background-position: -676px -301px; }
+      #t3a { top: 250px; font-size: 64px; color: #ffc93c; z-index: 8; }
+      #t3b { top: 330px; font-size: 64px; z-index: 8; }
+      #cMenu { left: 60px; top: 380px; width: 960px; height: 947px; background-image: url('assets/img/menu.jpg'); background-size: 100% 100%; z-index: 9; }
+      #t3c { top: 1400px; font-size: 128px; z-index: 9; }
+      #t3d { top: 1545px; font-size: 44px; z-index: 9; }
+
+      /* S4 : la salle */
+      #cSalle { left: 40px; top: 300px; width: 1000px; height: 1000px; background-image: url('assets/img/salle.jpg'); background-size: cover; background-position: center; z-index: 9; }
+      #neon { left: 340px; top: 483px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,60,70,0.75), rgba(255,60,70,0) 65%);
+        mix-blend-mode: screen; z-index: 10; }
+      #t4a { top: 1370px; font-size: 120px; z-index: 10; }
+      #t4b { top: 1495px; font-size: 120px; z-index: 10; }
+
+      /* S5 : fin */
+      #logo { left: 300px; top: 280px; width: 480px; height: 480px; border-radius: 50%; background: url('assets/img/logo.png') center / 100% 100% no-repeat;
+        box-shadow: 0 26px 60px rgba(0,0,0,0.5); z-index: 12; }
+      #halo { left: 190px; top: 170px; width: 700px; height: 700px; z-index: 11; }
+      #t5a { top: 830px; font-size: 140px; z-index: 12; }
+      #t5b { top: 990px; font-size: 48px; z-index: 12; }
+      #bEnd { left: 170px; top: 1130px; width: 740px; height: 713px; background: url('assets/img/burger.png') center / 100% 100% no-repeat;
+        filter: drop-shadow(0 30px 40px rgba(0,0,0,0.55)); z-index: 12; }
+      #fade { background: #071d14; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+      <div class="ab full" id="wall"></div>
+      <div class="ab full" id="spot"></div>
+
+      <!-- S1 : l'accroche -->
+      <div class="ab center" id="h0">KINSHASA</div>
+      <div class="ab center title" id="h1" data-layout-allow-overlap></div>
+
+      <!-- S2 : les ingrédients se rassemblent -->
+      <div class="ab" id="shadow"></div>
+      <div class="ab" id="steams"></div>
+      <div class="ab" id="bwrap">
+        <div class="layer" id="Lb" style="background-image:url('assets/img/l_pain_bas.png')"></div>
+        <div class="layer" id="Ls" style="background-image:url('assets/img/l_salade.png')"></div>
+        <div class="layer" id="Lk" style="background-image:url('assets/img/l_steak.png')"></div>
+        <div class="layer" id="Lc" style="background-image:url('assets/img/l_bacon.png')"></div>
+        <div class="layer" id="Lt" style="background-image:url('assets/img/l_pain_haut.png')"></div>
+        <div id="shine"></div>
+      </div>
+      <div class="ab" id="crumbs"></div>
+      <div class="chip" id="k0" data-layout-allow-overlap>Le pain</div>
+      <div class="chip" id="k1" data-layout-allow-overlap>La salade</div>
+      <div class="chip" id="k2" data-layout-allow-overlap>Le steak <b>+</b> le cheddar</div>
+      <div class="chip" id="k3" data-layout-allow-overlap>La sauce</div>
+      <div class="chip" id="k4" data-layout-allow-overlap>Et le pain du dessus</div>
+      <div class="ab center title" id="t2a" data-layout-allow-overlap></div>
+      <div class="ab center words" id="t2b" data-layout-allow-overlap></div>
+
+      <!-- S3 : les accompagnements -->
+      <div class="ab" id="rings"></div>
+      <div class="card" id="cFrites" data-layout-allow-overflow><i>Les frites</i></div>
+      <div class="card" id="cPoulet" data-layout-allow-overflow><i>Le poulet pané</i></div>
+      <div class="ab center title" id="t3a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t3b" data-layout-allow-overlap></div>
+      <div class="card" id="cMenu"></div>
+      <div class="ab center title" id="t3c" data-layout-allow-overlap></div>
+      <div class="ab center words" id="t3d" data-layout-allow-overlap></div>
+
+      <!-- S4 : la salle -->
+      <div class="card" id="cSalle"></div>
+      <div class="ab" id="neon"></div>
+      <div class="ab center title" id="t4a" data-layout-allow-overlap></div>
+      <div class="ab center title red" id="t4b" data-layout-allow-overlap></div>
+
+      <!-- S5 : fin -->
+      <svg class="ab" id="halo" viewBox="0 0 700 700"><circle id="haloC" cx="350" cy="350" r="330" fill="none" stroke="#ffc93c" stroke-width="6" stroke-dasharray="4 22" stroke-linecap="round"/></svg>
+      <div class="ab" id="logo"></div>
+      <div class="ab center title" id="t5a" data-layout-allow-overlap></div>
+      <div class="ab center words" id="t5b" data-layout-allow-overlap></div>
+      <div class="ab" id="bEnd"></div>
+
+      <div class="ab full" id="flash"></div>
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="22" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      let seed = 23;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const HIDE = [];
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const OUT = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 1 }, { ...to, autoAlpha: 0 }, at);
+      function words(host, text, prefix) {
+        return text.split(" ").map((w, i) => {
+          if (i) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = w; host.appendChild(s); return s;
+        });
+      }
+      function colored(host, parts, prefix) {
+        const out = []; let n = 0;
+        parts.forEach(([text, cls]) => text.split(" ").forEach((w) => {
+          if (n) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + n++; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = w;
+          if (cls) s.className = cls; host.appendChild(s); out.push(s);
+        }));
+        return out;
+      }
+
+      const H1 = colored($("h1"), [["Tu as", ""], ["faim ?", "gold"]], "ha");
+      const T2A = colored($("t2a"), [["The Real", ""], ["Ones", "red"]], "tb");
+      const T2B = words($("t2b"), "Burger Guys, Kinshasa", "tc");
+      const T3A = words($("t3a"), "Et à côté…", "td");
+      const T3B = colored($("t3b"), [["les", ""], ["onion rings", "gold"]], "te");
+      const T3C = colored($("t3c"), [["Le menu", ""], ["complet", "gold"]], "tf");
+      const T3D = words($("t3d"), "Burger, frites, poulet pané et sauces", "tg");
+      const T4A = words($("t4a"), "Fait maison,", "th");
+      const T4B = words($("t4b"), "avec amour.", "ti");
+      const T5A = colored($("t5a"), [["On", ""], ["t'attend !", "gold"]], "tj");
+      const T5B = words($("t5b"), "Burger Guys · Kinshasa", "tk");
+
+      // positions des étiquettes (à côté de chaque couche écartée)
+      const LAYERS = ["#Lb", "#Ls", "#Lk", "#Lc", "#Lt"];
+      const OFF = [170, 20, -140, -300, -470];          // décalage vertical des couches écartées
+      const CHIP = [[60, 1590], [600, 1190], [40, 1010], [690, 690], [300, 120]];
+      CHIP.forEach(([x, y], i) => Object.assign($("k" + i).style, { left: x + "px", top: y + "px" }));
+
+      // miettes et gouttes qui volent à l'impact
+      const CR = [];
+      for (let i = 0; i < 22; i++) {
+        const d = document.createElement("div"); d.className = "crumb"; d.id = "cr" + i;
+        d.style.background = ["#c97a2b", "#ffc93c", "#5a2412", "#e9a64a"][i % 4];
+        const s = 0.5 + rnd() * 1.1; d.style.transform = "scale(" + s.toFixed(2) + ")";
+        $("crumbs").appendChild(d);
+        const a = -Math.PI * (0.05 + rnd() * 0.9) - (i % 2 ? 0 : Math.PI * 0.0);
+        CR.push({ el: d, x: Math.cos(a) * (260 + rnd() * 380) * (i % 2 ? 1 : -1), y: -120 - rnd() * 420, s });
+      }
+      // vapeur
+      const ST = [];
+      for (let i = 0; i < 5; i++) {
+        const d = document.createElement("div"); d.className = "steam"; d.id = "st" + i;
+        d.style.left = 330 + i * 95 + "px"; d.style.top = "520px"; $("steams").appendChild(d); ST.push(d);
+      }
+
+      gsap.set(["#flash", "#fade", "#bEnd", "#logo", "#halo", "#cMenu", "#cSalle", "#neon", "#rings", "#cFrites", "#cPoulet", "#shadow"], { autoAlpha: 0 });
+      gsap.set(LAYERS, { autoAlpha: 0 });
+      gsap.set(ST, { autoAlpha: 0 });
+      gsap.set(CR.map((c) => c.el), { autoAlpha: 0 });
+
+      // ---------- S1 : accroche (0 - 1.4) ----------
+      IN("#h0", { y: -30, letterSpacing: "30px" }, { y: 0, letterSpacing: "6px", duration: 0.5, ease: "power3.out" }, 0.1);
+      H1.forEach((s, i) => IN(s, { scale: 2.6, y: -40, rotation: (i % 2 ? 6 : -6) }, { scale: 1, y: 0, rotation: 0, duration: 0.38, ease: "power4.in" }, 0.3 + i * 0.14));
+      FT("#h1", { scale: 1 }, { scale: 1.06, duration: 0.6, ease: "sine.inOut" }, 0.85);
+      OUT(["#h0", ...H1], { y: 0 }, { y: -420, duration: 0.4, ease: "power3.in" }, 1.3);
+
+      // ---------- S2 : les couches arrivent une par une (1.4 - 7.2) ----------
+      IN("#shadow", { scaleX: 0.4 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 1.45);
+      LAYERS.forEach((id, i) => {
+        const t = 1.45 + i * 1.05, side = i % 2 ? 1 : -1;
+        IN(id, { x: side * 1150, y: OFF[i] - 200, rotation: side * 25 }, { x: 0, y: OFF[i], rotation: 0, duration: 0.6, ease: "back.out(1.3)" }, t);
+        FT(id, { y: OFF[i] }, { y: OFF[i] - 14, duration: (6.85 - t - 0.6) / 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + 0.6);
+        IN("#k" + i, { scale: 0.3, rotation: side * -12 }, { scale: 1, rotation: side * -3, duration: 0.4, ease: "back.out(2)" }, t + 0.35);
+        OUT("#k" + i, { scale: 1 }, { scale: 0.6, duration: 0.25, ease: "power2.in" }, 6.75);
+      });
+      // tout se resserre d'un coup
+      LAYERS.forEach((id, i) => FT(id, { y: OFF[i] }, { y: 0, duration: 0.32, ease: "power3.in" }, 6.9 + (4 - i) * 0.025));
+      FT("#bwrap", { scaleY: 1, scaleX: 1, transformOrigin: "50% 100%" }, { scaleY: 0.9, scaleX: 1.05, duration: 0.09, yoyo: true, repeat: 1, ease: "power2.out" }, 7.25);
+      FT(["#bwrap", "#shadow"], { x: 0 }, { x: 14, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, 7.25);
+      FT("#flash", { autoAlpha: 0.55 }, { autoAlpha: 0, duration: 0.35, ease: "power2.out" }, 7.25);
+      CR.forEach((c, i) => {
+        FT(c.el, { x: 0, y: 0, autoAlpha: 1 }, { x: c.x, y: c.y, duration: 0.45, ease: "power2.out" }, 7.27 + (i % 5) * 0.01);
+        FT(c.el, { y: c.y }, { y: c.y + 700, autoAlpha: 0, duration: 0.8, ease: "power2.in" }, 7.72 + (i % 5) * 0.01);
+      });
+      // le héros : brillance, vapeur, titre
+      FT("#shine", { backgroundPosition: "120% 0" }, { backgroundPosition: "-20% 0", duration: 0.9, ease: "power2.inOut" }, 7.5);
+      FT("#shine", { backgroundPosition: "120% 0" }, { backgroundPosition: "-20% 0", duration: 0.9, ease: "power2.inOut" }, 8.7);
+      ST.forEach((d, i) => FT(d, { y: 0, autoAlpha: 0, scale: 0.6 }, { y: -320, autoAlpha: 0.9, scale: 1.3, duration: 1.1, ease: "sine.out", repeat: 1, yoyo: true }, 7.4 + i * 0.18));
+      T2A.forEach((s, i) => IN(s, { y: 120, scale: 0.6 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, 7.45 + i * 0.1));
+      T2B.forEach((s, i) => IN(s, { y: 30 }, { y: 0, duration: 0.3, ease: "power2.out" }, 7.9 + i * 0.06));
+      FT("#bwrap", { scale: 1 }, { scale: 1.05, duration: 2.0, ease: "sine.inOut" }, 7.5);
+
+      // ---------- S3 : les accompagnements (9.6 - 14.2) ----------
+      OUT([...T2A, ...T2B], { y: 0 }, { y: -80, duration: 0.3, ease: "power2.in" }, 9.5);
+      OUT(ST, { scale: 1 }, { scale: 1, duration: 0.2 }, 9.5);
+      FT("#bwrap", { scale: 1.05, x: 0, y: 0 }, { scale: 0.5, x: 255, y: -330, duration: 0.6, ease: "expo.inOut" }, 9.6);
+      OUT("#shadow", { scaleX: 1 }, { scaleX: 0.3, duration: 0.4, ease: "power2.in" }, 9.6);
+      T3A.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.35, ease: "power3.out" }, 9.95 + i * 0.08));
+      IN("#rings", { x: -700, rotation: -8 }, { x: 0, rotation: 0, duration: 0.55, ease: "expo.out" }, 10.1);
+      T3B.forEach((s, i) => IN(s, { scale: 2, y: -30 }, { scale: 1, y: 0, duration: 0.32, ease: "power4.in" }, 10.3 + i * 0.1));
+      IN("#cFrites", { x: 700, rotation: 25 }, { x: 0, rotation: 5, duration: 0.6, ease: "back.out(1.4)" }, 10.85);
+      IN("#cPoulet", { x: 700, rotation: -25 }, { x: 0, rotation: -4, duration: 0.6, ease: "back.out(1.4)" }, 11.45);
+      FT(["#cFrites", "#cPoulet"], { y: 0 }, { y: -18, duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 12.05);
+      // tout s'envole, le menu complet tombe
+      OUT(["#rings", "#cFrites", "#cPoulet", "#bwrap"], { y: 0 }, { y: 1500, duration: 0.45, ease: "power3.in" }, 12.4);
+      OUT([...T3A, ...T3B], { y: 0 }, { y: -120, duration: 0.35, ease: "power3.in" }, 12.4);
+      IN("#cMenu", { y: -1500, rotation: -10 }, { y: 0, rotation: -2, duration: 0.65, ease: "bounce.out" }, 12.6);
+      FT("#cMenu", { scale: 1 }, { scale: 1.04, duration: 1.4, ease: "sine.inOut" }, 13.2);
+      T3C.forEach((s, i) => IN(s, { y: 100, rotation: (rnd() - 0.5) * 12 }, { y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 12.95 + i * 0.09));
+      T3D.forEach((s, i) => IN(s, { y: 20 }, { y: 0, duration: 0.3, ease: "power2.out" }, 13.35 + i * 0.05));
+
+      // ---------- S4 : la salle (14.3 - 17.8) ----------
+      OUT("#cMenu", { x: 0, rotation: -2 }, { x: -1300, rotation: -12, duration: 0.5, ease: "power3.in" }, 14.2);
+      OUT([...T3C, ...T3D], { x: 0 }, { x: -1300, duration: 0.5, ease: "power3.in" }, 14.2);
+      IN("#cSalle", { x: 1300, rotation: 10 }, { x: 0, rotation: 1.5, duration: 0.6, ease: "expo.out" }, 14.4);
+      FT("#cSalle", { backgroundSize: "120%" }, { backgroundSize: "100%", duration: 3.4, ease: "power1.out" }, 14.4);
+      // le néon « Homemade with ♥ » s'allume en grésillant
+      [0, 0.08, 0.16, 0.3, 0.38].forEach((d, i) => FT("#neon", { autoAlpha: i % 2 ? 0 : 0.2 }, { autoAlpha: i % 2 ? 0.25 : 1, duration: 0.06, ease: "none" }, 15.0 + d));
+      FT("#neon", { scale: 1 }, { scale: 1.15, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 15.5);
+      T4A.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.4, ease: "power3.out" }, 15.2 + i * 0.1));
+      T4B.forEach((s, i) => IN(s, { scale: 2.2, y: -30 }, { scale: 1, y: 0, duration: 0.35, ease: "power4.in" }, 15.7 + i * 0.14));
+      OUT(["#cSalle", "#neon", ...T4A, ...T4B], { scale: 1 }, { scale: 0.75, duration: 0.45, ease: "power3.in" }, 17.5);
+
+      // ---------- S5 : fin (17.9 - 22) ----------
+      IN("#logo", { scale: 0, rotation: -140 }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(1.6)" }, 17.95);
+      IN("#halo", { scale: 0.6, rotation: 0 }, { scale: 1, rotation: 40, duration: 0.8, ease: "power3.out" }, 18.05);
+      FT("#halo", { rotation: 40 }, { rotation: 120, duration: 3.2, ease: "none" }, 18.85);
+      FT("#logo", { scale: 1 }, { scale: 1.05, duration: 0.45, yoyo: true, repeat: 5, ease: "sine.inOut" }, 18.7);
+      T5A.forEach((s, i) => IN(s, { y: 110, scale: 0.6 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, 18.4 + i * 0.1));
+      T5B.forEach((s, i) => IN(s, { y: 24 }, { y: 0, duration: 0.3, ease: "power2.out" }, 18.85 + i * 0.06));
+      IN("#bEnd", { y: 900, rotation: 6 }, { y: 0, rotation: 0, duration: 0.7, ease: "expo.out" }, 18.6);
+      FT("#bEnd", { y: 0 }, { y: -18, duration: 0.9, yoyo: true, repeat: 2, ease: "sine.inOut" }, 19.3);
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 21.5);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

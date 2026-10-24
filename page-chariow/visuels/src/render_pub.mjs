@@ -1,0 +1,12 @@
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+import path from 'path';
+const dir = path.dirname(new URL(import.meta.url).pathname);
+const out = path.join(dir, '../../../strategie-pub-meta/visuels');
+const shots = { fixe: 'pub_image_fixe_4x5.png', c1: 'carrousel_1.png', c2: 'carrousel_2.png', c3: 'carrousel_3.png', c4: 'carrousel_4.png', c5: 'carrousel_5.png' };
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+const p = await b.newPage({ viewport: { width: 1080, height: 1400 } });
+await p.goto('file://' + path.join(dir, 'pub_meta.html'));
+await p.evaluate(() => document.fonts.ready);
+await p.waitForTimeout(300);
+for (const [id, f] of Object.entries(shots)) await p.locator('#' + id).screenshot({ path: path.join(out, f) });
+await b.close();

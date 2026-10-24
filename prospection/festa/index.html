@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 400; src: url('assets/fonts/bricolage-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 700; src: url('assets/fonts/bricolage-700.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #c8460a; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff; font-family: 'Bricolage', sans-serif;
+        background: radial-gradient(circle at 50% 38%, #e9650f 0%, #d4500b 50%, #a83506 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+      .title span, .words span, .eyebrow span { display: inline-block; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: 0.3em; color: #1f2a6b; text-transform: uppercase; }
+      .words { font-family: 'Work Sans'; font-weight: 700; font-size: 44px; color: #fff; }
+      .blue { color: #1f2a6b; }
+      #motif { opacity: 0.12; }
+      .sl { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; }
+      .lg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url('assets/img/logo.png') center / 100% 100% no-repeat; }
+      .piece { position: absolute; background-repeat: no-repeat; }
+
+      /* S1 */
+      #sliceA, #logoA { left: 250px; top: 450px; width: 580px; height: 580px; }
+      #tagA1 { top: 1130px; font-size: 110px; }
+      #tagA2 { top: 1250px; font-size: 110px; color: #1f2a6b; }
+
+      /* S2 */
+      #t2a { top: 110px; font-size: 180px; }
+      #t2b { top: 290px; font-size: 130px; color: #1f2a6b; }
+      #orange { left: 290px; top: 610px; width: 500px; height: 500px; }
+      .oq { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+      #bottle { left: 300px; top: 450px; width: 480px; height: 967px; background: url('assets/img/orange.jpg') center / 100% 100% no-repeat; border-radius: 40px; box-shadow: 0 30px 70px rgba(80,20,0,0.45); }
+      .mini { width: 210px; height: 210px; }
+      #mn0 { left: 60px; top: 560px; } #mn1 { left: 820px; top: 470px; } #mn2 { left: 40px; top: 1130px; } #mn3 { left: 830px; top: 1080px; }
+      #s2a { top: 1470px; } #s2b { top: 1528px; color: #1f2a6b; }
+
+      /* S3 */
+      #e3 { top: 150px; }
+      #t3a { top: 200px; font-size: 120px; }
+      #t3b { top: 330px; font-size: 66px; color: #1f2a6b; }
+      #fun { left: 110px; top: 470px; width: 860px; height: 858px; clip-path: inset(0px round 30px); }
+      .paper { position: absolute; left: -20px; width: 900px; background: #fff4e3; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+      #ppT { top: -20px; height: 470px; } #ppB { top: 410px; height: 470px; }
+
+      /* S4 */
+      #s4 { overflow: hidden; }
+      #e4 { top: 210px; }
+      .t4 { top: 260px; font-size: 150px; }
+      #t4a { clip-path: inset(0 0 50% 0); }
+      #t4b { clip-path: inset(50% 0 0 0); color: #1f2a6b; }
+      .cap { top: 500px; width: 210px; height: 580px; border-radius: 105px; border: 7px solid #fff; background-size: cover; background-position: center; box-shadow: 0 24px 50px rgba(80,20,0,0.45); }
+      #cp0 { left: 75px; background-image: url('assets/img/orange.jpg'); }
+      #cp1 { left: 315px; background-image: url('assets/img/maracuja.jpg'); }
+      #cp2 { left: 555px; background-image: url('assets/img/grenadine.jpg'); }
+      #cp3 { left: 795px; background-image: url('assets/img/cola.jpg'); }
+      .nm { top: 1110px; width: 270px; text-align: center; font-weight: 800; font-size: 42px; }
+      #nm0 { left: 45px; } #nm1 { left: 285px; } #nm2 { left: 525px; } #nm3 { left: 765px; }
+      .bub { position: absolute; border-radius: 50%; border: 4px solid rgba(255,255,255,0.75); }
+
+      /* S5 */
+      #sliceB, #logoB { left: 340px; top: 400px; width: 400px; height: 400px; }
+      #wB1 { top: 880px; font-size: 92px; }
+      #wB2 { top: 985px; font-size: 120px; color: #1f2a6b; }
+      #s5 { top: 1135px; font-size: 40px; font-weight: 400; }
+      #ctaFill { left: 290px; top: 1230px; width: 500px; height: 100px; border-radius: 50px; background: #1f2a6b; }
+      #ctaT { left: 290px; top: 1230px; width: 500px; height: 100px; line-height: 100px; text-align: center; font-family: 'Work Sans'; font-weight: 700; font-size: 44px; color: #fff; }
+      #h5 { top: 1370px; font-family: 'Work Sans'; font-weight: 700; font-size: 32px; color: #fff; letter-spacing: 0.04em; }
+      #fade { background: #b93e08; z-index: 40; }
+      .fnp { background-image: url('assets/img/fun.jpg'); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <svg width="0" height="0" style="position:absolute"><defs>
+        <radialGradient id="gSeg" cx="0.3" cy="0.3" r="0.9"><stop offset="0" stop-color="#ffd27a"/><stop offset="0.55" stop-color="#ffa628"/><stop offset="1" stop-color="#f78a0c"/></radialGradient>
+        <radialGradient id="gPeel" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#ffbd5a"/><stop offset="0.5" stop-color="#f7931e"/><stop offset="1" stop-color="#d9620a"/></radialGradient>
+      </defs></svg>
+      <svg class="ab full" id="motif" viewBox="0 0 1080 1920"></svg>
+
+      <!-- S1 : 10 quartiers forment une tranche d'orange, qui se retourne en logo -->
+      <div class="ab" id="sliceA"></div>
+      <div class="ab" id="logoA"><div class="lg"></div></div>
+      <div class="ab center title" id="tagA1" data-layout-allow-overlap></div>
+      <div class="ab center title" id="tagA2" data-layout-allow-overlap></div>
+
+      <!-- S2 : l'orange entière se referme, puis s'ouvre sur la bouteille -->
+      <div class="ab center title" id="t2a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t2b" data-layout-allow-overlap></div>
+      <div class="ab" id="bottle"></div>
+      <div class="ab" id="orange"></div>
+      <div class="ab mini" id="mn0"></div><div class="ab mini" id="mn1"></div><div class="ab mini" id="mn2"></div><div class="ab mini" id="mn3"></div>
+      <div class="ab center words" id="s2a"></div>
+      <div class="ab center words" id="s2b"></div>
+
+      <!-- S3 : le papier se déchire sur l'affiche -->
+      <div class="ab center eyebrow" id="e3">Festa Orange</div>
+      <div class="ab center title" id="t3a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t3b" data-layout-allow-overlap></div>
+      <div class="ab" id="fun"><div class="ab" id="funG" style="left:0;top:0;width:860px;height:858px"><img id="funI" src="assets/img/fun.jpg" alt="" style="position:absolute;left:0;top:0;width:860px;height:858px" /></div><div class="ab" id="funT" style="left:0;top:0;width:860px;height:858px"></div><div class="paper" id="ppT"></div><div class="paper" id="ppB"></div></div>
+
+      <!-- S4 : les saveurs, et les bulles -->
+      <div class="ab full" id="s4">
+        <div class="ab full" id="fizz"></div>
+        <div class="ab center eyebrow" id="e4" data-layout-allow-overlap>Toute la gamme</div>
+        <div class="ab center title t4" id="t4a" data-layout-allow-overlap>Nos saveurs</div>
+        <div class="ab center title t4" id="t4b" data-layout-allow-overlap>Nos saveurs</div>
+        <div class="ab cap" id="cp0"></div><div class="ab cap" id="cp1"></div><div class="ab cap" id="cp2"></div><div class="ab cap" id="cp3"></div>
+        <div class="ab nm" id="nm0">Orange</div><div class="ab nm" id="nm1">Maracuja</div><div class="ab nm" id="nm2">Grenadine</div><div class="ab nm" id="nm3">Cola</div>
+      </div>
+      <svg class="ab full" id="iris" viewBox="0 0 1080 1920"><circle id="irisC" cx="540" cy="600" r="1300" fill="none" stroke="#fff" stroke-width="10"/></svg>
+
+      <!-- S5 : la tranche se reforme et redevient le logo -->
+      <div class="ab" id="sliceB"></div>
+      <div class="ab" id="logoB"><div class="lg"></div></div>
+      <div class="ab center title" id="wB1" data-layout-allow-overlap></div>
+      <div class="ab center title" id="wB2" data-layout-allow-overlap></div>
+      <div class="ab center words" id="s5"></div>
+      <div class="ab" id="ctaFill"></div>
+      <div class="ab" id="ctaT">@festardc</div>
+      <div class="ab center" id="h5">Un produit de Swissta RDC</div>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="20" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      let seed = 61;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at);
+      const NS = "http://www.w3.org/2000/svg";
+      const P = (a, r) => `${(r * Math.cos(a)).toFixed(2)} ${(r * Math.sin(a)).toFixed(2)}`;
+
+      // ---------- l'orange en dessin vectoriel ----------
+      // un quartier : coin d'anneau entre r0 et r1, avec un petit jour entre les quartiers
+      function wedgePath(i, n, r0, r1, gap) {
+        const a0 = ((-90 + (i * 360) / n + gap / 2) * Math.PI) / 180, a1 = ((-90 + ((i + 1) * 360) / n - gap / 2) * Math.PI) / 180;
+        return `M ${P(a0, r0)} L ${P(a0, r1)} A ${r1} ${r1} 0 0 1 ${P(a1, r1)} L ${P(a1, r0)} Z`;
+      }
+      function svgEl(cls, id, inner) {
+        const s = document.createElementNS(NS, "svg");
+        s.setAttribute("viewBox", "-100 -100 200 200"); s.setAttribute("class", cls); if (id) s.id = id; s.innerHTML = inner; return s;
+      }
+      // tranche découpée : la peau + 10 quartiers séparés
+      function slice(host, prefix) {
+        const base = svgEl("sl", prefix + "base", '<circle r="98" fill="url(#gPeel)"/><circle r="90" fill="#fff4dc"/><circle r="9" fill="#fff4dc"/>');
+        host.appendChild(base);
+        const segs = [];
+        for (let i = 0; i < 10; i++) {
+          const s = svgEl("sl", prefix + i, `<path d="${wedgePath(i, 10, 12, 85, 5)}" fill="url(#gSeg)" stroke="#ffb441" stroke-width="3" stroke-linejoin="round"/>` +
+            `<path d="${wedgePath(i, 10, 30, 70, 14)}" fill="none" stroke="#ffe3a6" stroke-width="2" opacity="0.7"/>`);
+          host.appendChild(s); segs.push({ el: s, a: ((-90 + i * 36 + 18) * Math.PI) / 180 });
+        }
+        return { base, segs };
+      }
+      // tranche entière (pour les petites tranches qui flottent)
+      function fullSlice() {
+        let s = '<circle r="98" fill="url(#gPeel)"/><circle r="90" fill="#fff4dc"/>';
+        for (let i = 0; i < 10; i++) s += `<path d="${wedgePath(i, 10, 12, 85, 5)}" fill="url(#gSeg)" stroke="#ffb441" stroke-width="3" stroke-linejoin="round"/>`;
+        return s;
+      }
+      // orange entière : peau, petits pores, reflet, feuille
+      function wholeOrange() {
+        let dots = "";
+        for (let k = 0; k < 70; k++) {
+          const a = rnd() * Math.PI * 2, r = Math.sqrt(rnd()) * 84;
+          dots += `<circle cx="${(r * Math.cos(a)).toFixed(1)}" cy="${(r * Math.sin(a) + 6).toFixed(1)}" r="${(1 + rnd() * 1.4).toFixed(1)}" fill="${k % 3 ? "#e9780f" : "#ffc778"}" opacity="0.7"/>`;
+        }
+        return `<circle cx="0" cy="6" r="88" fill="url(#gPeel)"/>${dots}<ellipse cx="-34" cy="-30" rx="26" ry="16" fill="#fff" opacity="0.35" transform="rotate(-35 -34 -30)"/>` +
+          `<path d="M0 -80 C 8 -96 30 -104 52 -96 C 40 -78 18 -74 0 -80 Z" fill="#3f9a2f"/><path d="M0 -80 C 16 -88 32 -92 50 -95" stroke="#2d7a20" stroke-width="2" fill="none"/>` +
+          `<circle cx="0" cy="-80" r="5" fill="#6b4a1c"/>`;
+      }
+      function words(host, text, prefix) {
+        const out = [];
+        text.split(" ").forEach((w, i) => {
+          if (i) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = w; host.appendChild(s); out.push(s);
+        });
+        return out;
+      }
+      function letters(host, text, prefix) {
+        return [...text].map((ch, i) => {
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = ch === " " ? " " : ch;
+          host.appendChild(s); return s;
+        });
+      }
+      function grid(host, img, W, H, cols, rows, prefix) {
+        const out = [];
+        for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+          const x = Math.round((c * W) / cols), y = Math.round((r * H) / rows);
+          const w = Math.round(((c + 1) * W) / cols) - x, h = Math.round(((r + 1) * H) / rows) - y;
+          const d = document.createElement("div");
+          d.className = "piece"; d.id = `${prefix}${r}_${c}`;
+          Object.assign(d.style, { left: x + "px", top: y + "px", width: w + 1 + "px", height: h + 1 + "px",
+            backgroundImage: `url('${img}')`, backgroundSize: `${W}px ${H}px`, backgroundPosition: `${-x}px ${-y}px` });
+          host.appendChild(d); out.push({ el: d, c, r });
+        }
+        return out;
+      }
+      // bord déchiré, toujours le même (graine fixe)
+      function torn(bottom) {
+        const pts = []; let x = 0;
+        while (x < 100) { pts.push([x, (bottom ? 86 : 14) + (rnd() - 0.5) * 16]); x += 3 + rnd() * 4; }
+        pts.push([100, bottom ? 88 : 12]);
+        const edge = pts.map(([px, py]) => `${px.toFixed(1)}% ${py.toFixed(1)}%`);
+        return bottom ? `polygon(0% 0%, 100% 0%, ${edge.reverse().join(", ")})` : `polygon(${edge.join(", ")}, 100% 100%, 0% 100%)`;
+      }
+
+      // fond : tranches d'orange en filigrane
+      (() => {
+        let s = "";
+        [[100, 170, 70], [980, 300, 60], [60, 980, 80], [1020, 1180, 70], [140, 1720, 90], [940, 1800, 70], [560, 80, 50]].forEach(([x, y, r]) => {
+          s += `<g transform="translate(${x} ${y}) scale(${r / 100})"><circle r="98" fill="none" stroke="#fff" stroke-width="6"/>`;
+          for (let i = 0; i < 10; i++) s += `<path d="${wedgePath(i, 10, 14, 84, 6)}" fill="none" stroke="#fff" stroke-width="5"/>`;
+          s += "</g>";
+        });
+        $("motif").innerHTML = s;
+      })();
+
+      const SA = slice($("sliceA"), "sa");
+      const SB = slice($("sliceB"), "sb");
+      ["mn0", "mn1", "mn2", "mn3"].forEach((id) => $(id).appendChild(svgEl("sl", null, fullSlice())));
+      // l'orange entière en 4 quarts superposés (chacun découpé par clip-path)
+      const OQ = ["inset(0% 50% 50% 0%)", "inset(0% 0% 50% 50%)", "inset(50% 50% 0% 0%)", "inset(50% 0% 0% 50%)"].map((clip, k) => {
+        const d = document.createElement("div"); d.className = "oq"; d.id = "oq" + k; d.style.clipPath = clip;
+        d.appendChild(svgEl("sl", null, wholeOrange())); $("orange").appendChild(d); return d;
+      });
+      seed = 61;
+      const TA1 = words($("tagA1"), "Plus de style.", "ga"), TA2 = words($("tagA2"), "Plus de fun.", "gb");
+      const T2 = [...letters($("t2a"), "Festa", "fa"), ...letters($("t2b"), "Orange", "fb")];
+      const S2 = [...words($("s2a"), "Un goût d'orange qui explose", "sa_"), ...words($("s2b"), "de fraîcheur à chaque gorgée.", "sb_")];
+      const T3 = [...words($("t3a"), "Osez le goût", "ta"), ...words($("t3b"), "qui fait la différence", "tb")];
+      const FUN = grid($("funT"), "assets/img/fun.jpg", 860, 858, 3, 3, "fn");
+      FUN.forEach((f) => { f.el.style.backgroundImage = ""; f.el.classList.add("fnp"); });
+      $("ppT").style.clipPath = torn(true); $("ppB").style.clipPath = torn(false);
+      const CAPS = ["#cp0", "#cp1", "#cp2", "#cp3"], NMS = ["#nm0", "#nm1", "#nm2", "#nm3"];
+      const BUBS = [];
+      for (let i = 0; i < 18; i++) {
+        const d = document.createElement("div"), sz = 14 + rnd() * 40; d.className = "bub"; d.id = "bu" + i;
+        Object.assign(d.style, { left: 40 + rnd() * 1000 + "px", top: 1300 + rnd() * 500 + "px", width: sz + "px", height: sz + "px" });
+        $("fizz").appendChild(d); BUBS.push(d);
+      }
+      const WB = [...letters($("wB1"), "Mingi Mingiii", "wa"), ...letters($("wB2"), "Festaa !!", "wb")];
+      const S5 = words($("s5"), "Ouvrez une Festa, partagez des rires.", "sz");
+
+      gsap.set(["#logoA", "#logoB", "#bottle", "#mn0", "#mn1", "#mn2", "#mn3", "#e3", "#fun", "#funT", "#e4", "#t4a", "#t4b", ...CAPS, ...NMS, "#iris", "#ctaFill", "#ctaT", "#h5"], { autoAlpha: 0 });
+      gsap.set([SA.base, SB.base, ...SA.segs.map((s) => s.el), ...SB.segs.map((s) => s.el), ...OQ, ...TA1, ...TA2, ...T2, ...S2, ...T3, ...BUBS, ...WB, ...S5], { autoAlpha: 0 });
+      gsap.set("#s4", { clipPath: "circle(150% at 50% 600px)" });
+      gsap.set("#fade", { autoAlpha: 1 });
+
+      // ---------- ambiance continue ----------
+      tl.fromTo("#motif", { y: 0, rotation: 0 }, { y: -160, rotation: 0, duration: 20, ease: "none" }, 0);
+
+      // ---------- S1 : les quartiers s'assemblent en tranche, la tranche devient le logo (0 - 3.4) ----------
+      tl.to("#fade", { autoAlpha: 0, duration: 0.45, ease: "power2.out" }, 0);
+      IN(SA.base, { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.6)" }, 0.15);
+      SA.segs.forEach((s, i) => IN(s.el, { x: Math.cos(s.a) * 820, y: Math.sin(s.a) * 820, rotation: i % 2 ? 200 : -200, scale: 0.4 },
+        { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.85, ease: "expo.out" }, 0.3 + i * 0.05));
+      FT("#sliceA", { rotation: 0 }, { rotation: 72, duration: 0.5, ease: "power2.inOut" }, 1.35);
+      // retournement : la tranche se referme sur la tranche, le logo s'ouvre
+      FT("#sliceA", { scaleX: 1 }, { scaleX: 0, duration: 0.18, ease: "power2.in" }, 1.85);
+      tl.set("#logoA", { autoAlpha: 1 }, 2.03);
+      tl.set([SA.base, ...SA.segs.map((s) => s.el)], { autoAlpha: 0 }, 2.03);
+      FT("#logoA", { scaleX: 0 }, { scaleX: 1, duration: 0.22, ease: "back.out(2)" }, 2.03);
+      TA1.forEach((s, i) => IN(s, { y: 120, scale: 0.6 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, 2.1 + i * 0.08));
+      TA2.forEach((s, i) => IN(s, { y: 120, scale: 0.6 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, 2.4 + i * 0.08));
+      // le logo redevient tranche, et la tranche éclate
+      FT("#logoA", { scaleX: 1, autoAlpha: 1 }, { scaleX: 0, autoAlpha: 1, duration: 0.15, ease: "power2.in" }, 3.0);
+      tl.set("#logoA", { autoAlpha: 0 }, 3.15);
+      tl.set([SA.base, ...SA.segs.map((s) => s.el)], { autoAlpha: 1 }, 3.15);
+      FT("#sliceA", { scaleX: 0 }, { scaleX: 1, duration: 0.12, ease: "power2.out" }, 3.15);
+      SA.segs.forEach((s, i) => FT(s.el, { x: 0, y: 0, rotation: 0, autoAlpha: 1 },
+        { x: Math.cos(s.a) * 1100, y: Math.sin(s.a) * 1100, rotation: i % 2 ? -160 : 160, autoAlpha: 0, duration: 0.55, ease: "power3.in" }, 3.25 + i * 0.012));
+      FT(SA.base, { scale: 1, autoAlpha: 1 }, { scale: 0, autoAlpha: 0, duration: 0.35, ease: "back.in(1.6)" }, 3.3);
+      FT([...TA1, ...TA2], { y: 0, autoAlpha: 1 }, { y: 400, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.2);
+
+      // ---------- S2 : l'orange se referme, puis s'ouvre en 4 sur la bouteille (3.7 - 7.9) ----------
+      IN(OQ[0], { x: -700, y: -300, rotation: -60 }, { x: 0, y: 0, rotation: 0, duration: 0.6, ease: "expo.out" }, 3.7);
+      IN(OQ[2], { x: -700, y: 300, rotation: 60 }, { x: 0, y: 0, rotation: 0, duration: 0.6, ease: "expo.out" }, 3.74);
+      IN(OQ[1], { x: 700, y: -300, rotation: 60 }, { x: 0, y: 0, rotation: 0, duration: 0.6, ease: "expo.out" }, 3.78);
+      IN(OQ[3], { x: 700, y: 300, rotation: -60 }, { x: 0, y: 0, rotation: 0, duration: 0.6, ease: "expo.out" }, 3.82);
+      FT("#orange", { scale: 1, rotation: 0 }, { scale: 1.08, rotation: 8, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" }, 4.3);
+      T2.forEach((s, i) => IN(s, { y: -240, rotation: (rnd() - 0.5) * 50 }, { y: 0, rotation: 0, duration: 0.55, ease: "bounce.out" }, 3.85 + i * 0.05));
+      // l'orange s'ouvre : la bouteille sort du milieu
+      [[-560, -420, -50], [560, -420, 50], [-560, 420, 40], [560, 420, -40]].forEach(([x, y, r], k) =>
+        FT(OQ[k], { x: 0, y: 0, rotation: 0, autoAlpha: 1 }, { x, y, rotation: r, autoAlpha: 0, duration: 0.6, ease: "power3.in" }, 4.75));
+      IN("#bottle", { scale: 0.3, rotation: -12 }, { scale: 1, rotation: 0, duration: 0.8, ease: "back.out(1.5)" }, 4.85);
+      FT("#bottle", { y: 0 }, { y: -18, duration: 1.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 5.65);
+      ["#mn0", "#mn1", "#mn2", "#mn3"].forEach((m, k) => {
+        IN(m, { scale: 0, rotation: -180, x: k % 2 ? 300 : -300 }, { scale: 1, rotation: 0, x: 0, duration: 0.7, ease: "back.out(1.6)" }, 5.1 + k * 0.12);
+        FT(m, { y: 0, rotation: 0 }, { y: k % 2 ? 26 : -26, rotation: k % 2 ? 40 : -40, duration: 2.0, ease: "sine.inOut" }, 5.8 + k * 0.12);
+      });
+      S2.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.4, ease: "power3.out" }, 5.4 + i * 0.07));
+      // sortie : la bouteille fonce vers l'écran, les tranches s'envolent
+      FT("#bottle", { scale: 1, autoAlpha: 1 }, { scale: 2.4, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.45);
+      ["#mn0", "#mn1", "#mn2", "#mn3"].forEach((m, k) => FT(m, { x: 0, autoAlpha: 1 }, { x: k % 2 ? 600 : -600, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 7.4));
+      FT([...T2, ...S2], { y: 0, autoAlpha: 1 }, { y: -80, autoAlpha: 0, duration: 0.4, ease: "power2.in" }, 7.4);
+
+      // ---------- S3 : le papier se déchire sur l'affiche (8.0 - 12.0) ----------
+      IN("#e3", { y: 20 }, { y: 0, duration: 0.4 }, 8.0);
+      T3.forEach((s, i) => IN(s, { y: 120, scale: 0.6 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 8.05 + i * 0.08));
+      IN("#fun", { scale: 0.6, rotation: -6 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.6)" }, 8.1);
+      FT("#fun", { x: 0 }, { x: 10, duration: 0.06, yoyo: true, repeat: 5, ease: "none" }, 8.85);
+      FT("#ppT", { y: 0, rotation: 0 }, { y: -560, rotation: -4, duration: 0.7, ease: "power3.in" }, 9.25);
+      FT("#ppB", { y: 0, rotation: 0 }, { y: 560, rotation: 3, duration: 0.7, ease: "power3.in" }, 9.25);
+      FT("#funG", { scale: 1.12 }, { scale: 1, duration: 2.0, ease: "power2.out" }, 9.25);
+      tl.set(["#ppT", "#ppB"], { autoAlpha: 0 }, 10.0);
+      // sortie : l'affiche tombe en 9 morceaux
+      tl.set("#fun", { clipPath: "none" }, 11.5);
+      tl.set("#funT", { autoAlpha: 1 }, 11.5);
+      tl.set("#funG", { autoAlpha: 0 }, 11.5);
+      FUN.forEach((f) => FT(f.el, { y: 0, rotation: 0, autoAlpha: 1 }, { y: 1500, rotation: (rnd() - 0.5) * 70, autoAlpha: 0, duration: 0.55, ease: "power3.in" }, 11.5 + (2 - f.r) * 0.05 + f.c * 0.03));
+      FT(["#e3", ...T3], { y: 0, autoAlpha: 1 }, { y: -300, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 11.5);
+      tl.set("#fun", { autoAlpha: 0 }, 12.2);
+
+      // ---------- S4 : les saveurs, et les bulles qui montent (12.2 - 16.1) ----------
+      IN("#e4", { y: 20 }, { y: 0, duration: 0.4 }, 12.15);
+      IN("#t4a", { y: -800 }, { y: 0, duration: 0.6, ease: "expo.out" }, 12.2);
+      IN("#t4b", { y: 800 }, { y: 0, duration: 0.6, ease: "expo.out" }, 12.2);
+      CAPS.forEach((c, i) => IN(c, { y: 1000, rotation: i % 2 ? 8 : -8 }, { y: 0, rotation: 0, duration: 0.7, ease: "back.out(1.4)" }, 12.6 + i * 0.14));
+      NMS.forEach((n, i) => IN(n, { y: 40, scale: 0.6 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, 13.1 + i * 0.14));
+      CAPS.forEach((c, i) => FT(c, { y: 0 }, { y: i % 2 ? 16 : -16, duration: 1.1, yoyo: true, repeat: 1, ease: "sine.inOut" }, 13.6 + i * 0.1));
+      BUBS.forEach((b, i) => FT(b, { y: 0, autoAlpha: 0.9 }, { y: -900 - rnd() * 500, autoAlpha: 0, duration: 2.2 + rnd() * 0.8, ease: "power1.in" }, 12.9 + (i % 9) * 0.18));
+      FT("#s4", { clipPath: "circle(150% at 50% 600px)" }, { clipPath: "circle(0% at 50% 600px)", duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 1 }, 15.7);
+      FT("#irisC", { attr: { r: 1300 } }, { attr: { r: 0 }, duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 0 }, 16.25);
+
+      // ---------- S5 : la tranche se reforme et redevient le logo (16.2 - 20) ----------
+      IN(SB.base, { scale: 0, rotation: 90 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.6)" }, 16.2);
+      SB.segs.forEach((s, i) => IN(s.el, { x: Math.cos(s.a) * 650, y: Math.sin(s.a) * 650, rotation: i % 2 ? 180 : -180, scale: 0.4 },
+        { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.75, ease: "expo.out" }, 16.3 + i * 0.04));
+      FT("#sliceB", { scaleX: 1 }, { scaleX: 0, duration: 0.16, ease: "power2.in" }, 17.25);
+      tl.set("#logoB", { autoAlpha: 1 }, 17.41);
+      tl.set([SB.base, ...SB.segs.map((s) => s.el)], { autoAlpha: 0 }, 17.41);
+      FT("#logoB", { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "back.out(2)" }, 17.41);
+      WB.forEach((s, i) => IN(s, { y: 140, rotation: (rnd() - 0.5) * 30 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 17.0 + i * 0.03));
+      S5.forEach((s, i) => IN(s, { y: 30 }, { y: 0, duration: 0.4, ease: "power3.out" }, 17.7 + i * 0.07));
+      IN("#ctaFill", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2)" }, 18.1);
+      IN("#ctaT", { y: 20 }, { y: 0, duration: 0.35, ease: "power2.out" }, 18.25);
+      FT("#ctaFill", { scale: 1 }, { scale: 1.06, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 18.6);
+      IN("#h5", { y: 20 }, { y: 0, duration: 0.4, ease: "power2.out" }, 18.5);
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 19.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
