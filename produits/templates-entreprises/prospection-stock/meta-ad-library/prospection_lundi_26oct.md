@@ -1,5 +1,7 @@
 # Samedi 24 et lundi 26 oct.
 
+> Mise à jour du 24 oct. : les 10 entreprises ci-dessous (Bedjiringo → Ma Cuisine) ont été contactées **samedi 24** (relance 2 mardi 27, relance 3 vendredi 30). Les 10 nouvelles de **lundi 26** sont dans `prospection_lundi_26oct_v2.md`.
+
 ## Samedi 24 : pas de prospection (jour de grosse vente dans les boutiques)
 - **9h ou 17h : démo Jiangmenribo** si l'heure est confirmée (grand test n8n prêt, ton numéro en destinataire, les 3 questions du coût).
 - **Créer la chaîne WhatsApp** + 3 publications (bienvenue, vidéo « Avant les fêtes », sondage) + la checklist PDF. Envoyer le lien à Claude.
