@@ -15,115 +15,115 @@ Message 2 dès que le robot répond : le message 2 universel + vidéo « Avant l
 | 11h30 | BM business | bouton de la pub |
 | 11h45 | Molatisi | bouton de la pub |
 
-Les textes sont dans le message de Claude du 24 oct. (copiés ci-dessous).
+## Les messages (structure : salut → qui on est → j'ai vu votre pub → le problème qu'on remarque chez ce type d'entreprise → la question)
 
 1. JN business
 ```
-👔 Bonjour l'équipe JN business !
-Je suis Mike, de *My automation* 🤖 On aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
+👔 Bonjour JN business !
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur les chemises homme en promotion, avec livraison partout à Kinshasa 🛵
-Pendant une promo, les commandes arrivent d'un coup… et c'est là qu'on promet une taille qui est déjà partie 😬
+J'ai vu votre publicité sur les chemises homme en promotion.
+Mais le problème qu'on remarque souvent chez les boutiques de chemises, c'est que pendant une promo, les commandes arrivent d'un coup, une taille est promise alors qu'elle est déjà partie, et le soir il faut tout recompter à la main 😬
 
-Une seule question 👇
+Alors, une question 👇
 Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
 2. MK boutique
 ```
 👗 Bonjour MK boutique !
-Ici Mike, de *My automation* 🤖 On aide les boutiques de Kinshasa à gagner du temps sur ce qui se fait encore à la main.
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur les robes en promotion, avec « stock vraiment limité » ⏳
-Quand le stock est limité, le moment gênant arrive vite : la cliente veut payer… et le modèle vient de partir 😅
+J'ai vu votre publicité sur les robes, avec « stock vraiment limité ».
+Mais le problème qu'on remarque souvent chez les boutiques de robes, c'est que avec un stock limité, un modèle est vendu deux fois, une cliente prête à payer repart sans rien, et on ne sait plus exactement ce qui reste 😬
 
-Une petite question 👇
+Alors, une question 👇
 Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
-3. Miss Gaga Store Kinshasa
+3. Miss Gaga Store
 ```
 ✨ Bonjour Miss Gaga Store !
-Je suis Mike, de *My automation* 🤖 On aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur l'arrivage des collants gaine, et votre boutique de Lemba 📍
-Entre la boutique et les commandes en ligne, c'est vite arrivé : le même article promis à deux clientes 😬
+J'ai vu votre publicité sur les collants gaine, et votre boutique de Lemba.
+Mais le problème qu'on remarque souvent chez les boutiques qui vendent en boutique et en ligne, c'est que le même article est promis à deux clientes, une vente faite en boutique n'est pas notée, et le stock ne correspond plus 😬
 
-Une seule question 👇
+Alors, une question 👇
 Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
 4. Milvadie fashion
 ```
 👗 Bonjour Milvadie fashion !
-Ici Mike, de *My automation* 🤖 On aide les boutiques de Kinshasa à gagner du temps sur ce qui se fait encore à la main.
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur le nouvel arrivage d'ensembles et de robes à prix promotionnel 🔥
-Avec plusieurs modèles et tailles, une question revient tout le temps : « il me reste encore celle-là en L ? » 🤔
+J'ai vu votre publicité sur les ensembles et robes à prix promotionnel.
+Mais le problème qu'on remarque souvent chez les boutiques de mode, c'est que avec plusieurs modèles et tailles, on ne sait plus vite ce qui reste en L ou en XL, on promet un article déjà parti, et on rachète trop tard 😬
 
-Une petite question 👇
+Alors, une question 👇
 Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
 5. MK Fashion
 ```
 🧥 Bonjour MK Fashion !
-Je suis Mike, de *My automation* 🤖 On aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur le nouvel arrivage de blousons et de chemises en lin 🔥
-Avec plusieurs modèles, couleurs et tailles, c'est vite arrivé : on vend la dernière pièce… et on oublie de racheter 😬
+J'ai vu votre publicité sur les blousons et chemises en lin.
+Mais le problème qu'on remarque souvent chez les boutiques de vêtements homme, c'est que avec plusieurs modèles, couleurs et tailles, la dernière pièce part sans qu'on le voie, et on oublie de racheter à temps 😬
 
-Une seule question 👇
+Alors, une question 👇
 Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
 6. Naomie Style
 ```
 👞 Bonjour Naomie Style !
-Ici Mike, de *My automation* 🤖 On aide les boutiques de Kinshasa à gagner du temps sur ce qui se fait encore à la main.
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur l'arrivage de chaussures, du 40 au 45, avec « stock limité » ⏳
-Avec un stock limité, la scène classique : le client confirme sa pointure… et elle vient de partir 😅
+J'ai vu votre publicité sur les chaussures du 40 au 45, avec « stock limité ».
+Mais le problème qu'on remarque souvent chez les boutiques de chaussures, c'est que une pointure est confirmée au client alors qu'elle vient de partir, et le stock par pointure se perd vite dans les messages 😬
 
-Une petite question 👇
-Votre stock par pointure, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
+Alors, une question 👇
+Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
 7. CAPO STYLE
 ```
 👚 Bonjour CAPO STYLE !
-Je suis Mike, de *My automation* 🤖 On aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur l'arrivage des chemises femme originales, avec livraison partout à Kinshasa 🛵
-Avec les commandes qui arrivent sur WhatsApp, une chose s'oublie vite : quelle cliente attend quelle taille 📋
+J'ai vu votre publicité sur les chemises femme, avec livraison partout à Kinshasa.
+Mais le problème qu'on remarque souvent chez les boutiques qui vendent sur WhatsApp, c'est que on oublie quelle cliente attend quelle taille, une commande reste sans réponse, et les livraisons se mélangent 😬
 
-Une seule question 👇
-Vos commandes et votre stock, vous les suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
+Alors, une question 👇
+Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
 8. Gloire business
 ```
 ✨ Bonjour Gloire business !
-Ici Mike, de *My automation* 🤖 On aide les vendeurs de Kinshasa à gagner du temps sur ce qui se fait encore à la main.
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur la vente en ligne d'habits, avec livraison selon la distance 🛵
-Entre les commandes, les tarifs de livraison et le stock, c'est vite arrivé : une commande qui attend, ou un article promis qui est déjà parti 😬
+J'ai vu votre publicité sur la vente en ligne d'habits, avec livraison selon la distance.
+Mais le problème qu'on remarque souvent chez les vendeurs en ligne, c'est que une commande attend sans qu'on s'en rende compte, un article promis est déjà parti, et les frais de livraison se calculent à la main 😬
 
-Une petite question 👇
-Vos commandes et votre stock, vous les suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
+Alors, une question 👇
+Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
 9. BM business
 ```
 🛏️ Bonjour BM business !
-Je suis Mike, de *My automation* 🤖 On aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur les draps 100 % coton, avec livraison partout à Kinshasa 🛵
-Avec plusieurs motifs et lots, une question finit toujours par tomber : « il me reste encore ce modèle bleu ? » 🤔
+J'ai vu votre publicité sur les draps 100 % coton, avec livraison partout à Kinshasa.
+Mais le problème qu'on remarque souvent chez les boutiques de linge de maison, c'est que avec plusieurs motifs et lots, on ne sait plus vite quel modèle reste, et on promet un drap déjà vendu 😬
 
-Une seule question 👇
+Alors, une question 👇
 Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
 10. Molatisi
 ```
 🤵 Bonjour Molatisi !
-Ici Mike, de *My automation* 🤖 On aide les boutiques de Kinshasa à gagner du temps sur ce qui se fait encore à la main.
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur les vestes croisées et les deux-pièces : la première impression compte, bravo 👏
-Avec plusieurs modèles et tailles, le moment gênant arrive vite : le client est prêt pour son costume… et sa taille est partie 😅
+J'ai vu votre publicité sur les vestes croisées et deux-pièces.
+Mais le problème qu'on remarque souvent chez les boutiques de costumes, c'est que le client est prêt pour son costume, mais sa taille est déjà partie, et on s'en rend compte trop tard 😬
 
-Une petite question 👇
+Alors, une question 👇
 Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
