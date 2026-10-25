@@ -26,7 +26,7 @@ Offre : système de stock automatisé, **150 $** de lancement, **4 entreprises p
 | Entreprise | Contact | Où on en est | Prochaine action |
 |---|---|---|---|
 | Maelys kid's | 243893308096 | robot, vidéo envoyée | relance générale fêtes **mer. 28**, chaîne **mer. 4 nov.** |
-| Kamane Trade | bouton pub | à confirmer | relance générale **mer. 28**, chaîne **mer. 4 nov.** |
+| Kamane Trade | bouton pub | pas relancé | relance générale **lun. 26**, chaîne **lun. 2 nov.** |
 | Ets ELDORADO | 243970792929 | à confirmer | relance générale **mer. 28**, chaîne **mer. 4 nov.** |
 | KAJET Store | 243972421847 | conversation (« automatisation ») | **à confirmer** : où s'est arrêtée la conversation ? |
 | Itel Business | 243863828767 | conversation | **à confirmer** |
@@ -38,12 +38,12 @@ Offre : système de stock automatisé, **150 $** de lancement, **4 entreprises p
 | ETS Papa Simba | 243850062300 | conversation | **à confirmer** |
 | NGF Agro / Afro service | 243827171476 | 🔥 chaud : utilise « Paye me finance », a demandé le prix, réponse « sur mesure » envoyée le 23 | attendre sa réponse ; sinon relance **lun. 26, 14h30** |
 | AFROBAM | 243845001638 | à confirmer | relance générale **mer. 28**, chaîne **mer. 4 nov.** |
-| BELPRo business | bouton pub | à confirmer | idem |
-| CASI secret's | bouton pub | à confirmer | idem |
+| BELPRo business | bouton pub | pas relancé | relance générale **lun. 26**, chaîne **lun. 2 nov.** |
+| CASI secret's | bouton pub | pas relancé | relance générale **lun. 26**, chaîne **lun. 2 nov.** |
 | Kenaya Chambre Froide | 243970140623 | à confirmer | idem |
 | VIP PLAST | 243973175986 | à confirmer | idem |
 | Congo market | 243982755466 | à confirmer | idem |
-| Maison Allure | bouton pub | à confirmer | idem |
+| Maison Allure | bouton pub | pas relancé | relance générale **lun. 26**, chaîne **lun. 2 nov.** |
 
 ### Jiangmenribo
 🔥 Le plus avancé : Excel, questions sur la saisie, internet, le prix → « je vais réfléchir ». N'a pas répondu à la question « qu'est-ce qui vous freine ».
@@ -51,7 +51,11 @@ Offre : système de stock automatisé, **150 $** de lancement, **4 entreprises p
 
 ### Série du mercredi 21 : 10 entreprises (relance générale + vidéo fêtes envoyée ven. 23)
 El-Elisha (bouton pub), Mon Style Shopping (bouton pub), Express Time (bouton pub), bk business 2 (243825941071), Coin du curieux (243862253932), Global Market (bouton pub), EAGLE GROUP (bouton pub), Herk boutik (243811160474), Sté kz (243846999583), Rolandsyl (bouton pub).
-→ **Mer. 28, 14h30** : relance 3 = invitation à la chaîne (`relance_generale_23oct.md`). Ensuite, plus de message privé.
+→ **Mer. 28, 14h30** : relance 3 = invitation à la chaîne (`relance_generale_23oct.md`), **seulement pour ceux qui ont un numéro** (bk business 2, Coin du curieux, Herk boutik, Sté kz). Ensuite, plus de message privé.
+
+### ⚠️ Entreprises « bouton pub » des jours 1 et 2 : pas relancées (info de Mike, 25 oct.)
+Kamane Trade, BELPRo, CASI secret's, Maison Allure (jour 1) · El-Elisha, Mon Style, Express Time, Global Market, EAGLE GROUP, Rolandsyl (jour 2).
+→ **Lun. 26, 14h30** : relance générale + vidéo fêtes (`relance_lundi_26_boutons_pub.md`) · **lun. 2 nov.** : chaîne.
 
 ### Série du vendredi 23 : 10 entreprises
 Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM Boutique, Maddyshop, Stel'Land, Cedrick business, L'Univers du crochet, NARA (243813288936).
@@ -80,7 +84,7 @@ Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM 
 
 | Jour | 9h30 → 11h45 | 14h30 |
 |---|---|---|
-| Lun. 26 | 10 nouvelles (1re liste du samedi si pas envoyée) | série vendredi (relance 1) + Jiangmenribo + NGF si silence |
+| Lun. 26 | 10 nouvelles (1re liste du samedi si pas envoyée) | série vendredi (relance 1) + Jiangmenribo + NGF si silence + 10 « bouton pub » des jours 1-2 |
 | Mar. 27 | 10 nouvelles | série samedi (relance 1) |
 | Mer. 28 | 10 nouvelles | série mercredi → chaîne · séries A et B → relance générale fêtes |
 | Jeu. 29 | 10 nouvelles | série vendredi (relance 2) |
