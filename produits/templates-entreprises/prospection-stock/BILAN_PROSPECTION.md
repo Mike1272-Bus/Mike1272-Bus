@@ -8,7 +8,7 @@ Offre : système de stock automatisé, **150 $** de lancement, **4 entreprises p
 
 | | Nombre |
 |---|---|
-| Entreprises contactées | **46** (+10 de la liste du samedi, à confirmer) |
+| Entreprises contactées | **47** (+9 de la 1re liste du samedi, à confirmer) |
 | Réponses d'un humain | au moins 8 (Cadet.K, KAJET, Itel, Papa Simba, NGF, Jiangmenribo, JN business, quelques « Bjr ») |
 | Réponses d'un robot | la majorité (MK Fashion, Naomie Style, Bedjiringo, Molatisi, BM business…) |
 | Démos faites | 0 |
@@ -57,7 +57,7 @@ El-Elisha (bouton pub), Mon Style Shopping (bouton pub), Express Time (bouton pu
 Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM Boutique, Maddyshop, Stel'Land, Cedrick business, L'Univers du crochet, NARA (243813288936).
 → **Lun. 26, 14h30** : relance 1 (`relances_lundi_26oct_serie_vendredi.md`, version A ou B) · **jeu. 29** : relance 2 + vidéo fêtes · **lun. 2 nov.** : chaîne.
 
-### Série du samedi 24 : 10 entreprises (nouvelle structure)
+### Série du samedi 24 : 11 entreprises (nouvelle structure)
 | Entreprise | Contact | Où on en est |
 |---|---|---|
 | JN business | 243820477888 | 🔥 a répondu « cahier » → limites du cahier + vidéo + appel envoyés |
