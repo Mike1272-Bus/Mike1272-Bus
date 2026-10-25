@@ -59,7 +59,7 @@ Kamane Trade, BELPRo, CASI secret's, Maison Allure (jour 1) · El-Elisha, Mon St
 
 ### Série du vendredi 23 : 10 entreprises
 Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM Boutique, Maddyshop, Stel'Land, Cedrick business, L'Univers du crochet, NARA (243813288936).
-🟢 **L'Univers du crochet** a répondu le dim. 25 au soir (« Bonsoir monsieur Mike ! ») → réponse envoyée avec la question cahier / Excel. **Retiré de la relance de lundi** : on continue la conversation.
+🟢 **L'Univers du crochet** a répondu le dim. 25 au soir (« Bonsoir monsieur Mike ! ») → question cahier / Excel → a répondu **« cahier »** 🔥 → message 2 (limites du cahier + vidéo + appel) envoyé le dim. 25 au soir. S'il ne répond pas : relance type D (le temps passé sur le cahier) **mar. 27, 14h30**. **Retiré de la relance de lundi** : on continue la conversation.
 → **Lun. 26, 14h30** : relance 1 (`relances_lundi_26oct_serie_vendredi.md`, version A ou B) (sans L'Univers du crochet) · **jeu. 29** : relance 2 + vidéo fêtes · **lun. 2 nov.** : chaîne.
 
 ### Série du samedi 24 : 11 entreprises (nouvelle structure)
