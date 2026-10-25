@@ -9,7 +9,7 @@ Offre : système de stock automatisé, **150 $** de lancement, **4 entreprises p
 | | Nombre |
 |---|---|
 | Entreprises contactées | **47** (+9 de la 1re liste du samedi, à confirmer) |
-| Réponses d'un humain | au moins 8 (Cadet.K, KAJET, Itel, Papa Simba, NGF, Jiangmenribo, JN business, quelques « Bjr ») |
+| Réponses d'un humain | au moins 9 (L'Univers du crochet, Cadet.K, KAJET, Itel, Papa Simba, NGF, Jiangmenribo, JN business, quelques « Bjr ») |
 | Réponses d'un robot | la majorité (MK Fashion, Naomie Style, Bedjiringo, Molatisi, BM business…) |
 | Démos faites | 0 |
 | Ventes | 0 |
@@ -59,7 +59,8 @@ Kamane Trade, BELPRo, CASI secret's, Maison Allure (jour 1) · El-Elisha, Mon St
 
 ### Série du vendredi 23 : 10 entreprises
 Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM Boutique, Maddyshop, Stel'Land, Cedrick business, L'Univers du crochet, NARA (243813288936).
-→ **Lun. 26, 14h30** : relance 1 (`relances_lundi_26oct_serie_vendredi.md`, version A ou B) · **jeu. 29** : relance 2 + vidéo fêtes · **lun. 2 nov.** : chaîne.
+🟢 **L'Univers du crochet** a répondu le dim. 25 au soir (« Bonsoir monsieur Mike ! ») → réponse envoyée avec la question cahier / Excel. **Retiré de la relance de lundi** : on continue la conversation.
+→ **Lun. 26, 14h30** : relance 1 (`relances_lundi_26oct_serie_vendredi.md`, version A ou B) (sans L'Univers du crochet) · **jeu. 29** : relance 2 + vidéo fêtes · **lun. 2 nov.** : chaîne.
 
 ### Série du samedi 24 : 11 entreprises (nouvelle structure)
 | Entreprise | Contact | Où on en est |
