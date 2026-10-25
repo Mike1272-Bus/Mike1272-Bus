@@ -68,3 +68,11 @@ Exception : un prospect qui a répondu mais « réfléchit » reçoit le lien pl
 
 ## 6. Ce qu'on mesure chaque vendredi
 Nombre d'abonnés, vues des publications, votes aux sondages, et surtout **les messages « DÉMO » reçus**. On garde ce qui marche, on change le reste.
+
+## 7. Idées gardées pour plus tard
+
+**Démo en direct (semaine 2, quand la démo filmée est prête)** : annonce sur la chaîne « Jeudi à 12h, je montre en direct en 15 minutes… Écrivez DÉMO pour recevoir le lien ». Le lien (Google Meet ou appel vidéo WhatsApp) est envoyé **en privé** : personne ne voit le numéro des autres.
+
+**Après les 2 premières ventes : « Comment on a automatisé le travail de 2 boutiques »** (décision de Mike, 25 oct.). Événement en direct ou publication sur la chaîne : le problème de départ, ce qu'on a installé, ce qui a changé, avec leurs vrais chiffres.
+Conditions : **accord écrit** de chaque entreprise avant de montrer son nom, ses images ou ses chiffres ; aucun chiffre arrondi ou embelli ; on montre le résultat, jamais les outils.
+La communauté WhatsApp (groupes + événements) se fera plus tard, avec les clients et non avec les prospects concurrents.
