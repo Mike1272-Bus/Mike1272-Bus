@@ -85,7 +85,7 @@ Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM 
 
 | Jour | 9h30 → 11h45 | 14h30 |
 |---|---|---|
-| Lun. 26 | 10 nouvelles (1re liste du samedi si pas envoyée) | série vendredi (relance 1) + Jiangmenribo + NGF si silence + 10 « bouton pub » des jours 1-2 |
+| Lun. 26 | 8 nouvelles : 1re liste du samedi sans Bedjiringo ni Poussins (`nouveaux_prospects_lundi_26oct.md`) | série vendredi (relance 1) + Jiangmenribo + NGF si silence + 10 « bouton pub » des jours 1-2 |
 | Mar. 27 | 10 nouvelles | série samedi (relance 1) |
 | Mer. 28 | 10 nouvelles | série mercredi → chaîne · séries A et B → relance générale fêtes |
 | Jeu. 29 | 10 nouvelles | série vendredi (relance 2) |
