@@ -115,4 +115,36 @@ Une petite question 👇
 Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
 
+**11h45 · KIN Élégant** → 🔎 **pas de numéro : cherche-la sur Meta (bouton de la pub)**
+```
+👖 Bonjour KIN Élégant !
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
+
+J'ai vu votre pub sur les jeans et les ensembles 👀
+Dans les boutiques de vêtements, ce qui arrive souvent :
+❌ une taille promise… déjà vendue
+❌ un modèle fini sans qu'on le remarque
+❌ on rachète trop tard ce qui part le mieux
+❌ le soir, tout recompter à la main
+
+Une petite question 👇
+Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
+```
+
+**12h00 · Mkd mode** → 🔎 **pas de numéro : cherche-la sur Meta (bouton de la pub)**
+```
+🧥 Bonjour Mkd mode !
+Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
+
+J'ai vu votre pub sur les vêtements homme 👀
+Avec plusieurs modèles et tailles, ce qui arrive souvent :
+❌ la dernière pièce part sans qu'on la note
+❌ un client attend une réponse et achète ailleurs
+❌ on ne sait plus exactement ce qui reste
+❌ des heures perdues à compter
+
+Une petite question 👇
+Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
+```
+
 Relances : mer. 28 (relance 1) · lun. 2 nov. (relance 2 + vidéo) · mer. 4 nov. (chaîne).
