@@ -1,0 +1,50 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=390">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#f6efe9;color:#2b2220;width:390px}
+header{background:#7a3e57;color:#fff;padding:22px 18px 18px}
+header h1{font-size:20px;font-weight:700}
+header p{font-size:13px;opacity:.85;margin-top:4px}
+main{padding:16px}
+h2{font-size:14px;font-weight:700;margin:14px 0 8px;color:#7a3e57}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:#fff;border-radius:14px;padding:8px;border:2px solid transparent;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card.sel{border-color:#7a3e57}
+.ph{height:92px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:44px}
+.card b{display:block;font-size:13px;margin-top:6px}
+.card span{font-size:12px;color:#7a6a66}
+.colors{display:flex;gap:10px;flex-wrap:wrap}
+.dot{width:38px;height:38px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #ccc}
+.dot.sel{box-shadow:0 0 0 3px #7a3e57}
+.lbl{font-size:11px;text-align:center;margin-top:3px}
+.c{display:flex;flex-direction:column;align-items:center}
+.qty{display:flex;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:8px 14px;width:max-content}
+.qty button{width:30px;height:30px;border-radius:50%;border:0;background:#f0e2e8;font-size:18px;color:#7a3e57}
+input{width:100%;padding:12px;border-radius:10px;border:1px solid #e0d4cf;background:#fff;font-size:14px;margin-bottom:8px}
+.btn{display:block;width:100%;margin-top:14px;padding:15px;border:0;border-radius:14px;background:#25a35a;color:#fff;font-size:16px;font-weight:700}
+.note{font-size:11px;color:#7a6a66;text-align:center;margin-top:8px}
+</style></head><body>
+<header><h1>🧶 L'Univers du crochet</h1><p>Choisissez votre modèle et votre couleur, on s'occupe du reste.</p></header>
+<main>
+<h2>1. Le modèle</h2>
+<div class="grid">
+<div class="card sel"><div class="ph" style="background:#f7dbe5">👜</div><b>1 · Sac au crochet</b><span>Prix du modèle</span></div>
+<div class="card"><div class="ph" style="background:#dde8f6">🧢</div><b>2 · Bonnet</b><span>Prix du modèle</span></div>
+<div class="card"><div class="ph" style="background:#f3ead7">👗</div><b>3 · Robe bébé</b><span>Prix du modèle</span></div>
+<div class="card"><div class="ph" style="background:#e3f1e2">🧣</div><b>4 · Écharpe</b><span>Prix du modèle</span></div>
+</div>
+<h2>2. La couleur</h2>
+<div class="colors">
+<div class="c"><div class="dot sel" style="background:#e889a8"></div><div class="lbl">Rose</div></div>
+<div class="c"><div class="dot" style="background:#5b8fd6"></div><div class="lbl">Bleu</div></div>
+<div class="c"><div class="dot" style="background:#fafafa"></div><div class="lbl">Blanc</div></div>
+<div class="c"><div class="dot" style="background:#e6c34a"></div><div class="lbl">Jaune</div></div>
+<div class="c"><div class="dot" style="background:#3a3a3a"></div><div class="lbl">Noir</div></div>
+</div>
+<h2>3. La quantité</h2>
+<div class="qty"><button>−</button><b>1</b><button>+</button></div>
+<h2>4. Vos coordonnées</h2>
+<input placeholder="Votre nom"><input placeholder="Votre numéro WhatsApp"><input placeholder="Quartier / adresse de livraison"><input placeholder="Note (taille, prénom à broder…)">
+<button class="btn">Commander ✅</button>
+<p class="note">Paiement à la livraison ou par Mobile Money. On vous confirme tout sur WhatsApp.</p>
+</main></body></html>
