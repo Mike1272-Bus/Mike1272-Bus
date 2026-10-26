@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Commander · L'Univers du crochet</title>
+<meta name="theme-color" content="#7a3e57">
+<style>
+  :root {
+    --prune: #7a3e57;
+    --prune-clair: #f0e2e8;
+    --creme: #f6efe9;
+    --texte: #2b2220;
+    --gris: #7a6a66;
+    --bord: #e0d4cf;
+    --vert: #25a35a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--creme);
+    color: var(--texte);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .page { max-width: 480px; margin: 0 auto; padding-bottom: 32px; }
+  header { background: var(--prune); color: #fff; padding: 22px 18px 18px; }
+  header h1 { font-size: 20px; }
+  header p { font-size: 13px; opacity: .85; margin-top: 4px; }
+  main { padding: 4px 16px 0; }
+  h2 { font-size: 15px; color: var(--prune); margin: 18px 0 8px; }
+
+  .grille { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .carte {
+    background: #fff; border-radius: 14px; padding: 8px; text-align: left;
+    border: 2px solid transparent; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    font: inherit; color: inherit; cursor: pointer;
+  }
+  .carte[aria-pressed="true"] { border-color: var(--prune); }
+  .visuel {
+    height: 110px; border-radius: 10px; background: var(--prune-clair);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .visuel img { width: 100%; height: 100%; object-fit: cover; }
+  .visuel svg { width: 86px; height: 86px; }
+  .carte b { display: block; font-size: 13px; margin-top: 6px; }
+  .carte span { font-size: 12px; color: var(--gris); }
+
+  .couleurs { display: flex; gap: 12px; flex-wrap: wrap; }
+  .couleur { background: none; border: 0; font: inherit; color: inherit; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; }
+  .pastille { width: 40px; height: 40px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #ccc; }
+  .couleur[aria-pressed="true"] .pastille { box-shadow: 0 0 0 3px var(--prune); }
+
+  .quantite { display: flex; align-items: center; gap: 16px; background: #fff;
+    border-radius: 12px; padding: 8px 14px; width: max-content; }
+  .quantite button { width: 34px; height: 34px; border-radius: 50%; border: 0;
+    background: var(--prune-clair); color: var(--prune); font-size: 20px; cursor: pointer; }
+  .quantite output { font-weight: 700; min-width: 16px; text-align: center; }
+
+  label { display: block; font-size: 13px; margin: 8px 0 4px; }
+  input, textarea {
+    width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--bord);
+    background: #fff; font: inherit; font-size: 16px; color: inherit;
+  }
+  textarea { min-height: 70px; resize: vertical; }
+
+  .recap { background: #fff; border-radius: 12px; padding: 12px 14px; margin-top: 18px; font-size: 14px; }
+  .recap strong { color: var(--prune); }
+  .erreur { color: #b3261e; font-size: 13px; margin-top: 10px; min-height: 18px; }
+  .commander {
+    display: block; width: 100%; margin-top: 8px; padding: 16px; border: 0; border-radius: 14px;
+    background: var(--vert); color: #fff; font-size: 17px; font-weight: 700; cursor: pointer;
+  }
+  .commander:disabled { opacity: .6; }
+  .petit { font-size: 12px; color: var(--gris); text-align: center; margin-top: 10px; }
+
+  .merci { display: none; text-align: center; padding: 48px 20px; }
+  .merci h2 { font-size: 22px; margin-bottom: 10px; }
+  .merci p { font-size: 15px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1 id="titre"></h1>
+    <p>Choisissez votre modèle et votre couleur, on s'occupe du reste.</p>
+  </header>
+
+  <main id="formulaire">
+    <h2>1. Le modèle</h2>
+    <div class="grille" id="modeles"></div>
+
+    <h2>2. La couleur</h2>
+    <div class="couleurs" id="couleurs"></div>
+
+    <h2>3. La quantité</h2>
+    <div class="quantite">
+      <button type="button" id="moins" aria-label="Moins">−</button>
+      <output id="qte">1</output>
+      <button type="button" id="plus" aria-label="Plus">+</button>
+    </div>
+
+    <h2>4. Vos coordonnées</h2>
+    <label for="nom">Votre nom</label>
+    <input id="nom" autocomplete="name">
+    <label for="tel">Votre numéro WhatsApp</label>
+    <input id="tel" type="tel" inputmode="tel" placeholder="ex. 0812345678" autocomplete="tel">
+    <label for="adresse">Quartier / adresse de livraison</label>
+    <input id="adresse" autocomplete="street-address">
+    <label for="note">Note (taille, prénom à broder…)</label>
+    <textarea id="note"></textarea>
+
+    <div class="recap" id="recap"></div>
+    <p class="erreur" id="erreur" role="alert"></p>
+    <button type="button" class="commander" id="commander">Commander ✅</button>
+    <p class="petit">Paiement à la livraison ou par Mobile Money. On vous confirme tout sur WhatsApp.</p>
+  </main>
+
+  <section class="merci" id="merci">
+    <h2>Merci ! 🧶</h2>
+    <p>Votre commande est bien envoyée.<br>On vous écrit sur WhatsApp pour la confirmer.</p>
+  </section>
+</div>
+
+<script>
+// ===== À REMPLIR POUR CHAQUE BOUTIQUE =====
+const BOUTIQUE = {
+  nom: "L'Univers du crochet",
+  // Numéro WhatsApp qui reçoit les commandes (243 + numéro, sans + ni 0)
+  whatsapp: "243XXXXXXXXX",
+  // Lien qui enregistre la commande dans le tableau (laisser vide si pas encore en ligne)
+  lienEnregistrement: "",
+  devise: "$",
+};
+
+// photo : chemin de la vraie photo (ex. "photos/sac.jpg"). Vide = illustration.
+// prix : à remplir avec les vrais prix de la boutique (null = non affiché).
+const MODELES = [
+  { id: "sac",    nom: "Sac au crochet", dessin: "sac",    photo: "", prix: null },
+  { id: "bonnet", nom: "Bonnet",         dessin: "bonnet", photo: "", prix: null },
+  { id: "robe",   nom: "Robe bébé",      dessin: "robe",   photo: "", prix: null },
+  { id: "echarpe",nom: "Écharpe",        dessin: "echarpe",photo: "", prix: null },
+];
+
+const COULEURS = [
+  { nom: "Rose",  code: "#e889a8" },
+  { nom: "Bleu",  code: "#5b8fd6" },
+  { nom: "Blanc", code: "#f4f1ec" },
+  { nom: "Jaune", code: "#e6c34a" },
+  { nom: "Noir",  code: "#3a3a3a" },
+];
+// ==========================================
+
+// Illustrations simples en crochet : elles prennent la couleur choisie.
+const DESSINS = {
+  sac: c => `<svg viewBox="0 0 100 100" aria-hidden="true">
+    <path d="M32 38 C32 18 68 18 68 38" fill="none" stroke="${c}" stroke-width="6" stroke-linecap="round"/>
+    <rect x="18" y="36" width="64" height="50" rx="12" fill="${c}"/>
+    <g stroke="rgba(255,255,255,.55)" stroke-width="2" fill="none">
+      <path d="M22 50 Q30 44 38 50 T54 50 T70 50 T78 50"/><path d="M22 62 Q30 56 38 62 T54 62 T70 62 T78 62"/>
+      <path d="M22 74 Q30 68 38 74 T54 74 T70 74 T78 74"/></g></svg>`,
+  bonnet: c => `<svg viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="16" r="10" fill="${c}"/>
+    <path d="M20 70 C20 30 80 30 80 70 Z" fill="${c}"/>
+    <rect x="16" y="66" width="68" height="16" rx="6" fill="${c}" stroke="rgba(0,0,0,.15)" stroke-width="2"/>
+    <g stroke="rgba(255,255,255,.55)" stroke-width="2">
+      <line x1="26" y1="68" x2="26" y2="80"/><line x1="36" y1="68" x2="36" y2="80"/><line x1="46" y1="68" x2="46" y2="80"/>
+      <line x1="56" y1="68" x2="56" y2="80"/><line x1="66" y1="68" x2="66" y2="80"/><line x1="76" y1="68" x2="76" y2="80"/></g></svg>`,
+  robe: c => `<svg viewBox="0 0 100 100" aria-hidden="true">
+    <path d="M38 12 L44 22 L56 22 L62 12 L70 18 L64 36 L80 88 L20 88 L36 36 L30 18 Z" fill="${c}"/>
+    <path d="M36 38 L64 38" stroke="rgba(255,255,255,.7)" stroke-width="3"/>
+    <g fill="rgba(255,255,255,.55)"><circle cx="40" cy="60" r="3"/><circle cx="50" cy="66" r="3"/><circle cx="60" cy="60" r="3"/>
+      <circle cx="34" cy="78" r="3"/><circle cx="50" cy="80" r="3"/><circle cx="66" cy="78" r="3"/></g></svg>`,
+  echarpe: c => `<svg viewBox="0 0 100 100" aria-hidden="true">
+    <path d="M24 22 C40 32 60 32 76 22 L76 34 C60 44 40 44 24 34 Z" fill="${c}"/>
+    <rect x="54" y="34" width="16" height="48" rx="4" fill="${c}"/>
+    <g stroke="${c}" stroke-width="3" stroke-linecap="round">
+      <line x1="56" y1="84" x2="56" y2="92"/><line x1="60" y1="84" x2="60" y2="92"/><line x1="64" y1="84" x2="64" y2="92"/><line x1="68" y1="84" x2="68" y2="92"/></g>
+    <g stroke="rgba(255,255,255,.55)" stroke-width="2"><line x1="56" y1="46" x2="68" y2="46"/><line x1="56" y1="58" x2="68" y2="58"/><line x1="56" y1="70" x2="68" y2="70"/></g></svg>`,
+};
+
+const choix = { modele: MODELES[0], couleur: COULEURS[0], quantite: 1 };
+const $ = id => document.getElementById(id);
+
+function prixTexte(m) {
+  return m.prix == null ? "Prix sur demande" : `${m.prix} ${BOUTIQUE.devise}`;
+}
+
+function afficherModeles() {
+  $("modeles").innerHTML = MODELES.map((m, i) => `
+    <button type="button" class="carte" data-i="${i}" aria-pressed="${m === choix.modele}">
+      <div class="visuel">${m.photo ? `<img src="${m.photo}" alt="${m.nom}">` : DESSINS[m.dessin](choix.couleur.code)}</div>
+      <b>${i + 1} · ${m.nom}</b><span>${prixTexte(m)}</span>
+    </button>`).join("");
+}
+
+function afficherCouleurs() {
+  $("couleurs").innerHTML = COULEURS.map((c, i) => `
+    <button type="button" class="couleur" data-i="${i}" aria-pressed="${c === choix.couleur}">
+      <span class="pastille" style="background:${c.code}"></span>${c.nom}
+    </button>`).join("");
+}
+
+function afficherRecap() {
+  const m = choix.modele;
+  const total = m.prix == null ? "" : ` · Total : <strong>${m.prix * choix.quantite} ${BOUTIQUE.devise}</strong>`;
+  $("recap").innerHTML = `Votre choix : <strong>${choix.quantite} × ${m.nom}</strong>, couleur <strong>${choix.couleur.nom}</strong>${total}`;
+}
+
+function toutAfficher() { afficherModeles(); afficherCouleurs(); afficherRecap(); }
+
+$("modeles").addEventListener("click", e => {
+  const b = e.target.closest(".carte"); if (!b) return;
+  choix.modele = MODELES[+b.dataset.i]; toutAfficher();
+});
+$("couleurs").addEventListener("click", e => {
+  const b = e.target.closest(".couleur"); if (!b) return;
+  choix.couleur = COULEURS[+b.dataset.i]; toutAfficher();
+});
+$("moins").onclick = () => { choix.quantite = Math.max(1, choix.quantite - 1); $("qte").value = choix.quantite; afficherRecap(); };
+$("plus").onclick  = () => { choix.quantite += 1; $("qte").value = choix.quantite; afficherRecap(); };
+
+$("commander").onclick = async () => {
+  const nom = $("nom").value.trim();
+  const tel = $("tel").value.trim();
+  const adresse = $("adresse").value.trim();
+  const note = $("note").value.trim();
+  if (!nom || !tel || !adresse) {
+    $("erreur").textContent = "Merci de remplir votre nom, votre numéro et votre adresse.";
+    return;
+  }
+  $("erreur").textContent = "";
+  $("commander").disabled = true;
+
+  const commande = {
+    date: new Date().toISOString(),
+    client: nom, telephone: tel, adresse, note,
+    modele: choix.modele.nom, couleur: choix.couleur.nom, quantite: choix.quantite,
+    prix_unitaire: choix.modele.prix ?? "", montant: choix.modele.prix == null ? "" : choix.modele.prix * choix.quantite,
+  };
+
+  // 1. Enregistrement dans le tableau (si le lien est en place)
+  if (BOUTIQUE.lienEnregistrement) {
+    try {
+      await fetch(BOUTIQUE.lienEnregistrement, {
+        method: "POST", mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(commande),
+      });
+    } catch (_) { /* le message WhatsApp ci-dessous garde la commande */ }
+  }
+
+  // 2. La commande part aussi en message WhatsApp vers la boutique
+  const texte = [
+    `🧶 Nouvelle commande · ${BOUTIQUE.nom}`,
+    `${commande.quantite} × ${commande.modele} (${commande.couleur})`,
+    commande.montant !== "" ? `Total : ${commande.montant} ${BOUTIQUE.devise}` : "",
+    `Nom : ${nom}`, `Téléphone : ${tel}`, `Adresse : ${adresse}`,
+    note ? `Note : ${note}` : "",
+  ].filter(Boolean).join("\n");
+
+  $("formulaire").style.display = "none";
+  $("merci").style.display = "block";
+  window.location.href = `https://wa.me/${BOUTIQUE.whatsapp}?text=${encodeURIComponent(texte)}`;
+};
+
+$("titre").textContent = `🧶 ${BOUTIQUE.nom}`;
+toutAfficher();
+</script>
+</body>
+</html>
