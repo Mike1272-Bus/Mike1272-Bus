@@ -47,7 +47,7 @@ Offre : système de stock automatisé, **150 $** de lancement, **4 entreprises p
 
 ### Jiangmenribo
 🔥 Le plus avancé : Excel, questions sur la saisie, internet, le prix → « je vais réfléchir ». N'a pas répondu à la question « qu'est-ce qui vous freine ».
-→ ~~Lun. 26~~ pas envoyée (journée chargée) → **Mar. 27, 14h30** : relance à un chiffre (1 prix, 2 compliqué, 3 internet, 4 pas le moment, 5 autre). Sans réponse → chaîne **lun. 2 nov.**
+→ **Lun. 26 au soir** : relance courte « qu'est-ce qui vous fait hésiter ? » envoyée (1 prix, 2 compliqué, 3 internet, 4 pas le moment, 5 autre). Sans réponse → chaîne **lun. 2 nov.**
 
 ### Série du mercredi 21 : 10 entreprises (relance générale + vidéo fêtes envoyée ven. 23)
 El-Elisha (bouton pub), Mon Style Shopping (bouton pub), Express Time (bouton pub), bk business 2 (243825941071), Coin du curieux (243862253932), Global Market (bouton pub), EAGLE GROUP (bouton pub), Herk boutik (243811160474), Sté kz (243846999583), Rolandsyl (bouton pub).
