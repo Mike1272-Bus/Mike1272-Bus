@@ -24,3 +24,10 @@ Testé : la page envoie exactement les champs attendus (Nom du client, Télépho
 3. Coller `https://<adresse-publique>/webhook/commande-crochet` dans `lienEnregistrement` (index.html).
 4. Onglet Produits : une ligne par modèle, avec les mêmes codes que dans la page (P001 Sac, P002 Bonnet, P003 Robe bébé, P004 Écharpe).
 5. Mettre la page en ligne et envoyer le lien.
+
+## Envoyer le lien aux clientes depuis WhatsApp (sans API, avec l'appli WhatsApp Business)
+- **Message d'accueil** (Outils professionnels → Message d'accueil) : envoyé automatiquement à chaque nouvelle cliente, avec le lien.
+- **Réponse rapide** `/commander` (Outils professionnels → Réponses rapides) : le vendeur tape /commander, le message avec le lien s'écrit tout seul.
+- **Profil de la boutique** : mettre le lien dans le champ « Site web ».
+- **Statut** : publier le lien avec une photo des nouveautés.
+Aperçu du lien : balises og:* dans index.html (mettre une image `apercu.png` à côté de la page, avec l'adresse complète une fois en ligne).
