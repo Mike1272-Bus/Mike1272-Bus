@@ -83,6 +83,8 @@ Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM 
 
 ### Série du lundi 26 (1re liste du samedi)
 - **Youba business** (243824804226) : contacté 9h30, a répondu « Bonjour » → question cahier / Excel reposée.
+- **Robots** (message 2 universel + vidéo envoyés le 26) : RAGUEL business, CHEZ TUMA, AIGLE ROYAL, KIN Élégant.
+- Relances de la série : relance 1 **mer. 28** · relance 2 **lun. 2 nov.** · chaîne **mer. 4 nov.**
 
 ## 3. La semaine qui vient
 
