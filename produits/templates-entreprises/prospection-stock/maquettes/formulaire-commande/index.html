@@ -133,13 +133,14 @@ const BOUTIQUE = {
   devise: "$",
 };
 
+// code : le code du produit dans l'onglet Produits du Google Sheet (P001, P002…)
 // photo : chemin de la vraie photo (ex. "photos/sac.jpg"). Vide = illustration.
 // prix : à remplir avec les vrais prix de la boutique (null = non affiché).
 const MODELES = [
-  { id: "sac",    nom: "Sac au crochet", dessin: "sac",    photo: "", prix: null },
-  { id: "bonnet", nom: "Bonnet",         dessin: "bonnet", photo: "", prix: null },
-  { id: "robe",   nom: "Robe bébé",      dessin: "robe",   photo: "", prix: null },
-  { id: "echarpe",nom: "Écharpe",        dessin: "echarpe",photo: "", prix: null },
+  { id: "sac", code: "P001",    nom: "Sac au crochet", dessin: "sac",    photo: "", prix: null },
+  { id: "bonnet", code: "P002", nom: "Bonnet",         dessin: "bonnet", photo: "", prix: null },
+  { id: "robe", code: "P003",   nom: "Robe bébé",      dessin: "robe",   photo: "", prix: null },
+  { id: "echarpe", code: "P004",nom: "Écharpe",        dessin: "echarpe",photo: "", prix: null },
 ];
 
 const COULEURS = [
@@ -233,10 +234,17 @@ $("commander").onclick = async () => {
   $("commander").disabled = true;
 
   const commande = {
-    date: new Date().toISOString(),
-    client: nom, telephone: tel, adresse, note,
     modele: choix.modele.nom, couleur: choix.couleur.nom, quantite: choix.quantite,
-    prix_unitaire: choix.modele.prix ?? "", montant: choix.modele.prix == null ? "" : choix.modele.prix * choix.quantite,
+    montant: choix.modele.prix == null ? "" : choix.modele.prix * choix.quantite,
+  };
+  // Mêmes champs que le formulaire du workflow Stock 1 : le reste du workflow ne change pas
+  const pourLeTableau = {
+    "Nom du client": nom,
+    "Téléphone du client": tel,
+    "Code produit": choix.modele.code,
+    "Quantité": choix.quantite,
+    "Adresse de livraison": adresse,
+    "Note": `Couleur : ${choix.couleur.nom}` + (note ? ` · ${note}` : ""),
   };
 
   // 1. Enregistrement dans le tableau (si le lien est en place)
@@ -245,7 +253,7 @@ $("commander").onclick = async () => {
       await fetch(BOUTIQUE.lienEnregistrement, {
         method: "POST", mode: "no-cors",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(commande),
+        body: new URLSearchParams(pourLeTableau),
       });
     } catch (_) { /* le message WhatsApp ci-dessous garde la commande */ }
   }
