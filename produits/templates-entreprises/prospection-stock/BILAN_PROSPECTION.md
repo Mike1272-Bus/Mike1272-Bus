@@ -9,7 +9,7 @@ Offre : système de stock automatisé, **150 $** de lancement, **4 entreprises p
 | | Nombre |
 |---|---|
 | Entreprises contactées | **47** (+9 de la 1re liste du samedi, à confirmer) |
-| Réponses d'un humain | au moins 9 (L'Univers du crochet, Cadet.K, KAJET, Itel, Papa Simba, NGF, Jiangmenribo, JN business, quelques « Bjr ») |
+| Réponses d'un humain | au moins 10 (Youba business, L'Univers du crochet, Cadet.K, KAJET, Itel, Papa Simba, NGF, Jiangmenribo, JN business, quelques « Bjr ») |
 | Réponses d'un robot | la majorité (MK Fashion, Naomie Style, Bedjiringo, Molatisi, BM business…) |
 | Démos faites | 0 (L'Univers du crochet : démo à proposer lun. 26) |
 | Ventes | 0 |
@@ -80,6 +80,9 @@ Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM 
 → **Mar. 27, 14h30** : relance 1 · **ven. 30** : relance 2 + vidéo fêtes · **mer. 4 nov.** : chaîne. JN business : relance type D (le temps passé sur le cahier) mar. 27 s'il n'a pas répondu.
 
 **À confirmer** : la 1re liste du samedi (Youba, RAGUEL, CHEZ TUMA, Robinson's, AIGLE ROYAL, GRK Ultra Chic, DK boutique, Poussins Kinshasa, Ma Cuisine) a-t-elle été envoyée ? Si non → nouveaux prospects de **lundi 26**.
+
+### Série du lundi 26 (1re liste du samedi)
+- **Youba business** (243824804226) : contacté 9h30, a répondu « Bonjour » → question cahier / Excel reposée.
 
 ## 3. La semaine qui vient
 
