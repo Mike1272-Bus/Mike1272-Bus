@@ -99,17 +99,17 @@ Une petite question 👇
 Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
 ```
 
-**11h30 · Ma Cuisine** → 🔎 **pas de numéro : cherche-la sur Meta (bouton de la pub)**
+**11h30 · EGRA Boutique** (remplace Ma Cuisine, introuvable sur Meta) → [lien direct](https://wa.me/243856316267?text=%F0%9F%91%97%20Bonjour%20EGRA%20Boutique%20%21%0AJe%20suis%20Mike%2C%20de%20%2AMy%20automation%2A%20%F0%9F%A4%96%20J%27aide%20les%20boutiques%20de%20Kinshasa%20%C3%A0%20automatiser%20ce%20qui%20se%20fait%20encore%20%C3%A0%20la%20main.%0A%0AJe%20suis%20tomb%C3%A9%20sur%20votre%20boutique%20d%27habillement%20femme%20%F0%9F%91%80%0ADans%20les%20boutiques%20de%20v%C3%AAtements%2C%20ce%20qui%20arrive%20souvent%20%3A%0A%E2%9D%8C%20la%20cliente%20veut%20payer%E2%80%A6%20sa%20taille%20n%27est%20plus%20l%C3%A0%0A%E2%9D%8C%20un%20mod%C3%A8le%20fini%20sans%20qu%27on%20le%20remarque%0A%E2%9D%8C%20on%20rach%C3%A8te%20trop%20tard%20ce%20qui%20part%20le%20mieux%0A%E2%9D%8C%20le%20soir%2C%20tout%20recompter%20%C3%A0%20la%20main%0A%0AUne%20petite%20question%20%F0%9F%91%87%0AVotre%20stock%2C%20vous%20le%20suivez%20sur%20%F0%9F%93%92%20un%20cahier%2C%20%F0%9F%93%8A%20Excel%2C%20ou%20autrement%20%3F)
 ```
-👶 Bonjour Ma Cuisine !
+👗 Bonjour EGRA Boutique !
 Je suis Mike, de *My automation* 🤖 J'aide les boutiques de Kinshasa à automatiser ce qui se fait encore à la main.
 
-J'ai vu votre pub sur les kits maternité et articles bébé 👀
-Avec beaucoup de petits articles, ce qui arrive souvent :
-❌ un kit vendu… avec une pièce qui manque
-❌ une maman qui attend alors que le temps presse
-❌ des heures à compter les articles un par un
-❌ une maman déçue qui en parle autour d'elle
+Je suis tombé sur votre boutique d'habillement femme 👀
+Dans les boutiques de vêtements, ce qui arrive souvent :
+❌ la cliente veut payer… sa taille n'est plus là
+❌ un modèle fini sans qu'on le remarque
+❌ on rachète trop tard ce qui part le mieux
+❌ le soir, tout recompter à la main
 
 Une petite question 👇
 Votre stock, vous le suivez sur 📒 un cahier, 📊 Excel, ou autrement ?
