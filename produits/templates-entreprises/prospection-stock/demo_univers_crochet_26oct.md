@@ -26,7 +26,13 @@ Transition : « Merci, c'est très clair. Je vais vous montrer comment ça se pa
 
 ## 3. Démonstration (5 min) : partager la fenêtre du navigateur
 **a. Produits (avant)** : « Voici votre stock, avec vos articles : la laine rose, la laine bleue, le kit débutant. Ici, ce qu'il reste, et ici, à partir de combien on doit racheter. La laine rose : il en reste 10. »
-**b. Formulaire** : « Imaginons qu'une cliente achète 2 pelotes de laine rose. Votre vendeur, ou vous, remplit juste ceci sur son téléphone : le produit, la quantité, le nom de la cliente. On envoie. » → Envoyer.
+**b. Le formulaire (le cœur de la démo)**
+- *Où il se trouve* : « Votre vendeur a un lien, comme une page internet. On l'enregistre sur l'écran d'accueil de son téléphone : une icône, comme une application. Il touche l'icône, le formulaire s'ouvre. Rien à installer. »
+- *Quand* : « À chaque vente : en boutique, au téléphone ou sur WhatsApp. Ça prend moins d'une minute. »
+- *Le remplir, champ par champ* : « Nom de la cliente : Maman Sarah. Son numéro. Le code du produit : P001, c'est la laine rose. Je vous donne la liste des codes, on peut aussi la coller près de la caisse. Quantité : 2. L'adresse si c'est une livraison, et une note si besoin. »
+- *Envoyer* : « On appuie sur Envoyer… et voilà : « Commande enregistrée. Merci ! » C'est tout ce que le vendeur fait. Le reste se fait tout seul. »
+- *Ce qui se passe derrière* : « En quelques secondes : la vente est notée dans votre tableau, le stock baisse, vous recevez un message, et la cliente reçoit aussi une confirmation sur WhatsApp. »
+- Pour la démo : mettre son propre numéro dans « Téléphone du client » pour montrer aussi la confirmation reçue par la cliente.
 **c. Commandes** (actualiser) : « Regardez : la vente est enregistrée toute seule. La date, la cliente, le produit, la quantité, le montant. Personne n'a rien écrit. »
 **d. Produits (après)** : « Et le stock de laine rose est passé de 10 à 8, tout seul. Plus besoin de recompter le soir. »
 **e. Téléphone devant la caméra** : « Et vous, le patron, vous recevez ce message sur WhatsApp, même si vous n'êtes pas à la boutique. »
