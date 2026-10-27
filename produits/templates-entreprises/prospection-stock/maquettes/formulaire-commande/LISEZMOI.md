@@ -31,3 +31,30 @@ Testé : la page envoie exactement les champs attendus (Nom du client, Télépho
 - **Profil de la boutique** : mettre le lien dans le champ « Site web ».
 - **Statut** : publier le lien avec une photo des nouveautés.
 Aperçu du lien : balises og:* dans index.html (mettre une image `apercu.png` à côté de la page, avec l'adresse complète une fois en ligne).
+
+## La boutique gère sa vitrine elle-même (depuis son tableau Google, sur téléphone)
+Ce qu'elle peut changer : le titre, le sous-titre, les photos, les noms, les prix, les couleurs de chaque modèle, afficher ou cacher un modèle, ses numéros Mobile Money. Le reste (mise en page, couleurs du site, fonctionnement) reste chez nous.
+
+**Onglet « Réglages vitrine »** (2 colonnes : Clé, Valeur)
+| Clé | Valeur |
+|---|---|
+| Titre | 🧶 L'Univers du crochet |
+| Sous-titre | Choisissez votre modèle et votre couleur, on s'occupe du reste. |
+| WhatsApp | 243… (sans + ni 0) |
+| M-Pesa / Orange Money / Airtel Money | numéros (laisser vide si pas utilisé) |
+| Devise | $ ou FC |
+
+**Onglet « Vitrine »** (une ligne par modèle)
+| Modèle | Code | Photo | Prix | Couleurs | Afficher | Stock |
+|---|---|---|---|---|---|---|
+| Sac au crochet | P001 | lien Google Drive de la photo (partagée « tous les utilisateurs disposant du lien ») | 25 | Rose, Bleu, Blanc | Oui | formule |
+- Couleurs : les noms séparés par des virgules (rose, bleu, vert, mauve, beige, multicolore…).
+- Afficher = Non : le modèle disparaît.
+- Stock (pack stock + vitrine) : formule `=IFERROR(INDEX(Produits!K:K;MATCH(B2;Produits!A:A;0));"")`. À 0, le modèle s'affiche « Épuisé » et on ne peut pas commander plus que le stock. Seul ce chiffre est publié : les ventes et les clientes restent privées.
+
+**Publier** : Fichier > Partager > Publier sur le Web > choisir l'onglet > CSV > Publier. Coller les 2 liens dans `LIENS_TABLEAU` (index.html). Ne publier que ces 2 onglets.
+
+## Paiement Mobile Money (niveau 1, sans compte chez un opérateur)
+Après « Commander », la cliente voit son code de commande (CMD-…), le montant et les numéros Mobile Money de la boutique, puis envoie sa commande sur WhatsApp avec la capture du paiement. Le code est aussi écrit dans la note de la commande (tableau). Paiement automatique dans la page (agrégateur) = option à part, plus tard.
+
+Testé (navigateur, faux tableau) : titre et sous-titre lus, modèle caché, « Épuisé » à 0, quantité bloquée au stock, couleurs propres à chaque modèle, envoi au tableau avec le code, écran de paiement, message WhatsApp.

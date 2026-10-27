@@ -3,26 +3,26 @@
 <style>
   @page { size: A4; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Segoe UI", system-ui, Roboto, sans-serif; color: #2b2220; font-size: 10.5pt; line-height: 1.45; }
+  body { font-family: "Segoe UI", system-ui, Roboto, sans-serif; color: #2b2220; font-size: 9.8pt; line-height: 1.38; }
   .page { width: 210mm; height: 297mm; padding: 14mm 16mm; position: relative; overflow: hidden; background: #fbf7f3; page-break-after: always; }
   .page:last-child { page-break-after: auto; }
-  .bandeau { background: #7a3e57; color: #fff; margin: -14mm -16mm 7mm; padding: 11mm 16mm 8mm; }
+  .bandeau { background: #7a3e57; color: #fff; margin: -14mm -16mm 5mm; padding: 9mm 16mm 6mm; }
   .bandeau small { letter-spacing: .12em; text-transform: uppercase; opacity: .8; font-size: 8.5pt; }
-  .bandeau h1 { font-size: 20pt; margin-top: 2mm; line-height: 1.2; }
+  .bandeau h1 { font-size: 18pt; margin-top: 2mm; line-height: 1.2; }
   .bandeau p { opacity: .9; margin-top: 2mm; }
-  h2 { color: #7a3e57; font-size: 13.5pt; margin: 5mm 0 2.5mm; }
+  h2 { color: #7a3e57; font-size: 13pt; margin: 4mm 0 2mm; }
   p + p { margin-top: 2mm; }
-  .bloc { display: grid; grid-template-columns: 1fr 44mm; gap: 7mm; align-items: center; background: #fff; border: 1px solid #eadfd8; border-radius: 4mm; padding: 5mm; margin-top: 4mm; }
+  .bloc { display: grid; grid-template-columns: 1fr 44mm; gap: 7mm; align-items: center; background: #fff; border: 1px solid #eadfd8; border-radius: 4mm; padding: 4mm 5mm; margin-top: 3mm; }
   .bloc h3 { color: #7a3e57; font-size: 12pt; margin-bottom: 1.5mm; }
   .bloc .sous { color: #7a6a66; font-size: 9.5pt; margin-bottom: 2.5mm; }
-  .bloc img { width: 44mm; height: 78mm; object-fit: contain; display: block; border-radius: 2mm; }
+  .bloc img { width: 44mm; height: 70mm; object-fit: contain; display: block; border-radius: 2mm; }
   ul.coches { list-style: none; }
-  ul.coches li { padding-left: 5mm; position: relative; margin-bottom: 1.3mm; }
+  ul.coches li { padding-left: 5mm; position: relative; margin-bottom: 1mm; }
   ul.coches li::before { content: "✓"; position: absolute; left: 0; color: #25a35a; font-weight: 700; }
   .deux { background: #f3e7ec; border: 2px solid #7a3e57; border-radius: 4mm; padding: 5mm; margin-top: 0; }
   .deux h3 { color: #7a3e57; font-size: 12pt; margin-bottom: 1.5mm; }
 
-  .options { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin-top: 5mm; }
+  .options { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin-top: 4mm; }
   .opt { background: #fff; border-radius: 4mm; padding: 5mm 4mm; border: 1.5px solid #e6d9d2; position: relative; }
   .opt.star { border: 2.5px solid #7a3e57; }
   .tag { position: absolute; top: -3.5mm; left: 4mm; background: #7a3e57; color: #fff; font-size: 8pt; padding: 1mm 3mm; border-radius: 10mm; font-weight: 700; }
@@ -33,7 +33,7 @@
   .etapes { counter-reset: e; list-style: none; margin-top: 2mm; }
   .etapes li { counter-increment: e; padding-left: 9mm; position: relative; margin-bottom: 2.5mm; }
   .etapes li::before { content: counter(e); position: absolute; left: 0; top: -.3mm; width: 6mm; height: 6mm; border-radius: 50%; background: #7a3e57; color: #fff; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-  .encadre { background: #fff; border-left: 4px solid #25a35a; border-radius: 2mm; padding: 4mm 5mm; margin-top: 5mm; font-size: 10pt; }
+  .encadre { background: #fff; border-left: 4px solid #25a35a; border-radius: 2mm; padding: 3mm 5mm; margin-top: 4mm; font-size: 10pt; }
   .pied { position: absolute; bottom: 9mm; left: 16mm; right: 16mm; font-size: 8.5pt; color: #8a7a76; display: flex; justify-content: space-between; border-top: 1px solid #e6d9d2; padding-top: 3mm; }
 </style></head>
 <body>
@@ -71,6 +71,8 @@
         <li>Vos modèles en photo, avec leurs couleurs.</li>
         <li>La cliente choisit son modèle, sa couleur et la quantité.</li>
         <li>Elle appuie sur « Commander » : la commande arrive sur votre WhatsApp, déjà écrite.</li>
+        <li>Paiement par Mobile Money (vos numéros s'affichent) ou à la livraison.</li>
+        <li><strong>Vous la gérez vous-même</strong>, depuis votre téléphone : photos, titre, prix, couleurs, nouveaux modèles.</li>
         <li>Un lien à mettre dans votre profil, vos statuts et votre message d'accueil.</li>
       </ul>
       <p style="font-size:9pt;color:#7a6a66;margin-top:2mm">Image d'exemple : votre vitrine aura vos propres photos.</p>
@@ -84,8 +86,14 @@
 
 <section class="page">
   <div class="deux">
-    <h3>3. Les deux ensemble : tout est relié</h3>
-    <p>Une commande passée sur la vitrine est enregistrée comme une vente de la boutique : le stock baisse tout seul, vous êtes prévenu, et la cliente reçoit sa confirmation. Vous suivez toutes vos ventes au même endroit, qu'elles viennent de la boutique ou de la vitrine.</p>
+    <h3>3. Les deux ensemble : vous savez toujours ce qu'il vous reste</h3>
+    <p>Avec la gestion de stock, chaque commande de la vitrine est enregistrée comme une vente de la boutique. Résultat :</p>
+    <ul class="coches" style="margin-top:2mm">
+      <li>Quand une cliente commande, vous savez tout de suite si vous avez encore l'article, et combien il en reste.</li>
+      <li>Un modèle épuisé s'affiche « Épuisé » sur la vitrine : plus de commande pour un article que vous n'avez plus.</li>
+      <li>Vous êtes prévenu quand un article ou une couleur est sur le point de manquer, et vous voyez ce qu'il vous reste en quantité.</li>
+      <li>Toutes vos commandes (boutique et vitrine) au même endroit, avec leur suivi jusqu'à la livraison.</li>
+    </ul>
   </div>
 
   <h2>Nos trois options</h2>
@@ -95,7 +103,7 @@
       <div class="num">Option 1</div>
       <h3>Stock + vitrine reliée au stock</h3>
       <div class="prix">220 $</div>
-      <p>Tout est relié : boutique, vitrine et stock. Vous économisez 50 $ par rapport aux deux options séparées.</p>
+      <p>Tout est relié : boutique, vitrine et stock. Vous savez toujours ce qu'il vous reste. Vous économisez 50 $ par rapport aux deux options séparées.</p>
     </div>
     <div class="opt">
       <div class="num">Option 2</div>
@@ -107,7 +115,7 @@
       <div class="num">Option 3</div>
       <h3>Mini vitrine</h3>
       <div class="prix">120 $</div>
-      <p>Vos modèles en photo, commande par WhatsApp. Sans suivi du stock.</p>
+      <p>Vos modèles en photo, que vous gérez vous-même, commande par WhatsApp et Mobile Money. Sans suivi du stock.</p>
     </div>
   </div>
 
