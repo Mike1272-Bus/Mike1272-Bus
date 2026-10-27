@@ -23,9 +23,9 @@
   .opt li::before { content: "✓"; position: absolute; left: 0; color: #25a35a; font-weight: 700; }
   .opt li.non::before { content: "–"; color: #a99; }
   .opt li.non { color: #8a7a76; }
-  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; align-items: start; margin: 3mm auto 0; width: 78%; }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; align-items: start; margin: 3mm auto 0; width: 100%; }
   .duo figure { background: #fff; border-radius: 4mm; padding: 3mm; text-align: center; border: 1px solid #eadfd8; }
-  .duo img { width: 100%; border-radius: 2.5mm; display: block; }
+  .duo img { max-width: 100%; height: 105mm; width: auto; object-fit: contain; border-radius: 2.5mm; display: block; margin: 0 auto; }
   figcaption { font-size: 9pt; color: #7a6a66; margin-top: 2mm; }
   .etapes { counter-reset: e; list-style: none; margin-top: 2mm; }
   .etapes li { counter-increment: e; padding-left: 9mm; position: relative; margin-bottom: 2.5mm; }
@@ -94,7 +94,7 @@
   <h2 style="margin-top:0">À quoi ça ressemble</h2>
   <div class="duo">
     <figure><img src="form_vendeur.png" alt=""><figcaption>Gestion de stock : votre vendeur enregistre la vente en quelques secondes, avec le modèle et la couleur.</figcaption></figure>
-    <figure><img src="vitrine_haut.png" alt=""><figcaption>Vitrine : vos clientes voient vos modèles, choisissent la couleur et commandent. Ici, des dessins d'exemple : la vôtre aura vos vraies photos.</figcaption></figure>
+    <figure><img src="vitrine_exemple.png" alt=""><figcaption>Vitrine : vos clientes voient vos modèles, choisissent la couleur et commandent sur WhatsApp. Ceci est un exemple : la vôtre aura vos propres photos.</figcaption></figure>
   </div>
 
   <h2>Comment on avance</h2>
