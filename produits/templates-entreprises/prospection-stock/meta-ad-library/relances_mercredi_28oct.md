@@ -134,9 +134,9 @@ Avez-vous pu voir la vidéo d'une minute que je vous ai envoyée ?
 
 ## 3. Séries A et B : relance des fêtes
 
-**Maelys kid's** → https://wa.me/243893308096?text=Bonjour%20l%27%C3%A9quipe%20Maelys%20kid%27s%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20de%20articles%20b%C3%A9b%C3%A9%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
+**Maelys kid's** → https://wa.me/243893308096?text=Bonjour%20l%27%C3%A9quipe%20Maelys%20kid%27s%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20d%27articles%20b%C3%A9b%C3%A9%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
 ```
-Bonjour l'équipe Maelys kid's 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture de articles bébé ou une commande oubliée coûte le plus cher.
+Bonjour l'équipe Maelys kid's 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture d'articles bébé ou une commande oubliée coûte le plus cher.
 Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
 ```
 
@@ -170,9 +170,9 @@ Bonjour l'équipe Congo market 👋 Les fêtes approchent 🎄 C'est la période
 Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
 ```
 
-**KAJET Store** → https://wa.me/243972421847?text=Bonjour%20l%27%C3%A9quipe%20KAJET%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20de%20iPhone%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
+**KAJET Store** → https://wa.me/243972421847?text=Bonjour%20l%27%C3%A9quipe%20KAJET%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20d%27iPhone%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
 ```
-Bonjour l'équipe KAJET 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture de iPhone ou une commande oubliée coûte le plus cher.
+Bonjour l'équipe KAJET 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture d'iPhone ou une commande oubliée coûte le plus cher.
 Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
 ```
 
