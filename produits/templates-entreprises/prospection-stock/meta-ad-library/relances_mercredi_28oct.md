@@ -108,11 +108,7 @@ Bonjour 👋 Petite question pour la personne qui s'occupe du stock de vos blous
 Avez-vous pu voir la vidéo d'une minute que je vous ai envoyée ?
 ```
 
-**Naomie Style** → https://wa.me/243897420986?text=Bonjour%20%F0%9F%91%8B%20Petite%20question%20pour%20la%20personne%20qui%20s%27occupe%20du%20stock%20de%20vos%20chaussures%20%F0%9F%99%8F%0AAvez-vous%20pu%20voir%20la%20vid%C3%A9o%20d%27une%20minute%20que%20je%20vous%20ai%20envoy%C3%A9e%20%3F
-```
-Bonjour 👋 Petite question pour la personne qui s'occupe du stock de vos chaussures 🙏
-Avez-vous pu voir la vidéo d'une minute que je vous ai envoyée ?
-```
+~~Naomie Style~~ : piste abandonnée, ne rien envoyer.
 
 **Bedjiringo store** → https://wa.me/243861958796?text=Bonjour%20%F0%9F%91%8B%20Petite%20question%20pour%20la%20personne%20qui%20s%27occupe%20du%20stock%20de%20vos%20maillots%20%F0%9F%99%8F%0AAvez-vous%20pu%20voir%20la%20vid%C3%A9o%20d%27une%20minute%20que%20je%20vous%20ai%20envoy%C3%A9e%20%3F
 ```

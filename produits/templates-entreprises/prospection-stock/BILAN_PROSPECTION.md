@@ -70,7 +70,7 @@ Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM 
 | Miss Gaga Store | 243898254908 | à confirmer |
 | Milvadie fashion | 243817727274 | à confirmer |
 | MK Fashion | 243892759779 | robot → message 2 + vidéo |
-| Naomie Style | 243897420986 | robot → message 2 + vidéo |
+| Naomie Style | 243897420986 | ❌ **piste abandonnée** (décision de Mike, 28 oct.) : plus aucun message, pas de chaîne |
 | CAPO STYLE | 243906062899 | à confirmer |
 | Gloire business | 243850844502 | à confirmer |
 | BM business | bouton pub | robot → message 2 + vidéo |
