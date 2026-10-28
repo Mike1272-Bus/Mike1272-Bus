@@ -86,6 +86,9 @@ Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM 
 - **Robots** (message 2 universel + vidéo envoyés le 26) : RAGUEL business, CHEZ TUMA, AIGLE ROYAL, KIN Élégant.
 - Relances de la série : relance 1 **mer. 28** · relance 2 **lun. 2 nov.** · chaîne **mer. 4 nov.**
 
+### Série du mercredi 28 (20 entreprises, `prospects_mercredi_28oct.md`)
+- **PERLUNA STORE** (243848405000) : humain. Déjà équipé (Shopify + automatisations marketing WhatsApp). → question sur les ventes hors site (boutique, WhatsApp) et le stock. Si tout est déjà relié : ne pas insister, garder un bon contact.
+
 ## 3. La semaine qui vient
 
 | Jour | 9h30 → 11h45 | 14h30 |
