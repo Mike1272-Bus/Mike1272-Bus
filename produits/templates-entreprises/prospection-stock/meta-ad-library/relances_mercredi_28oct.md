@@ -136,41 +136,41 @@ Avez-vous pu voir la vidéo d'une minute que je vous ai envoyée ?
 
 Texte → vidéo « Avant les fêtes » → phrase de fin : « Si ça vous parle, je vous montre en 15 minutes, en appel vidéo 📲 »
 
-**Maelys kid's** → https://wa.me/243893308096?text=Bonjour%20Maelys%20kid%27s%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
+**Maelys kid's** → https://wa.me/243893308096?text=Bonjour%20Maelys%20kid%27s%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20cette%20p%C3%A9riode%20de%20fortes%20ventes%20%F0%9F%91%87
 ```
-Bonjour Maelys kid's 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
+Bonjour Maelys kid's 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant cette période de fortes ventes 👇
 ```
-**Ets ELDORADO** → https://wa.me/243970792929?text=Bonjour%20Eldorado%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
+**Ets ELDORADO** → https://wa.me/243970792929?text=Bonjour%20Eldorado%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20cette%20p%C3%A9riode%20de%20fortes%20ventes%20%F0%9F%91%87
 ```
-Bonjour Eldorado 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
+Bonjour Eldorado 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant cette période de fortes ventes 👇
 ```
-**AFROBAM** → https://wa.me/243845001638?text=Bonjour%20Afrobam%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
+**AFROBAM** → https://wa.me/243845001638?text=Bonjour%20Afrobam%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20cette%20p%C3%A9riode%20de%20fortes%20ventes%20%F0%9F%91%87
 ```
-Bonjour Afrobam 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
+Bonjour Afrobam 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant cette période de fortes ventes 👇
 ```
-**Kenaya Chambre Froide** → https://wa.me/243970140623?text=Bonjour%20Kenaya%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
+**Kenaya Chambre Froide** → https://wa.me/243970140623?text=Bonjour%20Kenaya%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20cette%20p%C3%A9riode%20de%20fortes%20ventes%20%F0%9F%91%87
 ```
-Bonjour Kenaya 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
+Bonjour Kenaya 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant cette période de fortes ventes 👇
 ```
-**VIP PLAST** → https://wa.me/243973175986?text=Bonjour%20VIP%20PLAST%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
+**VIP PLAST** → https://wa.me/243973175986?text=Bonjour%20VIP%20PLAST%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20cette%20p%C3%A9riode%20de%20fortes%20ventes%20%F0%9F%91%87
 ```
-Bonjour VIP PLAST 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
+Bonjour VIP PLAST 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant cette période de fortes ventes 👇
 ```
-**Congo market** → https://wa.me/243982755466?text=Bonjour%20Congo%20market%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
+**Congo market** → https://wa.me/243982755466?text=Bonjour%20Congo%20market%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20cette%20p%C3%A9riode%20de%20fortes%20ventes%20%F0%9F%91%87
 ```
-Bonjour Congo market 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
+Bonjour Congo market 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant cette période de fortes ventes 👇
 ```
-**KAJET Store** → https://wa.me/243972421847?text=Bonjour%20KAJET%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
+**KAJET Store** → https://wa.me/243972421847?text=Bonjour%20KAJET%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20cette%20p%C3%A9riode%20de%20fortes%20ventes%20%F0%9F%91%87
 ```
-Bonjour KAJET 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
+Bonjour KAJET 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant cette période de fortes ventes 👇
 ```
-**Itel Business** → https://wa.me/243863828767?text=Bonjour%20Itel%20Business%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
+**Itel Business** → https://wa.me/243863828767?text=Bonjour%20Itel%20Business%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20cette%20p%C3%A9riode%20de%20fortes%20ventes%20%F0%9F%91%87
 ```
-Bonjour Itel Business 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
+Bonjour Itel Business 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant cette période de fortes ventes 👇
 ```
-**ETS Papa Simba** → https://wa.me/243850062300?text=Bonjour%20Papa%20Simba%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
+**ETS Papa Simba** → https://wa.me/243850062300?text=Bonjour%20Papa%20Simba%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20cette%20p%C3%A9riode%20de%20fortes%20ventes%20%F0%9F%91%87
 ```
-Bonjour Papa Simba 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
+Bonjour Papa Simba 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant cette période de fortes ventes 👇
 ```
 
 ## 4. Série du mercredi 21 : dernière relance = la chaîne
