@@ -132,60 +132,45 @@ Bonjour 👋 Petite question pour la personne qui s'occupe du stock de vos costu
 Avez-vous pu voir la vidéo d'une minute que je vous ai envoyée ?
 ```
 
-## 3. Séries A et B : relance des fêtes
+## 3. Séries A et B : relance des fêtes (court + vidéo « Avant les fêtes »)
 
-**Maelys kid's** → https://wa.me/243893308096?text=Bonjour%20l%27%C3%A9quipe%20Maelys%20kid%27s%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20d%27articles%20b%C3%A9b%C3%A9%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
-```
-Bonjour l'équipe Maelys kid's 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture d'articles bébé ou une commande oubliée coûte le plus cher.
-Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
-```
+Texte → vidéo « Avant les fêtes » → phrase de fin : « Si ça vous parle, je vous montre en 15 minutes, en appel vidéo 📲 »
 
-**Ets ELDORADO** → https://wa.me/243970792929?text=Bonjour%20l%27%C3%A9quipe%20Eldorado%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20de%20groupes%20%C3%A9lectrog%C3%A8nes%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
+**Maelys kid's** → https://wa.me/243893308096?text=Bonjour%20Maelys%20kid%27s%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
 ```
-Bonjour l'équipe Eldorado 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture de groupes électrogènes ou une commande oubliée coûte le plus cher.
-Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
+Bonjour Maelys kid's 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
 ```
-
-**AFROBAM** → https://wa.me/243845001638?text=Bonjour%20l%27%C3%A9quipe%20Afrobam%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20de%20stations%20d%27%C3%A9nergie%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
+**Ets ELDORADO** → https://wa.me/243970792929?text=Bonjour%20Eldorado%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
 ```
-Bonjour l'équipe Afrobam 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture de stations d'énergie ou une commande oubliée coûte le plus cher.
-Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
+Bonjour Eldorado 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
 ```
-
-**Kenaya Chambre Froide** → https://wa.me/243970140623?text=Bonjour%20l%27%C3%A9quipe%20Kenaya%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20de%20viande%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
+**AFROBAM** → https://wa.me/243845001638?text=Bonjour%20Afrobam%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
 ```
-Bonjour l'équipe Kenaya 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture de viande ou une commande oubliée coûte le plus cher.
-Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
+Bonjour Afrobam 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
 ```
-
-**VIP PLAST** → https://wa.me/243973175986?text=Bonjour%20l%27%C3%A9quipe%20VIP%20PLAST%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20de%20chaises%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
+**Kenaya Chambre Froide** → https://wa.me/243970140623?text=Bonjour%20Kenaya%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
 ```
-Bonjour l'équipe VIP PLAST 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture de chaises ou une commande oubliée coûte le plus cher.
-Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
+Bonjour Kenaya 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
 ```
-
-**Congo market** → https://wa.me/243982755466?text=Bonjour%20l%27%C3%A9quipe%20Congo%20market%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20de%20maroquinerie%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
+**VIP PLAST** → https://wa.me/243973175986?text=Bonjour%20VIP%20PLAST%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
 ```
-Bonjour l'équipe Congo market 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture de maroquinerie ou une commande oubliée coûte le plus cher.
-Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
+Bonjour VIP PLAST 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
 ```
-
-**KAJET Store** → https://wa.me/243972421847?text=Bonjour%20l%27%C3%A9quipe%20KAJET%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20d%27iPhone%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
+**Congo market** → https://wa.me/243982755466?text=Bonjour%20Congo%20market%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
 ```
-Bonjour l'équipe KAJET 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture d'iPhone ou une commande oubliée coûte le plus cher.
-Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
+Bonjour Congo market 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
 ```
-
-**Itel Business** → https://wa.me/243863828767?text=Bonjour%20l%27%C3%A9quipe%20Itel%20Business%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20de%20t%C3%A9l%C3%A9phones%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
+**KAJET Store** → https://wa.me/243972421847?text=Bonjour%20KAJET%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
 ```
-Bonjour l'équipe Itel Business 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture de téléphones ou une commande oubliée coûte le plus cher.
-Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
+Bonjour KAJET 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
 ```
-
-**ETS Papa Simba** → https://wa.me/243850062300?text=Bonjour%20Papa%20Simba%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20C%27est%20la%20p%C3%A9riode%20o%C3%B9%20l%27on%20vend%20le%20plus%E2%80%A6%20et%20o%C3%B9%20une%20rupture%20de%20meubles%20ou%20une%20commande%20oubli%C3%A9e%20co%C3%BBte%20le%20plus%20cher.%0ASi%20vous%20voulez%2C%20je%20vous%20montre%20en%2015%20minutes%20d%27appel%20vid%C3%A9o%20comment%20vos%20ventes%20et%20votre%20stock%20peuvent%20se%20suivre%20tout%20seuls.%20Plut%C3%B4t%20cette%20semaine%20ou%20la%20semaine%20prochaine%20%3F%20%F0%9F%93%B2
+**Itel Business** → https://wa.me/243863828767?text=Bonjour%20Itel%20Business%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
 ```
-Bonjour Papa Simba 👋 Les fêtes approchent 🎄 C'est la période où l'on vend le plus… et où une rupture de meubles ou une commande oubliée coûte le plus cher.
-Si vous voulez, je vous montre en 15 minutes d'appel vidéo comment vos ventes et votre stock peuvent se suivre tout seuls. Plutôt cette semaine ou la semaine prochaine ? 📲
+Bonjour Itel Business 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
+```
+**ETS Papa Simba** → https://wa.me/243850062300?text=Bonjour%20Papa%20Simba%20%F0%9F%91%8B%20Les%20f%C3%AAtes%20approchent%20%F0%9F%8E%84%20Voici%20en%201%20minute%20comment%20ne%20plus%20perdre%20de%20ventes%20%C3%A0%20cause%20du%20stock%20pendant%20le%20rush%20%F0%9F%91%87
+```
+Bonjour Papa Simba 👋 Les fêtes approchent 🎄 Voici en 1 minute comment ne plus perdre de ventes à cause du stock pendant le rush 👇
 ```
 
 ## 4. Série du mercredi 21 : dernière relance = la chaîne
