@@ -89,7 +89,15 @@ Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM 
 ### Série du mercredi 28 (20 entreprises, `prospects_mercredi_28oct.md`)
 - **PERLUNA STORE** (243848405000) : humain. Déjà équipé (Shopify + automatisations marketing WhatsApp). → question sur les ventes hors site (boutique, WhatsApp) et le stock. → Réponse : toutes les ventes passent par le site, stock déjà automatique. **Stop**, message de bon contact envoyé. Profil à garder (investit dans ses outils).
 
-## 3. La semaine qui vient
+## 3. La dernière relance pour tout le monde : mercredi 4 novembre, 14h30 (la chaîne)
+Décision de Mike (28 oct.) : **un seul jour** pour la dernière relance de **tous** les prospects sans réponse, toutes séries confondues. Message = invitation à la chaîne WhatsApp. Ensuite, plus aucun message privé.
+- **Avant le lun. 2 nov.** : créer la chaîne + 3 publications + la checklist PDF, et envoyer le lien à Claude.
+- **Ven. 30 oct., 14h30** : relance 1 de la série du mercredi 28 (les 20 nouveaux). C'est leur seul message avant le 4.
+- **Mer. 4 nov., 14h30** : invitation à la chaîne pour tous les prospects sans réponse (séries A, B, mer. 21, ven. 23, sam. 24, lun. 26, mer. 28, boutons pub des jours 1-2).
+- Les relances 2 prévues les 29 oct., 2 et 3 nov. sont **annulées** (remplacées par le 4 nov.).
+- Série du mercredi 21 : si le lien de la chaîne n'était pas prêt le 28, elle passe aussi au 4 nov.
+
+## 4. La semaine qui vient
 
 | Jour | 9h30 → 11h45 | 14h30 |
 |---|---|---|
