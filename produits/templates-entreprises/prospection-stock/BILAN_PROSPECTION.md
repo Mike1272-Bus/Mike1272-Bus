@@ -87,7 +87,7 @@ Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM 
 - Relances de la série : relance 1 **mer. 28** · relance 2 **lun. 2 nov.** · chaîne **mer. 4 nov.**
 
 ### Série du mercredi 28 (20 entreprises, `prospects_mercredi_28oct.md`)
-- **PERLUNA STORE** (243848405000) : humain. Déjà équipé (Shopify + automatisations marketing WhatsApp). → question sur les ventes hors site (boutique, WhatsApp) et le stock. Si tout est déjà relié : ne pas insister, garder un bon contact.
+- **PERLUNA STORE** (243848405000) : humain. Déjà équipé (Shopify + automatisations marketing WhatsApp). → question sur les ventes hors site (boutique, WhatsApp) et le stock. → Réponse : toutes les ventes passent par le site, stock déjà automatique. **Stop**, message de bon contact envoyé. Profil à garder (investit dans ses outils).
 
 ## 3. La semaine qui vient
 
