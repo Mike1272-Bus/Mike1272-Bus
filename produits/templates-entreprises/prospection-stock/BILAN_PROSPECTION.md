@@ -107,7 +107,7 @@ Décision de Mike (28 oct.) : **un seul jour** pour la dernière relance de **to
 | Lun. 26 | 10 nouvelles : 1re liste du samedi (sans Bedjiringo ni Poussins) + KIN Élégant + Mkd mode (`nouveaux_prospects_lundi_26oct.md`) | série vendredi (relance 1) + Jiangmenribo + NGF si silence + 10 « bouton pub » des jours 1-2 |
 | Mar. 27 | pas de prospection (reportée au mer. 28) | série samedi (relance 1) |
 | Mer. 28 | **20 nouvelles** (rattrapage de mardi, `prospects_mercredi_28oct.md`) · 14h30 : 34 relances (`meta-ad-library/relances_mercredi_28oct.md`) | série mercredi → chaîne · séries A et B → relance générale fêtes |
-| Jeu. 29 | 10 nouvelles | série vendredi (relance 2) |
+| Jeu. 29 | 12 nouvelles avec WhatsApp, cosmétiques + téléphonie, avec illustration (`prospects_jeudi_29oct.md`) | série vendredi (relance 2) |
 | Ven. 30 | 10 nouvelles | série samedi (relance 2) |
 
 Règles : 1 message privé par semaine max par prospect, 3 relances max puis la chaîne, jamais le week-end, sauvegarde WhatsApp chaque jour.
