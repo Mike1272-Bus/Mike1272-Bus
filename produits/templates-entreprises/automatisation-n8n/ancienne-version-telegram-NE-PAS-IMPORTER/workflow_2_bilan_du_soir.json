@@ -1,0 +1,177 @@
+{
+  "name": "Commerce : bilan du soir (ventes + stock)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "triggerAtHour": 19,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "name": "Chaque soir à 19 h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b97633d7-9aab-47f2-a363-f7bc05c4a50b"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "COLLE_ICI_LE_LIEN_DU_GOOGLE_SHEET",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Commandes",
+          "mode": "name"
+        },
+        "options": {
+          "outputFormatting": {
+            "values": {
+              "general": "UNFORMATTED_VALUE",
+              "date": "SERIAL_NUMBER"
+            }
+          }
+        }
+      },
+      "name": "Lire les commandes",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        220,
+        0
+      ],
+      "id": "9b18fe50-e82f-4826-817f-f79b0b860273",
+      "alwaysOutputData": true,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "COLLE_ICI_LE_LIEN_DU_GOOGLE_SHEET",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Produits",
+          "mode": "name"
+        },
+        "options": {
+          "outputFormatting": {
+            "values": {
+              "general": "UNFORMATTED_VALUE",
+              "date": "SERIAL_NUMBER"
+            }
+          },
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "A4:M204"
+            }
+          }
+        }
+      },
+      "name": "Lire les produits ",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        440,
+        0
+      ],
+      "id": "b52a7240-a1b6-411d-8a29-8c7ef584a514",
+      "alwaysOutputData": true,
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lit un nombre, même s'il arrive en texte (« 1 250 », « 12,5 »)\nfunction num(v) {\n  if (typeof v === 'number') return v;\n  if (v === undefined || v === null || v === '') return 0;\n  const s = String(v).replace(/\\s/g, '').replace(',', '.');\n  const n = parseFloat(s.replace(/[^0-9.\\-]/g, ''));\n  return isNaN(n) ? 0 : n;\n}\n\n// DateTime (Luxon) est fourni directement par n8n\n// Les dates Google Sheets arrivent en « numéro de série » (jours depuis le 30/12/1899)\nconst base = DateTime.fromISO('1899-12-30', { zone: $now.zone });\nconst aujourdhui = Math.round($now.startOf('day').diff(base, 'days').days);\nfunction jour(v) {\n  if (typeof v === 'number') return Math.floor(v);\n  const d = DateTime.fromISO(String(v).replace(' ', 'T'), { zone: $now.zone });\n  return d.isValid ? Math.round(d.startOf('day').diff(base, 'days').days) : null;\n}\n\nconst commandes = $('Lire les commandes').all().map(i => i.json)\n  .filter(c => c['Code produit'] && jour(c['Date']) === aujourdhui && c['Statut'] !== 'Annulée');\nconst total = commandes.reduce((s, c) => s + num(c['Montant']), 0);\nconst marge = commandes.reduce((s, c) => s + num(c['Montant']) - num(c[\"Coût d'achat\"]), 0);\nconst nonLivrees = commandes.filter(c => c['Statut'] === 'Nouvelle').length;\n\nconst produits = $input.all().map(i => i.json).filter(p => p['Code']);\nconst rupture = produits.filter(p => p['État'] === 'Rupture').map(p => `- ${p['Produit']}`);\nconst aCommander = produits.filter(p => p['État'] === 'À commander')\n  .map(p => `- ${p['Produit']} (reste ${num(p['Stock actuel'])})`);\n\nlet texte = `📊 Bilan du ${$now.toFormat('dd/MM/yyyy')}\\n`\n  + `Commandes du jour : ${commandes.length}\\n`\n  + `Total des ventes : ${total}\\n`\n  + `Marge brute : ${marge}\\n`\n  + `Pas encore livrées : ${nonLivrees}\\n`;\nif (rupture.length) texte += `\\n🔴 En rupture :\\n${rupture.join('\\n')}\\n`;\nif (aCommander.length) texte += `\\n🟠 À commander :\\n${aCommander.join('\\n')}\\n`;\nif (!rupture.length && !aCommander.length) texte += `\\n✅ Aucun produit à commander.`;\nreturn [{ json: { texte } }];\n"
+      },
+      "name": "Préparer le bilan",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "5c0e6236-711e-4825-a353-d7f0006d10a3"
+    },
+    {
+      "parameters": {
+        "chatId": "COLLE_ICI_TON_CHAT_ID_TELEGRAM",
+        "text": "={{ $json.texte }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "name": "Envoyer le bilan",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        880,
+        0
+      ],
+      "id": "0179f7c2-b5ee-43f3-a2a3-147b5053da27"
+    }
+  ],
+  "connections": {
+    "Chaque soir à 19 h": {
+      "main": [
+        [
+          {
+            "node": "Lire les commandes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lire les commandes": {
+      "main": [
+        [
+          {
+            "node": "Lire les produits ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lire les produits ": {
+      "main": [
+        [
+          {
+            "node": "Préparer le bilan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Préparer le bilan": {
+      "main": [
+        [
+          {
+            "node": "Envoyer le bilan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Africa/Kinshasa"
+  },
+  "pinData": {}
+}

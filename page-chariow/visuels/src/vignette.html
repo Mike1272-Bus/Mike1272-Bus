@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+#root { width:1080px; height:1080px; --glow: 50% 60%; }
+#t { left:0; right:0; top:58px; text-align:center; font-size:112px; line-height:1.02; }
+#back { left:560px; top:400px; width:430px; height:430px; transform: rotate(9deg); }
+#cover { left:250px; top:360px; width:540px; height:540px; transform: rotate(-4deg); }
+#price { left:770px; top:300px; width:250px; height:250px; transform: rotate(10deg); }
+#price .old { font-size:50px; } #price .new { font-size:92px; margin-top:6px; }
+#price .lab { font-size:26px; margin-top:4px; }
+#chip { left:50%; top:960px; transform: translateX(-50%) rotate(-1.5deg); font-size:36px; padding:12px 34px 4px; }
+.noprice #price { display:none; }
+.noprice #back { left:590px; }
+</style></head><body><div id="root">
+<div id="t" class="abs">Gagne ta vie<br><span class="hl">sans diplôme</span></div>
+<svg class="spark" style="left:70px;top:300px;width:80px" viewBox="0 0 100 100"><path d="M50 0C55 35 65 45 100 50C65 55 55 65 50 100C45 65 35 55 0 50C35 45 45 35 50 0Z" fill="#ff5c00" stroke="#111" stroke-width="5"/></svg>
+<svg class="spark" style="left:150px;top:390px;width:44px" viewBox="0 0 100 100"><path d="M50 0C55 35 65 45 100 50C65 55 55 65 50 100C45 65 35 55 0 50C35 45 45 35 50 0Z" fill="#ffd60a" stroke="#111" stroke-width="5"/></svg>
+<svg class="spark" style="left:920px;top:70px;width:60px" viewBox="0 0 100 100"><path d="M50 0C55 35 65 45 100 50C65 55 55 65 50 100C45 65 35 55 0 50C35 45 45 35 50 0Z" fill="#ffd60a" stroke="#111" stroke-width="5"/></svg>
+<svg class="spark" style="left:110px;top:830px;width:56px" viewBox="0 0 100 100"><path d="M50 0C55 35 65 45 100 50C65 55 55 65 50 100C45 65 35 55 0 50C35 45 45 35 50 0Z" fill="#ff5c00" stroke="#111" stroke-width="5"/></svg>
+<div id="back" class="page"><img src="p15_test7j.jpg"></div>
+<div id="cover" class="page"><img src="cover.jpg"></div>
+<div id="price" class="sticker"><span class="old">6,9 $</span><span class="new">4,9 $</span><span class="lab">LANCEMENT</span></div>
+<div id="chip" class="abs chip">Guide PDF + plan de 7 jours</div>
+</div><script>if(location.hash=='#noprice')document.getElementById('root').classList.add('noprice')</script></body></html>

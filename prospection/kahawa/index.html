@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 400; src: url('assets/fonts/bricolage-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 700; src: url('assets/fonts/bricolage-700.ttf') format('truetype'); }
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0c0907; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #f5ece0; font-family: 'Bricolage', sans-serif;
+        background: radial-gradient(circle at 50% 32%, #33231a 0%, #18110c 48%, #0a0705 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+      .title span, .words span, .eyebrow span { display: inline-block; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: 0.32em; color: #e09a4f; text-transform: uppercase; }
+      .words { font-family: 'Work Sans'; font-weight: 400; font-size: 44px; color: #ece0cf; }
+      #glow { left: -300px; top: -200px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(224,154,79,0.22) 0%, rgba(224,154,79,0) 65%); }
+      #motif { opacity: 0.09; }
+      .piece { position: absolute; background-repeat: no-repeat; }
+      .lg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url('assets/img/logo.png') center / 100% 100% no-repeat; }
+      .hl { clip-path: polygon(0% 0%, 72% 0%, 28% 100%, 0% 100%); }
+      .hr { clip-path: polygon(72% 0%, 100% 0%, 100% 100%, 28% 100%); }
+
+      /* S1 */
+      #logoA, #logoAfull { left: 270px; top: 470px; width: 540px; height: 540px; }
+      #wA { top: 1095px; font-size: 150px; letter-spacing: 0.06em; }
+      #tagA1 { top: 1268px; font-family: 'Work Sans'; font-size: 46px; color: #ece0cf; }
+      #tagA2 { top: 1332px; font-family: 'Work Sans'; font-weight: 700; font-size: 46px; color: #e09a4f; }
+
+      /* S2 */
+      #e2 { top: 150px; }
+      .t2 { top: 200px; font-size: 150px; }
+      #t2a { clip-path: inset(0 0 50% 0); color: #f5ece0; }
+      #t2b { clip-path: inset(50% 0 0 0); color: #e09a4f; }
+      #p2 { left: 180px; top: 420px; width: 720px; height: 900px; border-radius: 30px; overflow: hidden; }
+      .bub { position: absolute; left: 0; top: 0; width: 720px; height: 900px; background: url('assets/img/verre.jpg') center / 100% 100% no-repeat; }
+      #s2a { top: 1375px; font-size: 42px; font-style: italic; }
+      #s2b { top: 1432px; font-size: 42px; font-style: italic; color: #e09a4f; }
+
+      /* S3 */
+      #e3 { top: 130px; }
+      #slot3 { left: 0; top: 175px; width: 1080px; height: 230px; overflow: hidden; }
+      .sw { left: 0; top: 0; width: 1080px; text-align: center; font-weight: 800; font-size: 100px; line-height: 110px; text-transform: uppercase; color: #f5ece0; white-space: nowrap; }
+      .sw em { font-style: normal; color: #e09a4f; }
+      #fl3 { left: 110px; top: 440px; width: 860px; height: 975px; }
+      .tile { position: absolute; }
+      .face { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-repeat: no-repeat; }
+
+      /* S4 */
+      #s4 { overflow: hidden; }
+      #e4 { top: 170px; }
+      #t4a { top: 220px; font-size: 96px; }
+      #t4b { top: 325px; font-size: 96px; color: #e09a4f; }
+      .pan { top: 480px; width: 450px; height: 800px; border-radius: 26px; background-size: cover; box-shadow: 0 24px 50px rgba(0,0,0,0.55); }
+      #pa { left: 70px; background-image: url('assets/img/frappe.jpg'); background-position: 45% 50%; }
+      #pb { left: 560px; background-image: url('assets/img/gobelet.jpg'); background-position: 72% 50%; }
+      #s4w { top: 1330px; font-size: 38px; }
+
+      /* S5 */
+      #logoB, #logoBfull { left: 340px; top: 420px; width: 400px; height: 400px; }
+      #wB { top: 880px; height: 140px; overflow: hidden; font-size: 124px; line-height: 140px; letter-spacing: 0.06em; }
+      #s5 { top: 1040px; font-size: 40px; }
+      #ctaFill { left: 170px; top: 1170px; width: 740px; height: 104px; border-radius: 52px; background: #e09a4f; opacity: 0; }
+      #ctaT { left: 170px; top: 1170px; width: 740px; height: 104px; line-height: 104px; text-align: center; font-family: 'Work Sans'; font-weight: 700; font-size: 42px; color: #f5ece0; }
+      #h5 { top: 1320px; font-family: 'Work Sans'; font-weight: 700; font-size: 36px; color: #e09a4f; letter-spacing: 0.02em; }
+      #fade { background: #0a0705; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div class="ab" id="glow"></div>
+      <svg class="ab full" id="motif" viewBox="0 0 1080 1920"></svg>
+      <svg class="ab full" id="bigRing" viewBox="0 0 1080 1920"><circle cx="540" cy="900" r="500" fill="none" stroke="#e09a4f" stroke-width="2" stroke-dasharray="3 22" opacity="0.4"/></svg>
+
+      <!-- S1 : la graine se referme -->
+      <svg class="ab full" id="ringsA" viewBox="0 0 1080 1920"><circle id="ringA" cx="540" cy="740" r="292" fill="none" stroke="#e09a4f" stroke-width="6" transform="rotate(-90 540 740)"/></svg>
+      <div class="ab" id="logoA"><div class="lg hl" id="la_l"></div><div class="lg hr" id="la_r"></div></div>
+      <div class="ab" id="logoAfull"><div class="lg"></div></div>
+      <div class="ab center title" id="wA" data-layout-allow-overlap></div>
+      <div class="ab center" id="tagA1">« Kahawa » veut dire café,</div>
+      <div class="ab center" id="tagA2">en swahili</div>
+
+      <!-- S2 : café 100 % congolais, la photo apparaît en bulles -->
+      <div class="ab center eyebrow" id="e2"></div>
+      <div class="ab center title t2" id="t2a">Congolais</div>
+      <div class="ab center title t2" id="t2b">Congolais</div>
+      <div class="ab" id="p2"></div>
+      <div class="ab center words" id="s2a"></div>
+      <div class="ab center words" id="s2b"></div>
+
+      <!-- S3 : le menu, la mosaïque se retourne -->
+      <div class="ab center eyebrow" id="e3">Au menu</div>
+      <div class="ab" id="slot3">
+        <div class="ab sw" id="m3a" data-layout-allow-overlap>Nouvelles<br><em>boissons</em></div>
+        <div class="ab sw" id="m3b" data-layout-allow-overlap>Nouveaux<br><em>plats</em></div>
+      </div>
+      <div class="ab" id="fl3"></div>
+
+      <!-- S4 : l'objectif -->
+      <div class="ab full" id="s4">
+        <div class="ab center eyebrow" id="e4">Notre objectif</div>
+        <div class="ab center title" id="t4a" data-layout-allow-overlap></div>
+        <div class="ab center title" id="t4b" data-layout-allow-overlap></div>
+        <div class="ab pan" id="pa"></div>
+        <div class="ab pan" id="pb"></div>
+        <div class="ab center words" id="s4w"></div>
+      </div>
+      <svg class="ab full" id="iris" viewBox="0 0 1080 1920"><circle id="irisC" cx="540" cy="620" r="1300" fill="none" stroke="#e09a4f" stroke-width="10"/></svg>
+
+      <!-- S5 : la graine se referme encore -->
+      <svg class="ab full" id="ringsB" viewBox="0 0 1080 1920"><circle id="ringB" cx="540" cy="620" r="218" fill="none" stroke="#e09a4f" stroke-width="5" transform="rotate(-90 540 620)"/>
+        <rect id="ctaR" x="170" y="1170" width="740" height="104" rx="52" fill="none" stroke="#e09a4f" stroke-width="4"/></svg>
+      <div class="ab" id="logoB"><div class="lg hl" id="lb_l"></div><div class="lg hr" id="lb_r"></div></div>
+      <div class="ab" id="logoBfull"><div class="lg"></div></div>
+      <div class="ab center title" id="wB" data-layout-allow-overlap></div>
+      <div class="ab center words" id="s5"></div>
+      <div class="ab" id="ctaFill"></div>
+      <div class="ab" id="ctaT">kahawa-congo.com</div>
+      <div class="ab center" id="h5"></div>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="20" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      let seed = 53;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at);
+
+      // ---------- fabrique des morceaux ----------
+      function letters(host, text, prefix) {
+        return [...text].map((ch, i) => {
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = ch === " " ? " " : ch;
+          host.appendChild(s); return s;
+        });
+      }
+      function words(host, text, prefix) {
+        const out = [];
+        text.split(" ").forEach((w, i) => {
+          if (i) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = w; host.appendChild(s); out.push(s);
+        });
+        return out;
+      }
+      // tuiles à deux faces : face A = image A, face B = image B (effet tableau d'affichage)
+      function flipGrid(host, imgA, imgB, W, H, cols, rows, prefix) {
+        const out = [];
+        for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+          const x = Math.round((c * W) / cols), y = Math.round((r * H) / rows);
+          const w = Math.round(((c + 1) * W) / cols) - x, h = Math.round(((r + 1) * H) / rows) - y;
+          const t = document.createElement("div");
+          t.className = "tile"; t.id = `${prefix}${r}_${c}`;
+          Object.assign(t.style, { left: x + "px", top: y + "px", width: w + 1 + "px", height: h + 1 + "px" });
+          const faces = [imgA, imgB].map((img, k) => {
+            const f = document.createElement("div"); f.className = "face"; f.id = t.id + (k ? "b" : "a");
+            Object.assign(f.style, { backgroundImage: `url('${img}')`, backgroundSize: `${W}px ${H}px`, backgroundPosition: `${-x}px ${-y}px` });
+            t.appendChild(f); return f;
+          });
+          host.appendChild(t); out.push({ el: t, a: faces[0], b: faces[1], c, r });
+        }
+        return out;
+      }
+
+      // fond : quelques graines de café en filigrane
+      (() => {
+        let s = "";
+        [[110, 170, 20], [960, 290, -30], [70, 960, 50], [1010, 1120, -10], [140, 1680, 35], [930, 1790, -45], [540, 70, -20], [560, 1880, 10]].forEach(([x, y, a]) => {
+          s += `<g transform="rotate(${a} ${x} ${y})"><ellipse cx="${x}" cy="${y}" rx="28" ry="40" fill="#e09a4f"/><path d="M${x} ${y - 36} C${x - 12} ${y - 10} ${x + 12} ${y + 10} ${x} ${y + 36}" stroke="#18110c" stroke-width="6" fill="none"/></g>`;
+        });
+        $("motif").innerHTML = s;
+      })();
+
+      const LA = letters($("wA"), "Kahawa", "la");
+      const LE2 = letters($("e2"), "Café 100 %", "le");
+      // 9 bulles : chaque bulle porte la même photo, elles grandissent jusqu'à la recomposer en entier
+      const BUB = [];
+      for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) {
+        const d = document.createElement("div"); d.className = "bub"; d.id = `bb${r}_${c}`; $("p2").appendChild(d);
+        BUB.push({ el: d, x: 120 + c * 240 + (rnd() - 0.5) * 80, y: 150 + r * 300 + (rnd() - 0.5) * 80, k: r * 3 + c });
+      }
+      const S2 = [...words($("s2a"), "Une graine de café,", "sa_"), ...words($("s2b"), "et en son cœur, un caféier.", "sb_")];
+      const FL = flipGrid($("fl3"), "assets/img/boissons.jpg", "assets/img/plats.jpg", 860, 975, 4, 4, "fl");
+      const T4 = [...words($("t4a"), "Rendre ce café", "ta"), ...words($("t4b"), "plus accessible", "tb")];
+      const S4 = words($("s4w"), "à la population congolaise et internationale.", "sp");
+      const LB = letters($("wB"), "Kahawa", "lk");
+      const S5 = words($("s5"), "Par des jeunes passionnés du métier", "sz");
+      const H5 = letters($("h5"), "@kahawa · Lubumbashi", "hh");
+
+      const L_A = $("ringA").getTotalLength(), L_B = $("ringB").getTotalLength(), L_C = $("ctaR").getTotalLength();
+      gsap.set("#ringA", { strokeDasharray: L_A, strokeDashoffset: L_A });
+      gsap.set("#ringB", { strokeDasharray: L_B, strokeDashoffset: L_B });
+      gsap.set("#ctaR", { strokeDasharray: L_C, strokeDashoffset: L_C });
+      gsap.set(["#la_l", "#la_r", "#lb_l", "#lb_r", "#logoAfull", "#tagA1", "#tagA2", "#t2a", "#t2b", "#e3", "#m3a", "#m3b", "#e4", "#pa", "#pb", "#iris", "#logoBfull", "#ctaT", "#bigRing"], { autoAlpha: 0 });
+      gsap.set([...LA, ...LE2, ...S2, ...FL.map((f) => f.el), ...FL.map((f) => f.b), ...T4, ...S4, ...LB, ...S5, ...H5], { autoAlpha: 0 });
+      BUB.forEach((b) => gsap.set(b.el, { clipPath: `circle(0px at ${b.x.toFixed(0)}px ${b.y.toFixed(0)}px)` }));
+      gsap.set("#s4", { clipPath: "circle(150% at 50% 620px)" });
+      gsap.set("#fade", { autoAlpha: 1 });
+
+      // ---------- ambiance continue ----------
+      tl.fromTo("#glow", { x: 0, y: 0 }, { x: 420, y: 900, duration: 20, ease: "sine.inOut" }, 0);
+      tl.fromTo("#motif", { y: 0 }, { y: -160, duration: 20, ease: "none" }, 0);
+      IN("#bigRing", {}, { duration: 1.5 }, 0.3);
+      tl.fromTo("#bigRing", { rotation: 0, transformOrigin: "540px 900px" }, { rotation: 120, duration: 20, ease: "none" }, 0);
+
+      // ---------- S1 : les deux moitiés de la graine se referment (0 - 3.4) ----------
+      tl.to("#fade", { autoAlpha: 0, duration: 0.5, ease: "power2.out" }, 0);
+      IN("#la_l", { x: -760, y: 120, rotation: -50 }, { x: 0, y: 0, rotation: 0, duration: 1.0, ease: "expo.out" }, 0.25);
+      IN("#la_r", { x: 760, y: -120, rotation: 50 }, { x: 0, y: 0, rotation: 0, duration: 1.0, ease: "expo.out" }, 0.35);
+      FT("#logoA", { scale: 1 }, { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" }, 1.05);
+      tl.set("#logoAfull", { autoAlpha: 1 }, 1.4);
+      tl.set(["#la_l", "#la_r"], { autoAlpha: 0 }, 1.4);
+      tl.fromTo("#ringA", { strokeDashoffset: L_A }, { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut", immediateRender: false }, 0.9);
+      LA.forEach((s, i) => IN(s, { y: 200, rotation: (rnd() - 0.5) * 40, scale: 0.4 }, { y: 0, rotation: 0, scale: 1, duration: 0.6, ease: "back.out(1.8)" }, 1.3 + i * 0.07));
+      IN("#tagA1", { x: -1100 }, { x: 0, duration: 0.6, ease: "expo.out" }, 2.0);
+      IN("#tagA2", { x: 1100 }, { x: 0, duration: 0.6, ease: "expo.out" }, 2.12);
+
+      // la graine se rouvre
+      tl.set("#logoAfull", { autoAlpha: 0 }, 3.1);
+      tl.set(["#la_l", "#la_r"], { autoAlpha: 1 }, 3.1);
+      FT("#la_l", { x: 0, y: 0, rotation: 0, autoAlpha: 1 }, { x: -900, y: 200, rotation: -60, autoAlpha: 0, duration: 0.55, ease: "power3.in" }, 3.1);
+      FT("#la_r", { x: 0, y: 0, rotation: 0, autoAlpha: 1 }, { x: 900, y: -200, rotation: 60, autoAlpha: 0, duration: 0.55, ease: "power3.in" }, 3.1);
+      tl.fromTo("#ringA", { strokeDashoffset: 0 }, { strokeDashoffset: -L_A, duration: 0.5, ease: "power2.in", immediateRender: false }, 3.05);
+      LA.forEach((s, i) => FT(s, { y: 0, autoAlpha: 1 }, { y: 600, rotation: (rnd() - 0.5) * 120, autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 3.1 + i * 0.03));
+      FT("#tagA1", { x: 0, autoAlpha: 1 }, { x: 1100, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+      FT("#tagA2", { x: 0, autoAlpha: 1 }, { x: -1100, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 3.05);
+
+      // ---------- S2 : café 100 % congolais, la photo apparaît en bulles (3.45 - 7.8) ----------
+      BUB.forEach((b, i) => {
+        const at = 3.5 + [4, 1, 6, 3, 0, 7, 5, 2, 8][i] * 0.08, c = `${b.x.toFixed(0)}px ${b.y.toFixed(0)}px`;
+        FT(b.el, { clipPath: `circle(0px at ${c})` }, { clipPath: `circle(430px at ${c})`, duration: 1.0, ease: "expo.out" }, at);
+        FT(b.el, { clipPath: `circle(430px at ${c})` }, { clipPath: `circle(0px at ${c})`, duration: 0.45, ease: "power3.in" }, 7.25 + [0, 3, 6, 1, 4, 7, 2, 5, 8][i] * 0.03);
+      });
+      FT("#p2", { scale: 1.08 }, { scale: 1, duration: 3.8, ease: "power1.out" }, 3.5);
+      IN("#t2a", { x: -1200 }, { x: 0, duration: 0.8, ease: "expo.out" }, 3.6);
+      IN("#t2b", { x: 1200 }, { x: 0, duration: 0.8, ease: "expo.out" }, 3.6);
+      LE2.forEach((s, i) => IN(s, { y: 30 }, { y: 0, duration: 0.35, ease: "power2.out" }, 4.0 + i * 0.04));
+      S2.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.45, ease: "power3.out" }, 4.7 + i * 0.12));
+      FT("#t2a", { x: 0, autoAlpha: 1 }, { x: 1200, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.25);
+      FT("#t2b", { x: 0, autoAlpha: 1 }, { x: -1200, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, 7.25);
+      FT([...LE2, ...S2], { y: 0, autoAlpha: 1 }, { y: 50, autoAlpha: 0, duration: 0.35, ease: "power2.in" }, 7.25);
+
+      // ---------- S3 : le menu, la mosaïque se retourne (7.9 - 12.1) ----------
+      IN("#e3", { y: 20 }, { y: 0, duration: 0.4 }, 7.95);
+      IN("#m3a", { y: 230 }, { y: 0, duration: 0.5, ease: "power3.out" }, 8.0);
+      FL.forEach((f) => IN(f.el, { scale: 0, rotation: (f.r + f.c) % 2 ? 90 : -90 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.5)" }, 8.1 + (f.r + f.c) * 0.06));
+      FT("#fl3", { scale: 1 }, { scale: 1.03, duration: 1.4, ease: "sine.inOut" }, 8.6);
+      FL.forEach((f) => {
+        const at = 9.9 + (f.r + f.c) * 0.07;
+        FT(f.el, { scaleX: 1 }, { scaleX: 0, duration: 0.18, ease: "power2.in" }, at);
+        tl.set(f.a, { autoAlpha: 0 }, at + 0.18);
+        tl.set(f.b, { autoAlpha: 1 }, at + 0.18);
+        FT(f.el, { scaleX: 0 }, { scaleX: 1, duration: 0.18, ease: "power2.out" }, at + 0.18);
+      });
+      FT("#fl3", { scale: 1.03 }, { scale: 1, duration: 0.5, ease: "power2.out" }, 9.9);
+      FT("#m3a", { y: 0, autoAlpha: 1 }, { y: -230, autoAlpha: 0, duration: 0.45, ease: "power3.inOut" }, 9.95);
+      IN("#m3b", { y: 230 }, { y: 0, duration: 0.45, ease: "power3.inOut" }, 9.95);
+      FL.forEach((f) => FT(f.el, { y: 0, autoAlpha: 1 }, { y: 1400, rotation: (rnd() - 0.5) * 60, autoAlpha: 0, duration: 0.55, ease: "power3.in" }, 11.55 + (3 - f.r) * 0.04 + f.c * 0.02));
+      FT(["#e3", "#m3b"], { y: 0, autoAlpha: 1 }, { y: -300, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 11.55);
+
+      // ---------- S4 : l'objectif, deux panneaux qui se rejoignent (12.2 - 16.1) ----------
+      IN("#e4", { y: 20 }, { y: 0, duration: 0.4 }, 12.15);
+      T4.forEach((s, i) => IN(s, { y: 120, scale: 0.6 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 12.2 + i * 0.09));
+      IN("#pa", { y: -1300, rotation: -6 }, { y: 0, rotation: 0, duration: 0.8, ease: "expo.out" }, 12.6);
+      IN("#pb", { y: 1300, rotation: 6 }, { y: 0, rotation: 0, duration: 0.8, ease: "expo.out" }, 12.75);
+      FT("#pa", { x: 0 }, { x: -12, duration: 2.2, ease: "sine.inOut" }, 13.5);
+      FT("#pb", { x: 0 }, { x: 12, duration: 2.2, ease: "sine.inOut" }, 13.5);
+      S4.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.45, ease: "power3.out" }, 13.6 + i * 0.08));
+      FT("#s4", { clipPath: "circle(150% at 50% 620px)" }, { clipPath: "circle(0% at 50% 620px)", duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 1 }, 15.7);
+      FT("#irisC", { attr: { r: 1300 } }, { attr: { r: 0 }, duration: 0.55, ease: "power3.in" }, 15.7);
+      tl.set("#iris", { autoAlpha: 0 }, 16.25);
+
+      // ---------- S5 : la graine se referme (16.2 - 20) ----------
+      IN("#lb_l", { x: -600, y: 100, rotation: -50 }, { x: 0, y: 0, rotation: 0, duration: 0.9, ease: "expo.out" }, 16.2);
+      IN("#lb_r", { x: 600, y: -100, rotation: 50 }, { x: 0, y: 0, rotation: 0, duration: 0.9, ease: "expo.out" }, 16.3);
+      tl.set("#logoBfull", { autoAlpha: 1 }, 17.3);
+      tl.set(["#lb_l", "#lb_r"], { autoAlpha: 0 }, 17.3);
+      tl.fromTo("#ringB", { strokeDashoffset: L_B }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 16.5);
+      LB.forEach((s, i) => IN(s, { y: 150 }, { y: 0, duration: 0.55, ease: "power3.out" }, 16.75 + i * 0.06));
+      S5.forEach((s, i) => IN(s, { y: 40 }, { y: 0, duration: 0.45, ease: "power3.out" }, 17.2 + i * 0.08));
+      tl.fromTo("#ctaR", { strokeDashoffset: L_C }, { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut", immediateRender: false }, 17.5);
+      IN("#ctaT", { y: 20 }, { y: 0, duration: 0.45, ease: "power2.out" }, 17.9);
+      FT("#ctaFill", { opacity: 0 }, { opacity: 0.2, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 18.4);
+      H5.forEach((s, i) => IN(s, { y: 20 }, { y: 0, duration: 0.3, ease: "power2.out" }, 18.1 + i * 0.03));
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 19.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

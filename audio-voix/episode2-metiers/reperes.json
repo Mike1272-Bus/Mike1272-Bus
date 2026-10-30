@@ -1,0 +1,109 @@
+{
+ "debut_voix": 0.6,
+ "fin_voix": 88.16,
+ "parties": [
+  [
+   11.53,
+   "fin de l'accroche, l'histoire de Patrick commence"
+  ],
+  [
+   20.38,
+   "\u00ab Pas d'argent. \u00bb"
+  ],
+  [
+   25.67,
+   "la question : \u00ab et si les gens pouvaient voir mon travail\u2026 ? \u00bb"
+  ],
+  [
+   28.98,
+   "il filme ses mains (REC)"
+  ],
+  [
+   32.05,
+   "les commentaires : \u00ab Comment tu fais \u00e7a ? \u00bb"
+  ],
+  [
+   34.4,
+   "\u00ab C'est l\u00e0 qu'il a l'id\u00e9e. \u00bb"
+  ],
+  [
+   49.03,
+   "la vente sur Chariow (paiement re\u00e7u)"
+  ],
+  [
+   51.82,
+   "les r\u00e9seaux et la publicit\u00e9"
+  ],
+  [
+   67.33,
+   "\u00ab Et ce n'est pas que la menuiserie \u00bb"
+  ],
+  [
+   77.53,
+   "\u00ab Patrick, c'est une histoire \u00bb : la r\u00e9v\u00e9lation"
+  ],
+  [
+   84.13,
+   "la question finale : \u00ab Et toi, c'est quoi ta comp\u00e9tence ? \u00bb"
+  ]
+ ],
+ "bruitages": [
+  [
+   0.0,
+   "whoosh-cinematic"
+  ],
+  [
+   0.35,
+   "impact-bass-1"
+  ],
+  [
+   11.53,
+   "whoosh"
+  ],
+  [
+   20.38,
+   "error"
+  ],
+  [
+   25.67,
+   "pop"
+  ],
+  [
+   28.98,
+   "click"
+  ],
+  [
+   32.05,
+   "notification"
+  ],
+  [
+   34.4,
+   "sparkle"
+  ],
+  [
+   49.03,
+   "ping"
+  ],
+  [
+   51.82,
+   "whoosh-short"
+  ],
+  [
+   67.05,
+   "whoosh"
+  ],
+  [
+   77.11,
+   "impact-bass-1"
+  ],
+  [
+   83.71,
+   "pop"
+  ],
+  [
+   88.06,
+   "chime"
+  ]
+ ],
+ "duree": 89.96
+}

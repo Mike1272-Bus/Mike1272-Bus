@@ -1,0 +1,11 @@
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+import path from 'path';
+const dir = path.dirname(new URL(import.meta.url).pathname);
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+const p = await b.newPage({ viewport: { width: 1080, height: 1350 } });
+await p.goto('file://' + path.join(dir, 'plan_formation_video.html'));
+await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(500);
+await p.pdf({ path: path.join(dir, 'plan_formation_video.pdf'), width: '1080px', height: '1350px', printBackground: true });
+const n = await p.locator('section.page').count();
+for (let i = 0; i < n; i++) await p.locator('section.page').nth(i).screenshot({ path: path.join(dir, 'apercu', `plan_${i + 1}.png`) });
+await b.close(); console.log('pages', n);

@@ -1,0 +1,9 @@
+# Troisième passage (avant / après) : gadgets, vêtements, cosmétiques
+casque|headphones
+gadget|gadgets
+smartwatch|smartwatch
+vetements|clothes
+robe|dress
+mode|fashion
+maquillage|makeup
+creme|skin-care

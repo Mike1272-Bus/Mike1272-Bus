@@ -1,0 +1,9 @@
+# fichier source : voix/hugo-elevenlabs.mp3 (ElevenLabs, voix « Hugo - Serious and Professional », 16 octobre)
+# début fin (secondes) dans l'ordre : burger, glace, vetements-femmes, cosmetiques, chaussures, gadget, fin
+0.00 3.15
+3.40 6.02
+6.25 9.66
+9.85 12.45
+12.78 15.65
+15.85 19.48
+19.75 23.25

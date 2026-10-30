@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My automation · Votre stock se gère tout seul</title>
+<meta name="description" content="Chaque vente met à jour votre stock et arrive sur votre WhatsApp. Alerte avant la rupture, bilan du soir, liste du matin. Démonstration gratuite de 15 minutes.">
+<meta property="og:title" content="My automation · Votre stock se gère tout seul">
+<meta property="og:description" content="Chaque vente met à jour votre stock et arrive sur votre WhatsApp. Démonstration gratuite de 15 minutes.">
+<meta property="og:image" content="media/logo_my_automation.png">
+<link rel="icon" href="media/logo_my_automation.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* DA « verre 3D » : fond lavande clair, objets en verre, panneaux bleu nuit, mise en page en cases (bento). Le circuit de la vente est le fil de la page. */
+:root{
+  --bg:#eceef6; --bg-2:#e2e1f6; --ink:#12142a; --muted:#5b5f78;
+  --accent:#5b57f0; --accent-2:#7e7bff; --accent-ink:#ffffff;
+  --night:#12142a; --night-2:#1c1f3d; --night-ink:#eef0ff; --night-muted:#a9acd0;
+  --card:#f6f6fb; --glass:rgba(255,255,255,.34); --glass-line:rgba(255,255,255,.75);
+  --teal:#6fc7d3; --pink:#f2a3c7; --wa:#25d366;
+  --font:"Josefin Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --net-dark:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22900%22 height=%22700%22 viewBox=%220 0 900 700%22 fill=%22none%22%3E%3Cpath d=%22M-6 -10L95 1%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M-6 -10L66 86%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M95 1L66 86%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M204 0L170 91%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M204 0L259 83%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M328 -12L437 9%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M328 -12L259 83%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M328 -12L391 93%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M437 9L391 93%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M437 9L498 94%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M754 10L867 -11%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M754 10L616 101%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M754 10L762 187%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M867 -11L754 10%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M867 -11L921 93%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M66 86L95 1%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M66 86L170 91%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M170 91L259 83%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M170 91L204 0%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M259 83L170 91%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M391 93L437 9%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M498 94L556 178%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M616 101L556 178%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M616 101L498 94%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M921 93L863 189%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M921 93L867 -11%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M921 93L926 271%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M-13 190L41 273%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M-13 190L116 197%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M116 197L152 278%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M116 197L41 273%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M234 185L333 192%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M333 192L288 273%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M333 192L234 185%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M452 202L508 279%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M452 202L556 178%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M556 178L616 101%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M556 178L498 94%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M762 187L863 189%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M762 187L702 276%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M863 189L762 187%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M863 189L926 271%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M41 273L-13 190%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M41 273L116 197%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M152 278L116 197%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M152 278L117 380%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M152 278L41 273%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M288 273L333 192%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M288 273L234 185%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M508 279L452 202%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M702 276L754 366%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M702 276L762 187%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M815 285L754 366%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M815 285L866 376%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M815 285L863 189%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M926 271L863 189%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M926 271L815 285%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M926 271L866 376%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M117 380L156 471%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M117 380L152 278%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M436 377L481 471%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M436 377L384 475%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M555 368L650 371%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M650 371L555 368%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M650 371L617 466%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M650 371L754 366%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M754 366L815 285%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M754 366L702 276%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M866 376L827 462%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M68 478L156 471%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M68 478L120 571%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M156 471L68 478%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M156 471L117 380%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M384 475L481 471%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M384 475L436 377%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M481 471L384 475%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M481 471L436 377%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M481 471L451 577%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M617 466L650 371%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M731 476L827 462%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M827 462L866 376%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M827 462L731 476%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M952 485L827 462%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M952 485L866 376%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M952 485L951 671%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M-9 566L50 657%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M120 571L154 657%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M451 577L551 566%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M451 577L481 471%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M551 566L643 564%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M551 566L451 577%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M643 564L551 566%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M643 564L617 466%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M777 583L842 662%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M50 657L154 657%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M154 657L120 571%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M154 657L50 657%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M154 657L289 675%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M289 675L391 673%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M391 673L289 675%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M614 664L643 564%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M614 664L551 566%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M614 664L777 583%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M842 662L777 583%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M842 662L951 671%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M951 671L842 662%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M951 671L952 485%22 stroke=%22rgba%28255%2C255%2C255%2C0.10%29%22 stroke-width=%221.6%22/%3E%3Ccircle cx=%22-6%22 cy=%22-10%22 r=%229%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%2295%22 cy=%221%22 r=%224%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22204%22 cy=%220%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22328%22 cy=%22-12%22 r=%227%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22437%22 cy=%229%22 r=%227%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22754%22 cy=%2210%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22867%22 cy=%22-11%22 r=%227%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%2266%22 cy=%2286%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22170%22 cy=%2291%22 r=%229%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22259%22 cy=%2283%22 r=%227%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22391%22 cy=%2293%22 r=%224%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22498%22 cy=%2294%22 r=%227%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22616%22 cy=%22101%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22921%22 cy=%2293%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22-13%22 cy=%22190%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22116%22 cy=%22197%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22234%22 cy=%22185%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22333%22 cy=%22192%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22452%22 cy=%22202%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22556%22 cy=%22178%22 r=%224%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22762%22 cy=%22187%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22863%22 cy=%22189%22 r=%229%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%2241%22 cy=%22273%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22152%22 cy=%22278%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22288%22 cy=%22273%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22508%22 cy=%22279%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22702%22 cy=%22276%22 r=%229%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22815%22 cy=%22285%22 r=%224%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22926%22 cy=%22271%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22117%22 cy=%22380%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22436%22 cy=%22377%22 r=%229%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22555%22 cy=%22368%22 r=%229%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22650%22 cy=%22371%22 r=%229%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22754%22 cy=%22366%22 r=%224%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22866%22 cy=%22376%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%2268%22 cy=%22478%22 r=%224%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22156%22 cy=%22471%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22384%22 cy=%22475%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22481%22 cy=%22471%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22617%22 cy=%22466%22 r=%229%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22731%22 cy=%22476%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22827%22 cy=%22462%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22952%22 cy=%22485%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22-9%22 cy=%22566%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22120%22 cy=%22571%22 r=%229%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22451%22 cy=%22577%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22551%22 cy=%22566%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22643%22 cy=%22564%22 r=%229%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22777%22 cy=%22583%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%2250%22 cy=%22657%22 r=%227%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22154%22 cy=%22657%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22289%22 cy=%22675%22 r=%224%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22391%22 cy=%22673%22 r=%225%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22614%22 cy=%22664%22 r=%223%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22842%22 cy=%22662%22 r=%224%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3Ccircle cx=%22951%22 cy=%22671%22 r=%224%22 fill=%22rgba%28255%2C255%2C255%2C0.16%29%22/%3E%3C/svg%3E");
+  --net-light:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22900%22 height=%22700%22 viewBox=%220 0 900 700%22 fill=%22none%22%3E%3Cpath d=%22M-6 -10L95 1%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M-6 -10L66 86%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M95 1L66 86%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M204 0L170 91%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M204 0L259 83%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M328 -12L437 9%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M328 -12L259 83%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M328 -12L391 93%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M437 9L391 93%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M437 9L498 94%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M754 10L867 -11%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M754 10L616 101%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M754 10L762 187%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M867 -11L754 10%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M867 -11L921 93%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M66 86L95 1%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M66 86L170 91%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M170 91L259 83%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M170 91L204 0%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M259 83L170 91%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M391 93L437 9%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M498 94L556 178%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M616 101L556 178%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M616 101L498 94%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M921 93L863 189%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M921 93L867 -11%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M921 93L926 271%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M-13 190L41 273%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M-13 190L116 197%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M116 197L152 278%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M116 197L41 273%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M234 185L333 192%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M333 192L288 273%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M333 192L234 185%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M452 202L508 279%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M452 202L556 178%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M556 178L616 101%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M556 178L498 94%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M762 187L863 189%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M762 187L702 276%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M863 189L762 187%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M863 189L926 271%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M41 273L-13 190%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M41 273L116 197%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M152 278L116 197%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M152 278L117 380%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M152 278L41 273%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M288 273L333 192%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M288 273L234 185%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M508 279L452 202%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M702 276L754 366%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M702 276L762 187%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M815 285L754 366%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M815 285L866 376%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M815 285L863 189%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M926 271L863 189%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M926 271L815 285%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M926 271L866 376%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M117 380L156 471%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M117 380L152 278%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M436 377L481 471%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M436 377L384 475%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M555 368L650 371%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M650 371L555 368%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M650 371L617 466%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M650 371L754 366%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M754 366L815 285%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M754 366L702 276%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M866 376L827 462%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M68 478L156 471%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M68 478L120 571%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M156 471L68 478%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M156 471L117 380%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M384 475L481 471%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M384 475L436 377%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M481 471L384 475%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M481 471L436 377%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M481 471L451 577%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M617 466L650 371%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M731 476L827 462%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M827 462L866 376%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M827 462L731 476%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M952 485L827 462%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M952 485L866 376%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M952 485L951 671%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M-9 566L50 657%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M120 571L154 657%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M451 577L551 566%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M451 577L481 471%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M551 566L643 564%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M551 566L451 577%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M643 564L551 566%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M643 564L617 466%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M777 583L842 662%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M50 657L154 657%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M154 657L120 571%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M154 657L50 657%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M154 657L289 675%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M289 675L391 673%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M391 673L289 675%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M614 664L643 564%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M614 664L551 566%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M614 664L777 583%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M842 662L777 583%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M842 662L951 671%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M951 671L842 662%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Cpath d=%22M951 671L952 485%22 stroke=%22rgba%2891%2C87%2C240%2C0.07%29%22 stroke-width=%221.6%22/%3E%3Ccircle cx=%22-6%22 cy=%22-10%22 r=%229%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%2295%22 cy=%221%22 r=%224%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22204%22 cy=%220%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22328%22 cy=%22-12%22 r=%227%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22437%22 cy=%229%22 r=%227%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22754%22 cy=%2210%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22867%22 cy=%22-11%22 r=%227%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%2266%22 cy=%2286%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22170%22 cy=%2291%22 r=%229%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22259%22 cy=%2283%22 r=%227%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22391%22 cy=%2293%22 r=%224%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22498%22 cy=%2294%22 r=%227%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22616%22 cy=%22101%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22921%22 cy=%2293%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22-13%22 cy=%22190%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22116%22 cy=%22197%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22234%22 cy=%22185%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22333%22 cy=%22192%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22452%22 cy=%22202%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22556%22 cy=%22178%22 r=%224%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22762%22 cy=%22187%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22863%22 cy=%22189%22 r=%229%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%2241%22 cy=%22273%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22152%22 cy=%22278%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22288%22 cy=%22273%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22508%22 cy=%22279%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22702%22 cy=%22276%22 r=%229%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22815%22 cy=%22285%22 r=%224%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22926%22 cy=%22271%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22117%22 cy=%22380%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22436%22 cy=%22377%22 r=%229%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22555%22 cy=%22368%22 r=%229%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22650%22 cy=%22371%22 r=%229%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22754%22 cy=%22366%22 r=%224%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22866%22 cy=%22376%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%2268%22 cy=%22478%22 r=%224%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22156%22 cy=%22471%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22384%22 cy=%22475%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22481%22 cy=%22471%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22617%22 cy=%22466%22 r=%229%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22731%22 cy=%22476%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22827%22 cy=%22462%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22952%22 cy=%22485%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22-9%22 cy=%22566%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22120%22 cy=%22571%22 r=%229%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22451%22 cy=%22577%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22551%22 cy=%22566%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22643%22 cy=%22564%22 r=%229%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22777%22 cy=%22583%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%2250%22 cy=%22657%22 r=%227%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22154%22 cy=%22657%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22289%22 cy=%22675%22 r=%224%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22391%22 cy=%22673%22 r=%225%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22614%22 cy=%22664%22 r=%223%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22842%22 cy=%22662%22 r=%224%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3Ccircle cx=%22951%22 cy=%22671%22 r=%224%22 fill=%22rgba%2891%2C87%2C240%2C0.10%29%22/%3E%3C/svg%3E");
+  --r-xl:32px; --r-l:24px; --r-m:16px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 18px/1.55 var(--font);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{letter-spacing:-.015em;text-wrap:balance}
+h1{font-weight:700;font-size:clamp(40px,5.4vw,76px);line-height:1.02}
+h2{font-weight:700;font-size:clamp(30px,3.4vw,48px);line-height:1.06}
+h3{font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-.01em}
+p{max-width:60ch}
+.page{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.shell{background:var(--net-light) right -380px top 60px / 900px no-repeat,linear-gradient(160deg,#f7f7fc 0%,var(--bg) 45%,var(--bg-2) 100%);border-radius:var(--r-xl);padding:0 clamp(16px,3.4vw,44px) clamp(24px,4vw,48px);margin-block:16px;overflow:hidden}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;padding:17px 26px 14px;font:700 17px/1 var(--font);text-decoration:none;cursor:pointer;transition:transform .2s var(--ease),background .2s,box-shadow .2s}
+.btn:active{transform:scale(.97)}
+.btn-accent{background:var(--accent);color:var(--accent-ink);box-shadow:0 10px 24px -10px rgba(91,87,240,.7)}
+.btn-accent:hover{background:#4a46e0}
+.btn-glass{background:rgba(255,255,255,.6);color:var(--ink);box-shadow:inset 0 0 0 1px var(--glass-line)}
+.btn-glass:hover{background:#fff}
+.btn-dark{background:var(--night);color:#fff}
+.btn-dark:hover{background:#000}
+.btn:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* barre */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px;margin-inline:calc(-1 * clamp(16px,3.4vw,44px));padding-inline:clamp(16px,3.4vw,44px);background:rgba(247,247,252,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;font-size:16px}
+.brand img{height:26px;width:auto}
+.brand .mark{width:30px;height:30px;border-radius:10px;background:var(--accent);box-shadow:inset 0 0 0 1px rgba(255,255,255,.4);display:inline-block;position:relative}
+.brand .mark::after{content:"";position:absolute;inset:8px;border-radius:50%;border:3px solid #fff}
+.links{display:flex;gap:28px;font-size:15px}
+.links a{text-decoration:none;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.nav .btn{padding:12px 20px;font-size:14px}
+@media(max-width:900px){.links{display:none}}
+
+
+/* héros */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;padding-block:clamp(24px,5vw,64px) 32px}
+.hero .lead{font-size:clamp(17px,1.4vw,20px);color:var(--muted);margin-top:22px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .note{font-size:14px;color:var(--muted);margin-top:14px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+
+/* scène 3D en verre */
+.scene{position:relative;height:clamp(380px,42vw,520px);perspective:1200px}
+.rig{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s var(--ease)}
+.dish{position:absolute;left:8%;right:4%;bottom:6%;height:30%;border-radius:50%;background:radial-gradient(ellipse at 50% 40%,rgba(255,255,255,.75),rgba(200,200,235,.35) 60%,rgba(120,118,200,.25));box-shadow:inset 0 -10px 30px rgba(91,87,240,.25),inset 0 8px 16px rgba(255,255,255,.9),0 30px 50px -20px rgba(18,20,42,.35)}
+.dish::after{content:"";position:absolute;inset:12% 8% 22%;border-radius:50%;background:rgba(18,20,42,.08);box-shadow:inset 0 6px 14px rgba(18,20,42,.18)}
+.tubes{position:absolute;left:22%;right:14%;bottom:18%;height:66%;display:flex;align-items:flex-end;justify-content:space-around;gap:4%}
+.tube{position:relative;width:22%;height:var(--h);border-radius:999px/34px;background:linear-gradient(90deg,rgba(255,255,255,.5),rgba(255,255,255,.12) 40%,rgba(255,255,255,.45));box-shadow:inset 0 0 0 1.5px var(--glass-line),0 18px 30px -18px rgba(18,20,42,.4);overflow:hidden;transition:height .7s var(--ease)}
+.tube::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:inset 0 -2px 6px rgba(91,87,240,.2);z-index:2}
+.tube .fill{position:absolute;left:0;right:0;bottom:0;height:var(--f);background:linear-gradient(90deg,var(--c1),var(--c2) 55%,var(--c1));opacity:.85;transition:height .7s var(--ease),filter .3s}
+.tube .fill::before{content:"";position:absolute;left:0;right:0;top:-9px;height:18px;border-radius:50%;background:var(--c2);filter:brightness(1.15)}
+.tube.low .fill{--c1:#ff7a59;--c2:#ffb199}
+.tube span{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);z-index:3;font-size:12px;font-weight:700;color:var(--ink);background:rgba(255,255,255,.8);border-radius:999px;padding:3px 8px;white-space:nowrap}
+.cube{position:absolute;width:var(--s);height:var(--s);border-radius:26%;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1.5px var(--glass-line),inset 0 12px 20px rgba(255,255,255,.55),inset 0 -14px 24px rgba(91,87,240,.18),0 24px 40px -18px rgba(18,20,42,.4);display:grid;place-items:center;animation:float 6s ease-in-out infinite;transform:rotate(var(--rot))}
+.cube.dark{background:rgba(255,255,255,.22);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),0 24px 40px -18px rgba(18,20,42,.6)}
+.cube img{width:66%;height:auto}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.toast{position:absolute;right:0;top:4%;width:min(270px,62%);background:rgba(255,255,255,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:var(--r-m);padding:12px 14px;font-size:13.5px;line-height:1.35;box-shadow:0 20px 40px -20px rgba(18,20,42,.45),inset 0 0 0 1px var(--glass-line);opacity:0;transform:translateY(-10px);transition:.4s var(--ease);z-index:5}
+.toast.on{opacity:1;transform:none}
+.toast b{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);font-weight:600;margin-bottom:3px}
+.toast b::before{content:"";width:14px;height:14px;border-radius:4px;background:var(--wa)}
+.toast.alert b::before{background:#ff7a59}
+.sell{position:absolute;left:50%;bottom:0;transform:translateX(-50%);z-index:6;white-space:nowrap}
+@media(max-width:900px){.scene{height:420px}}
+
+/* circuit (panneau nuit) */
+.circuit{background:var(--net-dark) right -260px center / 900px no-repeat,var(--night);color:var(--night-ink);border-radius:var(--r-l);padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:4fr 8fr;gap:28px;align-items:center;position:relative;overflow:hidden}
+.circuit::after{content:"";position:absolute;right:-120px;top:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(closest-side,rgba(126,123,255,.35),transparent);pointer-events:none}
+.circuit h2{font-size:clamp(26px,2.6vw,36px)}
+.circuit p{color:var(--night-muted);margin-top:12px;font-size:16px}
+.flow{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative;z-index:1}
+.flow::before{content:"";position:absolute;left:10%;right:10%;top:34px;height:3px;background:rgba(169,172,208,.25);border-radius:2px}
+.flow .run{position:absolute;top:29px;left:10%;width:13px;height:13px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 6px rgba(126,123,255,.25),0 0 18px var(--accent-2);animation:run 7.5s linear infinite}
+@keyframes run{0%{left:10%}100%{left:calc(90% - 13px)}}
+.flow li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;font-size:14px;font-weight:600}
+.flow .node{width:68px;height:68px;border-radius:20px;background:var(--night-2);display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);transition:.3s;animation:node 7.5s infinite}
+.flow .node svg{width:30px;height:30px}
+.flow li:nth-child(2) .node{animation-delay:1.6s}.flow li:nth-child(3) .node{animation-delay:3.2s}.flow li:nth-child(4) .node{animation-delay:4.8s}.flow li:nth-child(5) .node{animation-delay:6.4s}
+@keyframes node{0%,14%,100%{background:var(--night-2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}2%,11%{background:var(--accent);box-shadow:0 0 0 6px rgba(91,87,240,.25)}}
+.flow small{display:block;font-weight:400;color:var(--night-muted);font-size:12.5px;line-height:1.35}
+@media(max-width:980px){.circuit{grid-template-columns:1fr}}
+@media(max-width:640px){.flow{grid-template-columns:1fr;gap:6px}.flow::before{left:33px;right:auto;top:30px;bottom:30px;width:3px;height:auto}.flow .run{display:none}.flow li{flex-direction:row;text-align:left}.flow .node{width:56px;height:56px;flex:none}}
+
+/* 4 messages du jour */
+.msgs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+.msg{background:rgba(255,255,255,.55);border-radius:var(--r-l);padding:20px;box-shadow:inset 0 0 0 1px var(--glass-line);display:flex;flex-direction:column;gap:12px}
+.msg .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.msg .top b{font-size:14px;color:var(--muted);font-weight:600}
+.pill{font-size:12px;font-weight:600;background:var(--accent);color:#fff;border-radius:999px;padding:5px 11px;white-space:nowrap}
+.pill.soft{background:#dddcfb;color:var(--accent)}
+.msg p{font-size:15.5px;line-height:1.4}
+@media(max-width:900px){.msgs{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.msgs{grid-template-columns:1fr}}
+
+.sec{margin-top:clamp(56px,8vw,110px)}
+.sec>h2{margin-bottom:24px}
+
+/* bento 1 : constat + vidéo */
+.bento{display:grid;grid-template-columns:4fr 5fr 3fr;gap:12px}
+.b{border-radius:var(--r-l);padding:28px;position:relative;overflow:hidden}
+.b-night{background:var(--net-dark) right -300px top -120px / 900px no-repeat,var(--night);color:var(--night-ink)}
+.b-night p{color:var(--night-muted)}
+.b-light{background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px var(--glass-line)}
+.b h3{margin-bottom:12px}
+.b p+p{margin-top:12px}
+.b .btn{margin-top:22px}
+.vid{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+.vid video{width:200px;aspect-ratio:9/16;object-fit:cover;border-radius:20px;background:#000}
+.stack{display:grid;gap:12px}
+.stack .b{padding:0;background:#fff}
+.stack img{width:100%;height:100%;object-fit:cover}
+@media(max-width:980px){.bento{grid-template-columns:1fr 1fr}.bento .vidbox{grid-column:1/-1;order:-1}.stack{grid-column:1/-1;grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.bento{grid-template-columns:1fr}.vid{grid-template-columns:1fr}.vid video{width:100%;max-width:280px}.stack{grid-template-columns:1fr}}
+
+/* sur mesure */
+.mesure{display:grid;grid-template-columns:5fr 7fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chips button{font:500 15px var(--font);border:0;border-radius:999px;padding:11px 18px;background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px var(--glass-line);cursor:pointer;color:var(--ink);transition:.2s}
+.chips button[aria-pressed=true]{background:var(--night);color:#fff}
+.shopimg{float:right;width:110px;height:auto;margin:-6px 0 8px 12px}
+.mesure ul{clear:both;list-style:none;display:grid;gap:10px;margin-top:16px}
+.mesure li{background:var(--night-2);border-radius:var(--r-m);padding:16px 18px;color:var(--night-ink);font-size:16px}
+@media(max-width:900px){.mesure{grid-template-columns:1fr}}
+
+/* bento 2 : comment on travaille + garantie */
+.bento2{display:grid;grid-template-columns:7fr 5fr;gap:12px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px;list-style:none}
+.steps li{background:#fff;border-radius:var(--r-m);padding:18px 16px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.4}
+.steps li:first-child{background:#dddcfb}
+.steps b{font-size:16px}
+.steps .pill{align-self:flex-start}
+.guar{display:flex;flex-direction:column;justify-content:space-between;min-height:380px}
+.bars{position:absolute;right:-10px;top:24px;width:58%;height:55%;display:flex;align-items:flex-end;gap:10px;transform:perspective(600px) rotateY(-18deg) rotateX(8deg);opacity:.95}
+.bars i{flex:1;border-radius:12px 12px 6px 6px;background:linear-gradient(180deg,rgba(126,123,255,.85),rgba(126,123,255,.25));box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.gcard{position:relative;z-index:1;align-self:flex-start;margin-top:auto;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);border-radius:var(--r-m);padding:18px 20px;max-width:340px}
+.gcard strong{display:block;font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1;color:#fff}
+.guar h3{position:relative;z-index:1;font-size:clamp(24px,2.4vw,32px);font-weight:500;letter-spacing:-.03em;line-height:1.1;max-width:12ch}
+@media(max-width:980px){.bento2{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:4fr 8fr;gap:24px}
+.faq details{background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px var(--glass-line);border-radius:var(--r-m);padding:0 22px}
+.faq details+details{margin-top:8px}
+.faq summary{list-style:none;cursor:pointer;font-weight:600;padding:20px 0;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:.9;color:var(--accent);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding-bottom:20px;color:var(--muted)}
+@media(max-width:900px){.faq{grid-template-columns:1fr}}
+
+/* CTA */
+.cta{background:var(--net-dark) right -200px center / 900px no-repeat,var(--night);color:var(--night-ink);border-radius:var(--r-xl);padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:7fr 5fr;gap:24px;align-items:center;position:relative;overflow:hidden}
+.cta::after{content:"";position:absolute;left:-140px;bottom:-200px;width:480px;height:480px;border-radius:50%;background:radial-gradient(closest-side,rgba(91,87,240,.45),transparent)}
+.cta>*{position:relative;z-index:1}
+.cta h2{font-size:clamp(32px,4.4vw,60px)}
+.cta p{color:var(--night-muted);margin-top:16px}
+.cta .btn{margin-top:28px}
+.cta .small{font-size:14px;margin-top:12px}
+.bubble{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);border-radius:var(--r-m);padding:18px 20px;font-size:15px;max-width:340px;justify-self:end}
+.bubble b{display:block;font-size:12px;color:var(--night-muted);margin-bottom:6px;font-weight:600}
+@media(max-width:900px){.cta{grid-template-columns:1fr}.bubble{justify-self:start}}
+
+
+/* formulaire de contact */
+.form-card{background:var(--net-dark) right -240px top -80px / 900px no-repeat,linear-gradient(170deg,#2a2457,var(--night));color:var(--night-ink);border-radius:var(--r-xl);padding:clamp(24px,5vw,60px);display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,4vw,56px)}
+.form-intro p{color:var(--night-muted);margin-top:14px}
+.reass{list-style:none;margin-top:24px;display:grid;gap:10px}
+.reass li{display:flex;gap:10px;align-items:center}
+.reass li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 5px rgba(126,123,255,.2)}
+#lead{display:grid;gap:16px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#lead label{display:grid;gap:8px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#d7d8f2}
+#lead input,#lead select,#lead textarea{font:400 18px/1.4 var(--font);letter-spacing:0;text-transform:none;color:#fff;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:14px 16px 11px;width:100%;min-width:0}
+#lead select option{color:var(--ink)}
+#lead input::placeholder,#lead textarea::placeholder{color:#a9acd0}
+#lead input:focus,#lead select:focus,#lead textarea:focus{outline:2px solid var(--accent-2);outline-offset:1px;background:rgba(255,255,255,.14)}
+#lead .btn{justify-self:start}
+.err{color:#ffb4a2;font-size:15px}
+.fine{font-size:14px;color:var(--night-muted)}
+.fine a{color:#fff}
+@media(max-width:900px){.form-card{grid-template-columns:1fr}}
+@media(max-width:560px){.row2{grid-template-columns:1fr}}
+footer{flex-wrap:wrap}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px 40px;color:var(--muted);font-size:14px}
+
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:35;display:none;background:var(--wa);color:#08341a;border-radius:999px;padding:15px 20px;font-weight:700;text-decoration:none;box-shadow:0 12px 26px -10px rgba(0,0,0,.4)}
+@media(max-width:900px){.fab{display:block}}
+
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}.rig{transform:none!important}}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="19.5" r="1.5" fill="currentColor"/><circle cx="17" cy="19.5" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Zm0 0v18M4 7l8 4 8-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 18.5 5.2 15A7.5 7.5 0 1 1 8.4 18l-4.4.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15L6 16Zm4 4a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="page">
+<div class="shell">
+  <header class="nav">
+    <a class="brand" href="#"><img src="media/wordmark_ink.png" alt="My automation" width="170" height="25"></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#circuit">Le circuit</a>
+      <a href="#video">La vidéo</a>
+      <a href="#ensemble">Comment on travaille</a>
+      <a href="#questions">Questions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-dark wa" href="#">Demander ma démo</a>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1 class="rv">Votre stock se gère tout seul.</h1>
+      <p class="lead rv">Le vendeur enregistre la vente sur son téléphone. Le stock se met à jour, la vente arrive sur votre WhatsApp, et vous êtes prévenu avant qu'un produit manque.</p>
+      <div class="actions rv">
+        <a class="btn btn-accent wa" href="#">Demander ma démo gratuite</a>
+        <a class="btn btn-glass" href="#video">Voir la vidéo</a>
+      </div>
+      <p class="note rv">15 minutes, gratuit, sans engagement.</p>
+    </div>
+
+    <div class="scene rv" id="scene" aria-label="Démonstration : chaque vente fait baisser le stock">
+      <div class="rig" id="rig">
+        <div class="dish"></div>
+        <div class="tubes" id="tubes"></div>
+        <div class="cube" style="--s:96px;--rot:-10deg;left:4%;top:6%;color:var(--accent)"><img src="media/3d_shopping_cart.png" alt="" width="180" height="180"></div>
+        <div class="cube dark" style="--s:78px;--rot:8deg;left:30%;top:0;animation-delay:-2s;color:#fff"><img src="media/3d_package.png" alt="" width="180" height="180"></div>
+        <div class="cube" style="--s:84px;--rot:12deg;right:2%;top:34%;animation-delay:-4s;color:var(--wa)"><img src="media/3d_speech_balloon.png" alt="" width="180" height="180"></div>
+        <div class="cube" style="--s:58px;--rot:-6deg;left:0;top:52%;animation-delay:-1s;color:#ff7a59"><img src="media/3d_bell.png" alt="" width="180" height="180"></div>
+      </div>
+      <div class="toast" id="toast" aria-live="polite"><b>WhatsApp · vous</b><span id="toastT"></span></div>
+      <button class="btn btn-dark sell" id="sell" type="button">Simuler une vente</button>
+    </div>
+  </section>
+
+  <section class="circuit rv" id="circuit">
+    <div>
+      <h2>Une vente, et tout le circuit suit.</h2>
+      <p>Votre vendeur fait une seule chose. Le reste se fait tout seul, en quelques secondes.</p>
+    </div>
+    <ol class="flow">
+      <span class="run" aria-hidden="true"></span>
+      <li><span class="node"><svg><use href="#i-cart"/></svg></span><div>La vente<small>Notée sur le téléphone du vendeur</small></div></li>
+      <li><span class="node"><svg><use href="#i-box"/></svg></span><div>Le stock<small>Mis à jour tout de suite</small></div></li>
+      <li><span class="node"><svg><use href="#i-chat"/></svg></span><div>Votre WhatsApp<small>La vente arrive, où que vous soyez</small></div></li>
+      <li><span class="node"><svg><use href="#i-check"/></svg></span><div>Le client<small>Reçoit sa confirmation</small></div></li>
+      <li><span class="node"><svg><use href="#i-bell"/></svg></span><div>L'alerte<small>Avant la rupture de stock</small></div></li>
+    </ol>
+  </section>
+
+  <div class="msgs">
+    <div class="msg rv"><div class="top"><b>Chaque vente</b><span class="pill">WhatsApp</span></div><p>La vente arrive sur votre téléphone, avec le stock restant.</p></div>
+    <div class="msg rv"><div class="top"><b>Avant la rupture</b><span class="pill">Alerte</span></div><p>Un produit va manquer ? Vous êtes prévenu à temps pour racheter.</p></div>
+    <div class="msg rv"><div class="top"><b>Chaque soir</b><span class="pill soft">Bilan</span></div><p>Le résumé de la journée arrive tout seul sur votre téléphone.</p></div>
+    <div class="msg rv"><div class="top"><b>Chaque matin</b><span class="pill soft">Liste</span></div><p>Ce qu'il faut racheter, avec le bon fournisseur.</p></div>
+  </div>
+
+  <section class="sec" id="video">
+    <h2 class="rv">Cahier ou Excel, tout se fait encore à la main.</h2>
+    <div class="bento">
+      <div class="b b-night rv">
+        <h3>Vous connaissez sûrement ça</h3>
+        <p>La journée se termine, et il faut encore noter les ventes, recompter les cartons, refaire les calculs. Le lendemain, un client demande un produit qui n'est plus là.</p>
+        <p>Même avec Excel, quelqu'un doit tout saisir, tous les jours, sans se tromper. Une erreur, et le stock ne correspond plus à la réalité.</p>
+      </div>
+      <div class="b b-light vidbox rv">
+        <div class="vid">
+          <video src="media/video.mp4" poster="media/poster.jpg" controls playsinline preload="none"></video>
+          <div>
+            <h3>Et si tout ce travail se faisait tout seul ?</h3>
+            <p>Voici un exemple : un système de gestion de stock que nous avons créé. La vidéo dure un peu plus d'une minute.</p>
+            <a class="btn btn-accent wa" href="#">Le voir avec mes produits</a>
+          </div>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="b rv"><img src="media/f10c.jpg" alt="Noter, recompter, recalculer, relancer : les tâches faites à la main" width="720" height="640" loading="lazy"></div>
+        <div class="b rv"><img src="media/f47c.jpg" alt="La liste du matin : ce qu'il faut commander aujourd'hui" width="720" height="680" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="mesure">
+      <div class="b b-light rv">
+        <h2>Votre système s'adapte à vous.</h2>
+        <p style="margin-top:16px;color:var(--muted)">Ce système de stock est un exemple. Nous l'adaptons à votre façon de vendre, à vos produits et à vos habitudes. Et si une autre tâche vous prend du temps, on peut l'automatiser aussi.</p>
+        <div class="chips" role="group" aria-label="Votre type d'entreprise">
+          <button type="button" aria-pressed="true" data-k="q">Quincaillerie</button>
+          <button type="button" aria-pressed="false" data-k="a">Alimentation</button>
+          <button type="button" aria-pressed="false" data-k="p">Pharmacie</button>
+          <button type="button" aria-pressed="false" data-k="d">Dépôt</button>
+        </div>
+      </div>
+      <div class="b b-night rv" aria-live="polite">
+        <img id="shopI" class="shopimg" src="media/3d_toolbox.png" alt="" width="180" height="180">
+        <h3 id="shopT">Chez une quincaillerie</h3>
+        <ul id="shopL"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ensemble">
+    <div class="bento2">
+      <div class="b b-light rv">
+        <h2>Vous n'avez presque rien à faire.</h2>
+        <ol class="steps">
+          <li><span class="pill">Gratuit</span><b>On en parle</b>15 minutes sur WhatsApp, avec vos produits.</li>
+          <li><span class="pill soft">Quelques jours</span><b>On construit</b>Votre système, adapté à votre façon de travailler.</li>
+          <li><span class="pill soft">Sur place</span><b>On installe</b>Et on forme votre vendeur.</li>
+          <li><span class="pill soft">2 mois</span><b>On vous suit</b>Une question, un réglage ? On vous accompagne.</li>
+        </ol>
+      </div>
+      <div class="b b-night guar rv">
+        <div class="bars" aria-hidden="true"><i style="height:45%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:88%"></i><i style="height:64%"></i></div>
+        <h3>Zéro risque pour vous.</h3>
+        <div class="gcard"><strong>30 jours</strong><p>Si le système ne vous fait pas gagner de temps, on le retire et l'installation ne vous coûte rien.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec faq" id="questions">
+    <h2 class="rv">Vos questions</h2>
+    <div class="rv">
+      <details><summary>Mon vendeur n'est pas à l'aise avec la technologie. Ça va marcher ?</summary><p>Oui. Il a une seule chose à faire : enregistrer la vente sur son téléphone. On le forme pendant l'installation.</p></details>
+      <details><summary>Est-ce que je dois changer ma façon de travailler ?</summary><p>Non. C'est le système qui s'adapte à vous, pas l'inverse.</p></details>
+      <details><summary>Je travaille déjà avec Excel. Je perds tout ?</summary><p>Ça dépend de votre fichier. Montrez-le-nous pendant la démonstration : on vous dit tout de suite ce qu'on peut reprendre.</p></details>
+      <details><summary>Il me faut un ordinateur ?</summary><p>Non. Un téléphone avec internet suffit à votre vendeur pour enregistrer les ventes. Vous, vous recevez tout sur WhatsApp.</p></details>
+      <details><summary>Combien ça coûte ?</summary><p>Le prix dépend de votre entreprise et de ce qu'on automatise. On en parle pendant la démonstration, qui elle est gratuite.</p></details>
+      <details><summary>Et si ça ne me fait pas gagner de temps ?</summary><p>Alors vous ne payez pas l'installation. Si après 30 jours le système ne vous fait pas gagner de temps, on le retire.</p></details>
+    </div>
+  </section>
+
+  <section class="sec cta rv">
+    <div>
+      <h2>Ce soir, le bilan arrive seul.</h2>
+      <p>Écrivez-nous sur WhatsApp. On étudie votre façon de travailler, et on construit le système qui vous correspond. On vous accompagne du premier message jusqu'à l'installation.</p>
+      <a class="btn btn-accent wa" href="#">Demander ma démo gratuite sur WhatsApp</a>
+      <p class="small">15 minutes, sans engagement. WhatsApp : +243 831 710 181 · ou <a href="#contact" style="color:#fff">laissez vos coordonnées</a></p>
+    </div>
+    <div class="bubble"><b>WhatsApp · 19:00</b>Bilan du jour : toutes vos ventes, votre stock restant et les produits à racheter.</div>
+  </section>
+
+
+  <section class="sec contact" id="contact">
+    <div class="form-card rv">
+      <div class="form-intro">
+        <h2>On vous rappelle.</h2>
+        <p>Laissez vos coordonnées : on vous écrit sur WhatsApp pour fixer votre démonstration gratuite de 15 minutes.</p>
+        <ul class="reass"><li>Gratuit et sans engagement</li><li>Réponse sur WhatsApp</li><li>Vos données restent entre nous</li></ul>
+      </div>
+      <form id="lead" novalidate>
+        <div class="row2">
+          <label for="f-nom">Nom complet<input id="f-nom" name="nom" autocomplete="name" placeholder="Votre nom" required></label>
+          <label for="f-ent">Entreprise<input id="f-ent" name="entreprise" autocomplete="organization" placeholder="Nom de votre boutique ou société"></label>
+        </div>
+        <div class="row2">
+          <label for="f-tel">Numéro WhatsApp<input id="f-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+243 …" required></label>
+          <label for="f-type">Type d'entreprise<select id="f-type" name="type"><option>Quincaillerie</option><option>Alimentation</option><option>Pharmacie</option><option>Dépôt</option><option>Boutique</option><option>Autre</option></select></label>
+        </div>
+        <label for="f-msg">Votre besoin (facultatif)<textarea id="f-msg" name="msg" rows="4" placeholder="Ex. : je note mes ventes dans un cahier et je veux être prévenu avant les ruptures."></textarea></label>
+        <input id="f-piege" name="piege" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+        <p class="err" id="f-err" hidden>Merci d'indiquer votre nom et votre numéro WhatsApp.</p>
+        <button class="btn btn-accent" type="submit">Envoyer ma demande</button>
+        <p class="fine" id="f-ok" hidden>Votre message est prêt dans WhatsApp : il ne reste qu'à appuyer sur « Envoyer ». Si WhatsApp ne s'ouvre pas, <a id="f-link" href="#" target="_blank" rel="noopener">touchez ici</a>.</p>
+        <p class="fine">Vos coordonnées servent uniquement à vous recontacter. Pas de publicité, pas de revente.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer><span>My automation · Kinshasa, RDC</span><span>WhatsApp +243 831 710 181</span><span>Illustrations 3D : Fluent Emoji (Microsoft), licence MIT</span></footer>
+</div>
+</div>
+
+<a class="fab wa" href="#">WhatsApp</a>
+
+<script>
+document.documentElement.classList.add('js');
+const WA='https://wa.me/243831710181?text='+encodeURIComponent("Bonjour My automation, j'ai vu votre site. J'aimerais voir comment le système de stock marcherait dans mon entreprise.");
+document.querySelectorAll('a.wa').forEach(a=>{a.href=WA;a.target='_blank';a.rel='noopener'});
+
+/* démo : 3 produits d'exemple, chaque vente fait baisser le niveau dans le tube */
+const P=[{n:'Ciment',q:12,max:14,s:4,c1:'#5b57f0',c2:'#9c99ff'},{n:'Tôles',q:6,max:8,s:3,c1:'#4aa9b8',c2:'#9fe2ea'},{n:'Peinture',q:9,max:11,s:3,c1:'#8f7cf6',c2:'#c9bfff'}];
+const tubes=document.getElementById('tubes'),toast=document.getElementById('toast'),tt=document.getElementById('toastT');
+const H=['78%','100%','64%'];
+P.forEach((p,i)=>{const t=document.createElement('div');t.className='tube';t.style.cssText=`--h:${H[i]};--c1:${p.c1};--c2:${p.c2}`;t.innerHTML='<div class="fill"></div><span></span>';tubes.appendChild(t);p.el=t});
+function paint(){P.forEach(p=>{p.el.style.setProperty('--f',Math.max(4,p.q/p.max*100)+'%');p.el.classList.toggle('low',p.q<=p.s);p.el.querySelector('span').textContent=`${p.n} · ${p.q}`})}
+let k=0,tm;
+function show(txt,alert){toast.classList.toggle('alert',!!alert);toast.querySelector('b').firstChild.textContent=alert?'Alerte stock':'WhatsApp · vous';tt.textContent=txt;toast.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>toast.classList.remove('on'),3200)}
+document.getElementById('sell').onclick=()=>{
+  let p=P[k%3];k++; if(p.q===0){P.forEach(x=>x.q=x.max-2);paint();show('Arrivage enregistré : le stock est à jour.');return}
+  p.q--;paint();
+  if(p.q<=p.s) show(`Il reste ${p.q} × ${p.n}. Pensez à racheter.`,true);
+  else show(`Nouvelle vente : 1 × ${p.n}. Stock restant : ${p.q}.`);
+};
+paint();
+
+/* la scène suit la souris */
+const scene=document.getElementById('scene'),rig=document.getElementById('rig');
+if(matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  scene.addEventListener('pointermove',e=>{const r=scene.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;rig.style.transform=`rotateY(${x*12}deg) rotateX(${-y*8}deg)`});
+  scene.addEventListener('pointerleave',()=>rig.style.transform='');
+}
+
+/* sur mesure */
+const IMG={q:'toolbox',a:'convenience_store',p:'pill',d:'delivery_truck'};
+const SH={q:['Chez une quincaillerie',['Ciment, tôles, peinture : vendus au sac, à la pièce ou au litre','Alerte quand un produit long à commander baisse','La liste du matin, classée par fournisseur']],
+a:['Chez une alimentation',['Beaucoup de petits produits, vendus vite','Alerte avant que le riz ou l\'huile manque','Le bilan du soir, même si vous êtes ailleurs']],
+p:['Chez une pharmacie',['Chaque boîte vendue est enregistrée','Alerte avant la rupture d\'un médicament demandé','La liste du matin pour le grossiste']],
+d:['Chez un dépôt',['Les arrivages et les sorties au même endroit','Le stock juste, sans recompter les cartons','Les ventes de chaque vendeur sur votre WhatsApp']]};
+const cb=document.querySelectorAll('.chips button');
+function shop(key){cb.forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===key));document.getElementById('shopT').textContent=SH[key][0];document.getElementById('shopI').src='media/3d_'+IMG[key]+'.png';document.getElementById('shopL').innerHTML=SH[key][1].map(t=>`<li>${t}</li>`).join('')}
+cb.forEach(b=>b.onclick=()=>shop(b.dataset.k));shop('q');
+
+
+/* formulaire : la demande part dans le Google Sheet et par email (Apps Script), puis WhatsApp s'ouvre avec le message prêt */
+const LEAD_ENDPOINT=''; // URL de l'application Web Apps Script (voir apps-script/LISEZMOI.md)
+const lead=document.getElementById('lead');
+lead.addEventListener('submit',e=>{
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim();
+  const err=document.getElementById('f-err');
+  if(!v('f-nom')||!v('f-tel')){err.hidden=false;return}
+  err.hidden=true;
+  const txt=`Bonjour My automation, je souhaite une démonstration gratuite.\nNom : ${v('f-nom')}\nEntreprise : ${v('f-ent')||'-'}\nWhatsApp : ${v('f-tel')}\nType : ${v('f-type')}`+(v('f-msg')?`\nBesoin : ${v('f-msg')}`:'');
+  const url='https://wa.me/243831710181?text='+encodeURIComponent(txt);
+  if(LEAD_ENDPOINT){
+    const data=new URLSearchParams({nom:v('f-nom'),entreprise:v('f-ent'),tel:v('f-tel'),type:v('f-type'),besoin:v('f-msg'),page:location.href,piege:v('f-piege')});
+    fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',body:data}).catch(()=>{});
+  }
+  const a=document.getElementById('f-link');a.href=url;
+  document.getElementById('f-ok').hidden=false;
+  a.click();
+});
+
+/* apparitions (le contenu reste visible sans script) */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=((i%4)*70)+'ms';io.observe(el)});
+</script>
+
+
+</body>
+</html>
