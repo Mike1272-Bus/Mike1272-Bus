@@ -4,18 +4,20 @@ Décision de Mike (31 oct.) : une seule relance, le lundi matin, pour **toutes**
 Avant lundi : la chaîne existe, avec ses 3 premières publications (bienvenue épinglée, vidéo v4, sondage), voir `chaine_whatsapp_my_automation.md`.
 Ne pas envoyer à : ceux qui ont répondu (on continue la conversation), Cadet.K, PERLUNA STORE, Naomie Style.
 
-## Le message (remplacer [nom] et [lien de la chaîne])
+## Le message (remplacer [nom] et [lien de la chaîne]) · mots simples, jamais « automatiser » ni « automatique »
 ```
-Bonjour [nom] 👋 Je me présente rapidement : Mike, de *My automation* 🤖
-Nous aidons les boutiques de Kinshasa à automatiser ce qu'elles font encore à la main : chaque vente notée toute seule, le stock à jour en temps réel, et une alerte avant la rupture.
+Bonjour [nom] 👋
+C'est Mike, de *My automation*. Je vous ai écrit il y a quelques jours, mais je n'ai pas eu de réponse. Pas de souci 🙏
 
-Pour ne pas vous déranger en privé, nous avons ouvert notre chaîne WhatsApp 📢 Vous y trouverez :
-📌 des conseils concrets pour ne plus perdre de ventes à cause du stock
-🎬 des démonstrations en vrai de ce qui peut tourner tout seul
-📊 des méthodes simples, applicables dès demain, même sans nous
+Pour rappel, nous aidons les boutiques de Kinshasa à ne plus tout noter dans un cahier : chaque vente est enregistrée sur le téléphone, vous savez toujours ce qu'il vous reste, et vous êtes prévenu avant qu'un article manque.
 
-3 publications par semaine, 2 minutes de lecture. C'est gratuit, sans engagement, et personne ne voit votre numéro 🙏
-👉 [lien de la chaîne]
+C'est mon dernier message en privé. Pour ne plus vous déranger, je vous invite à notre chaîne WhatsApp 📢 Vous y trouverez :
+📌 des conseils simples pour ne plus perdre de ventes
+🎬 des petites vidéos qui montrent comment ça marche
+📊 des astuces que vous pouvez appliquer dès demain
 
-Et si un jour vous voulez en savoir plus sur ce qu'on peut faire pour votre boutique, écrivez-moi ici 😊
+C'est gratuit et personne ne voit votre numéro 👇
+[lien de la chaîne]
+
+Si vous ne rejoignez pas la chaîne, vous ne recevrez plus de message de notre part. Et si un jour vous voulez en parler, écrivez-moi ici 😊
 ```
