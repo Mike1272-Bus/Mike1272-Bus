@@ -92,6 +92,12 @@ Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM 
 ## 2 bis. Nouvelle cible à partir du lun. 2 nov.
 Fin de la mode (vêtements, chaussures, accessoires) cette semaine. Ensuite : boutiques de petits articles vendus en grand nombre, qui font de la pub sur Meta. Tier list et rotation d'une catégorie par jour dans `strategie_categories_novembre.md` (lun. 2 : cosmétiques · mar. 3 : jouets · mer. 4 : décoration de fêtes · jeu. 5 : parfumerie · ven. 6 : téléphonie).
 
+## 2 ter. Point du sam. 31 oct. et rattrapage
+À confirmer par Mike : envois du jeu. 29 (12) et du ven. 30 (10), relances du mer. 28 et du ven. 30 (série du 28), réponses de L'Univers du crochet, Jiangmenribo, NGF, Youba, JN business.
+- **Lun. 2 nov.** : 9h30 : 10 nouvelles (cosmétiques, via Meta) · 14h30 : relance 1 de la série du mer. 28 (si pas faite ven.) + relance 1 des séries du jeu. 29 et ven. 30 + dernière relance L'Univers du crochet si pas de réponse.
+- **Mar. 3 nov.** : 9h30 : 10 nouvelles (jouets) · chaîne prête le soir (3 publications + checklist).
+- **Mer. 4 nov.** : 9h30 : 10 nouvelles (décoration) · 14h30 : invitation à la chaîne pour tous les anciens sans réponse.
+
 ## 3. La dernière relance pour tout le monde : mercredi 4 novembre, 14h30 (la chaîne)
 Décision de Mike (28 oct.) : **un seul jour** pour la dernière relance de **tous** les prospects sans réponse, toutes séries confondues. Message = invitation à la chaîne WhatsApp. Ensuite, plus aucun message privé.
 - **Avant le lun. 2 nov.** : créer la chaîne + 3 publications + la checklist PDF, et envoyer le lien à Claude.
