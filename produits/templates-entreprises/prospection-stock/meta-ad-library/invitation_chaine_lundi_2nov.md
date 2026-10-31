@@ -6,5 +6,5 @@ Ne pas envoyer à : ceux qui ont répondu (on continue la conversation), Cadet.K
 
 ## Le message (un seul paragraphe, mots simples)
 ```
-Bonjour [nom] 👋 C'est Mike, de *My automation* : on aide les boutiques à ne plus tout noter dans un cahier. Je vous ai écrit il y a quelques jours, c'est mon dernier message en privé 🙏 Pour ne plus vous déranger, rejoignez notre chaîne WhatsApp : des conseils simples et des petites vidéos pour ne plus perdre de ventes. C'est gratuit et personne ne voit votre numéro 👉 [lien de la chaîne]
+Bonjour [nom] 👋 C'est Mike, de *My automation* : on aide les boutiques à ne plus tout noter dans un cahier. Je vous ai écrit il y a quelques jours, c'est mon dernier message en privé 🙏 Pour ne plus vous déranger, rejoignez notre chaîne WhatsApp : des conseils simples et des petites vidéos pour ne plus perdre de ventes. C'est gratuit et personne ne voit votre numéro 👉 https://whatsapp.com/channel/0029Vb9AVqMKgsO2XBb1cn3l
 ```
