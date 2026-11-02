@@ -58,3 +58,14 @@ Question : Petit test 🎁 Cochez tout ce qui vous arrive :
 8. Rien de tout ça ✅
 
 Lecture : 0 case → bravo + la chaîne · 1 ou 2 cases → proposer 15 min en appel vidéo · 3 cases ou plus → « ça vous coûte des ventes chaque semaine » + 15 min en appel vidéo. Le prix seulement à la fin de l'appel.
+
+## Version formulaire Tally (2 nov.) : celle qu'on utilise
+Cosmétiques : https://tally.so/r/rD509o (bannière du secteur, nom de la boutique + 8 cases). Compte Tally de Mike, je lis les réponses avec le connecteur Tally.
+Message après un OUI :
+```
+Merci 🙏 Voici le petit test : 1 minute, vous cochez simplement ce qui vous arrive dans votre boutique 👇
+https://tally.so/r/rD509o
+
+Ensuite, je vous envoie votre résultat ici sur WhatsApp 😊
+```
+Un formulaire par secteur (même questions, bannière et mots du secteur) : jouets, parfums, téléphonie… à créer le jour de la catégorie.
