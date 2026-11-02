@@ -108,3 +108,22 @@ Hormozi : « montrer » vaut mieux que « dire ».
 | Résultat | installé, à relancer, pas intéressé |
 
 Toutes les semaines, regarder le **taux de réponse au message 1**. S'il est faible, on change **la première ligne** (le détail personnalisé ou la question), pas tout le message.
+
+---
+
+## Version WhatsApp courte (2 nov.) : la structure Hormozi en 4 lignes
+Inspirée de sa structure de message froid : **une ligne perso → le problème → un cadeau utile → une question oui/non**. Concis, mots simples, sans « automatiser ».
+1. **Perso** : un vrai détail (leur pub, leur produit). Prouve qu'on a regardé.
+2. **Le problème** : une seule phrase sur ce qui leur coûte de l'argent.
+3. **Le cadeau** (donner avant de demander) : la checklist gratuite « 7 questions pour savoir si votre stock vous fait perdre de l'argent » (`aimant/checklist_stock_my_automation.pdf`). Aucun engagement.
+4. **La question oui/non** : « Je vous l'envoie ? » Répondre prend 2 secondes.
+
+Modèle :
+> Bonjour [nom] 👋 J'ai vu votre pub sur [produit].
+> Dans les boutiques de [catégorie], on perd souvent des ventes sans le savoir : [problème précis].
+> J'ai préparé une petite checklist gratuite : 7 questions pour savoir en 2 minutes si votre stock vous fait perdre de l'argent.
+> Je vous l'envoie ? 🙏
+> Mike, *My automation*
+
+Ensuite : « Oui » → la checklist + « Vous suivez votre stock sur un cahier, Excel ou autrement ? » → la vidéo → 15 minutes de démo.
+Relance (J+2) : « Je vous l'envoie quand même ? Ça prend 2 minutes 🙏 »
