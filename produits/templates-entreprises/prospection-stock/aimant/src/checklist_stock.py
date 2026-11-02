@@ -30,7 +30,7 @@ QUESTIONS = [
 
 W, H = A4
 c = canvas.Canvas(SORTIE, pagesize=A4)
-c.setTitle("Votre stock vous fait-il perdre de l'argent ? Checklist My automation")
+c.setTitle("Votre stock vous fait-il perdre de l'argent ? Petit test My automation")
 c.setFillColor(FOND); c.rect(0, 0, W, H, fill=1, stroke=0)
 M = 42
 
@@ -48,7 +48,7 @@ if os.path.exists(LOGO):
     img = ImageReader(LOGO); iw, ih = img.getSize(); lw = 120
     c.drawImage(img, M, y - lw * ih / iw, lw, lw * ih / iw, mask="auto")
 c.setFillColor(ACCENT); c.setFont("Gras", 9)
-c.drawRightString(W - M, y - 10, "CHECKLIST · 2 MINUTES")
+c.drawRightString(W - M, y - 10, "PETIT TEST · 2 MINUTES")
 y -= 62
 c.setFillColor(ENCRE); c.setFont("Titre", 27)
 for l in wrap("Votre stock vous fait-il perdre de l'argent ?", "Titre", 27, W - 2 * M):

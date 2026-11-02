@@ -89,6 +89,9 @@ Mkb shop, Wiz shop (243982507301), ZION Lustre, RHcollection (243894019823), JM 
 ### Série du mercredi 28 (20 entreprises, `prospects_mercredi_28oct.md`)
 - **PERLUNA STORE** (243848405000) : humain. Déjà équipé (Shopify + automatisations marketing WhatsApp). → question sur les ventes hors site (boutique, WhatsApp) et le stock. → Réponse : toutes les ventes passent par le site, stock déjà automatique. **Stop**, message de bon contact envoyé. Profil à garder (investit dans ses outils).
 
+### 🔥 Lun. 2 nov. : cosmétiques (message « petit test », `prospects_lundi_2nov_petit_test.md`)
+- **SYMONE BEAUTY SERVICE** (+243 990 959 939, mèches et perruques) : a répondu **OUI** → petit test (PDF) envoyé. Suite : elle donne son nombre de « non » → proposer 15 min en appel vidéo.
+
 ## 2 bis. Nouvelle cible à partir du lun. 2 nov.
 Fin de la mode (vêtements, chaussures, accessoires) cette semaine. Ensuite : boutiques de petits articles vendus en grand nombre, qui font de la pub sur Meta. Tier list et rotation d'une catégorie par jour dans `strategie_categories_novembre.md` (lun. 2 : cosmétiques · mar. 3 : jouets · mer. 4 : décoration de fêtes · jeu. 5 : parfumerie · ven. 6 : téléphonie).
 
