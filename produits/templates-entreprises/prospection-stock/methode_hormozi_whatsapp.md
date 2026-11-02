@@ -5,7 +5,7 @@ Source : notes de Mike sur la stratégie e-mail d'Alex Hormozi + 8 formats de pu
 ## 1. Les règles, traduites pour WhatsApp
 | Règle e-mail | Sur WhatsApp |
 |---|---|
-| Valeur immédiate | Message 1 : on offre la checklist gratuite. Chaîne : une astuce utile par publication. |
+| Valeur immédiate | Message 1 : on offre le petit test gratuit (la checklist, sans dire le mot « checklist » au prospect). Chaîne : une astuce utile par publication. |
 | Moins de 200 mots | Moins de 60 mots par message privé. |
 | Texte brut, comme un message perso | Un message qui ressemble à un humain qui écrit, pas à une pub. L'illustration est à tester (A/B), pas imposée. |
 | Objet + prévisualisation | La 1re ligne = ce qui s'affiche dans la notification : le nom de la boutique + le détail perso. |
@@ -20,7 +20,7 @@ Source : notes de Mike sur la stratégie e-mail d'Alex Hormozi + 8 formats de pu
 ## 2. Message 1 (version Hormozi, 4 lignes + PS)
 > Bonjour [nom] 👋 J'ai vu votre pub sur [produit].
 > Dans les boutiques de [catégorie], on perd souvent des ventes sans le savoir : [problème précis].
-> J'ai préparé une checklist gratuite : 7 questions pour savoir en 2 minutes si votre stock vous fait perdre de l'argent.
+> J'ai préparé un petit test gratuit : 7 questions simples, à cocher en 2 minutes, pour savoir si votre stock vous fait perdre de l'argent.
 > Répondez OUI et je vous l'envoie 🙏
 > PS : je m'appelle Mike, de *My automation*. On aide les boutiques à gagner du temps et à ne plus perdre de ventes : chaque vente notée sur le téléphone, le stock toujours à jour, et une alerte avant qu'un produit manque.
 
