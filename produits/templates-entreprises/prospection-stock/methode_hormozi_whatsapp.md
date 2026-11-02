@@ -22,7 +22,7 @@ Source : notes de Mike sur la stratégie e-mail d'Alex Hormozi + 8 formats de pu
 > Dans les boutiques de [catégorie], on perd souvent des ventes sans le savoir : [problème précis].
 > J'ai préparé une checklist gratuite : 7 questions pour savoir en 2 minutes si votre stock vous fait perdre de l'argent.
 > Répondez OUI et je vous l'envoie 🙏
-> PS : je m'appelle Mike, de *My automation*. On aide les boutiques à ne plus tout noter dans un cahier.
+> PS : je m'appelle Mike, de *My automation*. On aide les boutiques à gagner du temps et à ne plus perdre de ventes : chaque vente notée sur le téléphone, le stock toujours à jour, et une alerte avant qu'un produit manque.
 
 ## 3. Test A/B du lun. 2 nov. (10 cosmétiques)
 - **Version A** (5 boutiques) : le message Hormozi ci-dessus, sans image.
