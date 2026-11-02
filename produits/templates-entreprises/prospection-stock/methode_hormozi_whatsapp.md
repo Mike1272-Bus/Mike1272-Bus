@@ -69,3 +69,5 @@ https://tally.so/r/rD509o
 Ensuite, je vous envoie votre résultat ici sur WhatsApp 😊
 ```
 Un formulaire par secteur (même questions, bannière et mots du secteur) : jouets, parfums, téléphonie… à créer le jour de la catégorie.
+
+Téléphonie et électroménager : https://tally.so/r/VpGD1y (cas « autre boutique ou dépôt »). Bannières : `aimant/sondage/`.

@@ -29,7 +29,7 @@ Offre : système de stock automatisé, **150 $** de lancement, **4 entreprises p
 | Kamane Trade | bouton pub | pas relancé | relance générale **lun. 26**, chaîne **lun. 2 nov.** |
 | Ets ELDORADO | 243970792929 | à confirmer | relance générale **mer. 28**, chaîne **mer. 4 nov.** |
 | KAJET Store | 243972421847 | conversation (« automatisation ») | **à confirmer** : où s'est arrêtée la conversation ? |
-| Itel Business | 243863828767 | conversation | **à confirmer** |
+| Itel Business | 243863828767 | se sentait dérangé (2 nov.) → excuses + petit test téléphonie https://tally.so/r/VpGD1y | attendre sa réponse, plus de relance |
 
 ### Série B (20-21 oct.) : 10 entreprises
 | Entreprise | Contact | Où on en est | Prochaine action |
