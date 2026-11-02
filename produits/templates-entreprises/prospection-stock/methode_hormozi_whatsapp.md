@@ -41,3 +41,20 @@ Source : notes de Mike sur la stratégie e-mail d'Alex Hormozi + 8 formats de pu
 | Ugly | Une vraie photo d'un cahier raturé, prise au téléphone. |
 | Offer | « Démo gratuite de 15 min » ou le prix de lancement, 4 places par mois. |
 Règle : tester plusieurs formats pour le même message, pas plusieurs couleurs d'un même visuel.
+
+## Le petit test en sondage WhatsApp (2 nov., idée de Mike)
+Quand la boutique répond OUI : on envoie le test sous forme de **sondage WhatsApp** (📎 → Sondage → activer « Autoriser plusieurs réponses »), plus simple qu'un PDF.
+
+Message avant : « Merci 🙏 Le voici : cochez tout ce qui vous arrive dans votre boutique, ça prend 1 minute 👇 »
+
+Question : Petit test 🎁 Cochez tout ce qui vous arrive :
+1. Je dois recompter pour connaître mon stock
+2. Un client demande un article, je ne sais pas tout de suite s'il en reste
+3. Je découvre qu'un produit est fini quand le client le demande
+4. Mon cahier ne correspond pas à ce qu'il y a vraiment en rayon
+5. Le soir, je calcule mes ventes à la main
+6. Je ne vois pas mes ventes quand je ne suis pas à la boutique
+7. Je cherche quoi racheter, et chez quel fournisseur
+8. Rien de tout ça ✅
+
+Lecture : 0 case → bravo + la chaîne · 1 ou 2 cases → proposer 15 min en appel vidéo · 3 cases ou plus → « ça vous coûte des ventes chaque semaine » + 15 min en appel vidéo. Le prix seulement à la fin de l'appel.
