@@ -30,3 +30,21 @@ Question : Aujourd'hui, votre stock, vous le suivez comment ?
 - 📊 Sur Excel
 - 📱 Avec une application
 - 🧠 De tête
+
+## 4. Conseil fêtes (mar. 3 nov.)
+```
+🎄 Les fêtes arrivent : 3 erreurs de stock qui font perdre des ventes en décembre
+
+1️⃣ Commander « au feeling »
+On recommande ce qu'on croit vendre, pas ce qui s'est vraiment vendu. Résultat : trop de certains articles, pas assez des autres.
+
+2️⃣ Découvrir la rupture devant le client
+Le client demande, on cherche… et l'article est fini. En décembre, il ne revient pas : il achète ailleurs.
+
+3️⃣ Compter seulement le soir (ou jamais)
+Quand ça vend vite, le cahier n'arrive plus à suivre. Les erreurs s'accumulent sans qu'on les voie.
+
+✅ Le conseil de la semaine : notez dès aujourd'hui vos 10 articles qui partent le plus vite, et vérifiez chaque matin combien il en reste. 5 minutes par jour, et vous commandez au bon moment.
+
+🎁 Vous voulez savoir si votre stock vous fait perdre des ventes ? Écrivez « TEST » en privé au +243 831 710 181 : on vous envoie un petit test gratuit, 1 minute.
+```
