@@ -53,3 +53,9 @@ My automation, c'est ça : donner aux boutiques un suivi simple, sur le téléph
 Pas besoin d'ordinateur. Pas besoin d'être fort en technologie.
 
 Si vous voulez voir comment ça marche pour votre boutique, écrivez-moi en privé 🙏
+
+## Fonctionnement (décision de Mike, 5 nov.)
+- Mike génère l'image avec ChatGPT et l'envoie dans le chat « Contenu My automation ». Claude écrit le texte et publie la photo + le texte sur la page Facebook via Zapier (Facebook Pages → « Create Page Photo »). L'image doit être une URL publique (raw GitHub de ce dépôt, < 4 Mo, PNG < 1 Mo idéalement, sinon JPEG).
+- Avant de publier : montrer le texte à Mike une fois au début, puis publier directement quand il a validé le style (« valide »).
+- ⚠️ Au 5 nov. : la connexion Facebook Pages dans Zapier n'a plus d'accès (« access_token missing ») → Mike doit reconnecter Facebook dans Zapier et vérifier que la page My automation apparaît.
+- Prompts d'images pour ChatGPT : pas de personnes (règle de la marque), objets de boutique, cahier, téléphone, étagères, couleurs sobres, texte court en français.
