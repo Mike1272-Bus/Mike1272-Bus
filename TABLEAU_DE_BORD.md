@@ -50,6 +50,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 
 | Série | État | Dossier |
 |---|---|---|
+| Contenu My automation (page Facebook, « vous », posts texte + image, lun histoire · mar erreur · mer conseil · jeu question · ven coulisses). **Géré par le chat « Contenu My automation »** | 3 posts écrits. Zapier Facebook Pages répond (5 nov.) mais ne voit que la page ADigitalGround, pas My automation | Mike : reconnecter Facebook dans Zapier en cochant la page My automation, puis envoyer l’image du post 1 « Cahier » | `produits/templates-entreprises/prospection-stock/contenu_facebook_my_automation.md`, `produits/templates-entreprises/contenu-my-automation/images/` |
 | Compétence → revenu, ép. 1 (montage vidéo) | Vidéo livrée | `contenu-organique/video-competence-montage/` |
 | Compétence → revenu, ép. 2 (menuiserie, version histoire) | Audio pro fait, vidéo livrée (90 s, surtout des illustrations + vrais extraits aux moments clés). Mike vérifie le calage | `contenu-organique/video-episode2-metiers/` |
 | Compétence → revenu, ép. 3 (technicien réseaux, réponse à un commentaire d'abonné) | Vidéo livrée (1 min 53, illustrations animées + capture du commentaire). Extraits de Mike à ajouter s'il en envoie | `contenu-organique/video-episode3-reseaux/` |
