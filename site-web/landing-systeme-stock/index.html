@@ -365,6 +365,19 @@ a.btn.wa::before{content:"";width:22px;height:22px;flex:none;border-radius:6px;b
 .nd:last-of-type .box{animation:none}
 .wfnote{margin-top:14px;font-size:14px;color:var(--night-muted)}
 @media (prefers-reduced-motion:reduce){.nd .box,.ben img{animation:none!important}}
+
+/* images 3D (Pexels) */
+.pimg{margin:0;border-radius:var(--r-l);overflow:hidden;background:#e2e1f6;box-shadow:0 24px 48px -30px rgba(18,20,42,.45)}
+.pimg img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.pimg:hover img{transform:scale(1.04)}
+.solhead{display:grid;grid-template-columns:5fr 7fr;gap:24px;align-items:center;margin-bottom:24px}
+.solhead h2{margin:0}
+.solhead .pimg{aspect-ratio:16/7}
+.pimg.strip{aspect-ratio:16/6;margin:18px 0 4px}
+.ctafig{position:relative;margin:0;border-radius:var(--r-l);overflow:hidden;aspect-ratio:4/3}
+.ctafig img{width:100%;height:100%;object-fit:cover}
+.ctafig .bubble{position:absolute;left:16px;right:16px;bottom:16px;max-width:none;background:rgba(18,20,42,.72)}
+@media(max-width:900px){.solhead{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -467,7 +480,7 @@ a.btn.wa::before{content:"";width:22px;height:22px;flex:none;border-radius:6px;b
   </section>
 
   <section class="sec" id="solutions">
-    <h2 class="rv">Ce qu'on peut faire tourner tout seul chez vous.</h2>
+    <div class="solhead"><h2 class="rv">Ce qu'on peut faire tourner tout seul chez vous.</h2><figure class="pimg rv"><img src="media/px_hub.jpg" alt="Un système central relié à plusieurs tâches, en 3D" width="1400" height="788" loading="lazy"></figure></div>
     <div class="sol">
       <article class="card3d rv"><div class="ico"><img src="media/3d_shopping_cart.png" alt="" width="180" height="180" loading="lazy"></div><h3>Ventes et stock</h3><p>Chaque vente met à jour le stock. Alerte avant la rupture, liste de ce qu'il faut racheter.</p></article>
       <article class="card3d rv"><div class="ico"><img src="media/3d_speech_balloon.png" alt="" width="180" height="180" loading="lazy"></div><h3>WhatsApp et clients</h3><p>Confirmations de commande, réponses aux questions fréquentes, nouvelles envoyées au bon moment.</p></article>
@@ -542,6 +555,7 @@ a.btn.wa::before{content:"";width:22px;height:22px;flex:none;border-radius:6px;b
       <div class="b b-light rv">
         <h2>Fait pour les entreprises qui travaillent encore à la main.</h2>
         <p style="margin-top:16px;color:var(--muted)">Choisissez votre secteur : voici ce qu'on peut automatiser chez vous. Ce sont des exemples, on adapte toujours à votre façon de travailler.</p>
+        <figure class="pimg strip"><img src="media/px_panels.jpg" alt="Des panneaux de verre lavande, en 3D" width="1400" height="788" loading="lazy"></figure>
         <div class="chips" role="group" aria-label="Votre secteur">
           <button type="button" aria-pressed="true" data-k="b">Boutique</button>
           <button type="button" aria-pressed="false" data-k="q">Quincaillerie</button>
@@ -564,6 +578,7 @@ a.btn.wa::before{content:"";width:22px;height:22px;flex:none;border-radius:6px;b
     <div class="bento2">
       <div class="b b-light rv">
         <h2>Vous n'avez presque rien à faire.</h2>
+        <figure class="pimg strip"><img src="media/px_pipeline.jpg" alt="Des étapes qui s'enchaînent toutes seules, en 3D" width="1400" height="788" loading="lazy"></figure>
         <ol class="steps">
           <li><span class="pill">Gratuit</span><b>On en parle</b>15 minutes sur WhatsApp : vous nous dites quelle tâche vous prend du temps.</li>
           <li><span class="pill soft">Quelques jours</span><b>On construit</b>Votre système, adapté à votre façon de travailler.</li>
@@ -598,7 +613,7 @@ a.btn.wa::before{content:"";width:22px;height:22px;flex:none;border-radius:6px;b
       <a class="btn btn-accent wa" href="#">Demander ma démo gratuite sur WhatsApp</a>
       <p class="small">15 minutes, sans engagement. WhatsApp : +243 831 710 181 · ou <a href="#contact" style="color:#fff">laissez vos coordonnées</a></p>
     </div>
-    <div class="bubble"><b>WhatsApp · 19:00</b>Bilan du jour envoyé. 3 relances parties. 2 produits à racheter demain.</div>
+    <figure class="ctafig"><img src="media/px_cubes.jpg" alt="Des blocs de données rangés, en 3D" width="1400" height="875" loading="lazy"><div class="bubble"><b>WhatsApp · 19:00</b>Bilan du jour envoyé. 3 relances parties. 2 produits à racheter demain.</div></figure>
   </section>
 
 
@@ -628,7 +643,7 @@ a.btn.wa::before{content:"";width:22px;height:22px;flex:none;border-radius:6px;b
     </div>
   </section>
 
-  <footer><span>My automation · Kinshasa, RDC</span><span>WhatsApp +243 831 710 181</span><span>Illustrations 3D : Fluent Emoji (Microsoft), licence MIT</span></footer>
+  <footer><span>My automation · Kinshasa, RDC</span><span>WhatsApp +243 831 710 181</span><span>Illustrations 3D : Fluent Emoji (Microsoft, licence MIT) et Pexels</span></footer>
 </div>
 </div>
 
