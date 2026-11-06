@@ -197,22 +197,22 @@ p{max-width:60ch}
 
 
 /* formulaire de contact */
-.form-card{background:var(--net-dark) right -240px top -80px / 900px no-repeat,linear-gradient(170deg,#2a2457,var(--night));color:var(--night-ink);border-radius:var(--r-xl);padding:clamp(24px,5vw,60px);display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,4vw,56px)}
-.form-intro p{color:var(--night-muted);margin-top:14px}
+.form-card{background:#fff;color:var(--ink);box-shadow:0 30px 60px -40px rgba(18,20,42,.35),inset 0 0 0 1px #e1e2f0;border-radius:var(--r-xl);padding:clamp(24px,5vw,60px);display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,4vw,56px)}
+.form-intro p{color:var(--muted);margin-top:14px}
 .reass{list-style:none;margin-top:24px;display:grid;gap:10px}
 .reass li{display:flex;gap:10px;align-items:center}
 .reass li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 5px rgba(126,123,255,.2)}
 #lead{display:grid;gap:16px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-#lead label{display:grid;gap:8px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#d7d8f2}
-#lead input,#lead select,#lead textarea{font:400 18px/1.4 var(--font);letter-spacing:0;text-transform:none;color:#fff;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:14px 16px 11px;width:100%;min-width:0}
+#lead label{display:grid;gap:8px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#lead input,#lead select,#lead textarea{font:400 18px/1.4 var(--font);letter-spacing:0;text-transform:none;color:var(--ink);background:#f6f6fb;border:1px solid #d9dbea;border-radius:12px;padding:14px 16px 11px;width:100%;min-width:0}
 #lead select option{color:var(--ink)}
-#lead input::placeholder,#lead textarea::placeholder{color:#a9acd0}
-#lead input:focus,#lead select:focus,#lead textarea:focus{outline:2px solid var(--accent-2);outline-offset:1px;background:rgba(255,255,255,.14)}
+#lead input::placeholder,#lead textarea::placeholder{color:#8a8ea8}
+#lead input:focus,#lead select:focus,#lead textarea:focus{outline:2px solid var(--accent);outline-offset:1px;background:#fff}
 #lead .btn{justify-self:start}
-.err{color:#ffb4a2;font-size:15px}
-.fine{font-size:14px;color:var(--night-muted)}
-.fine a{color:#fff}
+.err{color:#c0392b;font-size:15px}
+.fine{font-size:14px;color:var(--muted)}
+.fine a{color:var(--accent)}
 @media(max-width:900px){.form-card{grid-template-columns:1fr}}
 @media(max-width:560px){.row2{grid-template-columns:1fr}}
 footer{flex-wrap:wrap}
@@ -315,6 +315,56 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 @media(max-width:900px){.gains{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.gains{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.wires path,.pulse,.core::after,.core-in img,.orb,.hub-rig,.gain img{animation:none!important}}
+
+/* v3 */
+.hero-points{list-style:none;display:grid;gap:8px;margin-top:20px}
+.hero-points li{display:flex;align-items:center;gap:10px;font-weight:600}
+.hero-points li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 12.5 4 4L18 8' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+a.btn.wa::before{content:"";width:22px;height:22px;flex:none;border-radius:6px;background:url(media/whatsapp.png) center/cover no-repeat;margin-top:-3px}
+.nav a.btn.wa::before{display:none}
+.fab{display:none;align-items:center;gap:8px}
+.fab img{width:26px;height:26px;border-radius:7px}
+@media(max-width:900px){.fab{display:flex}}
+.benefits{margin-top:28px;background:var(--net-dark) right -300px center / 900px no-repeat,var(--night);border-radius:var(--r-xl);padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ben{display:flex;align-items:center;gap:14px;color:#fff;padding:8px}
+.ben img{width:58px;flex:none;animation:bob2 6s ease-in-out infinite}
+.ben:nth-child(2) img{animation-delay:-1.5s}.ben:nth-child(3) img{animation-delay:-3s}.ben:nth-child(4) img{animation-delay:-4.5s}
+.ben b{display:block;font-size:19px}
+.ben span{display:block;color:var(--night-muted);font-size:15px;line-height:1.35;margin-top:2px}
+@keyframes bob2{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-6deg)}}
+@media(max-width:980px){.benefits{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.benefits{grid-template-columns:1fr}}
+.vidwide p{color:var(--night-muted)}
+.wfsec{background:var(--night);color:var(--night-ink);border-radius:var(--r-xl);padding:clamp(22px,4vw,48px)}
+.wfhead{display:grid;grid-template-columns:7fr 5fr;gap:24px;align-items:end}
+.wfhead p{color:var(--night-muted);margin-top:12px}
+.wfsec .tabs{margin-top:0;justify-content:flex-end}
+@media(max-width:900px){.wfhead{grid-template-columns:1fr}.wfsec .tabs{justify-content:flex-start}}
+.canvas-wrap{margin-top:28px;border-radius:var(--r-l);background:#1a1c33 radial-gradient(rgba(255,255,255,.13) 1.2px,transparent 1.2px) 0 0/22px 22px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);overflow-x:auto}
+.canvas{position:relative;min-width:760px;aspect-ratio:1000/460;container-type:inline-size}
+.links{position:absolute;inset:0;width:100%;height:100%}
+.links path{fill:none;stroke:#8a8fb5;stroke-width:2.4}
+.links .dot{fill:#ffb347;filter:drop-shadow(0 0 6px #ffb347)}
+.links .dot.yes{fill:#25d366;filter:drop-shadow(0 0 6px #25d366)}
+.nd{position:absolute;width:15%;transform:translateY(-4.8cqw);display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.nd .box{position:relative;width:9.6cqw;height:9.6cqw;border-radius:18px;background:#2a2d48;box-shadow:inset 0 0 0 2px #4a4e75,0 14px 26px -14px rgba(0,0,0,.6);display:grid;place-items:center;animation:exec 4.8s infinite}
+.nd.trig .box{border-radius:48px 18px 18px 48px}
+.nd .box img{width:58%;transition:transform .4s var(--ease)}
+.wfsec.swap .nd .box img{transform:scale(0) rotate(-90deg)}
+.bolt{position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:#ff6d5a;display:grid;place-items:center;font-size:13px}
+.ifn .box::after{content:"?";position:absolute;right:-8px;top:-8px;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:14px;display:grid;place-items:center}
+.yes-l,.no-l{position:absolute;right:-44px;font-size:12px;font-weight:700;color:#25d366}
+.yes-l{top:4px}.no-l{bottom:4px;color:#a9acd0}
+.nd b{font-size:15px;line-height:1.2;color:#fff}
+.nd small{font-size:12.5px;line-height:1.3;color:var(--night-muted)}
+.nd:nth-of-type(1) .box{animation-delay:0s}
+.nd:nth-of-type(2) .box{animation-delay:1.2s}
+.nd:nth-of-type(3) .box{animation-delay:2.4s}
+.nd:nth-of-type(4) .box{animation-delay:3.6s}
+@keyframes exec{0%,22%,100%{box-shadow:inset 0 0 0 2px #4a4e75,0 14px 26px -14px rgba(0,0,0,.6)}4%,18%{box-shadow:inset 0 0 0 3px #25d366,0 0 0 6px rgba(37,211,102,.18),0 14px 26px -14px rgba(0,0,0,.6)}}
+.nd:last-of-type .box{animation:none}
+.wfnote{margin-top:14px;font-size:14px;color:var(--night-muted)}
+@media (prefers-reduced-motion:reduce){.nd .box,.ben img{animation:none!important}}
 </style>
 </head>
 <body>
@@ -345,7 +395,8 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
   <section class="hero">
     <div>
       <h1 class="rv">Le travail répétitif, fait tout seul.</h1>
-      <p class="lead rv">Nous automatisons les tâches que votre équipe fait encore à la main : ventes, stock, messages WhatsApp, relances, rapports. Vous, vous êtes prévenu au bon moment.</p>
+      <p class="lead rv">Ventes, stock, relances, rapports : ce que votre équipe fait encore à la main se fait tout seul. Vous recevez l'essentiel sur WhatsApp, où que vous soyez.</p>
+      <ul class="hero-points rv"><li>Moins de saisie et moins d'erreurs</li><li>Prévenu avant qu'un problème arrive</li><li>Installé en quelques jours, sans changer vos habitudes</li></ul>
       <div class="actions rv">
         <a class="btn btn-accent wa" href="#">Demander ma démo gratuite</a>
         <a class="btn btn-glass" href="#video">Voir la vidéo</a>
@@ -379,6 +430,14 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
     </div>
   </section>
 
+
+  <section class="benefits rv" aria-label="Ce que vous y gagnez">
+    <div class="ben"><img src="media/3d_stopwatch.png" alt="" width="180" height="180" loading="lazy"><div><b>Du temps en plus</b><span>Les gestes répétés se font tout seuls</span></div></div>
+    <div class="ben"><img src="media/3d_check_mark_button.png" alt="" width="180" height="180" loading="lazy"><div><b>Moins d'erreurs</b><span>Moins de saisie à la main</span></div></div>
+    <div class="ben"><img src="media/3d_mobile_phone.png" alt="" width="180" height="180" loading="lazy"><div><b>Tout sur WhatsApp</b><span>Suivez votre activité à distance</span></div></div>
+    <div class="ben"><img src="media/3d_bell.png" alt="" width="180" height="180" loading="lazy"><div><b>Alertes au bon moment</b><span>Avant la rupture, avant l'oubli</span></div></div>
+  </section>
+
   <section class="sec constat" id="constat">
     <div class="split2">
       <div class="rv">
@@ -397,7 +456,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
   </section>
 
   <section class="sec" id="video">
-    <div class="b b-light vidwide rv">
+    <div class="b b-night vidwide rv">
       <video src="media/video.mp4" poster="media/poster.jpg" controls playsinline preload="none"></video>
       <div>
         <h2>Comprendre en 1 minute.</h2>
@@ -419,23 +478,38 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
     </div>
   </section>
 
-  <section class="sec circuit rv" id="circuit">
-    <div>
-      <h2>Un événement, le système agit, vous êtes prévenu.</h2>
-      <p>Choisissez un exemple et regardez le circuit tourner.</p>
-      <div class="tabs" role="group" aria-label="Exemples de circuits">
+  <section class="sec wfsec rv" id="circuit">
+    <div class="wfhead">
+      <div>
+        <h2>Voici à quoi ressemble votre automatisation.</h2>
+        <p>Chaque bloc est une étape. Quand quelque chose se passe, le système suit le chemin tout seul, décide quoi faire, et vous prévient. Choisissez un exemple :</p>
+      </div>
+      <div class="tabs" role="group" aria-label="Exemples d'automatisations">
         <button type="button" aria-pressed="true" data-c="vente">Une vente</button>
         <button type="button" aria-pressed="false" data-c="commande">Une commande</button>
-        <button type="button" aria-pressed="false" data-c="relance">Un client à relancer</button>
+        <button type="button" aria-pressed="false" data-c="relance">Un paiement en retard</button>
         <button type="button" aria-pressed="false" data-c="soir">La fin de journée</button>
       </div>
     </div>
-    <ol class="flow flow3" id="flow3">
-      <span class="run" aria-hidden="true"></span>
-      <li><span class="node"><img id="n1i" src="media/3d_mobile_phone.png" alt=""></span><div><span id="n1t">L'événement</span><small id="n1s"></small></div></li>
-      <li><span class="node"><img id="n2i" src="media/3d_gear.png" alt=""></span><div><span id="n2t">Le système travaille</span><small id="n2s"></small></div></li>
-      <li><span class="node"><img id="n3i" src="media/3d_speech_balloon.png" alt=""></span><div><span id="n3t">Vous êtes prévenu</span><small id="n3s"></small></div></li>
-    </ol>
+    <div class="canvas-wrap">
+      <div class="canvas" id="wf">
+        <svg class="links" viewBox="0 0 1000 460" preserveAspectRatio="none" aria-hidden="true">
+          <path id="l1" d="M155 170 C 220 170, 232 170, 297 170"/>
+          <path id="l2" d="M393 170 C 460 170, 470 170, 537 170"/>
+          <path id="l3" d="M633 170 C 710 170, 710 80, 787 80"/>
+          <path id="l4" d="M633 170 C 710 170, 710 290, 787 290"/>
+          <circle class="dot" r="6"><animateMotion dur="4.8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;.18;1" calcMode="linear"><mpath href="#l1"/></animateMotion></circle>
+          <circle class="dot" r="6"><animateMotion dur="4.8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;.3;.48;1" calcMode="linear"><mpath href="#l2"/></animateMotion></circle>
+          <circle class="dot yes" r="6"><animateMotion dur="4.8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;.6;.8;1" calcMode="linear"><mpath href="#l3"/></animateMotion></circle>
+        </svg>
+        <div class="nd trig" style="left:3%;top:37%"><div class="box"><span class="bolt" aria-hidden="true">⚡</span><img id="w1i" src="media/3d_mobile_phone.png" alt=""></div><b id="w1t"></b><small id="w1s"></small></div>
+        <div class="nd" style="left:27%;top:37%"><div class="box"><img id="w2i" src="media/3d_package.png" alt=""></div><b id="w2t"></b><small id="w2s"></small></div>
+        <div class="nd ifn" style="left:51%;top:37%"><div class="box"><img src="media/3d_gear.png" alt=""><span class="yes-l">oui</span><span class="no-l">non</span></div><b id="w3t"></b><small>Le système décide</small></div>
+        <div class="nd" style="left:76%;top:17.4%"><div class="box"><img id="w4i" src="media/3d_bell.png" alt=""></div><b id="w4t"></b><small id="w4s"></small></div>
+        <div class="nd" style="left:76%;top:63%"><div class="box"><img id="w5i" src="media/3d_speech_balloon.png" alt=""></div><b id="w5t"></b><small id="w5s"></small></div>
+      </div>
+    </div>
+    <p class="wfnote">Sur téléphone, faites glisser le schéma. Chaque automatisation est construite pour votre entreprise : ce sont des exemples.</p>
   </section>
 
   <section class="sec" id="exemple">
@@ -505,16 +579,6 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
     </div>
   </section>
 
-  <section class="sec" id="change">
-    <h2 class="rv">Moins de saisie, plus de temps pour vendre.</h2>
-    <div class="gains">
-      <div class="gain rv"><img src="media/3d_stopwatch.png" alt="" width="180" height="180" loading="lazy"><h3>Du temps en plus</h3><p>Les gestes répétés chaque jour se font tout seuls.</p></div>
-      <div class="gain rv"><img src="media/3d_check_mark_button.png" alt="" width="180" height="180" loading="lazy"><h3>Moins d'erreurs</h3><p>Moins de saisie à la main, moins d'oublis.</p></div>
-      <div class="gain rv"><img src="media/3d_mobile_phone.png" alt="" width="180" height="180" loading="lazy"><h3>Tout suivre à distance</h3><p>Ce qui compte arrive sur votre WhatsApp, où que vous soyez.</p></div>
-      <div class="gain rv"><img src="media/3d_speech_balloon.png" alt="" width="180" height="180" loading="lazy"><h3>Clients mieux servis</h3><p>Confirmations et réponses partent vite, sans attendre.</p></div>
-    </div>
-  </section>
-
   <section class="sec faq" id="questions">
     <h2 class="rv">Vos questions</h2>
     <div class="rv">
@@ -568,7 +632,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 </div>
 </div>
 
-<a class="fab wa" href="#">WhatsApp</a>
+<a class="fab wa" href="#"><img src="media/whatsapp.png" alt="" width="28" height="28">WhatsApp</a>
 
 <script>
 document.documentElement.classList.add('js');
@@ -650,13 +714,18 @@ if(matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: r
 /* constat : les tâches s'allument tour à tour */
 const tk=[...document.querySelectorAll('#tasks .task')];let ti=0;
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{tk.forEach((t,n)=>t.classList.toggle('on',n===ti));ti=(ti+1)%tk.length},900);
-/* circuit : exemples */
-const CI={vente:[['mobile_phone','Une vente est notée','Sur le téléphone du vendeur'],['gear','Le stock se met à jour','Tout de suite, sans recompter'],['speech_balloon','Vous êtes prévenu','La vente arrive sur votre WhatsApp']],
-commande:[['speech_balloon','Un client commande','Par message WhatsApp'],['gear','La commande est enregistrée','Et confirmée au client'],['bell','Votre équipe est prévenue','Pour préparer la commande']],
-relance:[['spiral_calendar','Une date arrive','Paiement, rendez-vous ou devis'],['gear','Le rappel part tout seul','Au bon moment, avec le bon message'],['check_mark_button','Vous voyez qui a répondu','Sans courir après personne']],
-soir:[['alarm_clock','19 h, fin de journée','La boutique ferme'],['bar_chart','Les chiffres sont calculés','Ventes, stock, relances'],['mobile_phone','Le bilan arrive','Sur votre WhatsApp']]};
-const fl=document.getElementById('flow3');
-function circ(k){const d=CI[k];fl.classList.add('swap');setTimeout(()=>{d.forEach((x,n)=>{document.getElementById('n'+(n+1)+'i').src='media/3d_'+x[0]+'.png';document.getElementById('n'+(n+1)+'t').textContent=x[1];document.getElementById('n'+(n+1)+'s').textContent=x[2]});fl.classList.remove('swap')},250);document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===k))}
+/* workflow : exemples */
+const CI={vente:{t:[['mobile_phone','Nouvelle vente','Notée sur le téléphone du vendeur'],['package','Mettre à jour le stock','Tout de suite, sans recompter']],q:'Stock bas ?',y:['bell','Alerte au patron','« Il reste 3 sacs, pensez à racheter »'],n:['speech_balloon','Vente sur WhatsApp','Avec le stock restant']},
+commande:{t:[['speech_balloon','Message WhatsApp reçu','Un client passe commande'],['ledger','Enregistrer la commande','Client, produits, quantités']],q:'Produits disponibles ?',y:['check_mark_button','Confirmer au client','Commande confirmée, équipe prévenue'],n:['spiral_calendar','Proposer une date','Le client est tenu au courant']},
+relance:{t:[['alarm_clock','Chaque matin à 8 h','Le système vérifie tout seul'],['receipt','Chercher les retards','Paiements et factures à échéance']],q:'Un retard trouvé ?',y:['envelope','Rappel au client','Un message poli, au bon moment'],n:['check_mark_button','Rien à faire','Vous n\'êtes pas dérangé']},
+soir:{t:[['alarm_clock','Chaque soir à 19 h','Fin de journée'],['bar_chart','Calculer les chiffres','Ventes, stock, relances du jour']],q:'Produits à racheter ?',y:['delivery_truck','Liste du fournisseur','Prête pour demain matin'],n:['mobile_phone','Bilan sur WhatsApp','Le résumé de la journée']}};
+const wfs=document.getElementById('circuit');
+function set(id,v){document.getElementById(id).textContent=v}
+function circ(k){const d=CI[k];wfs.classList.add('swap');setTimeout(()=>{
+  d.t.forEach((x,n)=>{document.getElementById('w'+(n+1)+'i').src='media/3d_'+x[0]+'.png';set('w'+(n+1)+'t',x[1]);set('w'+(n+1)+'s',x[2])});
+  set('w3t',d.q);document.getElementById('w4i').src='media/3d_'+d.y[0]+'.png';set('w4t',d.y[1]);set('w4s',d.y[2]);
+  document.getElementById('w5i').src='media/3d_'+d.n[0]+'.png';set('w5t',d.n[1]);set('w5s',d.n[2]);wfs.classList.remove('swap')},250);
+  document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===k))}
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>circ(b.dataset.c));circ('vente');
 
 /* apparitions (le contenu reste visible sans script) */
