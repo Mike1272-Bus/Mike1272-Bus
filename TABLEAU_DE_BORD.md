@@ -74,7 +74,7 @@ Règle : ne jamais publier la vidéo d'une entreprise sans son accord écrit.
 | Projet | État | Dossier |
 |---|---|---|
 | Pôle site web : nouveau chat réservé aux landing pages et sites | Contexte prêt (méthode DA de référence → `DESIGN.md` → textes → HTML statique → Vercel). Mike doit donner 1 à 3 sites de référence avec des captures, et ses skills de design | `site-web/CONTEXTE_CHAT_SITE.md` |
-| Landing « Système de stock » de **My automation** (nouveau nom de l'offre automatisation) | **En ligne : https://my-automation-rdc.vercel.app** (domaine ajouté au projet Vercel Allegra, copie publiée dans `allegra-landing/site/my-automation/`). Formulaire : WhatsApp OK ; Google Sheet « My automation - Demandes de démo (site) » créé. Reste à Mike : déployer l'Apps Script (`apps-script/LISEZMOI.md`, autorisation Google) et envoyer l'URL `/exec` pour activer Sheet + email | `site-web/landing-systeme-stock/` |
+| Site My automation (automatisation en général, v2 du 6 nov. ; le stock devient un exemple) | **En ligne : https://my-automation-rdc.vercel.app**. Vidéo : encore la v4 stock, à remplacer par la nouvelle vidéo de Mike (domaine ajouté au projet Vercel Allegra, copie publiée dans `allegra-landing/site/my-automation/`). Formulaire : WhatsApp OK ; Google Sheet « My automation - Demandes de démo (site) » créé. Reste à Mike : déployer l'Apps Script (`apps-script/LISEZMOI.md`, autorisation Google) et envoyer l'URL `/exec` pour activer Sheet + email | `site-web/landing-systeme-stock/` |
 
 ## 5. En attente de Mike
 
