@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>My automation · Votre stock se gère tout seul</title>
-<meta name="description" content="Chaque vente met à jour votre stock et arrive sur votre WhatsApp. Alerte avant la rupture, bilan du soir, liste du matin. Démonstration gratuite de 15 minutes.">
-<meta property="og:title" content="My automation · Votre stock se gère tout seul">
-<meta property="og:description" content="Chaque vente met à jour votre stock et arrive sur votre WhatsApp. Démonstration gratuite de 15 minutes.">
+<title>My automation · Le travail répétitif, fait tout seul</title>
+<meta name="description" content="Nous automatisons les tâches que votre équipe fait encore à la main : ventes, stock, messages WhatsApp, relances, rapports. Démonstration gratuite de 15 minutes.">
+<meta property="og:title" content="My automation · Le travail répétitif, fait tout seul">
+<meta property="og:description" content="Ventes, stock, WhatsApp, relances, rapports : nous automatisons votre travail répétitif. Démonstration gratuite de 15 minutes.">
 <meta property="og:image" content="media/logo_my_automation.png">
 <link rel="icon" href="media/logo_my_automation.png">
 
@@ -32,6 +32,7 @@
 body{background:var(--bg);color:var(--ink);font:400 18px/1.55 var(--font);overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
 img,video{display:block;max-width:100%}
+img{height:auto}
 a{color:inherit}
 h1,h2,h3{letter-spacing:-.015em;text-wrap:balance}
 h1{font-weight:700;font-size:clamp(40px,5.4vw,76px);line-height:1.02}
@@ -223,6 +224,97 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}.rig{transform:none!important}}
+
+/* v2 : hub 3D du héros */
+.hub{position:relative;height:clamp(400px,44vw,540px);perspective:1200px}
+.hub-rig{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s var(--ease);animation:sway 14s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotateY(-6deg) rotateX(4deg)}50%{transform:rotateY(6deg) rotateX(-2deg)}}
+.wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.wires path{fill:none;stroke:rgba(91,87,240,.35);stroke-width:2.5;stroke-dasharray:6 8;animation:dash 1.6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.pulse{fill:var(--accent);filter:drop-shadow(0 0 6px rgba(91,87,240,.8))}
+.pulse.out{fill:#25d366;filter:drop-shadow(0 0 6px rgba(37,211,102,.8))}
+.core{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:44px;background:rgba(18,20,42,.9);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.2),0 0 0 14px rgba(91,87,240,.12),0 0 0 28px rgba(91,87,240,.06),0 30px 60px -20px rgba(18,20,42,.6);display:grid;place-items:center;transform:translateZ(60px)}
+.core::after{content:"";position:absolute;inset:-28px;border-radius:60px;border:2px solid rgba(91,87,240,.35);animation:ring 2.4s ease-out infinite}
+@keyframes ring{0%{transform:scale(.8);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+.core-in img{width:78px;animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.core span{position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);white-space:nowrap;font-weight:700;font-size:14px;color:var(--ink)}
+.orb{position:absolute;left:var(--x);top:var(--y);width:clamp(62px,7vw,88px);height:clamp(62px,7vw,88px);margin:calc(clamp(62px,7vw,88px) / -2) 0 0 calc(clamp(62px,7vw,88px) / -2);border-radius:26%;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1.5px var(--glass-line),inset 0 12px 20px rgba(255,255,255,.55),inset 0 -14px 24px rgba(91,87,240,.18),0 24px 40px -18px rgba(18,20,42,.4);display:grid;place-items:center;animation:bob 5s ease-in-out infinite;animation-delay:var(--d)}
+.orb img{width:64%}
+@keyframes bob{0%,100%{transform:translateZ(30px) translateY(0) rotateY(-12deg)}50%{transform:translateZ(30px) translateY(-14px) rotateY(12deg)}}
+.hub .toast{right:auto;left:50%;top:auto;bottom:-44px;transform:translateX(-50%) translateY(10px)}
+.hub .toast.on{transform:translateX(-50%)}
+@media(max-width:900px){.hub{height:420px}}
+
+/* constat */
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center}
+.split2 .lead{color:var(--muted);margin-top:18px;font-size:clamp(17px,1.4vw,20px)}
+.tasks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.task{background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px var(--glass-line);border-radius:var(--r-l);padding:18px 12px 14px;display:flex;flex-direction:column;align-items:center;gap:8px;transition:transform .35s var(--ease),background .35s,box-shadow .35s}
+.task img{width:56px;transition:transform .35s var(--ease)}
+.task.on{background:var(--night);color:#fff;transform:translateY(-6px);box-shadow:0 18px 30px -16px rgba(18,20,42,.6)}
+.task.on img{transform:scale(1.15) rotate(-8deg)}
+@media(max-width:900px){.split2{grid-template-columns:1fr}}
+
+/* vidéo large */
+.vidwide{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,48px);align-items:center}
+.vidwide video{width:min(300px,70vw);aspect-ratio:9/16;object-fit:cover;border-radius:24px;background:#000;box-shadow:0 30px 60px -30px rgba(18,20,42,.6)}
+.vidwide p{color:var(--muted);margin-top:14px}
+.vidwide .btn{margin-top:24px}
+@media(max-width:700px){.vidwide{grid-template-columns:1fr;justify-items:start}}
+
+/* solutions en cartes 3D */
+.sol{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;perspective:1000px}
+.card3d{background:rgba(255,255,255,.62);box-shadow:inset 0 0 0 1px var(--glass-line);border-radius:var(--r-l);padding:26px;transform-style:preserve-3d;transition:transform .25s ease-out,box-shadow .25s;will-change:transform}
+.card3d:hover{box-shadow:inset 0 0 0 1px var(--glass-line),0 30px 50px -28px rgba(18,20,42,.5)}
+.card3d .ico{width:76px;height:76px;border-radius:22px;background:var(--glass);box-shadow:inset 0 0 0 1.5px var(--glass-line),inset 0 10px 16px rgba(255,255,255,.55),0 16px 26px -14px rgba(18,20,42,.4);display:grid;place-items:center;margin-bottom:18px;transform:translateZ(40px)}
+.card3d .ico img{width:66%;transition:transform .4s var(--ease)}
+.card3d:hover .ico img{transform:scale(1.12) rotate(-8deg)}
+.card3d h3{margin-bottom:8px;transform:translateZ(20px)}
+.card3d p{color:var(--muted);font-size:16px}
+.card3d.dark{background:var(--net-dark) right -300px top -120px / 900px no-repeat,var(--night);color:var(--night-ink)}
+.card3d.dark p{color:var(--night-muted)}
+.card3d.dark .btn{margin-top:18px;padding:13px 20px 11px;font-size:15px}
+@media(max-width:900px){.sol{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.sol{grid-template-columns:1fr}}
+
+/* circuit à 3 étapes et onglets */
+.flow3{grid-template-columns:repeat(3,1fr)}
+.flow3::before{left:16%;right:16%}
+.flow3 .run{left:16%;animation:run3 4.8s linear infinite}
+@keyframes run3{0%{left:16%}100%{left:calc(84% - 13px)}}
+.flow3 .node{width:84px;height:84px;border-radius:24px;animation-duration:4.8s}
+.flow3 li:nth-child(2) .node{animation-delay:0s}
+.flow3 li:nth-child(3) .node{animation-delay:1.6s}
+.flow3 li:nth-child(4) .node{animation-delay:3.2s}
+.flow3 .node img{width:52px;transition:transform .4s var(--ease)}
+.flow3.swap .node img{transform:scale(0) rotate(-90deg)}
+.flow3 li > div{font-size:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tabs button{font:600 14px var(--font);border:0;border-radius:999px;padding:10px 16px 8px;background:rgba(255,255,255,.1);color:var(--night-ink);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);cursor:pointer;transition:.2s}
+.tabs button[aria-pressed=true]{background:var(--accent);box-shadow:none}
+@media(max-width:640px){.flow3::before{left:41px;right:auto}.flow3 .node{width:64px;height:64px}.flow3 .node img{width:40px}}
+
+/* exemple */
+.ex .scene{margin-top:8px}
+.minimsgs{list-style:none;display:grid;gap:10px;margin-top:22px}
+.minimsgs li{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px var(--glass-line);border-radius:var(--r-m);padding:12px 14px 10px}
+
+/* pour qui */
+.shopimg.pop{animation:pop .5s var(--ease)}
+@keyframes pop{0%{transform:scale(.4) rotate(-20deg);opacity:0}100%{transform:none;opacity:1}}
+
+/* ce que ça change */
+.gains{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
+.gain{background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px var(--glass-line);border-radius:var(--r-l);padding:24px}
+.gain img{width:64px;margin-bottom:14px;animation:bob2 6s ease-in-out infinite}
+.gain:nth-child(2) img{animation-delay:-1.5s}.gain:nth-child(3) img{animation-delay:-3s}.gain:nth-child(4) img{animation-delay:-4.5s}
+@keyframes bob2{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-6deg)}}
+.gain p{color:var(--muted);margin-top:6px;font-size:16px}
+@media(max-width:900px){.gains{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.gains{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.wires path,.pulse,.core::after,.core-in img,.orb,.hub-rig,.gain img{animation:none!important}}
 </style>
 </head>
 <body>
@@ -241,9 +333,9 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
   <header class="nav">
     <a class="brand" href="#"><img src="media/wordmark_ink.png" alt="My automation" width="170" height="25"></a>
     <nav class="links" aria-label="Sections">
+      <a href="#solutions">Solutions</a>
       <a href="#circuit">Le circuit</a>
-      <a href="#video">La vidéo</a>
-      <a href="#ensemble">Comment on travaille</a>
+      <a href="#exemple">Exemple</a>
       <a href="#questions">Questions</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -252,8 +344,8 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 
   <section class="hero">
     <div>
-      <h1 class="rv">Votre stock se gère tout seul.</h1>
-      <p class="lead rv">Le vendeur enregistre la vente sur son téléphone. Le stock se met à jour, la vente arrive sur votre WhatsApp, et vous êtes prévenu avant qu'un produit manque.</p>
+      <h1 class="rv">Le travail répétitif, fait tout seul.</h1>
+      <p class="lead rv">Nous automatisons les tâches que votre équipe fait encore à la main : ventes, stock, messages WhatsApp, relances, rapports. Vous, vous êtes prévenu au bon moment.</p>
       <div class="actions rv">
         <a class="btn btn-accent wa" href="#">Demander ma démo gratuite</a>
         <a class="btn btn-glass" href="#video">Voir la vidéo</a>
@@ -261,82 +353,134 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
       <p class="note rv">15 minutes, gratuit, sans engagement.</p>
     </div>
 
-    <div class="scene rv" id="scene" aria-label="Démonstration : chaque vente fait baisser le stock">
-      <div class="rig" id="rig">
-        <div class="dish"></div>
-        <div class="tubes" id="tubes"></div>
-        <div class="cube" style="--s:96px;--rot:-10deg;left:4%;top:6%;color:var(--accent)"><img src="media/3d_shopping_cart.png" alt="" width="180" height="180"></div>
-        <div class="cube dark" style="--s:78px;--rot:8deg;left:30%;top:0;animation-delay:-2s;color:#fff"><img src="media/3d_package.png" alt="" width="180" height="180"></div>
-        <div class="cube" style="--s:84px;--rot:12deg;right:2%;top:34%;animation-delay:-4s;color:var(--wa)"><img src="media/3d_speech_balloon.png" alt="" width="180" height="180"></div>
-        <div class="cube" style="--s:58px;--rot:-6deg;left:0;top:52%;animation-delay:-1s;color:#ff7a59"><img src="media/3d_bell.png" alt="" width="180" height="180"></div>
+    <div class="hub rv" id="hub" aria-hidden="true">
+      <div class="hub-rig" id="hubRig">
+        <svg class="wires" viewBox="0 0 600 520" preserveAspectRatio="none">
+          <path id="w1" d="M300 260 L95 95"/><path id="w2" d="M300 260 L300 50"/><path id="w3" d="M300 260 L505 95"/>
+          <path id="w4" d="M300 260 L540 300"/><path id="w5" d="M300 260 L430 465"/><path id="w6" d="M300 260 L170 465"/><path id="w7" d="M300 260 L60 300"/>
+          <circle class="pulse" r="6"><animateMotion dur="2.4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w1"/></animateMotion></circle>
+          <circle class="pulse" r="6"><animateMotion dur="2.8s" begin="-.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w3"/></animateMotion></circle>
+          <circle class="pulse" r="6"><animateMotion dur="2.2s" begin="-1.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w5"/></animateMotion></circle>
+          <circle class="pulse out" r="6"><animateMotion dur="2.6s" begin="-.3s" repeatCount="indefinite"><mpath href="#w4"/></animateMotion></circle>
+          <circle class="pulse out" r="6"><animateMotion dur="3s" begin="-1.5s" repeatCount="indefinite"><mpath href="#w7"/></animateMotion></circle>
+          <circle class="pulse" r="6"><animateMotion dur="2.5s" begin="-2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w6"/></animateMotion></circle>
+          <circle class="pulse out" r="6"><animateMotion dur="2.3s" begin="-.9s" repeatCount="indefinite"><mpath href="#w2"/></animateMotion></circle>
+        </svg>
+        <div class="core"><div class="core-in"><img src="media/3d_gear.png" alt="" width="180" height="180" loading="lazy"></div><span>My automation</span></div>
+        <div class="orb" style="--x:16%;--y:18%;--d:0s"><img src="media/3d_shopping_cart.png" alt="" width="180" height="180" loading="lazy"></div>
+        <div class="orb" style="--x:50%;--y:10%;--d:-1.2s"><img src="media/3d_package.png" alt="" width="180" height="180" loading="lazy"></div>
+        <div class="orb" style="--x:84%;--y:18%;--d:-2.4s"><img src="media/3d_speech_balloon.png" alt="" width="180" height="180" loading="lazy"></div>
+        <div class="orb" style="--x:90%;--y:58%;--d:-.6s"><img src="media/3d_bar_chart.png" alt="" width="180" height="180" loading="lazy"></div>
+        <div class="orb" style="--x:72%;--y:89%;--d:-1.8s"><img src="media/3d_delivery_truck.png" alt="" width="180" height="180" loading="lazy"></div>
+        <div class="orb" style="--x:28%;--y:89%;--d:-3s"><img src="media/3d_alarm_clock.png" alt="" width="180" height="180" loading="lazy"></div>
+        <div class="orb" style="--x:10%;--y:58%;--d:-2s"><img src="media/3d_bell.png" alt="" width="180" height="180" loading="lazy"></div>
       </div>
-      <div class="toast" id="toast" aria-live="polite"><b>WhatsApp · vous</b><span id="toastT"></span></div>
-      <button class="btn btn-dark sell" id="sell" type="button">Simuler une vente</button>
+      <div class="toast on" id="hubToast"><b>WhatsApp · vous</b><span id="hubT">Nouvelle commande enregistrée et confirmée au client.</span></div>
     </div>
   </section>
 
-  <section class="circuit rv" id="circuit">
-    <div>
-      <h2>Une vente, et tout le circuit suit.</h2>
-      <p>Votre vendeur fait une seule chose. Le reste se fait tout seul, en quelques secondes.</p>
+  <section class="sec constat" id="constat">
+    <div class="split2">
+      <div class="rv">
+        <h2>Combien d'heures passent en tâches répétitives ?</h2>
+        <p class="lead">Cahier, Excel, copier-coller, calculatrice. Chaque jour, quelqu'un note, recompte, relance et refait les mêmes gestes. C'est du temps qui ne sert pas à vendre, et chaque saisie à la main peut glisser une erreur.</p>
+      </div>
+      <div class="tasks rv" id="tasks">
+        <div class="task"><img src="media/3d_pencil.png" alt="" width="180" height="180" loading="lazy"><b>Noter</b></div>
+        <div class="task"><img src="media/3d_package.png" alt="" width="180" height="180" loading="lazy"><b>Recompter</b></div>
+        <div class="task"><img src="media/3d_telephone_receiver.png" alt="" width="180" height="180" loading="lazy"><b>Relancer</b></div>
+        <div class="task"><img src="media/3d_ledger.png" alt="" width="180" height="180" loading="lazy"><b>Calculer</b></div>
+        <div class="task"><img src="media/3d_envelope.png" alt="" width="180" height="180" loading="lazy"><b>Envoyer</b></div>
+        <div class="task"><img src="media/3d_hourglass_not_done.png" alt="" width="180" height="180" loading="lazy"><b>Attendre</b></div>
+      </div>
     </div>
-    <ol class="flow">
+  </section>
+
+  <section class="sec" id="video">
+    <div class="b b-light vidwide rv">
+      <video src="media/video.mp4" poster="media/poster.jpg" controls playsinline preload="none"></video>
+      <div>
+        <h2>Comprendre en 1 minute.</h2>
+        <p>Regardez comment une tâche faite à la main devient un système qui tourne tout seul, de la première action jusqu'au message sur votre téléphone.</p>
+        <a class="btn btn-accent wa" href="#">Le voir pour mon entreprise</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="solutions">
+    <h2 class="rv">Ce qu'on peut faire tourner tout seul chez vous.</h2>
+    <div class="sol">
+      <article class="card3d rv"><div class="ico"><img src="media/3d_shopping_cart.png" alt="" width="180" height="180" loading="lazy"></div><h3>Ventes et stock</h3><p>Chaque vente met à jour le stock. Alerte avant la rupture, liste de ce qu'il faut racheter.</p></article>
+      <article class="card3d rv"><div class="ico"><img src="media/3d_speech_balloon.png" alt="" width="180" height="180" loading="lazy"></div><h3>WhatsApp et clients</h3><p>Confirmations de commande, réponses aux questions fréquentes, nouvelles envoyées au bon moment.</p></article>
+      <article class="card3d rv"><div class="ico"><img src="media/3d_alarm_clock.png" alt="" width="180" height="180" loading="lazy"></div><h3>Relances</h3><p>Paiements en retard, rendez-vous, devis sans réponse : le rappel part tout seul, à la bonne date.</p></article>
+      <article class="card3d rv"><div class="ico"><img src="media/3d_bar_chart.png" alt="" width="180" height="180" loading="lazy"></div><h3>Rapports et bilans</h3><p>Le bilan du jour ou de la semaine arrive sur votre téléphone, sans que personne ne le prépare.</p></article>
+      <article class="card3d rv"><div class="ico"><img src="media/3d_delivery_truck.png" alt="" width="180" height="180" loading="lazy"></div><h3>Commandes et fournisseurs</h3><p>Les besoins sont listés, classés par fournisseur, et vous savez quoi commander chaque matin.</p></article>
+      <article class="card3d dark rv"><div class="ico"><img src="media/3d_puzzle_piece.png" alt="" width="180" height="180" loading="lazy"></div><h3>Votre tâche ?</h3><p>Dites-nous ce qui vous prend le plus de temps. On regarde si on peut l'automatiser.</p><a class="btn btn-accent wa" href="#">En parler sur WhatsApp</a></article>
+    </div>
+  </section>
+
+  <section class="sec circuit rv" id="circuit">
+    <div>
+      <h2>Un événement, le système agit, vous êtes prévenu.</h2>
+      <p>Choisissez un exemple et regardez le circuit tourner.</p>
+      <div class="tabs" role="group" aria-label="Exemples de circuits">
+        <button type="button" aria-pressed="true" data-c="vente">Une vente</button>
+        <button type="button" aria-pressed="false" data-c="commande">Une commande</button>
+        <button type="button" aria-pressed="false" data-c="relance">Un client à relancer</button>
+        <button type="button" aria-pressed="false" data-c="soir">La fin de journée</button>
+      </div>
+    </div>
+    <ol class="flow flow3" id="flow3">
       <span class="run" aria-hidden="true"></span>
-      <li><span class="node"><svg><use href="#i-cart"/></svg></span><div>La vente<small>Notée sur le téléphone du vendeur</small></div></li>
-      <li><span class="node"><svg><use href="#i-box"/></svg></span><div>Le stock<small>Mis à jour tout de suite</small></div></li>
-      <li><span class="node"><svg><use href="#i-chat"/></svg></span><div>Votre WhatsApp<small>La vente arrive, où que vous soyez</small></div></li>
-      <li><span class="node"><svg><use href="#i-check"/></svg></span><div>Le client<small>Reçoit sa confirmation</small></div></li>
-      <li><span class="node"><svg><use href="#i-bell"/></svg></span><div>L'alerte<small>Avant la rupture de stock</small></div></li>
+      <li><span class="node"><img id="n1i" src="media/3d_mobile_phone.png" alt=""></span><div><span id="n1t">L'événement</span><small id="n1s"></small></div></li>
+      <li><span class="node"><img id="n2i" src="media/3d_gear.png" alt=""></span><div><span id="n2t">Le système travaille</span><small id="n2s"></small></div></li>
+      <li><span class="node"><img id="n3i" src="media/3d_speech_balloon.png" alt=""></span><div><span id="n3t">Vous êtes prévenu</span><small id="n3s"></small></div></li>
     </ol>
   </section>
 
-  <div class="msgs">
-    <div class="msg rv"><div class="top"><b>Chaque vente</b><span class="pill">WhatsApp</span></div><p>La vente arrive sur votre téléphone, avec le stock restant.</p></div>
-    <div class="msg rv"><div class="top"><b>Avant la rupture</b><span class="pill">Alerte</span></div><p>Un produit va manquer ? Vous êtes prévenu à temps pour racheter.</p></div>
-    <div class="msg rv"><div class="top"><b>Chaque soir</b><span class="pill soft">Bilan</span></div><p>Le résumé de la journée arrive tout seul sur votre téléphone.</p></div>
-    <div class="msg rv"><div class="top"><b>Chaque matin</b><span class="pill soft">Liste</span></div><p>Ce qu'il faut racheter, avec le bon fournisseur.</p></div>
-  </div>
-
-  <section class="sec" id="video">
-    <h2 class="rv">Cahier ou Excel, tout se fait encore à la main.</h2>
-    <div class="bento">
-      <div class="b b-night rv">
-        <h3>Vous connaissez sûrement ça</h3>
-        <p>La journée se termine, et il faut encore noter les ventes, recompter les cartons, refaire les calculs. Le lendemain, un client demande un produit qui n'est plus là.</p>
-        <p>Même avec Excel, quelqu'un doit tout saisir, tous les jours, sans se tromper. Une erreur, et le stock ne correspond plus à la réalité.</p>
+  <section class="sec" id="exemple">
+    <div class="split2 ex">
+      <div class="rv">
+        <h2>Exemple concret : le système de stock.</h2>
+        <p class="lead">Le vendeur enregistre la vente sur son téléphone. Le stock se met à jour, la vente arrive sur votre WhatsApp, et vous êtes prévenu avant qu'un produit manque. Essayez : appuyez sur « Simuler une vente ».</p>
+        <ul class="minimsgs">
+          <li><span class="pill">WhatsApp</span>Chaque vente, avec le stock restant</li>
+          <li><span class="pill">Alerte</span>Avant la rupture</li>
+          <li><span class="pill soft">Bilan</span>Le résumé du soir</li>
+          <li><span class="pill soft">Liste</span>Ce qu'il faut racheter le matin</li>
+        </ul>
       </div>
-      <div class="b b-light vidbox rv">
-        <div class="vid">
-          <video src="media/video.mp4" poster="media/poster.jpg" controls playsinline preload="none"></video>
-          <div>
-            <h3>Et si tout ce travail se faisait tout seul ?</h3>
-            <p>Voici un exemple : un système de gestion de stock que nous avons créé. La vidéo dure un peu plus d'une minute.</p>
-            <a class="btn btn-accent wa" href="#">Le voir avec mes produits</a>
-          </div>
+      <div class="scene rv" id="scene" aria-label="Démonstration : chaque vente fait baisser le stock">
+        <div class="rig" id="rig">
+          <div class="dish"></div>
+          <div class="tubes" id="tubes"></div>
+          <div class="cube" style="--s:84px;--rot:-10deg;left:2%;top:4%"><img src="media/3d_shopping_cart.png" alt="" width="180" height="180" loading="lazy"></div>
+          <div class="cube" style="--s:76px;--rot:12deg;right:2%;top:30%;animation-delay:-3s"><img src="media/3d_speech_balloon.png" alt="" width="180" height="180" loading="lazy"></div>
         </div>
-      </div>
-      <div class="stack">
-        <div class="b rv"><img src="media/f10c.jpg" alt="Noter, recompter, recalculer, relancer : les tâches faites à la main" width="720" height="640" loading="lazy"></div>
-        <div class="b rv"><img src="media/f47c.jpg" alt="La liste du matin : ce qu'il faut commander aujourd'hui" width="720" height="680" loading="lazy"></div>
+        <div class="toast" id="toast" aria-live="polite"><b>WhatsApp · vous</b><span id="toastT"></span></div>
+        <button class="btn btn-dark sell" id="sell" type="button">Simuler une vente</button>
       </div>
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec" id="pourqui">
     <div class="mesure">
       <div class="b b-light rv">
-        <h2>Votre système s'adapte à vous.</h2>
-        <p style="margin-top:16px;color:var(--muted)">Ce système de stock est un exemple. Nous l'adaptons à votre façon de vendre, à vos produits et à vos habitudes. Et si une autre tâche vous prend du temps, on peut l'automatiser aussi.</p>
-        <div class="chips" role="group" aria-label="Votre type d'entreprise">
-          <button type="button" aria-pressed="true" data-k="q">Quincaillerie</button>
-          <button type="button" aria-pressed="false" data-k="a">Alimentation</button>
+        <h2>Fait pour les entreprises qui travaillent encore à la main.</h2>
+        <p style="margin-top:16px;color:var(--muted)">Choisissez votre secteur : voici ce qu'on peut automatiser chez vous. Ce sont des exemples, on adapte toujours à votre façon de travailler.</p>
+        <div class="chips" role="group" aria-label="Votre secteur">
+          <button type="button" aria-pressed="true" data-k="b">Boutique</button>
+          <button type="button" aria-pressed="false" data-k="q">Quincaillerie</button>
           <button type="button" aria-pressed="false" data-k="p">Pharmacie</button>
+          <button type="button" aria-pressed="false" data-k="a">Alimentation</button>
           <button type="button" aria-pressed="false" data-k="d">Dépôt</button>
+          <button type="button" aria-pressed="false" data-k="r">Restaurant</button>
+          <button type="button" aria-pressed="false" data-k="s">Services</button>
         </div>
       </div>
       <div class="b b-night rv" aria-live="polite">
-        <img id="shopI" class="shopimg" src="media/3d_toolbox.png" alt="" width="180" height="180">
-        <h3 id="shopT">Chez une quincaillerie</h3>
+        <img id="shopI" class="shopimg" src="media/3d_convenience_store.png" alt="" width="180" height="180">
+        <h3 id="shopT">Chez une boutique</h3>
         <ul id="shopL"></ul>
       </div>
     </div>
@@ -347,9 +491,9 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
       <div class="b b-light rv">
         <h2>Vous n'avez presque rien à faire.</h2>
         <ol class="steps">
-          <li><span class="pill">Gratuit</span><b>On en parle</b>15 minutes sur WhatsApp, avec vos produits.</li>
+          <li><span class="pill">Gratuit</span><b>On en parle</b>15 minutes sur WhatsApp : vous nous dites quelle tâche vous prend du temps.</li>
           <li><span class="pill soft">Quelques jours</span><b>On construit</b>Votre système, adapté à votre façon de travailler.</li>
-          <li><span class="pill soft">Sur place</span><b>On installe</b>Et on forme votre vendeur.</li>
+          <li><span class="pill soft">Sur place</span><b>On installe</b>Et on forme votre équipe.</li>
           <li><span class="pill soft">2 mois</span><b>On vous suit</b>Une question, un réglage ? On vous accompagne.</li>
         </ol>
       </div>
@@ -361,33 +505,43 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
     </div>
   </section>
 
+  <section class="sec" id="change">
+    <h2 class="rv">Moins de saisie, plus de temps pour vendre.</h2>
+    <div class="gains">
+      <div class="gain rv"><img src="media/3d_stopwatch.png" alt="" width="180" height="180" loading="lazy"><h3>Du temps en plus</h3><p>Les gestes répétés chaque jour se font tout seuls.</p></div>
+      <div class="gain rv"><img src="media/3d_check_mark_button.png" alt="" width="180" height="180" loading="lazy"><h3>Moins d'erreurs</h3><p>Moins de saisie à la main, moins d'oublis.</p></div>
+      <div class="gain rv"><img src="media/3d_mobile_phone.png" alt="" width="180" height="180" loading="lazy"><h3>Tout suivre à distance</h3><p>Ce qui compte arrive sur votre WhatsApp, où que vous soyez.</p></div>
+      <div class="gain rv"><img src="media/3d_speech_balloon.png" alt="" width="180" height="180" loading="lazy"><h3>Clients mieux servis</h3><p>Confirmations et réponses partent vite, sans attendre.</p></div>
+    </div>
+  </section>
+
   <section class="sec faq" id="questions">
     <h2 class="rv">Vos questions</h2>
     <div class="rv">
-      <details><summary>Mon vendeur n'est pas à l'aise avec la technologie. Ça va marcher ?</summary><p>Oui. Il a une seule chose à faire : enregistrer la vente sur son téléphone. On le forme pendant l'installation.</p></details>
-      <details><summary>Est-ce que je dois changer ma façon de travailler ?</summary><p>Non. C'est le système qui s'adapte à vous, pas l'inverse.</p></details>
-      <details><summary>Je travaille déjà avec Excel. Je perds tout ?</summary><p>Ça dépend de votre fichier. Montrez-le-nous pendant la démonstration : on vous dit tout de suite ce qu'on peut reprendre.</p></details>
-      <details><summary>Il me faut un ordinateur ?</summary><p>Non. Un téléphone avec internet suffit à votre vendeur pour enregistrer les ventes. Vous, vous recevez tout sur WhatsApp.</p></details>
+      <details><summary>Quelles tâches peut-on automatiser ?</summary><p>Celles qui se répètent et suivent toujours les mêmes étapes : noter une vente, mettre à jour un stock, confirmer une commande, relancer un client, préparer un bilan. Dites-nous la vôtre : on vous répond franchement si c'est faisable.</p></details>
+      <details><summary>Faut-il changer mes outils ?</summary><p>Non. Nous partons de ce que vous utilisez déjà, comme WhatsApp ou un fichier Excel, et le système s'adapte à vous.</p></details>
+      <details><summary>Mon équipe n'est pas à l'aise avec la technologie.</summary><p>Ce n'est pas un problème. On garde les gestes les plus simples possible, souvent un seul geste sur le téléphone, et on forme votre équipe pendant l'installation.</p></details>
       <details><summary>Combien ça coûte ?</summary><p>Le prix dépend de votre entreprise et de ce qu'on automatise. On en parle pendant la démonstration, qui elle est gratuite.</p></details>
-      <details><summary>Et si ça ne me fait pas gagner de temps ?</summary><p>Alors vous ne payez pas l'installation. Si après 30 jours le système ne vous fait pas gagner de temps, on le retire.</p></details>
+      <details><summary>Combien de temps pour l'installer ?</summary><p>Selon la tâche, quelques jours. On vous donne le délai exact pendant la démonstration.</p></details>
+      <details><summary>Et si ça ne marche pas pour moi ?</summary><p>Si après 30 jours le système ne vous fait pas gagner de temps, on le retire et l'installation ne vous coûte rien.</p></details>
     </div>
   </section>
 
   <section class="sec cta rv">
     <div>
-      <h2>Ce soir, le bilan arrive seul.</h2>
+      <h2>Quelle tâche vous prend le plus de temps ?</h2>
       <p>Écrivez-nous sur WhatsApp. On étudie votre façon de travailler, et on construit le système qui vous correspond. On vous accompagne du premier message jusqu'à l'installation.</p>
       <a class="btn btn-accent wa" href="#">Demander ma démo gratuite sur WhatsApp</a>
       <p class="small">15 minutes, sans engagement. WhatsApp : +243 831 710 181 · ou <a href="#contact" style="color:#fff">laissez vos coordonnées</a></p>
     </div>
-    <div class="bubble"><b>WhatsApp · 19:00</b>Bilan du jour : toutes vos ventes, votre stock restant et les produits à racheter.</div>
+    <div class="bubble"><b>WhatsApp · 19:00</b>Bilan du jour envoyé. 3 relances parties. 2 produits à racheter demain.</div>
   </section>
 
 
   <section class="sec contact" id="contact">
     <div class="form-card rv">
       <div class="form-intro">
-        <h2>On vous rappelle.</h2>
+        <h2>Dites-nous quelle tâche vous prend le plus de temps.</h2>
         <p>Laissez vos coordonnées : on vous écrit sur WhatsApp pour fixer votre démonstration gratuite de 15 minutes.</p>
         <ul class="reass"><li>Gratuit et sans engagement</li><li>Réponse sur WhatsApp</li><li>Vos données restent entre nous</li></ul>
       </div>
@@ -398,9 +552,9 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
         </div>
         <div class="row2">
           <label for="f-tel">Numéro WhatsApp<input id="f-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+243 …" required></label>
-          <label for="f-type">Type d'entreprise<select id="f-type" name="type"><option>Quincaillerie</option><option>Alimentation</option><option>Pharmacie</option><option>Dépôt</option><option>Boutique</option><option>Autre</option></select></label>
+          <label for="f-type">Secteur<select id="f-type" name="type"><option>Boutique</option><option>Quincaillerie</option><option>Pharmacie</option><option>Alimentation</option><option>Dépôt</option><option>Restaurant</option><option>Services</option><option>Autre</option></select></label>
         </div>
-        <label for="f-msg">Votre besoin (facultatif)<textarea id="f-msg" name="msg" rows="4" placeholder="Ex. : je note mes ventes dans un cahier et je veux être prévenu avant les ruptures."></textarea></label>
+        <label for="f-msg">Tâche à automatiser (facultatif)<textarea id="f-msg" name="msg" rows="4" placeholder="Ex. : je relance mes clients à la main chaque semaine, ou je note mes ventes dans un cahier."></textarea></label>
         <input id="f-piege" name="piege" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
         <p class="err" id="f-err" hidden>Merci d'indiquer votre nom et votre numéro WhatsApp.</p>
         <button class="btn btn-accent" type="submit">Envoyer ma demande</button>
@@ -418,7 +572,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 
 <script>
 document.documentElement.classList.add('js');
-const WA='https://wa.me/243831710181?text='+encodeURIComponent("Bonjour My automation, j'ai vu votre site. J'aimerais voir comment le système de stock marcherait dans mon entreprise.");
+const WA='https://wa.me/243831710181?text='+encodeURIComponent("Bonjour My automation, j'ai vu votre site. J'aimerais voir ce que vous pouvez automatiser dans mon entreprise.");
 document.querySelectorAll('a.wa').forEach(a=>{a.href=WA;a.target='_blank';a.rel='noopener'});
 
 /* démo : 3 produits d'exemple, chaque vente fait baisser le niveau dans le tube */
@@ -445,14 +599,17 @@ if(matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: r
 }
 
 /* sur mesure */
-const IMG={q:'toolbox',a:'convenience_store',p:'pill',d:'delivery_truck'};
-const SH={q:['Chez une quincaillerie',['Ciment, tôles, peinture : vendus au sac, à la pièce ou au litre','Alerte quand un produit long à commander baisse','La liste du matin, classée par fournisseur']],
-a:['Chez une alimentation',['Beaucoup de petits produits, vendus vite','Alerte avant que le riz ou l\'huile manque','Le bilan du soir, même si vous êtes ailleurs']],
-p:['Chez une pharmacie',['Chaque boîte vendue est enregistrée','Alerte avant la rupture d\'un médicament demandé','La liste du matin pour le grossiste']],
-d:['Chez un dépôt',['Les arrivages et les sorties au même endroit','Le stock juste, sans recompter les cartons','Les ventes de chaque vendeur sur votre WhatsApp']]};
+const IMG={b:'convenience_store',q:'toolbox',a:'shopping_cart',p:'pill',d:'delivery_truck',r:'fork_and_knife_with_plate',s:'telephone_receiver'};
+const SH={b:['Chez une boutique',['Chaque vente notée en un geste, stock à jour','Confirmation envoyée au client sur WhatsApp','Le bilan du soir sur votre téléphone']],
+q:['Chez une quincaillerie',['Ciment, tôles, peinture : stock suivi au sac, à la pièce ou au litre','Alerte avant qu\'un produit long à commander manque','La liste du matin, classée par fournisseur']],
+p:['Chez une pharmacie',['Chaque boîte vendue enregistrée','Alerte avant la rupture d\'un médicament demandé','La liste du matin pour le grossiste']],
+a:['Chez une alimentation',['Beaucoup de petits produits suivis sans effort','Alerte avant que le riz ou l\'huile manque','Le bilan du soir, même si vous êtes ailleurs']],
+d:['Chez un dépôt',['Arrivages et sorties au même endroit','Le stock juste, sans recompter les cartons','Les ventes de chaque vendeur sur votre WhatsApp']],
+r:['Chez un restaurant',['Commandes reçues sur WhatsApp et confirmées','Suivi des produits en cuisine, alerte avant qu\'ils manquent','Le chiffre du service envoyé le soir']],
+s:['Dans une entreprise de services',['Rappels de rendez-vous envoyés tout seuls','Relance des paiements en retard','Un point chaque semaine sur votre activité']]};
 const cb=document.querySelectorAll('.chips button');
-function shop(key){cb.forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===key));document.getElementById('shopT').textContent=SH[key][0];document.getElementById('shopI').src='media/3d_'+IMG[key]+'.png';document.getElementById('shopL').innerHTML=SH[key][1].map(t=>`<li>${t}</li>`).join('')}
-cb.forEach(b=>b.onclick=()=>shop(b.dataset.k));shop('q');
+function shop(key){cb.forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===key));document.getElementById('shopT').textContent=SH[key][0];const si=document.getElementById('shopI');si.src='media/3d_'+IMG[key]+'.png';si.classList.remove('pop');void si.offsetWidth;si.classList.add('pop');document.getElementById('shopL').innerHTML=SH[key][1].map(t=>`<li>${t}</li>`).join('')}
+cb.forEach(b=>b.onclick=()=>shop(b.dataset.k));shop('b');
 
 
 /* formulaire : la demande part dans le Google Sheet et par email (Apps Script), puis WhatsApp s'ouvre avec le message prêt */
@@ -464,7 +621,7 @@ lead.addEventListener('submit',e=>{
   const err=document.getElementById('f-err');
   if(!v('f-nom')||!v('f-tel')){err.hidden=false;return}
   err.hidden=true;
-  const txt=`Bonjour My automation, je souhaite une démonstration gratuite.\nNom : ${v('f-nom')}\nEntreprise : ${v('f-ent')||'-'}\nWhatsApp : ${v('f-tel')}\nType : ${v('f-type')}`+(v('f-msg')?`\nBesoin : ${v('f-msg')}`:'');
+  const txt=`Bonjour My automation, je souhaite une démonstration gratuite.\nNom : ${v('f-nom')}\nEntreprise : ${v('f-ent')||'-'}\nWhatsApp : ${v('f-tel')}\nSecteur : ${v('f-type')}`+(v('f-msg')?`\nTâche à automatiser : ${v('f-msg')}`:'');
   const url='https://wa.me/243831710181?text='+encodeURIComponent(txt);
   if(LEAD_ENDPOINT){
     const data=new URLSearchParams({nom:v('f-nom'),entreprise:v('f-ent'),tel:v('f-tel'),type:v('f-type'),besoin:v('f-msg'),page:location.href,piege:v('f-piege')});
@@ -474,6 +631,33 @@ lead.addEventListener('submit',e=>{
   document.getElementById('f-ok').hidden=false;
   a.click();
 });
+
+
+/* héros : messages qui défilent sous le hub */
+const HT=['Nouvelle commande enregistrée et confirmée au client.','Relance envoyée : rendez-vous de demain rappelé.','Stock bas : riz 25 kg. Pensez à racheter.','Bilan du jour envoyé sur votre WhatsApp.','Liste du matin prête : 3 produits à commander.'];
+let hk=0;const hubT=document.getElementById('hubT'),hubToast=document.getElementById('hubToast');
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{hubToast.classList.remove('on');setTimeout(()=>{hk=(hk+1)%HT.length;hubT.textContent=HT[hk];hubToast.classList.add('on')},350)},3200);
+const hub=document.getElementById('hub'),hubRig=document.getElementById('hubRig');
+if(matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  hub.addEventListener('pointermove',e=>{const r=hub.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;hubRig.style.animation='none';hubRig.style.transform=`rotateY(${x*16}deg) rotateX(${-y*10}deg)`});
+  hub.addEventListener('pointerleave',()=>{hubRig.style.transform='';hubRig.style.animation=''});
+  /* cartes solutions qui s'inclinent */
+  document.querySelectorAll('.card3d').forEach(c=>{
+    c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(6px)`});
+    c.addEventListener('pointerleave',()=>c.style.transform='');
+  });
+}
+/* constat : les tâches s'allument tour à tour */
+const tk=[...document.querySelectorAll('#tasks .task')];let ti=0;
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{tk.forEach((t,n)=>t.classList.toggle('on',n===ti));ti=(ti+1)%tk.length},900);
+/* circuit : exemples */
+const CI={vente:[['mobile_phone','Une vente est notée','Sur le téléphone du vendeur'],['gear','Le stock se met à jour','Tout de suite, sans recompter'],['speech_balloon','Vous êtes prévenu','La vente arrive sur votre WhatsApp']],
+commande:[['speech_balloon','Un client commande','Par message WhatsApp'],['gear','La commande est enregistrée','Et confirmée au client'],['bell','Votre équipe est prévenue','Pour préparer la commande']],
+relance:[['spiral_calendar','Une date arrive','Paiement, rendez-vous ou devis'],['gear','Le rappel part tout seul','Au bon moment, avec le bon message'],['check_mark_button','Vous voyez qui a répondu','Sans courir après personne']],
+soir:[['alarm_clock','19 h, fin de journée','La boutique ferme'],['bar_chart','Les chiffres sont calculés','Ventes, stock, relances'],['mobile_phone','Le bilan arrive','Sur votre WhatsApp']]};
+const fl=document.getElementById('flow3');
+function circ(k){const d=CI[k];fl.classList.add('swap');setTimeout(()=>{d.forEach((x,n)=>{document.getElementById('n'+(n+1)+'i').src='media/3d_'+x[0]+'.png';document.getElementById('n'+(n+1)+'t').textContent=x[1];document.getElementById('n'+(n+1)+'s').textContent=x[2]});fl.classList.remove('swap')},250);document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===k))}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>circ(b.dataset.c));circ('vente');
 
 /* apparitions (le contenu reste visible sans script) */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
