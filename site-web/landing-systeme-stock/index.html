@@ -692,7 +692,7 @@ cb.forEach(b=>b.onclick=()=>shop(b.dataset.k));shop('b');
 
 
 /* formulaire : la demande part dans le Google Sheet et par email (Apps Script), puis WhatsApp s'ouvre avec le message prêt */
-const LEAD_ENDPOINT=''; // URL de l'application Web Apps Script (voir apps-script/LISEZMOI.md)
+const LEAD_ENDPOINT='https://mymichaelson.app.n8n.cloud/webhook/my-automation-demande'; // workflow n8n « My automation - Demandes du site (formulaire) » → Google Sheet
 const lead=document.getElementById('lead');
 lead.addEventListener('submit',e=>{
   e.preventDefault();

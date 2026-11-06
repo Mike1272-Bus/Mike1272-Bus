@@ -14,3 +14,9 @@ Références de Mike : une maquette « verre 3D » lavande (mise en page en case
 - Adresse : https://my-automation-rdc.vercel.app (domaine ajouté au projet Vercel `allegra-digital-ground`, faute de droit pour créer un projet).
 - Copie publiée : `allegra-landing/site/my-automation/`. Le fichier `allegra-landing/site/vercel.json` envoie ce domaine vers ce dossier.
 - Après une modif ici, recopier `index.html` et `media/` dans `allegra-landing/site/my-automation/`, puis redéployer.
+
+## Formulaire → Google Sheet (6 nov.)
+- Le formulaire envoie chaque demande au workflow n8n **« My automation - Demandes du site (formulaire) »** (mymichaelson.app.n8n.cloud, webhook `my-automation-demande`), qui l'ajoute dans le Google Sheet **« My automation - Demandes de démo (site) »** du Drive tambwemike1@gmail.com (onglet « Demandes »).
+- En même temps, WhatsApp s'ouvre chez le visiteur avec son message prêt.
+- Le dossier `apps-script/` n'est plus nécessaire (solution de secours).
+- Email : pas encore (aucune connexion email dans n8n). Solution simple : dans le Sheet, Outils → Paramètres de notification → « M'envoyer un e-mail immédiatement ».
