@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #ffd400; }
+      /* les couleurs de leur logo : jaune vif qui tourne à l'orange, noir */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #111;
+        background: linear-gradient(180deg, #ffe600 0%, #ffd000 55%, #f39200 100%); }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .line { position: absolute; left: 40px; width: 1000px; text-align: center; }
+      .w { display: inline-block; margin: 0 0.1em; }
+      .t { font-weight: 900; font-size: 120px; line-height: 1.02; letter-spacing: -0.03em; }
+      .m { font-weight: 600; font-size: 56px; }
+      .pill { position: absolute; border-radius: 999px; text-align: center; white-space: nowrap; font-weight: 900; }
+      .drop { position: absolute; width: 4px; height: 70px; border-radius: 2px; background: rgba(255,230,0,0.35); }
+      #night { left: 0; top: 0; width: 1080px; height: 1920px; background: linear-gradient(180deg, #0c1020 0%, #1b2140 70%, #2a2a2a 100%); }
+      .card { position: absolute; overflow: hidden; border-radius: 44px; border: 10px solid #fff; box-shadow: 0 40px 70px rgba(80,40,0,0.35); }
+      .card div { width: 100%; height: 100%; background-size: cover; background-position: center; }
+      #ring { left: 340px; top: 760px; width: 400px; height: 400px; border-radius: 50%; border: 14px solid #fff; }
+      #flash { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; z-index: 30; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #111; z-index: 40; }
+      .lbl { position: absolute; font-weight: 900; font-size: 40px; background: #111; color: #ffe600; padding: 10px 26px; border-radius: 16px; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+
+      <!-- 1. La nuit, il pleut, petite faim (0 - 3,6) -->
+      <div class="scene" id="s1"><div class="ab" id="night"></div><div class="cam" id="k1">
+        <div id="rain"></div>
+        <svg class="ab" id="house" style="left:340px; top:330px" width="400" height="380" viewBox="0 0 400 380">
+          <path d="M40 170 L200 40 L360 170" fill="none" stroke="#ffe600" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+          <rect x="80" y="160" width="240" height="200" rx="14" fill="none" stroke="#ffe600" stroke-width="18" />
+          <rect id="win" x="150" y="210" width="100" height="90" rx="10" fill="#ffe600" />
+        </svg>
+        <div class="line t split" id="a1" style="top:820px; color:#fff">Une petite faim…</div>
+        <div class="line m split" id="a2" style="top:1090px; color:#ffe600; font-size:64px">…et pas envie de sortir ?</div>
+      </div></div>
+
+      <!-- 2. Un clic (3,6 - 7,8) -->
+      <div class="scene" id="s2"><div class="cam" id="k2">
+        <div class="line t split" id="b0" style="top:330px; font-size:96px">Ouvrez Biloko…</div>
+        <div class="ab" id="btn" style="left:340px; top:760px; width:400px; height:400px; border-radius:50%; background:#111; box-shadow: 0 30px 60px rgba(0,0,0,0.3)">
+          <svg id="cart" style="position:absolute; left:90px; top:95px" width="220" height="200" viewBox="0 0 220 200">
+            <path d="M14 34 H52 L74 130 H170 L196 22 H214" fill="none" stroke="#ffe600" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M58 60 H180 M64 92 H172" stroke="#ffe600" stroke-width="14" stroke-linecap="round" />
+            <circle cx="88" cy="168" r="15" fill="none" stroke="#ffe600" stroke-width="10" /><circle cx="156" cy="168" r="15" fill="none" stroke="#ffe600" stroke-width="10" />
+          </svg>
+        </div>
+        <div class="ab" id="ring"></div>
+        <div class="line t" style="top:1260px"><span class="w" id="b1" style="font-size:170px">Un clic.</span></div>
+        <div class="line m" style="top:1470px"><span class="w" id="b2">Livraison en un Clic</span></div>
+        <div class="ab" id="sp1" style="left:120px; top:900px; width:260px; height:14px; border-radius:7px; background:#111"></div>
+        <div class="ab" id="sp2" style="left:60px; top:960px; width:320px; height:14px; border-radius:7px; background:#111"></div>
+        <div class="ab" id="sp3" style="left:140px; top:1020px; width:240px; height:14px; border-radius:7px; background:#111"></div>
+      </div></div>
+
+      <!-- 3. Le trajet (7,8 - 12,4) -->
+      <div class="scene" id="s3"><div class="cam" id="k3">
+        <div class="line t split" id="c0" style="top:200px; font-size:92px">Biloko vous livre</div>
+        <svg class="ab" style="left:0; top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+          <g stroke="rgba(255,255,255,0.75)" stroke-width="56" fill="none" stroke-linecap="round">
+            <path d="M200 1500 V560 M520 1500 V560 M860 1500 V480 M80 1100 H1000 M80 800 H1000 M80 1350 H1000 M80 560 H1000" />
+          </g>
+          <path id="route" d="M200 1350 V1100 H520 V800 H860 V560" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1450" stroke-dashoffset="1450" />
+          <g id="pinA" transform="translate(200 1350)"><circle r="44" fill="#111" /><circle r="18" fill="#ffe600" /></g>
+          <g id="pinB" transform="translate(860 560)"><path d="M0 0 C-60 -60 -60 -130 0 -130 C60 -130 60 -60 0 0 Z" fill="#e8301c" /><circle cy="-80" r="22" fill="#fff" /></g>
+        </svg>
+        <div class="lbl" id="la" style="left:130px; top:1420px">Le restaurant</div>
+        <div class="lbl" id="lb" style="left:740px; top:350px">Chez vous</div>
+        <svg class="ab" id="moto" style="left:0; top:0" width="190" height="150" viewBox="0 0 190 150">
+          <rect x="8" y="10" width="78" height="62" rx="10" fill="#111" /><path d="M28 30 h38 l-6 22 h-26 z" fill="none" stroke="#ffe600" stroke-width="6" stroke-linejoin="round" />
+          <path d="M20 96 H120 L140 50 H160" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M60 96 Q60 72 92 72 H118" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" />
+          <circle cx="40" cy="118" r="24" fill="#fff" stroke="#111" stroke-width="10" /><circle cx="150" cy="118" r="24" fill="#fff" stroke="#111" stroke-width="10" />
+        </svg>
+      </div></div>
+
+      <!-- 4. Ding dong : c'est arrivé (12,4 - 16,8) -->
+      <div class="scene" id="s4"><div class="cam" id="k4">
+        <div class="line t" style="top:200px"><span class="w" id="d0" style="font-size:130px">Ding dong !</span></div>
+        <div class="card" id="d1" style="left:70px; top:470px; width:940px; height:742px"><div id="d1i" style="background-image:url('assets/img/plat.jpg')"></div></div>
+        <div class="line t split" id="d2" style="top:1300px; font-size:88px">Vos plats préférés,</div>
+        <div class="line t split" id="d3" style="top:1410px; font-size:88px">livrés chez vous !</div>
+      </div></div>
+
+      <!-- 5. Carte de fin (16,8 - 22) -->
+      <div class="scene" id="s5"><div class="cam" id="k5">
+        <img class="ab" id="e1" src="assets/img/logo.png" style="left:310px; top:150px; width:460px; height:460px; border-radius:50%; box-shadow: 0 0 0 14px #111, 0 30px 50px rgba(120,60,0,0.35)" />
+        <div class="line m" style="top:690px"><span class="w" id="e2" style="font-size:58px">Téléchargez l'application</span></div>
+        <div class="ab pill" id="e3" style="left:110px; top:800px; width:410px; height:120px; line-height:120px; font-size:48px; background:#111; color:#fff">Google Play</div>
+        <div class="ab pill" id="e4" style="left:560px; top:800px; width:410px; height:120px; line-height:120px; font-size:48px; background:#111; color:#fff">App Store</div>
+        <div class="line m" style="top:1010px"><span class="w" id="e5" style="font-size:58px">ou commandez sur WhatsApp</span></div>
+        <div class="ab pill" id="e6" style="left:140px; top:1120px; width:800px; height:140px; line-height:140px; font-size:68px; background:#25d366; color:#fff; box-shadow: 0 12px 0 #128c4a">081 574 4630</div>
+        <div class="card" id="e7" style="left:230px; top:1360px; width:620px; height:489px"><div style="background-image:url('assets/img/plat.jpg')"></div></div>
+      </div></div>
+
+      <div class="ab" id="flash"></div>
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="22" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      document.querySelectorAll(".split").forEach(el => {
+        el.innerHTML = el.textContent.split(" ").map((w, i) => `<span class="w" id="${el.id}_${i}">${w}</span>`).join(" ");
+      });
+      let seed = 11; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const DR = [];
+      for (let i = 0; i < 40; i++) {
+        const d = document.createElement("div"); d.className = "drop";
+        Object.assign(d.style, { left: rnd() * 1080 + "px", top: -100 - rnd() * 400 + "px" });
+        document.getElementById("rain").appendChild(d); DR.push(d);
+      }
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const words = (id, at, step = 0.1) => document.getElementById(id).querySelectorAll(".w").forEach((w, i) =>
+        IN(w, { y: 50, scale: 0.8 }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(2)" }, at + i * step));
+      const pop = (sel, at) => IN(sel, { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.2)" }, at);
+      const slam = (sel, at) => IN(sel, { scale: 2.2, filter: "blur(14px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, at);
+      const shake = (sel, at, a = 12) => FT(sel, { x: 0 }, { x: a, duration: 0.05, yoyo: true, repeat: 5 }, at);
+      const flash = (at, o = 0.6) => { HIDE.push("#flash"); FT("#flash", { autoAlpha: o }, { autoAlpha: 0, duration: 0.3, ease: "power2.out" }, at); };
+
+      const SC = [["#s1", "#k1", 0, 3.6], ["#s2", "#k2", 3.6, 4.2], ["#s3", "#k3", 7.8, 4.6], ["#s4", "#k4", 12.4, 4.4], ["#s5", "#k5", 16.8, 5.2]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        tl.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.1 }, { scale: 1.0, duration: 0.5, ease: "expo.out" }, a);
+        if (i) flash(a, 0.5);
+      });
+
+      // 1. la pluie, la maison, la petite faim
+      DR.forEach((d, i) => FT(d, { y: 0 }, { y: 2300, duration: 0.7 + rnd() * 0.4, repeat: 4, ease: "none" }, rnd() * 0.6));
+      IN("#house", { y: -80, scale: 0.8 }, { y: 0, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 0.1);
+      FT("#win", { opacity: 0.4 }, { opacity: 1, duration: 0.2, yoyo: true, repeat: 7, ease: "steps(1)" }, 0.6);
+      words("a1", 0.7, 0.18); words("a2", 1.9, 0.12);
+      // 2. un clic
+      words("b0", 3.75, 0.14);
+      pop("#btn", 4.0);
+      FT("#btn", { scale: 1 }, { scale: 0.86, duration: 0.1, yoyo: true, repeat: 1, ease: "power2.inOut" }, 4.9);
+      IN("#ring", { scale: 0.9, opacity: 1 }, { scale: 1.9, opacity: 0, duration: 0.6, ease: "power2.out" }, 4.95);
+      slam("#b1", 5.1); shake("#k2", 5.4);
+      IN("#b2", { y: 30 }, { y: 0, duration: 0.4, ease: "power3.out" }, 5.5);
+      FT("#btn", { x: 0, rotation: 0 }, { x: 1100, rotation: 20, duration: 0.45, ease: "power3.in" }, 6.65);
+      ["#sp1", "#sp2", "#sp3"].forEach((s, i) => { IN(s, { scaleX: 0, transformOrigin: "100% 50%" }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 6.45 + i * 0.05); FT(s, { x: 0 }, { x: 1300, duration: 0.45, ease: "power3.in" }, 6.65); });
+      // 3. le trajet : la route se dessine et le scooter la suit (même vitesse, pas de pause)
+      words("c0", 7.9, 0.14);
+      pop("#pinA", 8.2); IN("#la", { y: 20 }, { y: 0, duration: 0.3 }, 8.3);
+      pop("#pinB", 8.5); IN("#lb", { y: 20 }, { y: 0, duration: 0.3 }, 8.6);
+      const P = [[200, 1350], [200, 1100], [520, 1100], [520, 800], [860, 800], [860, 560]], T0 = 8.8, SPEED = 1450 / 2.9;
+      HIDE.push("#moto"); tl.set("#moto", { autoAlpha: 1, x: P[0][0] - 95, y: P[0][1] - 135 }, T0);
+      let t = T0;
+      for (let i = 1; i < P.length; i++) {
+        const len = Math.abs(P[i][0] - P[i - 1][0]) + Math.abs(P[i][1] - P[i - 1][1]), d = len / SPEED;
+        FT("#moto", { x: P[i - 1][0] - 95, y: P[i - 1][1] - 135 }, { x: P[i][0] - 95, y: P[i][1] - 135, duration: d, ease: "none" }, t); t += d;
+      }
+      FT("#route", { strokeDashoffset: 1450 }, { strokeDashoffset: 0, duration: 2.9, ease: "none" }, T0);
+      FT("#moto", { rotation: -3 }, { rotation: 3, duration: 0.15, yoyo: true, repeat: 18, ease: "sine.inOut" }, T0);
+      FT("#pinB", { scale: 1 }, { scale: 1.3, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut", transformOrigin: "50% 100%" }, 11.75);
+      // 4. ding dong, le plat arrive
+      slam("#d0", 12.5); shake("#k4", 12.8, 16); FT("#d0", { rotation: -4 }, { rotation: 4, duration: 0.1, yoyo: true, repeat: 5 }, 12.85);
+      IN("#d1", { y: 1400, rotation: 10 }, { y: 0, rotation: -2, duration: 0.7, ease: "back.out(1.3)" }, 13.2);
+      FT("#d1i", { scale: 1.2 }, { scale: 1.03, duration: 3.5, ease: "sine.out" }, 13.2);
+      words("d2", 14.1, 0.12); words("d3", 14.6, 0.12);
+      // 5. carte de fin
+      IN("#e1", { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 16.9);
+      FT("#e1", { y: 0 }, { y: -16, duration: 1.4, yoyo: true, repeat: 2, ease: "sine.inOut" }, 17.6);
+      IN("#e2", { y: 30 }, { y: 0, duration: 0.4 }, 17.5);
+      pop("#e3", 17.8); pop("#e4", 17.95);
+      IN("#e5", { y: 30 }, { y: 0, duration: 0.4 }, 18.4);
+      IN("#e6", { y: 140 }, { y: 0, duration: 0.5, ease: "back.out(1.6)" }, 18.7);
+      FT("#e6", { scale: 1 }, { scale: 1.05, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 19.4);
+      IN("#e7", { y: 600, rotation: 8 }, { y: 0, rotation: -2, duration: 0.6, ease: "back.out(1.4)" }, 19.0);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 21.6);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

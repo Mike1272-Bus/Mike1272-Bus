@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Young'; src: url('assets/fonts/YoungSerif-Regular.ttf') format('truetype'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0d5c32; }
+      /* leurs couleurs : vert, rouge, orange du logo, blanc */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff; background: #0d5c32; }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .green { background: radial-gradient(ellipse at 50% 40%, #13804a 0%, #0d5c32 60%, #083d21 100%); }
+      .orange { background: radial-gradient(ellipse at 50% 40%, #ffb340 0%, #f59c1d 55%, #d9790a 100%); }
+      .cream { background: radial-gradient(ellipse at 50% 40%, #fffaf0 0%, #fbeed8 70%, #f3dcb8 100%); color: #1d1d1d; }
+      .line { position: absolute; left: 40px; width: 1000px; text-align: center; }
+      .w { display: inline-block; margin: 0 0.08em; }
+      .big { font-family: 'Young', serif; font-size: 130px; line-height: 1.05; }
+      .red { color: #d6262f; }
+      .grn { color: #13804a; }
+      .yel { color: #ffce4a; }
+      /* bandes du drapeau italien, comme sur leurs affiches */
+      .flag { position: absolute; left: 0; width: 1080px; height: 26px; background: linear-gradient(90deg, #13804a 0 33.3%, #fff 33.3% 66.6%, #d6262f 66.6% 100%); }
+      .pz { position: absolute; filter: drop-shadow(0 40px 50px rgba(0,0,0,0.45)); }
+      .chip { position: absolute; height: 96px; line-height: 96px; padding: 0 40px; border-radius: 999px; background: #fff; color: #d6262f; font-weight: 900; font-size: 46px; white-space: nowrap; box-shadow: 0 12px 28px rgba(0,0,0,0.3); }
+      .pin { position: absolute; left: 110px; width: 860px; height: 170px; }
+      .pin svg { position: absolute; left: 0; top: 10px; }
+      .pin .t1 { position: absolute; left: 150px; top: 18px; font-family: 'Young', serif; font-size: 64px; color: #1d1d1d; white-space: nowrap; }
+      .pin .t2 { position: absolute; left: 150px; top: 100px; font-weight: 600; font-size: 38px; color: #555; white-space: nowrap; }
+      .steam { position: absolute; width: 150px; height: 240px; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 70%); filter: blur(12px); opacity: 0; }
+      .pill { position: absolute; border-radius: 999px; text-align: center; white-space: nowrap; font-weight: 900; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #083d21; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="26.5" data-width="1080" data-height="1920">
+
+      <!-- 1. Une envie de pizza ? (0 - 3,4) -->
+      <div class="scene green" id="s1"><div class="cam" id="k1">
+        <div class="flag" style="top:0"></div><div class="flag" style="top:1894px"></div>
+        <div class="line" style="top:700px"><span class="w" id="a0" style="font-weight:600; font-size:54px; letter-spacing:0.25em; text-transform:uppercase; color:#ffce4a">Lubumbashi</span></div>
+        <div class="line big split" id="a1" style="top:820px">Une envie</div>
+        <div class="line big split" id="a2" style="top:960px">de pizza ?</div>
+      </div></div>
+
+      <!-- 2. Must be the Pizza (3,4 - 6,8) -->
+      <div class="scene orange" id="s2"><div class="cam" id="k2">
+        <img class="ab" id="b0" src="assets/img/logo.png" style="left:240px; top:360px; width:600px; height:600px; border-radius:50%; box-shadow: 0 0 0 14px #fff, 0 30px 60px rgba(120,50,0,0.4)" />
+        <div class="line big" style="top:1090px; font-size:104px; color:#1d1d1d"><span id="b1"></span></div>
+      </div></div>
+
+      <!-- 3. La première pizza (6,8 - 12,0) -->
+      <div class="scene green" id="s3"><div class="cam" id="k3">
+        <div class="line big split" id="c0" style="top:230px; font-size:120px">Bien garnie.</div>
+        <div class="line big split yel" id="c1" style="top:380px; font-size:120px">Jusqu'au bord.</div>
+        <div class="steam" id="st1" style="left:240px; top:880px"></div><div class="steam" id="st2" style="left:470px; top:840px"></div><div class="steam" id="st3" style="left:700px; top:900px"></div>
+        <img class="pz" id="c2" src="assets/img/pizza_viande.png" style="left:0; top:1009px; width:1297px; height:911px" />
+      </div></div>
+
+      <!-- 4. Les recettes (12,0 - 17,5) -->
+      <div class="scene green" id="s4"><div class="cam" id="k4">
+        <div class="line big split" id="d0" style="top:190px; font-size:100px">Votre recette ?</div>
+        <div class="chip" id="g1" style="left:80px; top:390px">Steak BBQ</div>
+        <div class="chip" id="g2" style="left:520px; top:390px">Margherita</div>
+        <div class="chip" id="g3" style="left:160px; top:520px">Poulet champignon</div>
+        <div class="chip" id="g4" style="left:80px; top:650px">Viande hachée</div>
+        <div class="chip" id="g5" style="left:240px; top:780px">Festival de légumes</div>
+        <img class="pz" id="d1" src="assets/img/pizza_poulet.png" style="left:-92px; top:1000px; width:1172px; height:868px" />
+      </div></div>
+
+      <!-- 5. Trois adresses (17,5 - 21,8) -->
+      <div class="scene cream" id="s5"><div class="cam" id="k5">
+        <div class="flag" style="top:0"></div>
+        <div class="line big split grn" id="f0" style="top:300px; font-size:96px">Et jamais très loin :</div>
+        <div class="line" style="top:450px"><span class="w" id="f00" style="font-weight:900; font-size:52px; color:#d6262f; letter-spacing:0.06em">3 ADRESSES À LUBUMBASHI</span></div>
+        <div class="pin" id="p1" style="top:650px"><svg width="110" height="150" viewBox="0 0 110 150"><path d="M55 146 C10 90 0 70 0 52 A55 55 0 0 1 110 52 C110 70 100 90 55 146 Z" fill="#d6262f"/><circle cx="55" cy="52" r="22" fill="#fff"/></svg><div class="t1">Carrefour Mall</div></div>
+        <div class="pin" id="p2" style="top:900px"><svg width="110" height="150" viewBox="0 0 110 150"><path d="M55 146 C10 90 0 70 0 52 A55 55 0 0 1 110 52 C110 70 100 90 55 146 Z" fill="#13804a"/><circle cx="55" cy="52" r="22" fill="#fff"/></svg><div class="t1">En ville</div><div class="t2">chez Orange</div></div>
+        <div class="pin" id="p3" style="top:1150px"><svg width="110" height="150" viewBox="0 0 110 150"><path d="M55 146 C10 90 0 70 0 52 A55 55 0 0 1 110 52 C110 70 100 90 55 146 Z" fill="#f59c1d"/><circle cx="55" cy="52" r="22" fill="#fff"/></svg><div class="t1">Route du Golf</div><div class="t2">en face d'Alilac</div></div>
+        <img class="pz" id="p4" src="assets/img/pizza_viande.png" style="left:0; top:1429px; width:700px; height:491px" />
+        <div class="flag" style="top:1894px"></div>
+      </div></div>
+
+      <!-- 6. Carte de fin (21,8 - 26,5) -->
+      <div class="scene orange" id="s6"><div class="cam" id="k6">
+        <img class="ab" id="e1" src="assets/img/logo.png" style="left:290px; top:220px; width:500px; height:500px; border-radius:50%; box-shadow: 0 0 0 12px #fff, 0 30px 60px rgba(120,50,0,0.4)" />
+        <div class="line" style="top:800px"><span class="w big" id="e2" style="font-size:84px; color:#1d1d1d">Must be the Pizza.</span></div>
+        <div class="line" style="top:960px"><span class="w" id="e3" style="font-weight:900; font-size:46px; letter-spacing:0.12em; color:#fff">COMMANDES &amp; LIVRAISON</span></div>
+        <div class="ab pill" id="e4" style="left:170px; top:1060px; width:740px; height:130px; line-height:130px; font-size:66px; background:#d6262f; color:#fff; box-shadow: 0 10px 0 #8e1219">081 132 3323</div>
+        <div class="ab pill" id="e5" style="left:170px; top:1240px; width:740px; height:130px; line-height:130px; font-size:66px; background:#13804a; color:#fff; box-shadow: 0 10px 0 #0a4a27">084 432 3323</div>
+        <div class="line" style="top:1450px"><span class="w" id="e6" style="font-family:'Young',serif; font-size:64px; color:#1d1d1d">Pizza Inn · Lubumbashi</span></div>
+      </div></div>
+
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="26.5" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      document.querySelectorAll(".split").forEach(el => {
+        el.innerHTML = el.textContent.split(" ").map((w, i) => `<span class="w" id="${el.id}_${i}">${w}</span>`).join(" ");
+      });
+      // leur slogan, lettre par lettre
+      const SLOGAN = "Must be the Pizza.";
+      document.getElementById("b1").innerHTML = SLOGAN.split("").map((c, i) => `<span id="sl${i}" style="display:inline-block">${c === " " ? "&nbsp;" : c}</span>`).join("");
+
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const words = (id, at, step = 0.12) => document.getElementById(id).querySelectorAll(".w").forEach((w, i) =>
+        IN(w, { y: 40, filter: "blur(10px)" }, { y: 0, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, at + i * step));
+      const pop = (sel, at) => IN(sel, { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.2)" }, at);
+      const steam = (ids, at, d) => ids.forEach((s, i) => FT(s, { y: 60, opacity: 0, scaleX: 0.7 }, { keyframes: [{ opacity: 0.8, duration: 0.5 }, { opacity: 0, duration: 0.9 }], y: -300, scaleX: 1.3, duration: 1.4, repeat: Math.max(0, Math.floor(d / 1.4) - 1), ease: "sine.out" }, at + i * 0.35));
+
+      // pages qui glissent depuis la droite (on tourne les pages de l'histoire)
+      const SC = [["#s1", "#k1", 0, 3.4], ["#s2", "#k2", 3.4, 3.4], ["#s3", "#k3", 6.8, 5.2], ["#s4", "#k4", 12.0, 5.5], ["#s5", "#k5", 17.5, 4.3], ["#s6", "#k6", 21.8, 4.7]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        if (i) { tl.set(s, { autoAlpha: 1 }, a - 0.3); FT(s, { xPercent: 100 }, { xPercent: 0, duration: 0.55, ease: "expo.inOut" }, a - 0.3); } else tl.set(s, { autoAlpha: 1 }, 0);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d + 0.3);
+        FT(c, { scale: 1.0 }, { scale: 1.04, duration: d, ease: "none" }, a);
+      });
+
+      // 1
+      IN("#a0", { y: 20, letterSpacing: "0.6em" }, { y: 0, letterSpacing: "0.25em", duration: 0.6, ease: "power3.out" }, 0.2);
+      words("a1", 0.8, 0.15); words("a2", 1.4, 0.15);
+      // 2
+      IN("#b0", { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 3.5);
+      FT("#b0", { y: 0 }, { y: -14, duration: 1.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 4.1);
+      SLOGAN.split("").forEach((c, i) => IN("#sl" + i, { y: 30, scale: 0.6 }, { y: 0, scale: 1, duration: 0.25, ease: "back.out(2)" }, 4.3 + i * 0.06));
+      // 3
+      words("c0", 6.9, 0.15); words("c1", 7.5, 0.15);
+      IN("#c2", { x: -700, y: 600, rotation: -12 }, { x: 0, y: 0, rotation: 0, duration: 0.9, ease: "expo.out" }, 7.0);
+      FT("#c2", { scale: 1 }, { scale: 1.06, duration: 4.0, ease: "none", transformOrigin: "0% 100%" }, 7.9);
+      steam(["#st1", "#st2", "#st3"], 8.2, 3.6);
+      // 4
+      words("d0", 12.1, 0.14);
+      IN("#d1", { x: 900, rotation: 15 }, { x: 0, rotation: 0, duration: 0.9, ease: "expo.out" }, 12.2);
+      FT("#d1", { scale: 1 }, { scale: 1.05, duration: 4.0, ease: "none", transformOrigin: "100% 100%" }, 13.1);
+      ["#g1", "#g2", "#g3", "#g4", "#g5"].forEach((g, i) => { pop(g, 13.4 + i * 0.3); FT(g, { y: 0 }, { y: -12, duration: 0.7, yoyo: true, repeat: 3, ease: "sine.inOut" }, 13.9 + i * 0.3); });
+      // 5 : les épingles tombent
+      words("f0", 17.6, 0.13); IN("#f00", { y: 20 }, { y: 0, duration: 0.4 }, 18.0);
+      ["#p1", "#p2", "#p3"].forEach((p, i) => IN(p, { y: -500 }, { y: 0, duration: 0.6, ease: "bounce.out" }, 18.1 + i * 0.6));
+      IN("#p4", { y: 500 }, { y: 0, duration: 0.7, ease: "expo.out" }, 19.9);
+      // 6
+      IN("#e1", { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 21.9);
+      FT("#e1", { y: 0 }, { y: -14, duration: 1.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 22.5);
+      IN("#e2", { y: 30 }, { y: 0, duration: 0.45 }, 22.5); IN("#e3", { scaleX: 0 }, { scaleX: 1, duration: 0.35 }, 22.9);
+      IN("#e4", { x: -900 }, { x: 0, duration: 0.5, ease: "expo.out" }, 23.2); IN("#e5", { x: 900 }, { x: 0, duration: 0.5, ease: "expo.out" }, 23.4);
+      IN("#e6", { y: 30 }, { y: 0, duration: 0.45 }, 23.8);
+      FT("#e4", { scale: 1 }, { scale: 1.04, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 24.2);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.45 }, 26.05);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

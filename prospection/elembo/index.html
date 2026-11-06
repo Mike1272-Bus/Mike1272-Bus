@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #fff8e8; }
+      /* l'univers de leurs étiquettes : blanc, orange, jaune ananas, vert feuille, lettres noires au pinceau */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #1b1b1b;
+        background: radial-gradient(ellipse at 50% 35%, #fffdf6 0%, #fff4d6 55%, #ffe7a8 100%); }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .line { position: absolute; left: 40px; width: 1000px; text-align: center; }
+      .w { display: inline-block; margin: 0 0.08em; }
+      .big { font-family: 'Baloo', sans-serif; font-weight: 800; font-size: 124px; line-height: 1.02; }
+      .org { color: #f28a12; }
+      .grn { color: #2c9a3e; }
+      .btl { position: absolute; filter: drop-shadow(0 30px 30px rgba(120,70,0,0.3)); }
+      .nm { position: absolute; width: 330px; text-align: center; font-family: 'Baloo', sans-serif; font-weight: 800; font-size: 46px; line-height: 1.05; }
+      .chk { position: absolute; left: 90px; height: 120px; line-height: 120px; font-family: 'Baloo', sans-serif; font-weight: 800; font-size: 64px; white-space: nowrap; }
+      .chk b { display: inline-block; width: 96px; height: 96px; line-height: 96px; border-radius: 50%; background: #2c9a3e; color: #fff; text-align: center; font-size: 60px; margin-right: 30px; vertical-align: 8px; }
+      .pill { position: absolute; border-radius: 999px; text-align: center; white-space: nowrap; font-weight: 900; }
+      .fr { position: absolute; }
+      .bub { position: absolute; border-radius: 50%; border: 4px solid rgba(242,138,18,0.45); background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), rgba(255,255,255,0) 60%); opacity: 0; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff4d6; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+      <!-- fruits dessinés dans le style des étiquettes (orange + feuille, ananas) : ils tombent au début -->
+      <svg width="0" height="0" style="position:absolute">
+        <defs>
+          <g id="orange"><circle cx="0" cy="0" r="80" fill="#f7931e" /><circle cx="-24" cy="-26" r="22" fill="#ffb24d" opacity="0.7" /><path d="M8 -78 C40 -130 100 -118 112 -96 C76 -70 34 -66 8 -78 Z" fill="#2c9a3e" /></g>
+          <g id="ananas"><ellipse cx="0" cy="20" rx="62" ry="86" fill="#f6cf2b" /><path d="M-44 -20 L44 60 M44 -20 L-44 60 M-50 20 L50 20" stroke="#e0a812" stroke-width="7" opacity="0.6" /><path d="M0 -62 L-36 -150 L-8 -96 L0 -170 L8 -96 L36 -150 Z" fill="#2c9a3e" /></g>
+        </defs>
+      </svg>
+      <div id="bubbles"></div>
+
+      <!-- 1. Des fruits 100 % congolais (0 - 3,6) — place prévue pour un clip IA (fruits qui tombent, éclaboussures) -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <svg class="fr" id="o1" style="left:120px; top:200px; overflow:visible" width="10" height="10"><use href="#orange" /></svg>
+        <svg class="fr" id="o2" style="left:860px; top:330px; overflow:visible" width="10" height="10"><use href="#ananas" /></svg>
+        <svg class="fr" id="o3" style="left:260px; top:1460px; overflow:visible" width="10" height="10"><use href="#ananas" /></svg>
+        <svg class="fr" id="o4" style="left:840px; top:1500px; overflow:visible" width="10" height="10"><use href="#orange" /></svg>
+        <svg class="fr" id="o5" style="left:560px; top:1680px; overflow:visible" width="10" height="10"><use href="#orange" /></svg>
+        <div class="line" style="top:640px"><span class="w" id="a0" style="font-weight:900; font-size:50px; letter-spacing:0.22em; color:#2c9a3e">KONGO-CENTRAL</span></div>
+        <div class="line big split" id="a1" style="top:760px">Des fruits</div>
+        <div class="line big split org" id="a2" style="top:900px">100 % congolais.</div>
+      </div></div>
+
+      <!-- 2. Les 3 jus (3,6 - 9,0) -->
+      <div class="scene" id="s2"><div class="cam" id="k2">
+        <div class="line big split" id="b0" style="top:170px; font-size:92px">Fraîchement pressés,</div>
+        <div class="line big split grn" id="b00" style="top:280px; font-size:92px">puis mis en bouteille.</div>
+        <img class="btl" id="b1" src="assets/img/ananas.png" style="left:50px; top:610px; width:300px; height:984px" />
+        <img class="btl" id="b2" src="assets/img/ananas_orange.png" style="left:390px; top:500px; width:300px; height:1174px" />
+        <img class="btl" id="b3" src="assets/img/orange.png" style="left:730px; top:610px; width:300px; height:919px" />
+        <div class="nm" id="n1" style="left:35px; top:1630px">Jus<br />d'ananas</div>
+        <div class="nm org" id="n2" style="left:375px; top:1700px">Ananas-<br />orange</div>
+        <div class="nm" id="n3" style="left:715px; top:1630px">Jus<br />d'orange</div>
+      </div></div>
+
+      <!-- 3. Ce qu'il y a dedans (9,0 - 14,0) -->
+      <div class="scene" id="s3"><div class="cam" id="k3">
+        <div class="line big split" id="c0" style="top:220px; font-size:96px">Dans la bouteille :</div>
+        <div class="chk" id="c1" style="top:520px"><b>✓</b>Bio</div>
+        <div class="chk" id="c2" style="top:700px"><b>✓</b>Sans additif chimique</div>
+        <div class="chk" id="c3" style="top:880px"><b>✓</b>Faible en sucre ajouté</div>
+        <img class="btl" id="c4" src="assets/img/ananas_orange.png" style="left:640px; top:1080px; width:240px; height:939px" />
+        <div class="ab" id="c5" style="left:90px; top:1240px; width:520px; font-family:'Baloo',sans-serif; font-weight:800; font-size:62px; line-height:1.1; color:#f28a12">Une alternative saine aux sodas classiques.</div>
+      </div></div>
+
+      <!-- 4. Le verre recyclé (14,0 - 17,3) -->
+      <div class="scene" id="s4"><div class="cam" id="k4">
+        <div class="line big split" id="d0" style="top:260px; font-size:100px">Et la bouteille ?</div>
+        <svg class="ab" id="d1" style="left:240px; top:520px" width="600" height="600" viewBox="-300 -300 600 600">
+          <g fill="none" stroke="#2c9a3e" stroke-width="34" stroke-linecap="round">
+            <path d="M -200 -60 A 210 210 0 0 1 120 -170" /><path d="M 190 -90 A 210 210 0 0 1 120 180" /><path d="M 60 205 A 210 210 0 0 1 -205 40" />
+          </g>
+          <g fill="#2c9a3e"><path d="M 150 -205 L 120 -125 L 70 -195 Z" /><path d="M 160 200 L 75 205 L 120 135 Z" /><path d="M -230 -10 L -175 70 L -250 75 Z" /></g>
+        </svg>
+        <img class="btl" id="d2" src="assets/img/orange.png" style="left:450px; top:600px; width:180px; height:551px" />
+        <div class="line big split grn" id="d3" style="top:1260px; font-size:120px">En verre recyclé.</div>
+        <div class="line" style="top:1430px"><span class="w" id="d4" style="font-weight:600; font-size:44px; color:#555">Moins de déchets dans les rues.</span></div>
+      </div></div>
+
+      <!-- 5. Le slogan (17,3 - 20,5) -->
+      <div class="scene" id="s5"><div class="cam" id="k5">
+        <img class="btl" id="e0" src="assets/img/trio.png" style="left:115px; top:220px; width:850px; height:861px" />
+        <div class="line big split" id="e1" style="top:1200px; font-size:96px">La vie saine se fait</div>
+        <div class="line big split org" id="e2" style="top:1310px; font-size:96px">avec du jus de fruits.</div>
+      </div></div>
+
+      <!-- 6. Carte de fin (20,5 - 24) -->
+      <div class="scene" id="s6"><div class="cam" id="k6">
+        <img class="btl" id="f0" src="assets/img/ananas_orange.png" style="left:400px; top:150px; width:280px; height:1096px" />
+        <div class="line big" style="top:1290px; font-size:150px"><span class="w" id="f1">Elembo</span></div>
+        <div class="ab pill" id="f2" style="left:290px; top:1470px; width:500px; height:100px; line-height:100px; font-size:46px; background:#2c9a3e; color:#fff">Made in DRC</div>
+        <div class="line" style="top:1610px"><span class="w" id="f3" style="font-weight:900; font-size:50px; color:#f28a12">elembo-rdc.com</span></div>
+      </div></div>
+
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="24" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      document.querySelectorAll(".split").forEach(el => {
+        el.innerHTML = el.textContent.split(" ").map((w, i) => `<span class="w" id="${el.id}_${i}">${w}</span>`).join(" ");
+      });
+      let seed = 5; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const BB = [];
+      for (let i = 0; i < 22; i++) {
+        const d = document.createElement("div"); d.className = "bub"; const s = 16 + rnd() * 46;
+        Object.assign(d.style, { left: rnd() * 1040 + "px", top: 1750 + rnd() * 250 + "px", width: s + "px", height: s + "px" });
+        document.getElementById("bubbles").appendChild(d); BB.push(d);
+      }
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const words = (id, at, step = 0.12) => document.getElementById(id).querySelectorAll(".w").forEach((w, i) =>
+        IN(w, { y: 50, scale: 0.85 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, at + i * step));
+      const pop = (sel, at) => IN(sel, { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.2)" }, at);
+
+      BB.forEach(d => FT(d, { y: 0, x: 0, opacity: 0 }, { keyframes: [{ opacity: 0.9, duration: 0.6 }, { opacity: 0.9, duration: 3.4 }, { opacity: 0, duration: 1 }], y: -2000 - rnd() * 300, x: rnd() * 120 - 60, duration: 5, repeat: 3, ease: "sine.in" }, rnd() * 4));
+
+      const SC = [["#s1", "#k1", 0, 3.6], ["#s2", "#k2", 3.6, 5.4], ["#s3", "#k3", 9.0, 5.0], ["#s4", "#k4", 14.0, 3.3], ["#s5", "#k5", 17.3, 3.2], ["#s6", "#k6", 20.5, 3.5]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        if (i) FT(s, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35, ease: "none" }, a); else tl.set(s, { autoAlpha: 1 }, 0);
+        if (i !== SC.length - 1) FT(s, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.35, ease: "none" }, a + d - 0.15);
+        FT(c, { scale: 1.0 }, { scale: 1.04, duration: d, ease: "none" }, a);
+      });
+
+      // 1 : les fruits tombent et rebondissent
+      ["#o1", "#o2", "#o3", "#o4", "#o5"].forEach((o, i) => {
+        IN(o, { y: -900, rotation: -60 }, { y: 0, rotation: 0, duration: 0.8, ease: "bounce.out" }, 0.2 + i * 0.3);
+        FT(o, { rotation: 0 }, { rotation: i % 2 ? 12 : -12, duration: 1.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.1 + i * 0.3);
+      });
+      IN("#a0", { y: 20, letterSpacing: "0.5em" }, { y: 0, letterSpacing: "0.22em", duration: 0.6 }, 0.5);
+      words("a1", 1.0, 0.15); words("a2", 1.5, 0.15);
+      // 2 : les bouteilles montent une à une (le son de l'ouverture part à 3,9 s)
+      words("b0", 3.7, 0.12); words("b00", 4.1, 0.12);
+      [["#b1", "#n1"], ["#b2", "#n2"], ["#b3", "#n3"]].forEach(([b, n], i) => {
+        IN(b, { y: 1300, rotation: i === 1 ? 0 : (i ? 8 : -8) }, { y: 0, rotation: 0, duration: 0.7, ease: "back.out(1.4)" }, 4.0 + i * 0.45);
+        FT(b, { y: 0 }, { y: -18, duration: 1.0, yoyo: true, repeat: 1, ease: "sine.inOut" }, 5.0 + i * 0.45);
+        pop(n, 4.5 + i * 0.45);
+      });
+      // 3 : les cases se cochent
+      words("c0", 9.1, 0.12);
+      ["#c1", "#c2", "#c3"].forEach((c, i) => IN(c, { x: -900 }, { x: 0, duration: 0.5, ease: "expo.out" }, 9.9 + i * 0.7));
+      IN("#c4", { y: 900 }, { y: 0, duration: 0.7, ease: "back.out(1.3)" }, 10.3);
+      words("c5", 12.2, 0.08);
+      // 4 : le verre recyclé
+      words("d0", 14.1, 0.14);
+      IN("#d1", { scale: 0.3, rotation: -120 }, { scale: 1, rotation: 0, duration: 0.8, ease: "back.out(1.5)" }, 14.5);
+      FT("#d1", { rotation: 0 }, { rotation: 120, duration: 2.4, ease: "none" }, 15.3);
+      IN("#d2", { y: 600 }, { y: 0, duration: 0.6, ease: "back.out(1.5)" }, 14.7);
+      words("d3", 15.4, 0.14); IN("#d4", { y: 20 }, { y: 0, duration: 0.4 }, 16.1);
+      // 5 : la gorgée, puis le slogan
+      IN("#e0", { scale: 0.7, y: 200 }, { scale: 1, y: 0, duration: 0.8, ease: "expo.out" }, 17.4);
+      words("e1", 18.2, 0.12); words("e2", 18.7, 0.12);
+      // 6
+      IN("#f0", { y: 900, rotation: 10 }, { y: 0, rotation: 0, duration: 0.7, ease: "back.out(1.4)" }, 20.6);
+      IN("#f1", { scale: 0.5, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 21.1);
+      pop("#f2", 21.5); IN("#f3", { y: 20 }, { y: 0, duration: 0.4 }, 21.9);
+      FT("#f0", { rotation: 0 }, { rotation: 3, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 21.4);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.45 }, 23.55);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

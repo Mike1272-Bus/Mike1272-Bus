@@ -1,0 +1,31 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1080px;font-family:"Segoe UI",system-ui,Roboto,sans-serif;background:#f6efe9;color:#2b2220;display:flex;flex-direction:column}
+header{background:#1f3a5f;color:#fff;padding:48px 56px 40px}
+header small{font-size:24px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+header h1{font-size:54px;line-height:1.12;margin-top:12px;white-space:pre-line}
+.cols{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:40px 48px 24px}
+.col{border-radius:28px;padding:34px 30px;display:flex;flex-direction:column}
+.avant{background:#fff;border:3px solid #e7c9c4}
+.apres{background:#e6f4ea;border:3px solid #25a35a}
+.col h2{font-size:36px;margin-bottom:24px}
+.avant h2{color:#b3261e}.apres h2{color:#1d7d45}
+.col li{list-style:none;font-size:31px;line-height:1.3;margin-bottom:22px;padding-left:52px;position:relative}
+.col li::before{position:absolute;left:0;top:0;font-size:32px}
+.avant li::before{content:"❌"}.apres li::before{content:"✅"}
+.icone{font-size:96px;margin-top:auto;text-align:center}
+footer{padding:0 48px 44px;text-align:center;font-size:30px;color:#5a4b47}
+footer b{color:#1f3a5f}
+</style></head><body>
+<header><small>My automation</small><h1 id="titre"></h1></header>
+<div class="cols">
+ <div class="col avant"><h2>Aujourd'hui</h2><ul id="avant"></ul><div class="icone">📒</div></div>
+ <div class="col apres"><h2>Avec My automation</h2><ul id="apres"></ul><div class="icone">📲</div></div>
+</div>
+<footer>Chaque vente notée toute seule · <b>le stock à jour en temps réel</b></footer>
+<script>
+const d=JSON.parse(decodeURIComponent(location.hash.slice(1)));
+document.getElementById('titre').textContent=d.titre;
+document.getElementById('avant').innerHTML=d.avant.map(x=>'<li>'+x+'</li>').join('');
+document.getElementById('apres').innerHTML=d.apres.map(x=>'<li>'+x+'</li>').join('');
+</script></body></html>

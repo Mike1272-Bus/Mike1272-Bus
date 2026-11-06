@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #6e070b; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff; font-family: 'Baloo', sans-serif;
+        background: radial-gradient(circle at 50% 38%, #e3262d 0%, #b5111a 45%, #6e070b 100%); }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1.05; }
+      .title span, .words span { display: inline-block; }
+      .words { font-family: 'Work Sans'; font-weight: 700; }
+      .prod { position: absolute; background-size: 100% 100%; background-repeat: no-repeat; filter: drop-shadow(0 26px 30px rgba(0,0,0,0.35)); }
+      .leaf { position: absolute; width: 120px; height: 120px; margin: -60px 0 0 -60px; }
+      #motif { opacity: 0.12; }
+
+      /* S1 */
+      #badge { left: 321px; top: 560px; width: 438px; height: 290px; background: url('assets/img/badge.png') center / 100% 100% no-repeat; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4)); z-index: 6; }
+      #ring { left: 240px; top: 405px; width: 600px; height: 600px; }
+      #s1a { top: 960px; font-size: 104px; }
+      #s1b { top: 1075px; font-size: 104px; color: #ffe2a6; }
+
+      /* S2 */
+      #e2 { top: 380px; font-size: 40px; color: #ffe2a6; line-height: 1.25; }
+      #t2 { top: 480px; font-size: 128px; }
+      #sachet { left: 372px; top: 680px; width: 616px; height: 856px; background-image: url('assets/img/sachet.png'); z-index: 3; }
+      #pot { left: 60px; top: 900px; width: 258px; height: 639px; background-image: url('assets/img/pot.png'); z-index: 2; }
+      .chip { font-family: 'Work Sans'; font-weight: 700; font-size: 40px; color: #b5111a; background: #fff; border-radius: 40px; padding: 12px 34px 10px; box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+      #g250 { left: 720px; top: 1570px; } #g390 { left: 110px; top: 1580px; }
+
+      /* S3 : la gamme sur fond crème */
+      #s3bg { background: #fff7ee; z-index: 1; }
+      #s3 { z-index: 2; }
+      #t3 { top: 360px; font-size: 120px; color: #c4121a; }
+      #rdc { top: 505px; font-family: 'Work Sans'; font-weight: 700; font-size: 40px; color: #5a1a1a; }
+      #flag { left: 390px; top: 570px; width: 300px; height: 14px; border-radius: 7px; background: linear-gradient(90deg, #007fff 0 40%, #f7d618 40% 55%, #ce1021 55% 100%); }
+      #shelf { left: 40px; top: 1290px; width: 1000px; height: 26px; border-radius: 13px; background: #c4121a; box-shadow: 0 16px 26px rgba(196,18,26,0.3); }
+      .lab { position: absolute; top: 1345px; text-align: center; font-family: 'Work Sans'; font-weight: 700; font-size: 32px; line-height: 1.2; color: #5a1a1a; }
+
+      /* S4 / S5 : photos */
+      .photo { position: absolute; left: 40px; width: 1000px; border-radius: 36px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.45); border: 8px solid #fff; z-index: 4; }
+      .photo div { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
+      #ph4 { top: 330px; height: 900px; }
+      #ph4 div { background-image: url('assets/img/chef.jpg'); background-position: center 30%; }
+      #t4a { top: 1290px; font-size: 64px; z-index: 5; }
+      #t4b { top: 1375px; font-size: 64px; z-index: 5; }
+      #t4c { top: 1470px; font-size: 132px; color: #ffe2a6; z-index: 5; }
+      #ph5 { top: 330px; height: 920px; }
+      #ph5 div { background-image: url('assets/img/rayon.jpg'); background-position: center 40%; }
+      #t5a { top: 1310px; font-size: 92px; z-index: 5; }
+      #t5b { top: 1420px; font-size: 92px; color: #ffe2a6; z-index: 5; }
+      #t5c { top: 1560px; font-size: 38px; z-index: 5; color: #fff; font-weight: 400; }
+
+      /* S6 */
+      #logo6 { left: 330px; top: 330px; width: 420px; height: 420px; border-radius: 50%; background: url('assets/img/logo.png') center / 100% 100% no-repeat; box-shadow: 0 24px 50px rgba(0,0,0,0.4); z-index: 6; }
+      #t6a { top: 820px; font-size: 96px; z-index: 6; }
+      #t6b { top: 925px; font-size: 96px; color: #ffe2a6; z-index: 6; }
+      #wa6 { left: 150px; top: 1110px; width: 780px; height: 120px; border-radius: 60px; background: #fff; color: #b5111a; text-align: center; line-height: 124px; font-family: 'Work Sans'; font-weight: 700; font-size: 50px; box-shadow: 0 16px 34px rgba(0,0,0,0.35); z-index: 6; }
+      #m6 { top: 1270px; font-size: 40px; z-index: 6; }
+      #w6 { top: 1330px; font-size: 40px; z-index: 6; color: #ffe2a6; }
+      #iris { z-index: 30; }
+      #fade { background: #6e070b; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="25" data-width="1080" data-height="1920">
+      <svg class="ab full" id="motif" viewBox="0 0 1080 1920"></svg>
+      <svg width="0" height="0" class="ab"><defs>
+        <g id="lf">
+          <path d="M60 62 L60 112" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          <ellipse cx="60" cy="32" rx="9" ry="30" fill="currentColor"/>
+          <ellipse cx="60" cy="32" rx="9" ry="30" fill="currentColor" transform="rotate(32 60 62)"/>
+          <ellipse cx="60" cy="32" rx="9" ry="30" fill="currentColor" transform="rotate(-32 60 62)"/>
+          <ellipse cx="60" cy="36" rx="8" ry="26" fill="currentColor" transform="rotate(64 60 62)"/>
+          <ellipse cx="60" cy="36" rx="8" ry="26" fill="currentColor" transform="rotate(-64 60 62)"/>
+          <ellipse cx="60" cy="42" rx="7" ry="20" fill="currentColor" transform="rotate(96 60 62)"/>
+          <ellipse cx="60" cy="42" rx="7" ry="20" fill="currentColor" transform="rotate(-96 60 62)"/>
+        </g></defs></svg>
+
+      <!-- S1 : les feuilles forment le badge -->
+      <svg class="ab" id="ring" viewBox="0 0 600 600"><circle id="ringC" cx="300" cy="300" r="290" fill="none" stroke="#ffe2a6" stroke-width="6" stroke-dasharray="6 20"/></svg>
+      <div class="ab" id="leaves"></div>
+      <div class="ab" id="badge"></div>
+      <div class="ab center title" id="s1a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="s1b" data-layout-allow-overlap></div>
+
+      <!-- S2 : la pâte d'arachides -->
+      <div class="ab center words" id="e2" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t2" data-layout-allow-overlap></div>
+      <div class="prod" id="pot"></div>
+      <div class="prod" id="sachet"></div>
+      <div class="ab chip" id="g250">250 g</div>
+      <div class="ab chip" id="g390">390 g</div>
+
+      <!-- S3 : la gamme -->
+      <div class="ab full" id="s3bg"></div>
+      <div class="ab full" id="s3">
+        <div class="ab center title" id="t3" data-layout-allow-overlap></div>
+        <div class="ab center" id="rdc">Fabriqué en RDC</div>
+        <div class="ab" id="flag"></div>
+        <div class="prod" id="q0" style="background-image:url('assets/img/miel.png')"></div>
+        <div class="prod" id="q1" style="background-image:url('assets/img/pilipili.png')"></div>
+        <div class="prod" id="q2" style="background-image:url('assets/img/mangue.png')"></div>
+        <div class="prod" id="q3" style="background-image:url('assets/img/ananas.png')"></div>
+        <div class="ab" id="shelf"></div>
+        <div class="lab" id="l0">Miel<br>du Kongo</div>
+        <div class="lab" id="l1">Sauce<br>pilipili</div>
+        <div class="lab" id="l2">Confiture<br>de mangues</div>
+        <div class="lab" id="l3">Confiture<br>d'ananas</div>
+      </div>
+
+      <!-- S4 : le chef -->
+      <div class="photo" id="ph4"><div></div></div>
+      <div class="ab center title" id="t4a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t4b" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t4c" data-layout-allow-overlap></div>
+
+      <!-- S5 : le rayon -->
+      <div class="photo" id="ph5"><div></div></div>
+      <div class="ab center title" id="t5a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t5b" data-layout-allow-overlap></div>
+      <div class="ab center words" id="t5c" data-layout-allow-overlap></div>
+
+      <!-- S6 : fin -->
+      <svg class="ab full" id="iris" viewBox="0 0 1080 1920"><circle id="irisC" cx="540" cy="540" r="0" fill="none" stroke="#ffe2a6" stroke-width="12"/></svg>
+      <div class="ab" id="logo6"></div>
+      <div class="ab center title" id="t6a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t6b" data-layout-allow-overlap></div>
+      <div class="ab" id="wa6">WhatsApp : +243 822 139 394</div>
+      <div class="ab center words" id="m6" data-layout-allow-overlap></div>
+      <div class="ab center words" id="w6" data-layout-allow-overlap></div>
+
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="25" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      let seed = 11;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at);
+      const OUT = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 1 }, { ...to, autoAlpha: 0 }, at);
+      function words(host, text, prefix) {
+        return text.split(" ").map((w, i) => {
+          if (i) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + i; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = w; host.appendChild(s); return s;
+        });
+      }
+      const leafSvg = (color) => `<svg viewBox="0 0 120 120" width="120" height="120" style="color:${color}"><use href="#lf"/></svg>`;
+
+      // fond : feuilles de manioc en filigrane
+      (() => {
+        let s = "";
+        for (let i = 0; i < 18; i++) {
+          const x = Math.round(rnd() * 1080), y = Math.round(rnd() * 1920), r = Math.round(rnd() * 360), k = (0.5 + rnd() * 0.9).toFixed(2);
+          s += `<use href="#lf" transform="translate(${x} ${y}) rotate(${r}) scale(${k}) translate(-60 -60)" style="color:#ffffff"/>`;
+        }
+        $("motif").innerHTML = s;
+      })();
+
+      // feuilles qui volent vers le centre (S1) puis tombent (S6)
+      const LEAVES = [];
+      for (let i = 0; i < 16; i++) {
+        const d = document.createElement("div"); d.className = "leaf"; d.id = "lv" + i;
+        d.innerHTML = leafSvg(i % 3 === 0 ? "#ffe2a6" : i % 3 === 1 ? "#7bc24a" : "#ffffff");
+        const a = (i / 16) * Math.PI * 2;
+        d.style.left = "540px"; d.style.top = "705px";
+        $("leaves").appendChild(d);
+        LEAVES.push({ el: d, x: Math.cos(a) * (700 + rnd() * 300), y: Math.sin(a) * (900 + rnd() * 300), r: (rnd() - 0.5) * 720 });
+      }
+
+      const S1 = [...words($("s1a"), "Savourez les plaisirs", "sa"), ...words($("s1b"), "de chez nous", "sb")];
+      const E2 = words($("e2"), "Produit du terroir, recette traditionnelle", "ea");
+      const T2 = words($("t2"), "Pâte d'arachides", "ta");
+      const T3 = words($("t3"), "Toute une gamme", "tc");
+      const T4 = [...words($("t4a"), "Le chef de ton hôtel", "da"), ...words($("t4b"), "préféré préfère", "db")];
+      const T4C = words($("t4c"), "le piment Manitech", "dc");
+      const T5 = [...words($("t5a"), "Retrouve-nous dans", "fa"), ...words($("t5b"), "ton supermarché", "fb")];
+      const T5C = words($("t5c"), "Nous y sommes pour te partager les plaisirs de chez nous.", "fc");
+      const T6 = [...words($("t6a"), "Savourez les plaisirs", "ga"), ...words($("t6b"), "de chez nous", "gb")];
+      const M6 = words($("m6"), "info@manitechcongo.com", "ma");
+      const W6 = words($("w6"), "manitechcongo.com", "wa");
+
+      // la gamme : tailles et positions, tous posés sur l'étagère (y = 1290)
+      const Q = [["q0", 118, 283, 1.62], ["q1", 182, 423, 1.22], ["q2", 157, 262, 1.62], ["q3", 161, 309, 1.48]];
+      let x = 52;
+      Q.forEach(([id, w, h, k], i) => {
+        const W = Math.round(w * k), H = Math.round(h * k);
+        Object.assign($(id).style, { left: x + "px", top: 1292 - H + "px", width: W + "px", height: H + "px" });
+        Object.assign($("l" + i).style, { left: x - 40 + "px", width: W + 80 + "px" });
+        x += W + 46;
+      });
+      const QIDS = Q.map((q) => "#" + q[0]), LIDS = [0, 1, 2, 3].map((i) => "#l" + i);
+
+      const L_R = 2 * Math.PI * 290;
+      gsap.set("#ringC", { strokeDasharray: L_R, strokeDashoffset: L_R });
+      gsap.set(["#badge", "#ring", ...LEAVES.map((l) => l.el), ...S1, ...E2, ...T2, "#pot", "#sachet", "#g250", "#g390", "#s3bg", "#rdc", "#flag", ...QIDS, "#shelf", ...LIDS, ...T3,
+        "#ph4", ...T4, ...T4C, "#ph5", ...T5, ...T5C, "#logo6", ...T6, "#wa6", ...M6, ...W6], { autoAlpha: 0 });
+      gsap.set("#fade", { autoAlpha: 1 });
+
+      // ---------- ambiance ----------
+      tl.fromTo("#motif", { y: 0, rotation: 0 }, { y: -220, rotation: 4, duration: 25, ease: "none" }, 0);
+
+      // ---------- S1 : les feuilles forment le badge (0 - 3.6) ----------
+      tl.to("#fade", { autoAlpha: 0, duration: 0.4 }, 0);
+      LEAVES.forEach((l, i) => {
+        IN(l.el, { x: l.x, y: l.y, rotation: l.r, scale: 1.4 }, { x: 0, y: 0, rotation: 0, scale: 0.9, duration: 1.0, ease: "power3.inOut" }, 0.1 + (i % 8) * 0.04);
+        FT(l.el, { scale: 0.9, autoAlpha: 1 }, { scale: 0, autoAlpha: 0, duration: 0.2, ease: "power2.in" }, 1.1 + (i % 8) * 0.04);
+      });
+      IN("#badge", { scale: 0, rotation: -12 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(2.2)" }, 1.3);
+      IN("#ring", { scale: 0.6 }, { scale: 1, duration: 0.6, ease: "expo.out" }, 1.3);
+      FT("#ringC", { strokeDashoffset: L_R }, { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut" }, 1.35);
+      FT("#ring", { rotation: 0 }, { rotation: 90, duration: 2.3, ease: "none" }, 1.3);
+      S1.forEach((s, i) => IN(s, { y: 90, rotation: (rnd() - 0.5) * 16 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.8)" }, 1.75 + i * 0.09));
+      // le badge monte en haut et reste pendant S2 et S3
+      FT("#badge", { y: 0, scale: 1 }, { y: -440, scale: 0.5, duration: 0.6, ease: "power3.inOut" }, 3.25);
+      OUT("#ring", { scale: 1 }, { scale: 1.8, duration: 0.45, ease: "power2.in" }, 3.2);
+      OUT(S1, { y: 0 }, { y: 120, duration: 0.35, ease: "power2.in" }, 3.2);
+
+      // ---------- S2 : la pâte d'arachides (3.6 - 8) ----------
+      E2.forEach((s, i) => IN(s, { y: 30 }, { y: 0, duration: 0.35, ease: "power2.out" }, 3.65 + i * 0.05));
+      T2.forEach((s, i) => IN(s, { y: 140, scale: 0.6 }, { y: 0, scale: 1, duration: 0.55, ease: "back.out(2)" }, 3.8 + i * 0.12));
+      IN("#sachet", { y: 1300, rotation: -18 }, { y: 0, rotation: 0, duration: 0.8, ease: "expo.out" }, 3.9);
+      IN("#pot", { x: -500, rotation: -10 }, { x: 0, rotation: -4, duration: 0.7, ease: "expo.out" }, 4.5);
+      IN("#g250", { scale: 0, rotation: 15 }, { scale: 1, rotation: 4, duration: 0.45, ease: "back.out(2.5)" }, 5.0);
+      IN("#g390", { scale: 0, rotation: -15 }, { scale: 1, rotation: -4, duration: 0.45, ease: "back.out(2.5)" }, 5.25);
+      FT("#sachet", { scale: 1 }, { scale: 1.05, duration: 2.0, ease: "sine.inOut" }, 5.4);
+      FT("#sachet", { rotation: 0 }, { rotation: 2, duration: 1.0, yoyo: true, repeat: 1, ease: "sine.inOut" }, 5.4);
+
+      // ---------- S3 : la gamme, fond crème en diagonale (7.8 - 13.4) ----------
+      tl.set("#s3bg", { autoAlpha: 1 }, 7.8);
+      FT("#s3bg", { clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" }, { clipPath: "polygon(0% 0%, 130% 0%, 100% 100%, -30% 100%)", duration: 0.6, ease: "power3.inOut" }, 7.8);
+      OUT([...E2, ...T2], { y: 0 }, { y: -80, duration: 0.3, ease: "power2.in" }, 7.8);
+      OUT(["#sachet", "#pot", "#g250", "#g390"], { x: 0 }, { x: 1300, duration: 0.5, ease: "power3.in" }, 7.8);
+      T3.forEach((s, i) => IN(s, { y: 120, scale: 0.6 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(2)" }, 8.4 + i * 0.1));
+      IN("#rdc", { y: 20 }, { y: 0, duration: 0.4, ease: "power2.out" }, 8.75);
+      IN("#flag", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 8.8);
+      IN("#shelf", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 8.6);
+      QIDS.forEach((id, i) => {
+        IN(id, { y: -1500, rotation: (i % 2 ? 1 : -1) * 12 }, { y: 0, rotation: 0, duration: 0.7, ease: "bounce.out" }, 9.0 + i * 0.28);
+        IN(LIDS[i], { y: 30 }, { y: 0, duration: 0.35, ease: "power2.out" }, 9.45 + i * 0.28);
+        FT(id, { scale: 1, transformOrigin: "50% 100%" }, { scale: 1.08, duration: 0.25, yoyo: true, repeat: 1, ease: "power2.out" }, 10.9 + i * 0.35);
+      });
+      // sortie : les produits glissent, le fond crème s'en va
+      QIDS.forEach((id, i) => OUT(id, { x: 0 }, { x: -1300, duration: 0.45, ease: "power3.in" }, 13.0 + i * 0.04));
+      OUT([...LIDS, "#shelf", ...T3, "#rdc", "#flag", "#badge"], { y: 0 }, { y: -60, duration: 0.35, ease: "power2.in" }, 13.0);
+      FT("#s3bg", { clipPath: "polygon(0% 0%, 130% 0%, 100% 100%, -30% 100%)" }, { clipPath: "polygon(130% 0%, 130% 0%, 100% 100%, 100% 100%)", duration: 0.5, ease: "power3.in" }, 13.1);
+
+      // ---------- S4 : le chef (13.5 - 17.5) ----------
+      IN("#ph4", { y: 1200, rotation: 4 }, { y: 0, rotation: 0, duration: 0.7, ease: "expo.out" }, 13.5);
+      FT("#ph4 div", { scale: 1.12 }, { scale: 1.0, duration: 4.0, ease: "none" }, 13.5);
+      T4.forEach((s, i) => IN(s, { y: 50 }, { y: 0, duration: 0.4, ease: "power3.out" }, 14.1 + i * 0.08));
+      T4C.forEach((s, i) => IN(s, { scale: 2.4, y: -40 }, { scale: 1, y: 0, duration: 0.35, ease: "power4.in" }, 14.9 + i * 0.12));
+      OUT("#ph4", { x: 0 }, { x: -1300, duration: 0.5, ease: "power3.in" }, 17.2);
+      OUT([...T4, ...T4C], { x: 0 }, { x: -1300, duration: 0.5, ease: "power3.in" }, 17.2);
+
+      // ---------- S5 : le rayon (17.5 - 21.3) ----------
+      IN("#ph5", { x: 1300 }, { x: 0, duration: 0.55, ease: "expo.out" }, 17.45);
+      FT("#ph5 div", { scale: 1.2 }, { scale: 1.0, duration: 3.8, ease: "power1.out" }, 17.45);
+      T5.forEach((s, i) => IN(s, { y: 80, rotation: (rnd() - 0.5) * 10 }, { y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 18.0 + i * 0.09));
+      T5C.forEach((s, i) => IN(s, { y: 20 }, { y: 0, duration: 0.3, ease: "power2.out" }, 18.8 + i * 0.05));
+      // iris vers le logo
+      tl.set("#iris", { autoAlpha: 1 }, 20.95);
+      FT("#irisC", { attr: { r: 1600 } }, { attr: { r: 0 }, duration: 0.5, ease: "power3.in" }, 20.95);
+      OUT(["#ph5", ...T5, ...T5C], { scale: 1 }, { scale: 0.8, duration: 0.45, ease: "power3.in" }, 20.95);
+      tl.set("#iris", { autoAlpha: 0 }, 21.5);
+
+      // ---------- S6 : fin (21.4 - 25) ----------
+      IN("#logo6", { scale: 0, rotation: -120 }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(1.6)" }, 21.4);
+      FT("#logo6", { rotation: 0 }, { rotation: 8, duration: 3.0, ease: "sine.inOut" }, 22.1);
+      T6.forEach((s, i) => IN(s, { y: 90 }, { y: 0, duration: 0.45, ease: "back.out(1.8)" }, 21.8 + i * 0.08));
+      IN("#wa6", { y: 140, scale: 0.8 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 22.5);
+      FT("#wa6", { scale: 1 }, { scale: 1.05, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 23.1);
+      M6.forEach((s) => IN(s, { y: 20 }, { y: 0, duration: 0.35, ease: "power2.out" }, 22.85));
+      W6.forEach((s) => IN(s, { y: 20 }, { y: 0, duration: 0.35, ease: "power2.out" }, 23.0));
+      // les feuilles retombent
+      LEAVES.forEach((l, i) => {
+        const sx = 60 + ((i * 67) % 960) - 540, sy = -800 - (i % 4) * 120;
+        IN(l.el, { x: sx, y: sy, rotation: l.r, scale: 0.7 }, { x: sx + (rnd() - 0.5) * 200, y: 1300, rotation: l.r + 240, scale: 0.7, duration: 3.2, ease: "none" }, 21.6 + (i % 6) * 0.15);
+      });
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 24.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

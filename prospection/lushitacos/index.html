@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Young'; src: url('assets/fonts/YoungSerif-Regular.ttf') format('truetype'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #2b1a14; }
+      /* les couleurs de leur affiche : brun, crème, bois rosé, marques du grill */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #f6e7d2;
+        background: radial-gradient(ellipse at 50% 45%, #5a3526 0%, #3a231a 45%, #1e120d 85%); }
+      .ab { position: absolute; }
+      /* motif « grill » : rayures croisées discrètes */
+      #grill { left: -200px; top: -200px; width: 1480px; height: 2320px; opacity: 0.07;
+        background-image: repeating-linear-gradient(45deg, #f6e7d2 0 6px, transparent 6px 70px), repeating-linear-gradient(-45deg, #f6e7d2 0 6px, transparent 6px 70px); }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .line { position: absolute; left: 50px; width: 980px; text-align: center; }
+      .w { display: inline-block; margin: 0 0.1em; }
+      .big { font-family: 'Young', serif; font-size: 140px; line-height: 1.05; color: #f6e7d2; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+      .ttl { font-family: 'Young', serif; font-size: 100px; line-height: 1.05; color: #f6e7d2; text-shadow: 0 8px 26px rgba(0,0,0,0.5); }
+      .acc { color: #f39a4a; }
+      .card { position: absolute; overflow: hidden; border-radius: 36px; border: 8px solid #f6e7d2; box-shadow: 0 40px 70px rgba(0,0,0,0.55); background: #222; }
+      .card div { width: 100%; height: 100%; background-size: cover; background-position: center; }
+      #pl { position: absolute; left: 0; top: 0; width: 1400px; height: 1126px; transform-origin: 0 0; }
+      .step { position: absolute; left: 80px; width: 920px; top: 1250px; }
+      .num { display: inline-block; width: 120px; height: 120px; line-height: 120px; border-radius: 50%; background: #f39a4a; color: #2b1a14; font-weight: 900; font-size: 64px; text-align: center; vertical-align: middle; margin-right: 30px; }
+      .stxt { display: inline-block; vertical-align: middle; font-family: 'Young', serif; font-size: 92px; color: #f6e7d2; }
+      .pill { position: absolute; border-radius: 999px; text-align: center; white-space: nowrap; font-weight: 900; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #1e120d; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+      <div class="ab" id="grill"></div>
+
+      <!-- 1. Comment naît un bon tacos ? (0 - 3,2) -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <div class="line big split" id="a1" style="top:700px; font-size:118px">Comment naît</div>
+        <div class="line big split acc" id="a2" style="top:850px; font-size:118px">un bon tacos ?</div>
+      </div></div>
+
+      <!-- 2. Les étapes, sur leur photo (3,2 - 11,6) -->
+      <div class="scene" id="s2"><div class="cam" id="k2">
+        <div class="card" id="b0" style="left:80px; top:330px; width:920px; height:820px"><img id="pl" src="assets/img/planche.jpg" /></div>
+        <div class="step" id="st1"><span class="num">1</span><span class="stxt">La tortilla</span></div>
+        <div class="step" id="st2"><span class="num">2</span><span class="stxt">On la garnit</span></div>
+        <div class="step" id="st3"><span class="num">3</span><span class="stxt">On la grille</span></div>
+        <div class="step" id="st4"><span class="num">4</span><span class="stxt">On la sert</span></div>
+      </div></div>
+
+      <!-- 3. Le résultat (11,6 - 15,6) -->
+      <div class="scene" id="s3"><div class="cam" id="k3">
+        <div class="line ttl split" id="c0" style="top:300px">Le résultat :</div>
+        <div class="card" id="c1" style="left:30px; top:600px; width:1020px; height:560px"><div id="c1i" style="background-image:url('assets/img/duo.jpg')"></div></div>
+        <div class="line ttl split" id="c2" style="top:1270px">Grillé dehors,</div>
+        <div class="line ttl split acc" id="c3" style="top:1390px">garni dedans.</div>
+      </div></div>
+
+      <!-- 4. Pas envie de vous déplacer ? (15,6 - 19,2) -->
+      <div class="scene" id="s4"><div class="cam" id="k4">
+        <div class="line ttl split" id="d0" style="top:230px; font-size:88px">Pas envie de vous déplacer ?</div>
+        <div class="card" id="d1" style="left:110px; top:560px; width:860px; height:785px"><div id="d1i" style="background-image:url('assets/img/affiche.jpg')"></div></div>
+        <div class="line big split acc" id="d2" style="top:1440px; font-size:120px">Faites-vous livrer.</div>
+      </div></div>
+
+      <!-- 5. Carte de fin (19,2 - 24) -->
+      <div class="scene" id="s5"><div class="cam" id="k5">
+        <div class="line" style="top:300px"><span class="w big" id="e1" style="font-size:150px">LushiTacos</span></div>
+        <div class="line" style="top:500px"><span class="w" id="e2" style="font-weight:600; font-size:52px; letter-spacing:0.12em; text-transform:uppercase; color:#f39a4a">Commandes &amp; livraison</span></div>
+        <div class="ab pill" id="e3" style="left:170px; top:680px; width:740px; height:130px; line-height:130px; font-size:66px; background:#f39a4a; color:#2b1a14; box-shadow: 0 10px 0 #8a4a1c">081 289 2716</div>
+        <div class="ab pill" id="e4" style="left:170px; top:860px; width:740px; height:130px; line-height:130px; font-size:66px; background:#f6e7d2; color:#2b1a14; box-shadow: 0 10px 0 #8a6a4c">098 515 2233</div>
+        <div class="line" style="top:1080px"><span class="w ttl" id="e5" style="font-size:72px">34, avenue Boundy</span></div>
+        <div class="line" style="top:1190px"><span class="w" id="e6" style="font-weight:600; font-size:44px; line-height:1.4">Réf. : École Belle Vue,<br />en face de la Regideso</span></div>
+        <div class="card" id="e7" style="left:240px; top:1380px; width:600px; height:277px"><div style="background-image:url('assets/img/duo.jpg')"></div></div>
+      </div></div>
+
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="24" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      document.querySelectorAll(".split").forEach(el => {
+        el.innerHTML = el.textContent.split(" ").map((w, i) => `<span class="w" id="${el.id}_${i}">${w}</span>`).join(" ");
+      });
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const words = (id, at, step = 0.12) => document.getElementById(id).querySelectorAll(".w").forEach((w, i) =>
+        IN(w, { y: 40, filter: "blur(10px)" }, { y: 0, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, at + i * step));
+      const card = (sel, img, at, d, from = { y: 220, rotation: 3 }) => {
+        IN(sel, { ...from, scale: 0.92 }, { y: 0, x: 0, rotation: 0, scale: 1, duration: 0.8, ease: "expo.out" }, at);
+        FT(img, { scale: 1.18 }, { scale: 1.02, duration: d, ease: "sine.out" }, at);
+      };
+
+      FT("#grill", { x: 0, y: 0 }, { x: 140, y: 140, duration: 24, ease: "none" }, 0);
+      const SC = [["#s1", "#k1", 0, 3.2], ["#s2", "#k2", 3.2, 8.4], ["#s3", "#k3", 11.6, 4.0], ["#s4", "#k4", 15.6, 3.6], ["#s5", "#k5", 19.2, 4.8]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        if (i) FT(s, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none" }, a); else tl.set(s, { autoAlpha: 1 }, 0);
+        if (i !== SC.length - 1) FT(s, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.4, ease: "none" }, a + d - 0.2);
+        FT(c, { scale: 1.0 }, { scale: 1.04, duration: d, ease: "none" }, a);
+      });
+
+      // 1
+      words("a1", 0.3, 0.16); words("a2", 0.9, 0.16);
+      // 2 : la caméra se promène sur leur photo, étape par étape
+      IN("#b0", { y: 300, scale: 0.9 }, { y: 0, scale: 1, duration: 0.7, ease: "expo.out" }, 3.25);
+      const CW = 460, CH = 410;  // centre de la carte
+      const look = (fx, fy, z) => ({ x: CW - fx * z, y: CH - fy * z, scale: z });
+      const SHOTS = [[3.25, 390, 470, 1.25], [5.3, 420, 835, 1.45], [7.3, 300, 690, 1.75], [9.3, 640, 640, 0.95]];
+      tl.set("#pl", look(390, 470, 1.6), 3.2);
+      SHOTS.forEach(([t, fx, fy, z], i) => {
+        const prev = i ? look(SHOTS[i - 1][1], SHOTS[i - 1][2], SHOTS[i - 1][3]) : look(390, 470, 1.6);
+        FT("#pl", prev, { ...look(fx, fy, z), duration: i ? 0.9 : 1.6, ease: "power3.inOut" }, t);
+        const st = "#st" + (i + 1);
+        IN(st, { x: -120 }, { x: 0, duration: 0.45, ease: "back.out(1.6)" }, t + 0.3);
+        if (i < 3) FT(st, { autoAlpha: 1 }, { autoAlpha: 0, x: 120, duration: 0.3, ease: "power2.in" }, t + 1.7);
+      });
+      // 3
+      words("c0", 11.7);
+      card("#c1", "#c1i", 12.0, 3.6, { x: 1100, rotation: 5 });
+      FT("#c1i", { xPercent: 0 }, { xPercent: -3, duration: 3.6, ease: "sine.inOut" }, 12.0);
+      words("c2", 12.8); words("c3", 13.3);
+      // 4
+      words("d0", 15.7, 0.1);
+      card("#d1", "#d1i", 16.3, 2.9, { y: 400, rotation: -6 });
+      words("d2", 17.3, 0.15);
+      // 5
+      IN("#e1", { scale: 0.6, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, 19.35);
+      IN("#e2", { y: 30 }, { y: 0, duration: 0.4 }, 19.8);
+      IN("#e3", { x: -900 }, { x: 0, duration: 0.5, ease: "expo.out" }, 20.1);
+      IN("#e4", { x: 900 }, { x: 0, duration: 0.5, ease: "expo.out" }, 20.3);
+      IN("#e5", { y: 30 }, { y: 0, duration: 0.4 }, 20.7); IN("#e6", { y: 30 }, { y: 0, duration: 0.4 }, 20.9);
+      IN("#e7", { y: 400, rotation: 4 }, { y: 0, rotation: -1.5, duration: 0.6, ease: "back.out(1.4)" }, 21.2);
+      FT("#e3", { scale: 1 }, { scale: 1.04, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 21.9);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 23.5);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #071434; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Bricolage', sans-serif; color: #fff;
+        background: radial-gradient(circle at 30% 18%, #2a5bc4 0%, #123077 45%, #071434 100%); }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .grid { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0.16;
+        background-image: linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px); background-size: 60px 60px; }
+      .orb { position: absolute; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(255,214,10,0.24) 0%, rgba(255,214,10,0) 65%); }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .w { display: inline-block; margin: 0 0.12em; }
+      .sm { font-weight: 800; font-size: 66px; letter-spacing: -0.02em; }
+      .big { font-weight: 800; font-size: 118px; letter-spacing: -0.035em; line-height: 0.95; }
+      .ext { font-weight: 800; font-size: 210px; letter-spacing: -0.04em; line-height: 0.9; color: #ffd60a; text-shadow: 10px 12px 0 #0b1e4a, 0 30px 60px rgba(0,0,0,0.35); }
+      .y { color: #ffd60a; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 32px; letter-spacing: 0.3em; text-transform: uppercase; color: #9fb8f0; }
+      .obj { position: absolute; filter: drop-shadow(0 24px 30px rgba(0,0,0,0.35)); }
+
+      /* téléphone et statut */
+      .phone { position: absolute; border-radius: 64px; background: #0b1e4a; border: 12px solid #e9eefc; box-shadow: 18px 20px 0 #ffd60a, 0 40px 80px rgba(0,0,0,0.4); overflow: hidden; }
+      .bars { position: absolute; left: 24px; top: 26px; right: 24px; height: 8px; display: flex; gap: 8px; z-index: 3; }
+      .bars i { flex: 1; border-radius: 4px; background: rgba(255,255,255,0.4); }
+      .bars i.on { background: #fff; }
+      .media { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      .seen { position: absolute; left: 0; bottom: 0; width: 100%; height: 170px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); font-family: 'Work Sans'; font-weight: 700; font-size: 34px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 34px; gap: 16px; }
+
+      /* erreurs */
+      .num { position: absolute; left: 90px; top: 210px; width: 150px; height: 150px; border-radius: 50%; background: #ffd60a; color: #0b1e4a; font-size: 96px; line-height: 150px; text-align: center; box-shadow: 8px 10px 0 #000; }
+      .lab { position: absolute; left: 270px; top: 250px; }
+      .ttl { position: absolute; left: 0; width: 1080px; top: 420px; text-align: center; font-size: 116px; letter-spacing: -0.035em; white-space: nowrap; }
+      .strike { position: absolute; height: 18px; border-radius: 9px; background: #ff4b3e; transform-origin: 0 50%; box-shadow: 0 6px 0 rgba(0,0,0,0.25); }
+      .card { position: absolute; border-radius: 44px; overflow: hidden; background: linear-gradient(145deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06)); border: 3px solid rgba(255,255,255,0.45); }
+      .fix { position: absolute; left: 90px; width: 900px; height: 190px; border-radius: 95px; background: #ffd60a; color: #0b1e4a; box-shadow: 10px 12px 0 #000; display: flex; align-items: center; gap: 26px; padding: 0 44px; font-size: 58px; letter-spacing: -0.02em; white-space: nowrap; }
+      .fix img { width: 110px; height: 110px; flex: none; }
+      .txtl { height: 30px; border-radius: 15px; background: rgba(255,255,255,0.55); margin: 0 0 22px; }
+      .tag { position: absolute; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: .12em; text-transform: uppercase; padding: 12px 26px; border-radius: 999px; }
+      .tg { background: #ffd60a; color: #0b1e4a; } .tr { background: #ff4b3e; color: #fff; }
+      .mark { position: absolute; width: 150px; height: 150px; }
+
+      /* WhatsApp */
+      #ph { left: 250px; top: 560px; width: 580px; height: 860px; border-radius: 64px; background: #0b1e4a; border: 12px solid #e9eefc; box-shadow: 18px 20px 0 #ffd60a; overflow: hidden; }
+      #scr { position: absolute; inset: 0; background: #efeae2; }
+      #hd { position: absolute; left: 0; top: 0; width: 100%; height: 140px; background: #075e54; }
+      #hd .lg { position: absolute; left: 28px; top: 44px; width: 76px; height: 76px; border-radius: 50%; overflow: hidden; }
+      #hd .lg img { width: 100%; height: 100%; border-radius: 50%; display: block; }
+      #hd b { position: absolute; left: 124px; top: 50px; font-family: 'Work Sans'; font-weight: 700; font-size: 32px; }
+      #hd span { position: absolute; left: 124px; top: 92px; font-family: 'Work Sans'; font-size: 22px; color: #cfe9e4; }
+      #inp { position: absolute; left: 16px; bottom: 20px; width: 430px; height: 76px; border-radius: 38px; background: #fff; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; line-height: 76px; color: #111; white-space: nowrap; overflow: hidden; }
+      #inp0 { position: absolute; left: 28px; top: 0; color: #8a8a8a; font-weight: 400; }
+      #inp1 { position: absolute; left: 28px; top: 0; }
+      #send { position: absolute; right: 16px; bottom: 20px; width: 76px; height: 76px; border-radius: 50%; background: #00a884; }
+      #send::after { content: ""; position: absolute; left: 28px; top: 22px; border-left: 28px solid #fff; border-top: 16px solid transparent; border-bottom: 16px solid transparent; }
+      .bub { position: absolute; font-family: 'Work Sans'; font-size: 30px; line-height: 1.3; color: #111; padding: 18px 24px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); }
+      #bub1 { right: 18px; top: 300px; border-radius: 22px 22px 6px 22px; background: #d9fdd3; font-weight: 700; font-size: 40px; }
+      #bub2 { left: 18px; top: 430px; width: 440px; border-radius: 22px 22px 22px 6px; background: #fff; }
+      #btn { left: 110px; top: 1500px; width: 860px; height: 150px; border-radius: 75px; background: #ffd60a; color: #0b1e4a; display: flex; align-items: center; justify-content: center; gap: 24px; font-size: 64px; letter-spacing: -0.02em; box-shadow: 12px 14px 0 #000; white-space: nowrap; }
+      #numb { top: 1700px; font-family: 'Work Sans'; font-weight: 700; font-size: 54px; letter-spacing: 0.02em; }
+      #wm { left: 0; top: 1790px; width: 1080px; display: flex; align-items: center; justify-content: center; gap: 18px; font-size: 36px; letter-spacing: 0.06em; text-transform: uppercase; text-shadow: 3px 4px 0 #ffd60a; }
+
+
+      /* démo pub */
+      .full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+      .shade { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.7) 100%); }
+      .adw { position: absolute; left: 0; width: 1080px; top: 1440px; text-align: center; font-size: 200px; letter-spacing: -0.045em; color: #fff; text-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+      #demo { left: 50%; top: 140px; transform: translateX(-50%); font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: .16em; text-transform: uppercase; padding: 14px 30px; border-radius: 999px; background: rgba(7,20,52,0.75); border: 2px solid #ffd60a; color: #ffd60a; white-space: nowrap; z-index: 20; }
+      #logoici { left: 190px; top: 1400px; width: 700px; height: 220px; border: 6px dashed #ffd60a; border-radius: 40px; background: rgba(7,20,52,0.55); font-size: 76px; color: #ffd60a; text-align: center; line-height: 208px; letter-spacing: -0.02em; }
+      .pol { position: absolute; width: 330px; height: 400px; background: #fff; padding: 18px 18px 70px; border-radius: 16px; box-shadow: 12px 14px 0 #ffd60a, 0 30px 60px rgba(0,0,0,0.4); }
+      .pol div { width: 100%; height: 100%; border-radius: 8px; background-size: cover; background-position: center; }
+      .deal { position: absolute; left: 80px; width: 920px; height: 300px; border-radius: 46px; padding: 40px 40px 0 210px; background: linear-gradient(145deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06)); border: 3px solid rgba(255,255,255,0.45); }
+      .deal img { position: absolute; left: 40px; top: 70px; width: 140px; height: 140px; }
+      .deal b { display: block; font-size: 64px; letter-spacing: -0.03em; white-space: nowrap; }
+      .deal span { display: block; margin-top: 14px; font-family: 'Work Sans'; font-weight: 700; font-size: 44px; color: #ffd60a; white-space: nowrap; }
+      .stamp { position: absolute; padding: 10px 50px; border-radius: 30px; background: #ffd60a; color: #0b1e4a; font-size: 130px; letter-spacing: -0.03em; box-shadow: 12px 14px 0 #000; white-space: nowrap; }
+      #iris { left: 540px; top: 960px; width: 100px; height: 100px; margin: -50px 0 0 -50px; border-radius: 50%; background: #ffd60a; z-index: 30; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #071434; z-index: 40; }
+          #bug { left: 40px; top: 44px; display: flex; align-items: center; gap: 10px; font-size: 34px; letter-spacing: 0.02em; color: #fff; text-shadow: 2px 3px 0 #0b1e4a; z-index: 25; opacity: 0.92; }
+
+      /* ===== D.A. claire (comme les vidéos paniers) ===== */
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      html, body { background: #ffffff; }
+      #root { background: radial-gradient(ellipse at 50% 45%, #ffffff 0%, #f8f3ea 62%, #ecdfc6 100%); color: #1c1206; }
+      #root, #root * { font-family: 'Inter', sans-serif !important; }
+      .swoosh { position: absolute; left: -300px; top: -300px; width: 1680px; height: 2520px; }
+      .orb { display: none; }
+      .sm { font-weight: 600; color: #1c1206; }
+      .big { font-weight: 900; letter-spacing: -0.045em; color: #f29a0e; text-shadow: 0 6px 0 #9c5200, 0 18px 30px rgba(60,30,0,0.25); }
+      .ext { font-weight: 900; letter-spacing: -0.05em; color: #f29a0e; text-shadow: 0 3px 0 #d47c00, 0 6px 0 #b86600, 0 9px 0 #9c5200, 0 12px 0 #7f4300, 0 30px 40px rgba(60,30,0,0.3); }
+      .y { color: #f29a0e; font-weight: 800; }
+      .eyebrow { font-weight: 800; color: #c66f00; }
+      .obj { filter: drop-shadow(0 26px 34px rgba(60,30,0,0.28)); }
+      .phone { background: #111; border: 16px solid #111; box-shadow: 0 40px 70px rgba(0,0,0,0.25); }
+      .num { background: #1c1206; color: #ffd60a; font-weight: 900; box-shadow: 0 16px 30px rgba(0,0,0,0.3); }
+      .ttl { font-weight: 900; color: #1c1206; letter-spacing: -0.045em; }
+      .card, .vcard, .deal { background: #fff; border: 3px solid #eadfcb; box-shadow: 0 18px 36px rgba(60,30,0,0.12) !important; }
+      .vcard { border: 10px solid #fff; }
+      #c2b, #cb { border: 10px solid #fff !important; box-shadow: 0 0 0 6px #f29a0e, 0 30px 60px rgba(60,30,0,0.3) !important; }
+      .txtl { background: #e8dcc6; }
+      .fix, .stamp, .chip { font-weight: 900; background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 12px 0 #c99a00, 0 26px 40px rgba(60,30,0,0.25); }
+      .chip.alt { background: linear-gradient(180deg, #ff3d7f, #d90f57); color: #fff; border: none; box-shadow: 0 12px 0 #8f0838, 0 26px 40px rgba(60,0,20,0.25); line-height: 130px; }
+      .tag, .tag2 { font-weight: 800; }
+      .tg { background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 8px 0 #c99a00; }
+      .tr { background: linear-gradient(180deg, #ff3d7f, #d90f57); color: #fff; box-shadow: 0 8px 0 #8f0838; }
+      .deal b { color: #1c1206; font-weight: 900; } .deal span { color: #c66f00; font-weight: 800; }
+      .pol { box-shadow: 0 30px 60px rgba(60,30,0,0.25); }
+      #ph { background: #111; border: 18px solid #111; box-shadow: 0 40px 70px rgba(0,0,0,0.25); }
+      #hd { background: #008069; }
+      #hd b { color: #fff; font-weight: 800; } #hd span { color: #d4efe8; }
+      #hd .lg { background: #fff; }
+      #btn { font-weight: 900; background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 12px 0 #c99a00, 0 26px 40px rgba(60,30,0,0.25); }
+      .fix { font-size: 52px; }
+      #numb { top: 1675px; left: 190px; width: 700px; height: 100px; border-radius: 50px; background: #1a9e4b; color: #fff; font-weight: 800; font-size: 50px; line-height: 100px; box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
+      #wm { color: #1c1206; text-shadow: none; font-weight: 900; letter-spacing: 0.04em; font-size: 32px; top: 1806px; }
+      #wm img { width: 70px; height: 72px; }
+      #bug { color: #1c1206; text-shadow: none; font-weight: 900; padding: 8px 22px 8px 10px; border-radius: 999px; background: rgba(255,255,255,0.88); box-shadow: 0 8px 20px rgba(60,30,0,0.15); font-size: 32px; opacity: 1; }
+      #bug img { width: 54px; height: 56px; }
+      #demo { background: rgba(255,255,255,0.92); color: #c66f00; border: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); font-weight: 800; }
+      #logoici { background: rgba(255,255,255,0.88); border-color: #f29a0e; color: #f29a0e; font-weight: 900; }
+      #iris { background: #f29a0e; }
+      #fade { background: #ffffff; }
+
+      /* ===== fin de Reel (Instagram / Facebook) ===== */
+      .ig { position: absolute; left: 120px; width: 840px; border-radius: 40px; background: #fff; border: 3px solid #eadfcb; box-shadow: 0 18px 36px rgba(60,30,0,0.14); padding: 30px 34px; }
+      .ig .hd { font-weight: 800; font-size: 28px; color: #8a7a66; letter-spacing: 0.02em; margin-bottom: 26px; }
+      .ig .row { position: relative; min-height: 96px; padding-left: 104px; margin-bottom: 26px; }
+      .ig .av { position: absolute; left: 0; top: 0; width: 80px; height: 80px; border-radius: 50%; background: #e8dcc6; }
+      .ig .av img { width: 100%; height: 100%; border-radius: 50%; }
+      .ig .nm { font-weight: 800; font-size: 30px; color: #1c1206; }
+      .ig .tx { font-weight: 600; font-size: 36px; color: #1c1206; margin-top: 6px; white-space: nowrap; }
+      .ig .typ { position: relative; height: 50px; }
+      .ig .typ span { position: absolute; left: 0; top: 0; }
+      .ig .rep { margin-left: 70px; }
+      .ig .rep .tx { white-space: normal; font-size: 32px; line-height: 1.3; }
+      .bigpill { position: absolute; left: 90px; width: 900px; height: 140px; border-radius: 70px; text-align: center; line-height: 140px; font-weight: 900; font-size: 66px; white-space: nowrap;
+        background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 12px 0 #c99a00, 0 26px 40px rgba(60,30,0,0.25); }
+      .sub { position: absolute; left: 0; width: 1080px; text-align: center; font-weight: 800; font-size: 32px; letter-spacing: 0.12em; text-transform: uppercase; color: #c66f00; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="25" data-width="1080" data-height="1920">
+      <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M1500 -100 C 900 800, 700 1300, 200 2600" fill="none" stroke="#efe6d6" stroke-width="230" stroke-linecap="round"/><path d="M1700 900 C 1300 1500, 1100 2000, 900 2700" fill="none" stroke="#f3ecdf" stroke-width="160" stroke-linecap="round"/></svg>
+
+      <!-- 1. Démo pub, images libres (0 - 6,6) -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <video class="full clip" id="v1" src="assets/cafe.mp4" muted playsinline data-start="0" data-duration="1.4" data-media-start="1" data-track-index="2"></video>
+        <video class="full clip" id="v2" src="assets/jus.mp4" muted playsinline data-start="1.4" data-duration="1.4" data-media-start="0.5" data-track-index="3"></video>
+        <video class="full clip" id="v3" src="assets/miel.mp4" muted playsinline data-start="2.8" data-duration="1.4" data-media-start="6" data-track-index="4"></video>
+        <video class="full clip" id="v4" src="assets/cosmetique.mp4" muted playsinline data-start="4.2" data-duration="2.4" data-media-start="1" data-track-index="5"></video>
+        <div class="shade"></div>
+        <div class="adw" id="w1">Chaud.</div>
+        <div class="adw" id="w2">Frais.</div>
+        <div class="adw" id="w3">Doux.</div>
+        <div class="adw" id="w4" style="top:1150px">Élégant.</div>
+        <div class="ab" id="logoici">Votre logo ici</div>
+      </div></div>
+      <div class="ab" id="demo">Exemple de pub · Allegra</div>
+
+      <!-- 2. Et si c'était votre produit (6,6 - 9,2) -->
+      <div class="scene" id="s2"><div class="cam" id="k2">
+        <div class="orb" style="left:90px; top:520px"></div>
+        <img class="obj" id="bag" src="assets/img/shopping_bags_3d.png" style="left:390px; top:430px; width:300px; height:300px" />
+        <div class="line" style="top:820px"><span class="w sm" id="b1">Et</span><span class="w sm" id="b2">si</span><span class="w sm" id="b3">c'était</span></div>
+        <div class="line" style="top:930px" data-layout-allow-overlap><span class="w ext" id="b4" style="font-size:150px">votre produit ?</span></div>
+      </div></div>
+
+      <!-- 3. Envoyez 3 photos (9,2 - 12,4) -->
+      <div class="scene" id="s3"><div class="cam" id="k3">
+        <div class="line" style="top:190px"><span class="w sm" id="c1">Envoyez-nous</span></div>
+        <div class="line" style="top:290px" data-layout-allow-overlap><span class="w ext" id="c2" style="font-size:190px">3 photos</span></div>
+        <div class="pol" id="p1" style="left:70px; top:700px"><div style="background-image:url('assets/img/cafe.jpg')"></div></div>
+        <div class="pol" id="p2" style="left:375px; top:800px"><div style="background-image:url('assets/img/jus.jpg')"></div></div>
+        <div class="pol" id="p3" style="left:680px; top:700px"><div style="background-image:url('assets/img/miel.jpg')"></div></div>
+        <img class="obj" id="cam" src="assets/img/camera_3d.png" style="left:410px; top:1300px; width:260px; height:260px" />
+        <div class="line" style="top:1610px"><span class="w eyebrow" id="c3" style="letter-spacing:0.12em">sur WhatsApp, avec votre téléphone</span></div>
+      </div></div>
+
+      <!-- 4. Vidéo d'essai gratuite (12,4 - 15,2) -->
+      <div class="scene" id="s4"><div class="cam" id="k4">
+        <div class="orb" style="left:100px; top:700px"></div>
+        <img class="obj" id="clap" src="assets/img/clapper_board_3d.png" style="left:400px; top:330px; width:280px; height:280px" />
+        <div class="line" style="top:700px"><span class="w sm" id="d1">On</span><span class="w sm" id="d2">vous</span><span class="w sm" id="d3">fait</span><span class="w sm" id="d4">une</span></div>
+        <div class="line" style="top:800px" data-layout-allow-overlap><span class="w big" id="d5">vidéo d'essai</span></div>
+        <div class="stamp" id="d6" style="left:175px; top:1010px">GRATUITE</div>
+        <img class="obj" id="pp1" src="assets/img/party_popper_3d.png" style="left:60px; top:1280px; width:220px; height:220px" />
+        <img class="obj" id="pp2" src="assets/img/sparkles_3d.png" style="left:800px; top:1300px; width:200px; height:200px" />
+      </div></div>
+
+      <!-- 5. Le deal sans risque (15,2 - 19,4) -->
+      <div class="scene" id="s5"><div class="cam" id="k5">
+        <div class="line" style="top:250px"><span class="w eyebrow" id="e0">Sans aucun risque</span></div>
+        <div class="deal" id="e1" style="top:420px"><img src="assets/img/check_mark_button_3d.png" alt="" /><b>Elle vous plaît ?</b><span>On parle de la suite.</span></div>
+        <div class="deal" id="e2" style="top:800px"><img src="assets/img/cross_mark_3d.png" alt="" /><b style="font-size:56px">Elle ne vous plaît pas ?</b><span>Vous ne nous devez rien.</span></div>
+        <img class="obj" id="gift" src="assets/img/wrapped_gift_3d.png" style="left:400px; top:1220px; width:280px; height:280px" />
+      </div></div>
+
+      <!-- 6. 5 places (19,4 - 21,2) -->
+      <div class="scene" id="s6"><div class="cam" id="k6">
+        <img class="obj" id="hg" src="assets/img/hourglass_not_done_3d.png" style="left:400px; top:420px; width:280px; height:280px" />
+        <div class="line" style="top:780px"><span class="w sm" id="f1">Seulement</span></div>
+        <div class="line" style="top:870px" data-layout-allow-overlap><span class="w ext" id="f2" style="font-size:230px">5 places</span></div>
+        <div class="line" style="top:1150px"><span class="w sm" id="f3">cette</span><span class="w sm y" id="f4">semaine</span></div>
+      </div></div>
+
+      <!-- Fin du Reel : Écrivez « ESSAI » en privé -->
+      <div class="scene" id="s7"><div class="cam" id="k7">
+        <div class="line" style="top:270px"><span class="w sm" id="z1">Votre vidéo</span></div>
+        <div class="line" style="top:360px" data-layout-allow-overlap><span class="w ext" id="z2" style="font-size:118px">d'essai gratuite</span></div>
+        <div class="ig" id="z3" style="top:600px">
+          <div class="hd">Messages</div>
+          <div class="row"><div class="av"></div><div class="nm">Vous</div><div class="tx typ"><span id="z4">ESSAI</span></div></div>
+          <div class="row rep" id="z5"><div class="av"><img src="assets/img/photo-profil-v2.png" alt="" /></div><div class="nm">Allegra Digital</div><div class="tx">Avec plaisir ! Envoyez-nous 3 photos de votre produit 📸</div></div>
+        </div>
+        <div class="bigpill" id="z6" style="top:1130px">Écrivez « ESSAI » en privé</div>
+        <div class="sub" id="z7" style="top:1310px">5 places cette semaine</div>
+      </div></div>
+      <div class="ab" id="iris"></div>
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="25" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const OUT = (sel, at) => FT(sel, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.01 }, at);
+      const word = (sel, at, d = 0.28) => IN(sel, { y: -50, scale: 1.3, filter: "blur(12px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at);
+      const words = (list, at, gap = 0.12) => list.forEach((s, i) => word(s, at + i * gap));
+      const pop = (sel, at) => IN(sel, { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, at);
+      const float = (sel, at, d, y = -16) => FT(sel, { y: 0 }, { y: y, duration: d / 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, at);
+      const slam = (sel, at) => IN(sel, { scale: 2.2, filter: "blur(16px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, at);
+
+      const SC = [["#s1", "#k1", 0, 6.6], ["#s2", "#k2", 6.6, 2.6], ["#s3", "#k3", 9.2, 3.2], ["#s4", "#k4", 12.4, 2.8], ["#s5", "#k5", 15.2, 4.2], ["#s6", "#k6", 19.4, 1.8], ["#s7", "#k7", 21.2, 3.8]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        tl.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.14 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+        FT(c, { rotation: 0, x: 0 }, { rotation: i % 2 ? 0.6 : -0.6, x: i % 2 ? -16 : 16, duration: d, ease: "sine.inOut" }, a);
+      });
+      [6.35, 21.0].forEach(t => {
+        HIDE.push("#iris");
+        FT("#iris", { autoAlpha: 1, scale: 0 }, { scale: 24, duration: 0.25, ease: "power2.in" }, t);
+        FT("#iris", { scale: 24 }, { scale: 0, duration: 0.3, ease: "power2.out" }, t + 0.25);
+        tl.set("#iris", { autoAlpha: 0 }, t + 0.56);
+      });
+
+      // 1. démo pub : coupes franches sur le rythme
+      IN("#demo", { y: -60 }, { y: 0, duration: 0.3, ease: "power3.out" }, 0.05);
+      OUT("#demo", 6.4);
+      [["#w1", 0.15, 1.4], ["#w2", 1.55, 2.8], ["#w3", 2.95, 4.2], ["#w4", 4.35, 6.6]].forEach(([w, a, b]) => { slam(w, a); OUT(w, b); });
+      [0, 1.4, 2.8, 4.2].forEach(t => FT("#k1", { scale: 1.08 }, { scale: 1, duration: 0.35, ease: "expo.out" }, t));
+      IN("#logoici", { scale: 0.4 }, { scale: 1, duration: 0.45, ease: "back.out(2)" }, 5.0);
+      FT("#logoici", { scale: 1 }, { scale: 1.05, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 5.6);
+
+      // 2. et si c'était votre produit
+      pop("#bag", 6.8); float("#bag", 7.3, 1.8, -20);
+      words(["#b1", "#b2", "#b3"], 7.0);
+      IN("#b4", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.5, ease: "bounce.out" }, 7.45);
+
+      // 3. 3 photos
+      word("#c1", 9.3); slam("#c2", 9.55);
+      [["#p1", -10, 9.9], ["#p2", 4, 10.15], ["#p3", 9, 10.4]].forEach(([p, r, a]) => IN(p, { y: -1400, rotation: r * 4 }, { y: 0, rotation: r, duration: 0.5, ease: "back.out(1.2)" }, a));
+      pop("#cam", 10.8); FT("#cam", { scale: 1 }, { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1 }, 11.3);
+      word("#c3", 11.4, 0.35);
+
+      // 4. vidéo d'essai gratuite
+      pop("#clap", 12.5); FT("#clap", { rotation: 0 }, { rotation: -10, duration: 0.1, yoyo: true, repeat: 3 }, 12.95);
+      words(["#d1", "#d2", "#d3", "#d4"], 12.7, 0.1);
+      word("#d5", 13.15, 0.35);
+      IN("#d6", { scale: 3, rotation: -12 }, { scale: 1, rotation: -4, duration: 0.35, ease: "power4.out" }, 13.6);
+      FT("#k4", { x: 0 }, { x: 14, duration: 0.05, yoyo: true, repeat: 5 }, 13.95);
+      pop("#pp1", 14.0); pop("#pp2", 14.15);
+
+      // 5. le deal
+      word("#e0", 15.3);
+      IN("#e1", { x: -1000 }, { x: 0, duration: 0.45, ease: "expo.out" }, 15.5);
+      IN("#e2", { x: 1000 }, { x: 0, duration: 0.45, ease: "expo.out" }, 16.6);
+      pop("#gift", 17.8); float("#gift", 18.2, 1.2, -20);
+
+      // 6. 5 places
+      pop("#hg", 19.45); FT("#hg", { rotation: 0 }, { rotation: 180, duration: 0.5, ease: "power2.inOut" }, 20.0);
+      word("#f1", 19.55); slam("#f2", 19.8); words(["#f3", "#f4"], 20.25);
+
+      // fin du Reel
+      word("#z1", 21.30);
+      IN("#z2", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.5, ease: "bounce.out" }, 21.55);
+      IN("#z3", { y: 900 }, { y: 0, duration: 0.5, ease: "expo.out" }, 21.40);
+      IN("#z4", { scale: 0.4, x: -40 }, { scale: 1, x: 0, duration: 0.35, ease: "back.out(2.2)" }, 22.10);
+      IN("#z5", { y: 120, scale: 0.8, transformOrigin: "0% 0%" }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 22.80);
+      IN("#z6", { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.5)" }, 23.70);
+      FT("#z6", { scale: 1 }, { scale: 1.05, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 24.30);
+      word("#z7", 24.00, 0.3);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 24.70);
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#inp0", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

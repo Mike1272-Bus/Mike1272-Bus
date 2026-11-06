@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: 'Baloo'; font-weight: 800; src: url('Baloo2-ExtraBold.ttf'); }
+  @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('worksans-400.ttf'); }
+  @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('worksans-700.ttf'); }
+  * { margin: 0; padding: 0; }
+  body { width: 1080px; height: 1920px; background: #f7f4ee; }
+  svg text { font-family: 'Work Sans', sans-serif; }
+  .h { font-family: 'Baloo', sans-serif; font-weight: 800; }
+  .lab { font-size: 23px; fill: #1b1f5e; }
+  .labb { font-size: 24px; fill: #1b1f5e; font-weight: 700; }
+  .num { font-family: 'Baloo', sans-serif; font-weight: 800; font-size: 30px; fill: #f5c518; }
+  .price { font-size: 25px; fill: #1b1f5e; font-weight: 700; }
+</style></head><body>
+<svg width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ffb347" stop-opacity=".95"/><stop offset="100%" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+    <linearGradient id="beam" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#fff3c4" stop-opacity=".9"/><stop offset="100%" stop-color="#fff3c4" stop-opacity=".05"/></linearGradient>
+    <pattern id="tiles" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#262a63"/><path d="M40 0 H0 V40" fill="none" stroke="#2e3370" stroke-width="2"/></pattern>
+  </defs>
+
+  <!-- titre -->
+  <text class="h" x="540" y="100" text-anchor="middle" font-size="66" fill="#1b1f5e">Tourner la nuit</text>
+  <text x="540" y="152" text-anchor="middle" font-size="29" fill="#55526a" font-weight="700">Petite chambre, à partir de 21 h, sans soleil</text>
+
+  <!-- ① vue de dessus -->
+  <text class="h" x="540" y="225" text-anchor="middle" font-size="34" fill="#e8553d">① Vue de dessus : la lumière de nuit</text>
+  <rect x="90" y="250" width="900" height="830" rx="18" fill="url(#tiles)" stroke="#1b1f5e" stroke-width="4"/>
+  <!-- mur du fond -->
+  <rect x="90" y="250" width="900" height="44" rx="0" fill="#151848"/>
+  <text class="labb" x="540" y="281" text-anchor="middle" style="fill:#fff" font-size="22">MUR (TON FOND)</text>
+
+  <!-- lampe chaude dans le coin du fond -->
+  <circle cx="880" cy="350" r="95" fill="url(#glow)"/>
+  <circle cx="880" cy="350" r="17" fill="#ffe2a8" stroke="#c98a2e" stroke-width="3"/>
+  <text class="labb" x="958" y="460" text-anchor="end" style="fill:#ffcf7a">Lampe chaude</text>
+  <text class="lab" x="958" y="488" text-anchor="end" style="fill:#fff">dans le fond :</text>
+  <text class="lab" x="958" y="514" text-anchor="end" style="fill:#fff">de la profondeur</text>
+
+  <!-- plafonnier éteint -->
+  <circle cx="250" cy="420" r="38" fill="#3a3f80" stroke="#9aa0d6" stroke-width="3"/>
+  <path d="M224 394 L276 446 M276 394 L224 446" stroke="#e8553d" stroke-width="7" stroke-linecap="round"/>
+  <text class="labb" x="250" y="496" text-anchor="middle" style="fill:#ff8a73">Plafonnier éteint</text>
+  <text class="lab" x="250" y="524" text-anchor="middle" style="fill:#fff">lumière froide,</text>
+  <text class="lab" x="250" y="550" text-anchor="middle" style="fill:#fff">ombres sous les yeux</text>
+
+  <!-- faisceau LED vers le visage -->
+  <path d="M215 790 L505 548 L585 610 L300 860 Z" fill="url(#beam)"/>
+  <!-- rebond du carton blanc -->
+  <path d="M818 772 L590 560 M846 800 L600 590" stroke="#fff" stroke-width="3" stroke-dasharray="9 9" opacity=".8"/>
+
+  <!-- toi -->
+  <circle cx="540" cy="540" r="46" fill="#6b4226"/>
+  <rect x="478" y="572" width="124" height="36" rx="18" fill="#2f4fb3"/>
+  <text class="labb" x="540" y="548" text-anchor="middle" style="fill:#fff" font-size="24">TOI</text>
+  <!-- distance mur - toi -->
+  <path d="M650 300 L650 488" stroke="#f5c518" stroke-width="3"/><path d="M642 310 L650 300 L658 310 M642 478 L650 488 L658 478" stroke="#f5c518" stroke-width="3" fill="none"/>
+  <text class="labb" x="666" y="388" style="fill:#f5c518" font-size="22">50 cm à 1 m</text>
+  <text class="lab" x="666" y="414" style="fill:#fff" font-size="20">du mur</text>
+
+  <!-- LED + diffuseur à 45° -->
+  <g transform="rotate(-40 245 820)">
+    <rect x="185" y="790" width="120" height="60" rx="6" fill="#fff" stroke="#f5c518" stroke-width="5"/>
+    <rect x="205" y="850" width="80" height="20" rx="4" fill="#9aa0d6"/>
+  </g>
+  <text class="labb" x="120" y="935" style="fill:#f5c518">Lampe LED + diffuseur</text>
+  <text class="lab" x="120" y="964" style="fill:#fff">à 45°, un peu plus haute que ta tête,</text>
+  <text class="lab" x="120" y="991" style="fill:#fff">à 80 cm - 1 m de ton visage</text>
+
+  <!-- carton blanc -->
+  <rect x="790" y="770" width="110" height="18" rx="4" fill="#fff" transform="rotate(42 845 779)"/>
+  <text class="labb" x="958" y="870" text-anchor="end" style="fill:#fff">Carton ou drap blanc</text>
+  <text class="lab" x="958" y="898" text-anchor="end" style="fill:#fff">de l'autre côté :</text>
+  <text class="lab" x="958" y="925" text-anchor="end" style="fill:#fff">adoucit les ombres</text>
+
+  <!-- trépied + téléphone -->
+  <path d="M540 1000 L512 1048 M540 1000 L568 1048 M540 1000 L540 1056" stroke="#d8dbf5" stroke-width="5"/>
+  <rect x="512" y="970" width="56" height="30" rx="6" fill="#111" stroke="#d8dbf5" stroke-width="2"/>
+  <path d="M520 970 L480 612 L600 612 L560 970 Z" fill="#9aa0d6" opacity=".12"/>
+  <path d="M640 620 L640 962" stroke="#f5c518" stroke-width="3"/><path d="M632 630 L640 620 L648 630 M632 952 L640 962 L648 952" stroke="#f5c518" stroke-width="3" fill="none"/>
+  <text class="labb" x="656" y="800" style="fill:#f5c518" font-size="22">≈ 1 m</text>
+  <text class="labb" x="590" y="1036" style="fill:#fff" font-size="22">Téléphone à hauteur des yeux</text>
+
+  <!-- ② réglages -->
+  <text class="h" x="540" y="1135" text-anchor="middle" font-size="34" fill="#e8553d">② Les réglages du téléphone</text>
+  <g>
+    <rect x="60" y="1158" width="960" height="250" rx="20" fill="#fffdf8" stroke="#1b1f5e" stroke-width="3"/>
+    <circle cx="105" cy="1200" r="22" fill="#1b1f5e"/><text class="num" x="105" y="1211" text-anchor="middle" font-size="26">1</text>
+    <text class="labb" x="142" y="1208">Appui long sur ton visage : <tspan class="lab" font-weight="400">la mise au point et la lumière se bloquent</tspan></text>
+    <circle cx="105" cy="1258" r="22" fill="#1b1f5e"/><text class="num" x="105" y="1269" text-anchor="middle" font-size="26">2</text>
+    <text class="labb" x="142" y="1266">Caméra arrière, 1080p, 30 i/s. <tspan class="lab" font-weight="400">Bandes qui clignotent ? Passe à 25 i/s</tspan></text>
+    <circle cx="105" cy="1316" r="22" fill="#1b1f5e"/><text class="num" x="105" y="1327" text-anchor="middle" font-size="26">3</text>
+    <text class="labb" x="142" y="1324">Image trop sombre ? <tspan class="lab" font-weight="400">Rapproche la lampe de ton visage</tspan></text>
+    <circle cx="105" cy="1374" r="22" fill="#1b1f5e"/><text class="num" x="105" y="1385" text-anchor="middle" font-size="26">4</text>
+    <text class="labb" x="142" y="1382">Le front brille ? <tspan class="lab" font-weight="400">Un mouchoir avant chaque prise</tspan></text>
+  </g>
+
+  <!-- ③ kit -->
+  <text class="h" x="540" y="1470" text-anchor="middle" font-size="34" fill="#e8553d">③ Le kit de nuit</text>
+  <g>
+    <text class="labb" x="80" y="1515">Micro-cravate filaire</text><text class="price" x="1000" y="1515" text-anchor="end">15 à 25 $</text>
+    <text class="labb" x="80" y="1553">Lampe LED bicolore rechargeable + diffuseur</text><text class="price" x="1000" y="1553" text-anchor="end">30 à 60 $</text>
+    <text class="labb" x="80" y="1591">Pied de lumière (s'il n'est pas fourni)</text><text class="price" x="1000" y="1591" text-anchor="end">10 à 20 $</text>
+    <text class="labb" x="80" y="1629">Trépied pour le téléphone</text><text class="price" x="1000" y="1629" text-anchor="end">15 à 30 $</text>
+    <text class="labb" x="80" y="1667">Carton ou drap blanc · lampe chaude</text><text class="price" x="1000" y="1667" text-anchor="end">5 à 20 $</text>
+    <path d="M80 1690 H1000" stroke="#1b1f5e" stroke-width="2"/>
+    <text class="labb" x="80" y="1728" font-size="27">Total</text><text class="price" x="1000" y="1728" text-anchor="end" font-size="29" style="fill:#e8553d">≈ 75 à 155 $</text>
+    <text class="lab" x="80" y="1764" font-size="21">Budget serré : micro + anneau lumineux sur pied ≈ 35 à 65 $</text>
+  </g>
+
+  <!-- bas -->
+  <rect x="60" y="1795" width="960" height="95" rx="22" fill="#1b1f5e"/>
+  <text x="540" y="1838" text-anchor="middle" font-size="27" fill="#f5c518" font-weight="700">La nuit, la lampe devient obligatoire : achat n°2, juste après le micro</text>
+  <text x="540" y="1874" text-anchor="middle" font-size="23" fill="#fff">Prix indicatifs, ils changent selon la ville et la boutique.</text>
+</svg>
+</body></html>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Brico'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0b1424; }
+      /* style « grande pub boisson » (spot Suntory) aux couleurs Jambo : nuit bleue, rouge bouchon, jaune maracuja */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff; background: #0b1424; }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .kick { font-weight: 900; font-size: 40px; letter-spacing: 0.35em; }
+      .huge { font-family: 'Brico', sans-serif; font-weight: 800; line-height: 0.92; letter-spacing: -0.01em; }
+      .outl { color: rgba(249, 194, 26, 0); -webkit-text-stroke: 5px #f9c21a; }
+      .btl { position: absolute; }
+      .drop { position: absolute; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95) 0 18%, rgba(255,255,255,0.25) 40%, rgba(255,255,255,0.05) 70%);
+        box-shadow: 0 2px 3px rgba(0,0,0,0.18); }
+      .bub { position: absolute; border-radius: 50%; border: 3px solid rgba(255,255,255,0.55);
+        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.65), rgba(255,255,255,0) 55%); }
+      .fr { position: absolute; overflow: visible; }
+      .cone { position: absolute; width: 300px; height: 1250px; top: -120px;
+        background: linear-gradient(180deg, rgba(255,236,190,0.0) 0%, rgba(255,236,190,0.28) 60%, rgba(255,236,190,0.0) 100%);
+        clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%); filter: blur(6px); }
+      .nm { position: absolute; width: 210px; text-align: center; font-family: 'Brico', sans-serif; font-weight: 800; font-size: 34px; line-height: 1.02; }
+      #flash { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="12" data-width="1080" data-height="1920">
+      <svg width="0" height="0" style="position:absolute">
+        <defs>
+          <!-- rondelles et feuilles dessinées par nous (pas de personnes) -->
+          <g id="citron"><circle r="90" fill="#f4e04d" /><circle r="78" fill="#fff7b0" /><g fill="#f6e35a">
+            <path d="M0 0 L0 -70 A70 70 0 0 1 49 -49 Z" /><path d="M0 0 L49 -49 A70 70 0 0 1 70 0 Z" transform="rotate(8)" />
+            <path d="M0 0 L0 -70 A70 70 0 0 1 49 -49 Z" transform="rotate(95)" /><path d="M0 0 L0 -70 A70 70 0 0 1 49 -49 Z" transform="rotate(140)" />
+            <path d="M0 0 L0 -70 A70 70 0 0 1 49 -49 Z" transform="rotate(190)" /><path d="M0 0 L0 -70 A70 70 0 0 1 49 -49 Z" transform="rotate(235)" />
+            <path d="M0 0 L0 -70 A70 70 0 0 1 49 -49 Z" transform="rotate(285)" /></g></g>
+          <g id="maracuja"><circle r="95" fill="#5b2a4a" /><circle r="80" fill="#f6b51c" />
+            <g fill="#3b2410"><circle cx="-30" cy="-20" r="9" /><circle cx="10" cy="-40" r="9" /><circle cx="35" cy="5" r="9" /><circle cx="-5" cy="25" r="9" /><circle cx="-40" cy="20" r="9" /><circle cx="25" cy="40" r="9" /><circle cx="0" cy="-5" r="9" /></g></g>
+          <g id="mangue"><rect x="-55" y="-55" width="110" height="110" rx="22" fill="#ffb21a" /><rect x="-40" y="-42" width="40" height="30" rx="8" fill="#ffd15c" opacity="0.8" /></g>
+          <g id="menthe"><path d="M0 -90 C60 -60 60 50 0 90 C-60 50 -60 -60 0 -90 Z" fill="#3dbb5a" /><path d="M0 -80 L0 85" stroke="#2a8a40" stroke-width="6" /></g>
+          <g id="bissap"><g fill="#c2183a"><ellipse cx="0" cy="-48" rx="34" ry="52" /><ellipse cx="0" cy="-48" rx="34" ry="52" transform="rotate(72)" /><ellipse cx="0" cy="-48" rx="34" ry="52" transform="rotate(144)" /><ellipse cx="0" cy="-48" rx="34" ry="52" transform="rotate(216)" /><ellipse cx="0" cy="-48" rx="34" ry="52" transform="rotate(288)" /></g><circle r="20" fill="#7a0f26" /></g>
+          <g id="gingembre"><path d="M-80 10 C-70 -30 -20 -30 0 -10 C10 -50 60 -50 70 -10 C95 0 90 40 60 45 C20 60 -40 55 -70 40 C-90 32 -88 20 -80 10 Z" fill="#d9b27a" /><path d="M-50 20 C-20 10 20 15 50 20" stroke="#b88a52" stroke-width="5" fill="none" /></g>
+        </defs>
+      </svg>
+
+      <!-- 1. La fraîcheur (0 - 3,4) : place prévue pour le clip IA 1 (bouteille couverte de gouttes) -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <div class="ab" id="g1" style="left:-160px; top:200px; width:1400px; height:1500px; background: radial-gradient(ellipse at 50% 50%, rgba(255,170,40,0.55) 0%, rgba(229,49,43,0.22) 38%, rgba(11,20,36,0) 68%)"></div>
+        <div class="ab" id="btlwrap" style="left:290px; top:300px; width:500px; height:1454px">
+          <img class="btl" id="a1" src="assets/img/p-maracuja.png" style="left:0; top:0; width:500px; height:1454px; filter: drop-shadow(0 0 40px rgba(255,190,80,0.35))" />
+          <div id="drops"></div>
+        </div>
+        <div class="line kick" id="a0" style="top:150px; color:#f9c21a">JAMBO</div>
+      </div></div>
+
+      <!-- 2. Le goût (3,4 - 6,6) : place prévue pour le clip IA 2 (fruits qui plongent, bulles) -->
+      <div class="scene" id="s2" style="background: radial-gradient(ellipse at 50% 45%, #18406a 0%, #0d2140 55%, #081325 100%)"><div class="cam" id="k2">
+        <div id="bubbles"></div>
+        <svg class="fr" id="f1" style="left:170px; top:260px" width="10" height="10"><use href="#citron" /></svg>
+        <svg class="fr" id="f2" style="left:870px; top:380px" width="10" height="10"><use href="#maracuja" /></svg>
+        <svg class="fr" id="f3" style="left:140px; top:1380px" width="10" height="10"><use href="#bissap" /></svg>
+        <svg class="fr" id="f4" style="left:900px; top:1460px" width="10" height="10"><use href="#mangue" /></svg>
+        <svg class="fr" id="f5" style="left:560px; top:1700px" width="10" height="10"><use href="#menthe" /></svg>
+        <svg class="fr" id="f6" style="left:560px; top:170px" width="10" height="10"><use href="#gingembre" /></svg>
+        <div class="line huge outl" id="b1" style="top:640px; font-size:250px">JUS YA</div>
+        <div class="line huge outl" id="b2" style="top:870px; font-size:250px">MBOKA</div>
+        <div class="line" id="b3" style="top:1140px; font-weight:900; font-size:54px; letter-spacing:0.12em">LE JUS DU PAYS</div>
+      </div></div>
+
+      <!-- 3. La gamme dans le noir, les lumières s'allument (6,6 - 9,6) -->
+      <div class="scene" id="s3" style="background:#05080f"><div class="cam" id="k3">
+        <div class="line huge" id="c0" style="top:230px; font-size:200px; color:#fff">5 GOÛTS</div>
+        <div class="ab" id="floor" style="left:0; top:1500px; width:1080px; height:420px; background: linear-gradient(180deg, #1a1410 0%, #05080f 100%)"></div>
+        <div class="cone" id="L0" style="left:-25px"></div><div class="cone" id="L1" style="left:185px"></div><div class="cone" id="L2" style="left:395px"></div><div class="cone" id="L3" style="left:605px"></div><div class="cone" id="L4" style="left:815px"></div>
+        <img class="btl" id="B0" src="assets/img/v-maracuja.png" style="left:35px; top:880px; width:200px; height:623px" />
+        <img class="btl" id="B1" src="assets/img/v-citron.png" style="left:248px; top:900px; width:190px; height:603px" />
+        <img class="btl" id="B2" src="assets/img/v-mangue.png" style="left:456px; top:890px; width:190px; height:613px" />
+        <img class="btl" id="B3" src="assets/img/v-gingembre.png" style="left:664px; top:895px; width:190px; height:608px" />
+        <img class="btl" id="B4" src="assets/img/v-bissap.png" style="left:867px; top:890px; width:190px; height:613px" />
+        <div class="nm" id="N0" style="left:30px; top:1560px; color:#f9c21a">Mara-<br />cuja</div>
+        <div class="nm" id="N1" style="left:238px; top:1560px; color:#d9f2d0">Citron<br />menthe</div>
+        <div class="nm" id="N2" style="left:446px; top:1560px; color:#ffb21a">Man-<br />gue</div>
+        <div class="nm" id="N3" style="left:654px; top:1560px; color:#e9cfa3">Gingembre<br />citron</div>
+        <div class="nm" id="N4" style="left:857px; top:1560px; color:#ff4d6a">Bissap</div>
+      </div></div>
+
+      <!-- 4. Carte de fin (9,6 - 12) -->
+      <div class="scene" id="s4" style="background: radial-gradient(ellipse at 50% 35%, #f0443a 0%, #e5312b 45%, #a8191a 100%)"><div class="cam" id="k4">
+        <div class="line" id="d9" style="top:90px; font-weight:600; font-size:30px; letter-spacing:0.08em; color:rgba(255,255,255,0.85)">Aperçu · Allegra Digital Ground</div>
+        <div class="ab" id="d0" style="left:250px; top:260px; width:580px; height:580px; border-radius:50%; background:#fff; box-shadow: 0 30px 80px rgba(80,0,0,0.45)">
+          <img src="assets/img/logo.png" style="position:absolute; left:0; top:0; width:580px; height:580px" />
+        </div>
+        <div class="line huge" id="d1" style="top:900px; font-size:130px">Jus ya Mboka</div>
+        <img class="btl" id="d2" src="assets/img/p-gingembre.png" style="left:110px; top:1190px; width:280px; height:686px; filter: drop-shadow(0 25px 30px rgba(60,0,0,0.5))" />
+        <img class="btl" id="d3" src="assets/img/p-maracuja.png" style="left:400px; top:1130px; width:280px; height:814px; filter: drop-shadow(0 25px 30px rgba(60,0,0,0.5))" />
+        <img class="btl" id="d4" src="assets/img/p-citron.png" style="left:690px; top:1190px; width:280px; height:716px; filter: drop-shadow(0 25px 30px rgba(60,0,0,0.5))" />
+      </div></div>
+
+      <div class="ab" id="flash"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="12" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      let seed = 7; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      // gouttes de fraîcheur sur la bouteille (zone du corps : x 30-470, y 330-1400 dans la bouteille)
+      const DR = [];
+      for (let i = 0; i < 46; i++) {
+        const d = document.createElement("div"); d.className = "drop"; const s = 9 + rnd() * 20;
+        Object.assign(d.style, { left: 40 + rnd() * 410 + "px", top: 340 + rnd() * 1040 + "px", width: s + "px", height: s * 1.15 + "px" });
+        document.getElementById("drops").appendChild(d); DR.push(d);
+      }
+      const BB = [];
+      for (let i = 0; i < 34; i++) {
+        const d = document.createElement("div"); d.className = "bub"; const s = 10 + rnd() * 50;
+        Object.assign(d.style, { left: rnd() * 1060 + "px", top: 1650 + rnd() * 500 + "px", width: s + "px", height: s + "px" });
+        document.getElementById("bubbles").appendChild(d); BB.push(d);
+      }
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+
+      const SC = [["#s1", "#k1", 0, 3.4], ["#s2", "#k2", 3.4, 3.2], ["#s3", "#k3", 6.6, 3.0], ["#s4", "#k4", 9.6, 2.4]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        if (i) FT(s, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: "none" }, a); else tl.set(s, { autoAlpha: 1 }, 0);
+        if (i !== SC.length - 1) FT(s, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.2, ease: "none" }, a + d);
+        FT(c, { scale: 1.0 }, { scale: 1.05, duration: d, ease: "none" }, a);
+      });
+      // éclairs blancs aux coupes (lumière de pub)
+      [3.35, 6.55, 9.55].forEach(t => FT("#flash", { opacity: 0 }, { keyframes: [{ opacity: 0.85, duration: 0.08 }, { opacity: 0, duration: 0.35 }] }, t));
+
+      // 1 : la caméra monte le long de la bouteille, les gouttes apparaissent et glissent
+      FT("#btlwrap", { y: 520, scale: 1.55 }, { y: 0, scale: 1, duration: 3.4, ease: "power2.inOut" }, 0);
+      FT("#g1", { opacity: 0.3, scale: 0.8 }, { opacity: 1, scale: 1.1, duration: 3.4, ease: "sine.inOut" }, 0);
+      DR.forEach((d, i) => {
+        IN(d, { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 0.2 + rnd() * 1.6);
+        if (i % 4 === 0) FT(d, { y: 0 }, { y: 70 + rnd() * 120, duration: 1.4, ease: "power1.in" }, 1.6 + rnd() * 1.2);
+      });
+      IN("#a0", { letterSpacing: "0.9em", y: 20 }, { letterSpacing: "0.35em", y: 0, duration: 0.9, ease: "expo.out" }, 0.5);
+
+      // 2 : bulles qui montent, fruits qui tombent au ralenti, titre en contour qui se remplit
+      BB.forEach(d => FT(d, { y: 0, x: 0 }, { y: -2200 - rnd() * 400, x: rnd() * 140 - 70, duration: 2.6 + rnd() * 1.4, ease: "sine.in" }, 3.4 + rnd() * 0.8));
+      ["#f1", "#f2", "#f3", "#f4", "#f5", "#f6"].forEach((f, i) => {
+        FT(f, { y: -700 - i * 60, rotation: -40 + i * 25, scale: 0.9 }, { y: 260, rotation: 60 + i * 30, scale: 1.1, duration: 3.2, ease: "none" }, 3.4);
+      });
+      IN("#b1", { scale: 1.25, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 3.6);
+      IN("#b2", { scale: 1.25, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 3.8);
+      FT(["#b1", "#b2"], { color: "rgba(249,194,26,0)" }, { color: "rgba(249,194,26,1)", duration: 0.8, ease: "power2.in" }, 4.6);
+      IN("#b3", { y: 30, letterSpacing: "0.5em" }, { y: 0, letterSpacing: "0.12em", duration: 0.6, ease: "expo.out" }, 5.2);
+
+      // 3 : les 5 bouteilles dans le noir, les lumières s'allument une à une
+      ["#B0", "#B1", "#B2", "#B3", "#B4"].forEach((b, i) => {
+        FT(b, { filter: "brightness(0.06)" }, { filter: "brightness(1.05)", duration: 0.25, ease: "power2.out" }, 7.0 + i * 0.38);
+        IN("#L" + i, {}, { duration: 0.15 }, 7.0 + i * 0.38);
+        IN("#N" + i, { y: 30 }, { y: 0, duration: 0.35, ease: "back.out(2)" }, 7.1 + i * 0.38);
+      });
+      IN("#c0", { scale: 0.8, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, 8.9);
+
+      // 4 : le logo, le nom, les bouteilles montent
+      IN("#d0", { scale: 0.2, rotation: -25 }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(1.6)" }, 9.7);
+      IN("#d1", { y: 40, scale: 0.9 }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(2)" }, 10.2);
+      ["#d2", "#d3", "#d4"].forEach((b, i) => IN(b, { y: 800 }, { y: 0, duration: 0.6, ease: "back.out(1.3)" }, 10.3 + i * 0.15));
+      IN("#d9", { y: -20 }, { y: 0, duration: 0.4 }, 10.9);
+      FT("#d0", { y: 0 }, { y: -12, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, 10.5);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#flash", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

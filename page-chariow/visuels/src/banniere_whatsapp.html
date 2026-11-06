@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: 'Baloo 2'; font-weight: 800; src: url('Baloo2-ExtraBold.ttf'); }
+@font-face { font-family: 'Work Sans'; font-weight: 700; src: url('worksans-700.ttf'); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --navy:#201f5b; --deep:#15144a; --gold:#f7c21b; --blue:#1f8fd1; --cyan:#6fd3f5; }
+#root { position: relative; width: 1280px; height: 720px; overflow: hidden; font-family: 'Baloo 2'; font-weight: 800; color: #fff;
+  background: radial-gradient(circle at 20% 30%, #2d2c7a 0%, var(--navy) 50%, var(--deep) 100%); }
+.abs { position: absolute; }
+.grid { inset: 0; opacity: .07; background:
+  repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 48px), repeating-linear-gradient(90deg, #fff 0 1px, transparent 1px 48px); }
+.ring { left: 790px; top: 40px; width: 560px; height: 560px; border-radius: 50%; border: 16px solid var(--gold); }
+.disc { left: 815px; top: 65px; width: 510px; height: 510px; border-radius: 50%; background: radial-gradient(circle at 45% 40%, #3a39a0, #26257a 60%, #1b1a5e); }
+.hero { left: 790px; top: 88px; width: 560px; }
+.kick { left: 90px; top: 110px; background: var(--cyan); color: var(--navy); font-size: 26px; border-radius: 30px; padding: 6px 22px 0; letter-spacing: .5px; }
+.h { left: 88px; top: 165px; font-size: 76px; line-height: .98; }
+.h span { color: var(--gold); }
+.sw { left: 92px; top: 330px; width: 360px; }
+.sub { left: 90px; top: 365px; width: 640px; font-family: 'Work Sans'; font-weight: 700; font-size: 27px; line-height: 1.35; color: #dfe3ff; }
+.chips { left: 90px; top: 470px; display: flex; gap: 14px; }
+.chip { background: #fff; color: var(--navy); border-radius: 30px; font-size: 25px; padding: 8px 22px 1px; box-shadow: 0 6px 0 rgba(0,0,0,.25); white-space: nowrap; }
+.chip.g { background: var(--gold); }
+.spark { position: absolute; }
+</style></head><body><div id="root">
+<div class="abs grid"></div>
+<div class="abs ring"></div><div class="abs disc"></div>
+<img class="abs hero" src="hero_commercant.png">
+<div class="abs kick">DIGITALMIKAELSON · PRODUITS DIGITAUX</div>
+<div class="abs h">Ton savoir-faire<br><span>vaut de l'argent</span></div>
+<svg class="abs sw" viewBox="0 0 360 26"><path d="M6 18 C 110 4, 240 2, 354 12" stroke="#6fd3f5" stroke-width="8" fill="none" stroke-linecap="round"/></svg>
+<div class="abs sub">Je t'accompagne à le transformer en produit digital, uniquement avec ton téléphone.</div>
+<div class="abs chips"><div class="chip g">Guide PDF</div><div class="chip">Plan de 7 jours</div><div class="chip g">Suivi sur WhatsApp</div></div>
+<svg class="spark" style="left:740px;top:70px;width:46px" viewBox="0 0 100 100"><path d="M50 0C55 35 65 45 100 50C65 55 55 65 50 100C45 65 35 55 0 50C35 45 45 35 50 0Z" fill="#f7c21b"/></svg><svg class="spark" style="left:1222px;top:24px;width:40px" viewBox="0 0 100 100"><path d="M50 0C55 35 65 45 100 50C65 55 55 65 50 100C45 65 35 55 0 50C35 45 45 35 50 0Z" fill="#6fd3f5"/></svg><svg class="spark" style="left:40px;top:600px;width:34px" viewBox="0 0 100 100"><path d="M50 0C55 35 65 45 100 50C65 55 55 65 50 100C45 65 35 55 0 50C35 45 45 35 50 0Z" fill="#f7c21b"/></svg><svg class="spark" style="left:700px;top:560px;width:30px" viewBox="0 0 100 100"><path d="M50 0C55 35 65 45 100 50C65 55 55 65 50 100C45 65 35 55 0 50C35 45 45 35 50 0Z" fill="#6fd3f5"/></svg>
+</div></body></html>

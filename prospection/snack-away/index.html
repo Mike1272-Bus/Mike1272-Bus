@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Oswald'; font-weight: 700; src: url('assets/fonts/Oswald-Bold.ttf') format('truetype'); }
+      @font-face { font-family: 'Instrument'; font-style: italic; src: url('assets/fonts/InstrumentSerif-Italic.ttf') format('truetype'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #111; }
+      /* leur salle : murs jaunes, noir, colonne en zigzag noir et blanc ; leur logo : jaune, rouge, vert */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff; background: #111; }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .yel { background: #f2c615; color: #111; }
+      .zz { position: absolute; background-color: #111;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30'><path d='M0 22 L15 8 L30 22 L45 8 L60 22' fill='none' stroke='white' stroke-width='5'/></svg>");
+        background-size: 60px 30px; }
+      .line { position: absolute; left: 50px; width: 980px; text-align: center; }
+      .w { display: inline-block; margin: 0 0.1em; }
+      .say { font-family: 'Instrument', serif; font-style: italic; font-size: 96px; line-height: 1.1; }
+      .wall { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; line-height: 0.95; letter-spacing: 0.01em; }
+      .card { position: absolute; overflow: hidden; border-radius: 40px; box-shadow: 0 40px 70px rgba(0,0,0,0.45); }
+      .card div { width: 100%; height: 100%; background-size: cover; background-position: center; }
+      .tag { display: inline-block; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 56px; text-transform: uppercase; padding: 8px 34px; border-radius: 14px; }
+      #logoBox { overflow: hidden; border-radius: 46px; box-shadow: 0 30px 60px rgba(0,0,0,0.35); }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #111; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="25" data-width="1080" data-height="1920">
+
+      <!-- 1. Kinshasa, midi approche : où est-ce qu'on mange ? (0 - 3,8) -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <div class="zz" id="z1" style="left:0; top:0; width:1080px; height:150px"></div>
+        <div class="zz" id="z2" style="left:0; top:1770px; width:1080px; height:150px"></div>
+        <div class="line" style="top:560px"><span class="w wall" id="a0" style="font-size:70px; color:#f2c615; letter-spacing:0.2em">Kinshasa</span></div>
+        <div class="line say split" id="a1" style="top:700px">Midi approche…</div>
+        <div class="line wall split" id="a2" style="top:900px; font-size:150px">Où est-ce</div>
+        <div class="line wall split" id="a3" style="top:1050px; font-size:150px; color:#f2c615">qu'on mange ?</div>
+      </div></div>
+
+      <!-- 2. La salle aux murs jaunes (3,8 - 8,4) -->
+      <div class="scene yel" id="s2"><div class="cam" id="k2">
+        <div class="line say split" id="b0" style="top:180px; color:#111">Là où les murs sont jaunes…</div>
+        <div class="card" id="b1" style="left:60px; top:420px; width:960px; height:960px"><div id="b1i" style="background-image:url('assets/img/salle.jpg')"></div></div>
+        <div class="ab" id="logoBox" style="left:315px; top:1440px; width:450px; height:228px"><img src="assets/img/logo.png" style="width:450px; height:228px; display:block" /></div>
+      </div></div>
+
+      <!-- 3. Le croustillant : Zinger Burger (8,4 - 13,0) -->
+      <div class="scene" id="s3"><div class="cam" id="k3">
+        <div class="zz" style="left:0; top:0; width:120px; height:1920px"></div>
+        <div class="line say split" id="c0" style="top:170px; left:150px; width:880px; font-size:76px">Pour ceux qui aiment le croustillant :</div>
+        <div class="card" id="c1" style="left:150px; top:450px; width:880px; height:634px"><div id="c1i" style="background-image:url('assets/img/zinger.jpg')"></div></div>
+        <div class="line" style="top:1170px; left:150px; width:880px"><span class="w wall" id="c2" style="font-size:150px; color:#f2c615">Zinger</span></div>
+        <div class="line" style="top:1330px; left:150px; width:880px"><span class="w wall" id="c3" style="font-size:110px">Burger</span></div>
+        <div class="line" style="top:1500px; left:150px; width:880px"><span class="tag" id="c4" style="background:#e2463b; color:#fff">Crispy chicken</span></div>
+      </div></div>
+
+      <!-- 4. Le sandwich : Teriyaki (13,0 - 17,6) -->
+      <div class="scene yel" id="s4"><div class="cam" id="k4">
+        <div class="line say split" id="d0" style="top:170px; color:#111; font-size:76px">Pour ceux qui préfèrent le sandwich :</div>
+        <div class="card" id="d1" style="left:60px; top:450px; width:960px; height:594px; border:10px solid #fff"><div id="d1i" style="background-image:url('assets/img/teriyaki.jpg')"></div></div>
+        <div class="line" style="top:1130px"><span class="w wall" id="d2" style="font-size:110px">Sandwich</span></div>
+        <div class="line" style="top:1250px"><span class="w say" id="d3" style="font-size:150px; color:#2e9a44">Teriyaki</span></div>
+      </div></div>
+
+      <!-- 5. Et pour tous les autres : les mots de leur mur (17,6 - 20,8) -->
+      <div class="scene" id="s5"><div class="cam" id="k5">
+        <div class="zz" style="left:0; top:0; width:1080px; height:120px"></div>
+        <div class="line say split" id="f0" style="top:230px; font-size:84px">Et pour tous les autres :</div>
+        <div class="line wall" style="top:470px"><span class="w" id="f1" style="font-size:120px">Fresh salads</span></div>
+        <div class="line wall" style="top:640px"><span class="w" id="f2" style="font-size:120px; color:#f2c615">Crispy chicken</span></div>
+        <div class="line wall" style="top:810px"><span class="w" id="f3" style="font-size:120px">Snacks</span></div>
+        <div class="line wall" style="top:980px"><span class="w" id="f4" style="font-size:120px; color:#f2c615">Cold smoothies</span></div>
+        <div class="line wall" style="top:1150px"><span class="w" id="f5" style="font-size:120px">Tasty burgers</span></div>
+        <div class="line" style="top:1390px"><span class="w say" id="f6" style="font-size:64px; color:#f2c615">(c'est écrit sur nos murs)</span></div>
+        <div class="zz" style="left:0; top:1800px; width:1080px; height:120px"></div>
+      </div></div>
+
+      <!-- 6. Carte de fin (20,8 - 25) -->
+      <div class="scene yel" id="s6"><div class="cam" id="k6">
+        <div class="ab" id="e1" style="left:190px; top:300px; width:700px; height:355px; overflow:hidden; border-radius:60px; box-shadow: 0 30px 60px rgba(0,0,0,0.3)"><img src="assets/img/logo.png" style="width:700px; height:355px; display:block" /></div>
+        <div class="line" style="top:720px"><span class="w wall" id="e2" style="font-size:96px; color:#111; letter-spacing:0.12em">Kinshasa</span></div>
+        <div class="card" id="e3" style="left:190px; top:900px; width:700px; height:525px; border:10px solid #111"><div style="background-image:url('assets/img/salle.jpg')"></div></div>
+        <div class="line" style="top:1510px"><span class="w say" id="e4" style="font-size:110px; color:#111">On vous attend !</span></div>
+      </div></div>
+
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="25" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      document.querySelectorAll(".split").forEach(el => {
+        el.innerHTML = el.textContent.split(" ").map((w, i) => `<span class="w" id="${el.id}_${i}">${w}</span>`).join(" ");
+      });
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const words = (id, at, step = 0.1) => document.getElementById(id).querySelectorAll(".w").forEach((w, i) =>
+        IN(w, { y: 40, filter: "blur(10px)" }, { y: 0, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, at + i * step));
+      const rise = (sel, at) => IN(sel, { y: 60, clipPath: "inset(0 0 100% 0)" }, { y: 0, clipPath: "inset(0 0 0% 0)", duration: 0.5, ease: "power3.out" }, at);
+      const card = (sel, img, at, d, from = { y: 200, rotation: 3 }) => {
+        IN(sel, { ...from, scale: 0.92 }, { y: 0, x: 0, rotation: 0, scale: 1, duration: 0.8, ease: "expo.out" }, at);
+        FT(img, { scale: 1.2 }, { scale: 1.02, duration: d, ease: "sine.out" }, at);
+      };
+      const pop = (sel, at) => IN(sel, { scale: 0.4 }, { scale: 1, duration: 0.45, ease: "back.out(2)" }, at);
+
+      // scènes : chaque nouvelle page glisse depuis le bas (on tourne les pages de l'histoire)
+      const SC = [["#s1", "#k1", 0, 3.8], ["#s2", "#k2", 3.8, 4.6], ["#s3", "#k3", 8.4, 4.6], ["#s4", "#k4", 13.0, 4.6], ["#s5", "#k5", 17.6, 3.2], ["#s6", "#k6", 20.8, 4.2]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        if (i) { tl.set(s, { autoAlpha: 1 }, a - 0.25); FT(s, { yPercent: 100 }, { yPercent: 0, duration: 0.55, ease: "expo.inOut" }, a - 0.25); } else tl.set(s, { autoAlpha: 1 }, 0);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d + 0.3);
+        FT(c, { scale: 1.0 }, { scale: 1.04, duration: d, ease: "none" }, a);
+      });
+      // les zigzags de leur mur défilent
+      FT("#z1", { backgroundPositionX: 0 }, { backgroundPositionX: 600, duration: 4.1, ease: "none" }, 0);
+      FT("#z2", { backgroundPositionX: 0 }, { backgroundPositionX: -600, duration: 4.1, ease: "none" }, 0);
+
+      // 1
+      rise("#a0", 0.2); words("a1", 0.7, 0.15); words("a2", 1.6, 0.14); words("a3", 2.05, 0.14);
+      // 2
+      words("b0", 3.75, 0.12);
+      card("#b1", "#b1i", 4.3, 4.1);
+      FT("#b1i", { xPercent: 0 }, { xPercent: -4, duration: 4.1, ease: "sine.inOut" }, 4.3);
+      pop("#logoBox", 5.5); FT("#logoBox", { rotation: 0 }, { rotation: 2, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 6.0);
+      // 3
+      words("c0", 8.35, 0.1);
+      card("#c1", "#c1i", 9.2, 3.8, { x: 900, rotation: 6 });
+      rise("#c2", 10.0); rise("#c3", 10.3); pop("#c4", 10.8);
+      // 4
+      words("d0", 12.95, 0.1);
+      card("#d1", "#d1i", 13.8, 3.8, { x: -900, rotation: -6 });
+      rise("#d2", 14.6); IN("#d3", { scale: 0.6, rotation: -6 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 14.9);
+      // 5 : les mots du mur, un par un
+      words("f0", 17.55, 0.1);
+      ["#f1", "#f2", "#f3", "#f4", "#f5"].forEach((f, i) => IN(f, { x: i % 2 ? 700 : -700 }, { x: 0, duration: 0.4, ease: "expo.out" }, 18.1 + i * 0.32));
+      IN("#f6", { y: 20 }, { y: 0, duration: 0.4 }, 19.8);
+      // 6
+      IN("#e1", { scale: 0.5, rotation: -6 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 20.75);
+      FT("#e1", { y: 0 }, { y: -14, duration: 1.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 21.4);
+      rise("#e2", 21.2);
+      card("#e3", "#e3 div", 21.4, 3.6, { y: 300, rotation: 3 });
+      IN("#e4", { scale: 0.6 }, { scale: 1, duration: 0.55, ease: "back.out(2)" }, 22.1);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 24.5);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
