@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Young'; src: url('assets/fonts/YoungSerif-Regular.ttf') format('truetype'); }
+      @font-face { font-family: 'Instrument'; font-style: italic; src: url('assets/fonts/InstrumentSerif-Italic.ttf') format('truetype'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #160503; }
+      /* les couleurs de leur logo : bordeaux, crème, flamme rouge */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #ffe3c8;
+        background: radial-gradient(ellipse at 50% 62%, #6a1406 0%, #3a0a03 40%, #160503 80%); }
+      .ab { position: absolute; }
+      #glow { left: 40px; top: 900px; width: 1000px; height: 1000px; border-radius: 50%; background: radial-gradient(circle, rgba(255,110,40,0.38) 0%, rgba(224,48,30,0) 65%); }
+      .smoke { position: absolute; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,235,220,0.16) 0%, rgba(255,235,220,0) 70%); filter: blur(30px); }
+      .emb { position: absolute; border-radius: 50%; background: radial-gradient(circle, #ffd8a0 0%, #ff6a1f 55%, rgba(255,80,0,0) 75%); opacity: 0; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .line { position: absolute; left: 60px; width: 960px; text-align: center; }
+      .say { font-family: 'Instrument', serif; font-style: italic; font-size: 92px; line-height: 1.1; color: #ffe3c8; }
+      .big { font-family: 'Young', serif; font-size: 150px; line-height: 1.02; color: #ffe3c8; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+      .ttl { font-family: 'Young', serif; font-size: 112px; line-height: 1.02; color: #ffe3c8; text-shadow: 0 8px 26px rgba(0,0,0,0.55); }
+      .sub { font-family: 'Instrument', serif; font-style: italic; font-size: 64px; color: #ff8a5c; }
+      .ing { font-weight: 600; font-size: 42px; line-height: 1.35; color: #ffe3c8; }
+      .w { display: inline-block; margin: 0 0.12em; }
+      .card { position: absolute; overflow: hidden; border-radius: 40px; border: 8px solid #ffe3c8; box-shadow: 0 0 0 4px #e0301e, 0 40px 70px rgba(0,0,0,0.6); }
+      .card div { width: 100%; height: 100%; background-size: cover; background-position: center; }
+      .chip { display: inline-block; font-weight: 900; font-size: 36px; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: #e0301e; padding: 12px 34px; border-radius: 999px; }
+      .pill { position: absolute; border-radius: 999px; text-align: center; white-space: nowrap; font-weight: 900; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #160503; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="25" data-width="1080" data-height="1920">
+      <div class="ab" id="glow"></div>
+      <div class="smoke" id="sm1" style="left:-200px; top:200px; width:900px; height:600px"></div>
+      <div class="smoke" id="sm2" style="left:400px; top:900px; width:900px; height:700px"></div>
+      <div class="smoke" id="sm3" style="left:-100px; top:1400px; width:800px; height:600px"></div>
+      <div id="embers"></div>
+
+      <!-- 1. Tout commence par une petite faim (0 - 3,8) -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <div class="line" style="top:640px"><span class="w say" id="a1" style="font-size:70px; color:#ff8a5c">Kinshasa.</span></div>
+        <div class="line say split" id="a2" style="top:790px">Tout commence par</div>
+        <div class="line big split" id="a3" style="top:930px">une petite faim…</div>
+      </div></div>
+
+      <!-- 2. Le Sandwich Tacos (3,8 - 8,8) -->
+      <div class="scene" id="s2"><div class="cam" id="k2">
+        <div class="line" style="top:220px"><span class="chip" id="b0">Petite faim</span></div>
+        <div class="card" id="b1" style="left:90px; top:400px; width:900px; height:678px"><div id="b1i" style="background-image:url('assets/img/tacos.jpg')"></div></div>
+        <div class="line ttl split" id="b2" style="top:1170px; font-size:96px">Sandwich Tacos</div>
+        <div class="line" style="top:1300px"><span class="w sub" id="b3">poulet · viande</span></div>
+        <div class="line ing split" id="b4" style="top:1440px">Poivrons, oignons, maïs, fromage cheddar</div>
+      </div></div>
+
+      <!-- 3. Puis la faim grandit : le Cheese Burger Viande (8,8 - 14,2) -->
+      <div class="scene" id="s3"><div class="cam" id="k3">
+        <div class="line say split" id="c0" style="top:820px; font-size:110px">Puis la faim grandit…</div>
+        <div class="line" style="top:220px"><span class="chip" id="c1">Grosse faim</span></div>
+        <div class="card" id="c2" style="left:60px; top:400px; width:960px; height:533px"><div id="c2i" style="background-image:url('assets/img/burger.jpg')"></div></div>
+        <div class="line ttl split" id="c3" style="top:1030px">Cheese Burger</div>
+        <div class="line ttl split" id="c4" style="top:1150px; color:#ff8a5c">Viande</div>
+        <div class="line ing split" id="c5" style="top:1330px">Viande, salade iceberg, tomate, oignon, fromage cheddar, sauce spéciale</div>
+      </div></div>
+
+      <!-- 4. Et la très grosse faim : la Deal Box (14,2 - 19,6) -->
+      <div class="scene" id="s4"><div class="cam" id="k4">
+        <div class="line say split" id="d0" style="top:760px; font-size:104px">Et quand c'est la très grosse faim…</div>
+        <div class="line" style="top:200px"><span class="chip" id="d1">Très grosse faim</span></div>
+        <div class="card" id="d2" style="left:90px; top:370px; width:900px; height:788px"><div id="d2i" style="background-image:url('assets/img/dealbox.jpg')"></div></div>
+        <div class="line ttl split" id="d3" style="top:1240px">Deal Box</div>
+        <div class="line ing split" id="d4" style="top:1390px">1 Zinger burger + 2 pièces de poulet broast, frites et Pepsi</div>
+      </div></div>
+
+      <!-- 5. Une seule adresse (19,6 - 25) -->
+      <div class="scene" id="s5"><div class="cam" id="k5">
+        <div class="line say split" id="e0" style="top:330px; font-size:84px">Petite ou très grosse faim,</div>
+        <div class="line say split" id="e1" style="top:440px; font-size:84px">une seule adresse :</div>
+        <img class="ab" id="e2" src="assets/img/logo.png" style="left:270px; top:620px; width:540px; height:540px; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.6))" />
+        <div class="line" style="top:1230px"><span class="w sub" id="e3" style="color:#ffe3c8; font-size:72px">Kinshasa</span></div>
+        <div class="ab pill" id="e4" style="left:170px; top:1400px; width:740px; height:120px; line-height:120px; font-size:52px; background:#e0301e; color:#fff; box-shadow: 0 10px 0 #5a0c00">@fuegoskinshasa</div>
+      </div></div>
+
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="25" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      // chaque texte « split » est découpé en mots, qui apparaîtront un par un
+      document.querySelectorAll(".split").forEach(el => {
+        el.innerHTML = el.textContent.split(" ").map((w, i) => `<span class="w" id="${el.id}_${i}">${w}</span>`).join(" ");
+      });
+      // braises qui montent (positions fixes, tirées une fois pour toutes)
+      let seed = 7; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const EM = [];
+      for (let i = 0; i < 18; i++) {
+        const d = document.createElement("div"); d.className = "emb"; const s = 6 + rnd() * 12;
+        Object.assign(d.style, { left: 60 + rnd() * 960 + "px", top: 1550 + rnd() * 330 + "px", width: s + "px", height: s + "px" });
+        document.getElementById("embers").appendChild(d); EM.push(d);
+      }
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const OUT = (sel, at, d = 0.35) => tl.to(sel, { opacity: 0, y: -30, filter: "blur(8px)", duration: d, ease: "power2.in" }, at);
+      const words = (id, at, step = 0.09) => document.getElementById(id).querySelectorAll(".w").forEach((w, i) =>
+        IN(w, { y: 30, filter: "blur(10px)" }, { y: 0, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, at + i * step));
+      const soft = (sel, at) => IN(sel, { y: 30, filter: "blur(10px)" }, { y: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, at);
+      const card = (sel, img, at, d) => {
+        IN(sel, { y: 160, scale: 0.92, rotation: 2 }, { y: 0, scale: 1, rotation: 0, duration: 0.8, ease: "expo.out" }, at);
+        FT(img, { scale: 1.18 }, { scale: 1.02, duration: d, ease: "sine.out" }, at);
+      };
+      const chip = (sel, at) => IN(sel, { scale: 0.4 }, { scale: 1, duration: 0.45, ease: "back.out(2)" }, at);
+
+      FT("#glow", { scale: 1, opacity: 0.7 }, { scale: 1.12, opacity: 1, duration: 1.6, yoyo: true, repeat: 14, ease: "sine.inOut" }, 0);
+      FT("#sm1", { x: 0 }, { x: 260, duration: 25, ease: "none" }, 0);
+      FT("#sm2", { x: 0 }, { x: -300, duration: 25, ease: "none" }, 0);
+      FT("#sm3", { x: 0, y: 0 }, { x: 220, y: -200, duration: 25, ease: "none" }, 0);
+      EM.forEach(d => FT(d, { y: 0, x: 0, opacity: 0 }, { keyframes: [{ opacity: 0.85, duration: 0.8 }, { opacity: 0, duration: 5.2 }], y: -900 - rnd() * 600, x: rnd() * 160 - 80, duration: 6, repeat: 2, ease: "none" }, rnd() * 6));
+
+      // scènes : fondu enchaîné doux (on raconte, on ne frappe pas)
+      const SC = [["#s1", "#k1", 0, 3.8], ["#s2", "#k2", 3.8, 5.0], ["#s3", "#k3", 8.8, 5.4], ["#s4", "#k4", 14.2, 5.4], ["#s5", "#k5", 19.6, 5.4]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        if (i) FT(s, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "none" }, a); else tl.set(s, { autoAlpha: 1 }, 0);
+        if (i !== SC.length - 1) FT(s, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.4, ease: "none" }, a + d - 0.2);
+        FT(c, { scale: 1.0 }, { scale: 1.05, duration: d, ease: "none" }, a);
+      });
+
+      // 1
+      soft("#a1", 0.3); words("a2", 0.9); words("a3", 1.7, 0.16);
+      // 2
+      chip("#b0", 3.95); card("#b1", "#b1i", 4.1, 4.7);
+      words("b2", 4.7, 0.14); soft("#b3", 5.2); words("b4", 5.7, 0.12);
+      // 3 : la phrase de passage, puis le plat
+      words("c0", 8.95, 0.13); OUT("#c0", 10.35);
+      chip("#c1", 10.6); card("#c2", "#c2i", 10.7, 3.5);
+      words("c3", 11.2, 0.14); words("c4", 11.5); words("c5", 12.0, 0.08);
+      // 4
+      words("d0", 14.35, 0.13); OUT("#d0", 15.85);
+      chip("#d1", 16.1); card("#d2", "#d2i", 16.2, 3.4);
+      words("d3", 16.7, 0.14); words("d4", 17.2, 0.08);
+      // 5
+      words("e0", 19.75, 0.12); words("e1", 20.4, 0.12);
+      IN("#e2", { scale: 0.6, rotation: -8, filter: "blur(14px)" }, { scale: 1, rotation: 0, filter: "blur(0px)", duration: 0.9, ease: "expo.out" }, 21.0);
+      FT("#e2", { y: 0 }, { y: -14, duration: 1.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 21.9);
+      soft("#e3", 21.6);
+      IN("#e4", { y: 120 }, { y: 0, duration: 0.5, ease: "back.out(1.6)" }, 22.0);
+      FT("#e4", { scale: 1 }, { scale: 1.04, duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, 22.7);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 24.5);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

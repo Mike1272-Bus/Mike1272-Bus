@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); font-weight: 800; }
+      :root { --ink: #17181d; --ink2: #454854; --hot: #e2360c; --hot2: #e8380e; --sand: #e9dfd1; --bg: #f6f3ee; --wa: #16a34a; --blue: #2342ff; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: 'Poppins', sans-serif; background: var(--bg); }
+      .ab { position: absolute; }
+      .sc { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .w { display: inline-block; }
+
+      /* fond : papier clair, quadrillage léger, grande diagonale sable */
+      #bg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; background-color: var(--bg); background-image: linear-gradient(rgba(23,24,29,0.035) 2px, transparent 2px), linear-gradient(90deg, rgba(23,24,29,0.035) 2px, transparent 2px); background-size: 60px 60px; }
+      #band1 { left: 300px; top: -400px; width: 300px; height: 2800px; background: var(--sand); transform: rotate(24deg); opacity: 0.85; }
+      #band2 { left: -380px; top: -400px; width: 190px; height: 2800px; background: var(--sand); transform: rotate(24deg); opacity: 0.6; }
+
+      /* textes */
+      .line { position: absolute; left: 60px; width: 960px; text-align: center; font-size: 56px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+      .big { position: absolute; left: 30px; width: 1020px; text-align: center; font-family: 'Bricolage', 'Poppins', sans-serif; font-weight: 800; font-size: 108px; line-height: 1.02; color: var(--hot); letter-spacing: -0.02em;
+        text-shadow: 4px 0 0 #fff, -4px 0 0 #fff, 0 4px 0 #fff, 0 -4px 0 #fff, 3px 3px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff, 0 14px 30px rgba(232,56,14,0.28); }
+      .sub { position: absolute; left: 90px; width: 900px; text-align: center; font-size: 44px; font-weight: 600; color: var(--ink2); line-height: 1.3; }
+      .i3d { position: absolute; filter: drop-shadow(0 26px 30px rgba(23,24,29,0.22)); }
+      .card { position: absolute; background: #fff; border-radius: 44px; box-shadow: 0 30px 70px rgba(23,24,29,0.12), 0 4px 12px rgba(23,24,29,0.06); }
+      .hotpill { position: absolute; border-radius: 70px; background: linear-gradient(180deg, #ff5a2b 0%, #e8380e 100%); color: #fff; font-weight: 700; text-align: center; box-shadow: 0 16px 40px rgba(232,56,14,0.35); }
+      .lab { position: absolute; left: 0; width: 100%; text-align: center; font-size: 40px; font-weight: 700; color: var(--ink); }
+      .arrow { position: absolute; width: 90px; height: 40px; }
+
+      /* bandeau du bas, sur toute la vidéo */
+      #foot { left: 150px; top: 1740px; width: 780px; height: 92px; line-height: 92px; font-size: 34px; }
+
+      /* notification WhatsApp */
+      .notif { position: absolute; left: 70px; width: 940px; padding: 36px 44px 42px; border-radius: 48px; background: #fff; box-shadow: 0 30px 70px rgba(23,24,29,0.16); }
+      .nh { display: flex; align-items: center; gap: 20px; margin-bottom: 16px; }
+      .nico { width: 72px; height: 72px; border-radius: 20px; background: linear-gradient(180deg, #2ad06a 0%, #16a34a 100%); flex: none; }
+      .nico svg { width: 72px; height: 72px; }
+      .napp { font-size: 29px; font-weight: 700; color: var(--ink2); }
+      .ntime { margin-left: auto; font-size: 27px; color: #5e616d; }
+      .nbody { font-size: 39px; line-height: 1.36; color: var(--ink); }
+      .nbody b { font-weight: 700; }
+      .tag { color: var(--hot2); font-weight: 700; }
+
+      /* S2 grille */
+      .tile { position: absolute; width: 420px; height: 400px; }
+      .tile .card { left: 0; top: 0; width: 420px; height: 400px; }
+      .tile img { position: absolute; left: 100px; top: 40px; width: 220px; height: 220px; filter: drop-shadow(0 18px 22px rgba(23,24,29,0.2)); }
+      .tile .lab { top: 290px; font-size: 38px; }
+      #g1 { left: 100px; top: 720px; } #g2 { left: 560px; top: 720px; } #g3 { left: 100px; top: 1160px; } #g4 { left: 560px; top: 1160px; }
+
+      /* S5 cartes bilan */
+      .bcard { position: absolute; left: 90px; top: 1130px; width: 900px; padding: 44px 56px 36px; }
+      .bt { font-size: 44px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+      .bl { display: flex; justify-content: space-between; gap: 30px; padding: 14px 0; border-bottom: 2px solid #eee8df; font-size: 38px; color: var(--ink2); }
+      .bl:last-child { border-bottom: none; }
+      .bl span:last-child { font-weight: 700; color: var(--ink); text-align: right; }
+      .bl.hot span:last-child { color: var(--hot2); }
+      .ex { position: absolute; left: 0; top: 1650px; width: 1080px; text-align: center; font-size: 28px; color: #5e616d; }
+
+      /* S7 tuiles */
+      .k { position: absolute; width: 440px; height: 360px; }
+      .k .card { left: 0; top: 0; width: 440px; height: 360px; }
+      .k img { position: absolute; left: 120px; top: 34px; width: 200px; height: 200px; filter: drop-shadow(0 18px 22px rgba(23,24,29,0.2)); }
+      .k .lab { top: 252px; font-size: 38px; line-height: 1.1; padding: 0 20px; }
+      #k1 { left: 80px; top: 600px; } #k2 { left: 560px; top: 600px; } #k3 { left: 80px; top: 990px; } #k4 { left: 560px; top: 990px; }
+      .row { position: absolute; left: 90px; width: 900px; height: 150px; }
+      .row .card { left: 0; top: 0; width: 900px; height: 150px; border-radius: 40px; }
+      .row img { position: absolute; left: 30px; top: 15px; width: 120px; height: 120px; filter: drop-shadow(0 12px 16px rgba(23,24,29,0.2)); }
+      .row .rt { position: absolute; left: 175px; top: 0; height: 150px; line-height: 150px; font-size: 40px; font-weight: 700; color: var(--ink); }
+      .row .rx { position: absolute; right: 30px; top: 25px; width: 100px; height: 100px; }
+      .row .num { position: absolute; right: 36px; top: 35px; width: 80px; height: 80px; border-radius: 40px; background: var(--hot2); color: #fff; font-size: 44px; font-weight: 800; line-height: 80px; text-align: center; }
+      .slot { position: absolute; top: 1180px; width: 190px; height: 190px; border-radius: 40px; border: 6px dashed #c9bfb0; }
+      .slot .fill { position: absolute; left: 14px; top: 14px; width: 150px; height: 150px; border-radius: 30px; background: linear-gradient(180deg, #ff5a2b 0%, #e8380e 100%); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="76" data-width="1080" data-height="1920">
+
+      <!-- voix : Hugo (ElevenLabs), 73,7 s -->
+      <audio id="vo" class="clip" src="assets/audio/voix_fetes.mp3" data-start="0" data-duration="73.7" data-track-index="5" data-volume="1"></audio>
+
+      <div id="bgc" class="clip sc" data-start="0" data-duration="76" data-track-index="0">
+        <div id="bg"><div id="band1" class="ab"></div><div id="band2" class="ab"></div></div>
+      </div>
+
+      <!-- S1 : les fêtes (0 - 4.5) -->
+      <div id="s1" class="clip sc" data-start="0" data-duration="4.5" data-track-index="1">
+        <div id="s1w" class="sc">
+          <div id="s1l" class="line" style="top: 300px;">C'est bientôt</div>
+          <div id="s1b" class="big" style="top: 380px;">la période des fêtes</div>
+          <img id="tree" class="i3d" src="assets/3d/christmas_tree.png" style="left: 330px; top: 640px; width: 420px; height: 420px;" />
+          <img id="gift" class="i3d" src="assets/3d/wrapped_gift.png" style="left: 90px; top: 900px; width: 260px; height: 260px;" />
+          <img id="bags" class="i3d" src="assets/3d/shopping_bags.png" style="left: 730px; top: 880px; width: 280px; height: 280px;" />
+          <img id="spk" class="i3d" src="assets/3d/sparkles.png" style="left: 760px; top: 620px; width: 160px; height: 160px;" />
+          <div id="s1s" class="sub" style="top: 1260px; color: #17181d; font-size: 52px;">Et dans votre boutique, voici ce qui arrive…</div>
+        </div>
+      </div>
+
+      <!-- S2 : plus de clients, commandes de partout (4.5 - 14.9) -->
+      <div id="s2" class="clip sc" data-start="4.5" data-duration="10.4" data-track-index="1">
+        <div id="s2w" class="sc">
+          <div id="s2b1" class="big" style="top: 330px;">plus de clients</div>
+          <div id="s2b2" class="big" style="top: 330px;">des commandes de partout</div>
+          <div id="s2b3" class="big" style="top: 330px;">noter · vérifier · calculer</div>
+          <div id="s2b4" class="big" style="top: 330px;">répondre à chacun</div>
+          <div id="crowd" class="sc">
+            <img class="i3d cw" src="assets/3d/shopping_cart.png" style="left: 90px; top: 700px; width: 260px; height: 260px;" />
+            <img class="i3d cw" src="assets/3d/shopping_bags.png" style="left: 410px; top: 640px; width: 260px; height: 260px;" />
+            <img class="i3d cw" src="assets/3d/shopping_cart.png" style="left: 730px; top: 720px; width: 260px; height: 260px;" />
+            <img class="i3d cw" src="assets/3d/shopping_bags.png" style="left: 220px; top: 1020px; width: 240px; height: 240px;" />
+            <img class="i3d cw" src="assets/3d/shopping_cart.png" style="left: 600px; top: 1040px; width: 240px; height: 240px;" />
+            <img class="i3d cw" src="assets/3d/wrapped_gift.png" style="left: 430px; top: 1320px; width: 220px; height: 220px;" />
+          </div>
+          <div class="k" id="k1" style="left: 80px; top: 640px;"><div class="card"></div><img src="assets/3d/convenience_store.png" /><div class="lab">En boutique</div></div>
+          <div class="k" id="k2" style="left: 560px; top: 640px;"><div class="card"></div><img src="assets/img/logo_whatsapp.png" style="border-radius: 48px; width: 190px; height: 190px; left: 125px; top: 40px;" /><div class="lab">Sur WhatsApp</div></div>
+          <div class="k" id="k3" style="left: 320px; top: 1030px;"><div class="card"></div><img src="assets/3d/telephone_receiver.png" /><div class="lab">Au téléphone</div></div>
+          <img id="t1" class="i3d" src="assets/3d/memo.png" style="left: 80px; top: 1060px; width: 200px; height: 200px;" />
+          <img id="t2" class="i3d" src="assets/3d/package.png" style="left: 800px; top: 1060px; width: 200px; height: 200px;" />
+          <img id="t3" class="i3d" src="assets/3d/receipt.png" style="left: 440px; top: 1420px; width: 200px; height: 200px;" />
+        </div>
+      </div>
+
+      <!-- S3 : le travail double (14.9 - 18.6) -->
+      <div id="s3" class="clip sc" data-start="14.9" data-duration="3.7" data-track-index="1">
+        <div id="s3w" class="sc">
+          <div id="s3b1" class="big" style="top: 330px;">le travail double</div>
+          <div id="s3l" class="line" style="top: 470px; font-size: 60px;">mais la journée, elle, ne s'allonge pas</div>
+          <img id="l1" class="i3d" src="assets/3d/ledger.png" style="left: 180px; top: 1160px; width: 300px; height: 300px;" />
+          <img id="l2" class="i3d" src="assets/3d/ledger.png" style="left: 190px; top: 960px; width: 290px; height: 290px;" />
+          <img id="l3" class="i3d" src="assets/3d/ledger.png" style="left: 200px; top: 760px; width: 280px; height: 280px;" />
+          <img id="clk" class="i3d" src="assets/3d/alarm_clock.png" style="left: 580px; top: 820px; width: 360px; height: 360px;" />
+        </div>
+      </div>
+
+      <!-- S4 : les erreurs (18.6 - 28.3) -->
+      <div id="s4" class="clip sc" data-start="18.6" data-duration="9.7" data-track-index="1">
+        <div id="s4w" class="sc">
+          <div id="s4l" class="line" style="top: 300px;">Alors</div>
+          <div id="s4b" class="big" style="top: 380px;">les erreurs arrivent</div>
+          <div class="row" id="r1" style="top: 640px;"><div class="card"></div><img src="assets/3d/memo.png" /><div class="rt">Une vente oubliée</div><img class="rx" src="assets/3d/cross_mark.png" /></div>
+          <div class="row" id="r2" style="top: 830px;"><div class="card"></div><img src="assets/3d/package.png" /><div class="rt">Un article déjà fini</div><img class="rx" src="assets/3d/cross_mark.png" /></div>
+          <div class="row" id="r3" style="top: 1020px;"><div class="card"></div><img src="assets/3d/shopping_bags.png" /><div class="rt">Un client parti chez le voisin</div><img class="rx" src="assets/3d/cross_mark.png" /></div>
+          <img id="mw" class="i3d" src="assets/3d/money_with_wings.png" style="left: 400px; top: 1200px; width: 280px; height: 280px;" />
+          <div id="s4p" class="hotpill" style="left: 140px; top: 1500px; width: 800px; height: 120px; line-height: 120px; font-size: 48px;">= de l'argent perdu</div>
+        </div>
+      </div>
+
+      <!-- S5 : recruter ? (28.3 - 37.1) -->
+      <div id="s5" class="clip sc" data-start="28.3" data-duration="8.8" data-track-index="1">
+        <div id="s5w" class="sc">
+          <div id="s5l" class="line" style="top: 300px;">Pour s'en sortir, beaucoup pensent à</div>
+          <div id="s5b" class="big" style="top: 480px;">recruter ?</div>
+          <img id="brief" class="i3d" src="assets/3d/briefcase.png" style="left: 390px; top: 640px; width: 300px; height: 300px;" />
+          <div class="row" id="p1" style="top: 990px;"><div class="card"></div><img src="assets/3d/dollar_banknote.png" /><div class="rt">Un salaire chaque mois</div></div>
+          <div class="row" id="p2" style="top: 1180px;"><div class="card"></div><img src="assets/3d/hourglass_done.png" /><div class="rt">Du temps pour le former</div></div>
+          <div class="row" id="p3" style="top: 1370px;"><div class="card"></div><img src="assets/3d/memo.png" /><div class="rt">Et toujours à la main</div><img class="rx" src="assets/3d/cross_mark.png" /></div>
+        </div>
+      </div>
+
+      <!-- S6 : une autre solution (37.1 - 41.6) -->
+      <div id="s6" class="clip sc" data-start="37.1" data-duration="4.5" data-track-index="1">
+        <div id="s6w" class="sc">
+          <div id="s6l" class="line" style="top: 300px;">Il existe</div>
+          <div id="s6b" class="big" style="top: 380px;">une autre solution</div>
+          <img id="gear" class="i3d" src="assets/3d/gear.png" style="left: 300px; top: 640px; width: 480px; height: 480px;" />
+          <img id="spk2" class="i3d" src="assets/3d/sparkles.png" style="left: 760px; top: 620px; width: 180px; height: 180px;" />
+          <div id="s6s" class="sub" style="top: 1230px; color: #17181d; font-size: 54px;">un système qui fait ce travail à votre place</div>
+        </div>
+      </div>
+
+      <!-- S7 : le schéma (41.6 - 54.9) -->
+      <div id="s7" class="clip sc" data-start="41.6" data-duration="13.3" data-track-index="1">
+        <div id="s7w" class="sc">
+          <div id="s7l" class="line" style="top: 260px;">Votre vendeur note la vente</div>
+          <div id="s7b" class="big" style="top: 340px;">en quelques secondes</div>
+          <div class="row" id="q1" style="top: 560px;"><div class="card"></div><img src="assets/3d/mobile_phone.png" /><div class="rt">La vente, sur le téléphone</div><div class="num">1</div></div>
+          <div id="s7p" class="ab" style="left: 140px; top: 740px; width: 800px; height: 100px; border-radius: 50px; background: #17181d; color: #fff; font-size: 40px; font-weight: 700; line-height: 100px; text-align: center;">ensuite, tout se fait tout seul</div>
+          <div class="row" id="q2" style="top: 870px;"><div class="card"></div><img src="assets/3d/package.png" /><div class="rt">Le stock se met à jour</div><div class="num">2</div></div>
+          <div class="row" id="q3" style="top: 1040px;"><div class="card"></div><img src="assets/img/logo_whatsapp.png" style="border-radius: 28px; width: 110px; height: 110px; left: 35px; top: 20px;" /><div class="rt">La vente sur votre WhatsApp</div><div class="num">3</div></div>
+          <div class="row" id="q4" style="top: 1210px;"><div class="card"></div><img src="assets/3d/check_mark_button.png" /><div class="rt">Votre client est confirmé</div><div class="num">4</div></div>
+          <div class="row" id="q5" style="top: 1380px;"><div class="card"></div><img src="assets/3d/bell.png" /><div class="rt">Prévenu : produit à racheter</div><div class="num">5</div></div>
+        </div>
+      </div>
+
+      <!-- S8 : sur mesure (54.9 - 64.3) -->
+      <div id="s8" class="clip sc" data-start="54.9" data-duration="9.4" data-track-index="1">
+        <div id="s8w" class="sc">
+          <div id="s8l" class="line" style="top: 300px;">« Ce n'est pas adapté à ma boutique ? »</div>
+          <div id="s8b" class="big" style="top: 500px;">fait sur mesure</div>
+          <img id="pz1" class="i3d" src="assets/3d/puzzle_piece.png" style="left: 180px; top: 740px; width: 340px; height: 340px;" />
+          <img id="pz2" class="i3d" src="assets/3d/puzzle_piece.png" style="left: 560px; top: 740px; width: 340px; height: 340px; transform: scaleX(-1);" />
+          <img id="hw" class="i3d" src="assets/3d/hammer_and_wrench.png" style="left: 820px; top: 660px; width: 200px; height: 200px;" />
+          <div id="s8s" class="sub" style="top: 1200px; color: #17181d; font-size: 54px;">adapté à votre façon de travailler et à vos produits</div>
+        </div>
+      </div>
+
+      <!-- S9 : avant les fêtes, 4 boutiques par mois (64.3 - 69.6) -->
+      <div id="s9" class="clip sc" data-start="64.3" data-duration="5.3" data-track-index="1">
+        <div id="s9w" class="sc">
+          <div id="s9l" class="line" style="top: 300px;">Pour être prêt</div>
+          <div id="s9b" class="big" style="top: 380px;">avant les fêtes</div>
+          <img id="cal" class="i3d" src="assets/3d/calendar.png" style="left: 230px; top: 620px; width: 360px; height: 360px;" />
+          <img id="tree2" class="i3d" src="assets/3d/christmas_tree.png" style="left: 580px; top: 640px; width: 300px; height: 300px;" />
+          <div class="slot" id="sl1" style="left: 110px;"><div class="fill"></div></div>
+          <div class="slot" id="sl2" style="left: 330px;"><div class="fill"></div></div>
+          <div class="slot" id="sl3" style="left: 550px;"><div class="fill"></div></div>
+          <div class="slot" id="sl4" style="left: 770px;"><div class="fill"></div></div>
+          <div id="s9s" class="sub" style="top: 1420px; color: #17181d; font-size: 56px;">seulement 4 boutiques par mois</div>
+        </div>
+      </div>
+
+      <!-- S10 : appel à l'action (69.6 - 76) -->
+      <div id="s10" class="clip sc" data-start="69.6" data-duration="6.4" data-track-index="1">
+        <div id="s10w" class="sc">
+          <div id="logoBox" class="ab" style="left: 290px; top: 250px; width: 500px; height: 375px; border-radius: 64px; overflow: hidden; background: #3b4fe4 url('assets/img/logo_my_automation.png') center / cover no-repeat; box-shadow: 0 40px 90px rgba(59,79,228,0.35);"></div>
+          <div id="cta" class="ab" style="left: 120px; top: 760px; width: 840px; height: 150px; border-radius: 75px; line-height: 150px; text-align: center; font-size: 44px; font-weight: 700; color: #fff; background: linear-gradient(180deg, #15803d 0%, #0f6b32 100%); box-shadow: 0 18px 50px rgba(22,163,74,0.4); padding-left: 130px;"><img src="assets/img/logo_whatsapp.png" style="position: absolute; left: 30px; top: 25px; width: 100px; height: 100px; border-radius: 26px;" />Écrivez-nous sur WhatsApp</div>
+          <div id="num" class="ab" style="left: 0; top: 945px; width: 1080px; text-align: center; font-size: 76px; font-weight: 800; color: #17181d; letter-spacing: 0.01em;">+243 831 710 181</div>
+          <div id="s10l" class="line" style="top: 1100px; font-size: 48px;">En 15 minutes, on vous montre</div>
+          <div id="s10b" class="big" style="top: 1180px;">comment ça marcherait chez vous</div>
+          <img id="ph" class="i3d" src="assets/img/logo_whatsapp.png" style="left: 810px; top: 530px; width: 210px; height: 210px; border-radius: 50px;" />
+          <img id="gift2" class="i3d" src="assets/3d/wrapped_gift.png" style="left: 60px; top: 520px; width: 220px; height: 220px;" />
+        </div>
+      </div>
+
+      <div id="footc" class="clip sc" data-start="0" data-duration="69.6" data-track-index="2">
+        <div id="foot" class="hotpill">My automation · +243 831 710 181</div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // Début de chaque scène, calé sur la voix (assets/audio/voix_fetes.mp3, transcription horodatée)
+      const S = { s1: 0, s2: 4.5, s3: 14.9, s4: 18.6, s5: 28.3, s6: 37.1, s7: 41.6, s8: 54.9, s9: 64.3, s10: 69.6 };
+      function words(sel) {
+        const el = document.querySelector(sel);
+        const walk = (node) => {
+          Array.from(node.childNodes).forEach((c) => {
+            if (c.nodeType === 3) {
+              const frag = document.createDocumentFragment();
+              c.textContent.split(/(\s+)/).forEach((p) => {
+                if (!p) return;
+                if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+                const s = document.createElement('span'); s.className = 'w'; s.textContent = p; frag.appendChild(s);
+              });
+              node.replaceChild(frag, c);
+            } else if (c.nodeType === 1) walk(c);
+          });
+        };
+        walk(el);
+        return el.querySelectorAll('.w');
+      }
+      const lineIn = (sel, at) => tl.fromTo(words(sel), { opacity: 0, y: 30, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5, stagger: 0.06, ease: 'power3.out' }, at);
+      const bigIn = (sel, at) => tl.fromTo(words(sel), { opacity: 0, scale: 0.4, y: 40, filter: 'blur(12px)' }, { opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', duration: 0.55, stagger: 0.07, ease: 'back.out(2.2)' }, at);
+      const out = (sel, at) => tl.to(sel, { opacity: 0, filter: 'blur(14px)', y: -24, duration: 0.3, ease: 'power2.in' }, at);
+      const sceneOut = (w, at) => tl.to(w, { opacity: 0, filter: 'blur(16px)', scale: 0.97, duration: 0.35, ease: 'power2.in' }, at);
+      const pop3d = (sel, at, rot) => tl.fromTo(sel, { opacity: 0, scale: 0.2, rotation: rot || -14 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'back.out(2)' }, at);
+      const float = (sel, at, dur, dy) => tl.to(sel, { y: dy || -22, rotation: 3, duration: dur || 1.6, ease: 'sine.inOut', yoyo: true, repeat: 3 }, at);
+      const cardIn = (sel, at) => tl.fromTo(sel, { opacity: 0, y: 120, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'expo.out' }, at);
+      const notifIn = (sel, at) => tl.fromTo(sel, { opacity: 0, y: -160, filter: 'blur(12px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out' }, at);
+      const fadeUp = (sel, at) => tl.fromTo(sel, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, at);
+      const counter = (id, from, to, at, dur) => {
+        const o = { v: from };
+        tl.fromTo(o, { v: from }, { v: to, duration: dur, ease: 'power2.inOut', onUpdate: () => { document.getElementById(id).textContent = String(Math.round(o.v)); } }, at);
+      };
+
+      tl.fromTo('#band1', { x: -60 }, { x: 60, duration: 9, ease: 'sine.inOut', yoyo: true, repeat: 7 }, 0);
+      tl.fromTo('#band2', { x: 40 }, { x: -40, duration: 11, ease: 'sine.inOut', yoyo: true, repeat: 6 }, 0);
+      tl.fromTo('#foot', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: 'expo.out' }, 0.6);
+      tl.to('#foot', { opacity: 0, y: 60, duration: 0.4, ease: 'power2.in' }, 69.1);
+      const rowIn = (sel, at) => tl.fromTo(sel, { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.55, ease: 'expo.out' }, at);
+      const xIn = (sel, at) => tl.fromTo(sel + ' .rx', { opacity: 0, scale: 0.2, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: 'back.out(2.4)' }, at);
+
+      // ---- S1 (fêtes 0-1.8, « voici ce qui arrive » 1.8-4.4)
+      let t = S.s1;
+      lineIn('#s1l', t + 0.05);
+      bigIn('#s1b', t + 0.4);
+      pop3d('#tree', t + 0.3, -8);
+      pop3d('#gift', t + 0.8, -20);
+      pop3d('#bags', t + 1.1, 20);
+      pop3d('#spk', t + 1.4, 30);
+      float('#tree', t + 1.0, 1.1, -14);
+      lineIn('#s1s', t + 1.9);
+      sceneOut('#s1w', t + 4.15);
+
+      // ---- S2 (clients 0, commandes 1.5, boutique/WhatsApp/téléphone 3.1, noter 5.9, répondre 8.9)
+      t = S.s2;
+      const b2 = ['#s2b1', '#s2b2', '#s2b3', '#s2b4'];
+      const at2 = [0.05, 1.5, 5.9, 8.9];
+      b2.forEach((b, i) => { bigIn(b, t + at2[i]); if (i < 3) out(b, t + at2[i + 1] - 0.28); });
+      tl.fromTo('#crowd .cw', { opacity: 0, scale: 0.2, y: 80 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, stagger: 0.16, ease: 'back.out(2.2)' }, t + 0.1);
+      tl.to('#crowd .cw', { y: -18, duration: 0.3, ease: 'sine.inOut', yoyo: true, repeat: 3, stagger: 0.08 }, t + 1.2);
+      tl.to('#crowd', { opacity: 0, scale: 0.9, filter: 'blur(12px)', duration: 0.4, ease: 'power2.in' }, t + 2.7);
+      cardIn('#k1', t + 3.1); cardIn('#k2', t + 3.8); cardIn('#k3', t + 4.6);
+      tl.to(['#k1', '#k2', '#k3'], { scale: 0.82, opacity: 0.55, duration: 0.5, ease: 'power2.inOut' }, t + 5.9);
+      pop3d('#t1', t + 6.1, -20); pop3d('#t2', t + 6.8, 20); pop3d('#t3', t + 7.5, -15);
+      tl.to(['#t1', '#t2', '#t3'], { rotation: 10, duration: 0.12, ease: 'sine.inOut', yoyo: true, repeat: 9, stagger: 0.1 }, t + 8.9);
+      sceneOut('#s2w', t + 10.05);
+
+      // ---- S3 (travail double 0, la journée 1.1)
+      t = S.s3;
+      bigIn('#s3b1', t + 0.05);
+      tl.fromTo(['#l1', '#l2', '#l3'], { opacity: 0, y: -300 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.25, ease: 'bounce.out' }, t + 0.2);
+      lineIn('#s3l', t + 1.1);
+      pop3d('#clk', t + 1.3, 20);
+      tl.to('#clk', { rotation: 12, duration: 0.08, ease: 'sine.inOut', yoyo: true, repeat: 13 }, t + 2.0);
+      sceneOut('#s3w', t + 3.35);
+
+      // ---- S4 (erreurs 0, vente oubliée 1.6, article fini 2.8, client voisin 5.2, argent perdu 7.2)
+      t = S.s4;
+      lineIn('#s4l', t + 0.05);
+      bigIn('#s4b', t + 0.3);
+      rowIn('#r1', t + 1.6); xIn('#r1', t + 2.0);
+      rowIn('#r2', t + 2.8); xIn('#r2', t + 3.2);
+      rowIn('#r3', t + 5.2); xIn('#r3', t + 5.6);
+      tl.fromTo('#mw', { opacity: 0, y: 120, scale: 0.4 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'back.out(2)' }, t + 7.0);
+      tl.to('#mw', { y: -60, x: 80, rotation: 14, duration: 1.4, ease: 'sine.inOut' }, t + 7.7);
+      tl.fromTo('#s4p', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 7.3);
+      sceneOut('#s4w', t + 9.35);
+
+      // ---- S5 (recruter 0, salaire 2.1, former 4.5, à la main 7.0)
+      t = S.s5;
+      lineIn('#s5l', t + 0.05);
+      bigIn('#s5b', t + 0.8);
+      pop3d('#brief', t + 1.0, -15);
+      rowIn('#p1', t + 2.1);
+      rowIn('#p2', t + 4.5);
+      rowIn('#p3', t + 7.0); xIn('#p3', t + 7.3);
+      float('#brief', t + 1.8, 1.2, -14);
+      sceneOut('#s5w', t + 8.45);
+
+      // ---- S6 (autre solution 0, un système 1.6)
+      t = S.s6;
+      lineIn('#s6l', t + 0.05);
+      bigIn('#s6b', t + 0.3);
+      pop3d('#gear', t + 0.4, -60);
+      tl.to('#gear', { rotation: 300, duration: 3.6, ease: 'none' }, t + 1.0);
+      pop3d('#spk2', t + 1.2, 30);
+      lineIn('#s6s', t + 1.7);
+      sceneOut('#s6w', t + 4.15);
+
+      // ---- S7 (vendeur 0, tout seul 3.4, stock 5.3, WhatsApp 7.0, client 8.8, prévenu 10.6)
+      t = S.s7;
+      lineIn('#s7l', t + 0.05);
+      bigIn('#s7b', t + 1.2);
+      rowIn('#q1', t + 0.6);
+      tl.fromTo('#s7p', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 3.4);
+      rowIn('#q2', t + 5.3);
+      rowIn('#q3', t + 7.0);
+      rowIn('#q4', t + 8.8);
+      rowIn('#q5', t + 10.6);
+      tl.to('#q5 img', { rotation: 16, duration: 0.1, ease: 'sine.inOut', yoyo: true, repeat: 9 }, t + 11.1);
+      sceneOut('#s7w', t + 12.95);
+
+      // ---- S8 (pas adapté 0, sur mesure 2.8, nous l'adaptons 5.9)
+      t = S.s8;
+      lineIn('#s8l', t + 0.05);
+      tl.fromTo('#pz1', { opacity: 0, x: -300, rotation: -30 }, { opacity: 1, x: 0, rotation: 0, duration: 0.7, ease: 'expo.out' }, t + 0.6);
+      tl.fromTo('#pz2', { opacity: 0, x: 300 }, { opacity: 1, x: 0, duration: 0.7, ease: 'expo.out' }, t + 1.0);
+      bigIn('#s8b', t + 2.8);
+      tl.to('#pz2', { x: -120, duration: 0.5, ease: 'back.out(2)' }, t + 3.0);
+      pop3d('#hw', t + 3.5, -25);
+      lineIn('#s8s', t + 5.9);
+      sceneOut('#s8w', t + 9.05);
+
+      // ---- S9 (avant les fêtes 0, 4 boutiques 2.7)
+      t = S.s9;
+      lineIn('#s9l', t + 0.05);
+      bigIn('#s9b', t + 0.4);
+      pop3d('#cal', t + 0.4, -15);
+      pop3d('#tree2', t + 0.8, 15);
+      ['#sl1', '#sl2', '#sl3', '#sl4'].forEach((s, i) => tl.fromTo(s, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: 'expo.out' }, t + 2.5 + i * 0.12));
+      tl.fromTo('.slot .fill', { scale: 0 }, { scale: 1, duration: 0.35, stagger: 0.2, ease: 'back.out(2.5)' }, t + 3.0);
+      lineIn('#s9s', t + 2.8);
+      sceneOut('#s9w', t + 4.95);
+
+      // ---- S10 (écrivez-nous 0, 15 minutes 1.4)
+      t = S.s10;
+      tl.fromTo('#logoBox', { opacity: 0, scale: 0.5, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.8)' }, t + 0.05);
+      tl.fromTo('#cta', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 0.3);
+      tl.fromTo('#num', { opacity: 0, y: 30, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t + 0.7);
+      pop3d('#ph', t + 0.6, 20);
+      pop3d('#gift2', t + 0.9, -20);
+      lineIn('#s10l', t + 1.4);
+      bigIn('#s10b', t + 2.4);
+      tl.to('#cta', { scale: 1.04, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t + 3.0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines['main'] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #120a03; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff5e0; font-family: 'Bricolage', sans-serif;
+        background: radial-gradient(circle at 50% 38%, #5a360b 0%, #2a1706 50%, #0e0803 100%); }
+      .ab { position: absolute; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1; text-transform: uppercase; }
+      .title span { display: inline-block; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 32px; letter-spacing: 0.32em; color: #f2a516; text-transform: uppercase; }
+      .words { font-family: 'Work Sans'; font-size: 48px; color: #f6e7c8; }
+      .o { color: #f2a516; }
+      #comb { left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0.10; }
+      #glow { left: 90px; top: 480px; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(242,165,22,0.55) 0%, rgba(242,165,22,0) 62%); }
+      #pot { left: 270px; top: 560px; width: 540px; height: 747px; background: url('assets/img/pot.png') center / contain no-repeat; filter: drop-shadow(0 40px 50px rgba(0,0,0,.6)); }
+      .stick { position: absolute; width: 34px; height: 300px; border-radius: 17px; background: linear-gradient(90deg, #6b3410, #b0652a 45%, #7a3c14); box-shadow: inset -6px 0 0 rgba(0,0,0,.25), 0 16px 26px rgba(0,0,0,.45); }
+      .stick::after { content: ""; position: absolute; left: 6px; top: 0; width: 22px; height: 300px; border-radius: 11px; background: repeating-linear-gradient(180deg, rgba(0,0,0,.12) 0 6px, transparent 6px 22px); }
+      .drop { position: absolute; width: 40px; height: 54px; background: #f2a516; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; box-shadow: inset -6px -8px 0 rgba(0,0,0,.18); }
+      .use { position: absolute; left: 140px; width: 800px; height: 150px; border-radius: 75px; display: flex; align-items: center; gap: 34px; padding: 0 44px;
+        background: rgba(255,245,224,0.08); border: 3px solid rgba(242,165,22,0.6); }
+      .use .ic { flex: none; width: 96px; height: 96px; border-radius: 50%; background: #f2a516; display: flex; align-items: center; justify-content: center; }
+      .use .tx { font-weight: 800; font-size: 60px; }
+      #logo { left: 390px; top: 470px; width: 300px; height: 300px; background: url('assets/img/logo.png') center / contain no-repeat; }
+      #cta { left: 110px; top: 1180px; width: 860px; height: 130px; border-radius: 65px; background: #f2a516; color: #241405; display: flex; align-items: center; justify-content: center; gap: 20px; font-family: 'Work Sans'; font-weight: 700; font-size: 46px; box-shadow: 0 18px 40px rgba(0,0,0,.5); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="16" data-width="1080" data-height="1920">
+      <svg class="ab" id="comb" viewBox="0 0 1080 1920">
+        <defs><pattern id="hx" width="90" height="156" patternUnits="userSpaceOnUse"><path d="M45 0l45 26v52l-45 26-45-26V26zM0 104l45 26v52M90 104L45 130" fill="none" stroke="#f2a516" stroke-width="3"/></pattern></defs>
+        <rect width="1080" height="1920" fill="url(#hx)"/>
+      </svg>
+      <div id="glow" class="ab"></div>
+
+      <!-- S1 0-4.6 : le pot arrive, la cannelle tombe -->
+      <div id="s1" class="clip ab" data-start="0" data-duration="4.6" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px">
+        <div class="ab center eyebrow" style="top:190px" id="e1">La Ruche du Terroir</div>
+        <div class="ab center title" style="top:250px;font-size:120px" id="t1"><span>Miel</span> <span>à</span> <span>la</span> <span class="o">cannelle</span></div>
+        <div class="stick" id="k1" style="left:150px;top:600px;transform:rotate(-24deg)"></div>
+        <div class="stick" id="k2" style="left:880px;top:700px;transform:rotate(18deg)"></div>
+        <div class="stick" id="k3" style="left:200px;top:1060px;transform:rotate(12deg)"></div>
+      </div>
+
+      <!-- le pot reste à l'écran de 0 à 9 s -->
+      <div id="potWrap" class="clip ab" data-start="0" data-duration="9" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px">
+        <div id="pot" class="ab"></div>
+      </div>
+
+      <!-- S2 4.6-9 : ce que c'est -->
+      <div id="s2" class="clip ab" data-start="4.6" data-duration="4.4" data-track-index="2" style="left:0;top:0;width:1080px;height:1920px">
+        <div class="ab center words" style="top:1300px" id="w2a">Du miel pur du Congo,</div>
+        <div class="ab center words" style="top:1370px;font-weight:700;color:#f2a516" id="w2b">macéré à la cannelle.</div>
+        <div class="drop" id="d1" style="left:330px;top:1480px"></div>
+        <div class="drop" id="d2" style="left:520px;top:1500px"></div>
+        <div class="drop" id="d3" style="left:710px;top:1480px"></div>
+      </div>
+
+      <!-- S3 9-12.6 : comment le savourer -->
+      <div id="s3" class="clip ab" data-start="9" data-duration="3.6" data-track-index="3" style="left:0;top:0;width:1080px;height:1920px">
+        <div class="ab center eyebrow" style="top:420px" id="e3">Comment le savourer</div>
+        <div class="ab center title" style="top:480px;font-size:96px" id="t3">Chaque jour,<br /><span class="o">à votre façon</span></div>
+        <div class="use" id="u1" style="top:800px"><div class="ic"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#241405" stroke-width="2.4" stroke-linecap="round"><path d="M4 9h13v5a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v3M12 3v3"/></svg></div><div class="tx">Dans le thé</div></div>
+        <div class="use" id="u2" style="top:1000px"><div class="ic"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#241405" stroke-width="2.4" stroke-linejoin="round"><path d="M5 10a4 4 0 0 1 3-6h8a4 4 0 0 1 3 6v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/></svg></div><div class="tx">Sur le pain</div></div>
+        <div class="use" id="u3" style="top:1200px"><div class="ic"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#241405" stroke-width="2.4" stroke-linecap="round"><ellipse cx="12" cy="7" rx="5" ry="4"/><path d="M12 11v10"/></svg></div><div class="tx">À la cuillère</div></div>
+      </div>
+
+      <!-- S4 12.6-16 : commander -->
+      <div id="s4" class="clip ab" data-start="12.6" data-duration="3.4" data-track-index="4" style="left:0;top:0;width:1080px;height:1920px">
+        <div id="logo" class="ab"></div>
+        <div class="ab center title" style="top:850px;font-size:84px" id="t4">Commandez<br /><span class="o">sur WhatsApp</span></div>
+        <div id="cta" class="ab">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="#241405"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>
+          <span>+243 859 072 956</span>
+        </div>
+      </div>
+
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="16" data-track-index="5" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const E = "power3.out";
+      tl.fromTo("#comb", { y: 0 }, { y: -156, duration: 16, ease: "none" }, 0);
+      tl.fromTo("#glow", { scale: 0.8, opacity: 0.6 }, { scale: 1.1, opacity: 1, duration: 4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0);
+
+      // S1
+      tl.from("#e1", { opacity: 0, y: 20, duration: 0.5, ease: E }, 0.2);
+      tl.from("#t1 span", { opacity: 0, y: 80, rotation: 4, duration: 0.6, ease: "back.out(1.6)", stagger: 0.12 }, 0.4);
+      tl.from("#pot", { y: 900, rotation: -10, duration: 1.1, ease: "back.out(1.2)" }, 0.6);
+      tl.from(["#k1", "#k2", "#k3"], { y: -1200, opacity: 0, duration: 0.9, ease: "power2.in", stagger: 0.18 }, 1.3);
+      tl.to(["#k1", "#k2", "#k3"], { y: "+=30", rotation: "+=6", duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 1, stagger: 0.15 }, 2.3);
+      tl.to("#pot", { y: -18, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 2 }, 1.8);
+      tl.to(["#k1", "#k2", "#k3", "#t1", "#e1"], { opacity: 0, duration: 0.35 }, 4.3);
+
+      // S2 : le pot remonte, le texte arrive
+      tl.to("#pot", { y: -200, scale: 0.92, duration: 0.7, ease: "power2.inOut" }, 4.5);
+      tl.from("#w2a", { opacity: 0, y: 30, duration: 0.5, ease: E }, 5.0);
+      tl.from("#w2b", { opacity: 0, y: 30, duration: 0.5, ease: E }, 5.4);
+      tl.from(["#d1", "#d2", "#d3"], { y: -120, opacity: 0, scale: 0.4, duration: 0.6, ease: "bounce.out", stagger: 0.15 }, 6.0);
+      tl.to(["#d1", "#d2", "#d3"], { y: 14, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut", stagger: 0.1 }, 6.7);
+      tl.to("#pot", { rotation: 6, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, 7.0);
+      tl.to(["#pot", "#s2"], { opacity: 0, scale: 0.8, duration: 0.4, ease: "power2.in" }, 8.6);
+
+      // S3
+      tl.from("#e3", { opacity: 0, y: 20, duration: 0.4, ease: E }, 9.1);
+      tl.from("#t3", { opacity: 0, y: 40, duration: 0.5, ease: E }, 9.25);
+      tl.from("#u1", { opacity: 0, x: -300, duration: 0.55, ease: E }, 9.8);
+      tl.from("#u2", { opacity: 0, x: 300, duration: 0.55, ease: E }, 10.4);
+      tl.from("#u3", { opacity: 0, x: -300, duration: 0.55, ease: E }, 11.0);
+      tl.to("#s3", { opacity: 0, duration: 0.3 }, 12.3);
+
+      // S4
+      tl.from("#logo", { opacity: 0, scale: 0.4, rotation: -20, duration: 0.7, ease: "back.out(1.6)" }, 12.7);
+      tl.from("#t4", { opacity: 0, y: 40, duration: 0.5, ease: E }, 13.1);
+      tl.from("#cta", { opacity: 0, scale: 0.5, duration: 0.55, ease: "back.out(1.8)" }, 13.5);
+      tl.to("#cta", { scale: 1.05, duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, 14.2);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

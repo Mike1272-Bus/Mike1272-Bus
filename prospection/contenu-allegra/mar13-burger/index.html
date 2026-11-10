@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Bricolage'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #071434; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Bricolage', sans-serif; color: #fff;
+        background: radial-gradient(circle at 30% 18%, #2a5bc4 0%, #123077 45%, #071434 100%); }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .grid { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0.16;
+        background-image: linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px); background-size: 60px 60px; }
+      .orb { position: absolute; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(255,214,10,0.24) 0%, rgba(255,214,10,0) 65%); }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .w { display: inline-block; margin: 0 0.12em; }
+      .sm { font-weight: 800; font-size: 66px; letter-spacing: -0.02em; }
+      .big { font-weight: 800; font-size: 118px; letter-spacing: -0.035em; line-height: 0.95; }
+      .ext { font-weight: 800; font-size: 210px; letter-spacing: -0.04em; line-height: 0.9; color: #ffd60a; text-shadow: 10px 12px 0 #0b1e4a, 0 30px 60px rgba(0,0,0,0.35); }
+      .y { color: #ffd60a; }
+      .eyebrow { font-family: 'Work Sans'; font-weight: 700; font-size: 32px; letter-spacing: 0.3em; text-transform: uppercase; color: #9fb8f0; }
+      .obj { position: absolute; filter: drop-shadow(0 24px 30px rgba(0,0,0,0.35)); }
+
+      /* téléphone et statut */
+      .phone { position: absolute; border-radius: 64px; background: #0b1e4a; border: 12px solid #e9eefc; box-shadow: 18px 20px 0 #ffd60a, 0 40px 80px rgba(0,0,0,0.4); overflow: hidden; }
+      .bars { position: absolute; left: 24px; top: 26px; right: 24px; height: 8px; display: flex; gap: 8px; z-index: 3; }
+      .bars i { flex: 1; border-radius: 4px; background: rgba(255,255,255,0.4); }
+      .bars i.on { background: #fff; }
+      .media { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      .seen { position: absolute; left: 0; bottom: 0; width: 100%; height: 170px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); font-family: 'Work Sans'; font-weight: 700; font-size: 34px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 34px; gap: 16px; }
+
+      /* erreurs */
+      .num { position: absolute; left: 90px; top: 210px; width: 150px; height: 150px; border-radius: 50%; background: #ffd60a; color: #0b1e4a; font-size: 96px; line-height: 150px; text-align: center; box-shadow: 8px 10px 0 #000; }
+      .lab { position: absolute; left: 270px; top: 250px; }
+      .ttl { position: absolute; left: 0; width: 1080px; top: 420px; text-align: center; font-size: 116px; letter-spacing: -0.035em; white-space: nowrap; }
+      .strike { position: absolute; height: 18px; border-radius: 9px; background: #ff4b3e; transform-origin: 0 50%; box-shadow: 0 6px 0 rgba(0,0,0,0.25); }
+      .card { position: absolute; border-radius: 44px; overflow: hidden; background: linear-gradient(145deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06)); border: 3px solid rgba(255,255,255,0.45); }
+      .fix { position: absolute; left: 90px; width: 900px; height: 190px; border-radius: 95px; background: #ffd60a; color: #0b1e4a; box-shadow: 10px 12px 0 #000; display: flex; align-items: center; gap: 26px; padding: 0 44px; font-size: 58px; letter-spacing: -0.02em; white-space: nowrap; }
+      .fix img { width: 110px; height: 110px; flex: none; }
+      .txtl { height: 30px; border-radius: 15px; background: rgba(255,255,255,0.55); margin: 0 0 22px; }
+      .tag { position: absolute; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: .12em; text-transform: uppercase; padding: 12px 26px; border-radius: 999px; }
+      .tg { background: #ffd60a; color: #0b1e4a; } .tr { background: #ff4b3e; color: #fff; }
+      .mark { position: absolute; width: 150px; height: 150px; }
+
+      /* WhatsApp */
+      #ph { left: 250px; top: 560px; width: 580px; height: 860px; border-radius: 64px; background: #0b1e4a; border: 12px solid #e9eefc; box-shadow: 18px 20px 0 #ffd60a; overflow: hidden; }
+      #scr { position: absolute; inset: 0; background: #efeae2; }
+      #hd { position: absolute; left: 0; top: 0; width: 100%; height: 140px; background: #075e54; }
+      #hd .lg { position: absolute; left: 28px; top: 44px; width: 76px; height: 76px; border-radius: 50%; overflow: hidden; }
+      #hd .lg img { width: 100%; height: 100%; border-radius: 50%; display: block; }
+      #hd b { position: absolute; left: 124px; top: 50px; font-family: 'Work Sans'; font-weight: 700; font-size: 32px; }
+      #hd span { position: absolute; left: 124px; top: 92px; font-family: 'Work Sans'; font-size: 22px; color: #cfe9e4; }
+      #inp { position: absolute; left: 16px; bottom: 20px; width: 430px; height: 76px; border-radius: 38px; background: #fff; font-family: 'Work Sans'; font-weight: 700; font-size: 30px; line-height: 76px; color: #111; white-space: nowrap; overflow: hidden; }
+      #inp0 { position: absolute; left: 28px; top: 0; color: #8a8a8a; font-weight: 400; }
+      #inp1 { position: absolute; left: 28px; top: 0; }
+      #send { position: absolute; right: 16px; bottom: 20px; width: 76px; height: 76px; border-radius: 50%; background: #00a884; }
+      #send::after { content: ""; position: absolute; left: 28px; top: 22px; border-left: 28px solid #fff; border-top: 16px solid transparent; border-bottom: 16px solid transparent; }
+      .bub { position: absolute; font-family: 'Work Sans'; font-size: 30px; line-height: 1.3; color: #111; padding: 18px 24px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); }
+      #bub1 { right: 18px; top: 300px; border-radius: 22px 22px 6px 22px; background: #d9fdd3; font-weight: 700; font-size: 40px; }
+      #bub2 { left: 18px; top: 430px; width: 440px; border-radius: 22px 22px 22px 6px; background: #fff; }
+      #btn { left: 110px; top: 1500px; width: 860px; height: 150px; border-radius: 75px; background: #ffd60a; color: #0b1e4a; display: flex; align-items: center; justify-content: center; gap: 24px; font-size: 64px; letter-spacing: -0.02em; box-shadow: 12px 14px 0 #000; white-space: nowrap; }
+      #numb { top: 1700px; font-family: 'Work Sans'; font-weight: 700; font-size: 54px; letter-spacing: 0.02em; }
+      #wm { left: 0; top: 1790px; width: 1080px; display: flex; align-items: center; justify-content: center; gap: 18px; font-size: 36px; letter-spacing: 0.06em; text-transform: uppercase; text-shadow: 3px 4px 0 #ffd60a; }
+
+      #iris { left: 540px; top: 960px; width: 100px; height: 100px; margin: -50px 0 0 -50px; border-radius: 50%; background: #ffd60a; z-index: 30; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #071434; z-index: 40; }
+
+      .full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+      .shade { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.7) 100%); }
+      .adw { position: absolute; left: 0; width: 1080px; top: 1440px; text-align: center; font-size: 200px; letter-spacing: -0.045em; color: #fff; text-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+      #demo { left: 50%; top: 140px; transform: translateX(-50%); font-family: 'Work Sans'; font-weight: 700; font-size: 30px; letter-spacing: .16em; text-transform: uppercase; padding: 14px 30px; border-radius: 999px; background: rgba(7,20,52,0.75); border: 2px solid #ffd60a; color: #ffd60a; white-space: nowrap; z-index: 20; }
+      #logoici { left: 190px; top: 1400px; width: 700px; height: 220px; border: 6px dashed #ffd60a; border-radius: 40px; background: rgba(7,20,52,0.55); font-size: 76px; color: #ffd60a; text-align: center; line-height: 208px; letter-spacing: -0.02em; }
+      .pol { position: absolute; width: 330px; height: 400px; background: #fff; padding: 18px 18px 70px; border-radius: 16px; box-shadow: 12px 14px 0 #ffd60a, 0 30px 60px rgba(0,0,0,0.4); }
+      .pol div { width: 100%; height: 100%; border-radius: 8px; background-size: cover; background-position: center; }
+      .stamp { position: absolute; padding: 10px 50px; border-radius: 30px; background: #ffd60a; color: #0b1e4a; font-size: 130px; letter-spacing: -0.03em; box-shadow: 12px 14px 0 #000; white-space: nowrap; }
+      .tag2 { position: absolute; font-family: 'Work Sans'; font-weight: 700; font-size: 34px; letter-spacing: .1em; text-transform: uppercase; padding: 14px 30px; border-radius: 999px; white-space: nowrap; }
+      .chip { position: absolute; width: 430px; height: 130px; border-radius: 65px; background: #ffd60a; color: #0b1e4a; font-size: 56px; letter-spacing: -0.02em; text-align: center; line-height: 130px; box-shadow: 10px 12px 0 #000; white-space: nowrap; }
+      .chip.alt { background: rgba(255,255,255,0.14); color: #fff; border: 3px solid rgba(255,255,255,0.5); line-height: 124px; box-shadow: 10px 12px 0 #ffd60a; }
+      #cmd { left: 120px; top: 1660px; width: 840px; height: 130px; border-radius: 65px; background: #25d366; color: #fff; font-size: 52px; text-align: center; line-height: 130px; box-shadow: 10px 12px 0 #000; white-space: nowrap; }
+      #bug { left: 40px; top: 44px; display: flex; align-items: center; gap: 10px; font-size: 34px; letter-spacing: 0.02em; color: #fff; text-shadow: 2px 3px 0 #0b1e4a; z-index: 25; opacity: 0.92; }
+
+      /* ===== D.A. claire (comme les vidéos paniers) ===== */
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 800; src: url('assets/fonts/inter-latin-800-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      html, body { background: #ffffff; }
+      #root { background: radial-gradient(ellipse at 50% 45%, #ffffff 0%, #f8f3ea 62%, #ecdfc6 100%); color: #1c1206; }
+      #root, #root * { font-family: 'Inter', sans-serif !important; }
+      .swoosh { position: absolute; left: -300px; top: -300px; width: 1680px; height: 2520px; }
+      .orb { display: none; }
+      .sm { font-weight: 600; color: #1c1206; }
+      .big { font-weight: 900; letter-spacing: -0.045em; color: #f29a0e; text-shadow: 0 6px 0 #9c5200, 0 18px 30px rgba(60,30,0,0.25); }
+      .ext { font-weight: 900; letter-spacing: -0.05em; color: #f29a0e; text-shadow: 0 3px 0 #d47c00, 0 6px 0 #b86600, 0 9px 0 #9c5200, 0 12px 0 #7f4300, 0 30px 40px rgba(60,30,0,0.3); }
+      .y { color: #f29a0e; font-weight: 800; }
+      .eyebrow { font-weight: 800; color: #c66f00; }
+      .obj { filter: drop-shadow(0 26px 34px rgba(60,30,0,0.28)); }
+      .phone { background: #111; border: 16px solid #111; box-shadow: 0 40px 70px rgba(0,0,0,0.25); }
+      .num { background: #1c1206; color: #ffd60a; font-weight: 900; box-shadow: 0 16px 30px rgba(0,0,0,0.3); }
+      .ttl { font-weight: 900; color: #1c1206; letter-spacing: -0.045em; }
+      .card, .vcard, .deal { background: #fff; border: 3px solid #eadfcb; box-shadow: 0 18px 36px rgba(60,30,0,0.12) !important; }
+      .vcard { border: 10px solid #fff; }
+      #c2b, #cb { border: 10px solid #fff !important; box-shadow: 0 0 0 6px #f29a0e, 0 30px 60px rgba(60,30,0,0.3) !important; }
+      .txtl { background: #e8dcc6; }
+      .fix, .stamp, .chip { font-weight: 900; background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 12px 0 #c99a00, 0 26px 40px rgba(60,30,0,0.25); }
+      .chip.alt { background: linear-gradient(180deg, #ff3d7f, #d90f57); color: #fff; border: none; box-shadow: 0 12px 0 #8f0838, 0 26px 40px rgba(60,0,20,0.25); line-height: 130px; }
+      .tag, .tag2 { font-weight: 800; }
+      .tg { background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 8px 0 #c99a00; }
+      .tr { background: linear-gradient(180deg, #ff3d7f, #d90f57); color: #fff; box-shadow: 0 8px 0 #8f0838; }
+      .deal b { color: #1c1206; font-weight: 900; } .deal span { color: #c66f00; font-weight: 800; }
+      .pol { box-shadow: 0 30px 60px rgba(60,30,0,0.25); }
+      #ph { background: #111; border: 18px solid #111; box-shadow: 0 40px 70px rgba(0,0,0,0.25); }
+      #hd { background: #008069; }
+      #hd b { color: #fff; font-weight: 800; } #hd span { color: #d4efe8; }
+      #hd .lg { background: #fff; }
+      #btn { font-weight: 900; background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 12px 0 #c99a00, 0 26px 40px rgba(60,30,0,0.25); }
+      .fix { font-size: 52px; }
+      #numb { top: 1675px; left: 190px; width: 700px; height: 100px; border-radius: 50px; background: #1a9e4b; color: #fff; font-weight: 800; font-size: 50px; line-height: 100px; box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
+      #wm { color: #1c1206; text-shadow: none; font-weight: 900; letter-spacing: 0.04em; font-size: 32px; top: 1806px; }
+      #wm img { width: 70px; height: 72px; }
+      #bug { color: #1c1206; text-shadow: none; font-weight: 900; padding: 8px 22px 8px 10px; border-radius: 999px; background: rgba(255,255,255,0.88); box-shadow: 0 8px 20px rgba(60,30,0,0.15); font-size: 32px; opacity: 1; }
+      #bug img { width: 54px; height: 56px; }
+      #demo { background: rgba(255,255,255,0.92); color: #c66f00; border: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); font-weight: 800; }
+      #logoici { background: rgba(255,255,255,0.88); border-color: #f29a0e; color: #f29a0e; font-weight: 900; }
+      #iris { background: #f29a0e; }
+      #fade { background: #ffffff; }
+
+      /* transformations avant -> après */
+      .pol2 { position: absolute; background: #fff; padding: 16px 16px 60px; border-radius: 16px; box-shadow: 0 30px 60px rgba(60,30,0,0.25); }
+      .pol2 div { width: 100%; height: 100%; border-radius: 8px; background-size: cover; background-position: center; }
+      .tav, .tap { position: absolute; height: 84px; padding: 0 38px; border-radius: 42px; font-weight: 900; font-size: 44px; line-height: 84px; letter-spacing: 0.06em; white-space: nowrap; z-index: 5; }
+      .tav { background: linear-gradient(180deg, #ff3d7f, #d90f57); color: #fff; box-shadow: 0 10px 0 #8f0838, 0 20px 30px rgba(60,0,20,0.25); }
+      .tap { background: linear-gradient(180deg, #ffe14d, #ffcc00); color: #2a1a00; box-shadow: 0 10px 0 #c99a00, 0 20px 30px rgba(60,30,0,0.25); }
+      .stat { position: absolute; border-radius: 60px; background: #111; border: 16px solid #111; box-shadow: 0 40px 70px rgba(0,0,0,0.3); overflow: hidden; }
+      .stat .bars { position: absolute; left: 20px; top: 22px; right: 20px; height: 8px; display: flex; gap: 8px; z-index: 4; }
+      .stat .bars i { flex: 1; border-radius: 4px; background: rgba(255,255,255,0.85); }
+      .shot { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-repeat: no-repeat; }
+      .vig { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.65) 100%); z-index: 2; }
+      .adw2 { position: absolute; left: 0; width: 100%; text-align: center; font-weight: 900; letter-spacing: -0.04em; color: #fff; text-shadow: 0 8px 30px rgba(0,0,0,0.55); white-space: nowrap; z-index: 3; }
+      .lgi { left: 50%; transform: translateX(-50%); border: 5px dashed #f29a0e; border-radius: 30px; background: rgba(255,255,255,0.9); color: #f29a0e; font-weight: 900; text-align: center; white-space: nowrap; z-index: 3; }
+      .cmd2 { left: 50%; transform: translateX(-50%); border-radius: 999px; background: #25d366; color: #fff; font-weight: 900; text-align: center; white-space: nowrap; box-shadow: 0 10px 0 #128c4a; z-index: 3; }
+      .demo2 { position: absolute; left: 0; width: 1080px; text-align: center; font-weight: 800; font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase; color: #c66f00; }
+      .arrow { position: absolute; font-weight: 900; color: #f29a0e; text-shadow: 0 6px 0 #9c5200; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+      <svg class="swoosh" viewBox="0 0 1680 2520"><path d="M1500 -100 C 900 800, 700 1300, 200 2600" fill="none" stroke="#efe6d6" stroke-width="230" stroke-linecap="round"/><path d="M1700 900 C 1300 1500, 1100 2000, 900 2700" fill="none" stroke="#f3ecdf" stroke-width="160" stroke-linecap="round"/></svg>
+      <!-- 1. Avant : la photo du client (0 - 3,4) -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <div class="line" style="top:170px"><span class="w sm" id="a1">Vous</span><span class="w sm" id="a2">nous</span><span class="w sm" id="a3">envoyez</span></div>
+        <div class="line" style="top:260px" data-layout-allow-overlap><span class="w ext" id="a5" style="font-size:150px">une photo…</span></div>
+        <div class="pol2" id="p1" style="left:120px; top:620px; width:840px; height:560px"><div style="background-image:url('assets/img/burger_photo.jpg')"></div></div>
+        <div class="tav" id="t1" style="left:90px; top:560px">AVANT</div>
+        <img class="obj" id="cam1" src="assets/img/camera_3d.png" style="left:800px; top:1240px; width:200px; height:200px" />
+      </div></div>
+
+      <!-- 2. On en fait une pub (3,4 - 4,8) -->
+      <div class="scene" id="s2"><div class="cam" id="k2">
+        <img class="obj" id="sp2" src="assets/img/sparkles_3d.png" style="left:420px; top:520px; width:240px; height:240px" />
+        <div class="line" style="top:820px"><span class="w sm" id="b1">On</span><span class="w sm" id="b2">en</span><span class="w sm" id="b3">fait</span></div>
+        <div class="line" style="top:920px" data-layout-allow-overlap><span class="w ext" id="b4" style="font-size:190px">une pub !</span></div>
+      </div></div>
+
+      <!-- 3. Après : la pub faite avec la même photo (4,8 - 11,6) -->
+      <div class="scene" id="s3"><div class="cam" id="k3">
+        <div class="tap" id="t3" style="left:120px; top:230px">APRÈS</div>
+        <div class="stat" id="mst" style="left:230px; top:340px; width:620px; height:1102px"><div class="bars"><i></i><i></i><i></i></div><div class="shot" id="mh0" style="background-image:url('assets/img/burger_photo.jpg'); background-size:auto 125%; background-position:8% 45%"></div><div class="shot" id="mh1" style="background-image:url('assets/img/burger_photo.jpg'); background-size:auto 165%; background-position:12% 25%"></div><div class="shot" id="mh2" style="background-image:url('assets/img/burger_photo.jpg'); background-size:auto 170%; background-position:10% 65%"></div><div class="shot" id="mh3" style="background-image:url('assets/img/burger_photo.jpg'); background-size:auto 110%; background-position:6% 50%"></div><div class="vig"></div><div class="adw2" id="mw0" style="top:727px; font-size:92px">Croustillant.</div><div class="adw2" id="mw1" style="top:727px; font-size:92px">Bien garni.</div><div class="adw2" id="mw2" style="top:727px; font-size:92px">Tout frais.</div><div class="ab lgi" id="mlg" style="top:573px; width:483px; height:132px; line-height:122px; font-size:50px">Votre logo ici</div><div class="ab cmd2" id="mcm" style="top:793px; width:533px; height:110px; line-height:110px; font-size:33px">Commandez sur WhatsApp</div></div>
+        <div class="demo2" id="dm3" style="top:1500px">Exemple de pub · Allegra</div>
+      </div></div>
+
+      <!-- 4. Avant / après côte à côte (11,6 - 15,4) -->
+      <div class="scene" id="s4"><div class="cam" id="k4">
+        <div class="line" style="top:170px"><span class="w sm" id="c1">Même</span><span class="w sm" id="c2">photo,</span></div>
+        <div class="line" style="top:260px" data-layout-allow-overlap><span class="w ext" id="c3" style="font-size:150px">autre effet</span></div>
+        <div class="pol2" id="c4" style="left:70px; top:620px; width:430px; height:700px"><div style="background-image:url('assets/img/burger_photo.jpg'); background-size:auto 100%; background-position:8% 50%"></div></div>
+        <div class="stat" id="nst" style="left:560px; top:580px; width:450px; height:800px"><div class="bars"><i></i><i></i><i></i></div><div class="shot" id="nh0" style="background-image:url('assets/img/burger_photo.jpg'); background-size:auto 125%; background-position:8% 45%"></div><div class="shot" id="nh1" style="background-image:url('assets/img/burger_photo.jpg'); background-size:auto 110%; background-position:6% 50%"></div><div class="vig"></div><div class="adw2" id="nw0" style="top:528px; font-size:70px">Croustillant.</div><div class="ab lgi" id="nlg" style="top:416px; width:351px; height:96px; line-height:86px; font-size:38px">Votre logo ici</div><div class="ab cmd2" id="ncm" style="top:576px; width:387px; height:80px; line-height:80px; font-size:25px">Commandez sur WhatsApp</div></div>
+        <div class="tav" id="c5" style="left:150px; top:1390px">AVANT</div>
+        <div class="tap" id="c6" style="left:640px; top:1430px">APRÈS</div>
+      </div></div>
+
+      <!-- 5. Ce qu'on ajoute (15,4 - 17,6) -->
+      <div class="scene" id="s5"><div class="cam" id="k5">
+        <img class="obj" id="clap" src="assets/img/clapper_board_3d.png" style="left:420px; top:300px; width:240px; height:240px" />
+        <div class="line" style="top:620px"><span class="w sm" id="d1">Ce</span><span class="w sm" id="d2">qu'on</span><span class="w sm" id="d3">ajoute :</span></div>
+        <div class="chip" id="h1" style="left:90px; top:800px">Mouvement</div>
+        <div class="chip alt" id="h2" style="left:560px; top:800px">Texte</div>
+        <div class="chip alt" id="h3" style="left:90px; top:990px">Musique</div>
+        <div class="chip" id="h4" style="left:560px; top:990px; font-size:50px">Votre numéro</div>
+        <div class="line" style="top:1240px"><span class="w eyebrow" id="d4" style="letter-spacing:0.12em">et c'est prêt pour vos statuts</span></div>
+      </div></div>
+
+      <!-- Appel à l'action (17.6 - 22) -->
+      <div class="scene" id="s6"><div class="cam" id="k6">
+        <div class="orb" style="left:300px; top:1100px"></div>
+        <div class="line" style="top:170px"><span class="w sm" id="e1">Vous</span><span class="w sm" id="e2">voulez</span></div>
+        <div class="line" style="top:270px" data-layout-allow-overlap><span class="w ext" id="e3" style="font-size:180px">la vôtre ?</span></div>
+        <div class="ab" id="ph"><div id="scr">
+          <div id="hd"><div class="lg"><img src="assets/img/photo-profil-v2.png" alt="" /></div><b>Allegra Digital</b><span>en ligne</span></div>
+          <div class="bub" id="bub1">VIDÉO</div>
+          <div class="bub" id="bub2">Avec plaisir ! Que vendez-vous ? 🙂</div>
+          <div id="inp"><span id="inp0">Message</span><span id="inp1">VIDÉO</span></div>
+          <div id="send"></div>
+        </div></div>
+        <div class="ab" id="btn"><svg width="66" height="66" viewBox="0 0 24 24" fill="#0b1e4a"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .100-3.300-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.5z"/></svg>Écrivez VIDÉO</div>
+        <div class="line" id="numb">+243 831 710 181</div>
+        <div class="ab" id="wm"><img src="assets/img/logo-icone-v2.svg" alt="" />
+<span>Allegra Digital Ground</span></div>
+      </div></div>
+
+      <div class="ab" id="bug"><img src="assets/img/logo-icone-v2.svg" alt="" />
+<span>Allegra</span></div>
+      <div class="ab" id="iris"></div>
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="22" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const OUT = (sel, at) => FT(sel, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.01 }, at);
+      const word = (sel, at, d = 0.28) => IN(sel, { y: -50, scale: 1.3, filter: "blur(12px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: d, ease: "power3.out" }, at);
+      const words = (list, at, gap = 0.12) => list.forEach((s, i) => word(s, at + i * gap));
+      const pop = (sel, at) => IN(sel, { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, at);
+      const float = (sel, at, d, y = -16) => FT(sel, { y: 0 }, { y: y, duration: d / 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, at);
+      const slam = (sel, at) => IN(sel, { scale: 2.2, filter: "blur(16px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, at);
+      const shake = (sel, at) => FT(sel, { x: 0 }, { x: 14, duration: 0.05, yoyo: true, repeat: 5 }, at);
+      const SC = [["#s1", "#k1", 0, 3.4], ["#s2", "#k2", 3.4, 1.4], ["#s3", "#k3", 4.8, 6.8], ["#s4", "#k4", 11.6, 3.8], ["#s5", "#k5", 15.4, 2.2], ["#s6", "#k6", 17.6, 4.4]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        tl.set(s, { autoAlpha: 1 }, a);
+        if (i !== SC.length - 1) tl.set(s, { autoAlpha: 0 }, a + d);
+        FT(c, { scale: 1.14 }, { scale: 1.0, duration: 0.45, ease: "expo.out" }, a);
+        FT(c, { rotation: 0, x: 0 }, { rotation: i % 2 ? 0.6 : -0.6, x: i % 2 ? -16 : 16, duration: d, ease: "sine.inOut" }, a);
+      });
+      [3.15, 4.55, 17.35].forEach(t => {
+        HIDE.push("#iris");
+        FT("#iris", { autoAlpha: 1, scale: 0 }, { scale: 24, duration: 0.25, ease: "power2.in" }, t);
+        FT("#iris", { scale: 24 }, { scale: 0, duration: 0.3, ease: "power2.out" }, t + 0.25);
+        tl.set("#iris", { autoAlpha: 0 }, t + 0.56);
+      });
+
+      // 1. avant
+      words(["#a1", "#a2", "#a3"], 0.1);
+      slam("#a5", 0.55);
+      IN("#p1", { y: -1400, rotation: -18 }, { y: 0, rotation: -3, duration: 0.55, ease: "back.out(1.2)" }, 0.9);
+      IN("#t1", { scale: 0, rotation: -20 }, { scale: 1, rotation: -6, duration: 0.35, ease: "back.out(2.5)" }, 1.5);
+      pop("#cam1", 1.8); FT("#cam1", { scale: 1 }, { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1 }, 2.3);
+      FT("#p1", { filter: "brightness(1)" }, { filter: "brightness(2)", duration: 0.08, yoyo: true, repeat: 1 }, 2.3);
+      // 2. on en fait une pub
+      pop("#sp2", 3.45);
+      words(["#b1", "#b2", "#b3"], 3.5, 0.1);
+      IN("#b4", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.45, ease: "bounce.out" }, 3.85);
+      // 3. après
+      IN("#t3", { scale: 0, rotation: 20 }, { scale: 1, rotation: -5, duration: 0.35, ease: "back.out(2.5)" }, 5.0);
+      IN("#mst", { y: 1300 }, { y: 0, duration: 0.5, ease: "expo.out" }, 4.8);
+      word("#dm3", 5.3, 0.3);
+      IN("#mh0", { scale: 1.18 }, { scale: 1, duration: 0.35, ease: "expo.out" }, 5.10);
+      FT("#mh0", { scale: 1 }, { scale: 1.07, duration: 1.00, ease: "none" }, 5.45);
+      slam("#mw0", 5.18); OUT("#mw0", 6.45);
+      OUT("#mh0", 6.45);
+      IN("#mh1", { scale: 1.18 }, { scale: 1, duration: 0.35, ease: "expo.out" }, 6.45);
+      FT("#mh1", { scale: 1 }, { scale: 1.07, duration: 1.00, ease: "none" }, 6.80);
+      slam("#mw1", 6.53); OUT("#mw1", 7.80);
+      OUT("#mh1", 7.80);
+      IN("#mh2", { scale: 1.18 }, { scale: 1, duration: 0.35, ease: "expo.out" }, 7.80);
+      FT("#mh2", { scale: 1 }, { scale: 1.07, duration: 1.00, ease: "none" }, 8.15);
+      slam("#mw2", 7.88); OUT("#mw2", 9.15);
+      OUT("#mh2", 9.15);
+      IN("#mh3", { scale: 1.18 }, { scale: 1, duration: 0.35, ease: "expo.out" }, 9.15);
+      FT("#mh3", { scale: 1 }, { scale: 1.07, duration: 2.10, ease: "none" }, 9.50);
+      IN("#mlg", { scale: 0.4 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, 9.30);
+      IN("#mcm", { y: 200 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, 9.60);
+      FT("#mcm", { scale: 1 }, { scale: 1.06, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 10.10);
+      // 4. côte à côte
+      words(["#c1", "#c2"], 11.7); slam("#c3", 11.95);
+      IN("#c4", { x: -700, rotation: -8 }, { x: 0, rotation: -3, duration: 0.45, ease: "expo.out" }, 12.2);
+      IN("#c5", { scale: 0 }, { scale: 1, rotation: -5, duration: 0.3, ease: "back.out(2.5)" }, 12.5);
+      IN("#nst", { x: 700, rotation: 8 }, { x: 0, rotation: 3, duration: 0.45, ease: "expo.out" }, 12.6);
+      IN("#c6", { scale: 0 }, { scale: 1, rotation: 5, duration: 0.3, ease: "back.out(2.5)" }, 12.9);
+      IN("#nh0", { scale: 1.18 }, { scale: 1, duration: 0.35, ease: "expo.out" }, 12.60);
+      FT("#nh0", { scale: 1 }, { scale: 1.07, duration: 0.95, ease: "none" }, 12.95);
+      slam("#nw0", 12.68); OUT("#nw0", 13.90);
+      OUT("#nh0", 13.90);
+      IN("#nh1", { scale: 1.18 }, { scale: 1, duration: 0.35, ease: "expo.out" }, 13.90);
+      FT("#nh1", { scale: 1 }, { scale: 1.07, duration: 1.15, ease: "none" }, 14.25);
+      IN("#nlg", { scale: 0.4 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, 14.05);
+      IN("#ncm", { y: 200 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, 14.35);
+      FT("#ncm", { scale: 1 }, { scale: 1.06, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 14.85);
+      // 5. ce qu'on ajoute
+      pop("#clap", 15.45); FT("#clap", { rotation: 0 }, { rotation: -10, duration: 0.1, yoyo: true, repeat: 3 }, 15.9);
+      words(["#d1", "#d2", "#d3"], 15.5, 0.1);
+      ["#h1", "#h2", "#h3", "#h4"].forEach((h, i) => IN(h, { scale: 0.3, rotation: i % 2 ? 8 : -8 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.2)" }, 15.9 + i * 0.18));
+      word("#d4", 16.8, 0.3);
+      // 5. appel à l'action
+      words(["#e1", "#e2"], 17.70);
+      IN("#e3", { y: -300, scale: 1.4 }, { y: 0, scale: 1, duration: 0.5, ease: "bounce.out" }, 17.95);
+      IN("#ph", { y: 1200 }, { y: 0, duration: 0.55, ease: "expo.out" }, 17.80);
+      FT("#inp0", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.1 }, 18.50);
+      HIDE.push("#inp1"); FT("#inp1", { autoAlpha: 1, clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "steps(5)" }, 18.50);
+      FT("#send", { scale: 1 }, { scale: 0.8, duration: 0.1, yoyo: true, repeat: 1 }, 19.10);
+      FT("#inp1", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.05 }, 19.20);
+      FT("#inp0", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05 }, 19.20);
+      IN("#bub1", { y: 200, scale: 0.6, transformOrigin: "100% 100%" }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 19.20);
+      IN("#bub2", { y: 200, scale: 0.6, transformOrigin: "0% 100%" }, { y: 0, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 19.80);
+      IN("#btn", { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.5)" }, 20.10);
+      FT("#btn", { scale: 1 }, { scale: 1.06, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 20.70);
+      IN("#wm", { y: 40 }, { y: 0, duration: 0.4, ease: "power3.out" }, 20.60);
+
+      word("#numb", 20.40, 0.3);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 21.70);
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#inp0", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

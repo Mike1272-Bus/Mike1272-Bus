@@ -1,0 +1,60 @@
+{
+ "debut_voix": 0.6,
+ "fin_voix": 103.56,
+ "pauses_raccourcies": 16,
+ "bruitages": [
+  [
+   0.0,
+   "whoosh-cinematic"
+  ],
+  [
+   0.35,
+   "impact-bass-1"
+  ],
+  [
+   5.35,
+   "whoosh"
+  ],
+  [
+   10.57,
+   "sparkle"
+  ],
+  [
+   29.2,
+   "whoosh-short"
+  ],
+  [
+   33.95,
+   "pop"
+  ],
+  [
+   40.36,
+   "notification"
+  ],
+  [
+   42.88,
+   "whoosh-short"
+  ],
+  [
+   68.17,
+   "ping"
+  ],
+  [
+   71.0,
+   "whoosh"
+  ],
+  [
+   81.68,
+   "click"
+  ],
+  [
+   90.83,
+   "pop"
+  ],
+  [
+   103.46,
+   "chime"
+  ]
+ ],
+ "duree": 105.36
+}

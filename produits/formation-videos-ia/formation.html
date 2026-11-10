@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Crée des vidéos motion design avec l'IA</title>
+<style>
+  @font-face { font-family: 'Baloo'; src: url('Baloo2-ExtraBold.ttf'); }
+  @font-face { font-family: 'WS'; font-weight: 400; src: url('worksans-400.ttf'); }
+  @font-face { font-family: 'WS'; font-weight: 700; src: url('worksans-700.ttf'); }
+  @page { size: 1080px 1350px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'WS', sans-serif; color: #141414; }
+  .page { width: 1080px; height: 1350px; position: relative; overflow: hidden; page-break-after: always; padding: 90px 80px 80px;
+    background-color: #fbf6ec; background-image: linear-gradient(rgba(0,0,0,0.045) 2px, transparent 2px), linear-gradient(90deg, rgba(0,0,0,0.045) 2px, transparent 2px); background-size: 54px 54px; }
+  .page.dark { background: #111; color: #fff; background-image: none; }
+  h1 { font-family: 'Baloo'; font-size: 96px; line-height: 1.0; letter-spacing: -1px; }
+  h2 { font-family: 'Baloo'; font-size: 64px; line-height: 1.05; margin-bottom: 26px; }
+  .step { display: inline-block; font-family: 'Baloo'; font-size: 30px; background: #ff5c00; color: #fff; padding: 6px 22px 0; border-radius: 30px; border: 4px solid #141414; margin-bottom: 18px; }
+  p, li { font-size: 31px; line-height: 1.42; }
+  ul { padding-left: 38px; margin: 10px 0 0; } li { margin-bottom: 10px; }
+  .o { color: #ff5c00; } .hl { background: #ffd60a; padding: 0 8px; }
+  .card { background: #fff; border: 5px solid #141414; border-radius: 26px; box-shadow: 10px 10px 0 #141414; padding: 28px 32px; margin-top: 26px; }
+  .shot { border: 5px solid #141414; border-radius: 18px; box-shadow: 10px 10px 0 #141414; display: block; width: 100%; margin-top: 24px; background: #fff; }
+  .cap { font-size: 24px; color: #555; margin-top: 12px; font-weight: 700; }
+  .prompt { background: #e7f9ee; border: 4px solid #141414; border-radius: 26px 26px 26px 6px; padding: 24px 28px; font-size: 27px; line-height: 1.45; margin-top: 18px; box-shadow: 8px 8px 0 #141414; }
+  .prompt b { display: block; font-size: 22px; letter-spacing: 2px; color: #0c7a3d; margin-bottom: 8px; }
+  .foot { position: absolute; left: 80px; right: 80px; bottom: 36px; font-size: 22px; color: #777; display: flex; justify-content: space-between; }
+  .dark .foot { color: #999; }
+  .num { font-family: 'Baloo'; font-size: 40px; width: 74px; height: 74px; border-radius: 50%; background: #ffd60a; border: 4px solid #141414; display: inline-flex; align-items: center; justify-content: center; padding-top: 6px; margin-right: 22px; flex: none; }
+  .row { display: flex; align-items: center; margin-bottom: 22px; font-size: 33px; font-weight: 700; }
+  .two { display: flex; gap: 26px; } .two > div { flex: 1; }
+</style>
+</head>
+<body>
+
+<!-- 1. Couverture -->
+<section class="page dark">
+  <img src="img/logo_dm.png" style="height:90px">
+  <h1 style="margin-top:60px">Crée des vidéos<br><span style="color:#ff5c00">motion design</span><br>avec l'IA</h1>
+  <p style="margin-top:30px; font-size:34px; color:#ddd">La méthode que j'utilise pour mes vidéos TikTok, étape par étape, avec les captures d'écran.</p>
+  <img src="img/planche_ep3.png" style="width:100%; height:540px; object-fit:cover; object-position:top; margin-top:46px; border-radius:18px">
+  <div class="foot"><span>DigitalMikaelson</span><span>Pas de blabla, juste ce qu'il faut faire, concrètement.</span></div>
+</section>
+
+<!-- 2. Ce que tu vas faire -->
+<section class="page">
+  <h2>Ce que tu vas faire</h2>
+  <p>Une vidéo verticale avec <b>ta voix</b>, des animations, tes images, de la musique et des bruitages. <span class="hl">Sans logiciel de montage.</span> Tu donnes les éléments, l'IA écrit le montage et sort la vidéo.</p>
+  <div class="card">
+    <p style="font-weight:700; margin-bottom:8px">Ce qu'il te faut</p>
+    <ul>
+      <li>Un téléphone, pour enregistrer ta voix.</li>
+      <li><b>Claude Code</b> (l'IA d'Anthropic qui écrit et lance du code). Il faut un abonnement Claude payant (Pro ou Max).</li>
+      <li><b>HyperFrames</b> : l'outil gratuit qui transforme le code en vidéo. Claude l'installe pour toi.</li>
+      <li>Un compte GitHub gratuit, pour garder tes projets.</li>
+      <li>Tes images et tes extraits vidéo.</li>
+    </ul>
+  </div>
+  <div class="card" style="background:#ffd60a">
+    <p><b>Les 6 étapes :</b> 1. Le script · 2. Ta voix · 3. Tes images · 4. Tout donner à Claude · 5. Le son et le calage · 6. Vérifier et corriger</p>
+  </div>
+  <div class="foot"><span>DigitalMikaelson</span><span>2</span></div>
+</section>
+
+<!-- 3. Étape 1 : le script -->
+<section class="page">
+  <span class="step">ÉTAPE 1</span>
+  <h2>Écris ton script</h2>
+  <p>Toujours la même structure : <b>Hook</b> (l'accroche), <b>Promesse</b>, puis <b>3 parties</b> qui finissent chacune par une <b>boucle</b> (une phrase qui donne envie de rester), et le <b>CTA</b> (ce que la personne doit faire).</p>
+  <img class="shot" src="img/capture_script.png">
+  <p class="cap">Capture : le début d'un de mes scripts. Des phrases courtes, des mots de tous les jours.</p>
+  <div class="prompt"><b>MESSAGE À ENVOYER À CLAUDE</b>Écris-moi un script TikTok de 60 à 75 secondes sur [ta compétence]. Structure : hook, promesse, partie 1 + boucle, partie 2 + boucle, partie 3 + boucle, CTA. Tutoiement, mots simples, pas de chiffres inventés.</div>
+  <div class="foot"><span>DigitalMikaelson</span><span>3</span></div>
+</section>
+
+<!-- 4. Étape 2 : la voix -->
+<section class="page">
+  <span class="step">ÉTAPE 2</span>
+  <h2>Enregistre ta voix</h2>
+  <ul>
+    <li>Avec le dictaphone de ton téléphone, dans un endroit calme.</li>
+    <li>Téléphone à 20 cm de ta bouche. Lis le script d'une traite.</li>
+    <li>Pas grave si tu hésites ou si tu changes des mots : l'IA retrouve ce que tu as vraiment dit.</li>
+  </ul>
+  <img class="shot" src="img/onde_avant.png" style="background:#1b1b1b; padding:20px">
+  <p class="cap">Capture : ma voix brute. Du silence au début, un volume faible.</p>
+  <img class="shot" src="img/onde_apres.png" style="background:#1b1b1b; padding:20px">
+  <p class="cap">Après l'étape 5 : voix nettoyée, plus forte, musique et bruitages ajoutés.</p>
+  <div class="foot"><span>DigitalMikaelson</span><span>4</span></div>
+</section>
+
+<!-- 5. Étape 3 : les images -->
+<section class="page">
+  <span class="step">ÉTAPE 3</span>
+  <h2>Rassemble tes images</h2>
+  <ul>
+    <li>Tes propres photos et vidéos, ou des vidéos libres de droits (Pexels, Pixabay).</li>
+    <li>Une entreprise ou une personne dans la vidéo ? <b>Son accord écrit</b> avant de publier.</li>
+    <li>Note à quelle phrase va chaque extrait. Sinon, l'IA les place elle-même.</li>
+  </ul>
+  <div class="two" style="margin-top:20px">
+    <div><img class="shot" src="img/avant_extrait.png"><p class="cap">L'extrait brut (horizontal)</p></div>
+    <div><img class="shot" src="img/apres_montage.png" style="width:62%"><p class="cap">Dans la vidéo : recadré en vertical, avec les animations par-dessus</p></div>
+  </div>
+  <div class="foot"><span>DigitalMikaelson</span><span>5</span></div>
+</section>
+
+<!-- 6. Étape 4 : tout donner à Claude -->
+<section class="page">
+  <span class="step">ÉTAPE 4</span>
+  <h2>Donne tout à Claude Code</h2>
+  <p>Ouvre Claude Code (sur claude.ai/code ou dans l'application), relie-le à ton GitHub, puis envoie ton audio et tes images avec ce message :</p>
+  <div class="prompt"><b>PREMIÈRE FOIS : INSTALLER L'OUTIL</b>Crée un projet vidéo HyperFrames (npx hyperframes init) et installe les skills HyperFrames.</div>
+  <div class="prompt"><b>À CHAQUE VIDÉO</b>Voici l'audio de ma vidéo et mes extraits. Fais le montage avec HyperFrames, en vertical 1080 × 1920 : <br>1. nettoie ma voix, augmente le volume, accélère de 10 %, enlève le silence du début et de la fin seulement ;<br>2. ajoute une musique de fond discrète et des bruitages aux bons moments ;<br>3. transcris ma voix et cale chaque animation sur la phrase exacte ;<br>4. mets mes extraits sur ces phrases : [extrait → phrase] ;<br>5. surtout des animations, pas d'illustrations de personnes.</div>
+  <div class="foot"><span>DigitalMikaelson</span><span>6</span></div>
+</section>
+
+<!-- 7. Étape 5 : ce que Claude fait -->
+<section class="page">
+  <span class="step">ÉTAPE 5</span>
+  <h2>Le son, puis le calage</h2>
+  <p>Claude transcrit ta voix : il connaît <b>la seconde exacte de chaque phrase</b>. C'est ce qui fait que les images tombent pile au bon moment.</p>
+  <img class="shot" src="img/capture_transcription.png" style="height:330px; object-fit:cover; object-position:top">
+  <p class="cap">Capture : la transcription. Quelques mots sont mal compris, mais les temps sont justes, et c'est ça qui compte.</p>
+  <img class="shot" src="img/capture_code.png" style="height:330px; object-fit:cover; object-position:top">
+  <p class="cap">Capture : le montage, écrit en code par Claude. Chaque ligne = une animation à une seconde précise.</p>
+  <div class="foot"><span>DigitalMikaelson</span><span>7</span></div>
+</section>
+
+<!-- 8. Étape 5 bis : le studio -->
+<section class="page dark">
+  <span class="step">ÉTAPE 5</span>
+  <h2>Voir la vidéo avant de la sortir</h2>
+  <p style="color:#ddd">HyperFrames a un studio : la vidéo, la ligne du temps, chaque extrait à sa place. Demande à Claude : <span style="color:#ffd60a">« Ouvre l'aperçu HyperFrames »</span>.</p>
+  <img class="shot" src="img/studio.png" style="border-color:#444; box-shadow:none">
+  <p class="cap" style="color:#aaa">Capture : le studio HyperFrames sur l'épisode 3 de ma série.</p>
+  <div class="foot"><span>DigitalMikaelson</span><span>8</span></div>
+</section>
+
+<!-- 9. Étape 6 : vérifier et corriger -->
+<section class="page">
+  <span class="step">ÉTAPE 6</span>
+  <h2>Vérifie et corrige</h2>
+  <p>Regarde la vidéo jusqu'au bout. Puis demande les corrections <b>avec la seconde précise</b>. Des vraies demandes que j'ai faites :</p>
+  <div class="prompt">Ça ne concorde pas avec l'audio. Mets mes extraits exactement sur ces phrases : « dans la ville » sur « Imagine Patrick »…</div>
+  <div class="prompt">C'est ça qui doit être au début (+ l'extrait). Accompagne-le de celui-ci sur « la plomberie ».</div>
+  <div class="prompt">Tu supprimes trop les silences. Garde les pauses, enlève seulement le silence du début et de la fin.</div>
+  <img class="shot" src="img/planche_ep3.png" style="margin-top:28px; height:300px; object-fit:cover; object-position:top">
+  <div class="foot"><span>DigitalMikaelson</span><span>9</span></div>
+</section>
+
+<!-- 10. Fin -->
+<section class="page dark">
+  <h1 style="font-size:84px">À toi de jouer</h1>
+  <div style="margin-top:50px">
+    <div class="row"><span class="num">1</span>Écris ton script avec Claude</div>
+    <div class="row"><span class="num">2</span>Enregistre ta voix au téléphone</div>
+    <div class="row"><span class="num">3</span>Rassemble tes images</div>
+    <div class="row"><span class="num">4</span>Envoie tout à Claude Code</div>
+    <div class="row"><span class="num">5</span>Laisse-le caler le son et les images</div>
+    <div class="row"><span class="num">6</span>Vérifie, corrige, publie</div>
+  </div>
+  <div class="card" style="background:#ff5c00; color:#fff; border-color:#fff; box-shadow:10px 10px 0 #fff; margin-top:60px">
+    <p style="font-size:36px"><b>Tu bloques à une étape ?</b><br>Écris-moi sur WhatsApp : +243 831 710 181. Envoie-moi une capture de là où tu bloques, je te réponds.</p>
+  </div>
+  <div class="foot"><span>DigitalMikaelson</span><span>Pas de blabla, juste ce qu'il faut faire, concrètement.</span></div>
+</section>
+
+</body>
+</html>

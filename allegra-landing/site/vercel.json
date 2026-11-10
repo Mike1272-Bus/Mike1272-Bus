@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "src": "^/(.*)$",
+      "has": [{ "type": "host", "value": "my-automation-rdc.vercel.app" }],
+      "dest": "/my-automation/$1"
+    }
+  ]
+}

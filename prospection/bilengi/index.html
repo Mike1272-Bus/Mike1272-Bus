@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #145c22; }
+      /* leurs couleurs : le vert de leur logo, le vert clair de l'anneau, l'orange de « Les délices d'Afrique », blanc */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff;
+        background: radial-gradient(ellipse at 50% 40%, #2b8f37 0%, #1d7029 50%, #0f4a18 100%); }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .line { position: absolute; left: 40px; width: 1000px; text-align: center; }
+      .w { display: inline-block; margin: 0 0.08em; }
+      .big { font-family: 'Baloo', sans-serif; font-weight: 800; font-size: 130px; line-height: 1.02; text-shadow: 0 10px 30px rgba(0,30,5,0.45); }
+      .org { color: #ffa53a; }
+      .lgr { color: #c8f59a; }
+      .bub { position: absolute; border-radius: 50%; border: 4px solid rgba(255,255,255,0.55); background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), rgba(255,255,255,0) 60%); opacity: 0; }
+      .card { position: absolute; overflow: hidden; border-radius: 44px; border: 10px solid #c8f59a; box-shadow: 0 40px 70px rgba(0,30,5,0.5); }
+      .card div { width: 100%; height: 100%; background-size: cover; background-position: center; }
+      .round { border-radius: 50%; }
+      .tag { display: inline-block; font-family: 'Baloo', sans-serif; font-weight: 800; font-size: 58px; color: #145c22; background: #c8f59a; padding: 4px 40px; border-radius: 999px; }
+      .pill { position: absolute; border-radius: 999px; text-align: center; white-space: nowrap; font-weight: 900; }
+      #fade { left: 0; top: 0; width: 1080px; height: 1920px; background: #0f4a18; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+      <div id="bubbles"></div>
+
+      <!-- 1. Une envie de fraîcheur ? (0 - 3,3) — place prévue pour le clip IA (bouteille qui s'ouvre) -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <img class="ab" id="a0" src="assets/img/logo.png" style="left:390px; top:380px; width:300px; height:300px" />
+        <div class="line big split" id="a1" style="top:760px">Une envie</div>
+        <div class="line big split lgr" id="a2" style="top:900px">de fraîcheur ?</div>
+      </div></div>
+
+      <!-- 2. Le jus qui coule (3,3 - 7,9) -->
+      <div class="scene" id="s2"><div class="cam" id="k2">
+        <div class="card" id="b1" style="left:150px; top:250px; width:780px; height:1077px"><div id="b1i" style="background-image:url('assets/img/verre.jpg')"></div></div>
+        <div class="line big split" id="b2" style="top:1420px; font-size:104px">Jus de fruits</div>
+        <div class="line big split org" id="b3" style="top:1540px; font-size:120px">frais.</div>
+      </div></div>
+
+      <!-- 3. Leurs bouteilles (7,9 - 12,0) -->
+      <div class="scene" id="s3"><div class="cam" id="k3">
+        <div class="line big split" id="c0" style="top:240px; font-size:96px">Et à emporter,</div>
+        <div class="line big split lgr" id="c1" style="top:350px; font-size:96px">bien frais.</div>
+        <div class="card round" id="c2" style="left:160px; top:560px; width:760px; height:760px; border-width:16px"><div id="c2i" style="background-image:url('assets/img/bouteilles.jpg')"></div></div>
+        <div class="line" style="top:1420px"><span class="tag" id="c3">Bilengi Bio</span></div>
+      </div></div>
+
+      <!-- 4. L'épicerie : miel et pilipili (12,0 - 16,8) -->
+      <div class="scene" id="s4"><div class="cam" id="k4">
+        <div class="line big split" id="d0" style="top:180px; font-size:92px">Et dans l'épicerie :</div>
+        <div class="card" id="d1" style="left:60px; top:420px; width:560px; height:560px"><div id="d1i" style="background-image:url('assets/img/miel.jpg')"></div></div>
+        <div class="card" id="d2" style="left:480px; top:820px; width:540px; height:720px"><div id="d2i" style="background-image:url('assets/img/pilipili.jpg')"></div></div>
+        <div class="ab" style="left:70px; top:1020px"><span class="tag" id="d3">Miel naturel</span></div>
+        <div class="ab" style="left:430px; top:1590px"><span class="tag" id="d4" style="background:#ffa53a; color:#fff">Pilipili</span></div>
+        <div class="line" style="top:1760px"><span class="w" id="d5" style="font-weight:600; font-size:44px; color:#c8f59a">« Produits 100 % naturel »</span></div>
+      </div></div>
+
+      <!-- 5. Le logo (16,8 - 20,0) -->
+      <div class="scene" id="s5"><div class="cam" id="k5">
+        <img class="ab" id="e1" src="assets/img/logo.png" style="left:190px; top:420px; width:700px; height:700px; filter: drop-shadow(0 30px 50px rgba(0,30,5,0.5))" />
+        <div class="line big split" id="e2" style="top:1220px; font-size:110px">Bilengi,</div>
+        <div class="line big split org" id="e3" style="top:1340px; font-size:96px">les délices d'Afrique</div>
+      </div></div>
+
+      <!-- 6. Carte de fin (20,0 - 24) -->
+      <div class="scene" id="s6"><div class="cam" id="k6">
+        <img class="ab" id="f1" src="assets/img/logo.png" style="left:360px; top:180px; width:360px; height:360px" />
+        <div class="line big" style="top:600px; font-size:100px"><span class="w" id="f2">Bar à jus</span></div>
+        <div class="line big lgr" style="top:710px; font-size:100px"><span class="w" id="f3">Bilengi Bio</span></div>
+        <div class="line" style="top:870px"><span class="w" id="f4" style="font-weight:900; font-size:52px">Matadi</span></div>
+        <div class="line" style="top:945px"><span class="w" id="f5" style="font-weight:600; font-size:42px; line-height:1.4">16, avenue Sita Landu<br />réf. rond-point RTNC</span></div>
+        <div class="ab pill" id="f6" style="left:90px; top:1140px; width:900px; height:130px; line-height:130px; font-size:54px; background:#fff; color:#145c22; box-shadow: 0 10px 0 #c8f59a">Réservation : 081 554 4433</div>
+        <div class="ab pill" id="f7" style="left:190px; top:1320px; width:700px; height:110px; line-height:110px; font-size:50px; background:#ffa53a; color:#fff; box-shadow: 0 10px 0 #b8650c">Livraison à domicile</div>
+        <div class="card round" id="f8" style="left:390px; top:1500px; width:300px; height:300px; border-width:10px"><div style="background-image:url('assets/img/bouteilles.jpg')"></div></div>
+      </div></div>
+
+      <div class="ab" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="24" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      document.querySelectorAll(".split").forEach(el => {
+        el.innerHTML = el.textContent.split(" ").map((w, i) => `<span class="w" id="${el.id}_${i}">${w}</span>`).join(" ");
+      });
+      // bulles qui montent pendant toute la vidéo (positions tirées une fois pour toutes)
+      let seed = 21; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const BB = [];
+      for (let i = 0; i < 26; i++) {
+        const d = document.createElement("div"); d.className = "bub"; const s = 18 + rnd() * 56;
+        Object.assign(d.style, { left: rnd() * 1040 + "px", top: 1700 + rnd() * 300 + "px", width: s + "px", height: s + "px" });
+        document.getElementById("bubbles").appendChild(d); BB.push(d);
+      }
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const words = (id, at, step = 0.12) => document.getElementById(id).querySelectorAll(".w").forEach((w, i) =>
+        IN(w, { y: 50, scale: 0.85 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(2)" }, at + i * step));
+      const pop = (sel, at) => IN(sel, { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "back.out(2.2)" }, at);
+      const card = (sel, img, at, d, from) => { IN(sel, { ...from, scale: 0.9 }, { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.8, ease: "expo.out" }, at); FT(img, { scale: 1.18 }, { scale: 1.02, duration: d, ease: "sine.out" }, at); };
+
+      BB.forEach(d => FT(d, { y: 0, x: 0, opacity: 0 }, { keyframes: [{ opacity: 0.9, duration: 0.6 }, { opacity: 0.9, duration: 3.4 }, { opacity: 0, duration: 1 }], y: -2000 - rnd() * 300, x: rnd() * 120 - 60, duration: 5, repeat: 3, ease: "sine.in" }, rnd() * 4));
+
+      // scènes : fondu enchaîné + petit zoom (on raconte, en douceur)
+      const SC = [["#s1", "#k1", 0, 3.3], ["#s2", "#k2", 3.3, 4.6], ["#s3", "#k3", 7.9, 4.1], ["#s4", "#k4", 12.0, 4.8], ["#s5", "#k5", 16.8, 3.2], ["#s6", "#k6", 20.0, 4.0]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        if (i) FT(s, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35, ease: "none" }, a); else tl.set(s, { autoAlpha: 1 }, 0);
+        if (i !== SC.length - 1) FT(s, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.35, ease: "none" }, a + d - 0.15);
+        FT(c, { scale: 1.0 }, { scale: 1.05, duration: d, ease: "none" }, a);
+      });
+
+      // 1
+      IN("#a0", { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 0.15);
+      words("a1", 0.5, 0.15); words("a2", 1.1, 0.15);
+      // 2 : le jus coule (le son de l'ouverture continue)
+      card("#b1", "#b1i", 3.35, 4.5, { y: 600, rotation: 4 });
+      words("b2", 4.4, 0.14); words("b3", 4.9, 0.14);
+      // 3
+      words("c0", 8.0, 0.12); words("c1", 8.4, 0.12);
+      IN("#c2", { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(1.5)" }, 8.6);
+      FT("#c2i", { scale: 1.2 }, { scale: 1.04, duration: 3.4, ease: "sine.out" }, 8.6);
+      FT("#c2", { rotation: 0 }, { rotation: 3, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, 9.3);
+      pop("#c3", 9.6);
+      // 4
+      words("d0", 12.1, 0.12);
+      card("#d1", "#d1i", 12.6, 4.1, { x: -800, rotation: -8 }); pop("#d3", 13.3);
+      card("#d2", "#d2i", 14.4, 2.4, { x: 800, rotation: 8 }); pop("#d4", 15.0);
+      IN("#d5", { y: 30 }, { y: 0, duration: 0.4 }, 15.4);
+      // 5
+      IN("#e1", { scale: 0.2, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(1.7)" }, 17.0);
+      FT("#e1", { rotation: 0 }, { rotation: 360, duration: 1.4, ease: "power2.inOut" }, 17.7);
+      words("e2", 17.8, 0.14); words("e3", 18.2, 0.12);
+      // 6
+      pop("#f1", 20.1);
+      IN("#f2", { y: 40 }, { y: 0, duration: 0.45, ease: "back.out(2)" }, 20.3); IN("#f3", { y: 40 }, { y: 0, duration: 0.45, ease: "back.out(2)" }, 20.45);
+      IN("#f4", { y: 30 }, { y: 0, duration: 0.4 }, 20.8); IN("#f5", { y: 30 }, { y: 0, duration: 0.4 }, 20.95);
+      IN("#f6", { x: -900 }, { x: 0, duration: 0.5, ease: "expo.out" }, 21.2); IN("#f7", { x: 900 }, { x: 0, duration: 0.5, ease: "expo.out" }, 21.4);
+      pop("#f8", 21.7);
+      FT("#f6", { scale: 1 }, { scale: 1.04, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 22.0);
+      FT("#fade", { opacity: 0 }, { opacity: 1, duration: 0.45 }, 23.55);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#fade", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

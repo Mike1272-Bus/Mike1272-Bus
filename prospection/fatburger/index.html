@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Baloo'; font-weight: 800; src: url('assets/fonts/Baloo2-ExtraBold.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 400; src: url('assets/fonts/worksans-400.ttf') format('truetype'); }
+      @font-face { font-family: 'Work Sans'; font-weight: 700; src: url('assets/fonts/worksans-700.ttf') format('truetype'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0e5d6c; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; color: #fff; font-family: 'Baloo', sans-serif; background: #0d7487; }
+      .ab { position: absolute; }
+      .full { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .center { left: 0; width: 1080px; text-align: center; }
+      .title { font-weight: 800; line-height: 1.02; text-shadow: 0 6px 0 #0e5d6c, 0 14px 30px rgba(0,0,0,0.25); }
+      .title span, .words span { display: inline-block; }
+      .words { font-family: 'Work Sans'; font-weight: 700; }
+      .yel { color: #ffe45c; }
+      .red { color: #e2383f; text-shadow: 0 6px 0 #fff3b0, 0 14px 30px rgba(0,0,0,0.2); }
+      /* rayons rétro, aux couleurs du logo */
+      #rays { left: -760px; top: -380px; width: 2600px; height: 2600px; border-radius: 50%;
+        background: repeating-conic-gradient(from 0deg, #0c6f82 0deg 9deg, #12808f 9deg 18deg); }
+      #vig { background: radial-gradient(ellipse 75% 60% at 50% 48%, rgba(14,93,108,0) 40%, rgba(14,93,108,0.75) 100%); }
+
+      /* S1 */
+      #h1 { top: 790px; font-size: 140px; }
+      #h2 { top: 945px; font-size: 140px; }
+
+      /* S2 : la tour */
+      #stage { left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 1480px; z-index: 5; }
+      #bwrap { left: 90px; top: 640px; width: 900px; height: 846px; }
+      .layer { position: absolute; left: 0; top: 0; width: 900px; height: 846px; background-size: 100% 100%; background-repeat: no-repeat;
+        filter: drop-shadow(0 18px 18px rgba(14,60,70,0.45)); }
+      #shine { position: absolute; left: 0; top: 0; width: 900px; height: 846px; mix-blend-mode: screen; opacity: 0.8;
+        background: linear-gradient(105deg, rgba(255,255,255,0) 42%, rgba(255,250,220,0.7) 50%, rgba(255,255,255,0) 58%) 0 0 / 300% 100% no-repeat;
+        }
+      #plate { left: 120px; top: 1440px; width: 840px; height: 110px; border-radius: 50%; background: radial-gradient(ellipse, rgba(10,60,70,0.55), rgba(10,60,70,0) 70%); }
+      .chip { position: absolute; z-index: 8; font-family: 'Work Sans'; font-weight: 700; font-size: 42px; color: #fff; background: #e2383f;
+        border: 5px solid #ffe45c; border-radius: 44px; padding: 10px 32px 8px; box-shadow: 0 12px 26px rgba(0,0,0,0.25); white-space: nowrap; }
+      .cnt { top: 240px; font-size: 170px; z-index: 8; }
+      #t2a { top: 215px; font-size: 96px; z-index: 8; }
+      #t2b { top: 320px; font-size: 190px; z-index: 8; }
+      #stamp { left: 760px; top: 560px; width: 260px; height: 260px; border-radius: 50%;
+        box-shadow: 0 16px 34px rgba(0,0,0,0.3); z-index: 9; }
+      #flash { background: #fff8d6; z-index: 20; }
+
+      /* S3 : milkshakes */
+      .shk { position: absolute; left: 54px; top: 760px; width: 973px; height: 792px; background-size: 100% 100%; background-repeat: no-repeat;
+        filter: drop-shadow(0 22px 24px rgba(14,60,70,0.4)); z-index: 6; }
+      #t3a { top: 330px; font-size: 84px; z-index: 8; }
+      #t3b { top: 430px; font-size: 150px; z-index: 8; }
+
+      /* S4 / S5 : photos */
+      .card { position: absolute; border: 12px solid #fff3b0; border-radius: 34px; overflow: hidden; box-shadow: 0 30px 60px rgba(10,50,60,0.45); z-index: 9;
+        background-size: cover; background-position: center; }
+      #cPlat { left: 90px; top: 300px; width: 900px; height: 900px; }
+      #t4a { top: 1290px; font-size: 62px; z-index: 10; }
+      #t4b { top: 1380px; font-size: 104px; z-index: 10; }
+      #cSac { left: 90px; top: 300px; width: 900px; height: 900px; }
+      #t5a { top: 1290px; font-size: 76px; z-index: 10; }
+      #t5b { top: 1390px; font-size: 128px; z-index: 10; }
+
+      /* S6 : fin */
+      #logo { left: 270px; top: 250px; width: 540px; height: 540px; border-radius: 50%;
+        box-shadow: 0 26px 60px rgba(10,50,60,0.45); z-index: 12; }
+      #t6a { top: 850px; font-size: 100px; z-index: 12; }
+      #t6b { top: 950px; font-size: 150px; z-index: 12; }
+      #t6c { top: 1130px; font-size: 46px; z-index: 12; }
+      #bEnd { left: 230px; top: 1230px; width: 620px; height: 583px;
+        filter: drop-shadow(0 26px 30px rgba(10,50,60,0.45)); z-index: 12; }
+      #fade { background: #0e5d6c; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+      <div class="ab" id="rays"></div>
+      <div class="ab full" id="vig"></div>
+
+      <!-- S1 -->
+      <div class="ab center title" id="h1" data-layout-allow-overlap></div>
+      <div class="ab center title" id="h2" data-layout-allow-overlap></div>
+
+      <!-- S2 : la tour monte -->
+      <div class="ab" id="stage">
+        <div class="ab" id="plate"></div>
+        <div class="ab" id="bwrap">
+          <div class="layer" id="L0" style="background-image:url('assets/img/l_pain_bas.png')"></div>
+          <div class="layer" id="L1" style="background-image:url('assets/img/l_steak3.png')"></div>
+          <div class="layer" id="L2" style="background-image:url('assets/img/l_steak2.png')"></div>
+          <div class="layer" id="L3" style="background-image:url('assets/img/l_steak1.png')"></div>
+          <div class="layer" id="L4" style="background-image:url('assets/img/l_tomate.png')"></div>
+          <div class="layer" id="L5" style="background-image:url('assets/img/l_salade.png')"></div>
+          <div class="layer" id="L6" style="background-image:url('assets/img/l_pain_haut.png')"></div>
+          <div id="shine" style="-webkit-mask:url('assets/img/burger.png') center / 100% 100% no-repeat;mask:url('assets/img/burger.png') center / 100% 100% no-repeat"></div>
+        </div>
+      </div>
+      <div class="chip" id="k0" data-layout-allow-overlap>Le pain</div>
+      <div class="chip" id="k4" data-layout-allow-overlap>Tomate et cornichons</div>
+      <div class="chip" id="k5" data-layout-allow-overlap>La salade</div>
+      <div class="chip" id="k6" data-layout-allow-overlap>Et le pain du dessus</div>
+      <div class="ab center title cnt" id="c1" data-layout-allow-overlap>1 steak</div>
+      <div class="ab center title cnt" id="c2" data-layout-allow-overlap>2 steaks</div>
+      <div class="ab center title cnt yel" id="c3" data-layout-allow-overlap>3 steaks !</div>
+      <div class="ab center title" id="t2a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t2b" data-layout-allow-overlap></div>
+      <div class="ab" id="stamp" style="background:url('assets/img/logo.png') center / 100% 100% no-repeat"></div>
+
+      <!-- S3 : milkshakes -->
+      <div class="shk" id="m0" style="background-image:url('assets/img/shake0.png')"></div>
+      <div class="shk" id="m3" style="background-image:url('assets/img/shake3.png')"></div>
+      <div class="shk" id="m1" style="background-image:url('assets/img/shake1.png')"></div>
+      <div class="shk" id="m2" style="background-image:url('assets/img/shake2.png')"></div>
+      <div class="ab center title" id="t3a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t3b" data-layout-allow-overlap></div>
+
+      <!-- S4 : le plateau -->
+      <div class="card" id="cPlat" style="background-image:url('assets/img/plateau.jpg')"></div>
+      <div class="ab center title" id="t4a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t4b" data-layout-allow-overlap></div>
+
+      <!-- S5 : le menu -->
+      <div class="card" id="cSac" style="background-image:url('assets/img/sac.jpg')"></div>
+      <div class="ab center title" id="t5a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t5b" data-layout-allow-overlap></div>
+
+      <!-- S6 : fin -->
+      <div class="ab" id="logo" style="background:url('assets/img/logo.png') center / 100% 100% no-repeat"></div>
+      <div class="ab center title" id="t6a" data-layout-allow-overlap></div>
+      <div class="ab center title" id="t6b" data-layout-allow-overlap></div>
+      <div class="ab center words" id="t6c" data-layout-allow-overlap></div>
+      <div class="ab" id="bEnd" style="background:url('assets/img/burger.png') center / 100% 100% no-repeat"></div>
+
+      <div class="ab full" id="flash"></div>
+      <div class="ab full" id="fade"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="22" data-track-index="1" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+      let seed = 37;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+      const OUT = (sel, from, to, at) => FT(sel, { ...from, autoAlpha: 1 }, { ...to, autoAlpha: 0 }, at);
+      function colored(host, parts, prefix) {
+        const out = []; let n = 0;
+        parts.forEach(([text, cls]) => text.split(" ").forEach((w) => {
+          if (n) host.appendChild(document.createTextNode(" "));
+          const s = document.createElement("span"); s.id = prefix + n++; s.setAttribute("data-layout-allow-overlap", ""); s.textContent = w;
+          if (cls) s.className = cls; host.appendChild(s); out.push(s);
+        }));
+        return out;
+      }
+
+      const HOOK = [...colored($("h1"), [["On monte", ""]], "ha"), ...colored($("h2"), [["un burger ?", "yel"]], "hb")];
+      const T2 = [...colored($("t2a"), [["Ça, c'est un", ""]], "ta"), ...colored($("t2b"), [["BURGER.", "red"]], "tb")];
+      const T3 = [...colored($("t3a"), [["Et pour aller avec…", ""]], "tc"), ...colored($("t3b"), [["les milkshakes", "yel"]], "td")];
+      const T4 = [...colored($("t4a"), [["Burgers, frites, onion rings…", ""]], "te"), ...colored($("t4b"), [["pour toute la bande", "yel"]], "tf")];
+      const T5 = [...colored($("t5a"), [["Burger, frites, boisson :", ""]], "tg"), ...colored($("t5b"), [["le menu complet", "yel"]], "th")];
+      const T6 = [...colored($("t6a"), [["Commandez", ""]], "ti"), ...colored($("t6b"), [["maintenant", "yel"]], "tj")];
+      const T6C = colored($("t6c"), [["Fatburger · Kinshasa", ""]], "tk");
+
+      const LAY = [0, 1, 2, 3, 4, 5, 6].map((i) => "#L" + i);
+      // étiquettes : position à côté de chaque couche
+      [[0, 60, 1500], [4, 560, 1010], [5, 40, 870], [6, 330, 560]].forEach(([i, x, y]) => Object.assign($("k" + i).style, { left: x + "px", top: y + "px" }));
+
+      gsap.set(["#flash", "#fade", "#stamp", "#logo", "#bEnd", "#cPlat", "#cSac", "#plate"], { autoAlpha: 0 });
+      gsap.set(LAY, { autoAlpha: 0 });
+
+      // les rayons tournent tout le long
+      FT("#rays", { rotation: 0 }, { rotation: 60, duration: 22, ease: "none" }, 0);
+
+      // ---------- S1 : accroche (0 - 1.4) ----------
+      HOOK.forEach((s, i) => IN(s, { y: 140, scale: 0.5, rotation: (i % 2 ? 8 : -8) }, { y: 0, scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2.2)" }, 0.15 + i * 0.12));
+      OUT(HOOK, { y: 0 }, { y: -900, duration: 0.4, ease: "power3.in" }, 1.25);
+
+      // ---------- S2 : la tour, couche par couche (1.4 - 6.6) ----------
+      FT("#stage", { scale: 1.45 }, { scale: 1, duration: 5.0, ease: "power2.inOut" }, 1.4);
+      IN("#plate", { scaleX: 0.3 }, { scaleX: 1, duration: 0.5, ease: "power2.out" }, 1.4);
+      LAY.forEach((id, i) => {
+        const t = 1.5 + i * 0.72;
+        IN(id, { y: -1500, rotation: (i % 2 ? 6 : -6) }, { y: 0, rotation: 0, duration: 0.42, ease: "power3.in" }, t);
+        // la tour s'écrase un peu à chaque arrivée
+        FT("#bwrap", { scaleY: 1, transformOrigin: "50% 100%" }, { scaleY: 0.96, duration: 0.07, yoyo: true, repeat: 1, ease: "power2.out" }, t + 0.42);
+      });
+      // compteur de steaks au-dessus
+      [["#c1", 2.22], ["#c2", 2.94], ["#c3", 3.66]].forEach(([id, t], i) => {
+        IN(id, { scale: 2.4, rotation: -8 }, { scale: 1, rotation: -3, duration: 0.3, ease: "power4.in" }, t + 0.3);
+        OUT(id, { scale: 1 }, { scale: 0.6, duration: 0.18, ease: "power2.in" }, i !== 2 ? t + 0.9 : 4.9);
+      });
+      [[0, 1.5], [4, 4.38], [5, 5.1], [6, 5.82]].forEach(([k, t]) => {
+        IN("#k" + k, { scale: 0.3, rotation: k % 2 ? 10 : -10 }, { scale: 1, rotation: k % 2 ? 2 : -2, duration: 0.35, ease: "back.out(2)" }, t + 0.45);
+        OUT("#k" + k, { scale: 1 }, { scale: 0.5, duration: 0.2, ease: "power2.in" }, k === 0 ? 2.9 : 6.5);
+      });
+      // le burger est prêt
+      FT("#flash", { autoAlpha: 0.6 }, { autoAlpha: 0, duration: 0.35, ease: "power2.out" }, 6.3);
+      FT("#shine", { backgroundPosition: "120% 0" }, { backgroundPosition: "-20% 0", duration: 0.9, ease: "power2.inOut" }, 6.6);
+      FT("#shine", { backgroundPosition: "120% 0" }, { backgroundPosition: "-20% 0", duration: 0.9, ease: "power2.inOut" }, 7.9);
+      T2.forEach((s, i) => IN(s, { y: 120, scale: 0.6 }, { y: 0, scale: 1, duration: 0.42, ease: "back.out(2)" }, 6.55 + i * 0.1));
+      IN("#stamp", { scale: 0, rotation: -200 }, { scale: 1, rotation: -12, duration: 0.6, ease: "back.out(1.7)" }, 7.1);
+      FT("#stamp", { rotation: -12 }, { rotation: 6, duration: 1.8, ease: "sine.inOut" }, 7.7);
+      FT("#bwrap", { scale: 1 }, { scale: 1.05, duration: 2.6, ease: "sine.inOut" }, 6.6);
+
+      // ---------- S3 : milkshakes (9.4 - 12.6) ----------
+      OUT(["#stage", "#stamp"], { x: 0 }, { x: -1300, duration: 0.5, ease: "power3.in" }, 9.3);
+      OUT(T2, { y: 0 }, { y: -500, duration: 0.4, ease: "power3.in" }, 9.3);
+      [["#m0", 9.7], ["#m3", 9.85], ["#m1", 10.2], ["#m2", 10.45]].forEach(([id, t]) => {
+        IN(id, { y: 1200 }, { y: 0, duration: 0.55, ease: "back.out(1.4)" }, t);
+      });
+      FT(["#m1", "#m2"], { y: 0 }, { y: -20, duration: 0.5, yoyo: true, repeat: 2, ease: "sine.inOut" }, 11.0);
+      T3.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.38, ease: "power3.out" }, 9.9 + i * 0.09));
+
+      // ---------- S4 : le plateau (12.7 - 15.6) ----------
+      OUT(["#m0", "#m1", "#m2", "#m3"], { y: 0 }, { y: 1400, duration: 0.45, ease: "power3.in" }, 12.5);
+      OUT(T3, { y: 0 }, { y: -400, duration: 0.4, ease: "power3.in" }, 12.5);
+      IN("#cPlat", { scale: 0.2, rotation: -200 }, { scale: 1, rotation: -3, duration: 0.75, ease: "back.out(1.3)" }, 12.75);
+      FT("#cPlat", { backgroundSize: "100%" }, { backgroundSize: "115%", duration: 2.6, ease: "none" }, 13.0);
+      T4.forEach((s, i) => IN(s, { y: 60, rotation: (rnd() - 0.5) * 10 }, { y: 0, rotation: 0, duration: 0.4, ease: "back.out(1.8)" }, 13.2 + i * 0.08));
+
+      // ---------- S5 : le menu (15.7 - 18.4) ----------
+      OUT("#cPlat", { x: 0 }, { x: -1300, rotation: -15, duration: 0.5, ease: "power3.in" }, 15.5);
+      OUT(T4, { x: 0 }, { x: -1300, duration: 0.5, ease: "power3.in" }, 15.5);
+      IN("#cSac", { x: 1300, rotation: 15 }, { x: 0, rotation: 2, duration: 0.6, ease: "expo.out" }, 15.7);
+      FT("#cSac", { backgroundSize: "118%" }, { backgroundSize: "100%", duration: 2.6, ease: "power1.out" }, 15.7);
+      T5.forEach((s, i) => IN(s, { y: 60 }, { y: 0, duration: 0.38, ease: "power3.out" }, 16.1 + i * 0.08));
+
+      // ---------- S6 : fin (18.5 - 22) ----------
+      OUT(["#cSac", ...T5], { scale: 1 }, { scale: 0.7, duration: 0.4, ease: "power3.in" }, 18.2);
+      IN("#logo", { scale: 0, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(1.6)" }, 18.5);
+      FT("#logo", { scale: 1 }, { scale: 1.05, duration: 0.45, yoyo: true, repeat: 5, ease: "sine.inOut" }, 19.2);
+      T6.forEach((s, i) => IN(s, { y: 110, scale: 0.6 }, { y: 0, scale: 1, duration: 0.42, ease: "back.out(2)" }, 18.9 + i * 0.12));
+      T6C.forEach((s, i) => IN(s, { y: 24 }, { y: 0, duration: 0.3, ease: "power2.out" }, 19.4 + i * 0.06));
+      IN("#bEnd", { y: 900, rotation: -6 }, { y: 0, rotation: 0, duration: 0.7, ease: "expo.out" }, 19.1);
+      FT("#bEnd", { y: 0 }, { y: -16, duration: 0.9, yoyo: true, repeat: 1, ease: "sine.inOut" }, 19.8);
+      tl.to("#fade", { autoAlpha: 1, duration: 0.5 }, 21.5);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

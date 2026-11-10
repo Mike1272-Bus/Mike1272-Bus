@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Commander · L'Univers du crochet</title>
+<meta name="theme-color" content="#7a3e57">
+<!-- Aperçu du lien quand on l'envoie sur WhatsApp -->
+<meta property="og:title" content="Commander chez L'Univers du crochet 🧶">
+<meta property="og:description" content="Choisissez votre modèle et votre couleur, on vous confirme sur WhatsApp.">
+<meta property="og:image" content="apercu.png">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --prune: #7a3e57;
+    --prune-clair: #f0e2e8;
+    --creme: #f6efe9;
+    --texte: #2b2220;
+    --gris: #7a6a66;
+    --bord: #e0d4cf;
+    --vert: #25a35a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--creme);
+    color: var(--texte);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .page { max-width: 480px; margin: 0 auto; padding-bottom: 32px; }
+  header { background: var(--prune); color: #fff; padding: 22px 18px 18px; }
+  header h1 { font-size: 20px; }
+  header p { font-size: 13px; opacity: .85; margin-top: 4px; }
+  main { padding: 4px 16px 0; }
+  h2 { font-size: 15px; color: var(--prune); margin: 18px 0 8px; }
+
+  .grille { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .carte {
+    background: #fff; border-radius: 14px; padding: 8px; text-align: left;
+    border: 2px solid transparent; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    font: inherit; color: inherit; cursor: pointer; position: relative;
+  }
+  .carte[aria-pressed="true"] { border-color: var(--prune); }
+  .carte:disabled { opacity: .55; cursor: not-allowed; }
+  .epuise { position: absolute; top: 14px; left: 14px; background: #2b2220; color: #fff;
+    font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 20px; }
+  .visuel {
+    height: 110px; border-radius: 10px; background: var(--prune-clair);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .visuel img { width: 100%; height: 100%; object-fit: cover; }
+  .visuel svg { width: 86px; height: 86px; }
+  .carte b { display: block; font-size: 13px; margin-top: 6px; }
+  .carte span.prix { font-size: 12px; color: var(--gris); }
+
+  .couleurs { display: flex; gap: 12px; flex-wrap: wrap; }
+  .couleur { background: none; border: 0; font: inherit; color: inherit; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; }
+  .pastille { width: 40px; height: 40px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #ccc; }
+  .couleur[aria-pressed="true"] .pastille { box-shadow: 0 0 0 3px var(--prune); }
+
+  .quantite { display: flex; align-items: center; gap: 16px; background: #fff;
+    border-radius: 12px; padding: 8px 14px; width: max-content; }
+  .quantite button { width: 34px; height: 34px; border-radius: 50%; border: 0;
+    background: var(--prune-clair); color: var(--prune); font-size: 20px; cursor: pointer; }
+  .quantite output { font-weight: 700; min-width: 16px; text-align: center; }
+
+  label { display: block; font-size: 13px; margin: 8px 0 4px; }
+  input, textarea {
+    width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--bord);
+    background: #fff; font: inherit; font-size: 16px; color: inherit;
+  }
+  textarea { min-height: 70px; resize: vertical; }
+
+  .recap { background: #fff; border-radius: 12px; padding: 12px 14px; margin-top: 18px; font-size: 14px; }
+  .recap strong { color: var(--prune); }
+  .erreur { color: #b3261e; font-size: 13px; margin-top: 10px; min-height: 18px; }
+  .bouton {
+    display: block; width: 100%; margin-top: 8px; padding: 16px; border: 0; border-radius: 14px;
+    background: var(--vert); color: #fff; font-size: 17px; font-weight: 700; cursor: pointer;
+    text-align: center; text-decoration: none;
+  }
+  .bouton:disabled { opacity: .6; }
+  .petit { font-size: 12px; color: var(--gris); text-align: center; margin-top: 10px; }
+
+  .fin { display: none; padding: 24px 16px; }
+  .fin h2 { font-size: 21px; margin: 0 0 8px; }
+  .fin > p { font-size: 15px; line-height: 1.5; }
+  .code { display: inline-block; background: var(--prune-clair); color: var(--prune); font-weight: 800;
+    padding: 2px 8px; border-radius: 6px; letter-spacing: .04em; }
+  .paiements { background: #fff; border-radius: 14px; padding: 14px; margin: 16px 0; }
+  .paiements h3 { font-size: 15px; margin-bottom: 8px; }
+  .paiements li { list-style: none; display: flex; justify-content: space-between; padding: 8px 0;
+    border-top: 1px solid #f1e8e3; font-size: 15px; }
+  .paiements li:first-child { border-top: 0; }
+  .paiements .ou { font-size: 13px; color: var(--gris); margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1 id="titre"></h1>
+    <p id="sousTitre"></p>
+  </header>
+
+  <main id="formulaire">
+    <h2>1. Le modèle</h2>
+    <div class="grille" id="modeles"></div>
+
+    <h2>2. La couleur</h2>
+    <div class="couleurs" id="couleurs"></div>
+
+    <h2>3. La quantité</h2>
+    <div class="quantite">
+      <button type="button" id="moins" aria-label="Moins">−</button>
+      <output id="qte">1</output>
+      <button type="button" id="plus" aria-label="Plus">+</button>
+    </div>
+
+    <h2>4. Vos coordonnées</h2>
+    <label for="nom">Votre nom</label>
+    <input id="nom" autocomplete="name">
+    <label for="tel">Votre numéro WhatsApp</label>
+    <input id="tel" type="tel" inputmode="tel" placeholder="ex. 0812345678" autocomplete="tel">
+    <label for="adresse">Quartier / adresse de livraison</label>
+    <input id="adresse" autocomplete="street-address">
+    <label for="note">Note (taille, prénom à broder…)</label>
+    <textarea id="note"></textarea>
+
+    <div class="recap" id="recap"></div>
+    <p class="erreur" id="erreur" role="alert"></p>
+    <button type="button" class="bouton" id="commander">Commander ✅</button>
+    <p class="petit">Paiement par Mobile Money ou à la livraison. On vous confirme tout sur WhatsApp.</p>
+  </main>
+
+  <section class="fin" id="fin">
+    <h2>Merci ! 🧶</h2>
+    <p>Votre commande <span class="code" id="codeCommande"></span> est prête à être envoyée.</p>
+    <div class="paiements" id="paiements"></div>
+    <a class="bouton" id="envoyerWhatsApp" href="#">Envoyer ma commande sur WhatsApp</a>
+    <p class="petit">La boutique vous confirme la commande et la livraison sur WhatsApp.</p>
+  </section>
+</div>
+
+<script>
+// ============================================================
+// RÉGLAGES DE LA BOUTIQUE
+// La boutique gère elle-même sa vitrine depuis son tableau Google :
+//  - onglet « Réglages vitrine » : Titre, Sous-titre, WhatsApp, M-Pesa, Orange Money, Airtel Money
+//  - onglet « Vitrine » : Modèle, Code, Photo, Prix, Couleurs, Afficher, Stock
+// Chaque onglet est publié en CSV (Fichier > Partager > Publier sur le Web) : coller les 2 liens ici.
+// Sans lien (ou si le tableau ne répond pas), la page affiche les valeurs ci-dessous.
+// ============================================================
+const LIENS_TABLEAU = {
+  reglages: "",
+  vitrine: "",
+};
+// Lien qui enregistre la commande dans le tableau (workflow en ligne). Vide = WhatsApp seulement.
+const LIEN_ENREGISTREMENT = "";
+
+let REGLAGES = {
+  "Titre": "🧶 L'Univers du crochet",
+  "Sous-titre": "Choisissez votre modèle et votre couleur, on s'occupe du reste.",
+  "WhatsApp": "243XXXXXXXXX",
+  "M-Pesa": "",
+  "Orange Money": "",
+  "Airtel Money": "",
+  "Devise": "$",
+};
+
+let MODELES = [
+  { nom: "Sac au crochet", code: "P001", photo: "", prix: null, couleurs: ["Rose", "Bleu", "Blanc", "Jaune", "Noir"], stock: null },
+  { nom: "Bonnet",         code: "P002", photo: "", prix: null, couleurs: ["Rose", "Bleu", "Blanc", "Jaune", "Noir"], stock: null },
+  { nom: "Robe bébé",      code: "P003", photo: "", prix: null, couleurs: ["Rose", "Bleu", "Blanc", "Jaune"], stock: null },
+  { nom: "Écharpe",        code: "P004", photo: "", prix: null, couleurs: ["Rose", "Bleu", "Blanc", "Jaune", "Noir"], stock: null },
+];
+
+// Couleurs connues (la boutique écrit juste le nom dans le tableau)
+const TEINTES = {
+  rose: "#e889a8", "rose pâle": "#f4c6d4", fuchsia: "#d63384", rouge: "#d33a3a", bordeaux: "#7a2232",
+  orange: "#ee8a3a", jaune: "#e6c34a", beige: "#e3cfb0", marron: "#8a5a3b", vert: "#4c9a5a",
+  "vert menthe": "#a8dcc4", bleu: "#5b8fd6", "bleu ciel": "#9cc8ef", "bleu marine": "#22355e",
+  violet: "#8a5cc2", mauve: "#c4a3d6", lilas: "#c8a2c8", gris: "#9a9a9a", blanc: "#f4f1ec",
+  noir: "#3a3a3a", doré: "#c9a24a", argent: "#c0c0c0", multicolore: "conic-gradient(#e889a8,#e6c34a,#4c9a5a,#5b8fd6,#8a5cc2,#e889a8)",
+};
+// ============================================================
+
+// Illustrations de secours, quand un modèle n'a pas encore de photo : elles prennent la couleur choisie.
+const DESSINS = {
+  sac: c => `<svg viewBox="0 0 100 100" aria-hidden="true">
+    <path d="M32 38 C32 18 68 18 68 38" fill="none" stroke="${c}" stroke-width="6" stroke-linecap="round"/>
+    <rect x="18" y="36" width="64" height="50" rx="12" fill="${c}"/>
+    <g stroke="rgba(255,255,255,.55)" stroke-width="2" fill="none">
+      <path d="M22 50 Q30 44 38 50 T54 50 T70 50 T78 50"/><path d="M22 62 Q30 56 38 62 T54 62 T70 62 T78 62"/>
+      <path d="M22 74 Q30 68 38 74 T54 74 T70 74 T78 74"/></g></svg>`,
+  bonnet: c => `<svg viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="16" r="10" fill="${c}"/>
+    <path d="M20 70 C20 30 80 30 80 70 Z" fill="${c}"/>
+    <rect x="16" y="66" width="68" height="16" rx="6" fill="${c}" stroke="rgba(0,0,0,.15)" stroke-width="2"/>
+    <g stroke="rgba(255,255,255,.55)" stroke-width="2">
+      <line x1="26" y1="68" x2="26" y2="80"/><line x1="36" y1="68" x2="36" y2="80"/><line x1="46" y1="68" x2="46" y2="80"/>
+      <line x1="56" y1="68" x2="56" y2="80"/><line x1="66" y1="68" x2="66" y2="80"/><line x1="76" y1="68" x2="76" y2="80"/></g></svg>`,
+  robe: c => `<svg viewBox="0 0 100 100" aria-hidden="true">
+    <path d="M38 12 L44 22 L56 22 L62 12 L70 18 L64 36 L80 88 L20 88 L36 36 L30 18 Z" fill="${c}"/>
+    <path d="M36 38 L64 38" stroke="rgba(255,255,255,.7)" stroke-width="3"/>
+    <g fill="rgba(255,255,255,.55)"><circle cx="40" cy="60" r="3"/><circle cx="50" cy="66" r="3"/><circle cx="60" cy="60" r="3"/>
+      <circle cx="34" cy="78" r="3"/><circle cx="50" cy="80" r="3"/><circle cx="66" cy="78" r="3"/></g></svg>`,
+  echarpe: c => `<svg viewBox="0 0 100 100" aria-hidden="true">
+    <path d="M24 22 C40 32 60 32 76 22 L76 34 C60 44 40 44 24 34 Z" fill="${c}"/>
+    <rect x="54" y="34" width="16" height="48" rx="4" fill="${c}"/>
+    <g stroke="${c}" stroke-width="3" stroke-linecap="round">
+      <line x1="56" y1="84" x2="56" y2="92"/><line x1="60" y1="84" x2="60" y2="92"/><line x1="64" y1="84" x2="64" y2="92"/><line x1="68" y1="84" x2="68" y2="92"/></g>
+    <g stroke="rgba(255,255,255,.55)" stroke-width="2"><line x1="56" y1="46" x2="68" y2="46"/><line x1="56" y1="58" x2="68" y2="58"/><line x1="56" y1="70" x2="68" y2="70"/></g></svg>`,
+};
+const ORDRE_DESSINS = ["sac", "bonnet", "robe", "echarpe"];
+function dessinPour(m, i, teinte) {
+  const n = m.nom.toLowerCase();
+  const cle = ORDRE_DESSINS.find(k => n.includes(k === "echarpe" ? "charpe" : k)) || ORDRE_DESSINS[i % 4];
+  return DESSINS[cle](teinte.startsWith("conic") ? "#c4a3d6" : teinte);
+}
+
+const $ = id => document.getElementById(id);
+const echapper = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const teinteDe = nom => TEINTES[nom.trim().toLowerCase()] || "#b8aaa4";
+const disponible = m => m.stock == null || m.stock > 0;
+const choix = { modele: null, couleur: null, quantite: 1 };
+
+// --- Lecture du tableau (CSV publié) ---
+function lireCSV(texte) {
+  const lignes = []; let ligne = [], champ = "", guillemets = false;
+  for (let i = 0; i < texte.length; i++) {
+    const c = texte[i];
+    if (guillemets) {
+      if (c === '"' && texte[i + 1] === '"') { champ += '"'; i++; }
+      else if (c === '"') guillemets = false;
+      else champ += c;
+    } else if (c === '"') guillemets = true;
+    else if (c === ",") { ligne.push(champ); champ = ""; }
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && texte[i + 1] === "\n") i++;
+      ligne.push(champ); lignes.push(ligne); ligne = []; champ = "";
+    } else champ += c;
+  }
+  if (champ !== "" || ligne.length) { ligne.push(champ); lignes.push(ligne); }
+  return lignes.filter(l => l.some(v => v.trim() !== ""));
+}
+function nombre(v) {
+  const s = String(v ?? "").replace(/\s/g, "").replace(",", ".");
+  const n = parseFloat(s.replace(/[^0-9.\-]/g, ""));
+  return isNaN(n) ? null : n;
+}
+// Un lien Google Drive de partage devient un lien d'image affichable
+function lienPhoto(v) {
+  const s = String(v || "").trim();
+  const id = (s.match(/\/d\/([\w-]{20,})/) || s.match(/[?&]id=([\w-]{20,})/) || [])[1];
+  return id ? `https://lh3.googleusercontent.com/d/${id}=w600` : s;
+}
+async function chargerTableau() {
+  try {
+    if (LIENS_TABLEAU.reglages) {
+      const r = lireCSV(await (await fetch(LIENS_TABLEAU.reglages, { cache: "no-store" })).text());
+      r.slice(1).forEach(([cle, valeur]) => { if (cle && cle.trim()) REGLAGES[cle.trim()] = (valeur || "").trim(); });
+    }
+    if (LIENS_TABLEAU.vitrine) {
+      const [entetes, ...lignes] = lireCSV(await (await fetch(LIENS_TABLEAU.vitrine, { cache: "no-store" })).text());
+      const col = nom => entetes.findIndex(e => e.trim().toLowerCase() === nom);
+      const iNom = col("modèle"), iCode = col("code"), iPhoto = col("photo"), iPrix = col("prix"),
+            iCouleurs = col("couleurs"), iAfficher = col("afficher"), iStock = col("stock");
+      const lus = lignes
+        .filter(l => (l[iNom] || "").trim() && (iAfficher < 0 || !/^non$/i.test((l[iAfficher] || "").trim())))
+        .map(l => ({
+          nom: l[iNom].trim(),
+          code: iCode >= 0 ? (l[iCode] || "").trim() : "",
+          photo: iPhoto >= 0 ? lienPhoto(l[iPhoto]) : "",
+          prix: iPrix >= 0 ? nombre(l[iPrix]) : null,
+          couleurs: iCouleurs >= 0 ? (l[iCouleurs] || "").split(/[,;\/]/).map(c => c.trim()).filter(Boolean) : [],
+          stock: iStock >= 0 && (l[iStock] || "").trim() !== "" ? nombre(l[iStock]) : null,
+        }));
+      if (lus.length) MODELES = lus;
+    }
+  } catch (_) { /* tableau injoignable : on garde les valeurs par défaut */ }
+}
+
+// --- Affichage ---
+function prixTexte(m) { return m.prix == null ? "Prix sur demande" : `${m.prix} ${REGLAGES["Devise"] || "$"}`; }
+
+function afficherModeles() {
+  const teinte = choix.couleur ? teinteDe(choix.couleur) : "#e889a8";
+  $("modeles").innerHTML = MODELES.map((m, i) => `
+    <button type="button" class="carte" data-i="${i}" aria-pressed="${m === choix.modele}" ${disponible(m) ? "" : "disabled"}>
+      ${disponible(m) ? "" : '<span class="epuise">Épuisé</span>'}
+      <div class="visuel">${m.photo ? `<img src="${echapper(m.photo)}" alt="${echapper(m.nom)}" loading="lazy">` : dessinPour(m, i, teinte)}</div>
+      <b>${i + 1} · ${echapper(m.nom)}</b><span class="prix">${echapper(prixTexte(m))}</span>
+    </button>`).join("");
+}
+function afficherCouleurs() {
+  const liste = choix.modele && choix.modele.couleurs.length ? choix.modele.couleurs : [];
+  $("couleurs").innerHTML = liste.length ? liste.map((c, i) => `
+    <button type="button" class="couleur" data-i="${i}" aria-pressed="${c === choix.couleur}">
+      <span class="pastille" style="background:${teinteDe(c)}"></span>${echapper(c)}
+    </button>`).join("") : '<p class="petit" style="text-align:left;margin:0">Une seule couleur pour ce modèle.</p>';
+}
+function afficherRecap() {
+  const m = choix.modele;
+  if (!m) { $("recap").textContent = "Tous nos modèles sont épuisés pour le moment. Écrivez-nous sur WhatsApp."; return; }
+  const devise = REGLAGES["Devise"] || "$";
+  const total = m.prix == null ? "" : ` · Total : <strong>${m.prix * choix.quantite} ${echapper(devise)}</strong>`;
+  const couleur = choix.couleur ? `, couleur <strong>${echapper(choix.couleur)}</strong>` : "";
+  $("recap").innerHTML = `Votre choix : <strong>${choix.quantite} × ${echapper(m.nom)}</strong>${couleur}${total}`;
+}
+function toutAfficher() { $("erreur").textContent = ""; afficherModeles(); afficherCouleurs(); afficherRecap(); }
+
+function choisirModele(m) {
+  choix.modele = m;
+  if (!m) { choix.couleur = null; return; }
+  if (!m.couleurs.includes(choix.couleur)) choix.couleur = m.couleurs[0] || null;
+  if (m.stock != null && choix.quantite > m.stock) { choix.quantite = Math.max(1, m.stock); $("qte").value = choix.quantite; }
+}
+
+$("modeles").addEventListener("click", e => {
+  const b = e.target.closest(".carte"); if (!b || b.disabled) return;
+  choisirModele(MODELES[+b.dataset.i]); toutAfficher();
+});
+$("couleurs").addEventListener("click", e => {
+  const b = e.target.closest(".couleur"); if (!b) return;
+  choix.couleur = choix.modele.couleurs[+b.dataset.i]; toutAfficher();
+});
+$("moins").onclick = () => { $("erreur").textContent = ""; choix.quantite = Math.max(1, choix.quantite - 1); $("qte").value = choix.quantite; afficherRecap(); };
+$("plus").onclick = () => {
+  const max = choix.modele && choix.modele.stock != null ? choix.modele.stock : Infinity;
+  if (choix.quantite >= max) { $("erreur").textContent = `Il ne reste que ${max} pièce(s) de ce modèle.`; return; }
+  choix.quantite += 1; $("qte").value = choix.quantite; afficherRecap();
+};
+
+// --- Commande ---
+function codeCommande() {
+  const d = new Date();
+  const p = n => String(n).padStart(2, "0");
+  return `CMD-${p(d.getDate())}${p(d.getMonth() + 1)}-${p(d.getHours())}${p(d.getMinutes())}${Math.floor(Math.random() * 90 + 10)}`;
+}
+
+$("commander").onclick = async () => {
+  const nom = $("nom").value.trim(), tel = $("tel").value.trim();
+  const adresse = $("adresse").value.trim(), note = $("note").value.trim();
+  if (!choix.modele) return;
+  if (!nom || !tel || !adresse) { $("erreur").textContent = "Merci de remplir votre nom, votre numéro et votre adresse."; return; }
+  $("erreur").textContent = "";
+  $("commander").disabled = true;
+
+  const m = choix.modele, devise = REGLAGES["Devise"] || "$";
+  const code = codeCommande();
+  const montant = m.prix == null ? null : m.prix * choix.quantite;
+  const couleur = choix.couleur || "unique";
+
+  // 1. Enregistrement dans le tableau (mêmes champs que le formulaire du vendeur)
+  if (LIEN_ENREGISTREMENT) {
+    try {
+      await fetch(LIEN_ENREGISTREMENT, {
+        method: "POST", mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "Nom du client": nom,
+          "Téléphone du client": tel,
+          "Code produit": m.code,
+          "Quantité": choix.quantite,
+          "Adresse de livraison": adresse,
+          "Note": `Vitrine ${code} · Couleur : ${couleur}` + (note ? ` · ${note}` : ""),
+        }),
+      });
+    } catch (_) { /* le message WhatsApp garde la commande */ }
+  }
+
+  // 2. Écran de fin : comment payer, puis envoi sur WhatsApp
+  $("codeCommande").textContent = code;
+  const moyens = ["M-Pesa", "Orange Money", "Airtel Money"].filter(k => (REGLAGES[k] || "").trim());
+  $("paiements").innerHTML = `<h3>Comment payer${montant != null ? ` ${montant} ${echapper(devise)}` : ""}</h3>` +
+    (moyens.length
+      ? `<ul>${moyens.map(k => `<li><span>${k}</span><b>${echapper(REGLAGES[k])}</b></li>`).join("")}</ul>
+         <p class="ou">Indiquez le code <b>${code}</b> avec votre paiement et envoyez la capture sur WhatsApp. Le paiement à la livraison est aussi possible.</p>`
+      : `<p class="ou">Paiement par Mobile Money ou à la livraison : la boutique vous indique tout sur WhatsApp.</p>`);
+
+  const texte = [
+    `🧶 Nouvelle commande ${code}`,
+    `${choix.quantite} × ${m.nom} (${couleur})`,
+    montant != null ? `Total : ${montant} ${devise}` : "",
+    `Nom : ${nom}`, `Téléphone : ${tel}`, `Adresse : ${adresse}`,
+    note ? `Note : ${note}` : "",
+  ].filter(Boolean).join("\n");
+  $("envoyerWhatsApp").href = `https://wa.me/${REGLAGES["WhatsApp"]}?text=${encodeURIComponent(texte)}`;
+
+  $("formulaire").style.display = "none";
+  $("fin").style.display = "block";
+  window.scrollTo(0, 0);
+};
+
+// --- Démarrage ---
+(async () => {
+  await chargerTableau();
+  $("titre").textContent = REGLAGES["Titre"];
+  $("sousTitre").textContent = REGLAGES["Sous-titre"];
+  document.title = `Commander · ${REGLAGES["Titre"].replace(/^\W+/, "")}`;
+  choisirModele(MODELES.find(disponible) || null);
+  toutAfficher();
+})();
+</script>
+</body>
+</html>

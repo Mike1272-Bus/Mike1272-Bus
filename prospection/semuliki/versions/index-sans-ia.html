@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Brico'; font-weight: 800; src: url('assets/fonts/bricolage-800.ttf') format('truetype'); }
+      @font-face { font-family: 'Inter'; font-weight: 600; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Inter'; font-weight: 900; src: url('assets/fonts/inter-latin-900-normal.woff2') format('woff2'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #1c0d06; }
+      /* style « grande pub boisson » (spot Suntory) aux couleurs Semuliki : brun, ambre du vin, jaune bouchon, bleu étiquette, rouge bandeau */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff; background: #1c0d06; }
+      .ab { position: absolute; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .line { position: absolute; left: 0; width: 1080px; text-align: center; white-space: nowrap; }
+      .kick { font-weight: 900; font-size: 40px; letter-spacing: 0.3em; }
+      .huge { font-family: 'Brico', sans-serif; font-weight: 800; line-height: 0.92; }
+      .outl { color: rgba(247, 201, 25, 0); -webkit-text-stroke: 5px #f7c919; }
+      .spot { position: absolute; border-radius: 50%; background: #f7c919; }
+      .claw { fill: none; stroke: #f7c919; stroke-width: 26; stroke-linecap: round; }
+      .badge { position: absolute; left: 600px; width: 420px; text-align: left; }
+      .badge b { display: block; font-family: 'Brico', sans-serif; font-weight: 800; font-size: 120px; line-height: 0.95; color: #f7c919; white-space: nowrap; }
+      .badge span { display: block; font-weight: 900; font-size: 40px; letter-spacing: 0.08em; color: #fff; }
+      #flash { left: 0; top: 0; width: 1080px; height: 1920px; background: #fff3d6; z-index: 40; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="12" data-width="1080" data-height="1920">
+
+      <!-- 1. Leur visuel (0 - 3,4) : la caméra entre vers la bouteille. Place prévue pour le clip IA 1 -->
+      <div class="scene" id="s1"><div class="cam" id="k1">
+        <img class="ab" id="a1" src="assets/img/post-9x16.jpg" style="left:0; top:0; width:1080px; height:1920px; transform-origin: 566px 1150px" />
+        <div class="ab" id="flare" style="left:-200px; top:1060px; width:1480px; height:70px; background: radial-gradient(ellipse at 50% 50%, rgba(255,240,200,0.95) 0%, rgba(255,160,40,0.55) 25%, rgba(255,120,0,0) 70%); mix-blend-mode: screen"></div>
+        <div class="ab" id="bandT" style="left:0; top:0; width:1080px; height:640px; background: linear-gradient(180deg, #1c0d06 0%, #1c0d06 62%, rgba(28,13,6,0) 100%)"></div>
+        <div class="ab" id="bandB" style="left:0; top:1300px; width:1080px; height:620px; background: linear-gradient(0deg, #1c0d06 0%, #1c0d06 58%, rgba(28,13,6,0) 100%)"></div>
+        <div class="line huge" id="a2" style="top:1640px; font-size:64px; color:#fff">Vin Semuliki</div>
+        <div class="line kick" id="a0" style="top:170px; color:#f7c919">LE VOICI ENFIN</div>
+      </div></div>
+
+      <!-- 2. La promesse (3,4 - 6,8) : griffes du léopard, titre en contour qui se remplit. Place prévue pour le clip IA 2 -->
+      <div class="scene" id="s2" style="background: radial-gradient(ellipse at 50% 45%, #6b3315 0%, #3b1d10 50%, #1c0d06 100%)"><div class="cam" id="k2">
+        <div id="spots"></div>
+        <svg class="ab" id="claws" style="left:140px; top:330px" width="800" height="1260" viewBox="0 0 800 1260">
+          <path class="claw" id="c1" d="M140 40 C 220 420, 200 820, 120 1220" />
+          <path class="claw" id="c2" d="M400 20 C 470 420, 460 840, 400 1240" />
+          <path class="claw" id="c3" d="M660 40 C 720 420, 700 820, 640 1220" />
+        </svg>
+        <div class="line huge outl" id="b1" style="top:650px; font-size:138px">NGUVU KAMA</div>
+        <div class="line huge outl" id="b2" style="top:800px; font-size:138px">YA CHUI !</div>
+        <div class="line" id="b3" style="top:1020px; font-weight:900; font-size:56px; letter-spacing:0.1em">SAVEUR YA MBOKA.</div>
+      </div></div>
+
+      <!-- 3. La bouteille et ses chiffres (6,8 - 9,6) -->
+      <div class="scene" id="s3" style="background:#1c0d06"><div class="cam" id="k3">
+        <div class="ab" id="rays" style="left:-460px; top:-40px; width:2000px; height:2000px; background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(247,150,40,0.16) 0deg 8deg, rgba(0,0,0,0) 8deg 20deg); border-radius:50%"></div>
+        <div class="ab" style="left:-200px; top:300px; width:1100px; height:1300px; background: radial-gradient(ellipse at 50% 50%, rgba(217,102,28,0.55) 0%, rgba(28,13,6,0) 65%)"></div>
+        <div class="ab" id="c0" style="left:70px; top:330px; width:470px; height:1264px; border-radius:40px; overflow:hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 6px rgba(247,201,25,0.9)">
+          <img src="assets/img/bouteille.jpg" style="position:absolute; left:0; top:0; width:470px; height:1264px" />
+        </div>
+        <div class="badge" id="e1" style="top:560px"><b>13 %</b><span>D'ALCOOL</span></div>
+        <div class="badge" id="e2" style="top:860px"><b>300 ml</b><span>LA BOUTEILLE</span></div>
+        <div class="badge" id="e3" style="top:1150px"><span style="font-size:44px; line-height:1.15; color:#a9d4ef">Ingrédients naturels,<br />zéro additif.</span></div>
+      </div></div>
+
+      <!-- 4. Carte de fin (9,6 - 12) -->
+      <div class="scene" id="s4" style="background: radial-gradient(ellipse at 50% 40%, #5a2a12 0%, #3b1d10 50%, #1c0d06 100%)"><div class="cam" id="k4">
+        <div class="line" id="d9" style="top:100px; font-weight:600; font-size:30px; letter-spacing:0.08em; color:rgba(255,255,255,0.8)">Aperçu · Allegra Digital Ground</div>
+        <div class="line huge" id="d1" style="top:520px; font-size:190px; letter-spacing:0.02em">SEMULIKI</div>
+        <div class="ab" id="d2" style="left:260px; top:300px; width:560px; height:130px; line-height:130px; text-align:center; background:#d62828; color:#fff; font-family:'Brico',sans-serif; font-weight:800; font-size:76px; transform: rotate(-4deg); box-shadow: 0 16px 30px rgba(0,0,0,0.4)">VIN SEMULIKI</div>
+        <div class="line huge" id="d3" style="top:760px; font-size:84px; color:#f7c919">Nguvu kama ya chui !</div>
+        <div class="line" id="d4" style="top:1500px; font-weight:900; font-size:52px">Déjà disponible à Lubumbashi</div>
+        <div class="line" id="d5" style="top:1580px; font-weight:600; font-size:38px; color:rgba(255,255,255,0.8)">en gros et en détail</div>
+        <div class="ab" id="d6" style="left:60px; top:1760px; width:960px; text-align:center; font-weight:600; font-size:28px; line-height:1.35; color:rgba(255,255,255,0.7)">L'abus d'alcool est dangereux pour la santé.<br />À consommer avec modération.</div>
+        <div class="ab" id="d7" style="left:415px; top:900px; width:250px; height:560px; border-radius:24px; overflow:hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 0 4px rgba(247,201,25,0.9)">
+          <img src="assets/img/bouteille.jpg" style="position:absolute; left:-10px; top:-20px; width:270px; height:726px" />
+        </div>
+      </div></div>
+
+      <div class="ab" id="flash"></div>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="12" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      let seed = 11; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      // taches de léopard en fond (scène 2)
+      const SP = [];
+      for (let i = 0; i < 40; i++) {
+        const d = document.createElement("div"); d.className = "spot"; const s = 24 + rnd() * 50;
+        Object.assign(d.style, { left: rnd() * 1060 + "px", top: rnd() * 1900 + "px", width: s + "px", height: s * (0.7 + rnd() * 0.5) + "px",
+          background: "transparent", border: (6 + rnd() * 6) + "px solid rgba(20,8,2,0.55)", transform: `rotate(${rnd() * 180}deg)` });
+        document.getElementById("spots").appendChild(d); SP.push(d);
+      }
+      const tl = gsap.timeline({ paused: true });
+      const HIDE = [];
+      const FT = (sel, from, to, at) => tl.fromTo(sel, from, { ...to, immediateRender: false }, at);
+      const IN = (sel, from, to, at) => { HIDE.push(...[].concat(sel)); return FT(sel, { ...from, autoAlpha: 0 }, { ...to, autoAlpha: 1 }, at); };
+
+      const SC = [["#s1", "#k1", 0, 3.4], ["#s2", "#k2", 3.4, 3.4], ["#s3", "#k3", 6.8, 2.8], ["#s4", "#k4", 9.6, 2.4]];
+      SC.forEach(([s, c, a, d], i) => {
+        HIDE.push(s);
+        if (i) FT(s, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: "none" }, a); else tl.set(s, { autoAlpha: 1 }, 0);
+        if (i !== SC.length - 1) FT(s, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.2, ease: "none" }, a + d);
+        if (i) FT(c, { scale: 1.0 }, { scale: 1.05, duration: d, ease: "none" }, a);
+      });
+      [3.35, 6.75, 9.55].forEach(t => FT("#flash", { opacity: 0 }, { keyframes: [{ opacity: 0.85, duration: 0.08 }, { opacity: 0, duration: 0.35 }] }, t));
+
+      // 1 : la caméra entre vers la bouteille, l'éclat de lumière pulse
+      FT("#a1", { scale: 1.05 }, { scale: 1.5, duration: 3.4, ease: "power2.inOut" }, 0);
+      FT("#flare", { scaleX: 0.3, opacity: 0 }, { keyframes: [{ scaleX: 1.2, opacity: 1, duration: 0.9 }, { scaleX: 0.8, opacity: 0.6, duration: 1.0 }, { scaleX: 1.4, opacity: 1, duration: 1.0 }], ease: "sine.inOut" }, 0.3);
+      IN("#a2", { y: 30 }, { y: 0, duration: 0.5, ease: "back.out(2)" }, 1.2);
+      IN("#a0", { letterSpacing: "0.8em", y: 20 }, { letterSpacing: "0.3em", y: 0, duration: 0.9, ease: "expo.out" }, 0.4);
+
+      // 2 : trois coups de griffe, puis le titre se remplit
+      ["#c1", "#c2", "#c3"].forEach((c, i) => {
+        const L = 1300;
+        FT(c, { strokeDasharray: L, strokeDashoffset: L, opacity: 1 }, { strokeDashoffset: 0, duration: 0.22, ease: "power3.in" }, 3.55 + i * 0.12);
+        FT(c, { opacity: 1 }, { opacity: 0.18, duration: 0.5 }, 4.3);
+      });
+      SP.forEach(d => FT(d, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(2)" }, 3.5 + rnd() * 1.2));
+      IN("#b1", { scale: 1.25, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 4.0);
+      IN("#b2", { scale: 1.25, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 4.25);
+      FT(["#b1", "#b2"], { color: "rgba(247,201,25,0)" }, { color: "rgba(247,201,25,1)", duration: 0.8, ease: "power2.in" }, 5.0);
+      IN("#b3", { y: 30, letterSpacing: "0.45em" }, { y: 0, letterSpacing: "0.1em", duration: 0.6, ease: "expo.out" }, 5.6);
+
+      // 3 : la bouteille arrive, les chiffres tombent
+      FT("#rays", { rotation: 0 }, { rotation: 25, duration: 2.8, ease: "none" }, 6.8);
+      IN("#c0", { x: -600, rotation: -8 }, { x: 0, rotation: 0, duration: 0.6, ease: "back.out(1.4)" }, 6.85);
+      FT("#c0", { y: 0 }, { y: -16, duration: 0.8, yoyo: true, repeat: 1, ease: "sine.inOut" }, 7.5);
+      ["#e1", "#e2", "#e3"].forEach((e, i) => IN(e, { x: 300 }, { x: 0, duration: 0.45, ease: "expo.out" }, 7.2 + i * 0.45));
+
+      // 4 : carte de fin
+      IN("#d2", { scale: 0.2, rotation: -30 }, { scale: 1, rotation: -4, duration: 0.6, ease: "back.out(1.8)" }, 9.7);
+      IN("#d1", { scale: 1.3, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 9.9);
+      IN("#d3", { y: 30 }, { y: 0, duration: 0.4, ease: "back.out(2)" }, 10.2);
+      IN("#d7", { y: 700 }, { y: 0, duration: 0.6, ease: "back.out(1.3)" }, 10.25);
+      IN("#d4", { y: 30 }, { y: 0, duration: 0.4 }, 10.6); IN("#d5", { y: 20 }, { y: 0, duration: 0.4 }, 10.8);
+      IN("#d6", {}, { duration: 0.3 }, 10.0); IN("#d9", { y: -20 }, { y: 0, duration: 0.4 }, 10.9);
+
+      gsap.set(HIDE, { autoAlpha: 0 });
+      gsap.set("#s1", { autoAlpha: 1 });
+      gsap.set("#flash", { opacity: 0 });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
